@@ -1,6 +1,6 @@
 ---
 name: piasnews
-description: Fetch and summarize Oscar Piastri news for F1 fans. Use this skill whenever the user asks for Oscar Piastri, Piastri, OP81, McLaren driver news, race-week updates, official-only Piastri updates, Piastri interviews, rumors, social/X updates, or daily counts of new Piastri information. The skill works without a hosted backend by default, can use future PIASNEWS_API_URL/static JSON when configured, and treats X as optional user-provided access only.
+description: Fetch and summarize Oscar Piastri news from the latest 3 days for F1 fans. Use this skill whenever the user asks for Oscar Piastri, Piastri, OP81, McLaren driver news, race-week updates, official-only Piastri updates, Piastri interviews, rumors, social/X updates, or daily counts of new Piastri information. The skill works without a hosted backend by default, can use future PIASNEWS_API_URL/static JSON when configured, treats X as optional user-provided access only, and must not search beyond the latest 3 days.
 ---
 
 # Piasnews
@@ -10,6 +10,8 @@ Use this skill to collect, deduplicate, classify, and summarize recent Oscar Pia
 ## Core behavior
 
 Default to a concise Chinese report when the user asks in Chinese. Use English when the user asks in English. Keep original article titles when helpful, but summarize in the user's language.
+
+Search only the latest 3 days. If the user asks for "latest", "today", "recent", "this week", "race weekend", or gives no time window, still use the latest 3 days as the maximum window. If no matching item exists in the latest 3 days, return "no new information found in the latest 3 days" rather than expanding to older sources.
 
 Do not invent missing news. If live fetching, web access, or an optional source is unavailable, say which source was unavailable and continue with the sources that work.
 
@@ -22,7 +24,7 @@ Use this order:
 1. If `PIASNEWS_API_URL` is configured, query it first.
 2. If a Piasnews static JSON/RSS URL is available, query it next.
 3. Use official public sources.
-4. Use public news RSS/search fallback.
+4. Use public news RSS/search fallback with a strict latest-3-days filter.
 5. Use optional X/social sources only when the user provides access or a maintained source list is available.
 
 Read `references/sources.md` before doing source-specific work, source expansion, official-only reports, X integration, or daily count work.
@@ -30,10 +32,10 @@ Read `references/sources.md` before doing source-specific work, source expansion
 ## V0.5 workflow
 
 1. Understand the user's scope:
-   - Time window: today, last 24 hours, this week, race weekend, latest available, or a specific date range.
+   - Time window: latest 3 days only. Narrower windows such as today or last 24 hours are allowed. Broader windows must be clipped to the latest 3 days.
    - Source mode: all sources, official-only, media-only, X/social, or rumors.
    - Output language and depth.
-2. Collect candidate items from available sources.
+2. Collect candidate items from available sources, limited to the latest 3 days.
 3. Keep only items clearly related to Oscar Piastri:
    - Direct mentions: Oscar Piastri, Piastri, OP81.
    - Strong contextual mentions: McLaren article about both drivers, race result involving car 81, Piastri interview, Piastri penalty/strategy/contract/team order.
@@ -88,7 +90,7 @@ When normalizing items, use this conceptual shape even if V0.5 only produces it 
 
 ## Daily counts
 
-When the user asks for daily counts, count newly discovered items in the requested day or date range. If V1/V2 data is unavailable, make the limitation clear:
+When the user asks for daily counts, count newly discovered items in the requested day or date range, clipped to the latest 3 days. If V1/V2 data is unavailable, make the limitation clear:
 
 - "Based on live sources checked in this run..."
 - "Static daily history is not available yet..."
@@ -150,8 +152,8 @@ For Chinese output, translate headings naturally:
 
 ## Quality rules
 
-- Prefer recent items, but do not hide important official updates just because they are a few days old.
-- For race-week requests, include practice, qualifying, sprint, race, strategy, penalties, and official quotes.
+- Only search and report items from the latest 3 days. Do not include older items as filler.
+- For race-week requests, include practice, qualifying, sprint, race, strategy, penalties, and official quotes only when they fall within the latest 3 days.
 - For official-only requests, use only Oscar Piastri, McLaren, Formula 1/FIA/F1 official channels, and clearly say that media coverage was excluded.
 - Treat Wikipedia, fan reposts, and unsourced social claims as context only, not primary news sources.
 - If dates or standings matter, verify them with current sources before stating them.

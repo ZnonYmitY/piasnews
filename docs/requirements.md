@@ -19,6 +19,7 @@ The design follows the AI HOT pattern:
 
 - Provide a `piasnews` Skill that can be installed from GitHub by fans using Codex, Claude Code, OpenCode, or similar agent environments.
 - Fetch, deduplicate, classify, and summarize Oscar Piastri related news.
+- Restrict all searches to the latest 3 days.
 - Start with V0.5 as a no-backend Skill and leave a clean upgrade path to V1 static data and V2 hosted API.
 - Avoid consuming our model tokens by default.
 - Avoid consuming our paid third-party API quotas by default.
@@ -59,6 +60,7 @@ docs/
 Behavior:
 
 - Use official and public web sources directly from the user's agent environment.
+- Search only the latest 3 days; do not expand to older results when the 3-day window is empty.
 - Prefer official sources when available.
 - Use news RSS/search fallback for broader coverage.
 - Return a concise Chinese news brief by default.
@@ -73,6 +75,8 @@ Current implementation status:
 - `piasnews/SKILL.md` exists.
 - `piasnews/references/sources.md` exists.
 - `piasnews/agents/openai.yaml` exists for Codex UI metadata.
+- Search rules now enforce a latest-3-days window.
+- Sources without stable 3-day Oscar Piastri hits were removed from the active source list during the 2026-06-12 audit.
 - No hosted backend, scheduled collector, or static data feed has been added yet.
 
 ### V1: Static JSON/RSS Data
@@ -124,23 +128,23 @@ Behavior:
 
 ### Default Official Sources
 
-- Oscar Piastri official website
 - McLaren Formula 1 news/articles
-- Formula 1 official latest news and driver pages
+- Oscar Piastri official news
+- Formula 1 official latest news
 
 ### Public News Fallback
 
 - Google News RSS or equivalent public search feed for:
-  - `"Oscar Piastri"`
-  - `"Piastri" "McLaren"`
-  - `"OP81"`
-  - `"Oscar Piastri" "qualifying"`
-  - `"Oscar Piastri" "race"`
-  - `"Oscar Piastri" "interview"`
+  - `"Oscar Piastri" when:3d`
+  - `"Piastri" "McLaren" when:3d`
+  - `"OP81" when:3d`
+  - `"Oscar Piastri" "qualifying" when:3d`
+  - `"Oscar Piastri" "race" when:3d`
+  - `"Oscar Piastri" "interview" when:3d`
 
 ### Optional Media Sources
 
-These may be added after checking stability and access rules:
+Optional media sources were removed from the active V0.5 source list after the 2026-06-12 audit because no stable Oscar Piastri item was found inside the latest 3-day window. Re-add a removed source only after a fresh audit finds Oscar Piastri items within the latest 3 days.
 
 - Motorsport
 - Autosport
@@ -299,6 +303,7 @@ V0.5 is complete when:
 - `piasnews/SKILL.md` exists and follows Skill format with valid frontmatter.
 - `piasnews/agents/openai.yaml` exists for Codex UI metadata.
 - `piasnews/references/sources.md` lists official, fallback, and optional sources.
+- Searches are restricted to the latest 3 days.
 - The Skill can answer prompts such as:
   - "今天 Oscar Piastri 有什么新闻？"
   - "只看官方来源，整理 Piastri 最近动态。"
