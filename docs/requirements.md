@@ -44,6 +44,7 @@ The first version contains only Skill instructions and source documentation.
 Expected files:
 
 ```text
+README.md
 piasnews/
 ├── SKILL.md
 ├── agents/
@@ -68,6 +69,7 @@ V0.5 should already use the same conceptual data shape planned for V1/V2, so fut
 
 Current implementation status:
 
+- `README.md` exists with bilingual Chinese/English project documentation.
 - `piasnews/SKILL.md` exists.
 - `piasnews/references/sources.md` exists.
 - `piasnews/agents/openai.yaml` exists for Codex UI metadata.
@@ -278,6 +280,7 @@ Suggested repository layout after V0.5:
 
 ```text
 /
+├── README.md
 ├── docs/
 │   ├── requirements.md
 │   └── requirements.zh-CN.md
