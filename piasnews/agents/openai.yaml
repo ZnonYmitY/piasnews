@@ -1,0 +1,7 @@
+interface:
+  display_name: "Piasnews"
+  short_description: "Oscar Piastri news briefs for F1 fans"
+  default_prompt: "Use $piasnews to summarize the latest Oscar Piastri news."
+
+policy:
+  allow_implicit_invocation: true
