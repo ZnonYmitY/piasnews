@@ -31,6 +31,28 @@ npx skills add https://github.com/ZnonYmitY/piasnews --skill piasnews --full-dep
 请从 https://github.com/ZnonYmitY/piasnews 安装 piasnews skill
 ```
 
+## 更新
+
+如果你之前已经安装过 Piasnews，本仓库更新后，你本地已安装的 Skill 通常不会自动更新。请运行：
+
+```bash
+npx skills update piasnews
+```
+
+如果是全局安装：
+
+```bash
+npx skills update piasnews -g
+```
+
+如果更新失败，可以重新安装：
+
+```bash
+npx skills add https://github.com/ZnonYmitY/piasnews --skill piasnews --full-depth -y
+```
+
+更新后建议开启一个新会话，或重启你的 Agent，让新的 Skill 描述和触发词生效。
+
 ## 使用示例
 
 ```text
@@ -129,6 +151,28 @@ You can also ask your agent directly:
 ```text
 Install the piasnews skill from https://github.com/ZnonYmitY/piasnews
 ```
+
+## Updating
+
+If you installed Piasnews before, updates to this repository usually do not automatically update your local installed copy. Run:
+
+```bash
+npx skills update piasnews
+```
+
+For a global install:
+
+```bash
+npx skills update piasnews -g
+```
+
+If updating fails, reinstall it:
+
+```bash
+npx skills add https://github.com/ZnonYmitY/piasnews --skill piasnews --full-depth -y
+```
+
+After updating, start a new conversation or restart your agent so the latest Skill description and trigger terms are loaded.
 
 ## Example Prompts
 
