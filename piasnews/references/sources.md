@@ -6,13 +6,14 @@ Use this file when collecting Oscar Piastri news, adding sources, building daily
 
 Search only the latest 3 days. Do not expand to older results when the latest 3 days are empty.
 
-Source audit on 2026-06-12:
+Source strategy update:
 
-- Domain-specific searches for McLaren, Formula 1, Oscar Piastri official news, Motorsport, Autosport, The Race, RacingNews365, PlanetF1, ESPN F1, and Sky Sports F1 found no stable Oscar Piastri news items inside the latest 3-day window.
-- Static profile/homepage pages and optional media candidates without 3-day news hits were removed from the active source list.
-- Keep only core news discovery endpoints and strict 3-day public RSS query templates. If they return no items, report that no new information was found in the latest 3 days.
+- Keep official news endpoints as direct sources.
+- Treat media outlets as RSS-discovered sources rather than direct crawl targets.
+- Do not remove a media outlet just because it has no item on one audit day; keep it eligible through Google News RSS discovery.
+- If static `data/*.json` files are available, prefer them for normal summaries and daily counts.
 
-## Official sources
+## Direct official sources
 
 Official sources have the highest priority for facts, quotes, schedule, team statements, partnerships, and race-week framing.
 
@@ -22,9 +23,9 @@ Official sources have the highest priority for facts, quotes, schedule, team sta
 | McLaren Formula 1 articles | https://www.mclaren.com/racing/formula-1/articles/ | McLaren F1 team articles. Use only Oscar/Piastri-relevant items published in the latest 3 days. |
 | Formula 1 latest news | https://www.formula1.com/en/latest | Official F1 news feed. Use only Oscar/Piastri/OP81 items published in the latest 3 days. |
 
-## Public news fallback
+## RSS discovery sources
 
-Use public news search/RSS only after official sources, or when the user asks for broader coverage.
+Use public news search/RSS for broad coverage and media discovery. Media items discovered here should be labeled as `source_type: "media"` unless the source is official.
 
 Suggested Google News RSS queries. Keep `when:3d` in every query:
 
@@ -39,13 +40,10 @@ https://news.google.com/rss/search?q=%22Oscar%20Piastri%22%20%22interview%22%20w
 
 For Chinese summaries, keep the source title if useful and translate the summary. Do not translate names of outlets unless the Chinese name is well established.
 
-## Removed inactive sources
+## Discovered media sources
 
-The following sources were removed from the active source list after the 2026-06-12 audit because no stable Oscar Piastri item was found inside the latest 3-day window:
+These are not direct crawl targets in V1. Keep them eligible through RSS discovery and classify them based on item metadata:
 
-- Oscar Piastri homepage/profile pages.
-- McLaren Oscar Piastri driver profile page.
-- Formula 1 Oscar Piastri driver profile page.
 - Motorsport.
 - Autosport.
 - The Race.
@@ -53,8 +51,32 @@ The following sources were removed from the active source list after the 2026-06
 - PlanetF1.
 - ESPN F1.
 - Sky Sports F1.
+- BBC.
+- Motorsport Week.
+- GPblog.
+- Crash.net.
+- RACER.
+- Speedcafe.
+- The Race.
+- Other reputable outlets discovered by Google News RSS.
 
-Re-add a removed source only after a fresh audit finds Oscar Piastri items within the latest 3 days.
+Low-confidence aggregators may appear in RSS. Mark them as unverified or filter them out when they produce noisy, duplicated, or synthetic-looking items.
+
+## Static generated sources
+
+The V1 collector writes these files:
+
+| File | Purpose |
+| --- | --- |
+| `data/items.json` | Normalized item list from the latest 3-day window. |
+| `data/daily.json` | Daily item counts plus source/category breakdowns. |
+| `data/rss.xml` | RSS feed generated from normalized items. |
+
+Generate them locally with:
+
+```bash
+python3 scripts/fetch_piasnews.py --days 3 --output-dir data
+```
 
 ## X/social sources
 

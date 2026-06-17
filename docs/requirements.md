@@ -76,12 +76,15 @@ Current implementation status:
 - `piasnews/references/sources.md` exists.
 - `piasnews/agents/openai.yaml` exists for Codex UI metadata.
 - Search rules now enforce a latest-3-days window.
-- Sources without stable 3-day Oscar Piastri hits were removed from the active source list during the 2026-06-12 audit.
-- No hosted backend, scheduled collector, or static data feed has been added yet.
+- Source strategy now separates direct official sources from RSS-discovered media sources.
+- Static data generation is available through `scripts/fetch_piasnews.py`.
+- `data/items.json`, `data/daily.json`, and `data/rss.xml` exist.
+- GitHub Actions scheduled refresh is configured in `.github/workflows/update-piasnews.yml`.
+- No hosted backend has been added yet.
 
 ### V1: Static JSON/RSS Data
 
-V1 adds scheduled collection through GitHub Actions or another low-cost scheduler.
+V1 adds scheduled collection through GitHub Actions or another low-cost scheduler. This is implemented.
 
 Expected additional files:
 
@@ -100,7 +103,7 @@ data/
 Behavior:
 
 - Scheduled job fetches public sources.
-- Generated static JSON/RSS is published through GitHub Pages or another static host.
+- Generated static JSON/RSS is committed to the repository and can be published through GitHub Pages or read directly from GitHub.
 - The Skill first attempts to read static data, then falls back to direct source fetching.
 - Daily item counts are generated and persisted.
 
@@ -144,7 +147,7 @@ Behavior:
 
 ### Optional Media Sources
 
-Optional media sources were removed from the active V0.5 source list after the 2026-06-12 audit because no stable Oscar Piastri item was found inside the latest 3-day window. Re-add a removed source only after a fresh audit finds Oscar Piastri items within the latest 3 days.
+Media sources are not direct crawl targets in V1. They are kept as RSS-discovered sources through Google News RSS and classified from metadata.
 
 - Motorsport
 - Autosport
@@ -153,6 +156,12 @@ Optional media sources were removed from the active V0.5 source list after the 2
 - PlanetF1
 - ESPN F1
 - Sky Sports F1
+- BBC
+- Motorsport Week
+- GPblog
+- Crash.net
+- RACER
+- Speedcafe
 
 ## 6. X Integration Strategy
 
@@ -260,40 +269,42 @@ Current repository state:
 
 - Local repo path: `/Users/bytedance/Documents/piasnews`
 - Git is initialized locally.
-- No GitHub remote is configured yet.
+- GitHub remote: `https://github.com/ZnonYmitY/piasnews.git`
 
-Required later steps:
+Required sync flow:
 
-1. User provides the GitHub repository URL.
-2. Add remote:
-
-   ```bash
-   git remote add origin <github-repo-url>
-   ```
-
-3. Commit documentation and Skill files.
-4. Push to GitHub.
-5. Use GitHub as the install source for the Skill.
+1. Commit documentation, Skill, script, and data changes.
+2. Push to GitHub.
+3. Use GitHub as the install source for the Skill.
 
 Suggested branch strategy:
 
 - `main`: stable installable Skill.
 - `codex/*`: implementation and documentation branches.
 
-Suggested repository layout after V0.5:
+Current repository layout:
 
 ```text
 /
+├── .github/
+│   └── workflows/
+│       └── update-piasnews.yml
 ├── README.md
+├── data/
+│   ├── daily.json
+│   ├── items.json
+│   └── rss.xml
 ├── docs/
 │   ├── requirements.md
 │   └── requirements.zh-CN.md
-└── piasnews/
-    ├── agents/
-    │   └── openai.yaml
-    ├── SKILL.md
-    └── references/
-        └── sources.md
+├── piasnews/
+│   ├── agents/
+│   │   └── openai.yaml
+│   ├── SKILL.md
+│   └── references/
+│       └── sources.md
+└── scripts/
+    └── fetch_piasnews.py
 ```
 
 ## 10. Acceptance Criteria
