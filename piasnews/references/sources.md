@@ -72,6 +72,18 @@ The V1 collector writes these files:
 | `data/daily.json` | Daily item counts plus source/category breakdowns. |
 | `data/rss.xml` | RSS feed generated from normalized items. |
 
+Public static endpoints:
+
+| Endpoint | URL |
+| --- | --- |
+| Pages index | https://znonymity.github.io/piasnews/ |
+| Pages items | https://znonymity.github.io/piasnews/data/items.json |
+| Pages daily stats | https://znonymity.github.io/piasnews/data/daily.json |
+| Pages RSS | https://znonymity.github.io/piasnews/data/rss.xml |
+| Raw items fallback | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/items.json |
+| Raw daily fallback | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/daily.json |
+| Raw RSS fallback | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/rss.xml |
+
 Generate them locally with:
 
 ```bash

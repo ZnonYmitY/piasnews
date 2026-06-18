@@ -80,6 +80,7 @@ Current implementation status:
 - Static data generation is available through `scripts/fetch_piasnews.py`.
 - `data/items.json`, `data/daily.json`, and `data/rss.xml` exist.
 - GitHub Actions scheduled refresh is configured in `.github/workflows/update-piasnews.yml`.
+- A GitHub Pages publishing entrypoint has been added for `https://znonymity.github.io/piasnews/`.
 - No hosted backend has been added yet.
 
 ### V1: Static JSON/RSS Data
@@ -103,7 +104,7 @@ data/
 Behavior:
 
 - Scheduled job fetches public sources.
-- Generated static JSON/RSS is committed to the repository and can be published through GitHub Pages or read directly from GitHub.
+- Generated static JSON/RSS is committed to the repository, published through GitHub Pages, and still readable directly from GitHub raw.
 - The Skill first attempts to read static data, then falls back to direct source fetching.
 - Daily item counts are generated and persisted.
 
@@ -199,6 +200,7 @@ All versions should normalize items into this shape:
   "url": "https://example.com/item",
   "source": "McLaren",
   "source_type": "official | media | x | rss | api",
+  "source_group": "official_direct | rss_discovery | x | api",
   "published_at": "2026-06-12T10:00:00Z",
   "discovered_at": "2026-06-12T10:05:00Z",
   "category": "race | team | interview | contract | fan | rumor | other",
@@ -303,6 +305,8 @@ Current repository layout:
 │   ├── SKILL.md
 │   └── references/
 │       └── sources.md
+├── public/
+│   └── index.html
 └── scripts/
     └── fetch_piasnews.py
 ```
@@ -328,6 +332,7 @@ V1 is complete when:
 - Scheduled collection generates `items.json`, `daily.json`, and `rss.xml`.
 - The Skill reads static data first and falls back to direct sources.
 - Daily new item counts are available.
+- GitHub Pages publishes the static data entrypoint.
 
 V2 is complete when:
 
@@ -340,5 +345,5 @@ V2 is complete when:
 - What GitHub repository URL should be used as `origin`?
 - Should the default Skill output use simplified Chinese, traditional Chinese, or match the user's language automatically?
 - Which X accounts should be included in the first maintained source list?
-- Should V1 publish through GitHub Pages under this repository?
+- V1 now publishes through GitHub Pages under this repository.
 - Should the project name be displayed as `Piasnews`, `piasnews`, or `PIASNEWS` in user-facing output?
