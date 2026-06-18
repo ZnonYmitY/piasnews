@@ -71,6 +71,7 @@ The V1 collector writes these files:
 | `data/items.json` | Normalized item list from the latest 3-day window. |
 | `data/daily.json` | Daily item counts plus source/category breakdowns. |
 | `data/rss.xml` | RSS feed generated from normalized items. |
+| `data/history.json` | Maintained historical events for optional "on this day" context. |
 
 Public static endpoints:
 
@@ -80,9 +81,11 @@ Public static endpoints:
 | Pages items | https://znonymity.github.io/piasnews/data/items.json |
 | Pages daily stats | https://znonymity.github.io/piasnews/data/daily.json |
 | Pages RSS | https://znonymity.github.io/piasnews/data/rss.xml |
+| Pages history | https://znonymity.github.io/piasnews/data/history.json |
 | Raw items fallback | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/items.json |
 | Raw daily fallback | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/daily.json |
 | Raw RSS fallback | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/rss.xml |
+| Raw history fallback | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/history.json |
 
 Generate them locally with:
 
@@ -94,9 +97,9 @@ python3 scripts/fetch_piasnews.py --days 3 --output-dir data
 
 Historical context such as "去年今日" is optional and must not expand the live news search window beyond the latest 3 days.
 
-Only include a historical module when one of these sources has a clear, meaningful same-month/day event:
+Read `references/history.md` before adding or changing historical events. Only include a historical module when one of these sources has a clear, meaningful same-month/day event:
 
-- A future maintained `references/history.md` or `data/history.json` file.
+- The maintained `data/history.json` file.
 - User-provided historical context.
 - A current official item that explicitly references the historical event.
 

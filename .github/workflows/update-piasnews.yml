@@ -47,7 +47,7 @@ jobs:
       - name: Prepare Pages artifact
         run: |
           mkdir -p public/data
-          cp data/items.json data/daily.json data/rss.xml public/data/
+          cp data/items.json data/daily.json data/rss.xml data/history.json public/data/
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

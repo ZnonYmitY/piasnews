@@ -79,9 +79,10 @@ Current implementation status:
 - Search rules now enforce a latest-3-days window.
 - Source strategy now separates direct official sources from RSS-discovered media sources.
 - Static data generation is available through `scripts/fetch_piasnews.py`.
-- `data/items.json`, `data/daily.json`, and `data/rss.xml` exist.
+- `data/items.json`, `data/daily.json`, `data/rss.xml`, and `data/history.json` exist.
 - GitHub Actions scheduled refresh is configured in `.github/workflows/update-piasnews.yml`.
 - A GitHub Pages publishing entrypoint has been added for `https://znonymity.github.io/piasnews/`.
+- `piasnews/references/history.md` exists as the maintenance guide for optional historical context.
 - No hosted backend has been added yet.
 
 ### V1: Static JSON/RSS Data
@@ -96,7 +97,8 @@ scripts/
 data/
 ├── items.json
 ├── daily.json
-└── rss.xml
+├── rss.xml
+└── history.json
 .github/
 └── workflows/
     └── update-piasnews.yml
@@ -108,6 +110,7 @@ Behavior:
 - Generated static JSON/RSS is committed to the repository, published through GitHub Pages, and still readable directly from GitHub raw.
 - The Skill first attempts to read static data, then falls back to direct source fetching.
 - Daily item counts are generated and persisted.
+- Maintained historical events are stored in `data/history.json` and published with the Pages artifact.
 
 ### V2: Hosted API
 
@@ -232,6 +235,24 @@ Daily stats shape:
 }
 ```
 
+Historical event shape:
+
+```json
+{
+  "id": "piastri-2024-07-21-first-grand-prix-win",
+  "date": "2024-07-21",
+  "month_day": "07-21",
+  "year": 2024,
+  "title": "Oscar Piastri wins his first Formula 1 Grand Prix in Hungary",
+  "summary": "Short factual summary.",
+  "type": "milestone",
+  "importance": 5,
+  "source": "Formula 1 results",
+  "url": "https://www.formula1.com/en/results/2024/races/1239/hungary/race-result",
+  "tags": ["Oscar Piastri", "McLaren", "Hungarian Grand Prix"]
+}
+```
+
 ## 8. Output Requirements
 
 Default reports use three modes:
@@ -243,14 +264,12 @@ Use up to 5 bullets for quick checks:
 ```markdown
 # Piasnews Quick Brief
 
-- One-liner: ...
 - Most worth reading: ...
 - Official update: ...
 - Rumor reminder: ...
-- Data: new N, official N, rumor N.
 ```
 
-Omit the data line when data is unavailable, stale, or empty.
+Omit the rumor reminder when there are no rumor or unverified items. Do not include a data panel in short mode.
 
 ### Standard Mode
 
@@ -258,9 +277,6 @@ Default fan-daily format:
 
 ```markdown
 # Piasnews Fan Daily
-
-## One-Liner
-One sentence capturing the day's main story.
 
 ## Key Points
 - 2-3 high-signal points, official and reliable sources first.
@@ -280,30 +296,27 @@ Only show this section when X data is available.
 Only show this section when rumors or unverified items exist.
 
 ## On This Day Last Year
-Only show when a maintained historical source, user-provided context, or current official item clearly references a meaningful same-month/day event. Omit when there is no notable item.
-
-## Data
-One compact line only: new N, official N, media N, rumor N, X N.
-
-## Notes
-Show only when stale data, source failures, unavailable X, or other limitations need explanation.
+Only show when `data/history.json`, user-provided context, or a current official item clearly references a meaningful same-month/day event. Omit when there is no notable item.
 ```
 
 ### Deep Mode
 
-Add these sections to standard mode:
+Use a dedicated deep format without a generic one-sentence opener:
 
+- Key points: 2-3 high-signal points.
 - Topic grouping: merge multiple articles about the same event into topic cards.
+- Official updates: list official items when available.
 - Source confidence: separate official sources, reputable media, aggregators, and low-confidence sources.
 - Next watch points: list 1-3 signals to watch over the next 24-48 hours when supported by current items.
-- Expanded data panel: only expand source/category details when the user asks for stats, asks for deep mode, or the data helps explain the story.
+- On this day: include only when supported by `data/history.json` or another maintained/user-provided historical source.
+- Data panel: use only in deep mode or when the user asks for stats.
 
 Language behavior:
 
 - Use Chinese by default when the user asks in Chinese.
 - Use English when the user asks in English.
 - Preserve original titles when useful, but summarize in the user's language.
-- Keep the data panel lightweight by default so the daily report does not feel redundant.
+- Keep data out of short and standard fan daily reports so the daily report does not feel redundant.
 
 ## 9. GitHub Synchronization
 
@@ -334,6 +347,7 @@ Current repository layout:
 ├── README.md
 ├── data/
 │   ├── daily.json
+│   ├── history.json
 │   ├── items.json
 │   └── rss.xml
 ├── docs/
@@ -344,6 +358,7 @@ Current repository layout:
 │   │   └── openai.yaml
 │   ├── SKILL.md
 │   └── references/
+│       ├── history.md
 │       └── sources.md
 ├── public/
 │   └── index.html
@@ -373,6 +388,7 @@ V1 is complete when:
 - The Skill reads static data first and falls back to direct sources.
 - Daily new item counts are available.
 - GitHub Pages publishes the static data entrypoint.
+- `data/history.json` is available for optional historical context and is published with Pages.
 
 V2 is complete when:
 

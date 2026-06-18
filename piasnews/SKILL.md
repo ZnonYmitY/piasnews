@@ -27,7 +27,7 @@ Use this order:
 4. Use public news RSS/search fallback with a strict latest-3-days filter.
 5. Use optional X/social sources only when the user provides access or a maintained source list is available.
 
-Read `references/sources.md` before doing source-specific work, source expansion, official-only reports, X integration, or daily count work.
+Read `references/sources.md` before doing source-specific work, source expansion, official-only reports, X integration, historical context, or daily count work. Read `references/history.md` before adding or changing historical events.
 
 ## V0.5 workflow
 
@@ -139,14 +139,13 @@ Use no more than 5 bullets:
 ```markdown
 # Piasnews 速读
 
-- 今日一句：...
 - 最值得看：...
 - 官方动态：...
+- 媒体主线：...
 - 传闻提醒：...
-- 数据：新增 N，官方 N，传闻 N。
 ```
 
-Omit the data line if there are no items or if stats are stale/unavailable.
+Omit `传闻提醒` when there are no rumor or unverified items. Do not include a data panel in short mode.
 
 ### Standard mode
 
@@ -154,9 +153,6 @@ Use this structure unless the user requests another format:
 
 ```markdown
 # Piasnews 粉丝日报
-
-## 今日一句
-One sentence that captures the main story.
 
 ## 今日重点
 - 2-3 high-signal points, official and reliable sources first.
@@ -176,23 +172,39 @@ Only include when X/social data is available.
 Only include when rumors or unverified items exist.
 
 ## 去年今日
-Only include when a maintained history source or user-provided context has a clear important event for the same month/day. Do not search beyond the latest 3 days just to fill this section. If there is no meaningful event, omit the section.
-
-## 数据
-One compact line only: 新增 N，官方 N，媒体 N，传闻 N，X N。
-
-## 备注
-Mention stale data, source limitations, or unavailable X/social sources only when relevant.
+Only include when `data/history.json`, a maintained history reference, user-provided context, or a current official item has a clear important event for the same month/day. Do not search beyond the latest 3 days just to fill this section. If there is no meaningful event, omit the section.
 ```
 
 ### Deep mode
 
-Use the standard mode plus:
+Use this structure for deep mode:
 
-- `话题合并`: group duplicate/similar coverage into topic cards instead of listing every article.
-- `来源可信度`: call out official, reputable media, aggregators, and low-confidence items.
-- `明日关注`: list 1-3 watch points for the next 24-48 hours when supported by current items.
-- Expanded data panel only when useful: daily counts, source breakdown, category breakdown.
+```markdown
+# Piasnews 深读版
+
+## 今日重点
+- 2-3 high-signal points.
+
+## 话题合并
+Group duplicate/similar coverage into topic cards instead of listing every article.
+
+## 官方动态
+List official items when available.
+
+## 来源可信度
+Call out official, reputable media, aggregators, and low-confidence items.
+
+## 明日关注
+List 1-3 watch points for the next 24-48 hours when supported by current items.
+
+## 去年今日
+Only include when supported by `data/history.json` or another maintained/user-provided historical source.
+
+## 数据面板
+Use only in deep mode or when the user asks for stats.
+```
+
+In deep mode, avoid a generic one-sentence opener. Let topic grouping carry the analysis.
 
 For Chinese output, translate headings naturally:
 
@@ -200,7 +212,6 @@ For Chinese output, translate headings naturally:
 - `Official Updates` -> `官方动态`
 - `Media Coverage` -> `媒体报道`
 - `X / Social Updates` -> `X / 社交动态`
-- `Notes` -> `备注`
 
 Prefer the Chinese headings shown in the standard template for Chinese fan daily reports.
 
