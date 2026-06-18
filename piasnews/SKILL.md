@@ -34,7 +34,7 @@ Read `references/sources.md` before doing source-specific work, source expansion
 1. Understand the user's scope:
    - Time window: latest 3 days only. Narrower windows such as today or last 24 hours are allowed. Broader windows must be clipped to the latest 3 days.
    - Source mode: all sources, official-only, media-only, X/social, or rumors.
-   - Output language and depth.
+   - Output language and report mode: short, standard, or deep.
 2. Collect candidate items from available sources, limited to the latest 3 days.
 3. Keep only items clearly related to Oscar Piastri:
    - Direct mentions: Oscar Piastri, Piastri, OP81.
@@ -122,34 +122,77 @@ Use this shape when reporting daily stats:
 }
 ```
 
-## Default report
+## Fan daily report modes
+
+When the user asks for "粉丝日报", "daily", "日报", "brief", or a general Oscar Piastri update, choose one of these modes:
+
+- `short`: Use when the user asks for "速读", "简短", "5 行", "short", or "quick".
+- `standard`: Default mode for "粉丝日报" or normal daily reports.
+- `deep`: Use when the user asks for "深读", "详细", "长版", "deep", or "analysis".
+
+Keep the daily readable. Do not let metrics overwhelm the news.
+
+### Short mode
+
+Use no more than 5 bullets:
+
+```markdown
+# Piasnews 速读
+
+- 今日一句：...
+- 最值得看：...
+- 官方动态：...
+- 传闻提醒：...
+- 数据：新增 N，官方 N，传闻 N。
+```
+
+Omit the data line if there are no items or if stats are stale/unavailable.
+
+### Standard mode
 
 Use this structure unless the user requests another format:
 
 ```markdown
-# Piasnews - Oscar Piastri News
+# Piasnews 粉丝日报
 
-## Summary
-- New items checked: N
-- Official items: N
-- Rumors/unverified: N
-- Source limitations: ...
+## 今日一句
+One sentence that captures the main story.
 
-## Official Updates
+## 今日重点
+- 2-3 high-signal points, official and reliable sources first.
+
+## 官方动态
 1. [Title](url) - Source, time
    Short summary.
 
-## Media Coverage
+## 媒体报道
 1. [Title](url) - Source, time
    Short summary.
 
-## X / Social Updates
-Only include this section when X/social data is available.
+## X / 社交动态
+Only include when X/social data is available.
 
-## Notes
-- Mark unverified items clearly.
-- Mention important source limitations.
+## 传闻雷达
+Only include when rumors or unverified items exist.
+
+## 去年今日
+Only include when a maintained history source or user-provided context has a clear important event for the same month/day. Do not search beyond the latest 3 days just to fill this section. If there is no meaningful event, omit the section.
+
+## 数据
+One compact line only: 新增 N，官方 N，媒体 N，传闻 N，X N。
+
+## 备注
+Mention stale data, source limitations, or unavailable X/social sources only when relevant.
 ```
+
+### Deep mode
+
+Use the standard mode plus:
+
+- `话题合并`: group duplicate/similar coverage into topic cards instead of listing every article.
+- `来源可信度`: call out official, reputable media, aggregators, and low-confidence items.
+- `明日关注`: list 1-3 watch points for the next 24-48 hours when supported by current items.
+- Expanded data panel only when useful: daily counts, source breakdown, category breakdown.
 
 For Chinese output, translate headings naturally:
 
@@ -158,6 +201,8 @@ For Chinese output, translate headings naturally:
 - `Media Coverage` -> `媒体报道`
 - `X / Social Updates` -> `X / 社交动态`
 - `Notes` -> `备注`
+
+Prefer the Chinese headings shown in the standard template for Chinese fan daily reports.
 
 ## Quality rules
 

@@ -90,6 +90,18 @@ Generate them locally with:
 python3 scripts/fetch_piasnews.py --days 3 --output-dir data
 ```
 
+## Historical context sources
+
+Historical context such as "去年今日" is optional and must not expand the live news search window beyond the latest 3 days.
+
+Only include a historical module when one of these sources has a clear, meaningful same-month/day event:
+
+- A future maintained `references/history.md` or `data/history.json` file.
+- User-provided historical context.
+- A current official item that explicitly references the historical event.
+
+If no meaningful event exists, omit the section. Do not fill it with trivia or weak search results.
+
 ## X/social sources
 
 X is optional. Do not require it for normal operation.

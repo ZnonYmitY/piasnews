@@ -66,6 +66,7 @@ Behavior:
 - Return a concise Chinese news brief by default.
 - Support English output when the user asks in English.
 - Clearly mark rumors, unverified reports, and non-official sources.
+- Support short, standard, and deep fan-daily report lengths.
 
 V0.5 should already use the same conceptual data shape planned for V1/V2, so future upgrades only change the data source, not the user-facing behavior.
 
@@ -233,15 +234,36 @@ Daily stats shape:
 
 ## 8. Output Requirements
 
-Default report format:
+Default reports use three modes:
+
+### Short Mode
+
+Use up to 5 bullets for quick checks:
 
 ```markdown
-# Piasnews - Oscar Piastri News
+# Piasnews Quick Brief
 
-## Summary
-- New items: N
-- Official items: N
-- Rumors/unverified: N
+- One-liner: ...
+- Most worth reading: ...
+- Official update: ...
+- Rumor reminder: ...
+- Data: new N, official N, rumor N.
+```
+
+Omit the data line when data is unavailable, stale, or empty.
+
+### Standard Mode
+
+Default fan-daily format:
+
+```markdown
+# Piasnews Fan Daily
+
+## One-Liner
+One sentence capturing the day's main story.
+
+## Key Points
+- 2-3 high-signal points, official and reliable sources first.
 
 ## Official Updates
 1. [Title](url) - Source, time
@@ -254,16 +276,34 @@ Default report format:
 ## X / Social Updates
 Only show this section when X data is available.
 
+## Rumor Radar
+Only show this section when rumors or unverified items exist.
+
+## On This Day Last Year
+Only show when a maintained historical source, user-provided context, or current official item clearly references a meaningful same-month/day event. Omit when there is no notable item.
+
+## Data
+One compact line only: new N, official N, media N, rumor N, X N.
+
 ## Notes
-- Mark unverified items clearly.
-- Mention source limitations when direct source fetching fails.
+Show only when stale data, source failures, unavailable X, or other limitations need explanation.
 ```
+
+### Deep Mode
+
+Add these sections to standard mode:
+
+- Topic grouping: merge multiple articles about the same event into topic cards.
+- Source confidence: separate official sources, reputable media, aggregators, and low-confidence sources.
+- Next watch points: list 1-3 signals to watch over the next 24-48 hours when supported by current items.
+- Expanded data panel: only expand source/category details when the user asks for stats, asks for deep mode, or the data helps explain the story.
 
 Language behavior:
 
 - Use Chinese by default when the user asks in Chinese.
 - Use English when the user asks in English.
 - Preserve original titles when useful, but summarize in the user's language.
+- Keep the data panel lightweight by default so the daily report does not feel redundant.
 
 ## 9. GitHub Synchronization
 
