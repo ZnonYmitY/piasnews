@@ -1,46 +1,56 @@
 {
-  "generated_at": "2026-06-18T05:02:25.762717Z",
+  "generated_at": "2026-06-18T08:22:32.869964Z",
   "window_days": 3,
-  "total_items": 32,
+  "total_items": 42,
   "latest_date": "2026-06-18",
   "days": [
     {
       "date": "2026-06-18",
-      "total_new_items": 1,
+      "total_new_items": 4,
       "official_new_items": 0,
-      "media_new_items": 1,
+      "media_new_items": 4,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
-        "Fox Sports": 1
+        "Fox Sports": 1,
+        "MSN": 1,
+        "Urban List": 1,
+        "mustsharenews.com": 1
       },
       "categories": {
-        "other": 1
+        "other": 1,
+        "race": 1,
+        "team": 2
       }
     },
     {
       "date": "2026-06-17",
-      "total_new_items": 7,
+      "total_new_items": 11,
       "official_new_items": 2,
-      "media_new_items": 5,
+      "media_new_items": 9,
       "x_new_items": 0,
-      "rumor_new_items": 0,
+      "rumor_new_items": 1,
       "sources": {
         "Auto Action": 1,
+        "F1i.com": 1,
         "Formula 1": 1,
-        "MSN": 4,
-        "McLaren": 1
+        "MSN": 5,
+        "McLaren": 1,
+        "News.com.au": 1,
+        "TheJudge13": 1
       },
       "categories": {
-        "race": 6,
+        "other": 2,
+        "race": 7,
+        "rumor": 1,
         "team": 1
       }
     },
     {
       "date": "2026-06-16",
-      "total_new_items": 15,
+      "total_new_items": 16,
       "official_new_items": 0,
-      "media_new_items": 15,
+      "media_new_items": 16,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
@@ -48,7 +58,7 @@
         "AutoRacing1.com": 1,
         "BVM Sports": 1,
         "Crash.net": 1,
-        "MSN": 4,
+        "MSN": 5,
         "Motorsport Week": 1,
         "PlanetF1": 1,
         "RACER - Racing News": 1,
@@ -58,28 +68,27 @@
         "total-motorsport.com": 1
       },
       "categories": {
-        "race": 10,
+        "race": 11,
         "team": 5
       }
     },
     {
       "date": "2026-06-15",
-      "total_new_items": 9,
+      "total_new_items": 11,
       "official_new_items": 0,
-      "media_new_items": 9,
+      "media_new_items": 11,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
-        "MSN": 4,
-        "Motorsport Week": 1,
+        "MSN": 5,
         "PlanetF1": 1,
-        "The Cairns Post": 1,
-        "theScore": 2
+        "theScore": 5
       },
       "categories": {
-        "interview": 2,
-        "race": 6,
-        "team": 1
+        "interview": 1,
+        "other": 1,
+        "race": 3,
+        "team": 6
       }
     }
   ],
@@ -110,14 +119,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 0
+      "items": 45
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 21
+      "items": 22
     },
     {
       "query": "\"OP81\" when:3d",
@@ -138,7 +147,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 21
+      "items": 22
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
