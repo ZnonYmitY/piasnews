@@ -79,10 +79,10 @@ Current implementation status:
 - Search rules now enforce a latest-3-days window.
 - Source strategy now separates direct official sources from RSS-discovered media sources.
 - Static data generation is available through `scripts/fetch_piasnews.py`.
-- `data/items.json`, `data/daily.json`, `data/rss.xml`, and `data/history.json` exist.
+- `data/items.json`, `data/daily.json`, `data/rss.xml`, and schema-v2 `data/history.json` exist.
 - GitHub Actions scheduled refresh is configured in `.github/workflows/update-piasnews.yml`.
 - A GitHub Pages publishing entrypoint has been added for `https://znonymity.github.io/piasnews/`.
-- `piasnews/references/history.md` exists as the maintenance guide for optional historical context.
+- `piasnews/references/history.md`, `piasnews/references/history-retrieval.json`, and `scripts/validate_history.py` support maintenance, review, and validation of the Looking Back knowledge base.
 - No hosted backend has been added yet.
 
 ### V1: Static JSON/RSS Data
@@ -110,7 +110,7 @@ Behavior:
 - Generated static JSON/RSS is committed to the repository, published through GitHub Pages, and still readable directly from GitHub raw.
 - The Skill first attempts to read static data, then falls back to direct source fetching.
 - Daily item counts are generated and persisted.
-- Maintained historical events are stored in `data/history.json` and published with the Pages artifact.
+- Historical candidates, human review signals, and semantic fields live in `data/history.json`; retrieval policy lives in `piasnews/references/history-retrieval.json`, and both are published with the Pages artifact.
 
 ### V2: Hosted API
 
@@ -235,7 +235,7 @@ Daily stats shape:
 }
 ```
 
-Historical event shape:
+Historical events separate factual data, human review signals, and semantic fields. New candidates remain `pending` and cannot enter a report:
 
 ```json
 {
@@ -245,13 +245,34 @@ Historical event shape:
   "year": 2024,
   "title": "Oscar Piastri wins his first Formula 1 Grand Prix in Hungary",
   "summary": "Short factual summary.",
-  "type": "milestone",
-  "importance": 5,
+  "type": "race_win",
   "source": "Formula 1 results",
   "url": "https://www.formula1.com/en/results/2024/races/1239/hungary/race-result",
-  "tags": ["Oscar Piastri", "McLaren", "Hungarian Grand Prix"]
+  "selection": {
+    "review_status": "pending",
+    "include": null,
+    "historical_value": null,
+    "peak_attention": null,
+    "lasting_significance": null,
+    "career_impact": null,
+    "fan_recognition": null
+  },
+  "semantic": {
+    "event_kind": "race_result",
+    "themes": ["first Grand Prix win", "team orders"],
+    "round": "Hungarian Grand Prix",
+    "circuit": "Hungaroring",
+    "session": "race",
+    "outcome": "first Formula 1 Grand Prix victory",
+    "strong_keys": ["first_grand_prix_win", "hungarian_grand_prix", "team_orders"],
+    "embedding_text": "A self-contained factual sentence."
+  }
 }
 ```
+
+Historical value is not decided by one platform's engagement count. Human review combines peak attention, lasting significance, career impact, and fan recognition. Routine interviews and announcements are excluded by default, while an iconic social post can qualify through lasting impact.
+
+Historical retrieval uses one `Looking Back` section. Candidates may be exact same-month/day anniversaries or events strongly related to today's main topic. A contextual candidate must match at least one precise strong semantic facet; broad tags such as `F1`, `McLaren`, `race`, or `street circuit` cannot qualify on their own.
 
 ## 8. Output Requirements
 
@@ -295,8 +316,8 @@ Only show this section when X data is available.
 ## Rumor Radar
 Only show this section when rumors or unverified items exist.
 
-## On This Day Last Year
-Only show when `data/history.json`, user-provided context, or a current official item clearly references a meaningful same-month/day event. Omit when there is no notable item.
+## Looking Back
+Show at most one approved event from `data/history.json`. Exact-date anniversaries and strongly related history share this section. Omit it when no event passes the review, historical-value, and relevance gates.
 ```
 
 ### Deep Mode
@@ -308,7 +329,7 @@ Use a dedicated deep format without a generic one-sentence opener:
 - Official updates: list official items when available.
 - Source confidence: separate official sources, reputable media, aggregators, and low-confidence sources.
 - Next watch points: list 1-3 signals to watch over the next 24-48 hours when supported by current items.
-- On this day: include only when supported by `data/history.json` or another maintained/user-provided historical source.
+- Looking Back: merge anniversary and strongly related history, using approved events only.
 - Data panel: use only in deep mode or when the user asks for stats.
 
 Language behavior:
@@ -389,6 +410,7 @@ V1 is complete when:
 - Daily new item counts are available.
 - GitHub Pages publishes the static data entrypoint.
 - `data/history.json` is available for optional historical context and is published with Pages.
+- Unreviewed events never enter Looking Back; vector embeddings remain optional and are disabled by default.
 
 V2 is complete when:
 

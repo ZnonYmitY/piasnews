@@ -71,7 +71,7 @@ The V1 collector writes these files:
 | `data/items.json` | Normalized item list from the latest 3-day window. |
 | `data/daily.json` | Daily item counts plus source/category breakdowns. |
 | `data/rss.xml` | RSS feed generated from normalized items. |
-| `data/history.json` | Maintained historical events for optional "on this day" context. |
+| `data/history.json` | Reviewed historical-event knowledge base for optional `Looking Back` context. |
 
 Public static endpoints:
 
@@ -82,10 +82,12 @@ Public static endpoints:
 | Pages daily stats | https://znonymity.github.io/piasnews/data/daily.json |
 | Pages RSS | https://znonymity.github.io/piasnews/data/rss.xml |
 | Pages history | https://znonymity.github.io/piasnews/data/history.json |
+| Pages history retrieval config | https://znonymity.github.io/piasnews/data/history-retrieval.json |
 | Raw items fallback | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/items.json |
 | Raw daily fallback | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/daily.json |
 | Raw RSS fallback | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/rss.xml |
 | Raw history fallback | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/history.json |
+| Raw history retrieval config | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/piasnews/references/history-retrieval.json |
 
 Generate them locally with:
 
@@ -95,15 +97,15 @@ python3 scripts/fetch_piasnews.py --days 3 --output-dir data
 
 ## Historical context sources
 
-Historical context such as "去年今日" is optional and must not expand the live news search window beyond the latest 3 days.
+The merged `Looking Back` / `往日回顾` module is optional and must not expand the live news search window beyond the latest 3 days.
 
-Read `references/history.md` before adding or changing historical events. Only include a historical module when one of these sources has a clear, meaningful same-month/day event:
+Read `references/history.md` before retrieving, reviewing, adding, or changing historical events. Only include the module when the maintained knowledge base contains an approved event selected by either an exact same-month/day anniversary route or a strongly gated contextual route:
 
 - The maintained `data/history.json` file.
 - User-provided historical context.
 - A current official item that explicitly references the historical event.
 
-If no meaningful event exists, omit the section. Do not fill it with trivia or weak search results.
+If no meaningful event exists, omit the section. Do not fill it with trivia, pending labels, weak search results, or broad semantic similarities.
 
 ## X/social sources
 

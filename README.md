@@ -86,12 +86,14 @@ Summarize the latest Oscar Piastri news in English.
 ## 日报模式
 
 - **速读版**：最多 5 条，适合快速看今天有没有大事；不展示数据面板，没有传闻时不展示传闻提醒。
-- **标准版**：默认粉丝日报，保留今日重点、官方动态、媒体报道、可选社交动态、可选传闻雷达和可选去年今日；不展示今日一句、数据和备注。
-- **深读版**：按话题合并同类报道，补充来源可信度、明日关注、可选去年今日和更完整的数据面板；不使用泛泛的今日一句开场。
+- **标准版**：默认粉丝日报，保留今日重点、官方动态、媒体报道、可选社交动态、可选传闻雷达和可选往日回顾；不展示今日一句、数据和备注。
+- **深读版**：按话题合并同类报道，补充来源可信度、明日关注、可选往日回顾和更完整的数据面板；不使用泛泛的今日一句开场。
 
 数据面板只在深读版或用户明确要求统计时展示，避免让日报显得冗余。
 
-“去年今日”是可选模块，来自维护好的 `data/history.json`。只有存在明确重要事件时才展示；没有大事时不硬凑。
+“往日回顾”把同日纪念和强关联历史合并成一个可选模块，来自 `data/history.json`。只展示已经人工审核、历史价值达标的事件；普通采访和常规公告不会因为“官方”而自动入库，标志性社媒事件则可以凭长期影响力入选。每期最多一条，没有合格事件时省略。
+
+历史库当前采用结构化标签检索。`piasnews/references/history-retrieval.json` 已预留向量模型配置，但默认关闭；启用时会在 GitHub 记录模型 ID、固定版本、维度、许可证和校验值，小型向量索引可以随仓库发布，模型权重本身放在 Release 或模型仓库中。
 
 ## 数据源策略
 
@@ -116,6 +118,7 @@ GitHub Pages：
 - 每日统计：https://znonymity.github.io/piasnews/data/daily.json
 - RSS Feed：https://znonymity.github.io/piasnews/data/rss.xml
 - 历史事件：https://znonymity.github.io/piasnews/data/history.json
+- 历史检索配置：https://znonymity.github.io/piasnews/data/history-retrieval.json
 
 GitHub raw fallback：
 
@@ -123,6 +126,7 @@ GitHub raw fallback：
 - 每日统计：[data/daily.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/daily.json)
 - RSS Feed：[data/rss.xml](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/rss.xml)
 - 历史事件：[data/history.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/history.json)
+- 历史检索配置：[piasnews/references/history-retrieval.json](piasnews/references/history-retrieval.json)
 
 本地更新：
 
@@ -165,12 +169,14 @@ python3 scripts/fetch_piasnews.py --days 3 --output-dir data
 │   ├── agents/
 │   │   └── openai.yaml
 │   └── references/
+│       ├── history-retrieval.json
 │       ├── history.md
 │       └── sources.md
 ├── public/
 │   └── index.html
 └── scripts/
-    └── fetch_piasnews.py
+    ├── fetch_piasnews.py
+    └── validate_history.py
 ```
 
 ## 许可证
@@ -265,12 +271,14 @@ Give me a deep fan daily and merge duplicate topics.
 ## Daily Report Modes
 
 - **Short**: Up to 5 bullets for a quick check; no data panel, and no rumor reminder when there are no rumors.
-- **Standard**: Default fan daily with key points, official updates, media coverage, optional social updates, optional rumor radar, and optional on-this-day context; no one-liner, data, or notes sections.
-- **Deep**: Groups similar coverage into topic cards and adds source-confidence notes, next watch points, optional on-this-day context, and a fuller data panel; no generic one-line opener.
+- **Standard**: Default fan daily with key points, official updates, media coverage, optional social updates, optional rumor radar, and optional Looking Back context; no one-liner, data, or notes sections.
+- **Deep**: Groups similar coverage into topic cards and adds source-confidence notes, next watch points, optional Looking Back context, and a fuller data panel; no generic one-line opener.
 
 Show the data panel only when the user asks for stats or requests deep mode, so the daily report does not feel redundant.
 
-"On this day last year" is optional and comes from the maintained `data/history.json`. Show it only when there is a clear meaningful event; omit it when there is no notable item.
+`Looking Back` merges exact-date anniversaries and strongly related historical events into one optional section backed by `data/history.json`. Only human-approved events above the historical-value threshold may appear. Routine interviews and announcements do not qualify merely because they are official, while an iconic social post may qualify through lasting impact. Show at most one item and omit the section when nothing qualifies.
+
+The current knowledge base uses structured-facet retrieval. `piasnews/references/history-retrieval.json` reserves optional vector-model settings but keeps embeddings disabled. When enabled, GitHub records the model ID, immutable revision, dimensions, license, and checksum; a small vector index may be committed, while model weights belong in a release or model registry.
 
 ## Source Strategy
 
@@ -295,6 +303,7 @@ GitHub Pages:
 - Daily stats: https://znonymity.github.io/piasnews/data/daily.json
 - RSS feed: https://znonymity.github.io/piasnews/data/rss.xml
 - Historical events: https://znonymity.github.io/piasnews/data/history.json
+- History retrieval config: https://znonymity.github.io/piasnews/data/history-retrieval.json
 
 GitHub raw fallback:
 
@@ -302,6 +311,7 @@ GitHub raw fallback:
 - Daily stats: [data/daily.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/daily.json)
 - RSS feed: [data/rss.xml](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/rss.xml)
 - Historical events: [data/history.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/history.json)
+- History retrieval config: [piasnews/references/history-retrieval.json](piasnews/references/history-retrieval.json)
 
 Update locally:
 
@@ -344,12 +354,14 @@ python3 scripts/fetch_piasnews.py --days 3 --output-dir data
 │   ├── agents/
 │   │   └── openai.yaml
 │   └── references/
+│       ├── history-retrieval.json
 │       ├── history.md
 │       └── sources.md
 ├── public/
 │   └── index.html
 └── scripts/
-    └── fetch_piasnews.py
+    ├── fetch_piasnews.py
+    └── validate_history.py
 ```
 
 ## License

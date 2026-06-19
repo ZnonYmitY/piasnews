@@ -27,7 +27,7 @@ Use this order:
 4. Use public news RSS/search fallback with a strict latest-3-days filter.
 5. Use optional X/social sources only when the user provides access or a maintained source list is available.
 
-Read `references/sources.md` before doing source-specific work, source expansion, official-only reports, X integration, historical context, or daily count work. Read `references/history.md` before adding or changing historical events.
+Read `references/sources.md` before doing source-specific work, source expansion, official-only reports, X integration, historical context, or daily count work. Read `references/history.md` before retrieving, reviewing, adding, or changing historical events.
 
 ## V0.5 workflow
 
@@ -58,6 +58,8 @@ When `data/items.json` and `data/daily.json` are available locally or through th
 Use `data/items.json` for item-level reports. Use `data/daily.json` for counts and source/category breakdowns. Use `data/rss.xml` when the user asks for a feed link or RSS-compatible output.
 
 If the static data is stale, unavailable, or does not cover the user's requested narrower window, fall back to the V0.5 live workflow while keeping the latest-3-days limit.
+
+Use `data/history.json` and bundled `references/history-retrieval.json` for the optional historical module. Historical data is a separate curated knowledge base and does not relax the latest-3-days rule for live news.
 
 ## Optional X/social handling
 
@@ -171,8 +173,8 @@ Only include when X/social data is available.
 ## 传闻雷达
 Only include when rumors or unverified items exist.
 
-## 去年今日
-Only include when `data/history.json`, a maintained history reference, user-provided context, or a current official item has a clear important event for the same month/day. Do not search beyond the latest 3 days just to fill this section. If there is no meaningful event, omit the section.
+## 往日回顾
+Use at most one approved event from `data/history.json`. It may be an exact same-month/day anniversary or a strongly related historical event. Follow `references/history.md` and `references/history-retrieval.json`; broad similarities such as Formula 1, McLaren, race, or street circuit are not enough for a contextual match. Do not search beyond the latest 3 days just to fill this section. Omit it when no event qualifies.
 ```
 
 ### Deep mode
@@ -197,8 +199,8 @@ Call out official, reputable media, aggregators, and low-confidence items.
 ## 明日关注
 List 1-3 watch points for the next 24-48 hours when supported by current items.
 
-## 去年今日
-Only include when supported by `data/history.json` or another maintained/user-provided historical source.
+## 往日回顾
+Use the same approved-only merged anniversary/contextual retrieval rule as standard mode. State the specific link when the item is contextual; do not invent a connection for a pure anniversary.
 
 ## 数据面板
 Use only in deep mode or when the user asks for stats.

@@ -1,50 +1,126 @@
-# Piasnews History
+# Piasnews History Knowledge Base
 
-Use this file when maintaining `data/history.json` or deciding whether to show "On This Day" / "去年今日" in fan-daily reports.
+Use this file when maintaining `data/history.json`, reviewing historical labels, configuring retrieval, or deciding whether to show the fan-daily `Looking Back` / `往日回顾` section.
 
 ## Purpose
 
-Historical context is optional fan flavor. It is not part of latest-news collection and must not expand live searches beyond the latest 3 days.
+Historical context is optional fan value, not filler. The knowledge base should contain career-defining results, decisions, controversies, social moments, and other events that remain recognizable to fans. Ordinary interviews and routine announcements should not enter merely because they are official.
 
-The maintained source of truth is:
+Historical retrieval is separate from latest-news collection and must not expand live news searches beyond the latest 3 days.
 
-- Local file: `data/history.json`
+The maintained sources of truth are:
+
+- Events and review labels: `data/history.json`
+- Retrieval configuration: `references/history-retrieval.json`
 - Pages endpoint: https://znonymity.github.io/piasnews/data/history.json
 - Raw fallback: https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/history.json
 
-## When to show history
+## Review workflow
 
-- Match the report date's `MM-DD` against event `month_day`.
-- Use the user's/local report timezone when deciding the day.
-- Include only important events by default: `importance >= 4`.
-- Show at most one or two events.
-- Omit the section when no meaningful event exists.
-- Do not fill the section with trivia, old search results, weak media claims, or unrelated race facts.
+1. Add only factually verified candidates with an exact date and a primary or strong secondary source.
+2. Set `selection.review_status` to `pending`, all score fields to `null`, and `selection.include` to `null`.
+3. A human reviewer decides whether the event belongs in the knowledge base and assigns the scores.
+4. Set the event to `approved` or `rejected`. Approved events require a boolean `include` and a `historical_value` score.
+5. Run `python3 scripts/validate_history.py` before committing.
+
+Pending and rejected events must not appear in a fan daily.
+
+## Selection signals
+
+Use a 0-100 scale:
+
+| Field | Meaning |
+| --- | --- |
+| `historical_value` | Overall value for future fan recall. This is the final display gate. |
+| `peak_attention` | How much attention the event received when it happened. |
+| `lasting_significance` | Whether fans and later coverage continue to reference it. |
+| `career_impact` | How strongly it changed Piastri's career or competitive record. |
+| `fan_recognition` | Whether fans can recognize the event without lengthy setup. |
+
+Do not compare raw likes or views across years and platforms. Use engagement only as one signal alongside reputable coverage volume, later references, competitive significance, and human judgment.
+
+The default display threshold is `historical_value >= 70`. A content type is never an automatic inclusion or exclusion: an ordinary interview may be rejected, while an iconic official social post may qualify.
+
+## Semantic fields
+
+Use structured facets to prevent broad, misleading matches:
+
+- `event_kind`: race result, Sprint result, official social statement, contract ruling, and similar event forms.
+- `themes`: precise concepts such as first Grand Prix win, team orders, or contract dispute.
+- `round`, `circuit`, and `session`: exact sporting context when applicable.
+- `outcome`: the concrete result or consequence.
+- `strong_keys`: normalized high-precision identifiers used as a contextual-match gate.
+- `embedding_text`: a self-contained factual sentence for optional future embedding generation.
+
+Broad context such as `Formula 1`, `McLaren`, `race`, or `street circuit` is not enough to establish a contextual connection.
+
+## Looking Back retrieval
+
+Use one merged section with at most one item:
+
+1. Build anniversary candidates from exact `month_day` matches.
+2. Build contextual candidates only when the current main news and a historical event share at least one exact strong facet. If embeddings are enabled later, vector similarity is an additional signal, not a replacement for this gate.
+3. Keep only approved events with `include: true` and `historical_value >= 70`.
+4. Rank eligible candidates according to `references/history-retrieval.json`.
+5. Omit the section when there is no meaningful candidate.
+
+An anniversary item does not need to pretend it is related to today's news. A contextual item must state the specific connection. Historical importance cannot rescue weak relevance.
+
+## Pretrained model policy
+
+No embedding model is required for the current knowledge base. When semantic vectors are enabled:
+
+- Record the model ID, immutable revision, dimensions, license, and artifact checksum in GitHub.
+- Small generated embeddings may be committed as `data/history.embeddings.json`.
+- Do not commit large model weights to the repository. Use a GitHub Release or a model registry and keep a deterministic download reference in the config.
+- Preserve the structured-facet fallback so installations without the model still work.
+
+## Post-training roadmap
+
+Do not train a base model from scratch. Build supervision from human review in stages:
+
+1. Collect event-level inclusion scores and approval decisions in `data/history.json`.
+2. After contextual retrieval is used, collect query-event pairs with `relevant`, `relation_type`, matched strong facets, and a short rejection reason.
+3. Preserve hard negatives, such as two street-circuit events that share broad context but differ in circuit, session, outcome, and historical meaning.
+4. Tune gates, thresholds, and ranking weights before changing any model.
+5. If labeled pairs become large enough, train a small learning-to-rank or cross-encoder reranker first. Fine-tune the bi-encoder with contrastive positive/hard-negative pairs only when retrieval recall itself is the demonstrated bottleneck.
+
+Keep training data, code, evaluation splits, metrics, and model metadata in GitHub. Store large trained weights outside normal Git history and reference them immutably from `references/history-retrieval.json`.
 
 ## Event schema
 
+See `data/history.json` for complete examples. The important review and retrieval fields are:
+
 ```json
 {
-  "id": "piastri-2024-07-21-first-grand-prix-win",
-  "date": "2024-07-21",
-  "month_day": "07-21",
-  "year": 2024,
-  "title": "Oscar Piastri wins his first Formula 1 Grand Prix in Hungary",
-  "summary": "Short factual summary.",
-  "type": "milestone",
-  "importance": 5,
-  "source": "Formula 1 results",
-  "url": "https://www.formula1.com/en/results/2024/races/1239/hungary/race-result",
-  "tags": ["Oscar Piastri", "McLaren", "Hungarian Grand Prix"]
+  "selection": {
+    "review_status": "pending",
+    "include": null,
+    "historical_value": null,
+    "peak_attention": null,
+    "lasting_significance": null,
+    "career_impact": null,
+    "fan_recognition": null,
+    "inclusion_reason": "Why this candidate may matter"
+  },
+  "semantic": {
+    "event_kind": "race_result",
+    "themes": ["first Grand Prix win", "team orders"],
+    "round": "Hungarian Grand Prix",
+    "circuit": "Hungaroring",
+    "session": "race",
+    "outcome": "first Formula 1 Grand Prix victory",
+    "strong_keys": ["first_grand_prix_win", "hungarian_grand_prix", "team_orders"],
+    "embedding_text": "A self-contained factual sentence."
+  }
 }
 ```
 
-## Maintenance rules
+## Source and maintenance rules
 
-- Prefer official Formula 1, McLaren, Oscar Piastri, FIA, or race-result sources.
-- Store metadata, short summaries, and links only.
+- Prefer Oscar Piastri, Formula 1, McLaren, FIA, official championship sites, and official results.
+- Use Wikipedia, fan posts, and archives only to discover candidates, not as sole evidence.
+- Store metadata, short summaries, and links rather than full articles or threads.
 - Use exact event dates. If the date is uncertain, do not add the event.
-- Keep summaries factual and short.
-- Use stable event IDs: `piastri-YYYY-MM-DD-short-slug`.
-- Use `importance` from 1 to 5. Normal fan daily reports should only surface 4 or 5.
-- Suggested `type` values: `race_win`, `podium`, `milestone`, `contract`, `team`, `interview`, `fan`, `other`.
+- Use stable IDs in the form `piastri-YYYY-MM-DD-short-slug`.
+- Suggested `type` values include `race_win`, `career_milestone`, `career_turning_point`, `contract`, `team`, `social_moment`, and `other`.

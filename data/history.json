@@ -1,20 +1,93 @@
 {
-  "generated_at": "2026-06-18T00:00:00Z",
-  "schema_version": 1,
-  "description": "Maintained Oscar Piastri historical events for optional fan-daily 'on this day' context.",
+  "generated_at": "2026-06-19T00:00:00Z",
+  "schema_version": 2,
+  "description": "Curated Oscar Piastri historical-event candidates for the optional fan-daily Looking Back section.",
+  "curation": {
+    "display_requires_approval": true,
+    "minimum_historical_value": 70,
+    "score_scale": "0-100",
+    "notes": "Pending events remain in the knowledge base but must not appear in reports until their labels are approved."
+  },
   "events": [
+    {
+      "id": "piastri-2022-08-02-i-understand-that-post",
+      "date": "2022-08-02",
+      "month_day": "08-02",
+      "year": 2022,
+      "title": "Oscar Piastri rejects Alpine's 2023 driver announcement in an iconic social post",
+      "summary": "Piastri publicly stated that he had not agreed to race for Alpine in 2023, a defining moment in the contract dispute that preceded his McLaren move.",
+      "type": "career_turning_point",
+      "source": "Oscar Piastri on X",
+      "url": "https://x.com/OscarPiastri/status/1554527452231262210",
+      "verification": {
+        "status": "verified",
+        "source_type": "official_social",
+        "primary_source": true
+      },
+      "selection": {
+        "review_status": "pending",
+        "include": null,
+        "historical_value": null,
+        "peak_attention": null,
+        "lasting_significance": null,
+        "career_impact": null,
+        "fan_recognition": null,
+        "inclusion_reason": "Candidate because the post became a widely recognized turning point in Piastri's move to McLaren."
+      },
+      "semantic": {
+        "event_kind": "official_social_statement",
+        "themes": ["contract dispute", "driver market", "career decision", "McLaren move"],
+        "entities": ["Oscar Piastri", "Alpine", "McLaren"],
+        "competition": "Formula 1",
+        "season": 2022,
+        "round": null,
+        "circuit": null,
+        "session": null,
+        "outcome": "public rejection of Alpine's driver announcement",
+        "strong_keys": ["alpine_contract_dispute", "mclaren_move", "i_understand_that"],
+        "embedding_text": "Oscar Piastri publicly rejected Alpine's announcement that he would drive for the team in 2023, during the contract dispute that led to his McLaren move."
+      },
+      "tags": ["Oscar Piastri", "Alpine", "McLaren", "contract dispute", "I understand that"]
+    },
     {
       "id": "piastri-2023-09-24-first-f1-podium",
       "date": "2023-09-24",
       "month_day": "09-24",
       "year": 2023,
       "title": "Oscar Piastri takes his first Formula 1 podium at the Japanese Grand Prix",
-      "summary": "Piastri finished third at Suzuka, behind Max Verstappen and Lando Norris, for his first career F1 podium.",
-      "type": "milestone",
-      "importance": 5,
+      "summary": "Piastri finished third at Suzuka, behind Max Verstappen and Lando Norris, for his first career Formula 1 podium.",
+      "type": "career_milestone",
       "source": "Formula 1 results",
       "url": "https://www.formula1.com/en/results/2023/races/1219/japan/race-result",
-      "tags": ["Oscar Piastri", "McLaren", "Japanese Grand Prix", "first podium"]
+      "verification": {
+        "status": "verified",
+        "source_type": "official_results",
+        "primary_source": true
+      },
+      "selection": {
+        "review_status": "pending",
+        "include": null,
+        "historical_value": null,
+        "peak_attention": null,
+        "lasting_significance": null,
+        "career_impact": null,
+        "fan_recognition": null,
+        "inclusion_reason": "Candidate because it was Piastri's first Formula 1 podium."
+      },
+      "semantic": {
+        "event_kind": "race_result",
+        "themes": ["first podium", "rookie season", "career milestone"],
+        "entities": ["Oscar Piastri", "McLaren", "Lando Norris", "Max Verstappen"],
+        "competition": "Formula 1",
+        "season": 2023,
+        "round": "Japanese Grand Prix",
+        "circuit": "Suzuka International Racing Course",
+        "session": "race",
+        "outcome": "first Formula 1 podium, third place",
+        "strong_keys": ["first_f1_podium", "japanese_grand_prix", "suzuka"],
+        "embedding_text": "Oscar Piastri took his first Formula 1 podium by finishing third for McLaren at the 2023 Japanese Grand Prix at Suzuka."
+      },
+      "tags": ["Oscar Piastri", "McLaren", "Japanese Grand Prix", "Suzuka", "first podium"]
     },
     {
       "id": "piastri-2023-10-07-qatar-sprint-win",
@@ -22,12 +95,39 @@
       "month_day": "10-07",
       "year": 2023,
       "title": "Oscar Piastri wins the Qatar Grand Prix Sprint",
-      "summary": "Piastri won the Qatar Sprint ahead of Max Verstappen and Lando Norris, his first F1-format victory.",
-      "type": "milestone",
-      "importance": 5,
+      "summary": "Piastri won the Qatar Sprint ahead of Max Verstappen and Lando Norris, his first victory in a Formula 1 race format.",
+      "type": "career_milestone",
       "source": "Formula 1 results",
       "url": "https://www.formula1.com/en/results/2023/races/1220/qatar/sprint-results",
-      "tags": ["Oscar Piastri", "McLaren", "Qatar Grand Prix", "Sprint win"]
+      "verification": {
+        "status": "verified",
+        "source_type": "official_results",
+        "primary_source": true
+      },
+      "selection": {
+        "review_status": "pending",
+        "include": null,
+        "historical_value": null,
+        "peak_attention": null,
+        "lasting_significance": null,
+        "career_impact": null,
+        "fan_recognition": null,
+        "inclusion_reason": "Candidate because it was Piastri's first victory in a Formula 1 race format."
+      },
+      "semantic": {
+        "event_kind": "sprint_result",
+        "themes": ["first win", "Sprint", "rookie season", "career milestone"],
+        "entities": ["Oscar Piastri", "McLaren", "Max Verstappen", "Lando Norris"],
+        "competition": "Formula 1",
+        "season": 2023,
+        "round": "Qatar Grand Prix",
+        "circuit": "Lusail International Circuit",
+        "session": "Sprint",
+        "outcome": "first Formula 1 race-format victory",
+        "strong_keys": ["first_f1_format_win", "qatar_grand_prix", "sprint_win"],
+        "embedding_text": "Oscar Piastri won the 2023 Qatar Grand Prix Sprint for McLaren, his first victory in a Formula 1 race format."
+      },
+      "tags": ["Oscar Piastri", "McLaren", "Qatar Grand Prix", "Lusail", "Sprint win"]
     },
     {
       "id": "piastri-2024-07-21-first-grand-prix-win",
@@ -36,11 +136,38 @@
       "year": 2024,
       "title": "Oscar Piastri wins his first Formula 1 Grand Prix in Hungary",
       "summary": "Piastri won the Hungarian Grand Prix, leading a McLaren one-two with Lando Norris second.",
-      "type": "milestone",
-      "importance": 5,
+      "type": "race_win",
       "source": "Formula 1 results",
       "url": "https://www.formula1.com/en/results/2024/races/1239/hungary/race-result",
-      "tags": ["Oscar Piastri", "McLaren", "Hungarian Grand Prix", "first Grand Prix win"]
+      "verification": {
+        "status": "verified",
+        "source_type": "official_results",
+        "primary_source": true
+      },
+      "selection": {
+        "review_status": "pending",
+        "include": null,
+        "historical_value": null,
+        "peak_attention": null,
+        "lasting_significance": null,
+        "career_impact": null,
+        "fan_recognition": null,
+        "inclusion_reason": "Candidate because it was Piastri's first Formula 1 Grand Prix victory."
+      },
+      "semantic": {
+        "event_kind": "race_result",
+        "themes": ["first Grand Prix win", "team orders", "McLaren one-two", "career milestone"],
+        "entities": ["Oscar Piastri", "McLaren", "Lando Norris"],
+        "competition": "Formula 1",
+        "season": 2024,
+        "round": "Hungarian Grand Prix",
+        "circuit": "Hungaroring",
+        "session": "race",
+        "outcome": "first Formula 1 Grand Prix victory",
+        "strong_keys": ["first_grand_prix_win", "hungarian_grand_prix", "team_orders"],
+        "embedding_text": "Oscar Piastri won his first Formula 1 Grand Prix for McLaren at the 2024 Hungarian Grand Prix after a widely discussed team-orders sequence."
+      },
+      "tags": ["Oscar Piastri", "McLaren", "Hungarian Grand Prix", "Hungaroring", "first Grand Prix win", "team orders"]
     },
     {
       "id": "piastri-2024-09-15-azerbaijan-win",
@@ -50,10 +177,37 @@
       "title": "Oscar Piastri wins the Azerbaijan Grand Prix",
       "summary": "Piastri took his second Formula 1 Grand Prix victory in Baku, ahead of Charles Leclerc and George Russell.",
       "type": "race_win",
-      "importance": 5,
       "source": "Formula 1 results",
       "url": "https://www.formula1.com/en/results/2024/races/1243/azerbaijan/race-result",
-      "tags": ["Oscar Piastri", "McLaren", "Azerbaijan Grand Prix", "race win"]
+      "verification": {
+        "status": "verified",
+        "source_type": "official_results",
+        "primary_source": true
+      },
+      "selection": {
+        "review_status": "pending",
+        "include": null,
+        "historical_value": null,
+        "peak_attention": null,
+        "lasting_significance": null,
+        "career_impact": null,
+        "fan_recognition": null,
+        "inclusion_reason": "Candidate because Piastri won after a sustained fight with Charles Leclerc in Baku."
+      },
+      "semantic": {
+        "event_kind": "race_result",
+        "themes": ["race win", "on-track battle", "overtake", "tyre management"],
+        "entities": ["Oscar Piastri", "McLaren", "Charles Leclerc", "George Russell"],
+        "competition": "Formula 1",
+        "season": 2024,
+        "round": "Azerbaijan Grand Prix",
+        "circuit": "Baku City Circuit",
+        "session": "race",
+        "outcome": "second Formula 1 Grand Prix victory",
+        "strong_keys": ["azerbaijan_grand_prix", "baku", "leclerc_battle", "second_grand_prix_win"],
+        "embedding_text": "Oscar Piastri won the 2024 Azerbaijan Grand Prix for McLaren after overtaking and defending against Charles Leclerc at Baku City Circuit."
+      },
+      "tags": ["Oscar Piastri", "McLaren", "Azerbaijan Grand Prix", "Baku", "Charles Leclerc", "race win"]
     }
   ]
 }
