@@ -1,9 +1,23 @@
-name: Update Piasnews Data
+name: Review Piasnews History
 
 on:
-  schedule:
-    - cron: "17 */6 * * *"
   workflow_dispatch:
+    inputs:
+      candidate_id:
+        description: Candidate event ID
+        required: true
+        type: string
+      decision:
+        description: Review decision
+        required: true
+        type: choice
+        options:
+          - approve
+          - reject
+      review_payload_b64:
+        description: URL-safe base64 encoded review payload
+        required: true
+        type: string
 
 permissions:
   contents: write
@@ -15,7 +29,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  update:
+  review:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -29,26 +43,29 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Fetch latest Piasnews data
-        run: python scripts/fetch_piasnews.py --days 3 --output-dir data
+      - name: Apply review decision
+        env:
+          CANDIDATE_ID: ${{ inputs.candidate_id }}
+          REVIEW_DECISION: ${{ inputs.decision }}
+          REVIEW_PAYLOAD_B64: ${{ inputs.review_payload_b64 }}
+          REVIEWER: ${{ github.actor }}
+        run: |
+          python scripts/review_history.py \
+            --candidate-id "$CANDIDATE_ID" \
+            --decision "$REVIEW_DECISION" \
+            --payload-b64 "$REVIEW_PAYLOAD_B64" \
+            --reviewer "$REVIEWER"
 
-      - name: Build history-review candidates
-        run: python scripts/build_history_candidates.py
-
-      - name: Validate history knowledge base
+      - name: Validate history workflow data
         run: python scripts/validate_history.py
 
-      - name: Commit data changes
+      - name: Commit review decision
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/items.json data/daily.json data/rss.xml data/history-candidates.json
-          if git diff --cached --quiet; then
-            echo "No Piasnews data changes."
-          else
-            git commit -m "Update Piasnews data"
-            git push
-          fi
+          git add data/history.json data/history-candidates.json
+          git commit -m "Review Piasnews history candidate"
+          git push
 
       - name: Prepare Pages artifact
         run: |

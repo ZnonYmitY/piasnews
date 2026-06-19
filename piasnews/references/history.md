@@ -10,20 +10,22 @@ Historical retrieval is separate from latest-news collection and must not expand
 
 The maintained sources of truth are:
 
-- Events and review labels: `data/history.json`
+- Approved events: `data/history.json`
+- Candidate queue and review decisions: `data/history-candidates.json`
 - Retrieval configuration: `references/history-retrieval.json`
 - Pages endpoint: https://znonymity.github.io/piasnews/data/history.json
 - Raw fallback: https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/history.json
 
 ## Review workflow
 
-1. Add only factually verified candidates with an exact date and a primary or strong secondary source.
-2. Set `selection.review_status` to `pending`, all score fields to `null`, and `selection.include` to `null`.
-3. A human reviewer decides whether the event belongs in the knowledge base and assigns the scores.
-4. Set the event to `approved` or `rejected`. Approved events require a boolean `include` and a `historical_value` score.
-5. Run `python3 scripts/validate_history.py` before committing.
+1. `scripts/build_history_candidates.py` nominates conservative candidates from recent verified news metadata without using an LLM.
+2. Store pending, approved, and rejected review records in `data/history-candidates.json` so rejected items are not nominated repeatedly.
+3. The static review console lets the maintainer correct facts, assign all five scores, edit precise semantic fields, and approve or reject.
+4. The stateless review Worker authenticates the request and dispatches `.github/workflows/review-history.yml`; it does not write repository files directly.
+5. `scripts/review_history.py` applies the decision. Approval copies the reviewed event into `data/history.json`; rejection remains in the candidate audit queue only.
+6. Run `python3 scripts/validate_history.py` before committing or publishing.
 
-Pending and rejected events must not appear in a fan daily.
+`data/history.json` contains approved events only. Pending and rejected candidates must not appear in a fan daily.
 
 ## Selection signals
 
@@ -75,11 +77,30 @@ No embedding model is required for the current knowledge base. When semantic vec
 - Do not commit large model weights to the repository. Use a GitHub Release or a model registry and keep a deterministic download reference in the config.
 - Preserve the structured-facet fallback so installations without the model still work.
 
+### How a configured model is called
+
+The configuration file is a manifest, not an executable model call. A future `scripts/build_history_embeddings.py` or equivalent runtime must read it and perform these steps:
+
+1. Resolve `model_id` at the immutable `model_revision`.
+2. Download or restore the matching tokenizer and weights, then verify the recorded license and checksum.
+3. Embed each approved event's `semantic.embedding_text` and publish vectors with the same model metadata.
+4. Embed the current-news query with the same model.
+5. Retrieve by vector similarity, then apply exact strong-facet gates and ranking weights. Vector similarity alone never authorizes a contextual match.
+
+For fan agents that should consume no Piasnews token, prefer CI mode: GitHub Actions runs an open-weight model, publishes vectors or resolved history links, and agents read the static result. Local-agent mode is optional and requires that user's environment to download and run the same model.
+
+### Release versus model repository
+
+- A GitHub Release is a versioned set of downloadable files attached to a repository tag. It is suitable for a small self-contained model artifact, vector index, checksum file, or one-off experimental build.
+- A model repository is a dedicated model host such as Hugging Face Hub or another Git-LFS-backed registry. It stores weights, tokenizer files, configuration, model card, license, and immutable revisions in a format model runtimes can load directly.
+
+Use the normal Piasnews Git repository for code, labels, tests, model metadata, and small indexes. Prefer a model repository for a trained embedding model or reranker; use a GitHub Release when the artifact is small and simple enough that model-registry features add little value.
+
 ## Post-training roadmap
 
 Do not train a base model from scratch. Build supervision from human review in stages:
 
-1. Collect event-level inclusion scores and approval decisions in `data/history.json`.
+1. Collect event-level inclusion scores and approval decisions in `data/history-candidates.json`; keep approved serving data in `data/history.json`.
 2. After contextual retrieval is used, collect query-event pairs with `relevant`, `relation_type`, matched strong facets, and a short rejection reason.
 3. Preserve hard negatives, such as two street-circuit events that share broad context but differ in circuit, session, outcome, and historical meaning.
 4. Tune gates, thresholds, and ranking weights before changing any model.
@@ -89,7 +110,7 @@ Keep training data, code, evaluation splits, metrics, and model metadata in GitH
 
 ## Event schema
 
-See `data/history.json` for complete examples. The important review and retrieval fields are:
+See `data/history-candidates.json` for pending and reviewed examples, and `data/history.json` for approved serving data. The important review and retrieval fields are:
 
 ```json
 {

@@ -59,7 +59,7 @@ Use `data/items.json` for item-level reports. Use `data/daily.json` for counts a
 
 If the static data is stale, unavailable, or does not cover the user's requested narrower window, fall back to the V0.5 live workflow while keeping the latest-3-days limit.
 
-Use `data/history.json` and bundled `references/history-retrieval.json` for the optional historical module. Historical data is a separate curated knowledge base and does not relax the latest-3-days rule for live news.
+Use approved events from `data/history.json` and bundled `references/history-retrieval.json` for the optional historical module. Never use pending or rejected records from `data/history-candidates.json` in a fan report. Historical data is a separate curated knowledge base and does not relax the latest-3-days rule for live news.
 
 ## Optional X/social handling
 

@@ -72,6 +72,7 @@ The V1 collector writes these files:
 | `data/daily.json` | Daily item counts plus source/category breakdowns. |
 | `data/rss.xml` | RSS feed generated from normalized items. |
 | `data/history.json` | Reviewed historical-event knowledge base for optional `Looking Back` context. |
+| `data/history-candidates.json` | Pending and completed history-review queue; never use it as fan-daily evidence. |
 
 Public static endpoints:
 
@@ -82,11 +83,13 @@ Public static endpoints:
 | Pages daily stats | https://znonymity.github.io/piasnews/data/daily.json |
 | Pages RSS | https://znonymity.github.io/piasnews/data/rss.xml |
 | Pages history | https://znonymity.github.io/piasnews/data/history.json |
+| Pages history candidates | https://znonymity.github.io/piasnews/data/history-candidates.json |
 | Pages history retrieval config | https://znonymity.github.io/piasnews/data/history-retrieval.json |
 | Raw items fallback | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/items.json |
 | Raw daily fallback | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/daily.json |
 | Raw RSS fallback | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/rss.xml |
 | Raw history fallback | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/history.json |
+| Raw history candidates | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/history-candidates.json |
 | Raw history retrieval config | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/piasnews/references/history-retrieval.json |
 
 Generate them locally with:

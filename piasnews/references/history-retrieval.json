@@ -35,9 +35,14 @@
   },
   "embeddings": {
     "enabled": false,
+    "execution_mode": "disabled",
     "model_id": null,
     "model_revision": null,
+    "runtime": null,
+    "license": null,
     "dimensions": null,
+    "artifact_url": null,
+    "sha256": null,
     "index_path": "data/history.embeddings.json",
     "weights_repository_policy": "Do not commit model weights. Record model ID, revision, license, and checksum here; publish large artifacts through a release or model registry."
   }

@@ -1,0 +1,14 @@
+name = "piasnews-review"
+main = "src/index.js"
+compatibility_date = "2026-06-01"
+
+[vars]
+ADMIN_ALLOWED_ORIGINS = "https://znonymity.github.io,http://localhost:8000,http://127.0.0.1:8000"
+GITHUB_OWNER = "ZnonYmitY"
+GITHUB_REPOSITORY = "piasnews"
+GITHUB_WORKFLOW = "review-history.yml"
+GITHUB_REF = "main"
+
+# Set secrets with Wrangler; never commit their values:
+# npx wrangler secret put ADMIN_API_KEY
+# npx wrangler secret put GITHUB_TOKEN

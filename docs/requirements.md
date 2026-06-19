@@ -83,7 +83,7 @@ Current implementation status:
 - GitHub Actions scheduled refresh is configured in `.github/workflows/update-piasnews.yml`.
 - A GitHub Pages publishing entrypoint has been added for `https://znonymity.github.io/piasnews/`.
 - `piasnews/references/history.md`, `piasnews/references/history-retrieval.json`, and `scripts/validate_history.py` support maintenance, review, and validation of the Looking Back knowledge base.
-- No hosted backend has been added yet.
+- `public/admin/` implements the static review console; `worker/` provides a deployable stateless review endpoint, but external Worker secrets and a public URL are not configured yet.
 
 ### V1: Static JSON/RSS Data
 
@@ -110,7 +110,66 @@ Behavior:
 - Generated static JSON/RSS is committed to the repository, published through GitHub Pages, and still readable directly from GitHub raw.
 - The Skill first attempts to read static data, then falls back to direct source fetching.
 - Daily item counts are generated and persisted.
-- Historical candidates, human review signals, and semantic fields live in `data/history.json`; retrieval policy lives in `piasnews/references/history-retrieval.json`, and both are published with the Pages artifact.
+- Pending and completed review records live in `data/history-candidates.json`, approved events only live in `data/history.json`, and retrieval policy lives in `piasnews/references/history-retrieval.json`; all three are published with the Pages artifact.
+
+### V1.1: History Review Console
+
+The V1 review console uses GitHub JSON as the business-data store, GitHub Actions as the trusted write executor, GitHub Pages as the static frontend, and a stateless Worker as the authentication and workflow-dispatch layer. The current data volume and single-reviewer workflow do not require a database.
+
+Candidate flow:
+
+```mermaid
+flowchart LR
+  A["GitHub Actions collects the latest 3 days"] --> B["Deterministic major-event rules"]
+  B --> C["data/history-candidates.json"]
+  C --> D["GitHub Pages review console"]
+  D --> E["Stateless review Worker"]
+  E --> F["review-history.yml"]
+  F --> G["Validate and apply decision"]
+  G -->|approve| H["data/history.json approved library"]
+  G -->|reject| C
+  H --> I["Static Pages data and Piasnews Skill"]
+```
+
+Component responsibilities:
+
+- `scripts/build_history_candidates.py`: runs deterministic rules after collection without an LLM. It favors championships, wins, podiums, poles, records, major contracts/team moves, and formal rulings; predictions, routine interviews, rumors, and market-value discussion are excluded by default.
+- `data/history-candidates.json`: stores pending, approved, and rejected review records for deduplication and audit history.
+- `public/admin/`: reads the queue and supports status filtering, factual corrections, five historical-value scores, semantic labels, approval, and rejection.
+- `worker/`: validates origin and an admin key, then dispatches a GitHub workflow; it stores no business data.
+- `.github/workflows/review-history.yml`: invokes `scripts/review_history.py`, validates JSON, commits the decision, and immediately redeploys Pages.
+- `data/history.json`: contains approved events only and is the sole maintained history source for Looking Back.
+
+Security rules:
+
+- Keep the GitHub token in Worker secrets only. Never place it in frontend files, repository variables, or commit history.
+- The browser may persist the Worker URL locally; keep the admin key in `sessionStorage` only.
+- V1 uses one high-entropy shared admin key. Upgrade to Cloudflare Access or GitHub App/OAuth for multiple reviewers.
+- The Worker is stateless and Git commits provide the audit trail, so no database is needed now.
+
+Database triggers include multi-reviewer authorization, community submissions, tens of thousands of candidates, complex operational analytics, or a high-frequency online vector service. A few hundred historical vectors can still use static JSON/index files without a vector database.
+
+### Pretrained Model Invocation and Artifacts
+
+`piasnews/references/history-retrieval.json` describes the model and retrieval strategy; it does not execute a model. V1 currently keeps `embeddings.enabled=false`, so review and daily reports do not download or call a pretrained model.
+
+When enabled, the executor must:
+
+1. Resolve `model_id` at an immutable `model_revision` and download the model plus tokenizer.
+2. Verify the recorded license, dimensions, and checksum.
+3. Embed each approved event's `semantic.embedding_text`.
+4. Embed the current-news topic with the same model.
+5. Perform vector recall, then exact strong-facet gating and hybrid ranking. Vector similarity alone cannot establish a contextual link.
+
+Prefer CI mode by default: GitHub Actions runs an open-weight model and publishes vectors or resolved historical links, while fan agents read static output and consume none of our model tokens. Optional local mode lets a user's own agent download the same model and compute query vectors.
+
+Artifact placement:
+
+- **Main GitHub repository**: code, human labels, training/evaluation splits, model metadata, license, checksum, and small vector indexes.
+- **GitHub Release**: versioned downloadable assets attached to a Git tag, suitable for a small model bundle, experiment artifact, vector index, or checksum file.
+- **Model repository**: a dedicated host such as Hugging Face Hub for weights, tokenizer, configuration, model card, license, and immutable revisions that model runtimes can load directly.
+
+Prefer a model repository for a trained embedding model or reranker. Use a GitHub Release for small, simple artifacts. Piasnews config stores immutable references and checksums rather than committing large weights to normal Git history.
 
 ### V2: Hosted API
 
@@ -235,7 +294,7 @@ Daily stats shape:
 }
 ```
 
-Historical events separate factual data, human review signals, and semantic fields. New candidates remain `pending` and cannot enter a report:
+Historical events separate factual data, human review signals, and semantic fields. New records remain `pending` in `data/history-candidates.json`; approval copies them into the approved-only `data/history.json`:
 
 ```json
 {
@@ -248,6 +307,11 @@ Historical events separate factual data, human review signals, and semantic fiel
   "type": "race_win",
   "source": "Formula 1 results",
   "url": "https://www.formula1.com/en/results/2024/races/1239/hungary/race-result",
+  "candidate": {
+    "status": "pending",
+    "score": 100,
+    "signals": ["manual_seed", "verified_historical_source"]
+  },
   "selection": {
     "review_status": "pending",
     "include": null,
@@ -364,10 +428,12 @@ Current repository layout:
 /
 ├── .github/
 │   └── workflows/
+│       ├── review-history.yml
 │       └── update-piasnews.yml
 ├── README.md
 ├── data/
 │   ├── daily.json
+│   ├── history-candidates.json
 │   ├── history.json
 │   ├── items.json
 │   └── rss.xml
@@ -379,12 +445,27 @@ Current repository layout:
 │   │   └── openai.yaml
 │   ├── SKILL.md
 │   └── references/
+│       ├── history-retrieval.json
 │       ├── history.md
 │       └── sources.md
 ├── public/
+│   ├── admin/
+│   │   ├── app.js
+│   │   ├── index.html
+│   │   └── styles.css
 │   └── index.html
-└── scripts/
-    └── fetch_piasnews.py
+├── scripts/
+│   ├── build_history_candidates.py
+│   ├── fetch_piasnews.py
+│   ├── review_history.py
+│   └── validate_history.py
+├── tests/
+│   └── test_history_pipeline.py
+└── worker/
+    ├── src/
+    │   └── index.js
+    ├── README.md
+    └── wrangler.toml.example
 ```
 
 ## 10. Acceptance Criteria
@@ -411,6 +492,9 @@ V1 is complete when:
 - GitHub Pages publishes the static data entrypoint.
 - `data/history.json` is available for optional historical context and is published with Pages.
 - Unreviewed events never enter Looking Back; vector embeddings remain optional and are disabled by default.
+- The review console reads pending records, edits scores and semantic fields, and submits approval or rejection.
+- The static frontend never receives a GitHub token; a stateless Worker dispatches the controlled workflow.
+- Automatic nomination uses no LLM and does not repeatedly nominate sources already rejected.
 
 V2 is complete when:
 
@@ -420,8 +504,8 @@ V2 is complete when:
 
 ## 11. Open Questions
 
-- What GitHub repository URL should be used as `origin`?
 - Should the default Skill output use simplified Chinese, traditional Chinese, or match the user's language automatically?
 - Which X accounts should be included in the first maintained source list?
 - V1 now publishes through GitHub Pages under this repository.
+- Who will own the final public review-Worker URL and Cloudflare account?
 - Should the project name be displayed as `Piasnews`, `piasnews`, or `PIASNEWS` in user-facing output?
