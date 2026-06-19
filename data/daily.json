@@ -1,87 +1,88 @@
 {
-  "generated_at": "2026-06-19T05:24:24.959468Z",
+  "generated_at": "2026-06-19T10:57:13.187475Z",
   "window_days": 3,
   "total_items": 42,
   "latest_date": "2026-06-19",
   "days": [
     {
       "date": "2026-06-19",
-      "total_new_items": 1,
+      "total_new_items": 4,
       "official_new_items": 0,
-      "media_new_items": 1,
+      "media_new_items": 4,
       "x_new_items": 0,
-      "rumor_new_items": 0,
+      "rumor_new_items": 1,
       "sources": {
-        "Athlon Sports": 1
+        "Athlon Sports": 1,
+        "MSN": 2,
+        "racingnews365.com": 1
       },
       "categories": {
-        "team": 1
+        "race": 1,
+        "rumor": 1,
+        "team": 2
       }
     },
     {
       "date": "2026-06-18",
-      "total_new_items": 14,
+      "total_new_items": 16,
       "official_new_items": 1,
-      "media_new_items": 13,
+      "media_new_items": 15,
       "x_new_items": 0,
-      "rumor_new_items": 2,
+      "rumor_new_items": 1,
       "sources": {
         "F1 Oversteer": 1,
         "Formula 1": 1,
         "Fox Sports": 1,
         "GPblog": 1,
-        "MSN": 2,
+        "MSN": 5,
         "PlanetF1": 1,
         "Secret Singapore": 1,
         "The Nightly": 1,
         "Time Out Worldwide": 1,
         "Urban List": 1,
         "Yahoo Sports": 1,
-        "mustsharenews.com": 1,
-        "racingnews365.com": 1
-      },
-      "categories": {
-        "other": 2,
-        "race": 4,
-        "rumor": 2,
-        "team": 6
-      }
-    },
-    {
-      "date": "2026-06-17",
-      "total_new_items": 11,
-      "official_new_items": 1,
-      "media_new_items": 10,
-      "x_new_items": 0,
-      "rumor_new_items": 1,
-      "sources": {
-        "Auto Action": 1,
-        "F1i.com": 1,
-        "MSN": 6,
-        "McLaren": 1,
-        "News.com.au": 1,
-        "TheJudge13": 1
+        "mustsharenews.com": 1
       },
       "categories": {
         "other": 2,
         "race": 6,
         "rumor": 1,
-        "team": 2
+        "team": 7
+      }
+    },
+    {
+      "date": "2026-06-17",
+      "total_new_items": 10,
+      "official_new_items": 1,
+      "media_new_items": 9,
+      "x_new_items": 0,
+      "rumor_new_items": 1,
+      "sources": {
+        "Auto Action": 1,
+        "F1i.com": 1,
+        "MSN": 5,
+        "McLaren": 1,
+        "News.com.au": 1,
+        "TheJudge13": 1
+      },
+      "categories": {
+        "other": 1,
+        "race": 5,
+        "rumor": 1,
+        "team": 3
       }
     },
     {
       "date": "2026-06-16",
-      "total_new_items": 16,
+      "total_new_items": 12,
       "official_new_items": 0,
-      "media_new_items": 16,
+      "media_new_items": 12,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
-        "AutoRacing1.com": 1,
-        "BVM Sports": 1,
-        "Crash.net": 1,
-        "MSN": 7,
+        "MSN": 5,
         "Motorsport Week": 1,
+        "Nextgen-Auto.com": 1,
         "PlanetF1": 1,
         "RACER - Racing News": 1,
         "The Nightly": 1,
@@ -90,8 +91,8 @@
       },
       "categories": {
         "other": 1,
-        "race": 10,
-        "team": 5
+        "race": 8,
+        "team": 3
       }
     }
   ],
@@ -122,14 +123,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 44
+      "items": 42
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 26
+      "items": 27
     },
     {
       "query": "\"OP81\" when:3d",
@@ -143,14 +144,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 7
+      "items": 8
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 22
+      "items": 25
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
