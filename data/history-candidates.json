@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T00:00:00Z",
+  "generated_at": "2026-06-20T04:40:57.780508Z",
   "schema_version": 1,
   "description": "History candidates awaiting or recording human review decisions.",
   "candidates": [
@@ -407,6 +407,83 @@
         "reviewed_by": null,
         "decision_reason": null
       }
+    },
+    {
+      "id": "piastri-2026-06-17-auto-8efb9c31ae",
+      "date": "2026-06-17",
+      "month_day": "06-17",
+      "year": 2026,
+      "title": "Norris wins Miami sprint ahead of Piastri, Mercedes kept off podium",
+      "title_zh": null,
+      "summary": "Team or car-performance item discovered from public news metadata.",
+      "summary_zh": null,
+      "type": "race_win",
+      "source": "theScore",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNLWxtS0oyOWNpWDBZNjlLNTc1Ty03cHI1MTI1WmhYa2JSZFFkeFVpODdUR1d2bjRKTElfVzVxRkZtQlBWNnl2Y3lETWc2VVBQc3puaUZ1WjNIaHlYQ1ozWUxIN0x4WGhoUjBpLUdzaTdSTW1ueHdjTDNJT2pDbEVyZk5wWXNTNDliUjFpUlFVcEo1aXNGV2VjWmhZbTFEY2dUY0ZKaEVMc0RjNlNHWFRBYmdhZw?oc=5",
+      "verification": {
+        "status": "needs_review",
+        "source_type": "media",
+        "primary_source": false
+      },
+      "candidate": {
+        "status": "pending",
+        "score": 85,
+        "signals": [
+          "race_win",
+          "podium_or_pole"
+        ],
+        "source_count": 1,
+        "sources": [
+          "theScore"
+        ],
+        "source_item_ids": [
+          "piasnews-5464e51f9a788aec"
+        ],
+        "discovered_at": "2026-06-20T04:40:57.780508Z",
+        "origin": "deterministic_recent_news_rules",
+        "reviewed_at": null,
+        "reviewed_by": null,
+        "decision_reason": null
+      },
+      "selection": {
+        "review_status": "pending",
+        "include": null,
+        "historical_value": 85,
+        "peak_attention": null,
+        "lasting_significance": null,
+        "career_impact": null,
+        "fan_recognition": null,
+        "inclusion_reason": "Automatically nominated from signals: race_win, podium_or_pole.",
+        "inclusion_reason_zh": null
+      },
+      "semantic": {
+        "event_kind": "race_win",
+        "themes": [
+          "race_win",
+          "podium_or_pole"
+        ],
+        "entities": [
+          "Oscar Piastri",
+          "McLaren"
+        ],
+        "competition": "Formula 1",
+        "season": 2026,
+        "round": null,
+        "circuit": null,
+        "session": null,
+        "outcome": "Norris wins Miami sprint ahead of Piastri, Mercedes kept off podium",
+        "strong_keys": [
+          "race_win",
+          "norris_wins_miami_sprint_ahead_mercedes"
+        ],
+        "embedding_text": "Norris wins Miami sprint ahead of Piastri, Mercedes kept off podium. Team or car-performance item discovered from public news metadata."
+      },
+      "tags": [
+        "Oscar Piastri",
+        "McLaren",
+        "F1",
+        "race_win"
+      ]
     }
   ]
 }
