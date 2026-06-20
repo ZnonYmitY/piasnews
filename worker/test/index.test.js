@@ -30,7 +30,6 @@ function reviewRequest(apiKey = env.ADMIN_API_KEY) {
         title_zh: "Oscar Piastri 在匈牙利赢得首个 F1 大奖赛冠军",
         summary_zh: "Piastri 在匈牙利赢得个人首个 F1 大奖赛冠军。",
         inclusion_reason_zh: "这是 Piastri F1 生涯的首个大奖赛冠军。",
-        scores: { historical_value: 100 },
       },
     }),
   });
@@ -66,7 +65,7 @@ test("approval requires reviewed Chinese content", async () => {
     body: JSON.stringify({
       candidate_id: "piastri-2024-07-21-test-event",
       decision: "approve",
-      review: { scores: { historical_value: 100 } },
+      review: {},
     }),
   });
   const response = await worker.fetch(request, env);

@@ -43,7 +43,7 @@
       <section class="editor-panel" aria-label="候选事件审核">
         <div class="empty-state" id="emptyState">
           <p class="empty-title">选择一条候选事件</p>
-          <p>选择后可确认中文内容和未来参考价值。</p>
+          <p>选择后可确认中文内容并批准或拒绝。</p>
         </div>
 
         <form id="reviewForm" hidden>
@@ -85,24 +85,6 @@
               <label class="field field-wide">
                 <span>中文摘要</span>
                 <textarea id="summaryZhInput" name="summary_zh" rows="3" required maxlength="1200"></textarea>
-              </label>
-            </div>
-          </fieldset>
-
-          <fieldset class="form-section">
-            <legend>未来参考价值 <span class="legend-note">内部标签，不展示在日报</span></legend>
-            <div class="value-options">
-              <label class="value-option">
-                <input type="radio" name="historical_value" value="70">
-                <span><strong>值得保留</strong><small>有明确的纪念或关联价值</small></span>
-              </label>
-              <label class="value-option">
-                <input type="radio" name="historical_value" value="85">
-                <span><strong>重要节点</strong><small>会持续用于理解车手生涯</small></span>
-              </label>
-              <label class="value-option">
-                <input type="radio" name="historical_value" value="100">
-                <span><strong>标志事件</strong><small>车迷广泛认知的代表性时刻</small></span>
               </label>
             </div>
           </fieldset>

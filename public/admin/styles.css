@@ -354,13 +354,6 @@ textarea {
   font-weight: 800;
 }
 
-.legend-note {
-  margin-left: 8px;
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 500;
-}
-
 .form-section legend + * {
   clear: both;
 }
@@ -409,49 +402,6 @@ textarea {
 .field textarea {
   padding: 10px;
   resize: vertical;
-}
-
-.value-options {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-}
-
-.value-option {
-  min-width: 0;
-  border: 1px solid var(--border);
-  border-radius: 7px;
-  padding: 14px;
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  cursor: pointer;
-}
-
-.value-option:has(input:checked) {
-  border-color: var(--accent);
-  background: #fff7f0;
-  box-shadow: inset 0 0 0 1px var(--accent);
-}
-
-.value-option input {
-  margin: 3px 0 0;
-  accent-color: var(--accent);
-}
-
-.value-option span {
-  min-width: 0;
-  display: grid;
-  gap: 3px;
-}
-
-.value-option strong {
-  font-size: 13px;
-}
-
-.value-option small {
-  color: var(--muted);
-  line-height: 1.4;
 }
 
 .review-actions {
@@ -593,8 +543,7 @@ dialog::backdrop {
     flex: 1;
   }
 
-  .field-grid-two,
-  .value-options {
+  .field-grid-two {
     grid-template-columns: 1fr;
   }
 

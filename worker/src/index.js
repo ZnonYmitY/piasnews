@@ -50,10 +50,6 @@ function base64Url(value) {
   return btoa(binary).replaceAll("+", "-").replaceAll("/", "_").replace(/=+$/, "");
 }
 
-function validScore(value) {
-  return Number.isInteger(value) && value >= 0 && value <= 100;
-}
-
 function validateReview(body) {
   if (!body || typeof body !== "object") return "Request body must be an object.";
   if (!/^[a-z0-9-]{8,160}$/.test(body.candidate_id || "")) return "Invalid candidate_id.";
@@ -61,10 +57,6 @@ function validateReview(body) {
   if (!body.review || typeof body.review !== "object") return "Missing review payload.";
 
   if (body.decision === "approve") {
-    const scores = body.review.scores;
-    if (!scores || !validScore(scores.historical_value)) {
-      return "Approval requires one historical-value score from 0 to 100.";
-    }
     const requiredChineseFields = ["title_zh", "summary_zh", "inclusion_reason_zh"];
     if (requiredChineseFields.some((field) => typeof body.review[field] !== "string" || !body.review[field].trim())) {
       return "Approval requires Chinese title, summary, and inclusion reason.";

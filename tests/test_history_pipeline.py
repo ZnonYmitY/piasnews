@@ -51,6 +51,11 @@ class CandidateRulesTest(unittest.TestCase):
         self.assertIn("excluded_speculative_or_interview", signals)
         self.assertEqual(event_kind, "other")
 
+    def test_historical_value_is_assigned_from_candidate_signals(self):
+        self.assertEqual(candidate_builder.historical_value(70, ["official_source"]), 70)
+        self.assertEqual(candidate_builder.historical_value(85, ["race_win"]), 85)
+        self.assertEqual(candidate_builder.historical_value(95, ["coverage_3_plus_sources"]), 100)
+
 
 class ReviewWorkflowTest(unittest.TestCase):
     def setUp(self):
@@ -60,7 +65,6 @@ class ReviewWorkflowTest(unittest.TestCase):
         self.candidate["candidate"]["status"] = "pending"
         self.candidate["selection"]["review_status"] = "pending"
         self.candidate["selection"]["include"] = None
-        self.candidate["selection"]["historical_value"] = None
 
     def run_review(self, decision, review):
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -125,7 +129,6 @@ class ReviewWorkflowTest(unittest.TestCase):
             "date": self.candidate["date"],
             "summary_zh": self.candidate["summary_zh"],
             "type": self.candidate["type"],
-            "scores": {"historical_value": 100},
             "inclusion_reason_zh": self.candidate["selection"]["inclusion_reason_zh"],
             "decision_reason": "Approved in pipeline test.",
         }

@@ -44,12 +44,6 @@ def clean_text(value: Any, field: str, limit: int = 1200) -> str:
     return value.strip()[:limit]
 
 
-def clean_score(value: Any, field: str) -> int:
-    if isinstance(value, bool) or not isinstance(value, int) or not 0 <= value <= 100:
-        raise ValueError(f"{field} must be an integer from 0 to 100")
-    return value
-
-
 def apply_edits(candidate: dict[str, Any], payload: dict[str, Any]) -> None:
     for field in EDITABLE_TEXT_FIELDS:
         candidate[field] = clean_text(payload.get(field, candidate.get(field)), field)
@@ -59,13 +53,6 @@ def apply_edits(candidate: dict[str, Any], payload: dict[str, Any]) -> None:
     candidate["month_day"] = event_date.strftime("%m-%d")
     candidate["title_zh"] = clean_text(payload.get("title_zh"), "title_zh", 300)
     candidate["summary_zh"] = clean_text(payload.get("summary_zh"), "summary_zh")
-
-    scores = payload.get("scores", {})
-    if not isinstance(scores, dict):
-        raise ValueError("scores must be an object")
-    candidate["selection"]["historical_value"] = clean_score(
-        scores.get("historical_value"), "historical_value"
-    )
 
     candidate["selection"]["inclusion_reason_zh"] = clean_text(
         payload.get("inclusion_reason_zh"),

@@ -135,7 +135,7 @@ Component responsibilities:
 
 - `scripts/build_history_candidates.py`: runs deterministic rules after collection without an LLM. It favors championships, wins, podiums, poles, records, major contracts/team moves, and formal rulings; predictions, routine interviews, rumors, and market-value discussion are excluded by default.
 - `data/history-candidates.json`: stores pending, approved, and rejected review records for deduplication and audit history.
-- `public/admin/`: reads the queue and supports status filtering, Chinese title and summary review, one internal future-reference tier, approval, and rejection. Original titles and sources are read-only, and semantic fields do not require manual annotation.
+- `public/admin/`: reads the queue and supports status filtering, Chinese title and summary review, approval, and rejection. Original titles and sources are read-only, while historical value and semantic fields are system-maintained.
 - `worker/`: validates origin and an admin key, then dispatches a GitHub workflow; it stores no business data.
 - `.github/workflows/review-history.yml`: invokes `scripts/review_history.py`, validates JSON, commits the decision, and immediately redeploys Pages.
 - `data/history.json`: contains approved events only and is the sole maintained history source for Looking Back.
@@ -317,7 +317,7 @@ Historical events separate factual data, human review signals, and machine-maint
   "selection": {
     "review_status": "pending",
     "include": null,
-    "historical_value": null,
+    "historical_value": 100,
     "inclusion_reason_zh": null
   },
   "semantic": {
@@ -333,7 +333,7 @@ Historical events separate factual data, human review signals, and machine-maint
 }
 ```
 
-The reviewer chooses one future-reference tier: `70` (worth keeping), `85` (important milestone), or `100` (iconic event). This internal value controls Looking Back eligibility and later ranking or training supervision; it is not displayed in fan daily reports. Routine interviews and announcements are excluded by default, while an iconic social post can qualify through lasting impact. More detailed scores and semantic fields may be maintained by rules or later offline jobs without burdening routine review.
+Candidate rules use event type, official-source status, first-or-record signals, and source coverage to assign `70` (worth keeping), `85` (important milestone), or `100` (iconic event). This internal value controls Looking Back eligibility and later ranking or training supervision; it appears in neither the review form nor fan daily reports. Human approval or rejection remains the final admission gate. Routine interviews and announcements are excluded by default, while an iconic social post can qualify through lasting impact.
 
 Historical retrieval uses one `Looking Back` section. Candidates may be exact same-month/day anniversaries or events strongly related to today's main topic. A contextual candidate must match at least one precise strong semantic facet; broad tags such as `F1`, `McLaren`, `race`, or `street circuit` cannot qualify on their own.
 
@@ -491,7 +491,7 @@ V1 is complete when:
 - GitHub Pages publishes the static data entrypoint.
 - `data/history.json` is available for optional historical context and is published with Pages.
 - Unreviewed events never enter Looking Back; vector embeddings remain optional and are disabled by default.
-- The review console reads pending records, confirms Chinese content, selects one internal future-reference tier, and submits approval or rejection.
+- The review console reads pending records, confirms Chinese content, and submits approval or rejection; candidate rules assign historical value automatically.
 - The static frontend never receives a GitHub token; a stateless Worker dispatches the controlled workflow.
 - Automatic nomination uses no LLM and does not repeatedly nominate sources already rejected.
 

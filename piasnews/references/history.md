@@ -20,7 +20,7 @@ The maintained sources of truth are:
 
 1. `scripts/build_history_candidates.py` nominates conservative candidates from recent verified news metadata without using an LLM.
 2. Store pending, approved, and rejected review records in `data/history-candidates.json` so rejected items are not nominated repeatedly.
-3. The static review console lets the maintainer confirm Chinese copy, select one internal future-reference tier, and approve or reject. Original source facts remain read-only and semantic fields stay machine-maintained.
+3. The static review console lets the maintainer confirm Chinese copy and approve or reject. Original source facts remain read-only, while historical value and semantic fields stay machine-maintained.
 4. The stateless review Worker authenticates the request and dispatches `.github/workflows/review-history.yml`; it does not write repository files directly.
 5. `scripts/review_history.py` applies the decision. Approval copies the reviewed event into `data/history.json`; rejection remains in the candidate audit queue only.
 6. Run `python3 scripts/validate_history.py` before committing or publishing.
@@ -29,13 +29,13 @@ The maintained sources of truth are:
 
 ## Selection signals
 
-The routine review UI uses one required field:
+Candidate generation assigns one internal field:
 
 | Field | Meaning |
 | --- | --- |
 | `historical_value` | Overall value for future fan recall. This is the final display gate. |
 
-Use `70` for worth keeping, `85` for an important milestone, and `100` for an iconic event. Keep this value internal: it is useful for eligibility, later ranking calibration, and training supervision, but it must not appear in fan-facing daily reports. More detailed fields such as `peak_attention`, `lasting_significance`, `career_impact`, and `fan_recognition` are optional research labels and are not required during routine review.
+Use `70` for worth keeping, `85` for an important milestone, and `100` for an iconic event. `scripts/build_history_candidates.py` assigns the tier from deterministic event, source, and coverage signals; manually seeded events receive a reviewed tier in `data/history-candidates.json`. Keep this value out of both the review form and fan-facing daily reports. It remains useful for eligibility, later ranking calibration, and training supervision.
 
 Do not compare raw likes or views across years and platforms. Use engagement only as one signal alongside reputable coverage volume, later references, competitive significance, and human judgment.
 
@@ -119,7 +119,7 @@ See `data/history-candidates.json` for pending and reviewed examples, and `data/
   "selection": {
     "review_status": "pending",
     "include": null,
-    "historical_value": null,
+    "historical_value": 100,
     "inclusion_reason_zh": "为什么这件事值得未来回顾"
   },
   "semantic": {

@@ -191,6 +191,14 @@ def event_type(event_kind: str) -> str:
     }.get(event_kind, "other")
 
 
+def historical_value(score: int, signals: list[str]) -> int:
+    if score >= 95 or "championship" in signals:
+        return 100
+    if score >= 85 or "record_or_first" in signals:
+        return 85
+    return 70
+
+
 def build_candidate(cluster: list[dict[str, Any]], score: int, signals: list[str], event_kind: str, now: datetime) -> dict[str, Any]:
     lead = max(cluster, key=lambda item: (item.get("official", False), item.get("verified", False)))
     event_date = lead["published_at"][:10]
@@ -231,7 +239,7 @@ def build_candidate(cluster: list[dict[str, Any]], score: int, signals: list[str
         "selection": {
             "review_status": "pending",
             "include": None,
-            "historical_value": None,
+            "historical_value": historical_value(score, signals),
             "peak_attention": None,
             "lasting_significance": None,
             "career_impact": None,

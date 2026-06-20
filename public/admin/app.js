@@ -151,10 +151,6 @@ function selectCandidate(candidateId) {
   elements.reasonZhInput.value = candidate.selection.inclusion_reason_zh || "";
   elements.decisionReasonInput.value = candidate.candidate.decision_reason || "";
 
-  document.querySelectorAll('[name="historical_value"]').forEach((input) => {
-    input.checked = Number(input.value) === candidate.selection.historical_value;
-  });
-
   const status = candidate.candidate.status;
   elements.statusBadge.textContent = STATUS_LABELS[status];
   elements.statusBadge.className = `status-badge ${status}`;
@@ -197,16 +193,12 @@ function collectReview({ approval }) {
   };
   if (!approval) return review;
 
-  const historicalValue = document.querySelector('[name="historical_value"]:checked');
-  if (!historicalValue) throw new Error("请选择未来参考价值。");
-
   return {
     ...review,
     title_zh: elements.titleZhInput.value.trim(),
     date: elements.dateInput.value,
     summary_zh: elements.summaryZhInput.value.trim(),
     type: elements.typeInput.value,
-    scores: { historical_value: Number(historicalValue.value) },
     inclusion_reason_zh: elements.reasonZhInput.value.trim(),
   };
 }
