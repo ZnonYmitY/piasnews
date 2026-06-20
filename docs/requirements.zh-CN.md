@@ -135,7 +135,7 @@ flowchart LR
 
 - `scripts/build_history_candidates.py`：在每次采集后执行确定性规则筛选，不调用大模型。优先提名冠军、胜利、领奖台、杆位、纪录、重大合同/车队变动和正式裁决；预测、普通采访、传闻和市场价值讨论默认排除。
 - `data/history-candidates.json`：保存待审、已批准和已拒绝记录，作为去重与审核审计来源。
-- `public/admin/`：读取候选队列，支持筛选状态、修正事实、填写五项历史价值评分、编辑语义标签并批准或拒绝。
+- `public/admin/`：读取候选队列，支持筛选状态、确认中文标题与摘要、选择一档内部未来参考价值并批准或拒绝。原始标题和来源只读展示，语义字段不要求人工标注。
 - `worker/`：校验来源域名和管理员密钥，将审核内容编码后触发 GitHub workflow；不保存业务数据。
 - `.github/workflows/review-history.yml`：调用 `scripts/review_history.py`，验证 JSON、提交审核结果并立即重新部署 Pages。
 - `data/history.json`：只包含人工批准事件，是“往日回顾”唯一正式历史来源。
@@ -294,7 +294,7 @@ V0.5 行为：
 }
 ```
 
-历史事件采用事实、人工审核信号和语义字段三层。`data/history-candidates.json` 中的新候选默认保持 `pending`；批准后复制到只包含正式事件的 `data/history.json`：
+历史事件采用事实、人工审核信号和机器维护的语义字段三层。`data/history-candidates.json` 中的新候选默认保持 `pending`；批准后复制到只包含正式事件的 `data/history.json`：
 
 ```json
 {
@@ -303,7 +303,9 @@ V0.5 行为：
   "month_day": "07-21",
   "year": 2024,
   "title": "Oscar Piastri wins his first Formula 1 Grand Prix in Hungary",
+  "title_zh": "Oscar Piastri 在匈牙利赢得首个 F1 大奖赛冠军",
   "summary": "Short factual summary.",
+  "summary_zh": "Piastri 在匈牙利赢得个人首个 F1 大奖赛冠军。",
   "type": "race_win",
   "source": "Formula 1 results",
   "url": "https://www.formula1.com/en/results/2024/races/1239/hungary/race-result",
@@ -316,10 +318,7 @@ V0.5 行为：
     "review_status": "pending",
     "include": null,
     "historical_value": null,
-    "peak_attention": null,
-    "lasting_significance": null,
-    "career_impact": null,
-    "fan_recognition": null
+    "inclusion_reason_zh": null
   },
   "semantic": {
     "event_kind": "race_result",
@@ -334,7 +333,7 @@ V0.5 行为：
 }
 ```
 
-热度不使用单一平台互动量决定，而综合事件当时关注度、长期影响、生涯影响和车迷辨识度，由人工审核确认。普通采访和常规公告默认不收录；具有长期影响的标志性社媒事件可以收录。
+审核员只选择一个未来参考价值档位：`70`（值得保留）、`85`（重要节点）或 `100`（标志事件）。它是未来“往日回顾”准入、排序调优和训练监督信号，不在粉丝日报中外显。普通采访和常规公告默认不收录；具有长期影响的标志性社媒事件可以收录。其他细分评分和语义字段可以由规则或后续离线流程维护，不增加日常审核负担。
 
 历史检索统一输出为“往日回顾”：候选既可以来自同月同日，也可以来自与今日主线高度相关的历史事件。关联候选必须至少命中一个精确强语义字段；`F1`、`McLaren`、`比赛`、`街道赛`等宽泛标签不能单独构成关联。
 
@@ -492,7 +491,7 @@ V1 完成标准：
 - GitHub Pages 发布静态数据入口。
 - `data/history.json` 可用于可选历史事件上下文，并随 Pages 发布。
 - 未审核事件不会进入“往日回顾”；向量模型为可选依赖，当前默认关闭。
-- 审核后台可以读取待审队列、编辑评分与语义字段并提交批准/拒绝。
+- 审核后台可以读取待审队列、确认中文内容、选择内部未来参考价值并提交批准/拒绝。
 - GitHub Token 不出现在静态前端，审核请求通过无状态 Worker 触发受控 workflow。
 - 自动候选流程不调用大模型，并能避免重复提名已拒绝来源事件。
 

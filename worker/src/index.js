@@ -62,18 +62,12 @@ function validateReview(body) {
 
   if (body.decision === "approve") {
     const scores = body.review.scores;
-    const scoreFields = [
-      "historical_value",
-      "peak_attention",
-      "lasting_significance",
-      "career_impact",
-      "fan_recognition",
-    ];
-    if (!scores || scoreFields.some((field) => !validScore(scores[field]))) {
-      return "Approval requires five integer scores from 0 to 100.";
+    if (!scores || !validScore(scores.historical_value)) {
+      return "Approval requires one historical-value score from 0 to 100.";
     }
-    if (!Array.isArray(body.review.strong_keys) || body.review.strong_keys.length === 0) {
-      return "Approval requires at least one strong semantic key.";
+    const requiredChineseFields = ["title_zh", "summary_zh", "inclusion_reason_zh"];
+    if (requiredChineseFields.some((field) => typeof body.review[field] !== "string" || !body.review[field].trim())) {
+      return "Approval requires Chinese title, summary, and inclusion reason.";
     }
   }
   return null;

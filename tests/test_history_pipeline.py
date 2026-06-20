@@ -14,15 +14,6 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import build_history_candidates as candidate_builder  # noqa: E402
 
 
-SCORE_FIELDS = (
-    "historical_value",
-    "peak_attention",
-    "lasting_significance",
-    "career_impact",
-    "fan_recognition",
-)
-
-
 def encode_payload(payload):
     raw = json.dumps(payload).encode()
     return base64.urlsafe_b64encode(raw).decode().rstrip("=")
@@ -69,8 +60,7 @@ class ReviewWorkflowTest(unittest.TestCase):
         self.candidate["candidate"]["status"] = "pending"
         self.candidate["selection"]["review_status"] = "pending"
         self.candidate["selection"]["include"] = None
-        for field in SCORE_FIELDS:
-            self.candidate["selection"][field] = None
+        self.candidate["selection"]["historical_value"] = None
 
     def run_review(self, decision, review):
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -131,29 +121,20 @@ class ReviewWorkflowTest(unittest.TestCase):
 
     def test_approval_moves_event_into_history(self):
         review = {
-            "title": self.candidate["title"],
+            "title_zh": self.candidate["title_zh"],
             "date": self.candidate["date"],
-            "summary": self.candidate["summary"],
+            "summary_zh": self.candidate["summary_zh"],
             "type": self.candidate["type"],
-            "source": self.candidate["source"],
-            "url": self.candidate["url"],
-            "scores": {
-                "historical_value": 95,
-                "peak_attention": 95,
-                "lasting_significance": 98,
-                "career_impact": 92,
-                "fan_recognition": 98,
-            },
-            "inclusion_reason": "A defining career moment.",
-            "themes": ["contract dispute"],
-            "strong_keys": ["alpine_contract_dispute"],
-            "embedding_text": self.candidate["semantic"]["embedding_text"],
-            "tags": self.candidate["tags"],
+            "scores": {"historical_value": 100},
+            "inclusion_reason_zh": self.candidate["selection"]["inclusion_reason_zh"],
             "decision_reason": "Approved in pipeline test.",
         }
         history, candidates = self.run_review("approve", review)
         self.assertEqual(len(history["events"]), 1)
         self.assertEqual(history["events"][0]["selection"]["review_status"], "approved")
+        self.assertEqual(history["events"][0]["selection"]["historical_value"], 100)
+        self.assertEqual(history["events"][0]["title_zh"], self.candidate["title_zh"])
+        self.assertEqual(history["events"][0]["semantic"], self.candidate["semantic"])
         self.assertEqual(candidates["candidates"][0]["candidate"]["status"], "approved")
 
     def test_rejection_stays_out_of_history(self):

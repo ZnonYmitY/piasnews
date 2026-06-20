@@ -43,7 +43,7 @@
       <section class="editor-panel" aria-label="候选事件审核">
         <div class="empty-state" id="emptyState">
           <p class="empty-title">选择一条候选事件</p>
-          <p>待审事件的事实、热度和语义标签会在这里展开。</p>
+          <p>选择后可确认中文内容和未来参考价值。</p>
         </div>
 
         <form id="reviewForm" hidden>
@@ -51,20 +51,20 @@
             <div>
               <div class="editor-meta-row">
                 <span class="status-badge" id="statusBadge">待审</span>
-                <span id="candidateScore">候选分 0</span>
+                <span id="candidateScore">规则分 0</span>
               </div>
               <h2 id="editorTitle">候选事件</h2>
-              <p class="editor-signals" id="editorSignals"></p>
+              <p class="editor-original" id="originalTitle"></p>
             </div>
             <a class="source-link" id="sourceLink" href="#" target="_blank" rel="noreferrer">查看原始来源</a>
           </header>
 
           <fieldset class="form-section">
-            <legend>事件事实</legend>
+            <legend>审核内容</legend>
             <div class="field-grid field-grid-two">
               <label class="field field-wide">
-                <span>标题</span>
-                <input id="titleInput" name="title" required maxlength="300">
+                <span>中文标题</span>
+                <input id="titleZhInput" name="title_zh" required maxlength="300">
               </label>
               <label class="field">
                 <span>事件日期</span>
@@ -83,76 +83,39 @@
                 </select>
               </label>
               <label class="field field-wide">
-                <span>摘要</span>
-                <textarea id="summaryInput" name="summary" rows="3" required maxlength="1200"></textarea>
-              </label>
-              <label class="field">
-                <span>来源名称</span>
-                <input id="sourceInput" name="source" required maxlength="160">
-              </label>
-              <label class="field">
-                <span>来源链接</span>
-                <input id="urlInput" name="url" type="url" required>
+                <span>中文摘要</span>
+                <textarea id="summaryZhInput" name="summary_zh" rows="3" required maxlength="1200"></textarea>
               </label>
             </div>
           </fieldset>
 
           <fieldset class="form-section">
-            <legend>历史价值评分</legend>
-            <div class="score-grid">
-              <label class="score-field">
-                <span>总体历史价值</span>
-                <input type="range" min="0" max="100" value="70" data-score-range="historical_value">
-                <input type="number" min="0" max="100" placeholder="--" data-score-number="historical_value">
+            <legend>未来参考价值 <span class="legend-note">内部标签，不展示在日报</span></legend>
+            <div class="value-options">
+              <label class="value-option">
+                <input type="radio" name="historical_value" value="70">
+                <span><strong>值得保留</strong><small>有明确的纪念或关联价值</small></span>
               </label>
-              <label class="score-field">
-                <span>当时关注度</span>
-                <input type="range" min="0" max="100" value="70" data-score-range="peak_attention">
-                <input type="number" min="0" max="100" placeholder="--" data-score-number="peak_attention">
+              <label class="value-option">
+                <input type="radio" name="historical_value" value="85">
+                <span><strong>重要节点</strong><small>会持续用于理解车手生涯</small></span>
               </label>
-              <label class="score-field">
-                <span>长期影响</span>
-                <input type="range" min="0" max="100" value="70" data-score-range="lasting_significance">
-                <input type="number" min="0" max="100" placeholder="--" data-score-number="lasting_significance">
-              </label>
-              <label class="score-field">
-                <span>生涯影响</span>
-                <input type="range" min="0" max="100" value="70" data-score-range="career_impact">
-                <input type="number" min="0" max="100" placeholder="--" data-score-number="career_impact">
-              </label>
-              <label class="score-field">
-                <span>车迷辨识度</span>
-                <input type="range" min="0" max="100" value="70" data-score-range="fan_recognition">
-                <input type="number" min="0" max="100" placeholder="--" data-score-number="fan_recognition">
+              <label class="value-option">
+                <input type="radio" name="historical_value" value="100">
+                <span><strong>标志事件</strong><small>车迷广泛认知的代表性时刻</small></span>
               </label>
             </div>
           </fieldset>
 
           <fieldset class="form-section">
-            <legend>语义标注</legend>
-            <div class="field-grid field-grid-two">
+            <legend>判断依据</legend>
+            <div class="field-grid">
               <label class="field field-wide">
-                <span>入选理由</span>
-                <textarea id="reasonInput" rows="2" required maxlength="1200"></textarea>
-              </label>
-              <label class="field">
-                <span>主题，使用逗号分隔</span>
-                <input id="themesInput" maxlength="800">
-              </label>
-              <label class="field">
-                <span>强语义键，使用逗号分隔</span>
-                <input id="strongKeysInput" required maxlength="800">
+                <span>中文入选理由</span>
+                <textarea id="reasonZhInput" rows="2" required maxlength="1200"></textarea>
               </label>
               <label class="field field-wide">
-                <span>向量文本</span>
-                <textarea id="embeddingTextInput" rows="3" required maxlength="1600"></textarea>
-              </label>
-              <label class="field field-wide">
-                <span>标签，使用逗号分隔</span>
-                <input id="tagsInput" maxlength="800">
-              </label>
-              <label class="field field-wide">
-                <span>审核备注</span>
+                <span>审核备注（可选）</span>
                 <textarea id="decisionReasonInput" rows="2" maxlength="1200"></textarea>
               </label>
             </div>

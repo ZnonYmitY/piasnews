@@ -20,7 +20,7 @@ The maintained sources of truth are:
 
 1. `scripts/build_history_candidates.py` nominates conservative candidates from recent verified news metadata without using an LLM.
 2. Store pending, approved, and rejected review records in `data/history-candidates.json` so rejected items are not nominated repeatedly.
-3. The static review console lets the maintainer correct facts, assign all five scores, edit precise semantic fields, and approve or reject.
+3. The static review console lets the maintainer confirm Chinese copy, select one internal future-reference tier, and approve or reject. Original source facts remain read-only and semantic fields stay machine-maintained.
 4. The stateless review Worker authenticates the request and dispatches `.github/workflows/review-history.yml`; it does not write repository files directly.
 5. `scripts/review_history.py` applies the decision. Approval copies the reviewed event into `data/history.json`; rejection remains in the candidate audit queue only.
 6. Run `python3 scripts/validate_history.py` before committing or publishing.
@@ -29,15 +29,13 @@ The maintained sources of truth are:
 
 ## Selection signals
 
-Use a 0-100 scale:
+The routine review UI uses one required field:
 
 | Field | Meaning |
 | --- | --- |
 | `historical_value` | Overall value for future fan recall. This is the final display gate. |
-| `peak_attention` | How much attention the event received when it happened. |
-| `lasting_significance` | Whether fans and later coverage continue to reference it. |
-| `career_impact` | How strongly it changed Piastri's career or competitive record. |
-| `fan_recognition` | Whether fans can recognize the event without lengthy setup. |
+
+Use `70` for worth keeping, `85` for an important milestone, and `100` for an iconic event. Keep this value internal: it is useful for eligibility, later ranking calibration, and training supervision, but it must not appear in fan-facing daily reports. More detailed fields such as `peak_attention`, `lasting_significance`, `career_impact`, and `fan_recognition` are optional research labels and are not required during routine review.
 
 Do not compare raw likes or views across years and platforms. Use engagement only as one signal alongside reputable coverage volume, later references, competitive significance, and human judgment.
 
@@ -62,7 +60,7 @@ Use one merged section with at most one item:
 
 1. Build anniversary candidates from exact `month_day` matches.
 2. Build contextual candidates only when the current main news and a historical event share at least one exact strong facet. If embeddings are enabled later, vector similarity is an additional signal, not a replacement for this gate.
-3. Keep only approved events with `include: true` and `historical_value >= 70`.
+3. Keep only approved events with `include: true` and `historical_value >= 70`; prefer `title_zh` and `summary_zh` in Chinese reports.
 4. Rank eligible candidates according to `references/history-retrieval.json`.
 5. Omit the section when there is no meaningful candidate.
 
@@ -100,7 +98,7 @@ Use the normal Piasnews Git repository for code, labels, tests, model metadata, 
 
 Do not train a base model from scratch. Build supervision from human review in stages:
 
-1. Collect event-level inclusion scores and approval decisions in `data/history-candidates.json`; keep approved serving data in `data/history.json`.
+1. Collect event-level historical-value tiers and approval decisions in `data/history-candidates.json`; keep approved serving data in `data/history.json`.
 2. After contextual retrieval is used, collect query-event pairs with `relevant`, `relation_type`, matched strong facets, and a short rejection reason.
 3. Preserve hard negatives, such as two street-circuit events that share broad context but differ in circuit, session, outcome, and historical meaning.
 4. Tune gates, thresholds, and ranking weights before changing any model.
@@ -114,15 +112,15 @@ See `data/history-candidates.json` for pending and reviewed examples, and `data/
 
 ```json
 {
+  "title": "Original source-language title",
+  "title_zh": "Reviewed Chinese title",
+  "summary": "Original source-language summary",
+  "summary_zh": "Reviewed Chinese summary",
   "selection": {
     "review_status": "pending",
     "include": null,
     "historical_value": null,
-    "peak_attention": null,
-    "lasting_significance": null,
-    "career_impact": null,
-    "fan_recognition": null,
-    "inclusion_reason": "Why this candidate may matter"
+    "inclusion_reason_zh": "为什么这件事值得未来回顾"
   },
   "semantic": {
     "event_kind": "race_result",

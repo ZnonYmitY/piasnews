@@ -135,7 +135,7 @@ Component responsibilities:
 
 - `scripts/build_history_candidates.py`: runs deterministic rules after collection without an LLM. It favors championships, wins, podiums, poles, records, major contracts/team moves, and formal rulings; predictions, routine interviews, rumors, and market-value discussion are excluded by default.
 - `data/history-candidates.json`: stores pending, approved, and rejected review records for deduplication and audit history.
-- `public/admin/`: reads the queue and supports status filtering, factual corrections, five historical-value scores, semantic labels, approval, and rejection.
+- `public/admin/`: reads the queue and supports status filtering, Chinese title and summary review, one internal future-reference tier, approval, and rejection. Original titles and sources are read-only, and semantic fields do not require manual annotation.
 - `worker/`: validates origin and an admin key, then dispatches a GitHub workflow; it stores no business data.
 - `.github/workflows/review-history.yml`: invokes `scripts/review_history.py`, validates JSON, commits the decision, and immediately redeploys Pages.
 - `data/history.json`: contains approved events only and is the sole maintained history source for Looking Back.
@@ -294,7 +294,7 @@ Daily stats shape:
 }
 ```
 
-Historical events separate factual data, human review signals, and semantic fields. New records remain `pending` in `data/history-candidates.json`; approval copies them into the approved-only `data/history.json`:
+Historical events separate factual data, human review signals, and machine-maintained semantic fields. New records remain `pending` in `data/history-candidates.json`; approval copies them into the approved-only `data/history.json`:
 
 ```json
 {
@@ -303,7 +303,9 @@ Historical events separate factual data, human review signals, and semantic fiel
   "month_day": "07-21",
   "year": 2024,
   "title": "Oscar Piastri wins his first Formula 1 Grand Prix in Hungary",
+  "title_zh": "Oscar Piastri 在匈牙利赢得首个 F1 大奖赛冠军",
   "summary": "Short factual summary.",
+  "summary_zh": "Piastri 在匈牙利赢得个人首个 F1 大奖赛冠军。",
   "type": "race_win",
   "source": "Formula 1 results",
   "url": "https://www.formula1.com/en/results/2024/races/1239/hungary/race-result",
@@ -316,10 +318,7 @@ Historical events separate factual data, human review signals, and semantic fiel
     "review_status": "pending",
     "include": null,
     "historical_value": null,
-    "peak_attention": null,
-    "lasting_significance": null,
-    "career_impact": null,
-    "fan_recognition": null
+    "inclusion_reason_zh": null
   },
   "semantic": {
     "event_kind": "race_result",
@@ -334,7 +333,7 @@ Historical events separate factual data, human review signals, and semantic fiel
 }
 ```
 
-Historical value is not decided by one platform's engagement count. Human review combines peak attention, lasting significance, career impact, and fan recognition. Routine interviews and announcements are excluded by default, while an iconic social post can qualify through lasting impact.
+The reviewer chooses one future-reference tier: `70` (worth keeping), `85` (important milestone), or `100` (iconic event). This internal value controls Looking Back eligibility and later ranking or training supervision; it is not displayed in fan daily reports. Routine interviews and announcements are excluded by default, while an iconic social post can qualify through lasting impact. More detailed scores and semantic fields may be maintained by rules or later offline jobs without burdening routine review.
 
 Historical retrieval uses one `Looking Back` section. Candidates may be exact same-month/day anniversaries or events strongly related to today's main topic. A contextual candidate must match at least one precise strong semantic facet; broad tags such as `F1`, `McLaren`, `race`, or `street circuit` cannot qualify on their own.
 
@@ -492,7 +491,7 @@ V1 is complete when:
 - GitHub Pages publishes the static data entrypoint.
 - `data/history.json` is available for optional historical context and is published with Pages.
 - Unreviewed events never enter Looking Back; vector embeddings remain optional and are disabled by default.
-- The review console reads pending records, edits scores and semantic fields, and submits approval or rejection.
+- The review console reads pending records, confirms Chinese content, selects one internal future-reference tier, and submits approval or rejection.
 - The static frontend never receives a GitHub token; a stateless Worker dispatches the controlled workflow.
 - Automatic nomination uses no LLM and does not repeatedly nominate sources already rejected.
 

@@ -11,14 +11,7 @@ from pathlib import Path
 from typing import Any
 
 
-SCORE_FIELDS = (
-    "historical_value",
-    "peak_attention",
-    "lasting_significance",
-    "career_impact",
-    "fan_recognition",
-)
-EDITABLE_TEXT_FIELDS = ("title", "date", "summary", "type", "source", "url")
+EDITABLE_TEXT_FIELDS = ("date", "type")
 
 
 def utc_iso() -> str:
@@ -51,17 +44,6 @@ def clean_text(value: Any, field: str, limit: int = 1200) -> str:
     return value.strip()[:limit]
 
 
-def clean_list(value: Any, field: str, limit: int = 20) -> list[str]:
-    if not isinstance(value, list):
-        raise ValueError(f"{field} must be a list")
-    cleaned = []
-    for entry in value[:limit]:
-        text = clean_text(entry, field, 120)
-        if text not in cleaned:
-            cleaned.append(text)
-    return cleaned
-
-
 def clean_score(value: Any, field: str) -> int:
     if isinstance(value, bool) or not isinstance(value, int) or not 0 <= value <= 100:
         raise ValueError(f"{field} must be an integer from 0 to 100")
@@ -75,26 +57,20 @@ def apply_edits(candidate: dict[str, Any], payload: dict[str, Any]) -> None:
     event_date = datetime.fromisoformat(candidate["date"]).date()
     candidate["year"] = event_date.year
     candidate["month_day"] = event_date.strftime("%m-%d")
+    candidate["title_zh"] = clean_text(payload.get("title_zh"), "title_zh", 300)
+    candidate["summary_zh"] = clean_text(payload.get("summary_zh"), "summary_zh")
 
     scores = payload.get("scores", {})
     if not isinstance(scores, dict):
         raise ValueError("scores must be an object")
-    for field in SCORE_FIELDS:
-        candidate["selection"][field] = clean_score(scores.get(field), field)
+    candidate["selection"]["historical_value"] = clean_score(
+        scores.get("historical_value"), "historical_value"
+    )
 
-    candidate["selection"]["inclusion_reason"] = clean_text(
-        payload.get("inclusion_reason", candidate["selection"].get("inclusion_reason")),
-        "inclusion_reason",
+    candidate["selection"]["inclusion_reason_zh"] = clean_text(
+        payload.get("inclusion_reason_zh"),
+        "inclusion_reason_zh",
     )
-    candidate["semantic"]["themes"] = clean_list(payload.get("themes", []), "themes")
-    candidate["semantic"]["strong_keys"] = clean_list(payload.get("strong_keys", []), "strong_keys")
-    if not candidate["semantic"]["strong_keys"]:
-        raise ValueError("strong_keys must contain at least one precise key")
-    candidate["semantic"]["embedding_text"] = clean_text(
-        payload.get("embedding_text", candidate["semantic"].get("embedding_text")),
-        "embedding_text",
-    )
-    candidate["tags"] = clean_list(payload.get("tags", candidate.get("tags", [])), "tags")
 
 
 def approved_event(candidate: dict[str, Any], reviewer: str, reviewed_at: str) -> dict[str, Any]:

@@ -27,14 +27,10 @@ function reviewRequest(apiKey = env.ADMIN_API_KEY) {
       candidate_id: "piastri-2024-07-21-test-event",
       decision: "approve",
       review: {
-        scores: {
-          historical_value: 95,
-          peak_attention: 90,
-          lasting_significance: 92,
-          career_impact: 96,
-          fan_recognition: 94,
-        },
-        strong_keys: ["first_grand_prix_win"],
+        title_zh: "Oscar Piastri 在匈牙利赢得首个 F1 大奖赛冠军",
+        summary_zh: "Piastri 在匈牙利赢得个人首个 F1 大奖赛冠军。",
+        inclusion_reason_zh: "这是 Piastri F1 生涯的首个大奖赛冠军。",
+        scores: { historical_value: 100 },
       },
     }),
   });
@@ -56,6 +52,26 @@ test("health endpoint is public for an allowed origin", async () => {
 test("review endpoint rejects an invalid admin key", async () => {
   const response = await worker.fetch(reviewRequest("wrong-key"), env);
   assert.equal(response.status, 401);
+});
+
+
+test("approval requires reviewed Chinese content", async () => {
+  const request = new Request("https://worker.example/review", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${env.ADMIN_API_KEY}`,
+      "Content-Type": "application/json",
+      Origin: "https://znonymity.github.io",
+    },
+    body: JSON.stringify({
+      candidate_id: "piastri-2024-07-21-test-event",
+      decision: "approve",
+      review: { scores: { historical_value: 100 } },
+    }),
+  });
+  const response = await worker.fetch(request, env);
+  assert.equal(response.status, 400);
+  assert.match((await response.json()).error, /Chinese title/);
 });
 
 

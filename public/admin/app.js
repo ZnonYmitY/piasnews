@@ -1,11 +1,3 @@
-const SCORE_FIELDS = [
-  "historical_value",
-  "peak_attention",
-  "lasting_significance",
-  "career_impact",
-  "fan_recognition",
-];
-
 const STATUS_LABELS = {
   pending: "待审",
   approved: "已通过",
@@ -28,39 +20,26 @@ const elements = {
   connectionState: document.querySelector("#connectionState"),
   dateInput: document.querySelector("#dateInput"),
   decisionReasonInput: document.querySelector("#decisionReasonInput"),
-  editorSignals: document.querySelector("#editorSignals"),
   editorTitle: document.querySelector("#editorTitle"),
-  embeddingTextInput: document.querySelector("#embeddingTextInput"),
   emptyState: document.querySelector("#emptyState"),
+  originalTitle: document.querySelector("#originalTitle"),
   pendingCount: document.querySelector("#pendingCount"),
   queueUpdated: document.querySelector("#queueUpdated"),
-  reasonInput: document.querySelector("#reasonInput"),
+  reasonZhInput: document.querySelector("#reasonZhInput"),
   refreshButton: document.querySelector("#refreshButton"),
   rejectButton: document.querySelector("#rejectButton"),
   reviewForm: document.querySelector("#reviewForm"),
   saveSettingsButton: document.querySelector("#saveSettingsButton"),
   settingsButton: document.querySelector("#settingsButton"),
   settingsDialog: document.querySelector("#settingsDialog"),
-  sourceInput: document.querySelector("#sourceInput"),
   sourceLink: document.querySelector("#sourceLink"),
   statusBadge: document.querySelector("#statusBadge"),
-  strongKeysInput: document.querySelector("#strongKeysInput"),
-  summaryInput: document.querySelector("#summaryInput"),
-  tagsInput: document.querySelector("#tagsInput"),
-  themesInput: document.querySelector("#themesInput"),
-  titleInput: document.querySelector("#titleInput"),
+  summaryZhInput: document.querySelector("#summaryZhInput"),
+  titleZhInput: document.querySelector("#titleZhInput"),
   toast: document.querySelector("#toast"),
   typeInput: document.querySelector("#typeInput"),
-  urlInput: document.querySelector("#urlInput"),
   workerUrlInput: document.querySelector("#workerUrlInput"),
 };
-
-function commaList(value) {
-  return value
-    .split(/[,，]/)
-    .map((entry) => entry.trim())
-    .filter(Boolean);
-}
 
 function showToast(message) {
   elements.toast.textContent = message;
@@ -110,6 +89,10 @@ function filteredCandidates() {
   return state.candidates.filter((candidate) => candidate.candidate.status === state.filter);
 }
 
+function displayTitle(candidate) {
+  return candidate.title_zh || candidate.title;
+}
+
 function renderQueue() {
   const candidates = filteredCandidates();
   const pending = state.candidates.filter((candidate) => candidate.candidate.status === "pending").length;
@@ -130,7 +113,7 @@ function renderQueue() {
             <span class="status-badge ${meta.status}">${STATUS_LABELS[meta.status]}</span>
             <span class="candidate-source">候选分 ${meta.score}</span>
           </div>
-          <h3>${escapeHtml(candidate.title)}</h3>
+          <h3>${escapeHtml(displayTitle(candidate))}</h3>
           <div class="candidate-item-bottom">
             <span>${escapeHtml(candidate.source)}</span>
             <time datetime="${candidate.date}">${candidate.date}</time>
@@ -150,13 +133,6 @@ function escapeHtml(value) {
   return node.innerHTML;
 }
 
-function setScore(field, value) {
-  const range = document.querySelector(`[data-score-range="${field}"]`);
-  const number = document.querySelector(`[data-score-number="${field}"]`);
-  range.value = value ?? 70;
-  number.value = value ?? "";
-}
-
 function selectCandidate(candidateId) {
   state.selectedId = candidateId;
   const candidate = selectedCandidate();
@@ -164,28 +140,25 @@ function selectCandidate(candidateId) {
 
   elements.emptyState.hidden = true;
   elements.reviewForm.hidden = false;
-  elements.editorTitle.textContent = candidate.title;
-  elements.titleInput.value = candidate.title;
+  elements.editorTitle.textContent = displayTitle(candidate);
+  elements.originalTitle.textContent = `原始标题：${candidate.title}`;
+  elements.titleZhInput.value = candidate.title_zh || "";
   elements.dateInput.value = candidate.date;
   elements.typeInput.value = candidate.type;
-  elements.summaryInput.value = candidate.summary;
-  elements.sourceInput.value = candidate.source;
-  elements.urlInput.value = candidate.url;
+  elements.summaryZhInput.value = candidate.summary_zh || "";
   elements.sourceLink.href = candidate.url;
-  elements.reasonInput.value = candidate.selection.inclusion_reason || "";
-  elements.themesInput.value = (candidate.semantic.themes || []).join(", ");
-  elements.strongKeysInput.value = (candidate.semantic.strong_keys || []).join(", ");
-  elements.embeddingTextInput.value = candidate.semantic.embedding_text || "";
-  elements.tagsInput.value = (candidate.tags || []).join(", ");
+  elements.sourceLink.textContent = `查看来源：${candidate.source}`;
+  elements.reasonZhInput.value = candidate.selection.inclusion_reason_zh || "";
   elements.decisionReasonInput.value = candidate.candidate.decision_reason || "";
 
-  SCORE_FIELDS.forEach((field) => setScore(field, candidate.selection[field]));
+  document.querySelectorAll('[name="historical_value"]').forEach((input) => {
+    input.checked = Number(input.value) === candidate.selection.historical_value;
+  });
 
   const status = candidate.candidate.status;
   elements.statusBadge.textContent = STATUS_LABELS[status];
   elements.statusBadge.className = `status-badge ${status}`;
-  elements.candidateScore.textContent = `候选分 ${candidate.candidate.score}`;
-  elements.editorSignals.textContent = (candidate.candidate.signals || []).join(" · ");
+  elements.candidateScore.textContent = `规则分 ${candidate.candidate.score}`;
 
   const isPending = status === "pending" && !state.queuedIds.has(candidate.id);
   elements.approveButton.disabled = !isPending;
@@ -218,40 +191,23 @@ async function loadCandidates({ preserveSelection = true } = {}) {
   }
 }
 
-function collectScores() {
-  const scores = {};
-  for (const field of SCORE_FIELDS) {
-    const input = document.querySelector(`[data-score-number="${field}"]`);
-    if (input.value === "") throw new Error("请完成全部五项历史价值评分。");
-    const value = Number(input.value);
-    if (!Number.isInteger(value) || value < 0 || value > 100) {
-      throw new Error("评分必须是 0 到 100 的整数。");
-    }
-    scores[field] = value;
-  }
-  return scores;
-}
-
 function collectReview({ approval }) {
   const review = {
     decision_reason: elements.decisionReasonInput.value.trim() || null,
   };
   if (!approval) return review;
 
+  const historicalValue = document.querySelector('[name="historical_value"]:checked');
+  if (!historicalValue) throw new Error("请选择未来参考价值。");
+
   return {
     ...review,
-    title: elements.titleInput.value.trim(),
+    title_zh: elements.titleZhInput.value.trim(),
     date: elements.dateInput.value,
-    summary: elements.summaryInput.value.trim(),
+    summary_zh: elements.summaryZhInput.value.trim(),
     type: elements.typeInput.value,
-    source: elements.sourceInput.value.trim(),
-    url: elements.urlInput.value.trim(),
-    scores: collectScores(),
-    inclusion_reason: elements.reasonInput.value.trim(),
-    themes: commaList(elements.themesInput.value),
-    strong_keys: commaList(elements.strongKeysInput.value),
-    embedding_text: elements.embeddingTextInput.value.trim(),
-    tags: commaList(elements.tagsInput.value),
+    scores: { historical_value: Number(historicalValue.value) },
+    inclusion_reason_zh: elements.reasonZhInput.value.trim(),
   };
 }
 
@@ -267,9 +223,6 @@ async function submitDecision(decision) {
   let review;
   try {
     review = collectReview({ approval: decision === "approve" });
-    if (decision === "approve" && review.strong_keys.length === 0) {
-      throw new Error("至少保留一个强语义键。");
-    }
   } catch (error) {
     showToast(error.message);
     return;
@@ -327,20 +280,6 @@ document.querySelectorAll("[data-filter]").forEach((button) => {
     } else {
       elements.reviewForm.hidden = true;
       elements.emptyState.hidden = false;
-    }
-  });
-});
-
-document.querySelectorAll("[data-score-range]").forEach((range) => {
-  range.addEventListener("input", () => {
-    document.querySelector(`[data-score-number="${range.dataset.scoreRange}"]`).value = range.value;
-  });
-});
-
-document.querySelectorAll("[data-score-number]").forEach((number) => {
-  number.addEventListener("input", () => {
-    if (number.value !== "") {
-      document.querySelector(`[data-score-range="${number.dataset.scoreNumber}"]`).value = number.value;
     }
   });
 });

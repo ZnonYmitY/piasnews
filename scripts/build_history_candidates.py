@@ -204,7 +204,9 @@ def build_candidate(cluster: list[dict[str, Any]], score: int, signals: list[str
         "month_day": event_date[5:],
         "year": int(event_date[:4]),
         "title": lead["title"],
+        "title_zh": None,
         "summary": lead.get("summary") or "Candidate generated from recent public news metadata.",
+        "summary_zh": None,
         "type": event_type(event_kind),
         "source": lead.get("source") or "Unknown",
         "url": lead["url"],
@@ -235,6 +237,7 @@ def build_candidate(cluster: list[dict[str, Any]], score: int, signals: list[str
             "career_impact": None,
             "fan_recognition": None,
             "inclusion_reason": f"Automatically nominated from signals: {', '.join(signals)}.",
+            "inclusion_reason_zh": None,
         },
         "semantic": {
             "event_kind": event_kind,

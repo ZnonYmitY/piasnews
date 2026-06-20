@@ -94,6 +94,8 @@ Summarize the latest Oscar Piastri news in English.
 
 “往日回顾”把同日纪念和强关联历史合并成一个可选模块，来自 `data/history.json`。只展示已经人工审核、历史价值达标的事件；普通采访和常规公告不会因为“官方”而自动入库，标志性社媒事件则可以凭长期影响力入选。每期最多一条，没有合格事件时省略。
 
+历史价值在审核台内简化为“值得保留 / 重要节点 / 标志事件”三档。它只用于未来准入、排序和训练监督，不在粉丝日报中展示。
+
 历史库当前采用结构化标签检索。`piasnews/references/history-retrieval.json` 已预留向量模型配置，但默认关闭；启用时会在 GitHub 记录模型 ID、固定版本、维度、许可证和校验值，小型向量索引可以随仓库发布，模型权重本身放在 Release 或模型仓库中。
 
 ## 历史审核台
@@ -101,6 +103,7 @@ Summarize the latest Oscar Piastri news in English.
 - 审核页面：https://znonymity.github.io/piasnews/admin/
 - 自动候选由 `scripts/build_history_candidates.py` 使用确定性规则生成，不调用大模型。
 - `data/history-candidates.json` 保存待审和历史决定；`data/history.json` 只保存批准事件。
+- 审核时只需确认中文标题、中文摘要、未来参考价值和简短理由；语义字段不要求人工填写。
 - 审核写入通过 `worker/` 和 `review-history.yml` 完成，前端不持有 GitHub Token。
 
 仓库已包含完整 Worker 代码和配置模板，但首次使用前仍需在 Cloudflare 部署并设置 `ADMIN_API_KEY`、`GITHUB_TOKEN` 两个 Secret。详细流程和候选流程图见[中文版需求文档](docs/requirements.zh-CN.md)。
@@ -309,6 +312,8 @@ Show the data panel only when the user asks for stats or requests deep mode, so 
 
 `Looking Back` merges exact-date anniversaries and strongly related historical events into one optional section backed by `data/history.json`. Only human-approved events above the historical-value threshold may appear. Routine interviews and announcements do not qualify merely because they are official, while an iconic social post may qualify through lasting impact. Show at most one item and omit the section when nothing qualifies.
 
+The review console reduces historical value to three internal tiers: worth keeping, important milestone, or iconic event. The tier supports future eligibility, ranking, and training supervision but is never shown in fan daily reports.
+
 The current knowledge base uses structured-facet retrieval. `piasnews/references/history-retrieval.json` reserves optional vector-model settings but keeps embeddings disabled. When enabled, GitHub records the model ID, immutable revision, dimensions, license, and checksum; a small vector index may be committed, while model weights belong in a release or model registry.
 
 ## History Review Console
@@ -316,6 +321,7 @@ The current knowledge base uses structured-facet retrieval. `piasnews/references
 - Review console: https://znonymity.github.io/piasnews/admin/
 - `scripts/build_history_candidates.py` nominates candidates with deterministic rules and no LLM.
 - `data/history-candidates.json` keeps the review queue and decisions; `data/history.json` contains approved events only.
+- Reviewers only confirm Chinese title, Chinese summary, future-reference value, and a short reason; semantic fields are not manually required.
 - Writes go through `worker/` and `review-history.yml`, so the static frontend never holds a GitHub token.
 
 The repository contains deployable Worker code and a configuration template. Before write actions work, deploy it to Cloudflare and set `ADMIN_API_KEY` and `GITHUB_TOKEN` as secrets. See the [English requirements](docs/requirements.md) for the full candidate diagram and security model.

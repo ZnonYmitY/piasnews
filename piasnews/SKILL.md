@@ -174,7 +174,7 @@ Only include when X/social data is available.
 Only include when rumors or unverified items exist.
 
 ## 往日回顾
-Use at most one approved event from `data/history.json`. It may be an exact same-month/day anniversary or a strongly related historical event. Follow `references/history.md` and `references/history-retrieval.json`; broad similarities such as Formula 1, McLaren, race, or street circuit are not enough for a contextual match. Do not search beyond the latest 3 days just to fill this section. Omit it when no event qualifies.
+Use at most one approved event from `data/history.json`. Prefer `title_zh` and `summary_zh` for Chinese output. It may be an exact same-month/day anniversary or a strongly related historical event. Follow `references/history.md` and `references/history-retrieval.json`; broad similarities such as Formula 1, McLaren, race, or street circuit are not enough for a contextual match. Do not expose internal historical-value scores. Do not search beyond the latest 3 days just to fill this section. Omit it when no event qualifies.
 ```
 
 ### Deep mode

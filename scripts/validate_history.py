@@ -12,8 +12,7 @@ from typing import Any
 from urllib.parse import urlparse
 
 
-SCORE_FIELDS = (
-    "historical_value",
+OPTIONAL_SCORE_FIELDS = (
     "peak_attention",
     "lasting_significance",
     "career_impact",
@@ -64,9 +63,16 @@ def validate_event(event: dict[str, Any], seen_ids: set[str], *, approved_librar
     if approved_library and review_status != "approved":
         fail(f"{event_id}: history.json may contain approved events only")
 
-    scores_required = review_status == "approved"
-    for field in SCORE_FIELDS:
-        validate_score(event_id, field, selection.get(field), scores_required)
+    validate_score(event_id, "historical_value", selection.get("historical_value"), review_status == "approved")
+    for field in OPTIONAL_SCORE_FIELDS:
+        validate_score(event_id, field, selection.get(field), False)
+
+    if review_status == "approved":
+        for field in ("title_zh", "summary_zh"):
+            if not isinstance(event.get(field), str) or not event[field].strip():
+                fail(f"{event_id}: {field} is required for approved events")
+        if not isinstance(selection.get("inclusion_reason_zh"), str) or not selection["inclusion_reason_zh"].strip():
+            fail(f"{event_id}: selection.inclusion_reason_zh is required for approved events")
 
     if review_status == "approved" and selection.get("include") is not True:
         fail(f"{event_id}: approved events require selection.include=true")

@@ -21,6 +21,10 @@
   box-sizing: border-box;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 body {
   min-width: 320px;
   margin: 0;
@@ -303,7 +307,7 @@ textarea {
   font-size: 12px;
 }
 
-.editor-signals {
+.editor-original {
   margin-top: 8px !important;
   color: var(--muted);
   font-size: 12px;
@@ -350,6 +354,13 @@ textarea {
   font-weight: 800;
 }
 
+.legend-note {
+  margin-left: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+}
+
 .form-section legend + * {
   clear: both;
 }
@@ -373,8 +384,7 @@ textarea {
   gap: 7px;
 }
 
-.field > span,
-.score-field > span {
+.field > span {
   color: #4e4e49;
   font-size: 12px;
   font-weight: 700;
@@ -382,8 +392,7 @@ textarea {
 
 .field input,
 .field select,
-.field textarea,
-.score-field input[type="number"] {
+.field textarea {
   width: 100%;
   border: 1px solid #c9c9c1;
   border-radius: 5px;
@@ -392,8 +401,7 @@ textarea {
 }
 
 .field input,
-.field select,
-.score-field input[type="number"] {
+.field select {
   min-height: 40px;
   padding: 8px 10px;
 }
@@ -403,26 +411,47 @@ textarea {
   resize: vertical;
 }
 
-.score-grid {
+.value-options {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px 28px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
 }
 
-.score-field {
-  display: grid;
-  grid-template-columns: minmax(120px, 1fr) minmax(120px, 2fr) 70px;
-  align-items: center;
-  gap: 12px;
+.value-option {
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
 }
 
-.score-field input[type="range"] {
-  width: 100%;
+.value-option:has(input:checked) {
+  border-color: var(--accent);
+  background: #fff7f0;
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.value-option input {
+  margin: 3px 0 0;
   accent-color: var(--accent);
 }
 
-.score-field input[type="number"] {
-  text-align: center;
+.value-option span {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+
+.value-option strong {
+  font-size: 13px;
+}
+
+.value-option small {
+  color: var(--muted);
+  line-height: 1.4;
 }
 
 .review-actions {
@@ -565,16 +594,8 @@ dialog::backdrop {
   }
 
   .field-grid-two,
-  .score-grid {
+  .value-options {
     grid-template-columns: 1fr;
-  }
-
-  .score-field {
-    grid-template-columns: 1fr 68px;
-  }
-
-  .score-field > span {
-    grid-column: 1 / -1;
   }
 
   .editor-heading,
