@@ -116,6 +116,8 @@ Summarize the latest Oscar Piastri news in English.
 2. Piasnews 静态 JSON/RSS。
 3. 官方公开来源。
 4. 公开新闻 RSS / 搜索。
+
+RSS 只用于发现，不再直接采用其 `pubDate`。采集器会解析 Google News 跳转、读取原站 `datePublished`，只保留原文发布日期确实位于最近 3 天的条目；无法核验日期的条目不进入静态数据。
 5. 可选 X / 社交来源。
 
 所有搜索都限制在最近 3 天。如果最近 3 天没有新信息，Skill 会返回无新信息，而不是继续扩展到更早内容。
@@ -337,6 +339,8 @@ Default priority:
 5. Optional X/social sources.
 
 All searches are limited to the latest 3 days. If no new item exists in that window, the Skill reports no new information instead of expanding to older results.
+
+RSS is discovery-only. The collector decodes Google News links, reads the publisher's `datePublished`, and keeps an item only when the original publication date is verifiably inside the latest three-day window. RSS `pubDate` is retained as discovery metadata and never used as authoritative recency evidence.
 
 X is not a required dependency. The Skill only attempts to use X when the user provides their own X access or when a maintained X source list is added later. It does not use our shared X token or paid quota by default.
 

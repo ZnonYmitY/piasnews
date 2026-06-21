@@ -213,6 +213,8 @@ Behavior:
 
 Media sources are not direct crawl targets in V1. They are kept as RSS-discovered sources through Google News RSS and classified from metadata.
 
+RSS `pubDate` is discovery metadata, not the article publication date. The collector must decode Google News links to publisher URLs, read `datePublished` or `article:published_time`, and only then apply the latest-three-days filter. Items with unresolved publisher URLs, unverifiable dates, or out-of-window original dates are excluded. Stable IDs use the normalized publisher URL and title without an RSS timestamp.
+
 - Motorsport
 - Autosport
 - The Race
@@ -265,6 +267,9 @@ All versions should normalize items into this shape:
   "source_type": "official | media | x | rss | api",
   "source_group": "official_direct | rss_discovery | x | api",
   "published_at": "2026-06-12T10:00:00Z",
+  "rss_published_at": "2026-06-12T10:05:00Z",
+  "published_at_source": "publisher_metadata",
+  "date_verified": true,
   "discovered_at": "2026-06-12T10:05:00Z",
   "category": "race | team | interview | contract | fan | rumor | other",
   "summary": "Short summary generated from metadata or short excerpt",

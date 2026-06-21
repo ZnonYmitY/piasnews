@@ -11,6 +11,7 @@ Source strategy update:
 - Keep official news endpoints as direct sources.
 - Treat media outlets as RSS-discovered sources rather than direct crawl targets.
 - Do not remove a media outlet just because it has no item on one audit day; keep it eligible through Google News RSS discovery.
+- Treat RSS `pubDate` as discovery metadata only. Resolve the publisher URL, read publisher `datePublished` or `article:published_time`, and exclude items whose original date is outside the latest 3 days or cannot be verified.
 - If static `data/*.json` files are available, prefer them for normal summaries and daily counts.
 
 ## Direct official sources
@@ -25,7 +26,7 @@ Official sources have the highest priority for facts, quotes, schedule, team sta
 
 ## RSS discovery sources
 
-Use public news search/RSS for broad coverage and media discovery. Media items discovered here should be labeled as `source_type: "media"` unless the source is official.
+Use public news search/RSS for broad coverage and media discovery. Decode Google News article links to their canonical publisher URLs before publication. The collector must verify the original page date; `when:3d` and RSS `pubDate` are hints, not proof that the article itself is new.
 
 Suggested Google News RSS queries. Keep `when:3d` in every query:
 
@@ -141,9 +142,10 @@ For X-derived items:
 
 1. Normalize URLs by removing common tracking parameters such as `utm_*`, `fbclid`, and `gclid`.
 2. Treat identical canonical URLs as the same item.
-3. Treat near-identical titles on the same day as duplicates unless they add clearly new facts.
-4. Prefer the earliest official source over later media rewrites.
-5. Keep analysis pieces separate from straight news if they add original interpretation.
+3. Build stable IDs from the canonical publisher URL and normalized title, not RSS timestamps.
+4. Treat near-identical titles as duplicates unless they add clearly new facts.
+5. Prefer the earliest official source over later media rewrites.
+6. Keep analysis pieces separate from straight news if they add original interpretation.
 
 ## Verification rules
 

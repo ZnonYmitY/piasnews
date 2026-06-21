@@ -17,8 +17,10 @@ import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 from collections import Counter, defaultdict
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timedelta, timezone
 from email.utils import format_datetime, parsedate_to_datetime
+from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
 
@@ -26,8 +28,12 @@ from typing import Any
 PROJECT_NAME = "Piasnews"
 DEFAULT_DAYS = 3
 DEFAULT_LIMIT = 80
+HTTP_TIMEOUT_SECONDS = 15
+DATE_VERIFICATION_WORKERS = 6
 
 GOOGLE_NEWS_BASE = "https://news.google.com/rss/search"
+GOOGLE_NEWS_ARTICLE_PREFIX = "https://news.google.com/rss/articles/"
+GOOGLE_NEWS_DECODE_URL = "https://news.google.com/_/DotsSplashUi/data/batchexecute"
 GOOGLE_PARAMS = {"hl": "en-US", "gl": "US", "ceid": "US:en"}
 
 QUERY_SPECS = [
@@ -124,12 +130,55 @@ def fetch_text(url: str) -> str:
     request = urllib.request.Request(
         url,
         headers={
-            "User-Agent": "piasnews/0.6 (+https://github.com/ZnonYmitY/piasnews)",
+            "User-Agent": "piasnews/0.7 (+https://github.com/ZnonYmitY/piasnews)",
             "Accept": "application/rss+xml, application/xml, text/xml;q=0.9, */*;q=0.8",
         },
     )
-    with urllib.request.urlopen(request, timeout=30) as response:
+    with urllib.request.urlopen(request, timeout=HTTP_TIMEOUT_SECONDS) as response:
         return response.read().decode("utf-8", errors="replace")
+
+
+def post_form(url: str, fields: dict[str, str]) -> str:
+    request = urllib.request.Request(
+        url,
+        data=urllib.parse.urlencode(fields).encode(),
+        headers={
+            "User-Agent": "piasnews/0.7 (+https://github.com/ZnonYmitY/piasnews)",
+            "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+        },
+        method="POST",
+    )
+    with urllib.request.urlopen(request, timeout=HTTP_TIMEOUT_SECONDS) as response:
+        return response.read().decode("utf-8", errors="replace")
+
+
+class ArticleMetadataParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self.meta_dates: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag.lower() != "meta":
+            return
+        values = {key.lower(): value for key, value in attrs if value is not None}
+        field = (values.get("property") or values.get("name") or "").lower()
+        if field in {"article:published_time", "date", "datepublished"} and values.get("content"):
+            self.meta_dates.append(values["content"])
+
+
+class GoogleNewsParamsParser(HTMLParser):
+    def __init__(self, article_id: str) -> None:
+        super().__init__()
+        self.article_id = article_id
+        self.signature: str | None = None
+        self.timestamp: str | None = None
+
+    def handle_starttag(self, _tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        values = {key: value for key, value in attrs if value is not None}
+        if values.get("data-n-a-id") != self.article_id:
+            return
+        self.signature = values.get("data-n-a-sg")
+        self.timestamp = values.get("data-n-a-ts")
 
 
 def parse_pub_date(value: str | None) -> datetime | None:
@@ -142,6 +191,66 @@ def parse_pub_date(value: str | None) -> datetime | None:
     if parsed.tzinfo is None:
         parsed = parsed.replace(tzinfo=timezone.utc)
     return parsed.astimezone(timezone.utc)
+
+
+def parse_iso_date(value: str | None) -> datetime | None:
+    if not value:
+        return None
+    try:
+        parsed = datetime.fromisoformat(value.strip().replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=timezone.utc)
+    return parsed.astimezone(timezone.utc)
+
+
+def extract_publisher_date(html_text: str) -> datetime | None:
+    json_ld_match = re.search(r'"datePublished"\s*:\s*"([^"]+)"', html_text, re.IGNORECASE)
+    if json_ld_match:
+        parsed = parse_iso_date(html.unescape(json_ld_match.group(1)))
+        if parsed:
+            return parsed
+
+    parser = ArticleMetadataParser()
+    parser.feed(html_text)
+    for candidate in parser.meta_dates:
+        parsed = parse_iso_date(html.unescape(candidate))
+        if parsed:
+            return parsed
+    return None
+
+
+def decode_google_news_url(
+    url: str,
+    fetcher: Any = fetch_text,
+    poster: Any = post_form,
+) -> str | None:
+    if not url.startswith(GOOGLE_NEWS_ARTICLE_PREFIX):
+        return normalize_url(url)
+
+    article_id = url.split("/articles/", 1)[1].split("?", 1)[0]
+    localized_url = f"{GOOGLE_NEWS_ARTICLE_PREFIX}{article_id}?hl=en-US&gl=US&ceid=US:en"
+    parser = GoogleNewsParamsParser(article_id)
+    parser.feed(fetcher(localized_url))
+    if not parser.signature or not parser.timestamp:
+        return None
+
+    request_payload = [
+        "Fbv4je",
+        (
+            '["garturlreq",[["X","X",["X","X"],null,null,1,1,"US:en",null,1,'
+            'null,null,null,null,null,0,1],"X","X",1,[1,1,1],1,1,null,0,0,null,0],'
+            f'"{article_id}",{parser.timestamp},"{parser.signature}"]'
+        ),
+    ]
+    response_text = poster(GOOGLE_NEWS_DECODE_URL, {"f.req": json.dumps([[request_payload]])})
+    response_json = json.loads(response_text.split("\n", 1)[-1])
+    decoded_payload = json.loads(response_json[0][2])
+    decoded_url = decoded_payload[1]
+    if not isinstance(decoded_url, str) or not decoded_url.startswith(("http://", "https://")):
+        return None
+    return normalize_url(decoded_url)
 
 
 def clean_text(value: str | None) -> str:
@@ -180,8 +289,8 @@ def normalize_title(title: str) -> str:
     return re.sub(r"[^a-z0-9]+", " ", title.lower()).strip()
 
 
-def stable_id(title: str, url: str, published_at: str) -> str:
-    digest = hashlib.sha1(f"{normalize_title(title)}|{normalize_url(url)}|{published_at}".encode()).hexdigest()
+def stable_id(title: str, url: str) -> str:
+    digest = hashlib.sha1(f"{normalize_title(title)}|{normalize_url(url)}".encode()).hexdigest()
     return f"piasnews-{digest[:16]}"
 
 
@@ -274,7 +383,7 @@ def parse_feed(xml_text: str, query: str, source_group: str, fetched_url: str, n
         category = classify_item(title)
         published_iso = pub_date.isoformat().replace("+00:00", "Z")
         item_url = normalize_url(link)
-        item_id = stable_id(title, item_url, published_iso)
+        item_id = stable_id(title, item_url)
         item_source_type = source_type(source, source_url, item_url)
 
         items.append(
@@ -290,6 +399,9 @@ def parse_feed(xml_text: str, query: str, source_group: str, fetched_url: str, n
                 "discovery_query": query,
                 "discovery_url": fetched_url,
                 "published_at": published_iso,
+                "rss_published_at": published_iso,
+                "published_at_source": "google_news_rss_unverified",
+                "date_verified": False,
                 "discovered_at": now.isoformat().replace("+00:00", "Z"),
                 "category": category,
                 "summary": infer_summary(title, category),
@@ -301,6 +413,48 @@ def parse_feed(xml_text: str, query: str, source_group: str, fetched_url: str, n
             }
         )
     return items
+
+
+def verify_source_date(
+    item: dict[str, Any],
+    now: datetime,
+    cutoff: datetime,
+    fetcher: Any = fetch_text,
+    poster: Any = post_form,
+) -> tuple[dict[str, Any] | None, str]:
+    try:
+        source_url = decode_google_news_url(item["url"], fetcher=fetcher, poster=poster)
+    except Exception:  # noqa: BLE001 - one bad publisher must not fail the full feed
+        return None, "url_unresolved"
+    if not source_url:
+        return None, "url_unresolved"
+
+    try:
+        publisher_html = fetcher(source_url)
+    except Exception:  # noqa: BLE001 - source pages may block automated requests
+        return None, "publisher_unavailable"
+    publisher_date = extract_publisher_date(publisher_html)
+    if publisher_date is None:
+        return None, "publisher_date_missing"
+    if publisher_date < cutoff:
+        return None, "outside_window"
+    if publisher_date > now + timedelta(hours=2):
+        return None, "future_date"
+
+    verified_item = dict(item)
+    published_iso = publisher_date.isoformat().replace("+00:00", "Z")
+    verified_item["url"] = source_url
+    verified_item["published_at"] = published_iso
+    verified_item["published_at_source"] = "publisher_metadata"
+    verified_item["date_verified"] = True
+    verified_item["daily_key"] = publisher_date.date().isoformat()
+    verified_item["id"] = stable_id(verified_item["title"], source_url)
+    verified_item["source_type"] = source_type(
+        verified_item["source"], verified_item.get("source_url", ""), source_url
+    )
+    verified_item["official"] = verified_item["source_type"] == "official"
+    verified_item["verified"] = verified(verified_item["source"], verified_item["category"])
+    return verified_item, "verified"
 
 
 def fetch_items(days: int, limit: int, now: datetime) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
@@ -323,17 +477,54 @@ def fetch_items(days: int, limit: int, now: datetime) -> tuple[list[dict[str, An
             status["error"] = f"{type(exc).__name__}: {exc}"
         feed_status.append(status)
 
-    deduped: dict[str, dict[str, Any]] = {}
+    rss_deduped: dict[str, dict[str, Any]] = {}
     title_seen: set[str] = set()
     for item in sorted(all_items, key=lambda it: it["published_at"], reverse=True):
         key = normalize_url(item["url"])
         title_key = f'{normalize_title(item["title"])}|{item["daily_key"]}'
-        if key in deduped or title_key in title_seen:
+        if key in rss_deduped or title_key in title_seen:
             continue
-        deduped[key] = item
+        rss_deduped[key] = item
         title_seen.add(title_key)
 
-    return list(deduped.values())[:limit], feed_status
+    verification_counts: Counter[str] = Counter()
+    source_verified_items: list[dict[str, Any]] = []
+    candidates = list(rss_deduped.values())
+    worker_count = min(DATE_VERIFICATION_WORKERS, len(candidates)) or 1
+    with ThreadPoolExecutor(max_workers=worker_count) as executor:
+        futures = {
+            executor.submit(verify_source_date, item, now, cutoff): item["id"]
+            for item in candidates
+        }
+        for future in as_completed(futures):
+            try:
+                verified_item, status = future.result()
+            except Exception:  # noqa: BLE001 - record unexpected per-item failures
+                verified_item, status = None, "verification_error"
+            verification_counts[status] += 1
+            if verified_item:
+                source_verified_items.append(verified_item)
+
+    final_items: dict[str, dict[str, Any]] = {}
+    final_titles: set[str] = set()
+    for item in sorted(source_verified_items, key=lambda it: it["published_at"], reverse=True):
+        key = normalize_url(item["url"])
+        title_key = normalize_title(item["title"])
+        if key in final_items or title_key in final_titles:
+            continue
+        final_items[key] = item
+        final_titles.add(title_key)
+
+    feed_status.append(
+        {
+            "stage": "publisher_date_verification",
+            "ok": True,
+            "checked": len(rss_deduped),
+            "kept": len(final_items),
+            "results": dict(sorted(verification_counts.items())),
+        }
+    )
+    return list(final_items.values())[:limit], feed_status
 
 
 def build_daily(items: list[dict[str, Any]], now: datetime, days: int, feed_status: list[dict[str, Any]]) -> dict[str, Any]:

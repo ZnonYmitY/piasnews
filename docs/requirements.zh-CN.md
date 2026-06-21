@@ -213,6 +213,8 @@ GET /rss.xml
 
 媒体来源在 V1 中不是直抓目标，而是通过 Google News RSS 发现，并根据元数据分类。
 
+RSS 的 `pubDate` 只代表发现侧时间，不能作为原文发布日期。采集器必须解析 Google News 跳转到原站，读取 `datePublished` 或 `article:published_time`，再执行最近 3 天过滤。无法解析原站 URL、无法核验发布日期或原文已超期的条目必须排除。稳定 ID 使用规范化原站 URL 与标题生成，不包含 RSS 时间。
+
 - Motorsport
 - Autosport
 - The Race
@@ -265,6 +267,9 @@ V0.5 行为：
   "source_type": "official | media | x | rss | api",
   "source_group": "official_direct | rss_discovery | x | api",
   "published_at": "2026-06-12T10:00:00Z",
+  "rss_published_at": "2026-06-12T10:05:00Z",
+  "published_at_source": "publisher_metadata",
+  "date_verified": true,
   "discovered_at": "2026-06-12T10:05:00Z",
   "category": "race | team | interview | contract | fan | rumor | other",
   "summary": "Short summary generated from metadata or short excerpt",

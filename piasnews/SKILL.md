@@ -24,7 +24,7 @@ Use this order:
 1. If `PIASNEWS_API_URL` is configured, query it first.
 2. If Piasnews static data is available, read local `data/items.json`, `data/daily.json`, or `data/rss.xml` next; otherwise use the public static endpoints documented in `references/sources.md`.
 3. Use official public sources.
-4. Use public news RSS/search fallback with a strict latest-3-days filter.
+4. Use public news RSS/search for discovery, then resolve the original publisher URL and verify `datePublished` before treating an item as recent. RSS `pubDate` alone is not sufficient.
 5. Use optional X/social sources only when the user provides access or a maintained source list is available.
 
 Read `references/sources.md` before doing source-specific work, source expansion, official-only reports, X integration, historical context, or daily count work. Read `references/history.md` before retrieving, reviewing, adding, or changing historical events.
@@ -88,6 +88,9 @@ When normalizing items, use this conceptual shape even if V0.5 only produces it 
   "source_type": "official | media | x | rss | api",
   "source_group": "official_direct | rss_discovery | x | api",
   "published_at": "2026-06-12T10:00:00Z",
+  "rss_published_at": "2026-06-12T10:05:00Z",
+  "published_at_source": "publisher_metadata",
+  "date_verified": true,
   "discovered_at": "2026-06-12T10:05:00Z",
   "category": "race | team | interview | contract | fan | rumor | other",
   "summary": "Short summary from metadata or a short excerpt",
@@ -220,6 +223,7 @@ Prefer the Chinese headings shown in the standard template for Chinese fan daily
 ## Quality rules
 
 - Only search and report items from the latest 3 days. Do not include older items as filler.
+- Treat publisher metadata as the authoritative publication date. Do not report an item whose only recency evidence is Google News RSS `pubDate`.
 - For race-week requests, include practice, qualifying, sprint, race, strategy, penalties, and official quotes only when they fall within the latest 3 days.
 - For official-only requests, use only Oscar Piastri, McLaren, Formula 1/FIA/F1 official channels, and clearly say that media coverage was excluded.
 - Treat Wikipedia, fan reposts, and unsourced social claims as context only, not primary news sources.
