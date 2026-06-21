@@ -1,58 +1,95 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Piasnews Data</title>
-    <style>
-      :root {
-        color-scheme: light dark;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      }
-
-      body {
-        margin: 0;
-        padding: 40px 24px;
-        line-height: 1.5;
-      }
-
-      main {
-        max-width: 760px;
-        margin: 0 auto;
-      }
-
-      h1 {
-        margin: 0 0 8px;
-        font-size: 2rem;
-      }
-
-      p {
-        margin: 0 0 20px;
-      }
-
-      ul {
-        padding-left: 22px;
-      }
-
-      code {
-        font-size: 0.95em;
-      }
-    </style>
+    <meta name="color-scheme" content="light">
+    <meta name="description" content="Oscar Piastri 最近 3 天新闻的公开粉丝日报，提供速读、标准和深读三个版本。">
+    <title>Piasnews | Oscar Piastri 粉丝日报</title>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="./" aria-label="Piasnews 首页">
+          <span class="brand-mark" aria-hidden="true">81</span>
+          <span>PIASNEWS</span>
+        </a>
+        <nav class="header-links" aria-label="相关链接">
+          <a href="data/rss.xml">RSS</a>
+          <a href="https://github.com/ZnonYmitY/piasnews">GitHub</a>
+        </nav>
+      </div>
+    </header>
+
     <main>
-      <h1>Piasnews Data</h1>
-      <p>Static Oscar Piastri news data for the latest 3-day window.</p>
-      <p><a href="admin/"><strong>Open history review console</strong></a></p>
-      <ul>
-        <li><a href="data/items.json"><code>data/items.json</code></a> - normalized news items</li>
-        <li><a href="data/daily.json"><code>data/daily.json</code></a> - daily counts and breakdowns</li>
-        <li><a href="data/rss.xml"><code>data/rss.xml</code></a> - RSS feed</li>
-        <li><a href="data/history.json"><code>data/history.json</code></a> - reviewed historical-event knowledge base</li>
-        <li><a href="data/history-candidates.json"><code>data/history-candidates.json</code></a> - history review queue</li>
-        <li><a href="data/history-retrieval.json"><code>data/history-retrieval.json</code></a> - history retrieval configuration</li>
-      </ul>
-      <p>Repository: <a href="https://github.com/ZnonYmitY/piasnews">github.com/ZnonYmitY/piasnews</a></p>
+      <section class="report-header" aria-labelledby="pageTitle">
+        <div class="report-heading">
+          <p class="kicker">OSCAR PIASTRI · LATEST 3 DAYS</p>
+          <h1 id="pageTitle">Oscar Piastri 粉丝日报</h1>
+          <p class="report-deck">最近三天值得关注的比赛、车队与围场动态。</p>
+        </div>
+        <div class="update-panel" aria-live="polite">
+          <span class="sync-dot" aria-hidden="true"></span>
+          <div>
+            <span class="update-label">数据更新时间</span>
+            <time id="updatedAt">正在读取...</time>
+          </div>
+          <button class="refresh-button" id="refreshButton" type="button">刷新</button>
+        </div>
+      </section>
+
+      <section class="report-shell" aria-label="粉丝日报">
+        <div class="report-meta">
+          <p id="windowLabel">最近 3 天</p>
+          <p id="itemCount">正在加载新闻</p>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="日报版本">
+          <button class="tab is-active" id="tab-short" type="button" role="tab" aria-selected="true" aria-controls="panel-short" data-mode="short">
+            <span>速读</span>
+            <small>1 分钟</small>
+          </button>
+          <button class="tab" id="tab-standard" type="button" role="tab" aria-selected="false" aria-controls="panel-standard" data-mode="standard" tabindex="-1">
+            <span>标准</span>
+            <small>完整日报</small>
+          </button>
+          <button class="tab" id="tab-deep" type="button" role="tab" aria-selected="false" aria-controls="panel-deep" data-mode="deep" tabindex="-1">
+            <span>深读</span>
+            <small>话题与数据</small>
+          </button>
+        </div>
+
+        <div class="loading-state" id="loadingState" role="status">
+          <span class="loading-line loading-line-wide"></span>
+          <span class="loading-line"></span>
+          <span class="loading-line loading-line-short"></span>
+        </div>
+
+        <div class="error-state" id="errorState" hidden>
+          <h2>暂时无法读取日报</h2>
+          <p id="errorMessage">请稍后刷新页面。</p>
+          <button class="retry-button" id="retryButton" type="button">重新加载</button>
+        </div>
+
+        <section class="tab-panel" id="panel-short" role="tabpanel" aria-labelledby="tab-short"></section>
+        <section class="tab-panel" id="panel-standard" role="tabpanel" aria-labelledby="tab-standard" hidden></section>
+        <section class="tab-panel" id="panel-deep" role="tabpanel" aria-labelledby="tab-deep" hidden></section>
+      </section>
     </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>PIASNEWS</strong>
+        <p>GitHub Actions 每 6 小时更新。只展示原站发布日期可核验的最近 3 天信息。</p>
+      </div>
+      <div class="footer-links">
+        <a href="data/items.json">JSON</a>
+        <a href="data/daily.json">统计</a>
+        <a href="admin/">历史审核台</a>
+      </div>
+    </footer>
+
+    <script src="app.js" defer></script>
   </body>
 </html>

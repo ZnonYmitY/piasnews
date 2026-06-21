@@ -82,6 +82,7 @@ Current implementation status:
 - `data/items.json`, `data/daily.json`, `data/rss.xml`, and schema-v2 `data/history.json` exist.
 - GitHub Actions scheduled refresh is configured in `.github/workflows/update-piasnews.yml`.
 - A GitHub Pages publishing entrypoint has been added for `https://znonymity.github.io/piasnews/`.
+- `public/` implements a public fan daily with short, standard, and deep tabs plus a visible data refresh time.
 - `piasnews/references/history.md`, `piasnews/references/history-retrieval.json`, and `scripts/validate_history.py` support maintenance, review, and validation of the Looking Back knowledge base.
 - `public/admin/` implements the static review console; `worker/` provides a deployable stateless review endpoint, but external Worker secrets and a public URL are not configured yet.
 
@@ -148,6 +149,21 @@ Security rules:
 - The Worker is stateless and Git commits provide the audit trail, so no database is needed now.
 
 Database triggers include multi-reviewer authorization, community submissions, tens of thousands of candidates, complex operational analytics, or a high-frequency online vector service. A few hundred historical vectors can still use static JSON/index files without a vector database.
+
+### V1.2: Public Fan Daily
+
+The GitHub Pages root serves a read-only daily report for all fans without adding a backend database or online model service.
+
+- The page provides short, standard, and deep tabs aligned with the Skill's three report modes.
+- All views read the same `data/items.json`, `data/daily.json`, and approved `data/history.json`; news data is not duplicated.
+- The page displays the `generated_at` timestamp in China Standard Time and the active three-day window.
+- Short mode uses at most five bullets, omits rumor messaging when there are no rumors, and has no data panel.
+- Standard mode separates official, media, and rumor coverage and omits empty optional sections.
+- Deep mode groups topics by category and adds source confidence, next-watch points, and a data panel.
+- Looking Back uses approved history only and is omitted when no same-date event qualifies.
+- Browser-side deterministic templates render the reports without an LLM or model-token usage.
+- `.github/workflows/update-piasnews.yml` packages `public/` with the current run's generated data, so the page and JSON/RSS update in the same Pages deployment.
+- The UI includes loading, empty, error, and manual-refresh states, responsive layouts, and keyboard-operable tabs.
 
 ### Pretrained Model Invocation and Artifacts
 
@@ -453,17 +469,20 @@ Current repository layout:
 │       ├── history.md
 │       └── sources.md
 ├── public/
+│   ├── app.js
+│   ├── index.html
+│   ├── styles.css
 │   ├── admin/
 │   │   ├── app.js
 │   │   ├── index.html
 │   │   └── styles.css
-│   └── index.html
 ├── scripts/
 │   ├── build_history_candidates.py
 │   ├── fetch_piasnews.py
 │   ├── review_history.py
 │   └── validate_history.py
 ├── tests/
+│   ├── test_fetch_piasnews.py
 │   └── test_history_pipeline.py
 └── worker/
     ├── src/
@@ -494,6 +513,8 @@ V1 is complete when:
 - The Skill reads static data first and falls back to direct sources.
 - Daily new item counts are available.
 - GitHub Pages publishes the static data entrypoint.
+- The GitHub Pages root publishes the three-tab fan daily, displays the data refresh time, and updates after each collection workflow.
+- All three web views share static data and use no LLM; short and standard views contain no data panel.
 - `data/history.json` is available for optional historical context and is published with Pages.
 - Unreviewed events never enter Looking Back; vector embeddings remain optional and are disabled by default.
 - The review console reads pending records, confirms Chinese content, and submits approval or rejection; candidate rules assign historical value automatically.
