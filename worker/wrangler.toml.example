@@ -9,6 +9,11 @@ GITHUB_REPOSITORY = "piasnews"
 GITHUB_WORKFLOW = "review-history.yml"
 GITHUB_REF = "main"
 
+[[d1_databases]]
+binding = "ANALYTICS_DB"
+database_name = "piasnews-analytics"
+database_id = "replace-with-your-d1-database-id"
+
 # Set secrets with Wrangler; never commit their values:
 # npx wrangler secret put ADMIN_API_KEY
 # npx wrangler secret put GITHUB_TOKEN

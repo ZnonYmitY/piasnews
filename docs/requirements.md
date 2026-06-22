@@ -84,7 +84,7 @@ Current implementation status:
 - A GitHub Pages publishing entrypoint has been added for `https://znonymity.github.io/piasnews/`.
 - `public/` implements a public fan daily with short, standard, and deep tabs plus a visible data refresh time.
 - `piasnews/references/history.md`, `piasnews/references/history-retrieval.json`, and `scripts/validate_history.py` support maintenance, review, and validation of the Looking Back knowledge base.
-- `public/admin/` implements the static review console; `worker/` provides a deployable stateless review endpoint, but external Worker secrets and a public URL are not configured yet.
+- `public/admin/` implements the static console; `worker/` provides deployable review and anonymous-analytics endpoints, but the external Worker, D1 binding, secrets, and public URL are not configured yet.
 
 ### V1: Static JSON/RSS Data
 
@@ -115,7 +115,7 @@ Behavior:
 
 ### V1.1: History Review Console
 
-The V1 review console uses GitHub JSON as the business-data store, GitHub Actions as the trusted write executor, GitHub Pages as the static frontend, and a stateless Worker as the authentication and workflow-dispatch layer. The current data volume and single-reviewer workflow do not require a database.
+The V1 review console uses GitHub JSON as the review business-data store, GitHub Actions as the trusted write executor, GitHub Pages as the static frontend, and a Worker as the authentication and workflow-dispatch layer. Review data itself does not require a database; the later D1 binding stores anonymous page-view rows only and never candidate or review content.
 
 Candidate flow:
 
@@ -124,7 +124,7 @@ flowchart LR
   A["GitHub Actions collects the latest 3 days"] --> B["Deterministic major-event rules"]
   B --> C["data/history-candidates.json"]
   C --> D["GitHub Pages review console"]
-  D --> E["Stateless review Worker"]
+  D --> E["Review Worker"]
   E --> F["review-history.yml"]
   F --> G["Validate and apply decision"]
   G -->|approve| H["data/history.json approved library"]
@@ -146,13 +146,13 @@ Security rules:
 - Keep the GitHub token in Worker secrets only. Never place it in frontend files, repository variables, or commit history.
 - The browser may persist the Worker URL locally; keep the admin key in `sessionStorage` only.
 - V1 uses one high-entropy shared admin key. Upgrade to Cloudflare Access or GitHub App/OAuth for multiple reviewers.
-- The Worker is stateless and Git commits provide the audit trail, so no database is needed now.
+- Review data never enters D1; Git commits continue to provide the review audit trail.
 
-Database triggers include multi-reviewer authorization, community submissions, tens of thousands of candidates, complex operational analytics, or a high-frequency online vector service. A few hundred historical vectors can still use static JSON/index files without a vector database.
+Review-database triggers include multi-reviewer authorization, community submissions, tens of thousands of candidates, or complex permission auditing. A few hundred historical vectors can still use static JSON/index files without a vector database.
 
 ### V1.2: Public Fan Daily
 
-The GitHub Pages root serves a read-only daily report for all fans without adding a backend database or online model service.
+The GitHub Pages root serves a read-only daily report for all fans. Report content remains fully static and uses no online model service; the optional analytics backend only counts anonymous views.
 
 - The page provides short, standard, and deep tabs aligned with the Skill's three report modes.
 - All views read the same `data/items.json`, `data/daily.json`, and approved `data/history.json`; news data is not duplicated.
@@ -166,6 +166,19 @@ The GitHub Pages root serves a read-only daily report for all fans without addin
 - `.github/workflows/update-piasnews.yml` packages `public/` with the current run's generated data, so the page and JSON/RSS update in the same Pages deployment.
 - The UI includes loading, empty, error, and manual-refresh states, responsive layouts, and keyboard-operable tabs.
 - The countdown updates locally every second. If the calendar API fails, deployment keeps the last valid committed calendar.
+
+### V1.3: Anonymous Page Analytics
+
+Page analytics reuses the Cloudflare Worker and uses D1 for frequent counter writes. GitHub JSON is not used for page views because committing each visit would create conflicts, noisy history, and avoidable latency.
+
+- The fan daily reports at most once per page load. Tab changes and manual data refreshes do not add another view.
+- The payload contains only page path and referrer hostname; the Worker adds the timestamp. No IP, cookie, fingerprint, or visitor ID is stored, so V1.3 reports page views rather than claiming unique visitors.
+- `POST /analytics/view` is public but enforces allowed-origin and field-whitelist validation.
+- `GET /analytics/summary?days=7|30` requires the admin key and returns only today/period/previous-period metrics, averages, daily trend, top paths, and referrer-site aggregates.
+- The D1 binding is `ANALYTICS_DB`, the schema is `worker/migrations/0001_analytics.sql`, and raw rows have a 90-day retention window.
+- The admin console adds an Analytics tab. Missing Worker configuration is shown explicitly and does not affect history review.
+- GitHub Actions writes public `runtime-config.json` from the repository variable `PIASNEWS_WORKER_URL`. The URL is not a secret; the admin key remains in `sessionStorage` only.
+- Analytics failures are ignored by the fan page and cannot block news, calendar, or countdown rendering.
 
 ### Pretrained Model Invocation and Artifacts
 
@@ -524,8 +537,9 @@ V1 is complete when:
 - `data/history.json` is available for optional historical context and is published with Pages.
 - Unreviewed events never enter Looking Back; vector embeddings remain optional and are disabled by default.
 - The review console reads pending records, confirms Chinese content, and submits approval or rejection; candidate rules assign historical value automatically.
-- The static frontend never receives a GitHub token; a stateless Worker dispatches the controlled workflow.
+- The static frontend never receives a GitHub token; the Worker dispatches the controlled workflow.
 - Automatic nomination uses no LLM and does not repeatedly nominate sources already rejected.
+- The public daily can report anonymous page views, and the admin console can display 7/30-day aggregates without storing IP addresses, cookies, or visitor identifiers.
 
 V2 is complete when:
 

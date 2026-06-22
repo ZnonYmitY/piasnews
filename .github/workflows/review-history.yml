@@ -68,10 +68,13 @@ jobs:
           git push
 
       - name: Prepare Pages artifact
+        env:
+          PIASNEWS_WORKER_URL: ${{ vars.PIASNEWS_WORKER_URL }}
         run: |
           mkdir -p public/data
           cp data/items.json data/daily.json data/rss.xml data/calendar.json data/history.json data/history-candidates.json public/data/
           cp piasnews/references/history-retrieval.json public/data/history-retrieval.json
+          python scripts/write_runtime_config.py --output public/data/runtime-config.json
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

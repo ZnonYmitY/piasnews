@@ -9,9 +9,15 @@
   </head>
   <body>
     <header class="app-bar">
-      <div class="brand-block">
-        <p class="eyebrow">PIASNEWS</p>
-        <h1>历史审核台</h1>
+      <div class="brand-and-nav">
+        <div class="brand-block">
+          <p class="eyebrow">PIASNEWS</p>
+          <h1>管理后台</h1>
+        </div>
+        <nav class="view-switch" aria-label="后台功能">
+          <button class="view-tab is-active" data-view="review" type="button">历史审核</button>
+          <button class="view-tab" data-view="analytics" type="button">访问看板</button>
+        </nav>
       </div>
       <div class="app-actions">
         <span class="connection-state" id="connectionState">未连接审核接口</span>
@@ -20,7 +26,7 @@
       </div>
     </header>
 
-    <main class="workspace">
+    <main class="workspace" id="reviewView">
       <aside class="queue-panel" aria-label="候选事件队列">
         <div class="queue-heading">
           <div>
@@ -113,6 +119,69 @@
         </form>
       </section>
     </main>
+
+    <section class="analytics-page" id="analyticsView" aria-labelledby="analyticsTitle" hidden>
+      <header class="analytics-heading">
+        <div>
+          <p class="section-label">PAGE ANALYTICS</p>
+          <h2 id="analyticsTitle">页面访问看板</h2>
+          <p id="analyticsUpdated">等待读取统计数据</p>
+        </div>
+        <div class="range-switch" aria-label="统计时间范围">
+          <button class="range-button is-active" data-analytics-days="7" type="button">近 7 天</button>
+          <button class="range-button" data-analytics-days="30" type="button">近 30 天</button>
+        </div>
+      </header>
+
+      <div class="analytics-message" id="analyticsMessage">请先在连接设置中配置 Worker URL 和管理员密钥。</div>
+
+      <div id="analyticsContent" hidden>
+        <div class="metric-grid" aria-label="访问概览">
+          <article class="analytics-metric">
+            <span>今日访问</span>
+            <strong id="metricToday">0</strong>
+          </article>
+          <article class="analytics-metric">
+            <span id="metricPeriodLabel">近 7 天</span>
+            <strong id="metricPeriod">0</strong>
+          </article>
+          <article class="analytics-metric">
+            <span>日均访问</span>
+            <strong id="metricAverage">0</strong>
+          </article>
+          <article class="analytics-metric">
+            <span>较上一周期</span>
+            <strong id="metricChange">--</strong>
+          </article>
+        </div>
+
+        <section class="analytics-section" aria-labelledby="trendTitle">
+          <div class="analytics-section-heading">
+            <h3 id="trendTitle">访问趋势</h3>
+            <p>按北京时间统计页面浏览次数</p>
+          </div>
+          <div class="bar-chart" id="analyticsChart" role="img" aria-label="每日页面访问趋势"></div>
+        </section>
+
+        <div class="analytics-tables">
+          <section class="analytics-section" aria-labelledby="pathsTitle">
+            <div class="analytics-section-heading">
+              <h3 id="pathsTitle">热门页面</h3>
+            </div>
+            <div id="topPaths"></div>
+          </section>
+          <section class="analytics-section" aria-labelledby="referrersTitle">
+            <div class="analytics-section-heading">
+              <h3 id="referrersTitle">来源站点</h3>
+              <p>不含直接访问</p>
+            </div>
+            <div id="topReferrers"></div>
+          </section>
+        </div>
+      </div>
+
+      <p class="privacy-note">只统计页面浏览次数、页面路径和来源站点域名；不保存 IP、Cookie 或访客标识，原始记录保留 90 天。</p>
+    </section>
 
     <dialog id="settingsDialog">
       <form method="dialog" id="settingsForm">

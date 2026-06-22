@@ -27,6 +27,7 @@ const state = {
   countdownTimer: null,
   generatedAt: null,
   activeMode: "short",
+  analyticsReported: false,
 };
 
 const elements = {
@@ -440,6 +441,34 @@ async function fetchOptionalJson(path) {
   }
 }
 
+async function reportPageView() {
+  if (state.analyticsReported) return;
+  state.analyticsReported = true;
+  const config = await fetchOptionalJson("data/runtime-config.json");
+  const analyticsUrl = String(config?.analytics_url || "").replace(/\/$/, "");
+  if (!analyticsUrl) return;
+
+  let referrerHost = null;
+  if (document.referrer) {
+    try {
+      referrerHost = new URL(document.referrer).hostname || null;
+    } catch (_error) {
+      referrerHost = null;
+    }
+  }
+
+  try {
+    await fetch(`${analyticsUrl}/analytics/view`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ path: window.location.pathname, referrer_host: referrerHost }),
+      keepalive: true,
+    });
+  } catch (_error) {
+    // Analytics must never affect the fan daily.
+  }
+}
+
 async function loadData() {
   elements.refreshButton.disabled = true;
   elements.loadingState.hidden = false;
@@ -490,4 +519,5 @@ elements.retryButton.addEventListener("click", loadData);
 
 const initialMode = window.location.hash.slice(1);
 if (elements.panels[initialMode]) state.activeMode = initialMode;
+reportPageView();
 loadData();

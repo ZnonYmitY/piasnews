@@ -9,11 +9,18 @@ const state = {
   filter: "pending",
   selectedId: null,
   queuedIds: new Set(),
+  activeView: "review",
+  analyticsDays: 7,
 };
 
 const elements = {
   actionHint: document.querySelector("#actionHint"),
   adminKeyInput: document.querySelector("#adminKeyInput"),
+  analyticsChart: document.querySelector("#analyticsChart"),
+  analyticsContent: document.querySelector("#analyticsContent"),
+  analyticsMessage: document.querySelector("#analyticsMessage"),
+  analyticsUpdated: document.querySelector("#analyticsUpdated"),
+  analyticsView: document.querySelector("#analyticsView"),
   approveButton: document.querySelector("#approveButton"),
   candidateList: document.querySelector("#candidateList"),
   candidateScore: document.querySelector("#candidateScore"),
@@ -27,6 +34,7 @@ const elements = {
   queueUpdated: document.querySelector("#queueUpdated"),
   reasonZhInput: document.querySelector("#reasonZhInput"),
   refreshButton: document.querySelector("#refreshButton"),
+  reviewView: document.querySelector("#reviewView"),
   rejectButton: document.querySelector("#rejectButton"),
   reviewForm: document.querySelector("#reviewForm"),
   saveSettingsButton: document.querySelector("#saveSettingsButton"),
@@ -35,7 +43,14 @@ const elements = {
   sourceLink: document.querySelector("#sourceLink"),
   statusBadge: document.querySelector("#statusBadge"),
   summaryZhInput: document.querySelector("#summaryZhInput"),
+  metricAverage: document.querySelector("#metricAverage"),
+  metricChange: document.querySelector("#metricChange"),
+  metricPeriod: document.querySelector("#metricPeriod"),
+  metricPeriodLabel: document.querySelector("#metricPeriodLabel"),
+  metricToday: document.querySelector("#metricToday"),
   titleZhInput: document.querySelector("#titleZhInput"),
+  topPaths: document.querySelector("#topPaths"),
+  topReferrers: document.querySelector("#topReferrers"),
   toast: document.querySelector("#toast"),
   typeInput: document.querySelector("#typeInput"),
   workerUrlInput: document.querySelector("#workerUrlInput"),
@@ -58,8 +73,114 @@ function adminKey() {
 
 function updateConnectionState() {
   const connected = Boolean(workerUrl() && adminKey());
-  elements.connectionState.textContent = connected ? "审核接口已配置" : "未连接审核接口";
+  elements.connectionState.textContent = connected ? "管理接口已配置" : "未连接管理接口";
   elements.connectionState.style.color = connected ? "var(--success)" : "var(--muted)";
+}
+
+function formatAnalyticsTime(value) {
+  return new Intl.DateTimeFormat("zh-CN", {
+    timeZone: "Asia/Shanghai",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).format(new Date(value));
+}
+
+function renderRankTable(rows, key, emptyText) {
+  if (!rows.length) return `<p class="analytics-empty">${escapeHtml(emptyText)}</p>`;
+  return `
+    <table class="rank-table">
+      <thead><tr><th>名称</th><th>访问</th></tr></thead>
+      <tbody>${rows.map((row) => `
+        <tr><td>${escapeHtml(row[key])}</td><td>${Number(row.views).toLocaleString("zh-CN")}</td></tr>
+      `).join("")}</tbody>
+    </table>`;
+}
+
+function renderAnalytics(payload) {
+  const metrics = payload.metrics;
+  elements.metricToday.textContent = Number(metrics.today).toLocaleString("zh-CN");
+  elements.metricPeriod.textContent = Number(metrics.period).toLocaleString("zh-CN");
+  elements.metricPeriodLabel.textContent = `近 ${payload.days} 天`;
+  elements.metricAverage.textContent = Number(metrics.average_per_day).toLocaleString("zh-CN");
+  elements.metricChange.textContent = metrics.change_percent == null
+    ? "无可比基数"
+    : `${metrics.change_percent > 0 ? "+" : ""}${metrics.change_percent}%`;
+  elements.metricChange.className = metrics.change_percent > 0
+    ? "metric-up"
+    : metrics.change_percent < 0
+      ? "metric-down"
+      : "";
+
+  const maximum = Math.max(1, ...payload.daily.map((entry) => Number(entry.views)));
+  elements.analyticsChart.innerHTML = payload.daily.map((entry) => {
+    const views = Number(entry.views);
+    const height = views ? Math.max(8, Math.round((views / maximum) * 100)) : 2;
+    const label = entry.day.slice(5).replace("-", "/");
+    return `
+      <div class="bar-column" title="${escapeHtml(entry.day)}：${views} 次">
+        <span class="bar-value">${views || ""}</span>
+        <span class="bar" style="height: ${height}%"></span>
+        <span class="bar-label">${escapeHtml(label)}</span>
+      </div>`;
+  }).join("");
+  elements.analyticsChart.setAttribute(
+    "aria-label",
+    `${payload.range.start} 至 ${payload.range.end}，共 ${metrics.period} 次页面访问`,
+  );
+
+  elements.topPaths.innerHTML = renderRankTable(payload.top_paths || [], "path", "当前周期没有页面访问。");
+  elements.topReferrers.innerHTML = renderRankTable(
+    payload.top_referrers || [],
+    "referrer_host",
+    "当前周期没有可识别的外部来源。",
+  );
+  elements.analyticsUpdated.textContent = `统计更新于 ${formatAnalyticsTime(payload.generated_at)} 北京时间`;
+  elements.analyticsMessage.hidden = true;
+  elements.analyticsContent.hidden = false;
+}
+
+async function loadAnalytics() {
+  elements.refreshButton.disabled = true;
+  elements.analyticsContent.hidden = true;
+  elements.analyticsMessage.hidden = false;
+  if (!workerUrl() || !adminKey()) {
+    elements.analyticsMessage.textContent = "请先在连接设置中配置 Worker URL 和管理员密钥。";
+    elements.analyticsUpdated.textContent = "等待读取统计数据";
+    elements.refreshButton.disabled = false;
+    return;
+  }
+
+  elements.analyticsMessage.textContent = "正在读取访问统计...";
+  try {
+    const response = await fetch(`${workerUrl()}/analytics/summary?days=${state.analyticsDays}`, {
+      headers: { Authorization: `Bearer ${adminKey()}` },
+      cache: "no-store",
+    });
+    const payload = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(payload.error || `统计接口返回 ${response.status}`);
+    renderAnalytics(payload);
+  } catch (error) {
+    elements.analyticsMessage.textContent = `无法读取访问统计：${error.message}`;
+    elements.analyticsUpdated.textContent = "统计读取失败";
+  } finally {
+    elements.refreshButton.disabled = false;
+  }
+}
+
+function setView(view) {
+  if (!["review", "analytics"].includes(view)) return;
+  state.activeView = view;
+  elements.reviewView.hidden = view !== "review";
+  elements.analyticsView.hidden = view !== "analytics";
+  document.querySelectorAll("[data-view]").forEach((button) => {
+    button.classList.toggle("is-active", button.dataset.view === view);
+    button.setAttribute("aria-current", button.dataset.view === view ? "page" : "false");
+  });
+  if (view === "analytics") loadAnalytics();
 }
 
 async function fetchCandidatePayload() {
@@ -259,6 +380,7 @@ function saveSettings() {
   elements.settingsDialog.close();
   updateConnectionState();
   showToast("审核接口设置已保存。");
+  if (state.activeView === "analytics") loadAnalytics();
 }
 
 document.querySelectorAll("[data-filter]").forEach((button) => {
@@ -283,9 +405,26 @@ elements.reviewForm.addEventListener("submit", (event) => {
 elements.rejectButton.addEventListener("click", () => {
   if (window.confirm("确认拒绝这条历史候选吗？")) submitDecision("reject");
 });
-elements.refreshButton.addEventListener("click", () => loadCandidates());
+elements.refreshButton.addEventListener("click", () => {
+  if (state.activeView === "analytics") loadAnalytics();
+  else loadCandidates();
+});
 elements.settingsButton.addEventListener("click", openSettings);
 elements.saveSettingsButton.addEventListener("click", saveSettings);
+
+document.querySelectorAll("[data-view]").forEach((button) => {
+  button.addEventListener("click", () => setView(button.dataset.view));
+});
+
+document.querySelectorAll("[data-analytics-days]").forEach((button) => {
+  button.addEventListener("click", () => {
+    state.analyticsDays = Number(button.dataset.analyticsDays);
+    document.querySelectorAll("[data-analytics-days]").forEach((item) => {
+      item.classList.toggle("is-active", item === button);
+    });
+    loadAnalytics();
+  });
+});
 
 updateConnectionState();
 loadCandidates({ preserveSelection: false });
