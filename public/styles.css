@@ -57,6 +57,7 @@ a {
 
 .header-inner,
 .report-header,
+.race-board,
 .report-shell,
 .site-footer {
   width: min(1080px, calc(100% - 40px));
@@ -205,6 +206,148 @@ a {
 .refresh-button:disabled {
   cursor: wait;
   opacity: 0.55;
+}
+
+.race-board {
+  margin-bottom: 36px;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(360px, 0.85fr);
+  overflow: hidden;
+  background: var(--ink);
+  color: #fff;
+}
+
+.race-details {
+  min-width: 0;
+  padding: 24px 28px;
+}
+
+.race-heading-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.race-kicker,
+.race-location,
+.race-schedule p,
+.race-source,
+.countdown-label {
+  margin: 0;
+}
+
+.race-kicker {
+  color: var(--papaya);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.race-round {
+  color: #b9b9b1;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.race-details h2 {
+  margin: 8px 0 3px;
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+.race-location {
+  color: #c9c9c2;
+  font-size: 13px;
+}
+
+.race-schedule {
+  margin-top: 20px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.race-schedule p {
+  max-width: 390px;
+  color: #b9b9b1;
+  font-size: 11px;
+}
+
+.race-schedule time {
+  font-size: 13px;
+  font-weight: 900;
+  text-align: right;
+}
+
+.race-source {
+  margin-top: 8px;
+  color: #888880;
+  font-size: 10px;
+}
+
+.countdown-panel {
+  padding: 23px 24px;
+  display: grid;
+  align-content: center;
+  background: var(--papaya);
+  color: #171714;
+}
+
+.countdown-label {
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.countdown-grid {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.countdown-grid > div {
+  border-right: 1px solid rgba(23, 23, 20, 0.28);
+  padding: 0 10px;
+  text-align: center;
+}
+
+.countdown-grid > div:first-child {
+  padding-left: 0;
+}
+
+.countdown-grid > div:last-child {
+  border-right: 0;
+  padding-right: 0;
+}
+
+.countdown-grid strong,
+.countdown-grid span {
+  display: block;
+}
+
+.countdown-grid strong {
+  font-size: 32px;
+  line-height: 1.15;
+}
+
+.countdown-grid span {
+  margin-top: 2px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.calendar-link {
+  width: fit-content;
+  margin-top: 14px;
+  color: #171714;
+  font-size: 11px;
+  font-weight: 900;
+  text-underline-offset: 3px;
+}
+
+.race-board.is-live .countdown-panel {
+  background: #f4d03f;
 }
 
 .report-shell {
@@ -594,6 +737,7 @@ a {
 @media (max-width: 760px) {
   .header-inner,
   .report-header,
+  .race-board,
   .report-shell,
   .site-footer {
     width: min(100% - 28px, 1080px);
@@ -616,6 +760,15 @@ a {
   .update-panel {
     width: 100%;
     min-width: 0;
+  }
+
+  .race-board {
+    grid-template-columns: 1fr;
+  }
+
+  .race-details,
+  .countdown-panel {
+    padding: 21px 22px;
   }
 
   .tab {
@@ -659,6 +812,20 @@ a {
     justify-content: center;
     gap: 0;
     padding: 8px 0;
+  }
+
+  .race-schedule {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .race-schedule time {
+    text-align: left;
+  }
+
+  .countdown-grid strong {
+    font-size: 29px;
   }
 
   .tab small {

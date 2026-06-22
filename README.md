@@ -12,7 +12,7 @@ Piasnews 是一个面向 Oscar Piastri 粉丝的 Agent Skill，用来抓取、�
 - 优先使用官方来源：Oscar 官网、McLaren F1、Formula 1 官网。
 - 使用公开新闻 RSS / 搜索作为补充来源。
 - 默认且强制只搜索最近 3 天的信息。
-- 提供静态数据文件：`data/items.json`、`data/daily.json`、`data/rss.xml`、`data/history.json`、`data/history-candidates.json`。
+- 提供静态数据文件：`data/items.json`、`data/daily.json`、`data/rss.xml`、`data/calendar.json`、`data/history.json`、`data/history-candidates.json`。
 - GitHub Actions 每 6 小时自动更新一次数据，也支持手动触发。
 - 通过 GitHub Pages 发布公开粉丝日报和数据端点。
 - 支持官方-only、比赛周、采访、传闻、媒体报道等场景。
@@ -103,6 +103,7 @@ Summarize the latest Oscar Piastri news in English.
 - 网页地址：https://znonymity.github.io/piasnews/
 - 页面提供速读、标准、深读三个 Tab，共用同一份已核验静态数据。
 - 页面显示北京时间的数据更新时间，并提供手动刷新按钮。
+- 页面接入 F1 赛历，展示下一场大奖赛、比赛周时间和每秒更新的正赛倒计时。
 - 每次 GitHub Actions 完成信息抓取后，会在同一工作流中重新部署网页和 JSON/RSS，因此页面与公开数据同步更新。
 - 日报由浏览器中的确定性模板生成，不调用大模型，不消耗项目方或访问者的模型 token。
 
@@ -140,6 +141,7 @@ GitHub Pages：
 - 最新条目：https://znonymity.github.io/piasnews/data/items.json
 - 每日统计：https://znonymity.github.io/piasnews/data/daily.json
 - RSS Feed：https://znonymity.github.io/piasnews/data/rss.xml
+- F1 赛历：https://znonymity.github.io/piasnews/data/calendar.json
 - 历史事件：https://znonymity.github.io/piasnews/data/history.json
 - 历史候选：https://znonymity.github.io/piasnews/data/history-candidates.json
 - 历史检索配置：https://znonymity.github.io/piasnews/data/history-retrieval.json
@@ -149,6 +151,7 @@ GitHub raw fallback：
 - 最新条目：[data/items.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/items.json)
 - 每日统计：[data/daily.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/daily.json)
 - RSS Feed：[data/rss.xml](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/rss.xml)
+- F1 赛历：[data/calendar.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/calendar.json)
 - 历史事件：[data/history.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/history.json)
 - 历史候选：[data/history-candidates.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/history-candidates.json)
 - 历史检索配置：[piasnews/references/history-retrieval.json](piasnews/references/history-retrieval.json)
@@ -157,6 +160,7 @@ GitHub raw fallback：
 
 ```bash
 python3 scripts/fetch_piasnews.py --days 3 --output-dir data
+python3 scripts/fetch_f1_calendar.py --output data/calendar.json
 python3 scripts/build_history_candidates.py
 python3 scripts/validate_history.py
 ```
@@ -187,6 +191,7 @@ python3 scripts/validate_history.py
 ├── README.md
 ├── data/
 │   ├── daily.json
+│   ├── calendar.json
 │   ├── history-candidates.json
 │   ├── history.json
 │   ├── items.json
@@ -212,11 +217,13 @@ python3 scripts/validate_history.py
 │   │   └── styles.css
 ├── scripts/
 │   ├── build_history_candidates.py
+│   ├── fetch_f1_calendar.py
 │   ├── fetch_piasnews.py
 │   ├── review_history.py
 │   └── validate_history.py
 ├── tests/
 │   ├── test_fetch_piasnews.py
+│   ├── test_f1_calendar.py
 │   └── test_history_pipeline.py
 └── worker/
     ├── src/
@@ -243,7 +250,7 @@ The current release combines **V1 static data, a public fan daily, and a history
 - Prioritizes official sources: Oscar's official site, McLaren F1, and Formula 1.
 - Uses public news RSS/search as fallback coverage.
 - Strictly searches only the latest 3 days by default and by rule.
-- Provides static data files: `data/items.json`, `data/daily.json`, `data/rss.xml`, `data/history.json`, and `data/history-candidates.json`.
+- Provides static data files: `data/items.json`, `data/daily.json`, `data/rss.xml`, `data/calendar.json`, `data/history.json`, and `data/history-candidates.json`.
 - GitHub Actions refreshes data every 6 hours and can also be triggered manually.
 - Publishes a public fan daily and data endpoints through GitHub Pages.
 - Supports official-only updates, race-week reports, interviews, rumors, and media coverage.
@@ -334,6 +341,7 @@ The current knowledge base uses structured-facet retrieval. `piasnews/references
 - Web page: https://znonymity.github.io/piasnews/
 - Three tabs provide short, standard, and deep views over the same verified static data.
 - The page shows the data refresh time in China Standard Time and includes a manual refresh control.
+- The page reads the F1 calendar and shows the next Grand Prix, race-week timing, and a live race-start countdown.
 - Each successful GitHub Actions collection redeploys the page and JSON/RSS in the same workflow, keeping them synchronized.
 - Browser-side deterministic templates generate the views without an LLM or model-token usage.
 
@@ -371,6 +379,7 @@ GitHub Pages:
 - Latest items: https://znonymity.github.io/piasnews/data/items.json
 - Daily stats: https://znonymity.github.io/piasnews/data/daily.json
 - RSS feed: https://znonymity.github.io/piasnews/data/rss.xml
+- F1 calendar: https://znonymity.github.io/piasnews/data/calendar.json
 - Historical events: https://znonymity.github.io/piasnews/data/history.json
 - History candidates: https://znonymity.github.io/piasnews/data/history-candidates.json
 - History retrieval config: https://znonymity.github.io/piasnews/data/history-retrieval.json
@@ -380,6 +389,7 @@ GitHub raw fallback:
 - Latest items: [data/items.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/items.json)
 - Daily stats: [data/daily.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/daily.json)
 - RSS feed: [data/rss.xml](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/rss.xml)
+- F1 calendar: [data/calendar.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/calendar.json)
 - Historical events: [data/history.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/history.json)
 - History candidates: [data/history-candidates.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/history-candidates.json)
 - History retrieval config: [piasnews/references/history-retrieval.json](piasnews/references/history-retrieval.json)
@@ -388,6 +398,7 @@ Update locally:
 
 ```bash
 python3 scripts/fetch_piasnews.py --days 3 --output-dir data
+python3 scripts/fetch_f1_calendar.py --output data/calendar.json
 python3 scripts/build_history_candidates.py
 python3 scripts/validate_history.py
 ```
@@ -418,6 +429,7 @@ python3 scripts/validate_history.py
 ├── README.md
 ├── data/
 │   ├── daily.json
+│   ├── calendar.json
 │   ├── history-candidates.json
 │   ├── history.json
 │   ├── items.json
@@ -443,11 +455,13 @@ python3 scripts/validate_history.py
 │   │   └── styles.css
 ├── scripts/
 │   ├── build_history_candidates.py
+│   ├── fetch_f1_calendar.py
 │   ├── fetch_piasnews.py
 │   ├── review_history.py
 │   └── validate_history.py
 ├── tests/
 │   ├── test_fetch_piasnews.py
+│   ├── test_f1_calendar.py
 │   └── test_history_pipeline.py
 └── worker/
     ├── src/

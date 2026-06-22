@@ -156,6 +156,7 @@ The GitHub Pages root serves a read-only daily report for all fans without addin
 
 - The page provides short, standard, and deep tabs aligned with the Skill's three report modes.
 - All views read the same `data/items.json`, `data/daily.json`, and approved `data/history.json`; news data is not duplicated.
+- The page reads `data/calendar.json` for the next Grand Prix, race-week timing, and race-start countdown. Calendar metadata is outside the three-day news window and cannot fill a daily report.
 - The page displays the `generated_at` timestamp in China Standard Time and the active three-day window.
 - Short mode uses at most five bullets, omits rumor messaging when there are no rumors, and has no data panel.
 - Standard mode separates official, media, and rumor coverage and omits empty optional sections.
@@ -164,6 +165,7 @@ The GitHub Pages root serves a read-only daily report for all fans without addin
 - Browser-side deterministic templates render the reports without an LLM or model-token usage.
 - `.github/workflows/update-piasnews.yml` packages `public/` with the current run's generated data, so the page and JSON/RSS update in the same Pages deployment.
 - The UI includes loading, empty, error, and manual-refresh states, responsive layouts, and keyboard-operable tabs.
+- The countdown updates locally every second. If the calendar API fails, deployment keeps the last valid committed calendar.
 
 ### Pretrained Model Invocation and Artifacts
 
@@ -452,6 +454,7 @@ Current repository layout:
 │       └── update-piasnews.yml
 ├── README.md
 ├── data/
+│   ├── calendar.json
 │   ├── daily.json
 │   ├── history-candidates.json
 │   ├── history.json
@@ -478,10 +481,12 @@ Current repository layout:
 │   │   └── styles.css
 ├── scripts/
 │   ├── build_history_candidates.py
+│   ├── fetch_f1_calendar.py
 │   ├── fetch_piasnews.py
 │   ├── review_history.py
 │   └── validate_history.py
 ├── tests/
+│   ├── test_f1_calendar.py
 │   ├── test_fetch_piasnews.py
 │   └── test_history_pipeline.py
 └── worker/
@@ -509,12 +514,13 @@ V0.5 is complete when:
 
 V1 is complete when:
 
-- Scheduled collection generates `items.json`, `daily.json`, and `rss.xml`.
+- Scheduled collection generates `items.json`, `daily.json`, `rss.xml`, and `calendar.json`.
 - The Skill reads static data first and falls back to direct sources.
 - Daily new item counts are available.
 - GitHub Pages publishes the static data entrypoint.
 - The GitHub Pages root publishes the three-tab fan daily, displays the data refresh time, and updates after each collection workflow.
 - All three web views share static data and use no LLM; short and standard views contain no data panel.
+- The page displays the next F1 race countdown, China Standard Time schedule, and official calendar link; calendar data refreshes with the collection workflow.
 - `data/history.json` is available for optional historical context and is published with Pages.
 - Unreviewed events never enter Looking Back; vector embeddings remain optional and are disabled by default.
 - The review console reads pending records, confirms Chinese content, and submits approval or rejection; candidate rules assign historical value automatically.

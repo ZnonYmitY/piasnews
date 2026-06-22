@@ -32,6 +32,9 @@ jobs:
       - name: Fetch latest Piasnews data
         run: python scripts/fetch_piasnews.py --days 3 --output-dir data
 
+      - name: Fetch Formula 1 calendar
+        run: python scripts/fetch_f1_calendar.py --output data/calendar.json
+
       - name: Build history-review candidates
         run: python scripts/build_history_candidates.py
 
@@ -42,7 +45,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/items.json data/daily.json data/rss.xml data/history-candidates.json
+          git add data/items.json data/daily.json data/rss.xml data/calendar.json data/history-candidates.json
           if git diff --cached --quiet; then
             echo "No Piasnews data changes."
           else
@@ -53,7 +56,7 @@ jobs:
       - name: Prepare Pages artifact
         run: |
           mkdir -p public/data
-          cp data/items.json data/daily.json data/rss.xml data/history.json data/history-candidates.json public/data/
+          cp data/items.json data/daily.json data/rss.xml data/calendar.json data/history.json data/history-candidates.json public/data/
           cp piasnews/references/history-retrieval.json public/data/history-retrieval.json
 
       - name: Configure Pages

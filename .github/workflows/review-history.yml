@@ -70,7 +70,7 @@ jobs:
       - name: Prepare Pages artifact
         run: |
           mkdir -p public/data
-          cp data/items.json data/daily.json data/rss.xml data/history.json data/history-candidates.json public/data/
+          cp data/items.json data/daily.json data/rss.xml data/calendar.json data/history.json data/history-candidates.json public/data/
           cp piasnews/references/history-retrieval.json public/data/history-retrieval.json
 
       - name: Configure Pages

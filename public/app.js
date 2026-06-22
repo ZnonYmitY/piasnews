@@ -22,6 +22,9 @@ const state = {
   items: [],
   daily: null,
   history: [],
+  calendar: null,
+  displayRace: null,
+  countdownTimer: null,
   generatedAt: null,
   activeMode: "short",
 };
@@ -35,6 +38,19 @@ const elements = {
   errorMessage: document.querySelector("#errorMessage"),
   refreshButton: document.querySelector("#refreshButton"),
   retryButton: document.querySelector("#retryButton"),
+  raceBoard: document.querySelector("#raceBoard"),
+  raceRound: document.querySelector("#raceRound"),
+  raceName: document.querySelector("#raceName"),
+  raceLocation: document.querySelector("#raceLocation"),
+  raceWeekend: document.querySelector("#raceWeekend"),
+  raceStartTime: document.querySelector("#raceStartTime"),
+  raceCalendarMeta: document.querySelector("#raceCalendarMeta"),
+  countdownLabel: document.querySelector("#countdownLabel"),
+  countdownDays: document.querySelector("#countdownDays"),
+  countdownHours: document.querySelector("#countdownHours"),
+  countdownMinutes: document.querySelector("#countdownMinutes"),
+  countdownSeconds: document.querySelector("#countdownSeconds"),
+  officialCalendarLink: document.querySelector("#officialCalendarLink"),
   tabs: [...document.querySelectorAll("[role=tab]")],
   panels: {
     short: document.querySelector("#panel-short"),
@@ -71,6 +87,92 @@ function formatItemTime(value) {
     minute: "2-digit",
     hour12: false,
   }).format(new Date(value));
+}
+
+function formatRaceTime(value) {
+  if (!value) return "时间待定";
+  return new Intl.DateTimeFormat("zh-CN", {
+    timeZone: "Asia/Shanghai",
+    month: "long",
+    day: "numeric",
+    weekday: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).format(new Date(value));
+}
+
+function padded(value) {
+  return String(Math.max(0, value)).padStart(2, "0");
+}
+
+function selectCountdownRace(calendar, now = Date.now()) {
+  const races = Array.isArray(calendar?.races) ? calendar.races : [];
+  const activeRace = races.find((race) => {
+    const start = new Date(race.race_start).getTime();
+    return start <= now && now < start + 3 * 60 * 60 * 1000;
+  });
+  if (activeRace) return activeRace;
+  return races.find((race) => new Date(race.race_start).getTime() > now) || null;
+}
+
+function setRaceDetails(race) {
+  state.displayRace = race;
+  const qualifying = race.sessions?.qualifying;
+  const scheduleParts = [];
+  if (race.weekend_start) scheduleParts.push(`周末开始 ${formatRaceTime(race.weekend_start)}`);
+  if (qualifying) scheduleParts.push(`排位 ${formatRaceTime(qualifying)}`);
+
+  elements.raceRound.textContent = `ROUND ${race.round} · ${race.country_code}`;
+  elements.raceName.textContent = race.name_zh || race.name;
+  elements.raceLocation.textContent = [race.circuit, race.locality].filter(Boolean).join(" · ");
+  elements.raceWeekend.textContent = scheduleParts.join(" · ");
+  elements.raceStartTime.textContent = `正赛 ${formatRaceTime(race.race_start)} 北京时间`;
+  elements.raceStartTime.dateTime = race.race_start;
+  elements.raceCalendarMeta.textContent = `赛历更新于 ${formatDateTime(state.calendar.generated_at)} 北京时间`;
+  elements.officialCalendarLink.href = state.calendar.source?.official_calendar_url || race.official_url;
+}
+
+function updateRaceCountdown() {
+  const currentRace = selectCountdownRace(state.calendar);
+  if (!currentRace) {
+    elements.raceBoard.hidden = true;
+    return;
+  }
+  if (currentRace.id !== state.displayRace?.id) setRaceDetails(currentRace);
+
+  const now = Date.now();
+  const start = new Date(currentRace.race_start).getTime();
+  const remaining = Math.max(0, start - now);
+  const live = start <= now && now < start + 3 * 60 * 60 * 1000;
+  const days = Math.floor(remaining / 86400000);
+  const hours = Math.floor((remaining % 86400000) / 3600000);
+  const minutes = Math.floor((remaining % 3600000) / 60000);
+  const seconds = Math.floor((remaining % 60000) / 1000);
+
+  elements.raceBoard.classList.toggle("is-live", live);
+  elements.countdownLabel.textContent = live ? "正赛进行中" : "距离正赛";
+  elements.countdownDays.textContent = padded(days);
+  elements.countdownHours.textContent = padded(hours);
+  elements.countdownMinutes.textContent = padded(minutes);
+  elements.countdownSeconds.textContent = padded(seconds);
+}
+
+function renderRaceCountdown(calendar) {
+  window.clearInterval(state.countdownTimer);
+  state.countdownTimer = null;
+  state.calendar = calendar;
+  state.displayRace = null;
+  const race = selectCountdownRace(calendar);
+  if (!race) {
+    elements.raceBoard.hidden = true;
+    return;
+  }
+
+  setRaceDetails(race);
+  elements.raceBoard.hidden = false;
+  updateRaceCountdown();
+  state.countdownTimer = window.setInterval(updateRaceCountdown, 1000);
 }
 
 function categoryLabel(category) {
@@ -330,6 +432,14 @@ async function fetchJson(path, required = true) {
   return response.json();
 }
 
+async function fetchOptionalJson(path) {
+  try {
+    return await fetchJson(path, false);
+  } catch (_error) {
+    return null;
+  }
+}
+
 async function loadData() {
   elements.refreshButton.disabled = true;
   elements.loadingState.hidden = false;
@@ -339,16 +449,18 @@ async function loadData() {
   });
 
   try {
-    const [itemsPayload, dailyPayload, historyPayload] = await Promise.all([
+    const [itemsPayload, dailyPayload, historyPayload, calendarPayload] = await Promise.all([
       fetchJson("data/items.json"),
       fetchJson("data/daily.json"),
-      fetchJson("data/history.json", false),
+      fetchOptionalJson("data/history.json"),
+      fetchOptionalJson("data/calendar.json"),
     ]);
     state.items = Array.isArray(itemsPayload.items) ? itemsPayload.items : [];
     state.daily = dailyPayload;
     state.history = Array.isArray(historyPayload?.events) ? historyPayload.events : [];
     state.generatedAt = itemsPayload.generated_at || dailyPayload.generated_at;
     updateMeta(state.generatedAt);
+    renderRaceCountdown(calendarPayload);
     render();
     elements.loadingState.hidden = true;
     setMode(state.activeMode, false);

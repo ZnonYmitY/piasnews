@@ -57,6 +57,8 @@ When `data/items.json` and `data/daily.json` are available locally or through th
 
 Use `data/items.json` for item-level reports. Use `data/daily.json` for counts and source/category breakdowns. Use `data/rss.xml` when the user asks for a feed link or RSS-compatible output.
 
+Use `data/calendar.json` for the current F1 season schedule, the next race, and race-week session times. Calendar data is schedule metadata and is not limited by the latest-3-days news window, but it must not be presented as news or used to fill an empty daily report. Prefer the linked official Formula 1 calendar when schedule verification matters.
+
 If the static data is stale, unavailable, or does not cover the user's requested narrower window, fall back to the V0.5 live workflow while keeping the latest-3-days limit.
 
 Use approved events from `data/history.json` and bundled `references/history-retrieval.json` for the optional historical module. Never use pending or rejected records from `data/history-candidates.json` in a fan report. Historical data is a separate curated knowledge base and does not relax the latest-3-days rule for live news.

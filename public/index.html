@@ -39,6 +39,32 @@
         </div>
       </section>
 
+      <section class="race-board" id="raceBoard" aria-labelledby="raceName" hidden>
+        <div class="race-details">
+          <div class="race-heading-row">
+            <p class="race-kicker">NEXT RACE</p>
+            <span class="race-round" id="raceRound">ROUND</span>
+          </div>
+          <h2 id="raceName">下一场比赛</h2>
+          <p class="race-location" id="raceLocation"></p>
+          <div class="race-schedule">
+            <p id="raceWeekend"></p>
+            <time id="raceStartTime"></time>
+          </div>
+          <p class="race-source" id="raceCalendarMeta"></p>
+        </div>
+        <div class="countdown-panel">
+          <p class="countdown-label" id="countdownLabel">距离正赛</p>
+          <div class="countdown-grid" aria-label="距离下一场正赛的倒计时">
+            <div><strong id="countdownDays">00</strong><span>天</span></div>
+            <div><strong id="countdownHours">00</strong><span>时</span></div>
+            <div><strong id="countdownMinutes">00</strong><span>分</span></div>
+            <div><strong id="countdownSeconds">00</strong><span>秒</span></div>
+          </div>
+          <a class="calendar-link" id="officialCalendarLink" href="https://www.formula1.com/en/racing/2026" target="_blank" rel="noreferrer">查看 F1 官方赛历</a>
+        </div>
+      </section>
+
       <section class="report-shell" aria-label="粉丝日报">
         <div class="report-meta">
           <p id="windowLabel">最近 3 天</p>
