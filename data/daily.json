@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T20:22:06.514697Z",
+  "generated_at": "2026-06-24T04:35:34.752368Z",
   "window_days": 3,
   "total_items": 4,
   "latest_date": "2026-06-23",
@@ -49,7 +49,7 @@
       "source_group": "official_direct",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=site%3Aformula1.com%2Fen%2Flatest+%22Piastri%22+when%3A3d",
       "ok": true,
-      "items": 0
+      "items": 1
     },
     {
       "query": "site:oscarpiastri.com \"Piastri\" when:3d",
@@ -63,14 +63,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 10
+      "items": 13
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 7
+      "items": 10
     },
     {
       "query": "\"OP81\" when:3d",
@@ -84,14 +84,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 2
+      "items": 1
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 6
+      "items": 9
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -103,10 +103,12 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 11,
+      "checked": 12,
       "kept": 4,
       "results": {
-        "publisher_date_missing": 7,
+        "outside_window": 1,
+        "publisher_date_missing": 6,
+        "publisher_unavailable": 1,
         "verified": 4
       }
     }
