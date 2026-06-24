@@ -1,22 +1,24 @@
 {
-  "generated_at": "2026-06-24T04:35:34.752368Z",
+  "generated_at": "2026-06-24T09:50:53.923888Z",
   "window_days": 3,
-  "total_items": 4,
+  "total_items": 5,
   "latest_date": "2026-06-23",
   "days": [
     {
       "date": "2026-06-23",
-      "total_new_items": 2,
+      "total_new_items": 3,
       "official_new_items": 0,
-      "media_new_items": 2,
+      "media_new_items": 3,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "GPblog": 1,
+        "motors-addict": 1,
         "玩具人 TOY PEOPLE": 1
       },
       "categories": {
-        "race": 2
+        "race": 2,
+        "team": 1
       }
     },
     {
@@ -63,7 +65,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 13
+      "items": 12
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
@@ -91,7 +93,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 9
+      "items": 8
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -103,13 +105,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 12,
-      "kept": 4,
+      "checked": 11,
+      "kept": 5,
       "results": {
         "outside_window": 1,
-        "publisher_date_missing": 6,
+        "publisher_date_missing": 4,
         "publisher_unavailable": 1,
-        "verified": 4
+        "verified": 5
       }
     }
   ]
