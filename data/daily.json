@@ -1,9 +1,23 @@
 {
-  "generated_at": "2026-06-25T09:44:25.443574Z",
+  "generated_at": "2026-06-25T15:12:28.699044Z",
   "window_days": 3,
   "total_items": 5,
-  "latest_date": "2026-06-24",
+  "latest_date": "2026-06-25",
   "days": [
+    {
+      "date": "2026-06-25",
+      "total_new_items": 2,
+      "official_new_items": 0,
+      "media_new_items": 2,
+      "x_new_items": 0,
+      "rumor_new_items": 0,
+      "sources": {
+        "Sky Sports": 2
+      },
+      "categories": {
+        "race": 2
+      }
+    },
     {
       "date": "2026-06-24",
       "total_new_items": 2,
@@ -31,22 +45,6 @@
         "玩具人 TOY PEOPLE": 1
       },
       "categories": {
-        "race": 1
-      }
-    },
-    {
-      "date": "2026-06-22",
-      "total_new_items": 2,
-      "official_new_items": 0,
-      "media_new_items": 2,
-      "x_new_items": 0,
-      "rumor_new_items": 0,
-      "sources": {
-        "Fox Sports": 1,
-        "GPblog": 1
-      },
-      "categories": {
-        "other": 1,
         "race": 1
       }
     }
@@ -78,14 +76,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 20
+      "items": 21
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 16
+      "items": 17
     },
     {
       "query": "\"OP81\" when:3d",
@@ -99,14 +97,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 5
+      "items": 6
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 12
+      "items": 9
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -118,12 +116,12 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 19,
+      "checked": 22,
       "kept": 5,
       "results": {
-        "outside_window": 1,
+        "outside_window": 3,
         "publisher_date_missing": 10,
-        "publisher_unavailable": 3,
+        "publisher_unavailable": 4,
         "verified": 5
       }
     }
