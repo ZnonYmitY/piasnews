@@ -1,16 +1,36 @@
 {
-  "generated_at": "2026-06-26T04:39:25.750630Z",
+  "generated_at": "2026-06-26T09:52:05.526638Z",
   "window_days": 3,
-  "total_items": 17,
-  "latest_date": "2026-06-25",
+  "total_items": 22,
+  "latest_date": "2026-06-26",
   "days": [
+    {
+      "date": "2026-06-26",
+      "total_new_items": 6,
+      "official_new_items": 0,
+      "media_new_items": 6,
+      "x_new_items": 0,
+      "rumor_new_items": 0,
+      "sources": {
+        "ABP Live English": 1,
+        "F1 Oversteer": 2,
+        "JournalArta": 1,
+        "TimesLIVE": 1,
+        "autohebdof1.com": 1
+      },
+      "categories": {
+        "interview": 1,
+        "race": 3,
+        "team": 2
+      }
+    },
     {
       "date": "2026-06-25",
       "total_new_items": 14,
       "official_new_items": 1,
       "media_new_items": 13,
       "x_new_items": 0,
-      "rumor_new_items": 0,
+      "rumor_new_items": 1,
       "sources": {
         "7NEWS": 1,
         "Auto Action": 1,
@@ -29,7 +49,8 @@
       "categories": {
         "other": 1,
         "race": 8,
-        "team": 5
+        "rumor": 1,
+        "team": 4
       }
     },
     {
@@ -46,20 +67,6 @@
       "categories": {
         "race": 1,
         "team": 1
-      }
-    },
-    {
-      "date": "2026-06-23",
-      "total_new_items": 1,
-      "official_new_items": 0,
-      "media_new_items": 1,
-      "x_new_items": 0,
-      "rumor_new_items": 0,
-      "sources": {
-        "玩具人 TOY PEOPLE": 1
-      },
-      "categories": {
-        "race": 1
       }
     }
   ],
@@ -90,14 +97,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 40
+      "items": 41
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 27
+      "items": 30
     },
     {
       "query": "\"OP81\" when:3d",
@@ -130,13 +137,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 40,
-      "kept": 17,
+      "checked": 42,
+      "kept": 22,
       "results": {
         "outside_window": 1,
-        "publisher_date_missing": 11,
-        "publisher_unavailable": 11,
-        "verified": 17
+        "publisher_date_missing": 9,
+        "publisher_unavailable": 10,
+        "verified": 22
       }
     }
   ]
