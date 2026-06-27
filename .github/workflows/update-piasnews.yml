@@ -38,6 +38,7 @@ jobs:
       - name: Fetch optional X and Instagram social data
         env:
           PIASNEWS_X_BEARER_TOKEN: ${{ secrets.PIASNEWS_X_BEARER_TOKEN }}
+          PIASNEWS_SOCIAL_INPUT_JSON: ${{ vars.PIASNEWS_SOCIAL_INPUT_JSON }}
         run: python scripts/fetch_social_sources.py --days 3 --output data/social.json
 
       - name: Build history-review candidates

@@ -165,7 +165,7 @@ def normalize_social_item(raw: dict[str, Any], source: dict[str, Any], now: date
         "discovered_at": isoformat(now),
         "category": "fan" if source.get("group") == "fan_watch" else "other",
         "summary": summary,
-        "summary_zh": f"{attribution_zh}：{summary}",
+        "summary_zh": summary,
         "attribution": attribution_en,
         "attribution_zh": attribution_zh,
         "copyright_notice": "Remove on rights request.",
@@ -252,8 +252,7 @@ def fetch_x_source(source: dict[str, Any], bearer_token: str, now: datetime, cut
     return items, status
 
 
-def normalize_import(path: Path, sources: dict[str, Any], now: datetime, cutoff: datetime) -> tuple[list[dict[str, Any]], dict[str, Any]]:
-    payload = json.loads(path.read_text())
+def normalize_import_payload(payload: Any, source_label: str, sources: dict[str, Any], now: datetime, cutoff: datetime) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     raw_items = payload.get("items", payload if isinstance(payload, list) else [])
     source_map = source_by_handle(sources)
     items = []
@@ -270,7 +269,11 @@ def normalize_import(path: Path, sources: dict[str, Any], now: datetime, cutoff:
             items.append(normalized)
         else:
             skipped += 1
-    return items, {"source": str(path), "ok": True, "items": len(items), "skipped": skipped}
+    return items, {"source": source_label, "ok": True, "items": len(items), "skipped": skipped}
+
+
+def normalize_import(path: Path, sources: dict[str, Any], now: datetime, cutoff: datetime) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    return normalize_import_payload(json.loads(path.read_text()), str(path), sources, now, cutoff)
 
 
 def dedupe_items(items: list[dict[str, Any]], limit: int) -> list[dict[str, Any]]:
@@ -309,6 +312,21 @@ def main() -> int:
         imported_items, import_status = normalize_import(Path(input_json), sources, now, cutoff)
         items.extend(imported_items)
         statuses.append({"stage": "json_import", **import_status})
+
+    input_json_text = os.environ.get("PIASNEWS_SOCIAL_INPUT_JSON")
+    if input_json_text:
+        try:
+            imported_items, import_status = normalize_import_payload(
+                json.loads(input_json_text),
+                "PIASNEWS_SOCIAL_INPUT_JSON",
+                sources,
+                now,
+                cutoff,
+            )
+            items.extend(imported_items)
+            statuses.append({"stage": "json_import_env", **import_status})
+        except json.JSONDecodeError as exc:
+            statuses.append({"stage": "json_import_env", "ok": False, "error": f"invalid_json: {exc}"})
 
     x_token = os.environ.get("PIASNEWS_X_BEARER_TOKEN")
     x_sources = [source for source in sources.get("sources", []) if source.get("platform") == "x" and source.get("enabled", True)]

@@ -319,6 +319,11 @@ function localizedAttribution(item) {
   return item.attribution || "";
 }
 
+function localizedCopyrightNotice(item) {
+  if (state.language === "zh") return item.copyright_notice_zh || "";
+  return item.copyright_notice || "";
+}
+
 function safeLink(item) {
   return `<a href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(localizedTitle(item))}</a>`;
 }
@@ -425,6 +430,7 @@ function renderNewsItem(item) {
     ? `<p class="original-title"><strong>${escapeHtml(t().originalTitle)}：</strong>${escapeHtml(item.title)}</p>`
     : "";
   const attribution = localizedAttribution(item);
+  const copyrightNotice = localizedCopyrightNotice(item);
   return `
     <article class="news-item">
       <div class="news-item-top">
@@ -438,6 +444,7 @@ function renderNewsItem(item) {
       ${originalTitle}
       <p>${escapeHtml(localizedSummary(item))}</p>
       ${attribution ? `<p class="item-attribution">${escapeHtml(attribution)}</p>` : ""}
+      ${copyrightNotice ? `<p class="item-rights">${escapeHtml(copyrightNotice)}</p>` : ""}
     </article>`;
 }
 

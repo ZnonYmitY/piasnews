@@ -106,6 +106,28 @@ class SocialSourcesTest(unittest.TestCase):
             self.assertEqual(items[0]["url"], "https://www.instagram.com/p/example/")
             self.assertEqual(items[0]["title_zh"], "Instagram 发帖：@oscarpiastri")
 
+    def test_env_json_import_is_supported(self):
+        payload = {
+            "items": [
+                {
+                    "platform": "x",
+                    "handle": "NicolePiastri",
+                    "id": "456",
+                    "text": "Oscar Piastri family-side McLaren race-week note.",
+                    "created_at": "2026-06-26T09:00:00Z",
+                }
+            ]
+        }
+        sources = collector.load_sources(SOURCES_PATH)
+        now = collector.parse_now(NOW)
+        cutoff = now - collector.timedelta(days=3)
+        items, status = collector.normalize_import_payload(payload, "env", sources, now, cutoff)
+
+        self.assertEqual(status["items"], 1)
+        self.assertEqual(items[0]["source"], "@NicolePiastri")
+        self.assertEqual(items[0]["summary_zh"], "Oscar Piastri family-side McLaren race-week note.")
+        self.assertEqual(items[0]["copyright_notice_zh"], "如有侵权请联系删除。")
+
 
 if __name__ == "__main__":
     unittest.main()
