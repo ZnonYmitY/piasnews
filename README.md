@@ -89,8 +89,8 @@ Summarize the latest Oscar Piastri news in English.
 ## 日报模式
 
 - **速读版**：最多 5 条，适合快速看今天有没有大事；不展示数据面板，没有传闻时不展示传闻提醒。
-- **日报版**：合并原标准版和深读版，保留今日重点、话题合并、官方动态、媒体报道、可选社交动态、可选传闻雷达和可选往日回顾；删除来源可信度、明日关注和默认数据面板，避免冗余。
-- **粉丝源**：第三个网页 Tab，用于展示 `data/social.json` 中最近 3 天的 X / Instagram 发帖与转帖；每条只保留短摘要、时间、原帖链接和账号归属，不外显后台账号清单。
+- **日报版**：合并原标准版和深读版，保留今日重点、话题合并、官方动态、媒体报道、可选传闻雷达和可选往日回顾；`daily_core` 社交来源进入普通日报信息流，不再单独展示 X / 社交观察栏目。
+- **粉丝源**：第三个网页 Tab，用于展示 `data/social.json` 中最近 3 天的 X / Instagram 发帖与转帖；每条保留公开原帖文本、时间、原帖链接和账号归属，不外显后台账号清单。
 
 数据面板只在用户明确要求统计时展示，避免让日报显得冗余。
 
@@ -144,7 +144,7 @@ X 不是必需依赖。只有当用户提供自己的 X 访问方式，或项目
 - 日报抓取源：Oscar Piastri 的 X 与 Instagram、`@NFFormula`、`@F1`。
 - 粉丝相关源：`@PiastriNews`、`@NicolePiastri`、`@oscarpiastri81`、`@laurogeitabat`、`@oscarsspiastree`。
 
-后续抓取这些账号的发帖与转帖时，每条信息必须标注账号来源，只保存短摘要、元数据和链接；如有侵权或账号方要求删除，应立即删除。
+后续抓取这些账号的发帖与转帖时，每条信息必须标注账号来源，只保存公开原帖文本、元数据和链接；如有侵权或账号方要求删除，应立即删除。
 
 社交动态由 `scripts/fetch_social_sources.py` 生成到 `data/social.json`。X 抓取需要在 GitHub Secrets 中配置项目自有 `PIASNEWS_X_BEARER_TOKEN`；Instagram 公开抓取默认不启用，可通过用户提供的导出 JSON 或后续正式 API 接入写入同一数据结构。
 
@@ -197,7 +197,50 @@ env PATH=/Users/bytedance/.agent-reach-venv/bin:$PATH \
 
 这个本地采集不是常驻服务。手动运行时只执行一次；如果希望粉丝源无人值守更新，需要额外用 macOS `launchd`、cron 或其他调度器定时运行上面的命令。脚本本身是普通 Python/CLI 流程，不调用大模型，不消耗 Codex token；只有让 Codex 代你执行、提交或排障时才会占用 Codex 会话额度。
 
-`daily_core` 和 `fan_watch` 已在同一来源表中维护，但展示分区不同：日报页的 X / 社交区只读取非 `fan_watch` 条目，粉丝源 Tab 只读取 `fan_watch` 条目。当前线上已发布的是 `fan_watch` 数据；`daily_core` 账号已在配置中，运行时可用 `--group daily_core` 单独采集，也可以省略 `--group` 一次采集全部分组。
+`daily_core` 和 `fan_watch` 已在同一来源表中维护，但展示分区不同：`daily_core` 进入普通日报信息流，粉丝源 Tab 只读取 `fan_watch` 条目。自动脚本默认采集全部分组；运行时也可用 `PIASNEWS_SOCIAL_GROUPS=fan_watch` 或 `PIASNEWS_SOCIAL_GROUPS=daily_core` 限制分组。
+
+完整本地发布脚本：
+
+```bash
+scripts/update_social_agent_reach.sh
+```
+
+默认采集全部 X 分组，更新 `data/social.json`，生成 compact import，写入 GitHub 变量 `PIASNEWS_SOCIAL_INPUT_JSON`，并触发 `Update Piasnews Data` workflow。只更新本地、不触发 GitHub：
+
+```bash
+PIASNEWS_SKIP_GITHUB=1 scripts/update_social_agent_reach.sh
+```
+
+只采集粉丝源：
+
+```bash
+PIASNEWS_SOCIAL_GROUPS=fan_watch scripts/update_social_agent_reach.sh
+```
+
+macOS 每 6 小时定时运行可以使用 `launchd`。把下面文件保存为 `~/Library/LaunchAgents/com.znonymity.piasnews.social.plist` 后执行 `launchctl load ~/Library/LaunchAgents/com.znonymity.piasnews.social.plist`：
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.znonymity.piasnews.social</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/bytedance/Documents/piasnews/scripts/update_social_agent_reach.sh</string>
+  </array>
+  <key>StartInterval</key>
+  <integer>21600</integer>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/tmp/piasnews-social.log</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/piasnews-social.err</string>
+</dict>
+</plist>
+```
 
 ## 静态数据
 
@@ -228,7 +271,7 @@ GitHub raw fallback：
 ```bash
 python3 scripts/fetch_piasnews.py --days 3 --output-dir data
 python3 scripts/fetch_f1_calendar.py --output data/calendar.json
-env PATH=/Users/bytedance/.agent-reach-venv/bin:$PATH python3 scripts/collect_agent_reach_social.py --group fan_watch --days 3 --output /tmp/piasnews-agent-reach-social.json --update-social
+scripts/update_social_agent_reach.sh
 python3 scripts/fetch_social_sources.py --days 3 --output data/social.json
 python3 scripts/build_history_candidates.py
 python3 scripts/validate_history.py
@@ -291,13 +334,16 @@ python3 scripts/validate_history.py
 │   │   └── styles.css
 ├── scripts/
 │   ├── build_history_candidates.py
+│   ├── compact_social_input.py
 │   ├── collect_agent_reach_social.py
 │   ├── fetch_f1_calendar.py
 │   ├── fetch_piasnews.py
 │   ├── fetch_social_sources.py
 │   ├── review_history.py
+│   ├── update_social_agent_reach.sh
 │   └── validate_history.py
 ├── tests/
+│   ├── test_compact_social_input.py
 │   ├── test_collect_agent_reach_social.py
 │   ├── test_fetch_piasnews.py
 │   ├── test_f1_calendar.py
@@ -514,7 +560,50 @@ The script reads X accounts from `piasnews/references/x-sources.json`, calls loc
 
 This local collection is not a resident service. A manual run executes once; unattended fan-source updates require an external scheduler such as macOS `launchd`, cron, or another local runner. The script is plain Python/CLI work and does not call an LLM or consume Codex tokens; Codex quota is used only when Codex is asked to run, commit, or debug it.
 
-`daily_core` and `fan_watch` are maintained in the same source table but rendered separately. The daily page's X / social section reads non-`fan_watch` items, while the fan-source tab reads only `fan_watch` items. The currently published social feed is `fan_watch`; `daily_core` accounts are configured and can be collected with `--group daily_core`, or all groups can be collected by omitting `--group`.
+`daily_core` and `fan_watch` are maintained in the same source table but rendered separately. `daily_core` is folded into the normal daily item flow, while the fan-source tab reads only `fan_watch` items. The automation script collects all groups by default; use `PIASNEWS_SOCIAL_GROUPS=fan_watch` or `PIASNEWS_SOCIAL_GROUPS=daily_core` to limit collection.
+
+Full local publish script:
+
+```bash
+scripts/update_social_agent_reach.sh
+```
+
+By default it collects all X groups, updates `data/social.json`, builds the compact import JSON, writes `PIASNEWS_SOCIAL_INPUT_JSON`, and triggers the `Update Piasnews Data` workflow. To update local files only:
+
+```bash
+PIASNEWS_SKIP_GITHUB=1 scripts/update_social_agent_reach.sh
+```
+
+To collect only fan sources:
+
+```bash
+PIASNEWS_SOCIAL_GROUPS=fan_watch scripts/update_social_agent_reach.sh
+```
+
+For a six-hour macOS schedule, save this as `~/Library/LaunchAgents/com.znonymity.piasnews.social.plist`, then run `launchctl load ~/Library/LaunchAgents/com.znonymity.piasnews.social.plist`:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.znonymity.piasnews.social</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/bytedance/Documents/piasnews/scripts/update_social_agent_reach.sh</string>
+  </array>
+  <key>StartInterval</key>
+  <integer>21600</integer>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/tmp/piasnews-social.log</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/piasnews-social.err</string>
+</dict>
+</plist>
+```
 
 ## Static Data
 
@@ -545,7 +634,7 @@ Update locally:
 ```bash
 python3 scripts/fetch_piasnews.py --days 3 --output-dir data
 python3 scripts/fetch_f1_calendar.py --output data/calendar.json
-env PATH=/Users/bytedance/.agent-reach-venv/bin:$PATH python3 scripts/collect_agent_reach_social.py --group fan_watch --days 3 --output /tmp/piasnews-agent-reach-social.json --update-social
+scripts/update_social_agent_reach.sh
 python3 scripts/fetch_social_sources.py --days 3 --output data/social.json
 python3 scripts/build_history_candidates.py
 python3 scripts/validate_history.py
@@ -608,13 +697,16 @@ python3 scripts/validate_history.py
 │   │   └── styles.css
 ├── scripts/
 │   ├── build_history_candidates.py
+│   ├── compact_social_input.py
 │   ├── collect_agent_reach_social.py
 │   ├── fetch_f1_calendar.py
 │   ├── fetch_piasnews.py
 │   ├── fetch_social_sources.py
 │   ├── review_history.py
+│   ├── update_social_agent_reach.sh
 │   └── validate_history.py
 ├── tests/
+│   ├── test_compact_social_input.py
 │   ├── test_collect_agent_reach_social.py
 │   ├── test_fetch_piasnews.py
 │   ├── test_f1_calendar.py

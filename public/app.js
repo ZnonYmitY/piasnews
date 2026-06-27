@@ -44,7 +44,6 @@ const I18N = {
     officialSection: "官方动态",
     mediaSection: "媒体报道",
     mediaCount: (count) => `${count} 条`,
-    socialSection: "X / 社交观察",
     fanFeedTitle: "粉丝源",
     fanFeedNote: "X / IG 动态",
     fanFeedRights: "粉丝源内容引用自公开 X / IG 动态；如有侵权请联系删除。",
@@ -139,7 +138,6 @@ const I18N = {
     officialSection: "Official Updates",
     mediaSection: "Media Coverage",
     mediaCount: (count) => `${count} items`,
-    socialSection: "X / Social Watch",
     fanFeedTitle: "Fan Sources",
     fanFeedNote: "X / IG updates",
     fanFeedRights: "Fan-source items reference public X / IG posts. Remove on rights request.",
@@ -529,8 +527,12 @@ function renderShort() {
   return section(t().shortTitle, `<ul class="quick-list">${bullets.slice(0, 5).join("")}</ul>`, t().shortNote);
 }
 
-function groupByCategory() {
-  return sortedItems().reduce((groups, item) => {
+function dailyItems() {
+  return sortedItems([...state.items, ...dailySocialItems()]);
+}
+
+function groupByCategory(items = sortedItems()) {
+  return items.reduce((groups, item) => {
     const key = item.category || "other";
     if (!groups[key]) groups[key] = [];
     groups[key].push(item);
@@ -553,14 +555,13 @@ function renderTopicCard(category, items) {
 }
 
 function renderDaily() {
-  if (!state.items.length) return renderEmpty();
-  const ordered = sortedItems();
+  const ordered = dailyItems();
+  if (!ordered.length) return renderEmpty();
   const officialItems = ordered.filter((item) => item.official);
-  const mediaItems = ordered.filter((item) => !item.official && item.source_type !== "x" && item.source_type !== "instagram" && item.category !== "rumor" && item.verified);
-  const social = dailySocialItems();
+  const mediaItems = ordered.filter((item) => !item.official && item.category !== "rumor" && item.verified);
   const rumorItems = ordered.filter((item) => item.category === "rumor" || !item.verified);
   const focusItems = ordered.filter((item) => item.category !== "rumor").slice(0, 3);
-  const groups = groupByCategory();
+  const groups = groupByCategory(ordered);
   const topicCards = Object.entries(groups)
     .sort(([, a], [, b]) => b.length - a.length)
     .map(([category, items]) => renderTopicCard(category, items))
@@ -577,9 +578,6 @@ function renderDaily() {
   }
   if (mediaItems.length) {
     html += section(t().mediaSection, `<div class="news-list">${mediaItems.map(renderNewsItem).join("")}</div>`, t().mediaCount(mediaItems.length));
-  }
-  if (social.length) {
-    html += section(t().socialSection, `<div class="news-list">${social.map(renderNewsItem).join("")}</div>`, t().mediaCount(social.length));
   }
   if (rumorItems.length) {
     html += section(t().rumorRadar, `<div class="news-list">${rumorItems.map(renderNewsItem).join("")}</div>`, t().rumorNote);

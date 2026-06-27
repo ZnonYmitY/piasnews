@@ -75,7 +75,7 @@ Use X only when at least one of these is true:
 - The user provides a maintained X account/source list.
 - The user explicitly asks the agent to inspect X in their own environment.
 
-Never use our shared/private X token as a default source. If X is unavailable, omit the X/social section or state that X was not checked.
+Never use our shared/private X token as a default source. If X is unavailable, omit social-derived items or state that X was not checked.
 
 When X data is available, store public post text, metadata, counts, and links. Do not store private content, login state, or expanded long threads.
 
@@ -191,9 +191,6 @@ Group duplicate/similar coverage into category or topic cards instead of listing
 1. [Title](url) - Source, time
    Short summary.
 
-## X / 社交动态
-Only include when X/social data is available.
-
 ## 传闻雷达
 Only include when rumors or unverified items exist.
 
@@ -208,8 +205,6 @@ For Chinese output, translate headings naturally:
 - `Summary` -> `概览`
 - `Official Updates` -> `官方动态`
 - `Media Coverage` -> `媒体报道`
-- `X / Social Updates` -> `X / 社交动态`
-
 Prefer the Chinese headings shown in the daily template for Chinese fan daily reports.
 
 ## Quality rules

@@ -150,6 +150,21 @@ class SocialSourcesTest(unittest.TestCase):
         self.assertEqual(item["summary"], text)
         self.assertEqual(item["summary_zh"], text)
 
+    def test_dedupe_items_sorts_by_published_at_desc(self):
+        items = [
+            {"url": "https://x.com/a/status/1", "published_at": "2026-06-26T09:00:00Z"},
+            {"url": "https://x.com/a/status/2", "published_at": "2026-06-27T09:00:00Z"},
+            {"url": "https://x.com/a/status/3", "published_at": "2026-06-25T09:00:00Z"},
+        ]
+
+        result = collector.dedupe_items(items, 10)
+
+        self.assertEqual([item["url"] for item in result], [
+            "https://x.com/a/status/2",
+            "https://x.com/a/status/1",
+            "https://x.com/a/status/3",
+        ])
+
 
 if __name__ == "__main__":
     unittest.main()
