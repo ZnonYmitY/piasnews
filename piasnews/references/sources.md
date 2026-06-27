@@ -132,9 +132,9 @@ Only use X when the user provides one of these:
 - Their own X API bearer token.
 - A local browser session where they explicitly ask the agent to browse X.
 - An MCP/tool integration available in their environment.
-- A maintained account/source list, to be added later as `references/x-sources.md`.
+- The maintained account/source list at `references/x-sources.json`.
 
-Initial source groups to consider after the account list is provided:
+Maintained source groups:
 
 - Official Oscar Piastri account.
 - Official McLaren F1 account.
@@ -143,14 +143,16 @@ Initial source groups to consider after the account list is provided:
 - Trusted F1 journalists and media accounts.
 - Fan accounts only after manual approval.
 
-The maintained source list lives in `references/x-sources.json`. The initial approved groups are:
+The maintained source list lives in `references/x-sources.json`. It is backend collection configuration and review context only; do not publish it as public page content. The public fan-source tab reads collected items from `data/social.json`.
+
+The initial approved groups are:
 
 | Group | Accounts | Intended use |
 | --- | --- | --- |
 | Daily core | Oscar Piastri X, Oscar Piastri Instagram, `@NFFormula`, `@F1` | Enrich the main daily when X/IG access is configured. |
-| Fan watch | `@PiastriNews`, `@NicolePiastri`, `@oscarpiastri81`, `@laurogeitabat`, `@oscarsspiastree` | Populate the fan-source tab and observe fan/community activity. |
+| Fan watch | `@PiastriNews`, `@NicolePiastri`, `@oscarpiastri81`, `@laurogeitabat`, `@oscarsspiastree` | Populate `data/social.json` for the fan-source tab and observe fan/community activity. |
 
-Collect posts and reposts for X accounts when access is available. For Instagram, collect public posts/reels only when access is available. Do not scrape private, login-restricted, or paywalled content.
+Collect posts and reposts for X accounts when access is available. For Instagram, collect public posts/reels only when access is available or user-provided exports are imported. Do not scrape private, login-restricted, or paywalled content.
 
 For X-derived items:
 

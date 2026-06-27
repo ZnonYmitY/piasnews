@@ -13,7 +13,7 @@ The design follows the AI HOT pattern:
 - A lightweight Skill acts as the agent-facing entry point.
 - Public sources are used first, without requiring users to install a private MCP server.
 - Future static JSON/RSS or API endpoints can be added without rewriting the Skill.
-- Optional enhanced sources, such as X, are supported only when the user provides their own credentials or a maintained source list.
+- Optional enhanced sources, such as X, are supported only when the user provides their own credentials or the project configures its own access.
 
 ## 2. Goals
 
@@ -24,7 +24,7 @@ The design follows the AI HOT pattern:
 - Avoid consuming our model tokens by default.
 - Avoid consuming our paid third-party API quotas by default.
 - Maintain documentation in the GitHub repository alongside the Skill.
-- Support future X account/source integration after the user provides a maintained account list.
+- Maintain an X / Instagram account-source list and generate a social-update feed after access is configured.
 - Support future daily statistics, including the number of new items discovered per day.
 
 ## 3. Non-Goals
@@ -67,7 +67,7 @@ Behavior:
 - Support English output when the user asks in English.
 - Clearly mark rumors, unverified reports, and non-official sources.
 - Support a Chinese/English website switch. Chinese mode should prefer Chinese titles and Chinese summaries.
-- Support short, daily, and fan-source tabs. Daily mode merges the useful structure from the previous standard and deep modes; fan sources shows the maintained X / Instagram account list and future social updates.
+- Support short, daily, and fan-source tabs. Daily mode merges the useful structure from the previous standard and deep modes; fan sources shows collected X / Instagram posts and reposts.
 
 V0.5 should already use the same conceptual data shape planned for V1/V2, so future upgrades only change the data source, not the user-facing behavior.
 
@@ -155,15 +155,15 @@ Review-database triggers include multi-reviewer authorization, community submiss
 
 The GitHub Pages root serves a read-only daily report for all fans. Report content remains fully static and uses no online model service; the optional analytics backend only counts anonymous views.
 
-- The page provides short, daily, and fan-source tabs. Short and daily align with the Skill's report modes; fan sources reads the maintained X / Instagram source list.
+- The page provides short, daily, and fan-source tabs. Short and daily align with the Skill's report modes; fan sources reads the generated X / Instagram social-update feed.
 - The page provides a top-right Chinese / English switch. Chinese mode prefers `title_zh` and `summary_zh`; when a Chinese title exists, the article link text should use that Chinese title while the original English title remains available for traceability.
-- Short and daily read the same `data/items.json`, `data/daily.json`, and approved `data/history.json`; news data is not duplicated. Fan sources reads `data/x-sources.json`; future social updates still render from `data/items.json` entries with `source_type=x|instagram`.
+- Short and daily read the same `data/items.json`, `data/daily.json`, and approved `data/history.json`; news data is not duplicated. Fan sources reads `data/social.json` and renders social entries with `source_type=x|instagram`.
 - The page reads `data/calendar.json` for the next Grand Prix, race-week timing, and race-start countdown. Calendar metadata is outside the three-day news window and cannot fill a daily report.
 - The page displays the `generated_at` timestamp in China Standard Time and the active three-day window.
 - Short mode uses at most five bullets, omits rumor messaging when there are no rumors, and has no data panel.
 - Daily mode merges the previous standard and deep modes: key points, topic grouping, official coverage, media coverage, optional X/social coverage, optional rumor radar, and optional Looking Back.
 - Daily mode does not show source-confidence notes, next-watch points, or a data panel by default; data appears only when the user explicitly asks for stats.
-- The fan-source tab shows the maintained account list by default. After X / Instagram collection is connected, it can show short summaries, timestamps, links, and account attribution for posts and reposts. If no access is configured, it must not invent social updates.
+- The fan-source tab does not expose the backend account list. It only shows posts and reposts collected or imported into `data/social.json`, including short summaries, timestamps, links, and account attribution. If no access is configured, it must not invent social updates.
 - Looking Back uses approved history only and is omitted when no same-date event qualifies.
 - Browser-side deterministic templates render the reports without an LLM or model-token usage.
 - `.github/workflows/update-piasnews.yml` packages `public/` with the current run's generated data, so the page and JSON/RSS update in the same Pages deployment.
@@ -277,7 +277,7 @@ V0.5 behavior:
 After the user provides a maintained X source list:
 
 - Add and maintain the account list in `piasnews/references/x-sources.json`.
-- Use it as a discovery guide for user-owned X / Instagram access or future V1/V2 collectors, and publish it in Pages artifacts as `data/x-sources.json`.
+- Use it as a discovery guide for user-owned X / Instagram access or future V1/V2 collectors. Keep it as repository configuration; Pages publishes `data/social.json`, not the account list.
 - Track daily counts separately for X-origin items.
 - Store post metadata, short paraphrases, and links, not large verbatim copies.
 - Every social item must include account-level attribution. Remove items promptly if a rights holder or account owner requests removal.
@@ -530,7 +530,7 @@ V1 is complete when:
 - Daily new item counts are available.
 - GitHub Pages publishes the static data entrypoint.
 - The GitHub Pages root publishes the short, daily, and fan-source tabs, displays the data refresh time, and updates after each collection workflow.
-- Short and daily share static news data, fan sources reads the maintained account list, and page rendering uses no LLM; short and daily contain no data panel by default.
+- Short and daily share static news data, fan sources reads the `data/social.json` update feed, and page rendering uses no LLM; short and daily contain no data panel by default.
 - The page displays the next F1 race countdown, China Standard Time schedule, and official calendar link; calendar data refreshes with the collection workflow.
 - `data/history.json` is available for optional historical context and is published with Pages.
 - Unreviewed events never enter Looking Back; vector embeddings remain optional and are disabled by default.
@@ -548,7 +548,6 @@ V2 is complete when:
 ## 11. Open Questions
 
 - Should the default Skill output use simplified Chinese, traditional Chinese, or match the user's language automatically?
-- Which X accounts should be included in the first maintained source list?
 - V1 now publishes through GitHub Pages under this repository.
 - Who will own the final public review-Worker URL and Cloudflare account?
 - Should the project name be displayed as `Piasnews`, `piasnews`, or `PIASNEWS` in user-facing output?

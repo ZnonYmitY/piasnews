@@ -45,18 +45,10 @@ const I18N = {
     mediaSection: "媒体报道",
     mediaCount: (count) => `${count} 条`,
     socialSection: "X / 社交观察",
-    fanSourcesTitle: "粉丝源",
-    fanSourcesNote: "已维护账号表，等待 X / IG 抓取能力接入",
-    fanSourcesIntro: "这里展示人工维护的公开账号参考源。未来抓取到的发帖与转帖会逐条标注来源账号；当前不会使用私有 X token。",
-    fanSourcePolicy: "仅保存短摘要、元数据和链接；如有侵权请联系删除。",
-    fanSourceUnavailable: "暂无可展示的粉丝源配置。",
-    sourceGroupFallback: "其他来源",
-    contentTypesLabel: "采集范围",
-    trustLabels: {
-      official: "官方",
-      reference: "参考",
-      fan_reference: "粉丝参考",
-    },
+    fanFeedTitle: "粉丝源",
+    fanFeedNote: "X / IG 动态",
+    fanFeedEmptyTitle: "暂无粉丝源动态",
+    fanFeedEmptyBody: "当前没有可展示的 X / IG 发帖或转帖；未配置访问能力时不会展示账号库或伪造内容。",
     rumorRadar: "传闻雷达",
     rumorNote: "尚待官方确认",
     lookingBack: "往日回顾",
@@ -146,18 +138,10 @@ const I18N = {
     mediaSection: "Media Coverage",
     mediaCount: (count) => `${count} items`,
     socialSection: "X / Social Watch",
-    fanSourcesTitle: "Fan Sources",
-    fanSourcesNote: "Maintained account list; X / IG collection is pending",
-    fanSourcesIntro: "This tab shows the manually maintained public-account source list. Future posts and reposts will be attributed account by account; no private X token is used by default.",
-    fanSourcePolicy: "Only short paraphrases, metadata, and links are stored; remove immediately on rights request.",
-    fanSourceUnavailable: "No fan-source configuration is available.",
-    sourceGroupFallback: "Other Sources",
-    contentTypesLabel: "Scope",
-    trustLabels: {
-      official: "Official",
-      reference: "Reference",
-      fan_reference: "Fan reference",
-    },
+    fanFeedTitle: "Fan Sources",
+    fanFeedNote: "X / IG updates",
+    fanFeedEmptyTitle: "No fan-source updates",
+    fanFeedEmptyBody: "No X / IG posts or reposts are available right now. Without configured access, the page does not expose the account list or invent social items.",
     rumorRadar: "Rumor Radar",
     rumorNote: "Awaiting official confirmation",
     lookingBack: "Looking Back",
@@ -207,7 +191,7 @@ const state = {
   items: [],
   daily: null,
   history: [],
-  xSources: null,
+  social: null,
   calendar: null,
   displayRace: null,
   countdownTimer: null,
@@ -330,6 +314,11 @@ function localizedSummary(item) {
   return item.summary || categorySummary(item.category);
 }
 
+function localizedAttribution(item) {
+  if (state.language === "zh") return item.attribution_zh || "";
+  return item.attribution || "";
+}
+
 function safeLink(item) {
   return `<a href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(localizedTitle(item))}</a>`;
 }
@@ -435,6 +424,7 @@ function renderNewsItem(item) {
   const originalTitle = state.language === "zh" && item.title_zh && item.title_zh !== item.title
     ? `<p class="original-title"><strong>${escapeHtml(t().originalTitle)}：</strong>${escapeHtml(item.title)}</p>`
     : "";
+  const attribution = localizedAttribution(item);
   return `
     <article class="news-item">
       <div class="news-item-top">
@@ -447,11 +437,13 @@ function renderNewsItem(item) {
       <h3>${safeLink(item)}</h3>
       ${originalTitle}
       <p>${escapeHtml(localizedSummary(item))}</p>
+      ${attribution ? `<p class="item-attribution">${escapeHtml(attribution)}</p>` : ""}
     </article>`;
 }
 
 function socialItems() {
-  return sortedItems().filter((item) => item.source_type === "x" || item.source_type === "instagram");
+  const items = Array.isArray(state.social?.items) ? state.social.items : [];
+  return sortedItems(items).filter((item) => item.source_type === "x" || item.source_type === "instagram");
 }
 
 function exactAnniversary() {
@@ -572,76 +564,19 @@ function renderDaily() {
   return html;
 }
 
-function sourceGroupLabel(groupId) {
-  const group = state.xSources?.groups?.find((candidate) => candidate.id === groupId);
-  if (!group) return t().sourceGroupFallback;
-  return state.language === "zh" ? group.label_zh || group.label_en : group.label_en || group.label_zh;
-}
-
-function sourceGroupDescription(groupId) {
-  const group = state.xSources?.groups?.find((candidate) => candidate.id === groupId);
-  if (!group) return "";
-  return state.language === "zh" ? group.description_zh || group.description_en : group.description_en || group.description_zh;
-}
-
-function renderSourceCard(source) {
-  const attribution = state.language === "zh"
-    ? source.attribution_template_zh || `引用自 @${source.handle}`
-    : source.attribution_template_en || `Referenced from @${source.handle}`;
-  const trust = t().trustLabels[source.trust_level] || source.trust_level;
-  return `
-    <article class="source-card">
-      <div class="source-card-top">
-        <span class="source-platform">${escapeHtml(source.platform.toUpperCase())}</span>
-        <span class="badge">${escapeHtml(trust)}</span>
-      </div>
-      <h3><a href="${escapeHtml(source.url)}" target="_blank" rel="noreferrer">@${escapeHtml(source.handle)}</a></h3>
-      <p>${escapeHtml(source.display_name || source.handle)}</p>
-      <p class="source-attribution">${escapeHtml(attribution)}</p>
-      <p class="source-scope"><strong>${escapeHtml(t().contentTypesLabel)}：</strong>${escapeHtml((source.content_types || []).join(" / "))}</p>
-    </article>`;
-}
-
-function renderFanSources() {
+function renderFanFeed() {
   const social = socialItems();
-  let html = "";
   if (social.length) {
-    html += section(t().socialSection, `<div class="news-list">${social.map(renderNewsItem).join("")}</div>`, t().mediaCount(social.length));
+    return section(t().fanFeedTitle, `<div class="news-list">${social.map(renderNewsItem).join("")}</div>`, t().mediaCount(social.length));
   }
-
-  const sources = Array.isArray(state.xSources?.sources) ? state.xSources.sources.filter((source) => source.enabled !== false) : [];
-  if (!sources.length) {
-    html += section(t().fanSourcesTitle, `<div class="empty-copy"><h2>${escapeHtml(t().fanSourceUnavailable)}</h2></div>`);
-    return html;
-  }
-
-  const groups = sources.reduce((result, source) => {
-    const key = source.group || "other";
-    if (!result[key]) result[key] = [];
-    result[key].push(source);
-    return result;
-  }, {});
-  const groupHtml = Object.entries(groups)
-    .map(([groupId, groupSources]) => {
-      const note = sourceGroupDescription(groupId);
-      return section(
-        sourceGroupLabel(groupId),
-        `<div class="source-grid">${groupSources.map(renderSourceCard).join("")}</div>`,
-        note,
-      );
-    })
-    .join("");
-
-  html += section(
-    t().fanSourcesTitle,
-    `<div class="fan-source-intro">
-      <p>${escapeHtml(t().fanSourcesIntro)}</p>
-      <p>${escapeHtml(t().fanSourcePolicy)}</p>
+  return section(
+    t().fanFeedTitle,
+    `<div class="empty-copy">
+      <h2>${escapeHtml(t().fanFeedEmptyTitle)}</h2>
+      <p>${escapeHtml(t().fanFeedEmptyBody)}</p>
     </div>`,
-    t().fanSourcesNote,
+    t().fanFeedNote,
   );
-  html += groupHtml;
-  return html;
 }
 
 function renderEmpty() {
@@ -651,7 +586,7 @@ function renderEmpty() {
 function render() {
   elements.panels.short.innerHTML = renderShort();
   elements.panels.daily.innerHTML = renderDaily();
-  elements.panels.fan.innerHTML = renderFanSources();
+  elements.panels.fan.innerHTML = renderFanFeed();
 }
 
 function setMode(mode, updateHash = true) {
@@ -786,17 +721,17 @@ async function loadData() {
   });
 
   try {
-    const [itemsPayload, dailyPayload, historyPayload, calendarPayload, xSourcesPayload] = await Promise.all([
+    const [itemsPayload, dailyPayload, historyPayload, calendarPayload, socialPayload] = await Promise.all([
       fetchJson("data/items.json"),
       fetchJson("data/daily.json"),
       fetchOptionalJson("data/history.json"),
       fetchOptionalJson("data/calendar.json"),
-      fetchOptionalJson("data/x-sources.json"),
+      fetchOptionalJson("data/social.json"),
     ]);
     state.items = Array.isArray(itemsPayload.items) ? itemsPayload.items : [];
     state.daily = dailyPayload;
     state.history = Array.isArray(historyPayload?.events) ? historyPayload.events : [];
-    state.xSources = xSourcesPayload;
+    state.social = socialPayload;
     state.generatedAt = itemsPayload.generated_at || dailyPayload.generated_at;
     updateMeta(state.generatedAt);
     renderRaceCountdown(calendarPayload);

@@ -59,6 +59,8 @@ Use `data/items.json` for item-level reports. Use `data/daily.json` for counts a
 
 Use `data/calendar.json` for the current F1 season schedule, the next race, and race-week session times. Calendar data is schedule metadata and is not limited by the latest-3-days news window, but it must not be presented as news or used to fill an empty daily report. Prefer the linked official Formula 1 calendar when schedule verification matters.
 
+Use `data/social.json` for optional X/Instagram posts and reposts. This file is generated from maintained source configuration plus user/project-provided access. It is separate from normal news data so the fan-source tab can show social updates without exposing the backend account list.
+
 If the static data is stale, unavailable, or does not cover the user's requested narrower window, fall back to the V0.5 live workflow while keeping the latest-3-days limit.
 
 Use approved events from `data/history.json` and bundled `references/history-retrieval.json` for the optional historical module. Never use pending or rejected records from `data/history-candidates.json` in a fan report. Historical data is a separate curated knowledge base and does not relax the latest-3-days rule for live news.
@@ -77,12 +79,12 @@ Never use our shared/private X token as a default source. If X is unavailable, o
 
 When X data is available, store or summarize only metadata, short snippets, counts, and links. Do not copy large post threads verbatim.
 
-The maintained source list is `references/x-sources.json`. Current groups:
+The maintained source list is `references/x-sources.json`. It is backend collection configuration and should not be exposed as public fan-page content. Current groups:
 
 - `daily_core`: Oscar Piastri X, Oscar Piastri Instagram, `@NFFormula`, `@F1`.
 - `fan_watch`: `@PiastriNews`, `@NicolePiastri`, `@oscarpiastri81`, `@laurogeitabat`, `@oscarsspiastree`.
 
-Use `daily_core` to enrich the main daily report when access is configured. Use `fan_watch` for the fan-source tab or fan/community requests. For every X/Instagram-derived item, include clear attribution such as `引用自 @PiastriNews`, keep only a short paraphrase plus metadata/link, and remove content promptly on rights request.
+Use `daily_core` to enrich the main daily report when access is configured. Use `fan_watch` to populate `data/social.json` for the fan-source tab or fan/community requests. For every X/Instagram-derived item, include clear attribution such as `引用自 @PiastriNews`, keep only a short paraphrase plus metadata/link, and remove content promptly on rights request.
 
 ## Data shape
 
