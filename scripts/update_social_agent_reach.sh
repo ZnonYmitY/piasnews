@@ -4,10 +4,10 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
 
-export PATH="/Users/bytedance/.agent-reach-venv/bin:$PATH"
+export PATH="/Users/bytedance/.agent-reach-venv/bin:/opt/homebrew/bin:$PATH"
 
 DAYS="${PIASNEWS_DAYS:-3}"
-PER_SOURCE="${PIASNEWS_PER_SOURCE:-20}"
+PER_SOURCE="${PIASNEWS_PER_SOURCE:-30}"
 IMPORT_JSON="${PIASNEWS_SOCIAL_IMPORT:-/tmp/piasnews-agent-reach-social.json}"
 COMPACT_JSON="${PIASNEWS_SOCIAL_COMPACT:-/tmp/piasnews-social-input-compact.json}"
 COMPACT_CACHE="${PIASNEWS_SOCIAL_COMPACT_CACHE:-/tmp/piasnews-social-input-compact.last.json}"

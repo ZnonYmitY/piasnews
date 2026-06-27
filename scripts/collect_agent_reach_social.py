@@ -30,7 +30,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--sources", default="piasnews/references/x-sources.json", help="Piasnews X/IG source config.")
     parser.add_argument("--output", default=DEFAULT_IMPORT_OUTPUT, help="Import JSON output path.")
     parser.add_argument("--days", type=int, default=3, help="Recency window in days.")
-    parser.add_argument("--per-source", type=int, default=20, help="Max posts to request per source.")
+    parser.add_argument("--per-source", type=int, default=30, help="Max posts to request per source.")
     parser.add_argument("--group", action="append", help="Optional source group to include, repeatable.")
     parser.add_argument("--twitter-cmd", default=os.environ.get("PIASNEWS_TWITTER_CMD", DEFAULT_TWITTER_CMD))
     parser.add_argument(

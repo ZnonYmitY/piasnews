@@ -217,7 +217,7 @@ PIASNEWS_SKIP_GITHUB=1 scripts/update_social_agent_reach.sh
 PIASNEWS_SOCIAL_GROUPS=fan_watch scripts/update_social_agent_reach.sh
 ```
 
-macOS 每 6 小时定时运行可以使用 `launchd`。如果要改成 30 分钟，把 `StartInterval` 改为 `1800`；高频运行更适合比赛周或赛道日，平时建议保留 6 小时，以降低 X 账号访问频率和 GitHub Pages 部署噪声。把下面文件保存为 `~/Library/LaunchAgents/com.znonymity.piasnews.social.plist` 后执行 `launchctl load ~/Library/LaunchAgents/com.znonymity.piasnews.social.plist`：
+macOS 每 3 小时定时运行 Agent-Reach 采集可以使用 `launchd`。如果比赛日要临时改成 30 分钟，把 `StartInterval` 改为 `1800`；平时 3 小时能兼顾更新速度、X 访问频率和 GitHub Pages 部署噪声。把下面文件保存为 `~/Library/LaunchAgents/com.znonymity.piasnews.social.plist` 后执行 `launchctl load ~/Library/LaunchAgents/com.znonymity.piasnews.social.plist`：
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -231,7 +231,7 @@ macOS 每 6 小时定时运行可以使用 `launchd`。如果要改成 30 分钟
     <string>/Users/bytedance/Documents/piasnews/scripts/update_social_agent_reach.sh</string>
   </array>
   <key>StartInterval</key>
-  <integer>21600</integer>
+  <integer>10800</integer>
   <key>RunAtLoad</key>
   <true/>
   <key>StandardOutPath</key>
@@ -580,7 +580,7 @@ To collect only fan sources:
 PIASNEWS_SOCIAL_GROUPS=fan_watch scripts/update_social_agent_reach.sh
 ```
 
-For a six-hour macOS schedule, save this as `~/Library/LaunchAgents/com.znonymity.piasnews.social.plist`, then run `launchctl load ~/Library/LaunchAgents/com.znonymity.piasnews.social.plist`. For a 30-minute schedule, change `StartInterval` to `1800`; that cadence is better reserved for race weekends or live-session days, while six hours is quieter for normal days.
+For a three-hour macOS Agent-Reach schedule, save this as `~/Library/LaunchAgents/com.znonymity.piasnews.social.plist`, then run `launchctl load ~/Library/LaunchAgents/com.znonymity.piasnews.social.plist`. For a temporary 30-minute race-day schedule, change `StartInterval` to `1800`; three hours is the quieter default for normal days.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -594,7 +594,7 @@ For a six-hour macOS schedule, save this as `~/Library/LaunchAgents/com.znonymit
     <string>/Users/bytedance/Documents/piasnews/scripts/update_social_agent_reach.sh</string>
   </array>
   <key>StartInterval</key>
-  <integer>21600</integer>
+  <integer>10800</integer>
   <key>RunAtLoad</key>
   <true/>
   <key>StandardOutPath</key>
