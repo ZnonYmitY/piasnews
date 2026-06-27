@@ -173,6 +173,26 @@ python3 scripts/fetch_social_sources.py --input-json social-import.json --days 3
 
 GitHub Actions 导入：把同样的 JSON 写入仓库变量 `PIASNEWS_SOCIAL_INPUT_JSON`，下一次 `Update Piasnews Data` 会生成并发布粉丝源动态。每条动态会在页面上显示 `引用自 @账号` 和 `如有侵权请联系删除。`
 
+本机已支持 Agent-Reach 采集入口。先确认 Twitter/X 后端状态：
+
+```bash
+env PATH=/Users/bytedance/.agent-reach-venv/bin:$PATH agent-reach doctor --json
+env PATH=/Users/bytedance/.agent-reach-venv/bin:$PATH twitter status
+```
+
+如果 `twitter status` 提示未认证，需要先在浏览器登录 X，或按 Agent-Reach 指引配置 `TWITTER_AUTH_TOKEN` 与 `TWITTER_CT0`。认证可用后运行：
+
+```bash
+env PATH=/Users/bytedance/.agent-reach-venv/bin:$PATH \
+  python3 scripts/collect_agent_reach_social.py \
+  --group fan_watch \
+  --days 3 \
+  --output /tmp/piasnews-agent-reach-social.json \
+  --update-social
+```
+
+这会读取 `piasnews/references/x-sources.json` 中的 X 账号，调用本地 `twitter-cli` 搜索最近 3 天公开动态，生成导入 JSON，并更新 `data/social.json`。
+
 ## 静态数据
 
 GitHub Pages：
@@ -202,6 +222,7 @@ GitHub raw fallback：
 ```bash
 python3 scripts/fetch_piasnews.py --days 3 --output-dir data
 python3 scripts/fetch_f1_calendar.py --output data/calendar.json
+env PATH=/Users/bytedance/.agent-reach-venv/bin:$PATH python3 scripts/collect_agent_reach_social.py --group fan_watch --days 3 --output /tmp/piasnews-agent-reach-social.json --update-social
 python3 scripts/fetch_social_sources.py --days 3 --output data/social.json
 python3 scripts/build_history_candidates.py
 python3 scripts/validate_history.py
@@ -264,12 +285,14 @@ python3 scripts/validate_history.py
 │   │   └── styles.css
 ├── scripts/
 │   ├── build_history_candidates.py
+│   ├── collect_agent_reach_social.py
 │   ├── fetch_f1_calendar.py
 │   ├── fetch_piasnews.py
 │   ├── fetch_social_sources.py
 │   ├── review_history.py
 │   └── validate_history.py
 ├── tests/
+│   ├── test_collect_agent_reach_social.py
 │   ├── test_fetch_piasnews.py
 │   ├── test_f1_calendar.py
 │   ├── test_fetch_social_sources.py
@@ -461,6 +484,26 @@ python3 scripts/fetch_social_sources.py --input-json social-import.json --days 3
 
 GitHub Actions import: store the same JSON in the repository variable `PIASNEWS_SOCIAL_INPUT_JSON`; the next `Update Piasnews Data` run will generate and publish the fan-source feed. Each social card displays account attribution and the removal-on-rights-request notice.
 
+This repo now includes a local Agent-Reach collection entrypoint. First check the Twitter/X backend:
+
+```bash
+env PATH=/Users/bytedance/.agent-reach-venv/bin:$PATH agent-reach doctor --json
+env PATH=/Users/bytedance/.agent-reach-venv/bin:$PATH twitter status
+```
+
+If `twitter status` reports unauthenticated, sign in to X in the browser or configure `TWITTER_AUTH_TOKEN` and `TWITTER_CT0` following Agent-Reach guidance. After authentication works:
+
+```bash
+env PATH=/Users/bytedance/.agent-reach-venv/bin:$PATH \
+  python3 scripts/collect_agent_reach_social.py \
+  --group fan_watch \
+  --days 3 \
+  --output /tmp/piasnews-agent-reach-social.json \
+  --update-social
+```
+
+The script reads X accounts from `piasnews/references/x-sources.json`, calls local `twitter-cli` for latest-three-day public posts, writes the import JSON, and updates `data/social.json`.
+
 ## Static Data
 
 GitHub Pages:
@@ -490,6 +533,7 @@ Update locally:
 ```bash
 python3 scripts/fetch_piasnews.py --days 3 --output-dir data
 python3 scripts/fetch_f1_calendar.py --output data/calendar.json
+env PATH=/Users/bytedance/.agent-reach-venv/bin:$PATH python3 scripts/collect_agent_reach_social.py --group fan_watch --days 3 --output /tmp/piasnews-agent-reach-social.json --update-social
 python3 scripts/fetch_social_sources.py --days 3 --output data/social.json
 python3 scripts/build_history_candidates.py
 python3 scripts/validate_history.py
@@ -552,12 +596,14 @@ python3 scripts/validate_history.py
 │   │   └── styles.css
 ├── scripts/
 │   ├── build_history_candidates.py
+│   ├── collect_agent_reach_social.py
 │   ├── fetch_f1_calendar.py
 │   ├── fetch_piasnews.py
 │   ├── fetch_social_sources.py
 │   ├── review_history.py
 │   └── validate_history.py
 ├── tests/
+│   ├── test_collect_agent_reach_social.py
 │   ├── test_fetch_piasnews.py
 │   ├── test_f1_calendar.py
 │   ├── test_fetch_social_sources.py

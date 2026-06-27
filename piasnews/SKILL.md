@@ -86,6 +86,8 @@ The maintained source list is `references/x-sources.json`. It is backend collect
 
 Use `daily_core` to enrich the main daily report when access is configured. Use `fan_watch` to populate `data/social.json` for the fan-source tab or fan/community requests. For every X/Instagram-derived item, include clear attribution such as `引用自 @PiastriNews`, keep only a short paraphrase plus metadata/link, and remove content promptly on rights request.
 
+When Agent-Reach is installed locally, prefer `scripts/collect_agent_reach_social.py` for user-owned X collection. It reads `references/x-sources.json`, calls the local `twitter` command selected by Agent-Reach, writes `/tmp/piasnews-agent-reach-social.json`, and can update `data/social.json` with `--update-social`. If `twitter status` reports unauthenticated, ask the user to sign in to X in their browser or configure `TWITTER_AUTH_TOKEN` and `TWITTER_CT0`; do not fabricate social items.
+
 ## Data shape
 
 When normalizing items, use this conceptual shape even if V0.5 only produces it in prose:

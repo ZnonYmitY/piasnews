@@ -1,4 +1,6 @@
 .venv/
+__pycache__/
+*.py[cod]
 
 # Local agent skill installation outputs
 .agents/
@@ -10,3 +12,4 @@
 .trae-cn/
 skills/
 skills-lock.json
+config/mcporter.json

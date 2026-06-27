@@ -154,6 +154,19 @@ The initial approved groups are:
 
 Collect posts and reposts for X accounts when access is available. For Instagram, collect public posts/reels only when access is available or user-provided exports are imported. Do not scrape private, login-restricted, or paywalled content.
 
+For local Agent-Reach collection, use:
+
+```bash
+env PATH=/Users/bytedance/.agent-reach-venv/bin:$PATH \
+  python3 scripts/collect_agent_reach_social.py \
+  --group fan_watch \
+  --days 3 \
+  --output /tmp/piasnews-agent-reach-social.json \
+  --update-social
+```
+
+This route depends on the user's local X authentication. If `twitter status` is not authenticated, stop and ask the user to sign in or configure Twitter cookies/tokens through Agent-Reach.
+
 For X-derived items:
 
 - Keep post URL, account handle, timestamp, engagement count when available, and a short paraphrase.

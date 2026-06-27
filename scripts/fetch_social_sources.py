@@ -33,7 +33,7 @@ def utc_now() -> datetime:
     return datetime.now(timezone.utc)
 
 
-def parse_args() -> argparse.Namespace:
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Fetch optional Piasnews social updates.")
     parser.add_argument("--sources", default="piasnews/references/x-sources.json", help="X/IG source list.")
     parser.add_argument("--output", default="data/social.json", help="Output social JSON file.")
@@ -41,7 +41,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--limit", type=int, default=DEFAULT_LIMIT, help="Maximum normalized social items.")
     parser.add_argument("--now", help="Override current UTC time, ISO-8601 format.")
     parser.add_argument("--input-json", help="Optional local JSON export to normalize instead of live API.")
-    return parser.parse_args()
+    return parser.parse_args(argv)
 
 
 def parse_now(value: str | None) -> datetime:
@@ -298,8 +298,8 @@ def write_output(path: Path, payload: dict[str, Any]) -> None:
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
 
 
-def main() -> int:
-    args = parse_args()
+def main_with_args(argv: list[str] | None = None) -> int:
+    args = parse_args(argv)
     now = parse_now(args.now)
     cutoff = now - timedelta(days=args.days)
     sources = load_sources(Path(args.sources))
@@ -350,6 +350,10 @@ def main() -> int:
     write_output(output_path, payload)
     print(f"Fetched {len(final_items)} social items into {output_path}")
     return 0
+
+
+def main() -> int:
+    return main_with_args()
 
 
 if __name__ == "__main__":
