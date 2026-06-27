@@ -195,6 +195,10 @@ env PATH=/Users/bytedance/.agent-reach-venv/bin:$PATH \
 
 这会读取 `piasnews/references/x-sources.json` 中的 X 账号，默认调用本地 `twitter-cli user-posts` 拉取账号公开时间线，再按最近 3 天过滤，生成导入 JSON，并更新 `data/social.json`。如果 `agent-reach configure --from-browser chrome` 已经写入 `~/.agent-reach/config.yaml`，采集脚本会自动把其中的 Twitter/X cookies 传给 `twitter-cli`，不需要把 token 写进仓库。`twitter search` 端点不稳定，仅在明确需要时用 `--method search`。
 
+这个本地采集不是常驻服务。手动运行时只执行一次；如果希望粉丝源无人值守更新，需要额外用 macOS `launchd`、cron 或其他调度器定时运行上面的命令。脚本本身是普通 Python/CLI 流程，不调用大模型，不消耗 Codex token；只有让 Codex 代你执行、提交或排障时才会占用 Codex 会话额度。
+
+`daily_core` 和 `fan_watch` 已在同一来源表中维护，但展示分区不同：日报页的 X / 社交区只读取非 `fan_watch` 条目，粉丝源 Tab 只读取 `fan_watch` 条目。当前线上已发布的是 `fan_watch` 数据；`daily_core` 账号已在配置中，运行时可用 `--group daily_core` 单独采集，也可以省略 `--group` 一次采集全部分组。
+
 ## 静态数据
 
 GitHub Pages：
@@ -507,6 +511,10 @@ env PATH=/Users/bytedance/.agent-reach-venv/bin:$PATH \
 ```
 
 The script reads X accounts from `piasnews/references/x-sources.json`, calls local `twitter-cli user-posts` by default, filters to the latest three days, writes the import JSON, and updates `data/social.json`. If `agent-reach configure --from-browser chrome` has written cookies to `~/.agent-reach/config.yaml`, the collector automatically passes them to `twitter-cli`; no token is committed to the repo. The `twitter search` endpoint is less stable and is available only via `--method search`.
+
+This local collection is not a resident service. A manual run executes once; unattended fan-source updates require an external scheduler such as macOS `launchd`, cron, or another local runner. The script is plain Python/CLI work and does not call an LLM or consume Codex tokens; Codex quota is used only when Codex is asked to run, commit, or debug it.
+
+`daily_core` and `fan_watch` are maintained in the same source table but rendered separately. The daily page's X / social section reads non-`fan_watch` items, while the fan-source tab reads only `fan_watch` items. The currently published social feed is `fan_watch`; `daily_core` accounts are configured and can be collected with `--group daily_core`, or all groups can be collected by omitting `--group`.
 
 ## Static Data
 

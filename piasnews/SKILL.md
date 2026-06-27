@@ -77,14 +77,14 @@ Use X only when at least one of these is true:
 
 Never use our shared/private X token as a default source. If X is unavailable, omit the X/social section or state that X was not checked.
 
-When X data is available, store or summarize only metadata, short snippets, counts, and links. Do not copy large post threads verbatim.
+When X data is available, store public post text, metadata, counts, and links. Do not store private content, login state, or expanded long threads.
 
 The maintained source list is `references/x-sources.json`. It is backend collection configuration and should not be exposed as public fan-page content. Current groups:
 
 - `daily_core`: Oscar Piastri X, Oscar Piastri Instagram, `@NFFormula`, `@F1`.
 - `fan_watch`: `@PiastriNews`, `@NicolePiastri`, `@oscarpiastri81`, `@laurogeitabat`, `@oscarsspiastree`.
 
-Use `daily_core` to enrich the main daily report when access is configured. Use `fan_watch` to populate `data/social.json` for the fan-source tab or fan/community requests. For every X/Instagram-derived item, include clear attribution such as `引用自 @PiastriNews`, keep only a short paraphrase plus metadata/link, and remove content promptly on rights request.
+Use `daily_core` to enrich the main daily report when access is configured. Use `fan_watch` to populate `data/social.json` for the fan-source tab or fan/community requests. For every X/Instagram-derived item, include clear attribution such as `引用自 @PiastriNews`, keep public post text plus metadata/link, and remove content promptly on rights request.
 
 When Agent-Reach is installed locally, prefer `scripts/collect_agent_reach_social.py` for user-owned X collection. It reads `references/x-sources.json`, calls the local `twitter user-posts` command selected by Agent-Reach, writes `/tmp/piasnews-agent-reach-social.json`, and can update `data/social.json` with `--update-social`. If `agent-reach configure --from-browser chrome` has saved cookies in `~/.agent-reach/config.yaml`, the collector bridges them into `twitter-cli` automatically. If authentication is unavailable, ask the user to sign in to X in their browser or configure `TWITTER_AUTH_TOKEN` and `TWITTER_CT0`; do not fabricate social items.
 

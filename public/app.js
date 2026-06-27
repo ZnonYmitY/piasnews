@@ -435,7 +435,7 @@ function sortedItems(items = state.items) {
 }
 
 function renderNewsItem(item, options = {}) {
-  const originalTitle = state.language === "zh" && item.title_zh && item.title_zh !== item.title
+  const originalTitle = state.language === "zh" && !isSocialItem(item) && item.title_zh && item.title_zh !== item.title
     ? `<p class="original-title"><strong>${escapeHtml(t().originalTitle)}：</strong>${escapeHtml(item.title)}</p>`
     : "";
   const attribution = localizedAttribution(item);
@@ -460,6 +460,14 @@ function renderNewsItem(item, options = {}) {
 function socialItems() {
   const items = Array.isArray(state.social?.items) ? state.social.items : [];
   return sortedItems(items).filter(isSocialItem);
+}
+
+function dailySocialItems() {
+  return socialItems().filter((item) => item.source_group !== "fan_watch");
+}
+
+function fanSourceItems() {
+  return socialItems().filter((item) => item.source_group === "fan_watch" || !item.source_group);
 }
 
 function exactAnniversary() {
@@ -549,7 +557,7 @@ function renderDaily() {
   const ordered = sortedItems();
   const officialItems = ordered.filter((item) => item.official);
   const mediaItems = ordered.filter((item) => !item.official && item.source_type !== "x" && item.source_type !== "instagram" && item.category !== "rumor" && item.verified);
-  const social = socialItems();
+  const social = dailySocialItems();
   const rumorItems = ordered.filter((item) => item.category === "rumor" || !item.verified);
   const focusItems = ordered.filter((item) => item.category !== "rumor").slice(0, 3);
   const groups = groupByCategory();
@@ -581,7 +589,7 @@ function renderDaily() {
 }
 
 function renderFanFeed() {
-  const social = socialItems();
+  const social = fanSourceItems();
   if (social.length) {
     return section(
       t().fanFeedTitle,
