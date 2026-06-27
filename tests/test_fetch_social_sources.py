@@ -80,6 +80,7 @@ class SocialSourcesTest(unittest.TestCase):
             self.assertEqual(items[0]["category"], "fan")
             self.assertEqual(items[0]["attribution_zh"], "引用自 @PiastriNews")
             self.assertEqual(items[0]["summary_zh"], "Oscar Piastri and McLaren updates from the paddock.")
+            self.assertIn("Piastri", items[0]["title_zh"])
 
     def test_import_can_normalize_instagram_item_with_url(self):
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -105,7 +106,7 @@ class SocialSourcesTest(unittest.TestCase):
             self.assertEqual(status["items"], 1)
             self.assertEqual(items[0]["source_type"], "instagram")
             self.assertEqual(items[0]["url"], "https://www.instagram.com/p/example/")
-            self.assertEqual(items[0]["title_zh"], "Instagram 发帖：@oscarpiastri")
+            self.assertIn("Piastri", items[0]["title_zh"])
 
     def test_env_json_import_is_supported(self):
         payload = {
@@ -149,6 +150,26 @@ class SocialSourcesTest(unittest.TestCase):
 
         self.assertEqual(item["summary"], text)
         self.assertEqual(item["summary_zh"], text)
+        self.assertIn("练习赛", item["title_zh"])
+
+    def test_generic_f1_post_without_direct_piastri_reference_is_skipped(self):
+        sources = collector.load_sources(SOURCES_PATH)
+        source = next(item for item in sources["sources"] if item["handle"] == "F1")
+        now = collector.parse_now(NOW)
+        item = collector.normalize_social_item(
+            {
+                "platform": "x",
+                "handle": "F1",
+                "id": "generic",
+                "text": "T-minus 15 minutes until FP2 lights up the Red Bull Ring #F1 #AustrianGP",
+                "created_at": "2026-06-26T10:00:00Z",
+            },
+            source,
+            now,
+            now - collector.timedelta(days=3),
+        )
+
+        self.assertIsNone(item)
 
     def test_dedupe_items_sorts_by_published_at_desc(self):
         items = [

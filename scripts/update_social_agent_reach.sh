@@ -10,6 +10,7 @@ DAYS="${PIASNEWS_DAYS:-3}"
 PER_SOURCE="${PIASNEWS_PER_SOURCE:-20}"
 IMPORT_JSON="${PIASNEWS_SOCIAL_IMPORT:-/tmp/piasnews-agent-reach-social.json}"
 COMPACT_JSON="${PIASNEWS_SOCIAL_COMPACT:-/tmp/piasnews-social-input-compact.json}"
+COMPACT_CACHE="${PIASNEWS_SOCIAL_COMPACT_CACHE:-/tmp/piasnews-social-input-compact.last.json}"
 SOCIAL_OUTPUT="${PIASNEWS_SOCIAL_OUTPUT:-data/social.json}"
 REF="${PIASNEWS_WORKFLOW_REF:-main}"
 
@@ -42,5 +43,11 @@ if [[ "${PIASNEWS_SKIP_GITHUB:-0}" == "1" ]]; then
   exit 0
 fi
 
+if [[ "${PIASNEWS_FORCE_SOCIAL_PUBLISH:-0}" != "1" ]] && [[ -f "$COMPACT_CACHE" ]] && cmp -s "$COMPACT_JSON" "$COMPACT_CACHE"; then
+  echo "Social compact input unchanged; skipped GitHub variable update and workflow dispatch."
+  exit 0
+fi
+
 gh variable set PIASNEWS_SOCIAL_INPUT_JSON < "$COMPACT_JSON"
 gh workflow run update-piasnews.yml --ref "$REF"
+cp "$COMPACT_JSON" "$COMPACT_CACHE"

@@ -203,6 +203,8 @@ const state = {
   analyticsReported: false,
 };
 
+const DIRECT_PIASTRI_RE = /\b(piastri|oscar|op81)\b/i;
+
 const elements = {
   languageToggle: document.querySelector("#languageToggle"),
   brand: document.querySelector(".brand"),
@@ -531,6 +533,18 @@ function dailyItems() {
   return sortedItems([...state.items, ...dailySocialItems()]);
 }
 
+function isDirectPiastriItem(item) {
+  const text = [
+    item.title,
+    item.title_zh,
+    item.summary,
+    item.summary_zh,
+    item.source,
+    ...(Array.isArray(item.tags) ? item.tags : []),
+  ].filter(Boolean).join(" ");
+  return DIRECT_PIASTRI_RE.test(text);
+}
+
 function groupByCategory(items = sortedItems()) {
   return items.reduce((groups, item) => {
     const key = item.category || "other";
@@ -560,18 +574,22 @@ function renderDaily() {
   const officialItems = ordered.filter((item) => item.official);
   const mediaItems = ordered.filter((item) => !item.official && item.category !== "rumor" && item.verified);
   const rumorItems = ordered.filter((item) => item.category === "rumor" || !item.verified);
-  const focusItems = ordered.filter((item) => item.category !== "rumor").slice(0, 3);
+  const focusItems = ordered
+    .filter((item) => item.category !== "rumor" && isDirectPiastriItem(item))
+    .slice(0, 3);
   const groups = groupByCategory(ordered);
   const topicCards = Object.entries(groups)
     .sort(([, a], [, b]) => b.length - a.length)
     .map(([category, items]) => renderTopicCard(category, items))
     .join("");
 
-  let html = section(
-    t().todayFocus,
-    `<ol class="focus-list">${focusItems.map((item) => `<li>${safeLink(item)} <span>· ${escapeHtml(item.source)}</span></li>`).join("")}</ol>`,
-    t().reliableFirst,
-  );
+  let html = focusItems.length
+    ? section(
+      t().todayFocus,
+      `<ol class="focus-list">${focusItems.map((item) => `<li>${safeLink(item)} <span>· ${escapeHtml(item.source)}</span></li>`).join("")}</ol>`,
+      t().reliableFirst,
+    )
+    : "";
   html += section(t().topicMerge, `<div class="topic-grid">${topicCards}</div>`, t().topicCount(Object.keys(groups).length));
   if (officialItems.length) {
     html += section(t().officialSection, `<div class="news-list">${officialItems.map(renderNewsItem).join("")}</div>`);

@@ -26,7 +26,8 @@ DEFAULT_DAYS = 3
 DEFAULT_LIMIT = 80
 HTTP_TIMEOUT_SECONDS = 20
 X_API_BASES = ("https://api.x.com/2", "https://api.twitter.com/2")
-RELEVANCE_RE = re.compile(r"\b(piastri|oscar|op81|mclaren|f1|formula\s*1)\b", re.IGNORECASE)
+DIRECT_PIASTRI_RE = re.compile(r"\b(piastri|oscar|op81)\b", re.IGNORECASE)
+URL_RE = re.compile(r"https?://\S+")
 
 
 def utc_now() -> datetime:
@@ -80,6 +81,10 @@ def clean_text(value: str | None) -> str:
     return re.sub(r"\s+", " ", value).strip()
 
 
+def clean_title_text(value: str | None) -> str:
+    return clean_text(URL_RE.sub("", value or ""))
+
+
 def load_sources(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text())
 
@@ -97,21 +102,52 @@ def source_by_handle(sources: dict[str, Any]) -> dict[tuple[str, str], dict[str,
 def is_relevant(text: str, source: dict[str, Any]) -> bool:
     if source.get("source_role") == "official_driver":
         return True
-    return bool(RELEVANCE_RE.search(text))
+    return bool(DIRECT_PIASTRI_RE.search(text))
 
 
-def title_for_item(platform: str, handle: str, kind: str) -> str:
+def shorten_title_text(text: str, limit: int = 96) -> str:
+    cleaned = clean_title_text(text)
+    if len(cleaned) <= limit:
+        return cleaned
+    return cleaned[: limit - 1].rstrip() + "…"
+
+
+def chinese_title_hint(text: str) -> str:
+    cleaned = clean_title_text(text)
+    lowered = cleaned.lower()
+    if not cleaned:
+        return ""
+    if "piastri" not in lowered and "oscar" not in lowered and "op81" not in lowered:
+        return ""
+    if any(token in lowered for token in ("fp1", "fp2", "fp3", "practice")):
+        return "Piastri 练习赛相关动态"
+    if any(token in lowered for token in ("qualifying", "quali", "pole")):
+        return "Piastri 排位赛相关动态"
+    if any(token in lowered for token in ("race", "grand prix", "gp")):
+        return "Piastri 正赛相关动态"
+    if any(token in lowered for token in ("interview", "said", "says", "speaks")):
+        return "Piastri 采访/表态动态"
+    if any(token in lowered for token in ("photo", "photos", "pic", "pics", "poster", "wallpaper")):
+        return "Piastri 图片/物料更新"
+    if "mclaren" in lowered:
+        return "Piastri 与 McLaren 相关动态"
+    return f"Piastri 相关：{shorten_title_text(cleaned, 72)}"
+
+
+def title_for_item(platform: str, handle: str, kind: str, text: str) -> str:
     platform_label = "Instagram" if platform == "instagram" else "X"
+    snippet = shorten_title_text(text) or f"@{handle}"
     if kind == "repost":
-        return f"{platform_label} repost from @{handle}"
-    return f"{platform_label} post from @{handle}"
+        return f"{platform_label} repost from @{handle}: {snippet}"
+    return f"{platform_label} post from @{handle}: {snippet}"
 
 
-def title_zh_for_item(platform: str, handle: str, kind: str) -> str:
+def title_zh_for_item(platform: str, handle: str, kind: str, text: str) -> str:
     platform_label = "Instagram" if platform == "instagram" else "X"
+    snippet = chinese_title_hint(text) or shorten_title_text(text) or f"@{handle}"
     if kind == "repost":
-        return f"{platform_label} 转帖：@{handle}"
-    return f"{platform_label} 发帖：@{handle}"
+        return f"{platform_label} 转帖：{snippet}"
+    return f"{platform_label} 发帖：{snippet}"
 
 
 def normalize_social_item(raw: dict[str, Any], source: dict[str, Any], now: datetime, cutoff: datetime) -> dict[str, Any] | None:
@@ -145,8 +181,8 @@ def normalize_social_item(raw: dict[str, Any], source: dict[str, Any], now: date
     summary_zh = clean_text(raw.get("summary_zh") or raw.get("text_zh")) or summary
     return {
         "id": stable_id(platform, url, text),
-        "title": title_for_item(platform, handle, kind),
-        "title_zh": title_zh_for_item(platform, handle, kind),
+        "title": title_for_item(platform, handle, kind, text),
+        "title_zh": title_zh_for_item(platform, handle, kind, text),
         "url": url,
         "source": f"@{handle}",
         "source_handle": handle,

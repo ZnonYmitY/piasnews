@@ -205,7 +205,7 @@ env PATH=/Users/bytedance/.agent-reach-venv/bin:$PATH \
 scripts/update_social_agent_reach.sh
 ```
 
-默认采集全部 X 分组，更新 `data/social.json`，生成 compact import，写入 GitHub 变量 `PIASNEWS_SOCIAL_INPUT_JSON`，并触发 `Update Piasnews Data` workflow。只更新本地、不触发 GitHub：
+默认采集全部 X 分组，更新 `data/social.json`，生成 compact import，写入 GitHub 变量 `PIASNEWS_SOCIAL_INPUT_JSON`，并触发 `Update Piasnews Data` workflow。compact import 不写入每次变化的生成时间；如果内容和上次发布完全一致，脚本会跳过 GitHub 变量更新和 workflow 触发。需要强制发布时设置 `PIASNEWS_FORCE_SOCIAL_PUBLISH=1`。只更新本地、不触发 GitHub：
 
 ```bash
 PIASNEWS_SKIP_GITHUB=1 scripts/update_social_agent_reach.sh
@@ -217,7 +217,7 @@ PIASNEWS_SKIP_GITHUB=1 scripts/update_social_agent_reach.sh
 PIASNEWS_SOCIAL_GROUPS=fan_watch scripts/update_social_agent_reach.sh
 ```
 
-macOS 每 6 小时定时运行可以使用 `launchd`。把下面文件保存为 `~/Library/LaunchAgents/com.znonymity.piasnews.social.plist` 后执行 `launchctl load ~/Library/LaunchAgents/com.znonymity.piasnews.social.plist`：
+macOS 每 6 小时定时运行可以使用 `launchd`。如果要改成 30 分钟，把 `StartInterval` 改为 `1800`；高频运行更适合比赛周或赛道日，平时建议保留 6 小时，以降低 X 账号访问频率和 GitHub Pages 部署噪声。把下面文件保存为 `~/Library/LaunchAgents/com.znonymity.piasnews.social.plist` 后执行 `launchctl load ~/Library/LaunchAgents/com.znonymity.piasnews.social.plist`：
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -568,7 +568,7 @@ Full local publish script:
 scripts/update_social_agent_reach.sh
 ```
 
-By default it collects all X groups, updates `data/social.json`, builds the compact import JSON, writes `PIASNEWS_SOCIAL_INPUT_JSON`, and triggers the `Update Piasnews Data` workflow. To update local files only:
+By default it collects all X groups, updates `data/social.json`, builds the compact import JSON, writes `PIASNEWS_SOCIAL_INPUT_JSON`, and triggers the `Update Piasnews Data` workflow. The compact import omits per-run generated timestamps; when the compact content is unchanged from the previous publish, the script skips the GitHub variable update and workflow dispatch. Set `PIASNEWS_FORCE_SOCIAL_PUBLISH=1` to force a publish. To update local files only:
 
 ```bash
 PIASNEWS_SKIP_GITHUB=1 scripts/update_social_agent_reach.sh
@@ -580,7 +580,7 @@ To collect only fan sources:
 PIASNEWS_SOCIAL_GROUPS=fan_watch scripts/update_social_agent_reach.sh
 ```
 
-For a six-hour macOS schedule, save this as `~/Library/LaunchAgents/com.znonymity.piasnews.social.plist`, then run `launchctl load ~/Library/LaunchAgents/com.znonymity.piasnews.social.plist`:
+For a six-hour macOS schedule, save this as `~/Library/LaunchAgents/com.znonymity.piasnews.social.plist`, then run `launchctl load ~/Library/LaunchAgents/com.znonymity.piasnews.social.plist`. For a 30-minute schedule, change `StartInterval` to `1800`; that cadence is better reserved for race weekends or live-session days, while six hours is quieter for normal days.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

@@ -34,7 +34,6 @@ def compact_item(item: dict[str, Any]) -> dict[str, Any]:
 def compact_payload(payload: dict[str, Any]) -> dict[str, Any]:
     items = [compact_item(item) for item in payload.get("items", []) if isinstance(item, dict)]
     return {
-        "generated_at": payload.get("generated_at"),
         "source": "agent-reach/compact-social",
         "window_days": payload.get("window_days", 3),
         "items": items,

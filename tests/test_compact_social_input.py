@@ -33,6 +33,7 @@ class CompactSocialInputTest(unittest.TestCase):
         output = compact.compact_payload(payload)
 
         self.assertEqual(output["source"], "agent-reach/compact-social")
+        self.assertNotIn("generated_at", output)
         self.assertEqual(output["items"][0]["handle"], "PiastriNews")
         self.assertEqual(output["items"][0]["id"], "123")
         self.assertEqual(output["items"][0]["text"], "Oscar Piastri update")
