@@ -66,7 +66,8 @@ Behavior:
 - Return a concise Chinese news brief by default.
 - Support English output when the user asks in English.
 - Clearly mark rumors, unverified reports, and non-official sources.
-- Support short, standard, and deep fan-daily report lengths.
+- Support a Chinese/English website switch. Chinese mode should prefer Chinese titles and Chinese summaries.
+- Support short and daily fan-daily report lengths. Daily mode merges the useful structure from the previous standard and deep modes.
 
 V0.5 should already use the same conceptual data shape planned for V1/V2, so future upgrades only change the data source, not the user-facing behavior.
 
@@ -82,7 +83,7 @@ Current implementation status:
 - `data/items.json`, `data/daily.json`, `data/rss.xml`, and schema-v2 `data/history.json` exist.
 - GitHub Actions scheduled refresh is configured in `.github/workflows/update-piasnews.yml`.
 - A GitHub Pages publishing entrypoint has been added for `https://znonymity.github.io/piasnews/`.
-- `public/` implements a public fan daily with short, standard, and deep tabs plus a visible data refresh time.
+- `public/` implements a public fan daily with short and daily tabs, a top-right language switch, and a visible data refresh time.
 - `piasnews/references/history.md`, `piasnews/references/history-retrieval.json`, and `scripts/validate_history.py` support maintenance, review, and validation of the Looking Back knowledge base.
 - `public/admin/` implements the static console; `worker/` provides deployable review and anonymous-analytics endpoints, but the external Worker, D1 binding, secrets, and public URL are not configured yet.
 
@@ -154,13 +155,14 @@ Review-database triggers include multi-reviewer authorization, community submiss
 
 The GitHub Pages root serves a read-only daily report for all fans. Report content remains fully static and uses no online model service; the optional analytics backend only counts anonymous views.
 
-- The page provides short, standard, and deep tabs aligned with the Skill's three report modes.
+- The page provides short and daily tabs aligned with the Skill's report modes.
+- The page provides a top-right Chinese / English switch. Chinese mode prefers `title_zh` and `summary_zh`; when a Chinese title exists, the article link text should use that Chinese title while the original English title remains available for traceability.
 - All views read the same `data/items.json`, `data/daily.json`, and approved `data/history.json`; news data is not duplicated.
 - The page reads `data/calendar.json` for the next Grand Prix, race-week timing, and race-start countdown. Calendar metadata is outside the three-day news window and cannot fill a daily report.
 - The page displays the `generated_at` timestamp in China Standard Time and the active three-day window.
 - Short mode uses at most five bullets, omits rumor messaging when there are no rumors, and has no data panel.
-- Standard mode separates official, media, and rumor coverage and omits empty optional sections.
-- Deep mode groups topics by category and adds source confidence, next-watch points, and a data panel.
+- Daily mode merges the previous standard and deep modes: key points, topic grouping, official coverage, media coverage, optional X/social coverage, optional rumor radar, and optional Looking Back.
+- Daily mode does not show source-confidence notes, next-watch points, or a data panel by default; data appears only when the user explicitly asks for stats.
 - Looking Back uses approved history only and is omitted when no same-date event qualifies.
 - Browser-side deterministic templates render the reports without an LLM or model-token usage.
 - `.github/workflows/update-piasnews.yml` packages `public/` with the current run's generated data, so the page and JSON/RSS update in the same Pages deployment.
@@ -293,6 +295,7 @@ All versions should normalize items into this shape:
 {
   "id": "stable-source-url-or-hash",
   "title": "Article or post title",
+  "title_zh": "Chinese article title",
   "url": "https://example.com/item",
   "source": "McLaren",
   "source_type": "official | media | x | rss | api",
@@ -304,6 +307,7 @@ All versions should normalize items into this shape:
   "discovered_at": "2026-06-12T10:05:00Z",
   "category": "race | team | interview | contract | fan | rumor | other",
   "summary": "Short summary generated from metadata or short excerpt",
+  "summary_zh": "Chinese short summary",
   "official": true,
   "verified": true,
   "tags": ["Oscar Piastri", "McLaren", "F1"],
@@ -375,7 +379,7 @@ Historical retrieval uses one `Looking Back` section. Candidates may be exact sa
 
 ## 8. Output Requirements
 
-Default reports use three modes:
+Default reports use two modes:
 
 ### Short Mode
 
@@ -391,7 +395,7 @@ Use up to 5 bullets for quick checks:
 
 Omit the rumor reminder when there are no rumor or unverified items. Do not include a data panel in short mode.
 
-### Standard Mode
+### Daily Mode
 
 Default fan-daily format:
 
@@ -400,6 +404,9 @@ Default fan-daily format:
 
 ## Key Points
 - 2-3 high-signal points, official and reliable sources first.
+
+## Topic Merge
+- Group similar coverage by race, team, interview, rumor, and other categories.
 
 ## Official Updates
 1. [Title](url) - Source, time
@@ -419,24 +426,13 @@ Only show this section when rumors or unverified items exist.
 Show at most one approved event from `data/history.json`. Exact-date anniversaries and strongly related history share this section. Omit it when no event passes the review, historical-value, and relevance gates.
 ```
 
-### Deep Mode
-
-Use a dedicated deep format without a generic one-sentence opener:
-
-- Key points: 2-3 high-signal points.
-- Topic grouping: merge multiple articles about the same event into topic cards.
-- Official updates: list official items when available.
-- Source confidence: separate official sources, reputable media, aggregators, and low-confidence sources.
-- Next watch points: list 1-3 signals to watch over the next 24-48 hours when supported by current items.
-- Looking Back: merge anniversary and strongly related history, using approved events only.
-- Data panel: use only in deep mode or when the user asks for stats.
-
 Language behavior:
 
 - Use Chinese by default when the user asks in Chinese.
 - Use English when the user asks in English.
-- Preserve original titles when useful, but summarize in the user's language.
-- Keep data out of short and standard fan daily reports so the daily report does not feel redundant.
+- Chinese web mode uses Chinese titles as link text by default and keeps the original English title as traceability metadata. English web mode uses original titles.
+- Summaries should use the selected language.
+- Keep data out of short and daily fan reports by default so the daily report does not feel redundant.
 
 ## 9. GitHub Synchronization
 
@@ -531,8 +527,8 @@ V1 is complete when:
 - The Skill reads static data first and falls back to direct sources.
 - Daily new item counts are available.
 - GitHub Pages publishes the static data entrypoint.
-- The GitHub Pages root publishes the three-tab fan daily, displays the data refresh time, and updates after each collection workflow.
-- All three web views share static data and use no LLM; short and standard views contain no data panel.
+- The GitHub Pages root publishes the two-tab fan daily, displays the data refresh time, and updates after each collection workflow.
+- Both web views share static data and use no LLM; short and daily views contain no data panel by default.
 - The page displays the next F1 race countdown, China Standard Time schedule, and official calendar link; calendar data refreshes with the collection workflow.
 - `data/history.json` is available for optional historical context and is published with Pages.
 - Unreviewed events never enter Looking Back; vector embeddings remain optional and are disabled by default.

@@ -102,7 +102,8 @@ a {
 }
 
 .header-links a,
-.footer-links a {
+.footer-links a,
+.language-toggle {
   color: var(--muted);
   font-size: 13px;
   font-weight: 700;
@@ -110,8 +111,17 @@ a {
 }
 
 .header-links a:hover,
-.footer-links a:hover {
+.footer-links a:hover,
+.language-toggle:hover {
   color: var(--papaya-dark);
+}
+
+.language-toggle {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 5px 8px;
+  background: var(--surface-soft);
+  cursor: pointer;
 }
 
 .report-header {
@@ -370,7 +380,7 @@ a {
 .tabs {
   border-bottom: 1px solid var(--line);
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   background: var(--surface-soft);
 }
 
@@ -528,6 +538,16 @@ a {
   margin: 0;
   color: var(--muted);
   font-size: 13px;
+}
+
+.news-item .original-title {
+  margin: -1px 0 8px;
+  color: #85857e;
+  font-size: 12px;
+}
+
+.news-item .original-title strong {
+  color: var(--muted);
 }
 
 .news-item-meta {
@@ -799,6 +819,19 @@ a {
 @media (max-width: 460px) {
   .header-links a:first-child {
     display: none;
+  }
+
+  .update-panel {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  #updatedAt {
+    white-space: normal;
+  }
+
+  .update-panel .refresh-button {
+    grid-column: 2;
+    justify-self: start;
   }
 
   .report-heading h1 {

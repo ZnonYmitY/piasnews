@@ -34,7 +34,7 @@ Read `references/sources.md` before doing source-specific work, source expansion
 1. Understand the user's scope:
    - Time window: latest 3 days only. Narrower windows such as today or last 24 hours are allowed. Broader windows must be clipped to the latest 3 days.
    - Source mode: all sources, official-only, media-only, X/social, or rumors.
-   - Output language and report mode: short, standard, or deep.
+   - Output language and report mode: short or daily. Treat legacy standard/deep requests as daily unless the user explicitly asks for statistics.
 2. Collect candidate items from available sources, limited to the latest 3 days.
 3. Keep only items clearly related to Oscar Piastri:
    - Direct mentions: Oscar Piastri, Piastri, OP81.
@@ -85,6 +85,7 @@ When normalizing items, use this conceptual shape even if V0.5 only produces it 
 {
   "id": "stable-source-url-or-hash",
   "title": "Article or post title",
+  "title_zh": "Chinese article title",
   "url": "https://example.com/item",
   "source": "McLaren",
   "source_type": "official | media | x | rss | api",
@@ -96,6 +97,7 @@ When normalizing items, use this conceptual shape even if V0.5 only produces it 
   "discovered_at": "2026-06-12T10:05:00Z",
   "category": "race | team | interview | contract | fan | rumor | other",
   "summary": "Short summary from metadata or a short excerpt",
+  "summary_zh": "Chinese short summary",
   "official": true,
   "verified": true,
   "tags": ["Oscar Piastri", "McLaren", "F1"],
@@ -134,10 +136,11 @@ Use this shape when reporting daily stats:
 When the user asks for "粉丝日报", "daily", "日报", "brief", or a general Oscar Piastri update, choose one of these modes:
 
 - `short`: Use when the user asks for "速读", "简短", "5 行", "short", or "quick".
-- `standard`: Default mode for "粉丝日报" or normal daily reports.
-- `deep`: Use when the user asks for "深读", "详细", "长版", "deep", or "analysis".
+- `daily`: Default mode for "粉丝日报", normal daily reports, "standard", "深读", "详细", "长版", "deep", or "analysis". Only add a data panel when the user explicitly asks for statistics.
 
 Keep the daily readable. Do not let metrics overwhelm the news.
+
+For Chinese output, prefer `title_zh` and `summary_zh`. It is acceptable for the visible article link text to be Chinese; keep the original English title as traceability metadata when useful. For English output, use the original title and English summary.
 
 ### Short mode
 
@@ -154,7 +157,7 @@ Use no more than 5 bullets:
 
 Omit `传闻提醒` when there are no rumor or unverified items. Do not include a data panel in short mode.
 
-### Standard mode
+### Daily mode
 
 Use this structure unless the user requests another format:
 
@@ -163,6 +166,9 @@ Use this structure unless the user requests another format:
 
 ## 今日重点
 - 2-3 high-signal points, official and reliable sources first.
+
+## 话题合并
+Group duplicate/similar coverage into category or topic cards instead of listing every article repeatedly.
 
 ## 官方动态
 1. [Title](url) - Source, time
@@ -182,36 +188,7 @@ Only include when rumors or unverified items exist.
 Use at most one approved event from `data/history.json`. Prefer `title_zh` and `summary_zh` for Chinese output. It may be an exact same-month/day anniversary or a strongly related historical event. Follow `references/history.md` and `references/history-retrieval.json`; broad similarities such as Formula 1, McLaren, race, or street circuit are not enough for a contextual match. Do not expose internal historical-value scores. Do not search beyond the latest 3 days just to fill this section. Omit it when no event qualifies.
 ```
 
-### Deep mode
-
-Use this structure for deep mode:
-
-```markdown
-# Piasnews 深读版
-
-## 今日重点
-- 2-3 high-signal points.
-
-## 话题合并
-Group duplicate/similar coverage into topic cards instead of listing every article.
-
-## 官方动态
-List official items when available.
-
-## 来源可信度
-Call out official, reputable media, aggregators, and low-confidence items.
-
-## 明日关注
-List 1-3 watch points for the next 24-48 hours when supported by current items.
-
-## 往日回顾
-Use the same approved-only merged anniversary/contextual retrieval rule as standard mode. State the specific link when the item is contextual; do not invent a connection for a pure anniversary.
-
-## 数据面板
-Use only in deep mode or when the user asks for stats.
-```
-
-In deep mode, avoid a generic one-sentence opener. Let topic grouping carry the analysis.
+Do not include source-confidence notes, next-watch points, or a data panel by default. Add statistics only when the user explicitly asks for counts or metrics.
 
 For Chinese output, translate headings naturally:
 
@@ -220,7 +197,7 @@ For Chinese output, translate headings naturally:
 - `Media Coverage` -> `媒体报道`
 - `X / Social Updates` -> `X / 社交动态`
 
-Prefer the Chinese headings shown in the standard template for Chinese fan daily reports.
+Prefer the Chinese headings shown in the daily template for Chinese fan daily reports.
 
 ## Quality rules
 

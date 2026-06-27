@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light">
-    <meta name="description" content="Oscar Piastri 最近 3 天新闻的公开粉丝日报，提供速读、标准和深读三个版本。">
+    <meta name="description" content="Oscar Piastri 最近 3 天新闻的公开粉丝日报，提供速读和日报两个版本。">
     <title>Piasnews | Oscar Piastri 粉丝日报</title>
     <link rel="stylesheet" href="styles.css">
   </head>
@@ -18,6 +18,7 @@
         <nav class="header-links" aria-label="相关链接">
           <a href="data/rss.xml">RSS</a>
           <a href="https://github.com/ZnonYmitY/piasnews">GitHub</a>
+          <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch language">EN</button>
         </nav>
       </div>
     </header>
@@ -76,13 +77,9 @@
             <span>速读</span>
             <small>1 分钟</small>
           </button>
-          <button class="tab" id="tab-standard" type="button" role="tab" aria-selected="false" aria-controls="panel-standard" data-mode="standard" tabindex="-1">
-            <span>标准</span>
-            <small>完整日报</small>
-          </button>
-          <button class="tab" id="tab-deep" type="button" role="tab" aria-selected="false" aria-controls="panel-deep" data-mode="deep" tabindex="-1">
-            <span>深读</span>
-            <small>话题与数据</small>
+          <button class="tab" id="tab-daily" type="button" role="tab" aria-selected="false" aria-controls="panel-daily" data-mode="daily" tabindex="-1">
+            <span>日报</span>
+            <small>完整整理</small>
           </button>
         </div>
 
@@ -99,8 +96,7 @@
         </div>
 
         <section class="tab-panel" id="panel-short" role="tabpanel" aria-labelledby="tab-short"></section>
-        <section class="tab-panel" id="panel-standard" role="tabpanel" aria-labelledby="tab-standard" hidden></section>
-        <section class="tab-panel" id="panel-deep" role="tabpanel" aria-labelledby="tab-deep" hidden></section>
+        <section class="tab-panel" id="panel-daily" role="tabpanel" aria-labelledby="tab-daily" hidden></section>
       </section>
     </main>
 

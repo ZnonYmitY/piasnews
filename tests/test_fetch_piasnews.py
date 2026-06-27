@@ -60,6 +60,20 @@ class PublisherDateTest(unittest.TestCase):
         )
 
 
+class ChineseLocalizationTest(unittest.TestCase):
+    def test_known_title_translation(self):
+        title = "Australian stars rally behind Piastri after Sky Sports backlash"
+        self.assertEqual(
+            collector.translate_title_zh(title),
+            "Sky Sports 评论引发反弹后，澳大利亚体育明星声援 Piastri",
+        )
+
+    def test_summary_zh_is_chinese_and_category_aware(self):
+        summary = collector.infer_summary_zh("Example Oscar Piastri article", "race", official=True)
+        self.assertIn("官方来源", summary)
+        self.assertIn("比赛周", summary)
+
+
 class GoogleNewsDecodeTest(unittest.TestCase):
     def test_decodes_original_publisher_url(self):
         posted = {}
@@ -112,6 +126,8 @@ class SourceDateVerificationTest(unittest.TestCase):
         self.assertTrue(item["date_verified"])
         self.assertEqual(item["published_at_source"], "publisher_metadata")
         self.assertEqual(item["id"], collector.stable_id(item["title"], SOURCE_URL))
+        self.assertIn("title_zh", item)
+        self.assertIn("summary_zh", item)
 
 
 if __name__ == "__main__":

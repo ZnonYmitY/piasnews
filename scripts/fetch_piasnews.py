@@ -322,6 +322,110 @@ def classify_item(title: str) -> str:
     return "other"
 
 
+def translate_title_zh(title: str, category: str | None = None) -> str:
+    """Create a readable Chinese title without calling an external model."""
+    normalized = re.sub(r"\s+", " ", title.strip())
+    lower = normalized.lower()
+    patterns = [
+        (
+            re.compile(r"^Oscar Piastri handed '([^']+)' assessment after McLaren struggles$", re.IGNORECASE),
+            lambda match: f"McLaren 表现挣扎后，Oscar Piastri 收到“{match.group(1)}”评价",
+        ),
+        (
+            re.compile(
+                r"^Andrea Stella reveals tyre secrets behind Lando Norris and Oscar Piastri's pace gap at Barcelona$",
+                re.IGNORECASE,
+            ),
+            lambda _match: "Andrea Stella 揭示 Norris 与 Piastri 在巴塞罗那速度差距背后的轮胎因素",
+        ),
+        (
+            re.compile(r"^Australian stars rally behind Piastri after Sky Sports backlash$", re.IGNORECASE),
+            lambda _match: "Sky Sports 评论引发反弹后，澳大利亚体育明星声援 Piastri",
+        ),
+    ]
+    for pattern, replacement in patterns:
+        match = pattern.match(normalized)
+        if match:
+            return replacement(match)
+
+    if "swap" in lower and "red bull" in lower:
+        return "McLaren 与 Red Bull 回应 Piastri/Verstappen 互换传闻"
+    if "verstappen in talks with mclaren" in lower:
+        return "围场传闻称 Verstappen 与 McLaren 接触，Piastri 被关联至 Red Bull"
+    if "antonelli pips piastri" in lower and "fp2" in lower:
+        return "奥地利二练：Antonelli 以微弱优势压过 Piastri 登顶"
+    if "fp2" in lower and "antonelli sets the pace" in lower:
+        return "奥地利二练：Antonelli 领跑，Piastri 与 Norris 紧随其后"
+    if "antonelli leads in austria fp1" in lower:
+        return "奥地利一练：Antonelli 领先，Russell 与 Piastri 跟进"
+    if "friday practice" in lower and "antonelli" in lower:
+        return "奥地利周五练习赛：Antonelli 领先 Piastri"
+    if "austrian grand prix fp1" in lower:
+        return "奥地利一练：Mercedes 包揽前二，Piastri 追赶"
+    if "pleasant surprise" in lower and "austria" in lower:
+        return "Piastri 展望奥地利站，希望 McLaren 带来积极惊喜"
+    if "step behind" in lower and "antonelli" in lower:
+        return "Piastri 承认 McLaren 在奥地利暂时落后 Antonelli 一步"
+    if "surprise" in lower and "pace" in lower and "austrian" in lower:
+        return "奥地利高温练习赛中，Piastri 速度表现引发对手关注"
+    if "they were flying" in lower or ("rivals taking notice" in lower and "surprise" in lower):
+        return "McLaren 奥地利练习赛速度引发对手关注，Piastri 成焦点之一"
+    if "homework" in lower and "pays off" in lower:
+        return "Piastri 表示 McLaren 的奥地利站准备开始见效"
+    if "turn up heat" in lower and "austrian" in lower:
+        return "Piastri 准备在奥地利大奖赛提升竞争状态"
+    if "bathroom sauna" in lower or "not for pleasure" in lower:
+        return "Piastri 透露为奥地利高温备战的桑拿式训练"
+    if "goes to extremes" in lower and "austria heat" in lower:
+        return "Piastri 为奥地利高温比赛做极限适应准备"
+    if "new bits" in lower and "mercedes" in lower:
+        return "Piastri 表示 McLaren 需要新部件追赶 Mercedes"
+    if "tricky precedent" in lower or "monaco" in lower or "penalty chaos" in lower:
+        return "Piastri 警告摩纳哥处罚争议可能造成棘手先例"
+    if "race results limbo" in lower or "penalty free-for-all" in lower:
+        return "Piastri 担心 F1 处罚争议让比赛结果陷入不确定"
+    if "rear wing" in lower and "experimental" in lower:
+        return "Piastri 透露 McLaren 实验性尾翼计划"
+    if "rear wing" in lower and "austria" in lower:
+        return "Piastri 确认 McLaren 将在奥地利测试新尾翼方案"
+    if "macarena" in lower and "rear wing" in lower:
+        return "Piastri 谈到 McLaren 新尾翼方案的技术细节"
+    if "refuses to rule mclaren out" in lower:
+        return "Piastri 未排除 McLaren 继续争夺 F1 冠军的可能"
+    if "ferrari steps up" in lower and "austria" in lower:
+        return "Piastri 承认 McLaren 在奥地利遇到挑战，Ferrari 表现提升"
+    if "fighter" in lower and "defends" in lower:
+        return "F1 冠军为 Piastri 辩护，称他具备强硬竞争力"
+    if "fia list" in lower and "austrian" in lower:
+        return "奥地利站 FIA 名单公布，Russell 与 Piastri 成发布会焦点"
+    if normalized.strip().lower() == "oscar piastri":
+        return "Oscar Piastri 相关车队动态"
+    if "mechanical" in lower and "brakes" in lower:
+        return "机械问题影响 Piastri 的比赛希望"
+
+    if "austria" in lower or "austrian" in lower:
+        context = "奥地利大奖赛"
+    elif "monaco" in lower:
+        context = "摩纳哥处罚争议"
+    elif "mclaren" in lower:
+        context = "McLaren"
+    elif "red bull" in lower:
+        context = "Red Bull 传闻"
+    else:
+        context = "近期动态"
+
+    category_titles = {
+        "race": f"Piastri 相关比赛动态：{context}",
+        "team": f"Piastri 相关车队动态：{context}",
+        "interview": f"Piastri 相关采访动态：{context}",
+        "contract": f"Piastri 相关合同与商业动态：{context}",
+        "fan": f"Piastri 相关车迷与场外动态：{context}",
+        "rumor": f"Piastri 相关围场传闻：{context}",
+        "other": f"Piastri 相关动态：{context}",
+    }
+    return category_titles.get(category or "other", category_titles["other"])
+
+
 def infer_summary(title: str, category: str) -> str:
     if category == "rumor":
         return "Rumor or speculative report; treat as unverified unless confirmed by official sources."
@@ -334,6 +438,24 @@ def infer_summary(title: str, category: str) -> str:
     if category == "fan":
         return "Fan/community or off-track item discovered from public news metadata."
     return "Oscar Piastri-related item discovered from public news metadata."
+
+
+def infer_summary_zh(title: str, category: str, official: bool | None = None) -> str:
+    source_note = "官方来源" if official else "媒体来源"
+    title_hint = translate_title_zh(title, category)
+    if category == "rumor":
+        return f"{source_note}提到“{title_hint}”。该信息带有传闻或推测性质，需等待官方或权威来源确认。"
+    if category == "race":
+        return f"{source_note}围绕“{title_hint}”展开，属于比赛周、成绩、策略、处罚或表现相关信息。"
+    if category == "interview":
+        return f"{source_note}围绕“{title_hint}”展开，重点是车手、车队或围场相关人物的公开表达。"
+    if category == "team":
+        return f"{source_note}围绕“{title_hint}”展开，重点与 McLaren 赛车表现、升级或车队运作有关。"
+    if category == "contract":
+        return f"{source_note}围绕“{title_hint}”展开，涉及合同、赞助或商业合作相关动态。"
+    if category == "fan":
+        return f"{source_note}围绕“{title_hint}”展开，属于车迷活动、社区互动或场外动态。"
+    return f"{source_note}报道了“{title_hint}”，内容与 Oscar Piastri 近期动态直接相关。"
 
 
 def is_official_source(source: str, source_url: str, item_url: str) -> bool:
@@ -385,11 +507,13 @@ def parse_feed(xml_text: str, query: str, source_group: str, fetched_url: str, n
         item_url = normalize_url(link)
         item_id = stable_id(title, item_url)
         item_source_type = source_type(source, source_url, item_url)
+        is_official = item_source_type == "official"
 
         items.append(
             {
                 "id": item_id,
                 "title": title,
+                "title_zh": translate_title_zh(title, category),
                 "url": item_url,
                 "source": source or "Google News",
                 "source_url": source_url,
@@ -405,7 +529,8 @@ def parse_feed(xml_text: str, query: str, source_group: str, fetched_url: str, n
                 "discovered_at": now.isoformat().replace("+00:00", "Z"),
                 "category": category,
                 "summary": infer_summary(title, category),
-                "official": item_source_type == "official",
+                "summary_zh": infer_summary_zh(title, category, is_official),
+                "official": is_official,
                 "verified": verified(source, category),
                 "tags": ["Oscar Piastri", "McLaren", "F1"],
                 "language": "en",
@@ -454,6 +579,15 @@ def verify_source_date(
     )
     verified_item["official"] = verified_item["source_type"] == "official"
     verified_item["verified"] = verified(verified_item["source"], verified_item["category"])
+    verified_item["title_zh"] = verified_item.get("title_zh") or translate_title_zh(
+        verified_item["title"],
+        verified_item["category"],
+    )
+    verified_item["summary_zh"] = infer_summary_zh(
+        verified_item["title"],
+        verified_item["category"],
+        verified_item["official"],
+    )
     return verified_item, "verified"
 
 
