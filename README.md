@@ -171,7 +171,9 @@ X 不是必需依赖。只有当用户提供自己的 X 访问方式，或项目
 python3 scripts/fetch_social_sources.py --input-json social-import.json --days 3 --output data/social.json
 ```
 
-GitHub Actions 导入：把同样的 JSON 写入仓库变量 `PIASNEWS_SOCIAL_INPUT_JSON`，下一次 `Update Piasnews Data` 会生成并发布粉丝源动态。每条动态会在页面上显示 `引用自 @账号` 和 `如有侵权请联系删除。`
+GitHub Actions 导入：把同样的 JSON 写入仓库变量 `PIASNEWS_SOCIAL_INPUT_JSON`，下一次 `Update Piasnews Data` 会生成并发布粉丝源动态。粉丝源 Tab 顶部统一展示 `如有侵权请联系删除。`，每条动态只展示账号归属。
+
+粉丝源和日报新闻的发布层一致，都会落到 GitHub Pages 的静态 JSON；采集层不同。日报新闻由 GitHub Actions 每 6 小时抓取 RSS/网页并核验原站发布日期。粉丝源由本机 Agent-Reach 或外部 JSON 先生成公开动态导入文件，再交给 GitHub Actions 归一化和部署。GitHub Actions 本身不会读取你的本机 X 登录态。
 
 本机已支持 Agent-Reach 采集入口。先确认 Twitter/X 后端状态：
 
@@ -482,7 +484,9 @@ Local import:
 python3 scripts/fetch_social_sources.py --input-json social-import.json --days 3 --output data/social.json
 ```
 
-GitHub Actions import: store the same JSON in the repository variable `PIASNEWS_SOCIAL_INPUT_JSON`; the next `Update Piasnews Data` run will generate and publish the fan-source feed. Each social card displays account attribution and the removal-on-rights-request notice.
+GitHub Actions import: store the same JSON in the repository variable `PIASNEWS_SOCIAL_INPUT_JSON`; the next `Update Piasnews Data` run will generate and publish the fan-source feed. The fan-source tab shows one removal-on-rights-request notice above the feed; each card only shows account attribution.
+
+Fan sources and daily news share the same static GitHub Pages delivery layer, but their collection layers differ. Daily news is collected every six hours by GitHub Actions through RSS/web sources with publisher-date verification. Fan sources are collected locally through Agent-Reach or supplied as external JSON, then normalized and deployed by GitHub Actions. GitHub Actions cannot read your local X browser session.
 
 This repo now includes a local Agent-Reach collection entrypoint. First check the Twitter/X backend:
 

@@ -79,6 +79,7 @@ class SocialSourcesTest(unittest.TestCase):
             self.assertEqual(items[0]["url"], "https://x.com/PiastriNews/status/123")
             self.assertEqual(items[0]["category"], "fan")
             self.assertEqual(items[0]["attribution_zh"], "引用自 @PiastriNews")
+            self.assertIn("粉丝账号 @PiastriNews 发布", items[0]["summary_zh"])
 
     def test_import_can_normalize_instagram_item_with_url(self):
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -125,8 +126,19 @@ class SocialSourcesTest(unittest.TestCase):
 
         self.assertEqual(status["items"], 1)
         self.assertEqual(items[0]["source"], "@NicolePiastri")
-        self.assertEqual(items[0]["summary_zh"], "Oscar Piastri family-side McLaren race-week note.")
+        self.assertEqual(items[0]["summary_zh"], "粉丝账号 @NicolePiastri 发布了与 Oscar Piastri 相关的公开动态。")
         self.assertEqual(items[0]["copyright_notice_zh"], "如有侵权请联系删除。")
+
+    def test_chinese_social_summary_uses_topic_hints(self):
+        summary = collector.social_summary_zh(
+            "Oscar finishes FP2 in P2 and looks fastest in high speed corners.",
+            "laurogeitabat",
+            "post",
+        )
+
+        self.assertIn("二练表现", summary)
+        self.assertIn("排名 P2", summary)
+        self.assertIn("高速弯", summary)
 
 
 if __name__ == "__main__":

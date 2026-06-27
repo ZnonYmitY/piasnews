@@ -47,6 +47,7 @@ const I18N = {
     socialSection: "X / 社交观察",
     fanFeedTitle: "粉丝源",
     fanFeedNote: "X / IG 动态",
+    fanFeedRights: "粉丝源内容引用自公开 X / IG 动态；如有侵权请联系删除。",
     fanFeedEmptyTitle: "暂无粉丝源动态",
     fanFeedEmptyBody: "当前没有可展示的 X / IG 发帖或转帖；未配置访问能力时不会展示账号库或伪造内容。",
     rumorRadar: "传闻雷达",
@@ -58,6 +59,7 @@ const I18N = {
     noRecentBody: "不会用更早的内容填充日报。",
     officialBadge: "官方",
     rumorBadge: "传闻",
+    fanBadge: "粉丝",
     categoryFallback: "其他动态",
     nextRace: "NEXT RACE",
     round: (round, code) => `ROUND ${round} · ${code}`,
@@ -140,6 +142,7 @@ const I18N = {
     socialSection: "X / Social Watch",
     fanFeedTitle: "Fan Sources",
     fanFeedNote: "X / IG updates",
+    fanFeedRights: "Fan-source items reference public X / IG posts. Remove on rights request.",
     fanFeedEmptyTitle: "No fan-source updates",
     fanFeedEmptyBody: "No X / IG posts or reposts are available right now. Without configured access, the page does not expose the account list or invent social items.",
     rumorRadar: "Rumor Radar",
@@ -151,6 +154,7 @@ const I18N = {
     noRecentBody: "Older items are not used as filler.",
     officialBadge: "Official",
     rumorBadge: "Rumor",
+    fanBadge: "Fan",
     categoryFallback: "Other",
     nextRace: "NEXT RACE",
     round: (round, code) => `ROUND ${round} · ${code}`,
@@ -324,12 +328,17 @@ function localizedCopyrightNotice(item) {
   return item.copyright_notice || "";
 }
 
+function isSocialItem(item) {
+  return item.source_type === "x" || item.source_type === "instagram";
+}
+
 function safeLink(item) {
   return `<a href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(localizedTitle(item))}</a>`;
 }
 
 function itemBadge(item) {
   if (item.official) return `<span class="badge badge-official">${escapeHtml(t().officialBadge)}</span>`;
+  if (isSocialItem(item) || item.category === "fan") return `<span class="badge badge-fan">${escapeHtml(t().fanBadge)}</span>`;
   if (item.category === "rumor" || !item.verified) return `<span class="badge badge-rumor">${escapeHtml(t().rumorBadge)}</span>`;
   return `<span class="badge">${escapeHtml(categoryLabel(item.category))}</span>`;
 }
@@ -425,12 +434,12 @@ function sortedItems(items = state.items) {
   });
 }
 
-function renderNewsItem(item) {
+function renderNewsItem(item, options = {}) {
   const originalTitle = state.language === "zh" && item.title_zh && item.title_zh !== item.title
     ? `<p class="original-title"><strong>${escapeHtml(t().originalTitle)}：</strong>${escapeHtml(item.title)}</p>`
     : "";
   const attribution = localizedAttribution(item);
-  const copyrightNotice = localizedCopyrightNotice(item);
+  const copyrightNotice = options.showRights === false ? "" : localizedCopyrightNotice(item);
   return `
     <article class="news-item">
       <div class="news-item-top">
@@ -450,7 +459,7 @@ function renderNewsItem(item) {
 
 function socialItems() {
   const items = Array.isArray(state.social?.items) ? state.social.items : [];
-  return sortedItems(items).filter((item) => item.source_type === "x" || item.source_type === "instagram");
+  return sortedItems(items).filter(isSocialItem);
 }
 
 function exactAnniversary() {
@@ -574,7 +583,12 @@ function renderDaily() {
 function renderFanFeed() {
   const social = socialItems();
   if (social.length) {
-    return section(t().fanFeedTitle, `<div class="news-list">${social.map(renderNewsItem).join("")}</div>`, t().mediaCount(social.length));
+    return section(
+      t().fanFeedTitle,
+      `<p class="feed-rights-notice">${escapeHtml(t().fanFeedRights)}</p>
+      <div class="news-list">${social.map((item) => renderNewsItem(item, { showRights: false })).join("")}</div>`,
+      t().mediaCount(social.length),
+    );
   }
   return section(
     t().fanFeedTitle,

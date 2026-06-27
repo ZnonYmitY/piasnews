@@ -563,6 +563,13 @@ a {
   font-size: 11px;
 }
 
+.feed-rights-notice {
+  margin: 0 0 12px;
+  color: #6b6b64;
+  font-size: 12px;
+  font-weight: 700;
+}
+
 .news-item-meta {
   justify-content: flex-start;
   color: var(--muted);
@@ -582,6 +589,11 @@ a {
 .badge-official {
   background: #e5f2eb;
   color: var(--green);
+}
+
+.badge-fan {
+  background: #fff1df;
+  color: var(--papaya-dark);
 }
 
 .badge-rumor {

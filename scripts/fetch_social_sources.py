@@ -87,6 +87,31 @@ def short_text(value: str, limit: int = 180) -> str:
     return value[: limit - 1].rstrip() + "…"
 
 
+def social_summary_zh(text: str, handle: str, kind: str) -> str:
+    lowered = text.lower()
+    topics = []
+    topic_rules = [
+        (("arriving", "arrival", "arrive"), "抵达围场或赛道现场"),
+        (("quali", "qualifying"), "排位赛日动态"),
+        (("fp2", "free practice 2"), "二练表现"),
+        (("fp1", "free practice 1"), "一练表现"),
+        (("fp day", "practice"), "练习赛日反馈"),
+        (("p2", "p 2"), "排名 P2"),
+        (("high speed", "fastest"), "高速弯或单圈速度表现"),
+        (("quadlock", "pics", "photo", "photos", "pic"), "照片或品牌物料"),
+        (("helmet",), "头盔相关内容"),
+        (("mercedes",), "与 Mercedes 节奏对比"),
+        (("homework", "productive"), "练习后的调校与复盘"),
+    ]
+    for keywords, label in topic_rules:
+        if any(keyword in lowered for keyword in keywords) and label not in topics:
+            topics.append(label)
+    action = "转发" if kind == "repost" else "发布"
+    if topics:
+        return f"粉丝账号 @{handle} {action}了与 Oscar Piastri 相关的公开动态，重点提到：{'、'.join(topics[:3])}。"
+    return f"粉丝账号 @{handle} {action}了与 Oscar Piastri 相关的公开动态。"
+
+
 def load_sources(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text())
 
@@ -149,6 +174,7 @@ def normalize_social_item(raw: dict[str, Any], source: dict[str, Any], now: date
     attribution_zh = source.get("attribution_template_zh") or f"引用自 @{handle}"
     attribution_en = source.get("attribution_template_en") or f"Referenced from @{handle}"
     summary = short_text(text)
+    summary_zh = clean_text(raw.get("summary_zh") or raw.get("text_zh")) or social_summary_zh(summary, handle, kind)
     return {
         "id": stable_id(platform, url, text),
         "title": title_for_item(platform, handle, kind),
@@ -165,7 +191,7 @@ def normalize_social_item(raw: dict[str, Any], source: dict[str, Any], now: date
         "discovered_at": isoformat(now),
         "category": "fan" if source.get("group") == "fan_watch" else "other",
         "summary": summary,
-        "summary_zh": summary,
+        "summary_zh": summary_zh,
         "attribution": attribution_en,
         "attribution_zh": attribution_zh,
         "copyright_notice": "Remove on rights request.",
