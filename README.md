@@ -191,7 +191,7 @@ env PATH=/Users/bytedance/.agent-reach-venv/bin:$PATH \
   --update-social
 ```
 
-这会读取 `piasnews/references/x-sources.json` 中的 X 账号，调用本地 `twitter-cli` 搜索最近 3 天公开动态，生成导入 JSON，并更新 `data/social.json`。
+这会读取 `piasnews/references/x-sources.json` 中的 X 账号，默认调用本地 `twitter-cli user-posts` 拉取账号公开时间线，再按最近 3 天过滤，生成导入 JSON，并更新 `data/social.json`。如果 `agent-reach configure --from-browser chrome` 已经写入 `~/.agent-reach/config.yaml`，采集脚本会自动把其中的 Twitter/X cookies 传给 `twitter-cli`，不需要把 token 写进仓库。`twitter search` 端点不稳定，仅在明确需要时用 `--method search`。
 
 ## 静态数据
 
@@ -502,7 +502,7 @@ env PATH=/Users/bytedance/.agent-reach-venv/bin:$PATH \
   --update-social
 ```
 
-The script reads X accounts from `piasnews/references/x-sources.json`, calls local `twitter-cli` for latest-three-day public posts, writes the import JSON, and updates `data/social.json`.
+The script reads X accounts from `piasnews/references/x-sources.json`, calls local `twitter-cli user-posts` by default, filters to the latest three days, writes the import JSON, and updates `data/social.json`. If `agent-reach configure --from-browser chrome` has written cookies to `~/.agent-reach/config.yaml`, the collector automatically passes them to `twitter-cli`; no token is committed to the repo. The `twitter search` endpoint is less stable and is available only via `--method search`.
 
 ## Static Data
 

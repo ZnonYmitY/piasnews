@@ -45,8 +45,31 @@ class AgentReachCollectTest(unittest.TestCase):
 
         self.assertEqual(item["kind"], "repost")
 
+    def test_normalizes_user_posts_payload_shape(self):
+        item = collector.normalize_raw_tweet(
+            {
+                "id": "789",
+                "text": "Fresh Oscar Piastri fan update",
+                "createdAtISO": "2026-06-27T10:00:00+00:00",
+                "author": {"screenName": "PiastriNews"},
+                "isRetweet": True,
+            },
+            "PiastriNews",
+        )
+
+        self.assertEqual(item["created_at"], "2026-06-27T10:00:00Z")
+        self.assertEqual(item["author_handle"], "PiastriNews")
+        self.assertEqual(item["url"], "https://x.com/PiastriNews/status/789")
+        self.assertEqual(item["kind"], "repost")
+
+    def test_builds_user_posts_command_by_default(self):
+        command = collector.twitter_command("user-posts", "PiastriNews", "2026-06-24", 5, Path("/tmp/out.json"))
+
+        self.assertEqual(command[:2], ["user-posts", "PiastriNews"])
+        self.assertIn("--output", command)
+
     def test_main_writes_import_payload_from_source_config(self):
-        def fake_search(_twitter_cmd, handle, _since_date, _per_source):
+        def fake_search(_twitter_cmd, handle, _since_date, _per_source, _method="user-posts"):
             if handle != "PiastriNews":
                 return [], {"platform": "x", "handle": handle, "ok": True, "items": 0}
             return [
@@ -80,6 +103,16 @@ class AgentReachCollectTest(unittest.TestCase):
             self.assertEqual(payload["source"], "agent-reach/twitter-cli")
             self.assertEqual(payload["total_items"], 1)
             self.assertEqual(payload["items"][0]["handle"], "PiastriNews")
+
+    def test_loads_agent_reach_twitter_env(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            config = Path(tmpdir) / "config.yaml"
+            config.write_text("twitter_auth_token: token-value\ntwitter_ct0: ct0-value\n")
+
+            env = collector.load_agent_reach_twitter_env(config)
+
+            self.assertEqual(env["TWITTER_AUTH_TOKEN"], "token-value")
+            self.assertEqual(env["TWITTER_CT0"], "ct0-value")
 
 
 if __name__ == "__main__":

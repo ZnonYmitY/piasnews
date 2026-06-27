@@ -167,6 +167,10 @@ env PATH=/Users/bytedance/.agent-reach-venv/bin:$PATH \
 
 This route depends on the user's local X authentication. If `twitter status` is not authenticated, stop and ask the user to sign in or configure Twitter cookies/tokens through Agent-Reach.
 
+When `agent-reach configure --from-browser chrome` has already saved `twitter_auth_token` and `twitter_ct0` in `~/.agent-reach/config.yaml`, `scripts/collect_agent_reach_social.py` automatically bridges those values into `TWITTER_AUTH_TOKEN` and `TWITTER_CT0` for its `twitter-cli` subprocess. Do not commit local cookie files or tokens.
+
+Use the default `user-posts` method for collection because it is more stable than X search endpoints. Use `--method search` only for troubleshooting or explicit query-style collection.
+
 For X-derived items:
 
 - Keep post URL, account handle, timestamp, engagement count when available, and a short paraphrase.

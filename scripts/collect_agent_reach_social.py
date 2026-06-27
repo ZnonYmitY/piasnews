@@ -22,6 +22,7 @@ from typing import Any
 
 DEFAULT_IMPORT_OUTPUT = "/tmp/piasnews-agent-reach-social.json"
 DEFAULT_TWITTER_CMD = "twitter"
+AGENT_REACH_CONFIG = Path.home() / ".agent-reach" / "config.yaml"
 
 
 def parse_args() -> argparse.Namespace:
@@ -32,6 +33,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--per-source", type=int, default=20, help="Max posts to request per source.")
     parser.add_argument("--group", action="append", help="Optional source group to include, repeatable.")
     parser.add_argument("--twitter-cmd", default=os.environ.get("PIASNEWS_TWITTER_CMD", DEFAULT_TWITTER_CMD))
+    parser.add_argument(
+        "--method",
+        choices=("user-posts", "search"),
+        default="user-posts",
+        help="twitter-cli method. user-posts is more stable; search can fail when X changes endpoints.",
+    )
     parser.add_argument("--now", help="Override current UTC time, ISO-8601 format.")
     parser.add_argument("--update-social", action="store_true", help="Also update data/social.json after collection.")
     parser.add_argument("--social-output", default="data/social.json", help="Target social JSON when --update-social is set.")
@@ -92,6 +99,31 @@ def load_sources(path: Path, groups: set[str] | None) -> list[dict[str, Any]]:
     return sources
 
 
+def load_agent_reach_twitter_env(config_path: Path = AGENT_REACH_CONFIG) -> dict[str, str]:
+    """Bridge Agent-Reach's saved X cookies into twitter-cli env vars."""
+    if os.environ.get("TWITTER_AUTH_TOKEN") and os.environ.get("TWITTER_CT0"):
+        return {}
+    if not config_path.exists():
+        return {}
+
+    values: dict[str, str] = {}
+    for raw_line in config_path.read_text().splitlines():
+        if ":" not in raw_line or raw_line.lstrip().startswith("#"):
+            continue
+        key, value = raw_line.split(":", 1)
+        key = key.strip()
+        value = value.strip().strip("'\"")
+        if key in {"twitter_auth_token", "twitter_ct0"} and value:
+            values[key] = value
+
+    env: dict[str, str] = {}
+    if values.get("twitter_auth_token"):
+        env["TWITTER_AUTH_TOKEN"] = values["twitter_auth_token"]
+    if values.get("twitter_ct0"):
+        env["TWITTER_CT0"] = values["twitter_ct0"]
+    return env
+
+
 def tweet_items(payload: Any) -> list[dict[str, Any]]:
     if isinstance(payload, list):
         return [item for item in payload if isinstance(item, dict)]
@@ -122,7 +154,7 @@ def id_from_tweet(tweet: dict[str, Any]) -> str:
 
 
 def kind_from_tweet(tweet: dict[str, Any]) -> str:
-    markers = ("retweeted", "is_retweet", "is_repost", "repost")
+    markers = ("retweeted", "is_retweet", "isRetweet", "is_repost", "repost")
     if any(bool(tweet.get(key)) for key in markers):
         return "repost"
     text = text_from_tweet(tweet).lstrip()
@@ -134,14 +166,23 @@ def kind_from_tweet(tweet: dict[str, Any]) -> str:
 def normalize_raw_tweet(tweet: dict[str, Any], handle: str) -> dict[str, Any] | None:
     tweet_id = id_from_tweet(tweet)
     text = text_from_tweet(tweet)
-    created_at = parse_datetime(tweet.get("created_at") or tweet.get("date") or tweet.get("time"))
+    created_at = parse_datetime(
+        tweet.get("created_at")
+        or tweet.get("createdAtISO")
+        or tweet.get("createdAt")
+        or tweet.get("date")
+        or tweet.get("time")
+    )
     if not tweet_id or not text or not created_at:
         return None
-    url = str(tweet.get("url") or tweet.get("link") or f"https://x.com/{handle}/status/{tweet_id}")
+    author = tweet.get("author") if isinstance(tweet.get("author"), dict) else {}
+    author_handle = str(author.get("screenName") or author.get("username") or handle).lstrip("@")
+    url = str(tweet.get("url") or tweet.get("link") or f"https://x.com/{author_handle}/status/{tweet_id}")
     metrics = tweet.get("metrics") or tweet.get("public_metrics") or {}
     return {
         "platform": "x",
         "handle": handle,
+        "author_handle": author_handle,
         "id": tweet_id,
         "url": url,
         "text": text,
@@ -152,29 +193,44 @@ def normalize_raw_tweet(tweet: dict[str, Any], handle: str) -> dict[str, Any] | 
     }
 
 
-def run_twitter_search(twitter_cmd: str, handle: str, since_date: str, per_source: int) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+def twitter_command(method: str, handle: str, since_date: str, per_source: int, output_path: Path) -> list[str]:
+    if method == "search":
+        return [
+            "search",
+            "--from",
+            handle,
+            "--since",
+            since_date,
+            "--type",
+            "latest",
+            "--max",
+            str(per_source),
+            "--json",
+            "--output",
+            str(output_path),
+        ]
+    return [
+        "user-posts",
+        handle,
+        "--max",
+        str(per_source),
+        "--json",
+        "--output",
+        str(output_path),
+    ]
+
+
+def run_twitter_search(twitter_cmd: str, handle: str, since_date: str, per_source: int, method: str = "user-posts") -> tuple[list[dict[str, Any]], dict[str, Any]]:
     if not shutil.which(twitter_cmd):
         return [], {"platform": "x", "handle": handle, "ok": False, "error": f"{twitter_cmd} not found on PATH"}
 
     with tempfile.NamedTemporaryFile(suffix=".json", delete=False) as tmp:
         tmp_path = Path(tmp.name)
-    cmd = [
-        twitter_cmd,
-        "search",
-        "--from",
-        handle,
-        "--since",
-        since_date,
-        "--type",
-        "latest",
-        "--max",
-        str(per_source),
-        "--json",
-        "--output",
-        str(tmp_path),
-    ]
+    cmd = [twitter_cmd, *twitter_command(method, handle, since_date, per_source, tmp_path)]
     try:
-        result = subprocess.run(cmd, text=True, capture_output=True, check=False, timeout=90)
+        command_env = os.environ.copy()
+        command_env.update(load_agent_reach_twitter_env())
+        result = subprocess.run(cmd, text=True, capture_output=True, check=False, timeout=90, env=command_env)
         if result.returncode != 0:
             error_parts = [part.strip() for part in (result.stderr, result.stdout) if part.strip()]
             return [], {
@@ -186,7 +242,7 @@ def run_twitter_search(twitter_cmd: str, handle: str, since_date: str, per_sourc
         payload_text = tmp_path.read_text() if tmp_path.exists() else result.stdout
         payload = json.loads(payload_text)
         items = [item for tweet in tweet_items(payload) if (item := normalize_raw_tweet(tweet, handle))]
-        return items, {"platform": "x", "handle": handle, "ok": True, "items": len(items)}
+        return items, {"platform": "x", "handle": handle, "ok": True, "method": method, "items": len(items)}
     except json.JSONDecodeError as exc:
         return [], {"platform": "x", "handle": handle, "ok": False, "error": f"invalid_json: {exc}"}
     except subprocess.TimeoutExpired:
@@ -228,7 +284,7 @@ def main() -> int:
     items: list[dict[str, Any]] = []
 
     for source in sources:
-        source_items, status = run_twitter_search(args.twitter_cmd, source["handle"], since_date, args.per_source)
+        source_items, status = run_twitter_search(args.twitter_cmd, source["handle"], since_date, args.per_source, args.method)
         items.extend(source_items)
         statuses.append(status)
 
