@@ -27,6 +27,8 @@ const I18N = {
     shortTabSub: "1 分钟",
     dailyTab: "日报",
     dailyTabSub: "完整整理",
+    fanTab: "粉丝源",
+    fanTabSub: "X / IG",
     shortTitle: "速读",
     shortNote: "最多 5 条",
     topPick: "最值得看",
@@ -43,6 +45,18 @@ const I18N = {
     mediaSection: "媒体报道",
     mediaCount: (count) => `${count} 条`,
     socialSection: "X / 社交观察",
+    fanSourcesTitle: "粉丝源",
+    fanSourcesNote: "已维护账号表，等待 X / IG 抓取能力接入",
+    fanSourcesIntro: "这里展示人工维护的公开账号参考源。未来抓取到的发帖与转帖会逐条标注来源账号；当前不会使用私有 X token。",
+    fanSourcePolicy: "仅保存短摘要、元数据和链接；如有侵权请联系删除。",
+    fanSourceUnavailable: "暂无可展示的粉丝源配置。",
+    sourceGroupFallback: "其他来源",
+    contentTypesLabel: "采集范围",
+    trustLabels: {
+      official: "官方",
+      reference: "参考",
+      fan_reference: "粉丝参考",
+    },
     rumorRadar: "传闻雷达",
     rumorNote: "尚待官方确认",
     lookingBack: "往日回顾",
@@ -114,6 +128,8 @@ const I18N = {
     shortTabSub: "1 min",
     dailyTab: "Daily",
     dailyTabSub: "Full brief",
+    fanTab: "Fan Sources",
+    fanTabSub: "X / IG",
     shortTitle: "Short",
     shortNote: "Up to 5 items",
     topPick: "Top pick",
@@ -130,6 +146,18 @@ const I18N = {
     mediaSection: "Media Coverage",
     mediaCount: (count) => `${count} items`,
     socialSection: "X / Social Watch",
+    fanSourcesTitle: "Fan Sources",
+    fanSourcesNote: "Maintained account list; X / IG collection is pending",
+    fanSourcesIntro: "This tab shows the manually maintained public-account source list. Future posts and reposts will be attributed account by account; no private X token is used by default.",
+    fanSourcePolicy: "Only short paraphrases, metadata, and links are stored; remove immediately on rights request.",
+    fanSourceUnavailable: "No fan-source configuration is available.",
+    sourceGroupFallback: "Other Sources",
+    contentTypesLabel: "Scope",
+    trustLabels: {
+      official: "Official",
+      reference: "Reference",
+      fan_reference: "Fan reference",
+    },
     rumorRadar: "Rumor Radar",
     rumorNote: "Awaiting official confirmation",
     lookingBack: "Looking Back",
@@ -179,6 +207,7 @@ const state = {
   items: [],
   daily: null,
   history: [],
+  xSources: null,
   calendar: null,
   displayRace: null,
   countdownTimer: null,
@@ -228,6 +257,7 @@ const elements = {
   panels: {
     short: document.querySelector("#panel-short"),
     daily: document.querySelector("#panel-daily"),
+    fan: document.querySelector("#panel-fan"),
   },
 };
 
@@ -420,6 +450,10 @@ function renderNewsItem(item) {
     </article>`;
 }
 
+function socialItems() {
+  return sortedItems().filter((item) => item.source_type === "x" || item.source_type === "instagram");
+}
+
 function exactAnniversary() {
   const parts = new Intl.DateTimeFormat("en-US", {
     timeZone: "Asia/Shanghai",
@@ -506,8 +540,8 @@ function renderDaily() {
   if (!state.items.length) return renderEmpty();
   const ordered = sortedItems();
   const officialItems = ordered.filter((item) => item.official);
-  const mediaItems = ordered.filter((item) => !item.official && item.source_type !== "x" && item.category !== "rumor" && item.verified);
-  const socialItems = ordered.filter((item) => item.source_type === "x");
+  const mediaItems = ordered.filter((item) => !item.official && item.source_type !== "x" && item.source_type !== "instagram" && item.category !== "rumor" && item.verified);
+  const social = socialItems();
   const rumorItems = ordered.filter((item) => item.category === "rumor" || !item.verified);
   const focusItems = ordered.filter((item) => item.category !== "rumor").slice(0, 3);
   const groups = groupByCategory();
@@ -528,13 +562,85 @@ function renderDaily() {
   if (mediaItems.length) {
     html += section(t().mediaSection, `<div class="news-list">${mediaItems.map(renderNewsItem).join("")}</div>`, t().mediaCount(mediaItems.length));
   }
-  if (socialItems.length) {
-    html += section(t().socialSection, `<div class="news-list">${socialItems.map(renderNewsItem).join("")}</div>`, t().mediaCount(socialItems.length));
+  if (social.length) {
+    html += section(t().socialSection, `<div class="news-list">${social.map(renderNewsItem).join("")}</div>`, t().mediaCount(social.length));
   }
   if (rumorItems.length) {
     html += section(t().rumorRadar, `<div class="news-list">${rumorItems.map(renderNewsItem).join("")}</div>`, t().rumorNote);
   }
   html += renderHistory();
+  return html;
+}
+
+function sourceGroupLabel(groupId) {
+  const group = state.xSources?.groups?.find((candidate) => candidate.id === groupId);
+  if (!group) return t().sourceGroupFallback;
+  return state.language === "zh" ? group.label_zh || group.label_en : group.label_en || group.label_zh;
+}
+
+function sourceGroupDescription(groupId) {
+  const group = state.xSources?.groups?.find((candidate) => candidate.id === groupId);
+  if (!group) return "";
+  return state.language === "zh" ? group.description_zh || group.description_en : group.description_en || group.description_zh;
+}
+
+function renderSourceCard(source) {
+  const attribution = state.language === "zh"
+    ? source.attribution_template_zh || `引用自 @${source.handle}`
+    : source.attribution_template_en || `Referenced from @${source.handle}`;
+  const trust = t().trustLabels[source.trust_level] || source.trust_level;
+  return `
+    <article class="source-card">
+      <div class="source-card-top">
+        <span class="source-platform">${escapeHtml(source.platform.toUpperCase())}</span>
+        <span class="badge">${escapeHtml(trust)}</span>
+      </div>
+      <h3><a href="${escapeHtml(source.url)}" target="_blank" rel="noreferrer">@${escapeHtml(source.handle)}</a></h3>
+      <p>${escapeHtml(source.display_name || source.handle)}</p>
+      <p class="source-attribution">${escapeHtml(attribution)}</p>
+      <p class="source-scope"><strong>${escapeHtml(t().contentTypesLabel)}：</strong>${escapeHtml((source.content_types || []).join(" / "))}</p>
+    </article>`;
+}
+
+function renderFanSources() {
+  const social = socialItems();
+  let html = "";
+  if (social.length) {
+    html += section(t().socialSection, `<div class="news-list">${social.map(renderNewsItem).join("")}</div>`, t().mediaCount(social.length));
+  }
+
+  const sources = Array.isArray(state.xSources?.sources) ? state.xSources.sources.filter((source) => source.enabled !== false) : [];
+  if (!sources.length) {
+    html += section(t().fanSourcesTitle, `<div class="empty-copy"><h2>${escapeHtml(t().fanSourceUnavailable)}</h2></div>`);
+    return html;
+  }
+
+  const groups = sources.reduce((result, source) => {
+    const key = source.group || "other";
+    if (!result[key]) result[key] = [];
+    result[key].push(source);
+    return result;
+  }, {});
+  const groupHtml = Object.entries(groups)
+    .map(([groupId, groupSources]) => {
+      const note = sourceGroupDescription(groupId);
+      return section(
+        sourceGroupLabel(groupId),
+        `<div class="source-grid">${groupSources.map(renderSourceCard).join("")}</div>`,
+        note,
+      );
+    })
+    .join("");
+
+  html += section(
+    t().fanSourcesTitle,
+    `<div class="fan-source-intro">
+      <p>${escapeHtml(t().fanSourcesIntro)}</p>
+      <p>${escapeHtml(t().fanSourcePolicy)}</p>
+    </div>`,
+    t().fanSourcesNote,
+  );
+  html += groupHtml;
   return html;
 }
 
@@ -545,6 +651,7 @@ function renderEmpty() {
 function render() {
   elements.panels.short.innerHTML = renderShort();
   elements.panels.daily.innerHTML = renderDaily();
+  elements.panels.fan.innerHTML = renderFanSources();
 }
 
 function setMode(mode, updateHash = true) {
@@ -600,6 +707,8 @@ function applyStaticLanguage() {
   document.querySelector("#tab-short small").textContent = t().shortTabSub;
   document.querySelector("#tab-daily span").textContent = t().dailyTab;
   document.querySelector("#tab-daily small").textContent = t().dailyTabSub;
+  document.querySelector("#tab-fan span").textContent = t().fanTab;
+  document.querySelector("#tab-fan small").textContent = t().fanTabSub;
   elements.countdownGrid.setAttribute("aria-label", t().countdownAria);
   [elements.countdownDays, elements.countdownHours, elements.countdownMinutes, elements.countdownSeconds].forEach((node, index) => {
     node.nextElementSibling.textContent = t().countdownUnits[index];
@@ -677,15 +786,17 @@ async function loadData() {
   });
 
   try {
-    const [itemsPayload, dailyPayload, historyPayload, calendarPayload] = await Promise.all([
+    const [itemsPayload, dailyPayload, historyPayload, calendarPayload, xSourcesPayload] = await Promise.all([
       fetchJson("data/items.json"),
       fetchJson("data/daily.json"),
       fetchOptionalJson("data/history.json"),
       fetchOptionalJson("data/calendar.json"),
+      fetchOptionalJson("data/x-sources.json"),
     ]);
     state.items = Array.isArray(itemsPayload.items) ? itemsPayload.items : [];
     state.daily = dailyPayload;
     state.history = Array.isArray(historyPayload?.events) ? historyPayload.events : [];
+    state.xSources = xSourcesPayload;
     state.generatedAt = itemsPayload.generated_at || dailyPayload.generated_at;
     updateMeta(state.generatedAt);
     renderRaceCountdown(calendarPayload);

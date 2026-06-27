@@ -67,7 +67,7 @@ Behavior:
 - Support English output when the user asks in English.
 - Clearly mark rumors, unverified reports, and non-official sources.
 - Support a Chinese/English website switch. Chinese mode should prefer Chinese titles and Chinese summaries.
-- Support short and daily fan-daily report lengths. Daily mode merges the useful structure from the previous standard and deep modes.
+- Support short, daily, and fan-source tabs. Daily mode merges the useful structure from the previous standard and deep modes; fan sources shows the maintained X / Instagram account list and future social updates.
 
 V0.5 should already use the same conceptual data shape planned for V1/V2, so future upgrades only change the data source, not the user-facing behavior.
 
@@ -83,7 +83,7 @@ Current implementation status:
 - `data/items.json`, `data/daily.json`, `data/rss.xml`, and schema-v2 `data/history.json` exist.
 - GitHub Actions scheduled refresh is configured in `.github/workflows/update-piasnews.yml`.
 - A GitHub Pages publishing entrypoint has been added for `https://znonymity.github.io/piasnews/`.
-- `public/` implements a public fan daily with short and daily tabs, a top-right language switch, and a visible data refresh time.
+- `public/` implements a public fan daily with short, daily, and fan-source tabs, a top-right language switch, and a visible data refresh time.
 - `piasnews/references/history.md`, `piasnews/references/history-retrieval.json`, and `scripts/validate_history.py` support maintenance, review, and validation of the Looking Back knowledge base.
 - `public/admin/` implements the static console; `worker/` provides deployable review and anonymous-analytics endpoints, but the external Worker, D1 binding, secrets, and public URL are not configured yet.
 
@@ -155,14 +155,15 @@ Review-database triggers include multi-reviewer authorization, community submiss
 
 The GitHub Pages root serves a read-only daily report for all fans. Report content remains fully static and uses no online model service; the optional analytics backend only counts anonymous views.
 
-- The page provides short and daily tabs aligned with the Skill's report modes.
+- The page provides short, daily, and fan-source tabs. Short and daily align with the Skill's report modes; fan sources reads the maintained X / Instagram source list.
 - The page provides a top-right Chinese / English switch. Chinese mode prefers `title_zh` and `summary_zh`; when a Chinese title exists, the article link text should use that Chinese title while the original English title remains available for traceability.
-- All views read the same `data/items.json`, `data/daily.json`, and approved `data/history.json`; news data is not duplicated.
+- Short and daily read the same `data/items.json`, `data/daily.json`, and approved `data/history.json`; news data is not duplicated. Fan sources reads `data/x-sources.json`; future social updates still render from `data/items.json` entries with `source_type=x|instagram`.
 - The page reads `data/calendar.json` for the next Grand Prix, race-week timing, and race-start countdown. Calendar metadata is outside the three-day news window and cannot fill a daily report.
 - The page displays the `generated_at` timestamp in China Standard Time and the active three-day window.
 - Short mode uses at most five bullets, omits rumor messaging when there are no rumors, and has no data panel.
 - Daily mode merges the previous standard and deep modes: key points, topic grouping, official coverage, media coverage, optional X/social coverage, optional rumor radar, and optional Looking Back.
 - Daily mode does not show source-confidence notes, next-watch points, or a data panel by default; data appears only when the user explicitly asks for stats.
+- The fan-source tab shows the maintained account list by default. After X / Instagram collection is connected, it can show short summaries, timestamps, links, and account attribution for posts and reposts. If no access is configured, it must not invent social updates.
 - Looking Back uses approved history only and is omitted when no same-date event qualifies.
 - Browser-side deterministic templates render the reports without an LLM or model-token usage.
 - `.github/workflows/update-piasnews.yml` packages `public/` with the current run's generated data, so the page and JSON/RSS update in the same Pages deployment.
@@ -273,19 +274,18 @@ V0.5 behavior:
 - If a user provides their own X access, local browser session, MCP, or bearer token, the Skill may use it in that user's environment.
 - If no X access is available, the Skill continues normally with official and public news sources.
 
-Future behavior after the user provides a maintained X source list:
+After the user provides a maintained X source list:
 
-- Add the account list to `piasnews/references/x-sources.md`.
-- Use it as a discovery guide for user-owned X access or future V1/V2 collectors.
+- Add and maintain the account list in `piasnews/references/x-sources.json`.
+- Use it as a discovery guide for user-owned X / Instagram access or future V1/V2 collectors, and publish it in Pages artifacts as `data/x-sources.json`.
 - Track daily counts separately for X-origin items.
-- Store post metadata and links, not large verbatim copies.
+- Store post metadata, short paraphrases, and links, not large verbatim copies.
+- Every social item must include account-level attribution. Remove items promptly if a rights holder or account owner requests removal.
 
-Initial candidate account groups:
+Current maintained account groups:
 
-- Official: Oscar Piastri, McLaren F1, Formula 1
-- Team and driver-adjacent accounts
-- Trusted F1 journalists and media accounts
-- Fan accounts only if manually approved
+- Daily sources: Oscar Piastri X, Oscar Piastri Instagram, `@NFFormula`, `@F1`
+- Fan-watch sources: `@PiastriNews`, `@NicolePiastri`, `@oscarpiastri81`, `@laurogeitabat`, `@oscarsspiastree`
 
 ## 7. Data Model
 
@@ -308,6 +308,8 @@ All versions should normalize items into this shape:
   "category": "race | team | interview | contract | fan | rumor | other",
   "summary": "Short summary generated from metadata or short excerpt",
   "summary_zh": "Chinese short summary",
+  "attribution": "Referenced from @account",
+  "copyright_notice": "Remove on rights request.",
   "official": true,
   "verified": true,
   "tags": ["Oscar Piastri", "McLaren", "F1"],
@@ -527,8 +529,8 @@ V1 is complete when:
 - The Skill reads static data first and falls back to direct sources.
 - Daily new item counts are available.
 - GitHub Pages publishes the static data entrypoint.
-- The GitHub Pages root publishes the two-tab fan daily, displays the data refresh time, and updates after each collection workflow.
-- Both web views share static data and use no LLM; short and daily views contain no data panel by default.
+- The GitHub Pages root publishes the short, daily, and fan-source tabs, displays the data refresh time, and updates after each collection workflow.
+- Short and daily share static news data, fan sources reads the maintained account list, and page rendering uses no LLM; short and daily contain no data panel by default.
 - The page displays the next F1 race countdown, China Standard Time schedule, and official calendar link; calendar data refreshes with the collection workflow.
 - `data/history.json` is available for optional historical context and is published with Pages.
 - Unreviewed events never enter Looking Back; vector embeddings remain optional and are disabled by default.

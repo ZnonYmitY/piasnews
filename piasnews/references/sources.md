@@ -143,12 +143,23 @@ Initial source groups to consider after the account list is provided:
 - Trusted F1 journalists and media accounts.
 - Fan accounts only after manual approval.
 
+The maintained source list lives in `references/x-sources.json`. The initial approved groups are:
+
+| Group | Accounts | Intended use |
+| --- | --- | --- |
+| Daily core | Oscar Piastri X, Oscar Piastri Instagram, `@NFFormula`, `@F1` | Enrich the main daily when X/IG access is configured. |
+| Fan watch | `@PiastriNews`, `@NicolePiastri`, `@oscarpiastri81`, `@laurogeitabat`, `@oscarsspiastree` | Populate the fan-source tab and observe fan/community activity. |
+
+Collect posts and reposts for X accounts when access is available. For Instagram, collect public posts/reels only when access is available. Do not scrape private, login-restricted, or paywalled content.
+
 For X-derived items:
 
 - Keep post URL, account handle, timestamp, engagement count when available, and a short paraphrase.
 - Track them with `source_type: "x"`.
 - Count them separately in daily stats as `x_new_items`.
 - Do not store long threads or large verbatim post text.
+- Store attribution on every item, such as `引用自 @PiastriNews` or `Referenced from @PiastriNews`.
+- Remove an item promptly if a rights holder or account owner requests removal.
 
 ## Deduplication rules
 

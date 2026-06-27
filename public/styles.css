@@ -380,7 +380,7 @@ a {
 .tabs {
   border-bottom: 1px solid var(--line);
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   background: var(--surface-soft);
 }
 
@@ -500,7 +500,8 @@ a {
 }
 
 .news-item,
-.topic-card {
+.topic-card,
+.source-card {
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 18px;
@@ -510,6 +511,7 @@ a {
 .news-item-top,
 .news-item-meta,
 .topic-card-header,
+.source-card-top,
 .credibility-row {
   display: flex;
   align-items: center;
@@ -609,6 +611,75 @@ a {
   gap: 8px;
   font-size: 12px;
   overflow-wrap: anywhere;
+}
+
+.fan-source-intro {
+  border-left: 3px solid var(--papaya);
+  padding: 12px 16px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.fan-source-intro p {
+  margin: 0;
+}
+
+.fan-source-intro p + p {
+  margin-top: 6px;
+}
+
+.source-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.source-card {
+  min-width: 0;
+}
+
+.source-card-top {
+  align-items: flex-start;
+}
+
+.source-platform {
+  color: var(--papaya-dark);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+}
+
+.source-card h3 {
+  margin: 8px 0 4px;
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+
+.source-card h3 a {
+  text-decoration: none;
+}
+
+.source-card h3 a:hover {
+  color: var(--papaya-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.source-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.source-card .source-attribution {
+  margin-top: 9px;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.source-card .source-scope {
+  margin-top: 6px;
 }
 
 .credibility-list {
@@ -801,6 +872,7 @@ a {
   }
 
   .topic-grid,
+  .source-grid,
   .data-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -875,6 +947,7 @@ a {
 
   .news-item-top,
   .topic-card-header,
+  .source-card-top,
   .credibility-row {
     align-items: flex-start;
   }
@@ -883,7 +956,8 @@ a {
     flex-wrap: wrap;
   }
 
-  .topic-grid {
+  .topic-grid,
+  .source-grid {
     grid-template-columns: 1fr;
   }
 }

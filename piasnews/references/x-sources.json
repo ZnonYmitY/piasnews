@@ -1,0 +1,156 @@
+{
+  "version": 1,
+  "updated_at": "2026-06-27",
+  "policy": {
+    "recency_days": 3,
+    "default_enabled": true,
+    "requires_user_or_project_access": true,
+    "store_content": "metadata_short_paraphrase_and_links_only",
+    "copyright_notice_zh": "内容引用自对应公开账号，仅保留短摘要、元数据和链接；如有侵权请联系删除。",
+    "copyright_notice_en": "Referenced from the corresponding public account. Store only short paraphrases, metadata, and links; remove immediately on rights request."
+  },
+  "groups": [
+    {
+      "id": "daily_core",
+      "label_zh": "日报抓取源",
+      "label_en": "Daily Sources",
+      "description_zh": "用于补充日报主线的信息源。官方账号和高信号账号优先进入日报。",
+      "description_en": "Sources that can enrich the main daily report. Official and high-signal accounts are prioritized."
+    },
+    {
+      "id": "fan_watch",
+      "label_zh": "粉丝相关源",
+      "label_en": "Fan Watch",
+      "description_zh": "用于第三个粉丝栏目，主要观察粉丝社区、二创、站内传播和车迷互动。",
+      "description_en": "Sources for the fan column, focused on fan community activity, edits, amplification, and interaction."
+    }
+  ],
+  "sources": [
+    {
+      "id": "x-oscar-piastri",
+      "platform": "x",
+      "handle": "OscarPiastri",
+      "url": "https://x.com/OscarPiastri",
+      "display_name": "Oscar Piastri",
+      "group": "daily_core",
+      "source_role": "official_driver",
+      "trust_level": "official",
+      "content_types": ["posts", "reposts"],
+      "enabled": true,
+      "attribution_template_zh": "引用自 @OscarPiastri",
+      "attribution_template_en": "Referenced from @OscarPiastri"
+    },
+    {
+      "id": "ig-oscar-piastri",
+      "platform": "instagram",
+      "handle": "oscarpiastri",
+      "url": "https://www.instagram.com/oscarpiastri/",
+      "display_name": "Oscar Piastri",
+      "group": "daily_core",
+      "source_role": "official_driver",
+      "trust_level": "official",
+      "content_types": ["posts", "reels"],
+      "enabled": true,
+      "attribution_template_zh": "引用自 Instagram @oscarpiastri",
+      "attribution_template_en": "Referenced from Instagram @oscarpiastri"
+    },
+    {
+      "id": "x-nfformula",
+      "platform": "x",
+      "handle": "NFFormula",
+      "url": "https://x.com/NFFormula",
+      "display_name": "NFFormula",
+      "group": "daily_core",
+      "source_role": "reference_blogger",
+      "trust_level": "reference",
+      "content_types": ["posts", "reposts"],
+      "enabled": true,
+      "attribution_template_zh": "引用自 @NFFormula",
+      "attribution_template_en": "Referenced from @NFFormula"
+    },
+    {
+      "id": "x-f1",
+      "platform": "x",
+      "handle": "F1",
+      "url": "https://x.com/F1",
+      "display_name": "Formula 1",
+      "group": "daily_core",
+      "source_role": "official_series",
+      "trust_level": "official",
+      "content_types": ["posts", "reposts"],
+      "enabled": true,
+      "attribution_template_zh": "引用自 @F1",
+      "attribution_template_en": "Referenced from @F1"
+    },
+    {
+      "id": "x-piastri-news",
+      "platform": "x",
+      "handle": "PiastriNews",
+      "url": "https://x.com/PiastriNews",
+      "display_name": "PiastriNews",
+      "group": "fan_watch",
+      "source_role": "fan_news",
+      "trust_level": "fan_reference",
+      "content_types": ["posts", "reposts"],
+      "enabled": true,
+      "attribution_template_zh": "引用自 @PiastriNews",
+      "attribution_template_en": "Referenced from @PiastriNews"
+    },
+    {
+      "id": "x-nicole-piastri",
+      "platform": "x",
+      "handle": "NicolePiastri",
+      "url": "https://x.com/NicolePiastri",
+      "display_name": "NicolePiastri",
+      "group": "fan_watch",
+      "source_role": "family_or_close_reference",
+      "trust_level": "reference",
+      "content_types": ["posts", "reposts"],
+      "enabled": true,
+      "attribution_template_zh": "引用自 @NicolePiastri",
+      "attribution_template_en": "Referenced from @NicolePiastri"
+    },
+    {
+      "id": "x-oscarpiastri81",
+      "platform": "x",
+      "handle": "oscarpiastri81",
+      "url": "https://x.com/oscarpiastri81",
+      "display_name": "oscarpiastri81",
+      "group": "fan_watch",
+      "source_role": "fan_account",
+      "trust_level": "fan_reference",
+      "content_types": ["posts", "reposts"],
+      "enabled": true,
+      "attribution_template_zh": "引用自 @oscarpiastri81",
+      "attribution_template_en": "Referenced from @oscarpiastri81"
+    },
+    {
+      "id": "x-laurogeitabat",
+      "platform": "x",
+      "handle": "laurogeitabat",
+      "url": "https://x.com/laurogeitabat",
+      "display_name": "laurogeitabat",
+      "group": "fan_watch",
+      "source_role": "fan_account",
+      "trust_level": "fan_reference",
+      "content_types": ["posts", "reposts"],
+      "enabled": true,
+      "attribution_template_zh": "引用自 @laurogeitabat",
+      "attribution_template_en": "Referenced from @laurogeitabat"
+    },
+    {
+      "id": "x-oscarsspiastree",
+      "platform": "x",
+      "handle": "oscarsspiastree",
+      "url": "https://x.com/oscarsspiastree",
+      "display_name": "oscarsspiastree",
+      "group": "fan_watch",
+      "source_role": "fan_account",
+      "trust_level": "fan_reference",
+      "content_types": ["posts", "reposts"],
+      "enabled": true,
+      "attribution_template_zh": "引用自 @oscarsspiastree",
+      "attribution_template_en": "Referenced from @oscarsspiastree"
+    }
+  ]
+}

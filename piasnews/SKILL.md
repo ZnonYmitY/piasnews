@@ -27,7 +27,7 @@ Use this order:
 4. Use public news RSS/search for discovery, then resolve the original publisher URL and verify `datePublished` before treating an item as recent. RSS `pubDate` alone is not sufficient.
 5. Use optional X/social sources only when the user provides access or a maintained source list is available.
 
-Read `references/sources.md` before doing source-specific work, source expansion, official-only reports, X integration, historical context, or daily count work. Read `references/history.md` before retrieving, reviewing, adding, or changing historical events.
+Read `references/sources.md` before doing source-specific work, source expansion, official-only reports, X integration, historical context, or daily count work. Read `references/x-sources.json` before using or changing X/Instagram source lists. Read `references/history.md` before retrieving, reviewing, adding, or changing historical events.
 
 ## V0.5 workflow
 
@@ -77,6 +77,13 @@ Never use our shared/private X token as a default source. If X is unavailable, o
 
 When X data is available, store or summarize only metadata, short snippets, counts, and links. Do not copy large post threads verbatim.
 
+The maintained source list is `references/x-sources.json`. Current groups:
+
+- `daily_core`: Oscar Piastri X, Oscar Piastri Instagram, `@NFFormula`, `@F1`.
+- `fan_watch`: `@PiastriNews`, `@NicolePiastri`, `@oscarpiastri81`, `@laurogeitabat`, `@oscarsspiastree`.
+
+Use `daily_core` to enrich the main daily report when access is configured. Use `fan_watch` for the fan-source tab or fan/community requests. For every X/Instagram-derived item, include clear attribution such as `引用自 @PiastriNews`, keep only a short paraphrase plus metadata/link, and remove content promptly on rights request.
+
 ## Data shape
 
 When normalizing items, use this conceptual shape even if V0.5 only produces it in prose:
@@ -98,6 +105,8 @@ When normalizing items, use this conceptual shape even if V0.5 only produces it 
   "category": "race | team | interview | contract | fan | rumor | other",
   "summary": "Short summary from metadata or a short excerpt",
   "summary_zh": "Chinese short summary",
+  "attribution": "Referenced from @account",
+  "copyright_notice": "Remove on rights request.",
   "official": true,
   "verified": true,
   "tags": ["Oscar Piastri", "McLaren", "F1"],
