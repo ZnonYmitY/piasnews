@@ -26,13 +26,28 @@ COLLECT_CMD=(
   --days "$DAYS"
   --per-source "$PER_SOURCE"
   --output "$IMPORT_JSON"
-  --update-social
-  --social-output "$SOCIAL_OUTPUT"
 )
 if [[ ${#GROUP_ARGS[@]} -gt 0 ]]; then
   COLLECT_CMD+=("${GROUP_ARGS[@]}")
 fi
 "${COLLECT_CMD[@]}"
+
+python3 - "$IMPORT_JSON" <<'PY'
+import json
+import sys
+from pathlib import Path
+
+payload = json.loads(Path(sys.argv[1]).read_text())
+statuses = payload.get("source_status") or []
+if not any(status.get("ok") for status in statuses):
+    print("No X source collected successfully; skipped social publish.", file=sys.stderr)
+    sys.exit(2)
+PY
+
+python3 scripts/fetch_social_sources.py \
+  --input-json "$IMPORT_JSON" \
+  --days "$DAYS" \
+  --output "$SOCIAL_OUTPUT"
 
 python3 scripts/compact_social_input.py \
   --input "$SOCIAL_OUTPUT" \

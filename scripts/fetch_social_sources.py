@@ -102,6 +102,8 @@ def source_by_handle(sources: dict[str, Any]) -> dict[tuple[str, str], dict[str,
 def is_relevant(text: str, source: dict[str, Any]) -> bool:
     if source.get("source_role") == "official_driver":
         return True
+    if source.get("group") == "fan_watch":
+        return True
     return bool(DIRECT_PIASTRI_RE.search(text))
 
 

@@ -60,7 +60,7 @@ class SocialSourcesTest(unittest.TestCase):
                     },
                     {
                         "platform": "x",
-                        "handle": "PiastriNews",
+                        "handle": "F1",
                         "id": "noise",
                         "text": "Unrelated post without the target terms.",
                         "created_at": "2026-06-26T11:00:00Z",
@@ -170,6 +170,26 @@ class SocialSourcesTest(unittest.TestCase):
         )
 
         self.assertIsNone(item)
+
+    def test_fan_watch_source_does_not_require_direct_keyword(self):
+        sources = collector.load_sources(SOURCES_PATH)
+        source = next(item for item in sources["sources"] if item["handle"] == "PiastriNews")
+        now = collector.parse_now(NOW)
+        item = collector.normalize_social_item(
+            {
+                "platform": "x",
+                "handle": "PiastriNews",
+                "id": "fan",
+                "text": "Locked in and ready to send it in the MCL40.",
+                "created_at": "2026-06-26T10:00:00Z",
+            },
+            source,
+            now,
+            now - collector.timedelta(days=3),
+        )
+
+        self.assertIsNotNone(item)
+        self.assertEqual(item["source_group"], "fan_watch")
 
     def test_dedupe_items_sorts_by_published_at_desc(self):
         items = [

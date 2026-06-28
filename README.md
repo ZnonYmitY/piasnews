@@ -173,7 +173,9 @@ python3 scripts/fetch_social_sources.py --input-json social-import.json --days 3
 
 GitHub Actions 导入：把同样的 JSON 写入仓库变量 `PIASNEWS_SOCIAL_INPUT_JSON`，下一次 `Update Piasnews Data` 会生成并发布粉丝源动态。粉丝源 Tab 顶部统一展示 `如有侵权请联系删除。`，每条动态只展示账号归属。
 
-粉丝源和日报新闻的发布层一致，都会落到 GitHub Pages 的静态 JSON；采集层不同。日报新闻由 GitHub Actions 每 6 小时抓取 RSS/网页并核验原站发布日期，并额外配置一个 10 分钟后的备用 schedule，降低 GitHub 定时任务延迟或丢触发的影响。粉丝源由本机 Agent-Reach 或外部 JSON 先生成公开动态导入文件，再交给 GitHub Actions 归一化和部署。GitHub Actions 本身不会读取你的本机 X 登录态。
+粉丝源和日报新闻的发布层一致，都会落到 GitHub Pages 的静态 JSON；采集层不同。日报新闻由 GitHub Actions 每 6 小时抓取 RSS/网页并核验原站发布日期，并额外配置一个 10 分钟后的备用 schedule，降低 GitHub 定时任务延迟或丢触发的影响。粉丝源由本机 Agent-Reach、常在线机器或外部调度器先生成公开动态导入文件，再交给 GitHub Actions 归一化和部署。GitHub Actions 本身不会读取你的本机 X 登录态。
+
+如果要把 X 采集迁到常在线环境，推荐路径是：在小主机、VPS 或外部调度器上运行采集器，生成 compact social JSON，再用 GitHub token 更新仓库变量 `PIASNEWS_SOCIAL_INPUT_JSON` 并触发 `Update Piasnews Data` workflow。X 对数据中心 IP 有风控风险，低成本优先级建议是本地常开小主机或家宽环境，其次才是 VPS。Cloudflare Worker Cron 更适合做调度和触发 GitHub，不适合直接复用你的浏览器 X 登录态。
 
 本机已支持 Agent-Reach 采集入口。先确认 Twitter/X 后端状态：
 
@@ -205,7 +207,7 @@ env PATH=/Users/bytedance/.agent-reach-venv/bin:$PATH \
 scripts/update_social_agent_reach.sh
 ```
 
-默认采集全部 X 分组，更新 `data/social.json`，生成 compact import，写入 GitHub 变量 `PIASNEWS_SOCIAL_INPUT_JSON`，并触发 `Update Piasnews Data` workflow。compact import 不写入每次变化的生成时间；如果内容和上次发布完全一致，脚本会跳过 GitHub 变量更新和 workflow 触发。需要强制发布时设置 `PIASNEWS_FORCE_SOCIAL_PUBLISH=1`。只更新本地、不触发 GitHub：
+默认采集全部 X 分组，更新 `data/social.json`，生成 compact import，写入 GitHub 变量 `PIASNEWS_SOCIAL_INPUT_JSON`，并触发 `Update Piasnews Data` workflow。compact import 不写入每次变化的生成时间；如果内容和上次发布完全一致，脚本会跳过 GitHub 变量更新和 workflow 触发。脚本会先确认至少一个 X 来源采集成功；如果认证、DNS 或网络失败，它会停止在发布前，避免把失败采集伪装成新的 X / IG 更新时间。需要强制发布时设置 `PIASNEWS_FORCE_SOCIAL_PUBLISH=1`。只更新本地、不触发 GitHub：
 
 ```bash
 PIASNEWS_SKIP_GITHUB=1 scripts/update_social_agent_reach.sh
@@ -265,6 +267,10 @@ GitHub raw fallback：
 - 历史事件：[data/history.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/history.json)
 - 历史候选：[data/history-candidates.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/history-candidates.json)
 - 历史检索配置：[piasnews/references/history-retrieval.json](piasnews/references/history-retrieval.json)
+
+## 中文翻译
+
+GitHub Actions 在抓取新闻和 social 数据后会运行 `scripts/translate_zh_argos.py`，优先使用 Argos Translate 的离线 en→zh 模型生成 `title_zh` 和 `summary_zh`。Argos 是开源离线翻译库，不调用在线翻译 API；如果当次依赖安装或模型下载失败，脚本会退回术语表清洗，保证数据更新不中断。
 
 本地更新：
 
@@ -536,7 +542,9 @@ python3 scripts/fetch_social_sources.py --input-json social-import.json --days 3
 
 GitHub Actions import: store the same JSON in the repository variable `PIASNEWS_SOCIAL_INPUT_JSON`; the next `Update Piasnews Data` run will generate and publish the fan-source feed. The fan-source tab shows one removal-on-rights-request notice above the feed; each card only shows account attribution.
 
-Fan sources and daily news share the same static GitHub Pages delivery layer, but their collection layers differ. Daily news is collected every six hours by GitHub Actions through RSS/web sources with publisher-date verification, with a second backup schedule ten minutes later to reduce the impact of delayed or dropped GitHub scheduled runs. Fan sources are collected locally through Agent-Reach or supplied as external JSON, then normalized and deployed by GitHub Actions. GitHub Actions cannot read your local X browser session.
+Fan sources and daily news share the same static GitHub Pages delivery layer, but their collection layers differ. Daily news is collected every six hours by GitHub Actions through RSS/web sources with publisher-date verification, with a second backup schedule ten minutes later to reduce the impact of delayed or dropped GitHub scheduled runs. Fan sources are collected locally through Agent-Reach, an always-on machine, or an external scheduler, then normalized and deployed by GitHub Actions. GitHub Actions cannot read your local X browser session.
+
+To migrate X collection to an always-on environment, run the collector on a mini PC, VPS, or external scheduler, generate compact social JSON, then use a GitHub token to update `PIASNEWS_SOCIAL_INPUT_JSON` and trigger the `Update Piasnews Data` workflow. X can apply stricter risk controls to data-center IPs, so the low-cost preference is an always-on local/home machine first, then a VPS. Cloudflare Worker Cron is useful for scheduling and triggering GitHub, but it cannot reuse your browser X login state.
 
 This repo now includes a local Agent-Reach collection entrypoint. First check the Twitter/X backend:
 
@@ -568,7 +576,7 @@ Full local publish script:
 scripts/update_social_agent_reach.sh
 ```
 
-By default it collects all X groups, updates `data/social.json`, builds the compact import JSON, writes `PIASNEWS_SOCIAL_INPUT_JSON`, and triggers the `Update Piasnews Data` workflow. The compact import omits per-run generated timestamps; when the compact content is unchanged from the previous publish, the script skips the GitHub variable update and workflow dispatch. Set `PIASNEWS_FORCE_SOCIAL_PUBLISH=1` to force a publish. To update local files only:
+By default it collects all X groups, updates `data/social.json`, builds the compact import JSON, writes `PIASNEWS_SOCIAL_INPUT_JSON`, and triggers the `Update Piasnews Data` workflow. The compact import omits per-run generated timestamps; when the compact content is unchanged from the previous publish, the script skips the GitHub variable update and workflow dispatch. The script verifies that at least one X source collected successfully before publishing; authentication, DNS, or network failures stop before updating GitHub so a failed collection is not presented as a fresh X / IG update. Set `PIASNEWS_FORCE_SOCIAL_PUBLISH=1` to force a publish. To update local files only:
 
 ```bash
 PIASNEWS_SKIP_GITHUB=1 scripts/update_social_agent_reach.sh
@@ -628,6 +636,10 @@ GitHub raw fallback:
 - Historical events: [data/history.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/history.json)
 - History candidates: [data/history-candidates.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/history-candidates.json)
 - History retrieval config: [piasnews/references/history-retrieval.json](piasnews/references/history-retrieval.json)
+
+## Chinese Translation
+
+After news and social data are fetched, GitHub Actions runs `scripts/translate_zh_argos.py`. It prefers Argos Translate's offline en-to-zh model for `title_zh` and `summary_zh`. Argos is an open-source offline translation library and does not call an online translation API. If dependency installation or model download fails during a run, the script falls back to glossary cleanup so data refreshes continue.
 
 Update locally:
 
