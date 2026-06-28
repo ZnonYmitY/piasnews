@@ -89,10 +89,10 @@ Summarize the latest Oscar Piastri news in English.
 ## 日报模式
 
 - **速读版**：最多 5 条，适合快速看今天有没有大事；不展示数据面板，没有传闻时不展示传闻提醒。
-- **日报版**：合并原标准版和深读版，保留今日重点、话题合并、官方动态、媒体报道、可选传闻雷达和可选往日回顾；`daily_core` 社交来源进入普通日报信息流，不再单独展示 X / 社交观察栏目。
+- **日报版**：合并原标准版和深读版，保留今日重点、话题合并、官方动态、媒体报道、可选传闻雷达、可选往日回顾和底部轻量统计；`daily_core` 社交来源进入普通日报信息流，不再单独展示 X / 社交观察栏目。
 - **粉丝源**：第三个网页 Tab，用于展示 `data/social.json` 中最近 3 天的 X / Instagram 发帖与转帖；每条保留公开原帖文本、时间、原帖链接和账号归属，不外显后台账号清单。
 
-数据面板只在用户明确要求统计时展示，避免让日报显得冗余。
+速读不展示数据面板；日报底部保留轻量统计，避免让数据打断正文阅读。
 
 “往日回顾”把同日纪念和强关联历史合并成一个可选模块，来自 `data/history.json`。只展示已经人工审核、历史价值达标的事件；普通采访和常规公告不会因为“官方”而自动入库，标志性社媒事件则可以凭长期影响力入选。每期最多一条，没有合格事件时省略。
 
@@ -452,10 +452,10 @@ Give me a fan daily and merge duplicate topics.
 ## Daily Report Modes
 
 - **Short**: Up to 5 bullets for a quick check; no data panel, and no rumor reminder when there are no rumors.
-- **Daily**: Merges the previous standard and deep modes. It keeps key points, topic grouping, official updates, media coverage, optional social updates, optional rumor radar, and optional Looking Back context. It removes source-confidence notes, next watch points, and the default data panel to keep the report concise.
+- **Daily**: Merges the previous standard and deep modes. It keeps key points, topic grouping, official updates, media coverage, optional social updates, optional rumor radar, optional Looking Back context, and lightweight stats at the bottom. It removes source-confidence notes and next watch points to keep the report concise.
 - **Fan Sources**: A third website tab for recent X / Instagram posts and reposts from `data/social.json`. Each item keeps only a short paraphrase, timestamp, original-post link, and account attribution; the backend account list is not exposed on the page.
 
-Show the data panel only when the user asks for stats, so the daily report does not feel redundant.
+Short mode has no data panel. Daily mode keeps lightweight stats at the bottom so metrics do not interrupt the report.
 
 `Looking Back` merges exact-date anniversaries and strongly related historical events into one optional section backed by `data/history.json`. Only human-approved events above the historical-value threshold may appear. Routine interviews and announcements do not qualify merely because they are official, while an iconic social post may qualify through lasting impact. Show at most one item and omit the section when nothing qualifies.
 

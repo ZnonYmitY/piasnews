@@ -39,6 +39,13 @@ const I18N = {
     rumorUnconfirmed: "目前没有官方确认。",
     todayFocus: "今日重点",
     reliableFirst: "可靠来源优先",
+    reportStats: "本期统计",
+    statTotal: "最近 3 天",
+    statToday: "最近日新增",
+    statOfficial: "官方",
+    statMedia: "媒体",
+    statSocial: "X / 粉丝源",
+    statRumor: "传闻",
     topicMerge: "话题合并",
     topicCount: (count) => `${count} 个话题`,
     officialSection: "官方动态",
@@ -133,6 +140,13 @@ const I18N = {
     rumorUnconfirmed: "No official confirmation yet.",
     todayFocus: "Key Points",
     reliableFirst: "Reliable sources first",
+    reportStats: "Report Stats",
+    statTotal: "Latest 3 days",
+    statToday: "Latest day",
+    statOfficial: "Official",
+    statMedia: "Media",
+    statSocial: "X / Fan",
+    statRumor: "Rumors",
     topicMerge: "Topic Merge",
     topicCount: (count) => `${count} topics`,
     officialSection: "Official Updates",
@@ -204,6 +218,13 @@ const state = {
 };
 
 const DIRECT_PIASTRI_RE = /\b(piastri|oscar|op81)\b/i;
+const SESSION_KEYWORDS = {
+  race: /\b(race|grand prix|gp|win|podium|points|strategy|pit|lap)\b/i,
+  qualifying: /\b(qualifying|quali|q1|q2|q3|pole|grid)\b/i,
+  practice_3: /\b(fp3|practice 3|final practice|third practice)\b/i,
+  practice_2: /\b(fp2|practice 2|second practice|friday practice)\b/i,
+  practice_1: /\b(fp1|practice 1|first practice|friday practice)\b/i,
+};
 
 const elements = {
   languageToggle: document.querySelector("#languageToggle"),
@@ -424,7 +445,76 @@ function renderRaceCountdown(calendar) {
   state.countdownTimer = window.setInterval(updateRaceCountdown, 1000);
 }
 
-function sortedItems(items = state.items) {
+function itemText(item) {
+  return [
+    item.title,
+    item.title_zh,
+    item.summary,
+    item.summary_zh,
+    item.source,
+    ...(Array.isArray(item.tags) ? item.tags : []),
+  ].filter(Boolean).join(" ");
+}
+
+function currentSessionKey(now = Date.now()) {
+  const race = state.displayRace || selectCountdownRace(state.calendar, now);
+  const sessions = race?.sessions || {};
+  const ordered = ["practice_1", "practice_2", "practice_3", "qualifying", "race"]
+    .map((key) => ({ key, time: sessions[key] || (key === "race" ? race?.race_start : null) }))
+    .filter((session) => session.time)
+    .map((session) => ({ ...session, timestamp: new Date(session.time).getTime() }))
+    .filter((session) => Number.isFinite(session.timestamp))
+    .sort((a, b) => a.timestamp - b.timestamp);
+  let latest = null;
+  ordered.forEach((session) => {
+    if (session.timestamp <= now + 30 * 60 * 1000) latest = session;
+  });
+  return latest?.key || null;
+}
+
+function sessionIndex(key) {
+  return ["practice_1", "practice_2", "practice_3", "qualifying", "race"].indexOf(key);
+}
+
+function itemSessionKey(item) {
+  const text = itemText(item);
+  for (const key of ["race", "qualifying", "practice_3", "practice_2", "practice_1"]) {
+    if (SESSION_KEYWORDS[key].test(text)) return key;
+  }
+  return null;
+}
+
+function itemPriorityScore(item, now = Date.now()) {
+  const publishedAt = new Date(item.published_at).getTime();
+  const ageHours = Number.isFinite(publishedAt) ? Math.max(0, (now - publishedAt) / 3600000) : 72;
+  let score = Math.max(0, 36 - ageHours) * 3;
+  if (isDirectPiastriItem(item)) score += 45;
+  if (item.official) score += 24;
+  else if (item.verified) score += 12;
+  if (item.category === "race") score += 28;
+  if (item.category === "team") score += 12;
+  if (item.category === "interview") score += 10;
+  if (item.category === "rumor" || !item.verified) score -= 45;
+
+  const activeSession = currentSessionKey(now);
+  const itemSession = itemSessionKey(item);
+  if (activeSession && itemSession) {
+    const delta = sessionIndex(activeSession) - sessionIndex(itemSession);
+    if (delta === 0) score += 38;
+    else if (delta === 1) score += 12;
+    else if (delta > 1) score -= delta * 18;
+  }
+  return score;
+}
+
+function sortedItems(items = state.items, options = {}) {
+  if (options.priority) {
+    return [...items].sort((a, b) => {
+      const priorityDifference = itemPriorityScore(b) - itemPriorityScore(a);
+      if (priorityDifference) return priorityDifference;
+      return new Date(b.published_at) - new Date(a.published_at);
+    });
+  }
   return [...items].sort((a, b) => {
     const officialDifference = Number(b.official) - Number(a.official);
     if (officialDifference) return officialDifference;
@@ -502,7 +592,7 @@ function renderHistory() {
 
 function renderShort() {
   if (!state.items.length) return renderEmpty();
-  const ordered = sortedItems();
+  const ordered = sortedItems(state.items, { priority: true });
   const official = ordered.find((item) => item.official);
   const reliable = ordered.filter((item) => item.category !== "rumor").slice(0, 3);
   const rumor = ordered.find((item) => item.category === "rumor" || !item.verified);
@@ -534,15 +624,7 @@ function dailyItems() {
 }
 
 function isDirectPiastriItem(item) {
-  const text = [
-    item.title,
-    item.title_zh,
-    item.summary,
-    item.summary_zh,
-    item.source,
-    ...(Array.isArray(item.tags) ? item.tags : []),
-  ].filter(Boolean).join(" ");
-  return DIRECT_PIASTRI_RE.test(text);
+  return DIRECT_PIASTRI_RE.test(itemText(item));
 }
 
 function groupByCategory(items = sortedItems()) {
@@ -574,7 +656,7 @@ function renderDaily() {
   const officialItems = ordered.filter((item) => item.official);
   const mediaItems = ordered.filter((item) => !item.official && item.category !== "rumor" && item.verified);
   const rumorItems = ordered.filter((item) => item.category === "rumor" || !item.verified);
-  const focusItems = ordered
+  const focusItems = sortedItems(ordered, { priority: true })
     .filter((item) => item.category !== "rumor" && isDirectPiastriItem(item))
     .slice(0, 3);
   const groups = groupByCategory(ordered);
@@ -601,7 +683,34 @@ function renderDaily() {
     html += section(t().rumorRadar, `<div class="news-list">${rumorItems.map(renderNewsItem).join("")}</div>`, t().rumorNote);
   }
   html += renderHistory();
+  html += renderStats();
   return html;
+}
+
+function renderStats() {
+  const latestDay = Array.isArray(state.daily?.days) ? state.daily.days[0] : null;
+  const totalItems = state.daily?.total_items ?? state.items.length;
+  const todayItems = latestDay?.total_new_items ?? 0;
+  const officialItems = latestDay?.official_new_items ?? state.items.filter((item) => item.official).length;
+  const mediaItems = latestDay?.media_new_items ?? state.items.filter((item) => !item.official).length;
+  const socialItemsCount = Array.isArray(state.social?.items) ? state.social.items.length : 0;
+  const rumorItems = latestDay?.rumor_new_items ?? state.items.filter((item) => item.category === "rumor" || !item.verified).length;
+  const metrics = [
+    [t().statTotal, totalItems],
+    [t().statToday, todayItems],
+    [t().statOfficial, officialItems],
+    [t().statMedia, mediaItems],
+    [t().statSocial, socialItemsCount],
+    [t().statRumor, rumorItems],
+  ];
+  return section(
+    t().reportStats,
+    `<div class="data-grid">${metrics.map(([label, value]) => `
+      <div class="metric">
+        <strong>${escapeHtml(value)}</strong>
+        <span>${escapeHtml(label)}</span>
+      </div>`).join("")}</div>`,
+  );
 }
 
 function renderFanFeed() {
