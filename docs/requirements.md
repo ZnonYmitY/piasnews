@@ -83,7 +83,7 @@ Current implementation status:
 - `data/items.json`, `data/daily.json`, `data/rss.xml`, and schema-v2 `data/history.json` exist.
 - GitHub Actions scheduled refresh is configured in `.github/workflows/update-piasnews.yml`.
 - A GitHub Pages publishing entrypoint has been added for `https://znonymity.github.io/piasnews/`.
-- `public/` implements a public fan daily with short, daily, and fan-source tabs, a top-right language switch, and a visible data refresh time.
+- `public/` implements a public fan daily with short, daily, and fan-source tabs, a top-right language switch, and separate visible refresh times for news data and X / IG fan-source data.
 - `piasnews/references/history.md`, `piasnews/references/history-retrieval.json`, and `scripts/validate_history.py` support maintenance, review, and validation of the Looking Back knowledge base.
 - `public/admin/` implements the static console; `worker/` provides deployable review and anonymous-analytics endpoints, but the external Worker, D1 binding, secrets, and public URL are not configured yet.
 
@@ -160,6 +160,7 @@ The GitHub Pages root serves a read-only daily report for all fans. Report conte
 - Short and daily read the same `data/items.json`, `data/daily.json`, and approved `data/history.json`; news data is not duplicated. Fan sources reads `data/social.json` and renders social entries with `source_type=x|instagram`.
 - The page reads `data/calendar.json` for the next Grand Prix, race-week timing, and race-start countdown. Calendar metadata is outside the three-day news window and cannot fill a daily report.
 - The page displays the `generated_at` timestamp in China Standard Time and the active three-day window.
+- The page displays both `data/items.json.generated_at` and `data/social.json.generated_at` in China Standard Time so news and fan-source freshness are not conflated.
 - Short mode uses at most five bullets, omits rumor messaging when there are no rumors, and has no data panel.
 - Daily mode merges the previous standard and deep modes: key points, topic grouping, official coverage, media coverage, optional rumor radar, optional Looking Back, and bottom lightweight stats. `daily_core` social sources are folded into the normal daily item flow, not rendered as a separate X/social section.
 - Key Points must include only items that directly mention Oscar Piastri / Piastri / OP81. Generic F1, team, or schedule content cannot enter Key Points only because the source is trusted. Ranking should combine publish time, current session phase, race/qualifying/practice relevance, official/reliable source boosts, and rumor demotion, so stale practice items do not outrank newer session context.
@@ -537,7 +538,7 @@ V1 is complete when:
 - The Skill reads static data first and falls back to direct sources.
 - Daily new item counts are available.
 - GitHub Pages publishes the static data entrypoint.
-- The GitHub Pages root publishes the short, daily, and fan-source tabs, displays the data refresh time, and updates after each collection workflow.
+- The GitHub Pages root publishes the short, daily, and fan-source tabs, displays separate news and X / IG fan-source refresh times, and updates after each collection workflow.
 - Short and daily share static news data, fan sources reads the `data/social.json` update feed, and page rendering uses no LLM; short has no data panel, while daily keeps lightweight stats at the bottom.
 - The page displays the next F1 race countdown, China Standard Time schedule, and official calendar link; calendar data refreshes with the collection workflow.
 - `data/history.json` is available for optional historical context and is published with Pages.

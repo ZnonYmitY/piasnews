@@ -189,7 +189,15 @@ a {
   font-size: 11px;
 }
 
-#updatedAt {
+.social-update-label {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+#updatedAt,
+#socialUpdatedAt {
   display: block;
   font-size: 13px;
   font-weight: 800;
@@ -850,7 +858,8 @@ a {
     grid-template-columns: auto minmax(0, 1fr);
   }
 
-  #updatedAt {
+  #updatedAt,
+  #socialUpdatedAt {
     white-space: normal;
   }
 
