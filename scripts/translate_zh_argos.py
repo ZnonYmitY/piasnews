@@ -67,6 +67,16 @@ def apply_glossary(value: str) -> str:
     result = value
     for source, target in TERM_REPLACEMENTS:
         result = result.replace(source, target)
+    result = re.sub(r"奥斯卡[·・]?Piastri(?:\(Oscar Piastri\))?", "Oscar Piastri", result)
+    result = re.sub(r"皮亚斯特里(?:\(Piastri\))?", "Piastri", result)
+    result = re.sub(r"麦克拉伦(?:\(McLaren\))?", "McLaren", result)
+    result = re.sub(r"一级方程式(?:\(Formula 1\))?", "Formula 1", result)
+    result = re.sub(r"\b[fF]1\b", "F1", result)
+    result = result.replace("贝莫安", "谈到")
+    result = result.replace("贝莫恩", "谈到")
+    result = result.replace("Magicles", "没有“魔法”")
+    result = result.replace("magicless", "没有“魔法”")
+    result = result.replace("非常艰难的McLaren", "McLaren 的艰难")
     result = result.replace("迈凯伦", "McLaren")
     result = result.replace("皮亚斯特里", "Piastri")
     result = result.replace("奥斯卡·皮亚斯特里", "Oscar Piastri")
@@ -151,7 +161,10 @@ def update_news_item(item: dict[str, Any], translator: Callable[[str], str] | No
     summary = clean_text(item.get("summary"))
     if title:
         item["title_zh"] = translate_or_fallback(title, translator)
-    if summary:
+    existing_summary_zh = clean_text(item.get("summary_zh"))
+    if existing_summary_zh and has_cjk(existing_summary_zh):
+        item["summary_zh"] = apply_glossary(existing_summary_zh)
+    elif summary:
         item["summary_zh"] = translate_or_fallback(summary, translator)
 
 

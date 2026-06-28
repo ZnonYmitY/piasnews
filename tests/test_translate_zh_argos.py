@@ -31,6 +31,7 @@ class TranslateZhArgosTest(unittest.TestCase):
                     {
                         "title": "Piastri takes pole in Austrian GP",
                         "summary": "Race-week or performance-related item.",
+                        "summary_zh": "媒体来源围绕 Piastri 比赛动态展开。",
                     }
                 ]
             }))
@@ -51,6 +52,7 @@ class TranslateZhArgosTest(unittest.TestCase):
             news = json.loads(news_path.read_text())
             social = json.loads(social_path.read_text())
             self.assertEqual(news["items"][0]["title_zh"], "译文:Piastri takes pole in Austrian GP")
+            self.assertEqual(news["items"][0]["summary_zh"], "媒体来源围绕 Piastri 比赛动态展开。")
             self.assertEqual(social["items"][0]["summary_zh"], "译文:Oscar talks about qualifying.")
             self.assertEqual(social["items"][0]["title_zh"], "译文:Oscar talks about qualifying.")
 
