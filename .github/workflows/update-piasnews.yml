@@ -3,6 +3,7 @@ name: Update Piasnews Data
 on:
   schedule:
     - cron: "17 */6 * * *"
+    - cron: "27 */6 * * *"
   workflow_dispatch:
 
 permissions:

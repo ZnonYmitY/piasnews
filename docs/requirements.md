@@ -108,7 +108,7 @@ data/
 
 Behavior:
 
-- Scheduled job fetches public sources.
+- Scheduled job fetches public sources every six hours, with a second backup cron ten minutes later. This is a low-cost GitHub Actions fallback rather than a stateful missed-run detector; duplicate runs are safe because unchanged data produces no commit.
 - Generated static JSON/RSS is committed to the repository, published through GitHub Pages, and still readable directly from GitHub raw.
 - The Skill first attempts to read static data, then falls back to direct source fetching.
 - Daily item counts are generated and persisted.
@@ -175,7 +175,7 @@ The GitHub Pages root serves a read-only daily report for all fans. Report conte
 - The fan-source tab must show one removal-on-rights-request notice above the feed; each card shows only account attribution to avoid repeated notices.
 - Looking Back uses approved history only and is omitted when no same-date event qualifies.
 - Browser-side deterministic templates render the reports without an LLM or model-token usage.
-- `.github/workflows/update-piasnews.yml` packages `public/` with the current run's generated data, so the page and JSON/RSS update in the same Pages deployment.
+- `.github/workflows/update-piasnews.yml` packages `public/` with the current run's generated data, so the page and JSON/RSS update in the same Pages deployment. The workflow keeps both the primary schedule and the ten-minute backup schedule.
 - The UI includes loading, empty, error, and manual-refresh states, responsive layouts, and keyboard-operable tabs.
 - The countdown updates locally every second. If the calendar API fails, deployment keeps the last valid committed calendar.
 
