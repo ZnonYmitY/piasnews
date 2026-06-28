@@ -19,6 +19,14 @@ class TranslateZhArgosTest(unittest.TestCase):
         self.assertIn("杆位", result)
         self.assertIn("奥地利大奖赛", result)
 
+    def test_manual_headline_translation_handles_current_mclaren_title(self):
+        result = translator.translate_or_fallback(
+            "Oscar Piastri bemoans ‘magicless’ reality of ‘very tough’ McLaren situation",
+            None,
+        )
+
+        self.assertEqual(result, "Oscar Piastri 谈到 McLaren 的艰难处境：缺少“魔法”")
+
     def test_updates_news_and_social_payloads(self):
         def fake_translate(text):
             return f"译文:{text}"

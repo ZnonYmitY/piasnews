@@ -67,6 +67,8 @@ def apply_glossary(value: str) -> str:
     result = value
     for source, target in TERM_REPLACEMENTS:
         result = result.replace(source, target)
+    result = result.replace("奥斯卡·Piastri(Oscar Piastri)", "Oscar Piastri")
+    result = result.replace("奥斯卡・Piastri(Oscar Piastri)", "Oscar Piastri")
     result = re.sub(r"奥斯卡[·・]?Piastri(?:\(Oscar Piastri\))?", "Oscar Piastri", result)
     result = re.sub(r"皮亚斯特里(?:\(Piastri\))?", "Piastri", result)
     result = re.sub(r"麦克拉伦(?:\(McLaren\))?", "McLaren", result)
@@ -82,6 +84,17 @@ def apply_glossary(value: str) -> str:
     result = result.replace("奥斯卡·皮亚斯特里", "Oscar Piastri")
     result = result.replace("一级方程式", "Formula 1")
     return clean_text(result)
+
+
+def manual_headline_translation(text: str) -> str | None:
+    lowered = text.lower()
+    if all(token in lowered for token in ("piastri", "bemoans", "magicless", "mclaren")):
+        return "Oscar Piastri 谈到 McLaren 的艰难处境：缺少“魔法”"
+    if all(token in lowered for token in ("piastri", "reached its limit", "austria")):
+        return "Piastri 承认 McLaren 在奥地利排位赛中已接近极限"
+    if all(token in lowered for token in ("piastri", "qualifying", "seventh")):
+        return "Piastri 奥地利排位赛获得第七"
+    return None
 
 
 def fallback_title(text: str, *, prefix: str = "") -> str:
@@ -149,6 +162,9 @@ def translate_or_fallback(text: str, translator: Callable[[str], str] | None, *,
     cleaned = clean_text(text)
     if not cleaned:
         return ""
+    manual = manual_headline_translation(cleaned)
+    if manual:
+        return f"{prefix}{manual}" if prefix else manual
     if translator:
         translated = translator(cleaned)
         if translated and translated != cleaned:
