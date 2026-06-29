@@ -116,3 +116,9 @@ jobs:
       - name: Deploy Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Notify Feishu translation badcases
+        env:
+          FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
+          PIASNEWS_PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: python scripts/notify_feishu_badcases.py --latest-csv data/translation_candidates_latest.csv

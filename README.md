@@ -109,6 +109,7 @@ Summarize the latest Oscar Piastri news in English.
 - 页面分别显示北京时间的新闻数据更新时间、X / IG 粉丝源采集时间和最新内容时间，并提供手动刷新按钮。
 - 页面接入 F1 赛历，展示下一场大奖赛、比赛周时间和每秒更新的正赛倒计时。
 - 每次数据工作流都会完整遍历中文翻译，自动审查疑似 badcase，写入 `data/translation_candidates.csv`，并上传本轮新增候选 Excel artifact。
+- 如果仓库配置了 `FEISHU_WEBHOOK_URL` secret，工作流会在发现本轮新增翻译 badcase 后向飞书发送通知，包含新增数量、预览和最新 Excel 链接。Codex 当前对话不作为 GitHub Actions 的稳定入站通知目标。
 - 每次 GitHub Actions 完成信息抓取后，会在同一工作流中重新部署网页和 JSON/RSS，因此页面与公开数据同步更新。
 - 日报由浏览器中的确定性模板生成，不调用大模型，不消耗项目方或访问者的模型 token。
 
@@ -485,6 +486,7 @@ The current knowledge base uses structured-facet retrieval. `piasnews/references
 - The page shows separate China Standard Time refresh times for news data, X / IG fan-source generation, and the newest retained X / IG item, and includes a manual refresh control.
 - The page reads the F1 calendar and shows the next Grand Prix, race-week timing, and a live race-start countdown.
 - Each data workflow fully audits Chinese translations, appends suspected badcases to `data/translation_candidates.csv`, and uploads the current run's new candidates as an Excel artifact.
+- If the repository has a `FEISHU_WEBHOOK_URL` secret, the workflow sends a Feishu notification when the current run finds new translation badcases, including the count, preview, and latest Excel link. The active Codex conversation is not treated as a stable inbound target for GitHub Actions.
 - Each successful GitHub Actions collection redeploys the page and JSON/RSS in the same workflow, keeping them synchronized.
 - Browser-side deterministic templates generate the views without an LLM or model-token usage.
 
@@ -648,6 +650,8 @@ GitHub raw fallback:
 ## Chinese Translation
 
 After news and social data are fetched, GitHub Actions runs `scripts/translate_zh_argos.py`. It prefers Argos Translate's offline en-to-zh model for `title_zh` and `summary_zh`. Argos is an open-source offline translation library and does not call an online translation API. If dependency installation or model download fails during a run, the script falls back to glossary cleanup so data refreshes continue.
+
+To enable Feishu notifications for new translation badcase Excel exports, create a Feishu incoming webhook in the target group and add it as the GitHub Actions secret `FEISHU_WEBHOOK_URL`. The notification sends a link to the latest published Excel file; uploading the file itself requires a Feishu app with file-upload permission.
 
 Update locally:
 
