@@ -46,7 +46,7 @@
 | HAPPY OSCAR ON THE RADIO | 应转为车队无线电语境 | 车队无线电里的开心 Oscar |
 | Well done mate, that's a really phenomenal drive | TR 应口语但清楚 | 干得漂亮，这是一场非常出色的驾驶 |
 | Oscar's overtake at the start | 应简洁 | Oscar 起步阶段的超车 |
-| Oscar's overtake on Charles | 应补足对象 | Oscar 对 Leclerc 的超车 |
+| Oscar's overtake on Charles | 应补足对象 | Oscar 对 Charles 的超车 |
 | p4 today also means oscar is now p4 in the driver standings with 80 points | 应压缩信息 | P4 完赛后，Oscar 以 80 分升至车手积分榜第 4 |
 | he looks so young this weekend... what a CUTIE | 粉丝语气可保留 | 他这个周末看起来好年轻，太可爱了 |
 
@@ -76,7 +76,7 @@
 
 ## 评估标准
 
-- 专名稳定：Piastri、McLaren、Norris、Antonelli、Verstappen 不乱译。
+- 专名稳定：Piastri、McLaren、Norris、Antonelli、Verstappen 不乱译；名字或姓氏单独出现均可，不强制统一。
 - 赛段准确：FP1/FP2/FP3、qualifying、race、stewards、parc ferme 不误译。
 - 粉丝语气可读：保留情绪，但不把梗翻成机器直译。
 - 链接标题短：优先 16-32 个中文字，不写成长摘要。
