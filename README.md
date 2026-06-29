@@ -298,6 +298,7 @@ python3 scripts/validate_history.py
 - 需求文档：[docs/requirements.zh-CN.md](docs/requirements.zh-CN.md)
 - Requirements: [docs/requirements.md](docs/requirements.md)
 - 中文翻译优化方案：[docs/translation-optimization.zh-CN.md](docs/translation-optimization.zh-CN.md)
+- 翻译确认集与术语库说明：[docs/translation-dataset.zh-CN.md](docs/translation-dataset.zh-CN.md)
 - Skill 主文件：[piasnews/SKILL.md](piasnews/SKILL.md)
 - 来源说明：[piasnews/references/sources.md](piasnews/references/sources.md)
 - X / IG 参考源：[piasnews/references/x-sources.json](piasnews/references/x-sources.json)
@@ -318,10 +319,13 @@ python3 scripts/validate_history.py
 │   ├── history.json
 │   ├── items.json
 │   ├── rss.xml
-│   └── social.json
+│   ├── social.json
+│   ├── translation_glossary.csv
+│   └── translation_review.csv
 ├── docs/
 │   ├── requirements.md
 │   ├── requirements.zh-CN.md
+│   ├── translation-dataset.zh-CN.md
 │   └── translation-optimization.zh-CN.md
 ├── piasnews/
 │   ├── SKILL.md
@@ -669,6 +673,7 @@ python3 scripts/validate_history.py
 - Requirements: [docs/requirements.md](docs/requirements.md)
 - Chinese requirements: [docs/requirements.zh-CN.md](docs/requirements.zh-CN.md)
 - Chinese translation optimization: [docs/translation-optimization.zh-CN.md](docs/translation-optimization.zh-CN.md)
+- Translation review and glossary guide: [docs/translation-dataset.zh-CN.md](docs/translation-dataset.zh-CN.md)
 - Skill file: [piasnews/SKILL.md](piasnews/SKILL.md)
 - Source guide: [piasnews/references/sources.md](piasnews/references/sources.md)
 - X / IG source list: [piasnews/references/x-sources.json](piasnews/references/x-sources.json)
@@ -689,10 +694,13 @@ python3 scripts/validate_history.py
 │   ├── history.json
 │   ├── items.json
 │   ├── rss.xml
-│   └── social.json
+│   ├── social.json
+│   ├── translation_glossary.csv
+│   └── translation_review.csv
 ├── docs/
 │   ├── requirements.md
 │   ├── requirements.zh-CN.md
+│   ├── translation-dataset.zh-CN.md
 │   └── translation-optimization.zh-CN.md
 ├── piasnews/
 │   ├── SKILL.md

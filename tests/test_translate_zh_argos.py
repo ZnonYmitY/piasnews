@@ -64,6 +64,46 @@ class TranslateZhArgosTest(unittest.TestCase):
             self.assertEqual(social["items"][0]["summary_zh"], "译文:Oscar talks about qualifying.")
             self.assertEqual(social["items"][0]["title_zh"], "译文:Oscar talks about qualifying.")
 
+    def test_loads_approved_manual_translation_only(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            review_path = Path(tmpdir) / "translation_review.csv"
+            review_path.write_text(
+                "id,source_text,suggested_zh,status\n"
+                "one,Antonelli pips Piastri to top Austria FP2,Antonelli 微弱优势力压 Piastri，领跑奥地利二练,approved\n"
+                "two,Pending title,待确认标题,pending\n",
+                encoding="utf-8",
+            )
+
+            manual = translator.load_manual_translations(review_path)
+
+        self.assertEqual(
+            translator.translate_or_fallback(
+                "Antonelli pips Piastri to top Austria FP2",
+                None,
+                manual_translations=manual,
+            ),
+            "Antonelli 微弱优势力压 Piastri，领跑奥地利二练",
+        )
+        self.assertNotEqual(
+            translator.translate_or_fallback("Pending title", None, manual_translations=manual),
+            "待确认标题",
+        )
+
+    def test_loads_approved_glossary_terms(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            glossary_path = Path(tmpdir) / "translation_glossary.csv"
+            glossary_path.write_text(
+                "source,target,type,scope,case_sensitive,status,notes\n"
+                "pips,微弱优势力压,phrase,news,false,approved,test\n"
+                "PendingTerm,待确认术语,term,news,true,pending,test\n",
+                encoding="utf-8",
+            )
+
+            glossary = translator.load_glossary(glossary_path)
+
+        self.assertIn("微弱优势力压", translator.apply_glossary("Antonelli pips Piastri", glossary))
+        self.assertNotIn("待确认术语", translator.apply_glossary("PendingTerm", glossary))
+
 
 if __name__ == "__main__":
     unittest.main()

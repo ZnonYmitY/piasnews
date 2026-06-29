@@ -13,8 +13,11 @@
 当前采用三层策略：
 
 1. Argos Translate 离线 en-to-zh 生成初版中文。
-2. F1 / Piastri 术语表做后处理，保留 `Piastri`、`McLaren`、`FP1`、`P4`、`team radio` 等高识别度词。
-3. 对高频坏例和首页高曝光标题加人工规则，避免 `奥斯卡·Piastri(Oscar Piastri)`、`银行第七`、`拿起杆子` 这类直译。
+2. `data/translation_glossary.csv` 做术语表后处理，保留 `Piastri`、`McLaren`、`FP1`、`P4`、`team radio` 等高识别度词。
+3. `data/translation_review.csv` 保存人工确认样本。只有 `status=approved` 的条目会覆盖翻译结果，`pending` 只用于审核。
+4. 对高频坏例和首页高曝光标题加人工规则，避免 `奥斯卡·Piastri(Oscar Piastri)`、`银行第七`、`拿起杆子` 这类直译。
+
+结构化数据说明见 [translation-dataset.zh-CN.md](translation-dataset.zh-CN.md)。
 
 ## 待确认优化样例
 
@@ -51,7 +54,7 @@
 
 先不要直接训练。推荐顺序：
 
-1. 建立人工确认集：保存 `source_text`、`current_zh`、`approved_zh`、`source_type`、`category`、`notes`。
+1. 建立人工确认集：保存 `source_text`、`current_zh`、`suggested_zh`、`source_type`、`domain`、`notes`。
 2. 累积 100-300 条高质量坏例：优先覆盖新闻标题、X 短句、TR、排位/正赛、传闻、车队技术词。
 3. 先做术语表和规则评估：如果规则能解决 70% 以上坏例，暂不微调。
 4. 再做离线模型微调：优先考虑 OPUS-MT / MarianMT en-zh 或小型 NLLB，做领域微调，而不是从零训练。

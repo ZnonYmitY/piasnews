@@ -10,6 +10,7 @@ data generation remains reliable.
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import re
 from pathlib import Path
@@ -19,6 +20,9 @@ from typing import Any, Callable
 URL_RE = re.compile(r"https?://\S+")
 CJK_RE = re.compile(r"[\u3400-\u9fff]")
 WHITESPACE_RE = re.compile(r"\s+")
+ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_GLOSSARY_PATH = ROOT / "data" / "translation_glossary.csv"
+DEFAULT_REVIEW_PATH = ROOT / "data" / "translation_review.csv"
 
 TERM_REPLACEMENTS = (
     ("Oscar Piastri", "Oscar Piastri"),
@@ -51,6 +55,8 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Translate Piasnews static JSON Chinese fields.")
     parser.add_argument("--items", default="data/items.json", help="News items JSON path.")
     parser.add_argument("--social", default="data/social.json", help="Social items JSON path.")
+    parser.add_argument("--glossary", default=str(DEFAULT_GLOSSARY_PATH), help="Approved glossary CSV path.")
+    parser.add_argument("--review", default=str(DEFAULT_REVIEW_PATH), help="Approved manual translation review CSV path.")
     parser.add_argument("--strict-argos", action="store_true", help="Fail if Argos en->zh translation is unavailable.")
     return parser.parse_args()
 
@@ -63,10 +69,53 @@ def has_cjk(value: str | None) -> bool:
     return bool(CJK_RE.search(value or ""))
 
 
-def apply_glossary(value: str) -> str:
+def approved_row(row: dict[str, str]) -> bool:
+    return (row.get("status") or "").strip().lower() == "approved"
+
+
+def load_glossary(path: Path | str = DEFAULT_GLOSSARY_PATH) -> tuple[tuple[str, str, bool], ...]:
+    replacements: list[tuple[str, str, bool]] = [(source, target, True) for source, target in TERM_REPLACEMENTS]
+    csv_path = Path(path)
+    if csv_path.exists():
+        with csv_path.open(newline="", encoding="utf-8") as handle:
+            for row in csv.DictReader(handle):
+                source = clean_text(row.get("source"))
+                target = clean_text(row.get("target"))
+                if not source or not target or not approved_row(row):
+                    continue
+                case_sensitive = (row.get("case_sensitive") or "").strip().lower() == "true"
+                replacements.append((source, target, case_sensitive))
+    # Longer phrases first prevents GP/Grand Prix from rewriting inside full race names.
+    return tuple(sorted(replacements, key=lambda item: len(item[0]), reverse=True))
+
+
+def replace_term(value: str, source: str, target: str, case_sensitive: bool) -> str:
+    if case_sensitive:
+        return value.replace(source, target)
+    escaped = re.escape(source)
+    if re.match(r"^[\w\s'’.-]+$", source):
+        escaped = rf"(?<!\w){escaped}(?!\w)"
+    return re.sub(escaped, target, value, flags=re.IGNORECASE)
+
+
+def load_manual_translations(path: Path | str = DEFAULT_REVIEW_PATH) -> dict[str, str]:
+    csv_path = Path(path)
+    if not csv_path.exists():
+        return {}
+    translations: dict[str, str] = {}
+    with csv_path.open(newline="", encoding="utf-8") as handle:
+        for row in csv.DictReader(handle):
+            source = clean_text(row.get("source_text"))
+            target = clean_text(row.get("suggested_zh"))
+            if source and target and approved_row(row):
+                translations[source] = target
+    return translations
+
+
+def apply_glossary(value: str, glossary: tuple[tuple[str, str, bool], ...] | None = None) -> str:
     result = value
-    for source, target in TERM_REPLACEMENTS:
-        result = result.replace(source, target)
+    for source, target, case_sensitive in glossary or load_glossary():
+        result = replace_term(result, source, target, case_sensitive)
     result = result.replace("奥斯卡·Piastri(Oscar Piastri)", "Oscar Piastri")
     result = result.replace("奥斯卡・Piastri(Oscar Piastri)", "Oscar Piastri")
     result = re.sub(r"奥斯卡[·・]?Piastri(?:\(Oscar Piastri\))?", "Oscar Piastri", result)
@@ -106,7 +155,10 @@ def fallback_title(text: str, *, prefix: str = "") -> str:
     return f"{prefix}{cleaned}" if prefix else cleaned
 
 
-def load_argos_translator(strict: bool = False) -> Callable[[str], str] | None:
+def load_argos_translator(
+    strict: bool = False,
+    glossary: tuple[tuple[str, str, bool], ...] | None = None,
+) -> Callable[[str], str] | None:
     try:
         import argostranslate.package
         import argostranslate.translate
@@ -149,19 +201,28 @@ def load_argos_translator(strict: bool = False) -> Callable[[str], str] | None:
         if not cleaned:
             return ""
         try:
-            return apply_glossary(argostranslate.translate.translate(cleaned, from_code, to_code))
+            return apply_glossary(argostranslate.translate.translate(cleaned, from_code, to_code), glossary)
         except Exception as exc:  # noqa: BLE001 - keep data generation reliable
             if strict:
                 raise RuntimeError(f"Argos translation failed: {exc}") from exc
-            return apply_glossary(cleaned)
+            return apply_glossary(cleaned, glossary)
 
     return translate
 
 
-def translate_or_fallback(text: str, translator: Callable[[str], str] | None, *, prefix: str = "") -> str:
+def translate_or_fallback(
+    text: str,
+    translator: Callable[[str], str] | None,
+    *,
+    prefix: str = "",
+    manual_translations: dict[str, str] | None = None,
+) -> str:
     cleaned = clean_text(text)
     if not cleaned:
         return ""
+    manual = (manual_translations or {}).get(cleaned)
+    if manual:
+        return f"{prefix}{manual}" if prefix else manual
     manual = manual_headline_translation(cleaned)
     if manual:
         return f"{prefix}{manual}" if prefix else manual
@@ -172,16 +233,20 @@ def translate_or_fallback(text: str, translator: Callable[[str], str] | None, *,
     return fallback_title(cleaned, prefix=prefix)
 
 
-def update_news_item(item: dict[str, Any], translator: Callable[[str], str] | None) -> None:
+def update_news_item(
+    item: dict[str, Any],
+    translator: Callable[[str], str] | None,
+    manual_translations: dict[str, str] | None = None,
+) -> None:
     title = clean_text(item.get("title"))
     summary = clean_text(item.get("summary"))
     if title:
-        item["title_zh"] = translate_or_fallback(title, translator)
+        item["title_zh"] = translate_or_fallback(title, translator, manual_translations=manual_translations)
     existing_summary_zh = clean_text(item.get("summary_zh"))
     if existing_summary_zh and has_cjk(existing_summary_zh):
         item["summary_zh"] = apply_glossary(existing_summary_zh)
     elif summary:
-        item["summary_zh"] = translate_or_fallback(summary, translator)
+        item["summary_zh"] = translate_or_fallback(summary, translator, manual_translations=manual_translations)
 
 
 def social_prefix(item: dict[str, Any]) -> str:
@@ -191,14 +256,28 @@ def social_prefix(item: dict[str, Any]) -> str:
     return f"{platform} {kind} {source}："
 
 
-def update_social_item(item: dict[str, Any], translator: Callable[[str], str] | None) -> None:
+def update_social_item(
+    item: dict[str, Any],
+    translator: Callable[[str], str] | None,
+    manual_translations: dict[str, str] | None = None,
+) -> None:
     summary = clean_text(item.get("summary") or item.get("title"))
     if summary:
-        item["summary_zh"] = translate_or_fallback(summary, translator)
-        item["title_zh"] = translate_or_fallback(summary, translator, prefix=social_prefix(item))
+        item["summary_zh"] = translate_or_fallback(summary, translator, manual_translations=manual_translations)
+        item["title_zh"] = translate_or_fallback(
+            summary,
+            translator,
+            prefix=social_prefix(item),
+            manual_translations=manual_translations,
+        )
 
 
-def update_payload(path: Path, updater: Callable[[dict[str, Any], Callable[[str], str] | None], None], translator: Callable[[str], str] | None) -> int:
+def update_payload(
+    path: Path,
+    updater: Callable[[dict[str, Any], Callable[[str], str] | None, dict[str, str] | None], None],
+    translator: Callable[[str], str] | None,
+    manual_translations: dict[str, str] | None = None,
+) -> int:
     if not path.exists():
         return 0
     payload = json.loads(path.read_text())
@@ -207,18 +286,24 @@ def update_payload(path: Path, updater: Callable[[dict[str, Any], Callable[[str]
         return 0
     for item in items:
         if isinstance(item, dict):
-            updater(item, translator)
+            updater(item, translator, manual_translations)
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
     return len(items)
 
 
 def main() -> int:
     args = parse_args()
-    translator = load_argos_translator(strict=args.strict_argos)
-    news_count = update_payload(Path(args.items), update_news_item, translator)
-    social_count = update_payload(Path(args.social), update_social_item, translator)
+    glossary = load_glossary(args.glossary)
+    manual_translations = load_manual_translations(args.review)
+    translator = load_argos_translator(strict=args.strict_argos, glossary=glossary)
+    news_count = update_payload(Path(args.items), update_news_item, translator, manual_translations)
+    social_count = update_payload(Path(args.social), update_social_item, translator, manual_translations)
     mode = "argos" if translator else "fallback"
-    print(f"Translated Chinese fields with {mode}: news={news_count} social={social_count}")
+    print(
+        f"Translated Chinese fields with {mode}: "
+        f"news={news_count} social={social_count} "
+        f"glossary={len(glossary)} manual={len(manual_translations)}"
+    )
     return 0
 
 

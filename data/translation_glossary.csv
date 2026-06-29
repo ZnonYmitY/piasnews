@@ -1,0 +1,112 @@
+source,target,type,scope,case_sensitive,status,notes
+Oscar Piastri,Oscar Piastri,person,all,true,approved,人名默认保留英文
+Piastri,Piastri,person,all,true,approved,姓氏默认保留英文
+Oscar,Oscar,person,social,true,approved,粉丝源里常用名默认保留英文
+Lando Norris,Lando Norris,person,all,true,approved,人名默认保留英文
+Norris,Norris,person,all,true,approved,姓氏默认保留英文
+Max Verstappen,Max Verstappen,person,all,true,approved,人名默认保留英文
+Verstappen,Verstappen,person,all,true,approved,姓氏默认保留英文
+Kimi Antonelli,Kimi Antonelli,person,all,true,approved,人名默认保留英文
+Antonelli,Antonelli,person,all,true,approved,姓氏默认保留英文
+George Russell,George Russell,person,all,true,approved,人名默认保留英文
+Russell,Russell,person,all,true,approved,姓氏默认保留英文
+Charles Leclerc,Charles Leclerc,person,all,true,approved,人名默认保留英文
+Leclerc,Leclerc,person,all,true,approved,姓氏默认保留英文
+Lewis Hamilton,Lewis Hamilton,person,all,true,approved,人名默认保留英文
+Hamilton,Hamilton,person,all,true,approved,姓氏默认保留英文
+Andrea Stella,Andrea Stella,person,all,true,approved,人名默认保留英文
+Zak Brown,Zak Brown,person,all,true,approved,人名默认保留英文
+Mark Webber,Mark Webber,person,all,true,approved,人名默认保留英文
+McLaren,McLaren,team,all,true,approved,队名保留英文
+Red Bull,Red Bull,team,all,true,approved,队名保留英文
+Mercedes,Mercedes,team,all,true,approved,队名保留英文
+Ferrari,Ferrari,team,all,true,approved,队名保留英文
+Williams,Williams,team,all,true,approved,队名保留英文
+Alpine,Alpine,team,all,true,approved,队名保留英文
+Aston Martin,Aston Martin,team,all,true,approved,队名保留英文
+Haas,Haas,team,all,true,approved,队名保留英文
+Racing Bulls,Racing Bulls,team,all,true,approved,队名保留英文
+Sauber,Sauber,team,all,true,approved,队名保留英文
+Formula 1,Formula 1,series,all,true,approved,官方系列名保留英文
+F1,F1,series,all,true,approved,缩写保留英文
+FIA,FIA,organization,all,true,approved,缩写保留英文
+Grand Prix,大奖赛,term,news,false,approved,赛事名称通用译法
+GP,GP,term,all,true,approved,缩写保留英文
+Austrian GP,奥地利大奖赛,event,all,false,approved,赛事名称
+Austrian Grand Prix,奥地利大奖赛,event,all,false,approved,赛事名称
+British GP,英国大奖赛,event,all,false,approved,赛事名称
+British Grand Prix,英国大奖赛,event,all,false,approved,赛事名称
+Hungarian GP,匈牙利大奖赛,event,all,false,approved,赛事名称
+Hungarian Grand Prix,匈牙利大奖赛,event,all,false,approved,赛事名称
+Belgian GP,比利时大奖赛,event,all,false,approved,赛事名称
+Belgian Grand Prix,比利时大奖赛,event,all,false,approved,赛事名称
+Italian GP,意大利大奖赛,event,all,false,approved,赛事名称
+Italian Grand Prix,意大利大奖赛,event,all,false,approved,赛事名称
+Red Bull Ring,Red Bull Ring,circuit,all,true,approved,赛道名保留英文
+Silverstone,Silverstone,circuit,all,true,approved,赛道名保留英文
+Spa,Spa,circuit,all,true,approved,赛道简称保留英文
+Monza,Monza,circuit,all,true,approved,赛道名保留英文
+qualifying,排位赛,session,all,false,approved,赛段
+quali,排位赛,session,social,false,approved,粉丝口语
+practice,练习赛,session,all,false,approved,赛段
+free practice,自由练习赛,session,all,false,approved,赛段
+FP1,一练,session,all,true,approved,赛段缩写
+FP2,二练,session,all,true,approved,赛段缩写
+FP3,三练,session,all,true,approved,赛段缩写
+sprint,冲刺赛,session,all,false,approved,赛段
+sprint qualifying,冲刺排位赛,session,all,false,approved,赛段
+race,正赛,session,all,false,approved,赛段
+pole,杆位,term,all,false,approved,排位第一
+pole position,杆位,term,all,false,approved,排位第一
+front row,头排,term,all,false,approved,发车位
+grid,发车格,term,all,false,approved,根据语境也可译发车阵位
+pit stop,进站,term,all,false,approved,比赛操作
+pit priority,进站优先权,term,all,false,approved,队内策略
+undercut,undercut,term,all,false,approved,可保留英文，必要时解释为提前进站反超
+overcut,overcut,term,all,false,approved,可保留英文，必要时解释为延后进站反超
+DRS,DRS,term,all,true,approved,缩写保留英文
+dirty air,乱流,term,all,false,approved,赛车空气动力
+clean air,干净气流,term,all,false,approved,赛车空气动力
+downforce,下压力,term,all,false,approved,技术词
+upgrade,升级,term,all,false,approved,赛车部件
+new bits,新部件,term,all,false,approved,车队口语
+set-up,调校,term,all,false,approved,赛车设置
+setup,调校,term,all,false,approved,赛车设置
+tyre management,轮胎管理,term,all,false,approved,比赛能力
+tyre degradation,轮胎衰退,term,all,false,approved,比赛能力
+race pace,正赛速度,term,all,false,approved,比赛表现
+one-lap pace,单圈速度,term,all,false,approved,排位表现
+track position,赛道位置,term,all,false,approved,策略重点
+track limits,赛道边界,term,all,false,approved,规则
+yellow flag,黄旗,term,all,false,approved,旗语
+red flag,红旗,term,all,false,approved,旗语
+parc fermé,parc ferme,term,all,false,approved,保留英文，避免误译为发烧
+parc ferme,parc ferme,term,all,false,approved,保留英文，避免误译为发烧
+stewards,干事,term,all,false,approved,FIA stewards
+summons,传唤,term,all,false,approved,赛会语境
+investigation,调查,term,all,false,approved,赛会语境
+no further action,不再处罚,term,all,false,approved,赛会裁定
+penalty,处罚,term,all,false,approved,规则
+time penalty,罚时,term,all,false,approved,规则
+reprimand,警告,term,all,false,approved,规则
+appeal,上诉,term,all,false,approved,规则
+team radio,车队无线电,term,all,false,approved,TR
+radio,无线电,term,all,false,approved,TR
+chequered flag,方格旗,term,all,false,approved,英式拼写
+checkered flag,方格旗,term,all,false,approved,美式拼写
+podium,领奖台,term,all,false,approved,成绩
+P4,P4,position,all,true,approved,名次保留英文缩写
+P7,P7,position,all,true,approved,名次保留英文缩写
+drivers' standings,车手积分榜,term,all,false,approved,积分榜
+constructors' standings,车队积分榜,term,all,false,approved,积分榜
+swap rumour,互换传闻,term,news,false,approved,转会传闻
+transfer rumour,转会传闻,term,news,false,approved,转会传闻
+striking distance,仍有机会追击,phrase,news,false,approved,体育标题常用语
+sets the pace,领跑,phrase,news,false,approved,练习赛结果
+pips,微弱优势力压,phrase,news,false,approved,新闻标题动词
+banks seventh,锁定第七,phrase,news,false,approved,排位/成绩标题
+holds on for,守住,phrase,news,false,approved,比赛结果
+left frustrated,感到沮丧,phrase,news,false,approved,赛后情绪
+turns weekend around,扭转周末走势,phrase,news,false,approved,新闻标题常用表达
+magicless,缺少“魔法”,phrase,news,false,approved,引语保留引号
+hungry,求胜欲强,phrase,social,false,approved,粉丝/体育语境
