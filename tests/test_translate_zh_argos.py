@@ -193,11 +193,31 @@ class TranslateZhArgosTest(unittest.TestCase):
         self.assertNotIn("待确认术语", translator.apply_glossary("PendingTerm", glossary))
 
     def test_default_glossary_rewrites_machine_translated_entities(self):
-        result = translator.apply_glossary("奥斯卡·Piastri 和红牛环，以及麦拉伦")
+        result = translator.apply_glossary("奥斯卡·Piastri 和红牛环，以及麦拉伦、奥迪、凯迪拉克")
 
         self.assertIn("Oscar Piastri", result)
         self.assertIn("Red Bull Ring", result)
         self.assertIn("McLaren", result)
+        self.assertIn("Audi", result)
+        self.assertIn("Cadillac", result)
+
+    def test_default_glossary_covers_position_range(self):
+        result = translator.apply_glossary("started p4, finished p22, teammate took P1")
+
+        self.assertIn("P4", result)
+        self.assertIn("P22", result)
+        self.assertIn("P1", result)
+
+    def test_default_glossary_covers_more_people_teams_and_circuits(self):
+        result = translator.apply_glossary(
+            "塞尔吉奥·佩雷斯 at 铃鹿 with 小红牛, while Graeme Lowdon talks Cadillac F1"
+        )
+
+        self.assertIn("Sergio Perez", result)
+        self.assertIn("Suzuka", result)
+        self.assertIn("Racing Bulls", result)
+        self.assertIn("Graeme Lowdon", result)
+        self.assertIn("Cadillac F1", result)
 
 
 if __name__ == "__main__":
