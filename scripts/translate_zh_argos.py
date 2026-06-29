@@ -118,11 +118,15 @@ def manual_translation_for(text: str, manual_translations: dict[str, str] | None
         return None
     if text in manual_translations:
         return manual_translations[text]
+    normalized_text = text.casefold()
     # Social posts often append media URLs, emojis, or hashtags. Let an
     # approved source_text cover that exact leading/body phrase without forcing
     # the review table to duplicate every post decoration.
     for source, target in sorted(manual_translations.items(), key=lambda item: len(item[0]), reverse=True):
-        if len(source) >= 12 and (text.startswith(source) or source in text):
+        normalized_source = source.casefold()
+        if len(source) >= 12 and (
+            normalized_text.startswith(normalized_source) or normalized_source in normalized_text
+        ):
             return target
     return None
 
@@ -278,13 +282,10 @@ def update_social_item(
 ) -> None:
     summary = clean_text(item.get("summary") or item.get("title"))
     if summary:
-        item["summary_zh"] = translate_or_fallback(summary, translator, manual_translations=manual_translations)
-        item["title_zh"] = translate_or_fallback(
-            summary,
-            translator,
-            prefix=social_prefix(item),
-            manual_translations=manual_translations,
-        )
+        manual = manual_translation_for(summary, manual_translations)
+        translated = manual or clean_text(summary)
+        item["summary_zh"] = translated
+        item["title_zh"] = f"{social_prefix(item)}{translated}"
 
 
 def update_payload(

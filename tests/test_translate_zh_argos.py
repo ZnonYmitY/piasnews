@@ -61,8 +61,8 @@ class TranslateZhArgosTest(unittest.TestCase):
             social = json.loads(social_path.read_text())
             self.assertEqual(news["items"][0]["title_zh"], "译文:Piastri takes pole in Austrian GP")
             self.assertEqual(news["items"][0]["summary_zh"], "媒体来源围绕 Piastri 比赛动态展开。")
-            self.assertEqual(social["items"][0]["summary_zh"], "译文:Oscar talks about qualifying.")
-            self.assertEqual(social["items"][0]["title_zh"], "译文:Oscar talks about qualifying.")
+            self.assertEqual(social["items"][0]["summary_zh"], "Oscar talks about qualifying.")
+            self.assertEqual(social["items"][0]["title_zh"], "X 发帖 @PiastriNews：Oscar talks about qualifying.")
 
     def test_loads_approved_manual_translation_only(self):
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -101,6 +101,20 @@ class TranslateZhArgosTest(unittest.TestCase):
                 manual_translations=manual,
             ),
             "不再处罚，P4 保住了",
+        )
+
+    def test_approved_manual_translation_matches_social_text_case_insensitively(self):
+        manual = {
+            "Oscar's overtake at the start": "Oscar 起步阶段的超车",
+        }
+
+        self.assertEqual(
+            translator.translate_or_fallback(
+                "OSCAR'S OVERTAKE AT THE START 😮‍💨",
+                None,
+                manual_translations=manual,
+            ),
+            "Oscar 起步阶段的超车",
         )
 
     def test_manual_translation_matches_html_entities(self):
