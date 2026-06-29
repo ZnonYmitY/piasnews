@@ -89,6 +89,39 @@ class TranslateZhArgosTest(unittest.TestCase):
             "待确认标题",
         )
 
+    def test_default_review_handles_current_badcase_titles(self):
+        manual = translator.load_manual_translations()
+
+        cases = {
+            "Alex Brundle saw something 'confusing' in Oscar Piastri's McLaren data at Austrian Grand Prix":
+                "Alex Brundle 在 Piastri 的奥地利站 McLaren 数据中看到“令人困惑”的信号",
+            "Oscar Piastri surprised to beat Ferrari after P4 in Austria as Lando Norris pinpoints where he lost out in P7":
+                "Piastri 对奥地利站 P4 完赛并击败 Ferrari 感到意外，Norris 指出自己 P7 的损失所在",
+            "Oscar Piastri stewards verdict: McLaren star avoids Austrian GP penalty scare":
+                "Piastri 干事裁定出炉：McLaren 车手避开奥地利站处罚风险",
+            "‘Surprised’ Oscar Piastri sends reminder despite missing Austrian Grand Prix podium":
+                "无缘奥地利站领奖台后，Piastri 仍给出提醒",
+        }
+
+        for source, expected in cases.items():
+            with self.subTest(source=source):
+                self.assertEqual(
+                    translator.translate_or_fallback(source, None, manual_translations=manual),
+                    expected,
+                )
+
+    def test_default_review_handles_ferrari_top_three_quote(self):
+        manual = translator.load_manual_translations()
+
+        result = translator.translate_or_fallback(
+            'Q: Might you hope to use your tyres better and make up some places? "We\'ll have to see. I mean the Ferraris being in the top 3 is impressive. They didn\'t look amazing yesterday, today they\'ve definitely made a step forward. I think in the race, they\'re generally quick in all the corners and not so much on the straights. So if that means they have more downforce then in this heat, that\'s only a good thing for them. We\'ll try our best obviously but I think it\'ll be a tough race and everyone pretty close on pace" https://t.co/example',
+            None,
+            manual_translations=manual,
+        )
+
+        self.assertIn("两台 Ferrari 都进了前三", result)
+        self.assertNotIn("包揽前三", result)
+
     def test_approved_manual_translation_can_match_social_text_with_extra_decoration(self):
         manual = {
             "NO FURTHER ACTION !!! p4 is secured": "不再处罚，P4 保住了",
