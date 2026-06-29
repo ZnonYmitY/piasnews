@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-29T08:28:50.591007Z",
+  "generated_at": "2026-06-29T08:40:53.520309Z",
   "window_days": 3,
-  "total_items": 54,
+  "total_items": 59,
   "latest_date": "2026-06-29",
   "days": [
     {
@@ -27,11 +27,11 @@
     },
     {
       "date": "2026-06-28",
-      "total_new_items": 24,
+      "total_new_items": 28,
       "official_new_items": 1,
-      "media_new_items": 23,
+      "media_new_items": 27,
       "x_new_items": 0,
-      "rumor_new_items": 0,
+      "rumor_new_items": 1,
       "sources": {
         "7NEWS": 1,
         "Akses.co.id": 1,
@@ -41,6 +41,8 @@
         "Fox Sports": 3,
         "GPblog": 2,
         "Nine.com.au": 1,
+        "Paddock News 24": 2,
+        "RaceFans": 1,
         "Read Motorsport": 1,
         "Speedcafe.com": 1,
         "St George & Sutherland Shire Leader": 1,
@@ -49,12 +51,14 @@
         "Yahoo News New Zealand": 1,
         "asatunews.co.id": 1,
         "grandprix247": 2,
-        "racingnews365.com": 1
+        "racingnews365.com": 1,
+        "total-motorsport.com": 1
       },
       "categories": {
         "interview": 1,
         "other": 3,
-        "race": 16,
+        "race": 19,
+        "rumor": 1,
         "team": 4
       }
     },
@@ -71,7 +75,8 @@
         "AutoRacing1.com": 1,
         "BVM Sports": 1,
         "Fox Sports": 1,
-        "Read Motorsport": 2,
+        "Paddock News 24": 1,
+        "Read Motorsport": 1,
         "Speedcafe.com": 1,
         "The Sunday Guardian": 1,
         "The Times of India": 1
@@ -84,9 +89,9 @@
     },
     {
       "date": "2026-06-26",
-      "total_new_items": 15,
+      "total_new_items": 16,
       "official_new_items": 3,
-      "media_new_items": 12,
+      "media_new_items": 13,
       "x_new_items": 0,
       "rumor_new_items": 1,
       "sources": {
@@ -100,10 +105,11 @@
         "Nine.com.au": 1,
         "Speedcafe.com": 2,
         "The Sunday Guardian": 1,
-        "grandprix247": 1
+        "grandprix247": 1,
+        "total-motorsport.com": 1
       },
       "categories": {
-        "race": 10,
+        "race": 11,
         "rumor": 1,
         "team": 4
       }
@@ -136,14 +142,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 65
+      "items": 63
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 66
+      "items": 64
     },
     {
       "query": "\"OP81\" when:3d",
@@ -176,13 +182,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 89,
-      "kept": 54,
+      "checked": 88,
+      "kept": 59,
       "results": {
         "outside_window": 3,
-        "publisher_date_missing": 22,
-        "publisher_unavailable": 9,
-        "verified": 55
+        "publisher_date_missing": 19,
+        "publisher_unavailable": 5,
+        "verified": 61
       }
     }
   ]
