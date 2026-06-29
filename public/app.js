@@ -62,6 +62,7 @@ const I18N = {
     lookingBack: "往日回顾",
     historyLink: "查看历史来源",
     originalTitle: "原题",
+    originalText: "英文原文",
     noRecentTitle: "最近 3 天没有新信息",
     noRecentBody: "不会用更早的内容填充日报。",
     officialBadge: "官方",
@@ -164,6 +165,7 @@ const I18N = {
     lookingBack: "Looking Back",
     historyLink: "View historical source",
     originalTitle: "Original title",
+    originalText: "Original text",
     noRecentTitle: "No new information in the latest 3 days",
     noRecentBody: "Older items are not used as filler.",
     officialBadge: "Official",
@@ -361,6 +363,11 @@ function safeLink(item) {
   return `<a href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(localizedTitle(item))}</a>`;
 }
 
+function socialOriginalText(item) {
+  const text = item.summary || item.title || "";
+  return text.replace(/^X (post|repost) from @[^:]+:\s*/i, "").trim();
+}
+
 function itemBadge(item) {
   if (item.official) return `<span class="badge badge-official">${escapeHtml(t().officialBadge)}</span>`;
   if (isSocialItem(item) || item.category === "fan") return `<span class="badge badge-fan">${escapeHtml(t().fanBadge)}</span>`;
@@ -532,8 +539,13 @@ function renderNewsItem(item, options = {}) {
   const originalTitle = state.language === "zh" && !isSocialItem(item) && item.title_zh && item.title_zh !== item.title
     ? `<p class="original-title"><strong>${escapeHtml(t().originalTitle)}：</strong>${escapeHtml(item.title)}</p>`
     : "";
+  const originalSocial = state.language === "zh" && isSocialItem(item) && socialOriginalText(item)
+    ? `<p class="original-title social-original"><strong>${escapeHtml(t().originalText)}：</strong>${escapeHtml(socialOriginalText(item))}</p>`
+    : "";
   const attribution = localizedAttribution(item);
   const copyrightNotice = options.showRights === false ? "" : localizedCopyrightNotice(item);
+  const summary = localizedSummary(item);
+  const showSummary = !(state.language === "zh" && isSocialItem(item));
   return `
     <article class="news-item">
       <div class="news-item-top">
@@ -545,7 +557,8 @@ function renderNewsItem(item, options = {}) {
       </div>
       <h3>${safeLink(item)}</h3>
       ${originalTitle}
-      <p>${escapeHtml(localizedSummary(item))}</p>
+      ${originalSocial}
+      ${showSummary && summary ? `<p>${escapeHtml(summary)}</p>` : ""}
       ${attribution ? `<p class="item-attribution">${escapeHtml(attribution)}</p>` : ""}
       ${copyrightNotice ? `<p class="item-rights">${escapeHtml(copyrightNotice)}</p>` : ""}
     </article>`;
