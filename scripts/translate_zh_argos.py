@@ -112,6 +112,20 @@ def load_manual_translations(path: Path | str = DEFAULT_REVIEW_PATH) -> dict[str
     return translations
 
 
+def manual_translation_for(text: str, manual_translations: dict[str, str] | None) -> str | None:
+    if not manual_translations:
+        return None
+    if text in manual_translations:
+        return manual_translations[text]
+    # Social posts often append media URLs, emojis, or hashtags. Let an
+    # approved source_text cover that exact leading/body phrase without forcing
+    # the review table to duplicate every post decoration.
+    for source, target in sorted(manual_translations.items(), key=lambda item: len(item[0]), reverse=True):
+        if len(source) >= 12 and (text.startswith(source) or source in text):
+            return target
+    return None
+
+
 def apply_glossary(value: str, glossary: tuple[tuple[str, str, bool], ...] | None = None) -> str:
     result = value
     for source, target, case_sensitive in glossary or load_glossary():
@@ -220,7 +234,7 @@ def translate_or_fallback(
     cleaned = clean_text(text)
     if not cleaned:
         return ""
-    manual = (manual_translations or {}).get(cleaned)
+    manual = manual_translation_for(cleaned, manual_translations)
     if manual:
         return f"{prefix}{manual}" if prefix else manual
     manual = manual_headline_translation(cleaned)

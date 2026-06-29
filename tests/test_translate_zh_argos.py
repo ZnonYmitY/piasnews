@@ -89,6 +89,20 @@ class TranslateZhArgosTest(unittest.TestCase):
             "待确认标题",
         )
 
+    def test_approved_manual_translation_can_match_social_text_with_extra_decoration(self):
+        manual = {
+            "NO FURTHER ACTION !!! p4 is secured": "不再处罚，P4 保住了",
+        }
+
+        self.assertEqual(
+            translator.translate_or_fallback(
+                "NO FURTHER ACTION !!! p4 is secured 💪🏻 https://t.co/example",
+                None,
+                manual_translations=manual,
+            ),
+            "不再处罚，P4 保住了",
+        )
+
     def test_loads_approved_glossary_terms(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             glossary_path = Path(tmpdir) / "translation_glossary.csv"
