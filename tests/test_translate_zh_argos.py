@@ -103,6 +103,21 @@ class TranslateZhArgosTest(unittest.TestCase):
             "不再处罚，P4 保住了",
         )
 
+    def test_manual_translation_matches_html_entities(self):
+        manual = {
+            'Q: "do you think p4 was the maximum of the car today?" oscar: "definitely. mercedes & max were in a different league today."':
+                "问：你觉得 P4 是今天赛车能达到的上限吗？Oscar：Mercedes 和 Max 今天在另一个级别。",
+        }
+
+        self.assertEqual(
+            translator.translate_or_fallback(
+                'Q: "do you think p4 was the maximum of the car today?" oscar: "definitely. mercedes &amp; max were in a different league today." https://t.co/example',
+                None,
+                manual_translations=manual,
+            ),
+            "问：你觉得 P4 是今天赛车能达到的上限吗？Oscar：Mercedes 和 Max 今天在另一个级别。",
+        )
+
     def test_loads_approved_glossary_terms(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             glossary_path = Path(tmpdir) / "translation_glossary.csv"

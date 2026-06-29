@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import html
 import json
 import re
 from pathlib import Path
@@ -62,7 +63,7 @@ def parse_args() -> argparse.Namespace:
 
 
 def clean_text(value: str | None) -> str:
-    return WHITESPACE_RE.sub(" ", URL_RE.sub("", value or "")).strip()
+    return WHITESPACE_RE.sub(" ", URL_RE.sub("", html.unescape(value or ""))).strip()
 
 
 def has_cjk(value: str | None) -> bool:
