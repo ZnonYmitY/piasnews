@@ -156,6 +156,8 @@ def apply_glossary(value: str, glossary: tuple[tuple[str, str, bool], ...] | Non
 
 def manual_headline_translation(text: str) -> str | None:
     lowered = text.lower()
+    if all(token in lowered for token in ("webber", "red bull move", "piastri")):
+        return "Webber 准备推动 Piastri 转会 Red Bull"
     if all(token in lowered for token in ("piastri", "bemoans", "magicless", "mclaren")):
         return "Oscar Piastri 谈到 McLaren 的艰难处境：缺少“魔法”"
     if all(token in lowered for token in ("piastri", "reached its limit", "austria")):

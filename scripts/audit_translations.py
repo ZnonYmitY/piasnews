@@ -48,6 +48,11 @@ FIELDS = [
     "notes",
 ]
 
+GLOSSARY_MANAGED_ERRORS = {
+    "person_name_translation",
+    "team_name_translation",
+}
+
 PERSON_REPLACEMENTS = (
     ("奥斯卡·皮亚斯特里", "Oscar Piastri"),
     ("奥斯卡·皮阿斯特里", "Oscar Piastri"),
@@ -438,6 +443,7 @@ def audit_entries(
         if row_id in existing_ids or row_id in new_ids:
             continue
         issues = detect_issues(entry)
+        issues = [issue for issue in issues if issue.error_type not in GLOSSARY_MANAGED_ERRORS]
         if not issues:
             continue
         new_rows.append(candidate_row(entry, issues, run_id, seen_at))
@@ -455,12 +461,50 @@ def write_csv(path: Path | str, rows: list[dict[str, str]]) -> None:
 
 
 def append_candidates(path: Path | str, existing_rows: list[dict[str, str]], new_rows: list[dict[str, str]]) -> None:
-    rows = [normalize_row(row) for row in existing_rows] + new_rows
+    rows = [
+        normalize_existing_candidate_row(row)
+        for row in existing_rows
+        if not candidate_errors_are_glossary_managed(row)
+    ] + new_rows
     write_csv(path, rows)
 
 
 def normalize_row(row: dict[str, str]) -> dict[str, str]:
     return {field: row.get(field, "") for field in FIELDS}
+
+
+def normalize_existing_candidate_row(row: dict[str, str]) -> dict[str, str]:
+    normalized = normalize_row(row)
+    error_types = [
+        clean_text(error_type)
+        for error_type in normalized["error_type"].split(",")
+        if clean_text(error_type) and clean_text(error_type) not in GLOSSARY_MANAGED_ERRORS
+    ]
+    tags = [
+        clean_text(tag)
+        for tag in normalized["tags"].split(",")
+        if clean_text(tag) not in {"person", "name", "team"}
+    ]
+    notes = [
+        clean_text(note)
+        for note in normalized["notes"].split("|")
+        if clean_text(note)
+        and "人名应保留英文" not in note
+        and "车队名/赛道名" not in note
+    ]
+    normalized["error_type"] = ",".join(error_types)
+    normalized["tags"] = normalize_tags(tags)
+    normalized["notes"] = " | ".join(notes)
+    return normalized
+
+
+def candidate_errors_are_glossary_managed(row: dict[str, str]) -> bool:
+    error_types = {
+        clean_text(error_type)
+        for error_type in (row.get("error_type") or "").split(",")
+        if clean_text(error_type)
+    }
+    return bool(error_types) and error_types.issubset(GLOSSARY_MANAGED_ERRORS)
 
 
 def column_name(index: int) -> str:

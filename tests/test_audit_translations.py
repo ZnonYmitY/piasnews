@@ -51,6 +51,38 @@ class TranslationAuditTest(unittest.TestCase):
 
         self.assertEqual(rows, [])
 
+    def test_skips_glossary_managed_entity_only_rows(self):
+        entry = audit.TranslationEntry(
+            source_type="news",
+            domain="f1_news_title",
+            url="https://example.com",
+            source="Example",
+            source_text="RaceFans: Oscar Piastri, McLaren, Red Bull Ring",
+            current_zh="RaceFans: 奥斯卡·Piastri, 麦拉伦, 红牛环",
+        )
+
+        rows = audit.audit_entries(
+            [entry],
+            approved_keys=set(),
+            existing_ids=set(),
+            run_id="run",
+            seen_at="2026-06-29T00:00:00Z",
+        )
+
+        self.assertEqual(rows, [])
+
+    def test_normalizes_existing_mixed_candidate_rows(self):
+        row = audit.normalize_existing_candidate_row({
+            "error_type": "person_name_translation,stewards_term,team_name_translation",
+            "tags": "person,name,team,stewards,penalty",
+            "notes": "人名应保留英文，避免中文音译或半中半英。 | stewards 应译为 FIA 干事，不能译成管家/服务员/主管。 | 车队名/赛道名应按术语表保留英文。",
+        })
+
+        self.assertEqual(row["error_type"], "stewards_term")
+        self.assertEqual(row["tags"], "stewards,penalty")
+        self.assertNotIn("人名", row["notes"])
+        self.assertNotIn("车队名", row["notes"])
+
     def test_run_audit_writes_candidate_csv_and_xlsx(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             tmp = Path(tmpdir)

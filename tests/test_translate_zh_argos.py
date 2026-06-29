@@ -27,6 +27,14 @@ class TranslateZhArgosTest(unittest.TestCase):
 
         self.assertEqual(result, "Oscar Piastri 谈到 McLaren 的艰难处境：缺少“魔法”")
 
+    def test_manual_headline_translation_handles_red_bull_move_context(self):
+        result = translator.translate_or_fallback(
+            "Webber preparing Red Bull move for Piastri",
+            None,
+        )
+
+        self.assertEqual(result, "Webber 准备推动 Piastri 转会 Red Bull")
+
     def test_updates_news_and_social_payloads(self):
         def fake_translate(text):
             return f"译文:{text}"
@@ -183,6 +191,13 @@ class TranslateZhArgosTest(unittest.TestCase):
 
         self.assertIn("微弱优势力压", translator.apply_glossary("Antonelli pips Piastri", glossary))
         self.assertNotIn("待确认术语", translator.apply_glossary("PendingTerm", glossary))
+
+    def test_default_glossary_rewrites_machine_translated_entities(self):
+        result = translator.apply_glossary("奥斯卡·Piastri 和红牛环，以及麦拉伦")
+
+        self.assertIn("Oscar Piastri", result)
+        self.assertIn("Red Bull Ring", result)
+        self.assertIn("McLaren", result)
 
 
 if __name__ == "__main__":

@@ -17,6 +17,29 @@ Hamilton,Hamilton,person,all,true,approved,姓氏默认保留英文
 Andrea Stella,Andrea Stella,person,all,true,approved,人名默认保留英文
 Zak Brown,Zak Brown,person,all,true,approved,人名默认保留英文
 Mark Webber,Mark Webber,person,all,true,approved,人名默认保留英文
+奥斯卡·Piastri,Oscar Piastri,person,all,true,approved,中文机翻人名回写英文
+奥斯卡·皮亚斯特里,Oscar Piastri,person,all,true,approved,中文机翻人名回写英文
+奥斯卡·皮阿斯特里,Oscar Piastri,person,all,true,approved,中文机翻人名回写英文
+皮亚斯特里,Piastri,person,all,true,approved,中文机翻姓氏回写英文
+皮阿斯特里,Piastri,person,all,true,approved,中文机翻姓氏回写英文
+兰多·诺里斯,Lando Norris,person,all,true,approved,中文机翻人名回写英文
+诺里斯,Norris,person,all,true,approved,中文机翻姓氏回写英文
+马克斯·弗斯泰彭,Max Verstappen,person,all,true,approved,中文机翻人名回写英文
+马克斯·维斯塔潘,Max Verstappen,person,all,true,approved,中文机翻人名回写英文
+弗斯泰彭,Verstappen,person,all,true,approved,中文机翻姓氏回写英文
+维斯塔潘,Verstappen,person,all,true,approved,中文机翻姓氏回写英文
+基米·安东内利,Kimi Antonelli,person,all,true,approved,中文机翻人名回写英文
+安东内利,Antonelli,person,all,true,approved,中文机翻姓氏回写英文
+乔治·罗素,George Russell,person,all,true,approved,中文机翻人名回写英文
+罗素,Russell,person,all,true,approved,中文机翻姓氏回写英文
+查尔斯·勒克莱尔,Charles Leclerc,person,all,true,approved,中文机翻人名回写英文
+勒克莱尔,Leclerc,person,all,true,approved,中文机翻姓氏回写英文
+刘易斯·汉密尔顿,Lewis Hamilton,person,all,true,approved,中文机翻人名回写英文
+汉密尔顿,Hamilton,person,all,true,approved,中文机翻姓氏回写英文
+亚历克丝·布伦德,Alex Brundle,person,all,true,approved,中文机翻人名回写英文
+布伦德,Brundle,person,all,true,approved,中文机翻姓氏回写英文
+马克·韦伯,Mark Webber,person,all,true,approved,中文机翻人名回写英文
+韦伯,Webber,person,all,true,approved,中文机翻姓氏回写英文
 McLaren,McLaren,team,all,true,approved,队名保留英文
 Red Bull,Red Bull,team,all,true,approved,队名保留英文
 Mercedes,Mercedes,team,all,true,approved,队名保留英文
@@ -27,6 +50,14 @@ Aston Martin,Aston Martin,team,all,true,approved,队名保留英文
 Haas,Haas,team,all,true,approved,队名保留英文
 Racing Bulls,Racing Bulls,team,all,true,approved,队名保留英文
 Sauber,Sauber,team,all,true,approved,队名保留英文
+迈凯伦,McLaren,team,all,true,approved,中文机翻队名回写英文
+麦拉伦,McLaren,team,all,true,approved,中文机翻队名回写英文
+红牛,Red Bull,team,all,true,approved,中文机翻队名回写英文
+法拉利,Ferrari,team,all,true,approved,中文机翻队名回写英文
+梅赛德斯,Mercedes,team,all,true,approved,中文机翻队名回写英文
+奔驰,Mercedes,team,all,true,approved,中文机翻队名回写英文
+阿尔派,Alpine,team,all,true,approved,中文机翻队名回写英文
+阿斯顿·马丁,Aston Martin,team,all,true,approved,中文机翻队名回写英文
 Formula 1,Formula 1,series,all,true,approved,官方系列名保留英文
 F1,F1,series,all,true,approved,缩写保留英文
 FIA,FIA,organization,all,true,approved,缩写保留英文
@@ -43,6 +74,7 @@ Belgian Grand Prix,比利时大奖赛,event,all,false,approved,赛事名称
 Italian GP,意大利大奖赛,event,all,false,approved,赛事名称
 Italian Grand Prix,意大利大奖赛,event,all,false,approved,赛事名称
 Red Bull Ring,Red Bull Ring,circuit,all,true,approved,赛道名保留英文
+红牛环,Red Bull Ring,circuit,all,true,approved,中文机翻赛道名回写英文
 Silverstone,Silverstone,circuit,all,true,approved,赛道名保留英文
 Spa,Spa,circuit,all,true,approved,赛道简称保留英文
 Monza,Monza,circuit,all,true,approved,赛道名保留英文
@@ -101,6 +133,9 @@ drivers' standings,车手积分榜,term,all,false,approved,积分榜
 constructors' standings,车队积分榜,term,all,false,approved,积分榜
 swap rumour,互换传闻,term,news,false,approved,转会传闻
 transfer rumour,转会传闻,term,news,false,approved,转会传闻
+Red Bull move,Red Bull 转会,phrase,news,false,approved,转会语境 move 不译为行动
+move for Piastri,Piastri 转会,phrase,news,false,approved,转会语境 move 不译为行动
+红牛行动,Red Bull 转会,phrase,news,false,approved,修正机翻 move/action
 striking distance,仍有机会追击,phrase,news,false,approved,体育标题常用语
 sets the pace,领跑,phrase,news,false,approved,练习赛结果
 pips,微弱优势力压,phrase,news,false,approved,新闻标题动词
