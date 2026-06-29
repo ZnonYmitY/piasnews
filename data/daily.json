@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-29T11:23:10.856419Z",
+  "generated_at": "2026-06-29T11:29:18.349552Z",
   "window_days": 3,
-  "total_items": 54,
+  "total_items": 61,
   "latest_date": "2026-06-29",
   "days": [
     {
@@ -29,11 +29,11 @@
     },
     {
       "date": "2026-06-28",
-      "total_new_items": 24,
+      "total_new_items": 28,
       "official_new_items": 1,
-      "media_new_items": 23,
+      "media_new_items": 27,
       "x_new_items": 0,
-      "rumor_new_items": 0,
+      "rumor_new_items": 1,
       "sources": {
         "7NEWS": 1,
         "Akses.co.id": 1,
@@ -43,6 +43,8 @@
         "Fox Sports": 3,
         "GPblog": 2,
         "Nine.com.au": 1,
+        "Paddock News 24": 2,
+        "RaceFans": 1,
         "Read Motorsport": 1,
         "Speedcafe.com": 1,
         "St George & Sutherland Shire Leader": 1,
@@ -51,20 +53,22 @@
         "Yahoo News New Zealand": 1,
         "asatunews.co.id": 1,
         "grandprix247": 2,
-        "racingnews365.com": 1
+        "racingnews365.com": 1,
+        "total-motorsport.com": 1
       },
       "categories": {
         "interview": 1,
         "other": 3,
-        "race": 16,
+        "race": 19,
+        "rumor": 1,
         "team": 4
       }
     },
     {
       "date": "2026-06-27",
-      "total_new_items": 10,
+      "total_new_items": 11,
       "official_new_items": 0,
-      "media_new_items": 10,
+      "media_new_items": 11,
       "x_new_items": 0,
       "rumor_new_items": 3,
       "sources": {
@@ -73,38 +77,41 @@
         "AutoRacing1.com": 1,
         "BVM Sports": 1,
         "Fox Sports": 1,
+        "Paddock News 24": 1,
         "Read Motorsport": 2,
         "Speedcafe.com": 1,
         "The Sunday Guardian": 1,
         "The Times of India": 1
       },
       "categories": {
-        "race": 5,
+        "race": 6,
         "rumor": 3,
         "team": 2
       }
     },
     {
       "date": "2026-06-26",
-      "total_new_items": 12,
+      "total_new_items": 14,
       "official_new_items": 3,
-      "media_new_items": 9,
+      "media_new_items": 11,
       "x_new_items": 0,
       "rumor_new_items": 1,
       "sources": {
         "BBC": 1,
+        "F1ingenerale": 1,
         "Formula 1": 3,
         "Fox Sports": 2,
         "GPToday.net": 1,
         "Nine.com.au": 1,
         "Speedcafe.com": 2,
         "The Sunday Guardian": 1,
-        "grandprix247": 1
+        "grandprix247": 1,
+        "total-motorsport.com": 1
       },
       "categories": {
-        "race": 9,
+        "race": 10,
         "rumor": 1,
-        "team": 2
+        "team": 3
       }
     }
   ],
@@ -176,12 +183,12 @@
       "stage": "publisher_date_verification",
       "ok": true,
       "checked": 90,
-      "kept": 54,
+      "kept": 61,
       "results": {
         "outside_window": 2,
-        "publisher_date_missing": 22,
-        "publisher_unavailable": 11,
-        "verified": 55
+        "publisher_date_missing": 20,
+        "publisher_unavailable": 5,
+        "verified": 63
       }
     }
   ]
