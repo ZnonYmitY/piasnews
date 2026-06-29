@@ -201,7 +201,15 @@ a {
   display: block;
   font-size: 13px;
   font-weight: 800;
+}
+
+#updatedAt {
   white-space: nowrap;
+}
+
+#socialUpdatedAt {
+  max-width: 34rem;
+  white-space: normal;
 }
 
 .refresh-button,

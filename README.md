@@ -106,7 +106,7 @@ Summarize the latest Oscar Piastri news in English.
 - 页面提供速读、日报、粉丝源三个 Tab；速读和日报共用同一份已核验静态数据。
 - 粉丝源 Tab 读取 `data/social.json` 展示已抓取到的 X / IG 发帖与转帖；后台维护的账号表不在公开页面展示。
 - 页面右上角支持中文 / English 切换。中文模式优先读取 `title_zh` 和 `summary_zh`，链接文字也可以显示为中文标题；原始英文标题保留为溯源字段。
-- 页面分别显示北京时间的新闻数据更新时间和 X / IG 粉丝源更新时间，并提供手动刷新按钮。
+- 页面分别显示北京时间的新闻数据更新时间、X / IG 粉丝源采集时间和最新内容时间，并提供手动刷新按钮。
 - 页面接入 F1 赛历，展示下一场大奖赛、比赛周时间和每秒更新的正赛倒计时。
 - 每次 GitHub Actions 完成信息抓取后，会在同一工作流中重新部署网页和 JSON/RSS，因此页面与公开数据同步更新。
 - 日报由浏览器中的确定性模板生成，不调用大模型，不消耗项目方或访问者的模型 token。
@@ -481,7 +481,7 @@ The current knowledge base uses structured-facet retrieval. `piasnews/references
 - The page provides short, daily, and fan-source tabs. Short and daily share the same verified static data; fan sources reads `data/social.json`.
 - The fan-source tab displays collected X / IG posts and reposts only. The maintained source list remains backend configuration and is not shown on the public page.
 - The top-right language switch toggles Chinese and English UI. Chinese mode prefers `title_zh` and `summary_zh`, so even the article link text can be Chinese while the original English title remains available for traceability.
-- The page shows separate China Standard Time refresh times for news data and X / IG fan-source data, and includes a manual refresh control.
+- The page shows separate China Standard Time refresh times for news data, X / IG fan-source generation, and the newest retained X / IG item, and includes a manual refresh control.
 - The page reads the F1 calendar and shows the next Grand Prix, race-week timing, and a live race-start countdown.
 - Each successful GitHub Actions collection redeploys the page and JSON/RSS in the same workflow, keeping them synchronized.
 - Browser-side deterministic templates generate the views without an LLM or model-token usage.
@@ -582,7 +582,7 @@ Full local publish script:
 scripts/update_social_agent_reach.sh
 ```
 
-By default it collects all X groups, updates `data/social.json`, builds the compact import JSON, writes `PIASNEWS_SOCIAL_INPUT_JSON`, and triggers the `Update Piasnews Data` workflow. The compact import omits per-run generated timestamps; when the compact content is unchanged from the previous publish, the script skips the GitHub variable update and workflow dispatch. The script verifies that at least one X source collected successfully before publishing; authentication, DNS, or network failures stop before updating GitHub so a failed collection is not presented as a fresh X / IG update. Set `PIASNEWS_FORCE_SOCIAL_PUBLISH=1` to force a publish. To update local files only:
+By default it collects all X groups, updates `data/social.json`, builds the compact import JSON, writes `PIASNEWS_SOCIAL_INPUT_JSON`, and triggers the `Update Piasnews Data` workflow. The compact import omits per-run generated timestamps; when the compact content is unchanged from the previous publish, the script skips the GitHub variable update and workflow dispatch. The public page displays both the social feed generation time and the newest retained post time, because a fresh generation can still contain no newer qualifying posts after the Piastri relevance filter runs. The script verifies that at least one X source collected successfully before publishing; authentication, DNS, or network failures stop before updating GitHub so a failed collection is not presented as a fresh X / IG update. Set `PIASNEWS_FORCE_SOCIAL_PUBLISH=1` to force a publish. To update local files only:
 
 ```bash
 PIASNEWS_SKIP_GITHUB=1 scripts/update_social_agent_reach.sh

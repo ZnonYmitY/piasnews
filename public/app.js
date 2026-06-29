@@ -10,7 +10,8 @@ const I18N = {
     pageTitle: "Oscar Piastri 粉丝日报",
     deck: "最近三天值得关注的比赛、车队与围场动态。",
     updateLabel: "数据更新时间",
-    socialUpdateLabel: "X / IG 更新时间",
+    socialUpdateLabel: "X / IG 数据",
+    socialMeta: (generated, latest) => `采集 ${generated}；最新内容 ${latest}`,
     loadingUpdatedAt: "正在读取...",
     refresh: "刷新",
     retry: "重新加载",
@@ -113,7 +114,8 @@ const I18N = {
     pageTitle: "Oscar Piastri Fan Daily",
     deck: "Race, team, and paddock updates worth tracking from the latest three days.",
     updateLabel: "Data updated",
-    socialUpdateLabel: "X / IG updated",
+    socialUpdateLabel: "X / IG data",
+    socialMeta: (generated, latest) => `Generated ${generated}; newest item ${latest}`,
     loadingUpdatedAt: "Loading...",
     refresh: "Refresh",
     retry: "Reload",
@@ -577,6 +579,14 @@ function fanSourceItems() {
   return socialItems().filter((item) => item.source_group === "fan_watch" || !item.source_group);
 }
 
+function latestSocialPublishedAt() {
+  const timestamps = socialItems()
+    .map((item) => new Date(item.published_at).getTime())
+    .filter((value) => Number.isFinite(value));
+  if (!timestamps.length) return null;
+  return new Date(Math.max(...timestamps)).toISOString();
+}
+
 function exactAnniversary() {
   const parts = new Intl.DateTimeFormat("en-US", {
     timeZone: "Asia/Shanghai",
@@ -780,7 +790,11 @@ function updateMeta(generatedAt) {
   elements.updatedAt.textContent = `${formatDateTime(generatedAt)} ${t().updatedSuffix}`;
   elements.updatedAt.dateTime = generatedAt;
   const socialGeneratedAt = state.social?.generated_at;
-  elements.socialUpdatedAt.textContent = `${formatDateTime(socialGeneratedAt)} ${t().updatedSuffix}`;
+  const latestSocialAt = latestSocialPublishedAt();
+  elements.socialUpdatedAt.textContent = t().socialMeta(
+    `${formatDateTime(socialGeneratedAt)} ${t().updatedSuffix}`,
+    `${formatDateTime(latestSocialAt)} ${t().updatedSuffix}`,
+  );
   elements.socialUpdatedAt.dateTime = socialGeneratedAt || "";
   elements.itemCount.textContent = state.items.length ? t().verifiedCount(state.items.length) : t().noNewsCount;
   if (state.items.length) {
