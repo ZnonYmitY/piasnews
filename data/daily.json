@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-06-29T16:17:52.990104Z",
+  "generated_at": "2026-06-29T17:21:36.885170Z",
   "window_days": 3,
-  "total_items": 55,
+  "total_items": 50,
   "latest_date": "2026-06-29",
   "days": [
     {
       "date": "2026-06-29",
-      "total_new_items": 10,
+      "total_new_items": 11,
       "official_new_items": 0,
-      "media_new_items": 10,
+      "media_new_items": 11,
       "x_new_items": 0,
       "rumor_new_items": 3,
       "sources": {
@@ -17,6 +17,7 @@
         "GPToday.net": 1,
         "PlanetF1": 1,
         "Scottish Grocer & Convenience Retailer": 1,
+        "Scottish Local Retailer": 1,
         "The Sporting Base": 1,
         "TheJudge13": 1,
         "news.gp": 1,
@@ -25,16 +26,16 @@
       "categories": {
         "race": 3,
         "rumor": 3,
-        "team": 4
+        "team": 5
       }
     },
     {
       "date": "2026-06-28",
-      "total_new_items": 26,
+      "total_new_items": 23,
       "official_new_items": 1,
-      "media_new_items": 25,
+      "media_new_items": 22,
       "x_new_items": 0,
-      "rumor_new_items": 1,
+      "rumor_new_items": 0,
       "sources": {
         "7NEWS": 1,
         "Akses.co.id": 1,
@@ -44,8 +45,6 @@
         "Fox Sports": 3,
         "GPblog": 1,
         "Nine.com.au": 1,
-        "Paddock News 24": 2,
-        "RaceFans": 1,
         "Read Motorsport": 1,
         "Speedcafe.com": 1,
         "The Canberra Times": 1,
@@ -59,16 +58,15 @@
       "categories": {
         "interview": 1,
         "other": 2,
-        "race": 18,
-        "rumor": 1,
+        "race": 16,
         "team": 4
       }
     },
     {
       "date": "2026-06-27",
-      "total_new_items": 11,
+      "total_new_items": 10,
       "official_new_items": 0,
-      "media_new_items": 11,
+      "media_new_items": 10,
       "x_new_items": 0,
       "rumor_new_items": 3,
       "sources": {
@@ -77,36 +75,33 @@
         "AutoRacing1.com": 1,
         "BVM Sports": 1,
         "Fox Sports": 1,
-        "Paddock News 24": 1,
         "Read Motorsport": 2,
         "Speedcafe.com": 1,
         "The Sunday Guardian": 1,
         "The Times of India": 1
       },
       "categories": {
-        "race": 6,
+        "race": 5,
         "rumor": 3,
         "team": 2
       }
     },
     {
       "date": "2026-06-26",
-      "total_new_items": 8,
+      "total_new_items": 6,
       "official_new_items": 1,
-      "media_new_items": 7,
+      "media_new_items": 5,
       "x_new_items": 0,
       "rumor_new_items": 1,
       "sources": {
-        "BVM Sports": 1,
         "Formula 1": 1,
         "Fox Sports": 2,
         "Nine.com.au": 1,
         "Speedcafe.com": 1,
-        "The Sunday Guardian": 1,
-        "total-motorsport.com": 1
+        "The Sunday Guardian": 1
       },
       "categories": {
-        "race": 5,
+        "race": 3,
         "rumor": 1,
         "team": 2
       }
@@ -146,7 +141,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 59
+      "items": 56
     },
     {
       "query": "\"OP81\" when:3d",
@@ -167,25 +162,25 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 28
+      "items": 26
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22interview%22+when%3A3d",
       "ok": true,
-      "items": 4
+      "items": 3
     },
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 82,
-      "kept": 55,
+      "checked": 81,
+      "kept": 50,
       "results": {
-        "outside_window": 1,
+        "outside_window": 2,
         "publisher_date_missing": 18,
-        "publisher_unavailable": 7,
-        "verified": 56
+        "publisher_unavailable": 10,
+        "verified": 51
       }
     }
   ]
