@@ -101,6 +101,10 @@ class TranslateZhArgosTest(unittest.TestCase):
                 "Piastri 干事裁定出炉：McLaren 车手避开奥地利站处罚风险",
             "‘Surprised’ Oscar Piastri sends reminder despite missing Austrian Grand Prix podium":
                 "无缘奥地利站领奖台后，Piastri 仍给出提醒",
+            "FIA confirms Oscar Piastri decision after Austrian GP investigation":
+                "FIA 确认 Piastri 奥地利站调查裁定",
+            "Oscar Piastri linked with Red Bull as Max Verstappen McLaren rumours intensify":
+                "Piastri 被关联至 Red Bull，Max Verstappen 与 McLaren 传闻升温",
         }
 
         for source, expected in cases.items():
