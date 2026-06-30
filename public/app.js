@@ -51,6 +51,8 @@ const I18N = {
     topicMerge: "话题合并",
     topicCount: (count) => `${count} 个话题`,
     officialSection: "官方动态",
+    officialSpotlightNote: "优先展示来自车手、车队与 F1 官方来源的更新",
+    officialSpotlightLabel: "官方优先",
     mediaSection: "媒体报道",
     mediaCount: (count) => `${count} 条`,
     fanFeedTitle: "粉丝源",
@@ -155,6 +157,8 @@ const I18N = {
     topicMerge: "Topic Merge",
     topicCount: (count) => `${count} topics`,
     officialSection: "Official Updates",
+    officialSpotlightNote: "Prioritising driver, team, and Formula 1 official sources",
+    officialSpotlightLabel: "Official first",
     mediaSection: "Media Coverage",
     mediaCount: (count) => `${count} items`,
     fanFeedTitle: "Fan Sources",
@@ -677,6 +681,32 @@ function renderTopicCard(category, items) {
     </article>`;
 }
 
+function renderOfficialSpotlight(items) {
+  const [lead, ...rest] = items;
+  if (!lead) return "";
+  const leadSummary = localizedSummary(lead);
+  const secondary = rest.slice(0, 3).map((item) => `
+    <li>
+      <span>${escapeHtml(item.source)}</span>
+      ${safeLink(item)}
+      <time datetime="${escapeHtml(item.published_at)}">${escapeHtml(formatItemTime(item.published_at))}</time>
+    </li>`).join("");
+
+  return `
+    <div class="official-spotlight">
+      <article class="official-lead">
+        <div class="official-lead-meta">
+          <span>${escapeHtml(t().officialSpotlightLabel)}</span>
+          <time datetime="${escapeHtml(lead.published_at)}">${escapeHtml(formatItemTime(lead.published_at))}</time>
+        </div>
+        <h3>${safeLink(lead)}</h3>
+        ${leadSummary ? `<p>${escapeHtml(leadSummary)}</p>` : ""}
+        <div class="official-source">${escapeHtml(lead.source)}</div>
+      </article>
+      ${secondary ? `<ul class="official-secondary">${secondary}</ul>` : ""}
+    </div>`;
+}
+
 function renderDaily() {
   const ordered = dailyItems();
   if (!ordered.length) return renderEmpty();
@@ -699,10 +729,10 @@ function renderDaily() {
       t().reliableFirst,
     )
     : "";
-  html += section(t().topicMerge, `<div class="topic-grid">${topicCards}</div>`, t().topicCount(Object.keys(groups).length));
   if (officialItems.length) {
-    html += section(t().officialSection, `<div class="news-list">${officialItems.map(renderNewsItem).join("")}</div>`);
+    html += section(t().officialSection, renderOfficialSpotlight(officialItems), t().officialSpotlightNote);
   }
+  html += section(t().topicMerge, `<div class="topic-grid">${topicCards}</div>`, t().topicCount(Object.keys(groups).length));
   if (mediaItems.length) {
     html += section(t().mediaSection, `<div class="news-list">${mediaItems.map(renderNewsItem).join("")}</div>`, t().mediaCount(mediaItems.length));
   }
