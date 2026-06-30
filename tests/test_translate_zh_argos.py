@@ -35,6 +35,22 @@ class TranslateZhArgosTest(unittest.TestCase):
 
         self.assertEqual(result, "Webber 准备推动 Piastri 转会 Red Bull")
 
+    def test_manual_headline_translation_handles_merch_and_semantic_badcases(self):
+        cases = {
+            "Monster launches Oscar Piastri F1 cans":
+                "Monster 推出 Oscar Piastri F1 联名罐",
+            "Monster Energy unveils new Oscar Piastri cans":
+                "Monster Energy 发布新的 Oscar Piastri 联名罐",
+            "Piastri Austria Recovery Gives McLaren Ferrari Reality Check":
+                "Piastri 奥地利站反弹，让 McLaren 与 Ferrari 看清现实差距",
+            "‘Clear penalty’: Max reignites bitter rivalry; strong Piastri signs as big title statement sent — F1 wrap":
+                "“这明显该罚”：Max 再度点燃激烈对抗；Piastri 展现强势信号",
+        }
+
+        for source, expected in cases.items():
+            with self.subTest(source=source):
+                self.assertEqual(translator.translate_or_fallback(source, None), expected)
+
     def test_updates_news_and_social_payloads(self):
         def fake_translate(text):
             return f"译文:{text}"
@@ -71,6 +87,19 @@ class TranslateZhArgosTest(unittest.TestCase):
             self.assertEqual(news["items"][0]["summary_zh"], "媒体来源围绕 Piastri 比赛动态展开。")
             self.assertEqual(social["items"][0]["summary_zh"], "Oscar talks about qualifying.")
             self.assertEqual(social["items"][0]["title_zh"], "X 发帖 @PiastriNews：Oscar talks about qualifying.")
+
+    def test_news_update_preserves_existing_chinese_when_translator_unavailable(self):
+        item = {
+            "title": "Mark Webber is now in talks with surprise midfield team over potential Oscar Piastri deal",
+            "title_zh": "Mark Webber 正在与一支意外的中游车队讨论潜在 Oscar Piastri 交易",
+        }
+
+        translator.update_news_item(item, None, {})
+
+        self.assertEqual(
+            item["title_zh"],
+            "Mark Webber 正在与一支意外的中游车队讨论潜在 Oscar Piastri 交易",
+        )
 
     def test_loads_approved_manual_translation_only(self):
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -113,6 +142,8 @@ class TranslateZhArgosTest(unittest.TestCase):
                 "FIA 确认 Piastri 奥地利站调查裁定",
             "Oscar Piastri linked with Red Bull as Max Verstappen McLaren rumours intensify":
                 "Piastri 被关联至 Red Bull，Max Verstappen 与 McLaren 传闻升温",
+            "F1 stewards make call on punishment for Oscar Piastri and overturning result":
+                "F1 干事调查后决定是否处罚 Piastri、是否改写赛果",
         }
 
         for source, expected in cases.items():

@@ -83,6 +83,84 @@ class TranslationAuditTest(unittest.TestCase):
         self.assertNotIn("人名", row["notes"])
         self.assertNotIn("车队名", row["notes"])
 
+    def test_append_candidates_prunes_approved_existing_rows(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            output = Path(tmpdir) / "candidates.csv"
+            audit.append_candidates(
+                output,
+                [{
+                    "id": "tc-old",
+                    "source_type": "news",
+                    "source_text": "Monster launches Oscar Piastri F1 cans",
+                    "error_type": "merch_sponsorship_title",
+                }],
+                [],
+                {("news", "monster launches oscar piastri f1 cans")},
+            )
+
+            with output.open(newline="", encoding="utf-8") as handle:
+                rows = list(csv.DictReader(handle))
+
+        self.assertEqual(rows, [])
+
+    def test_detects_merch_and_headline_semantic_badcases(self):
+        cases = [
+            (
+                audit.TranslationEntry(
+                    "news",
+                    "f1_news_title",
+                    "https://example.com/monster",
+                    "Example",
+                    "Monster launches Oscar Piastri F1 cans",
+                    "怪物发射 Oscar Piastri F1罐",
+                ),
+                "merch_sponsorship_title",
+                "Monster 推出 Oscar Piastri F1 联名罐",
+            ),
+            (
+                audit.TranslationEntry(
+                    "news",
+                    "f1_news_title",
+                    "https://example.com/stewards",
+                    "Example",
+                    "F1 stewards make call on punishment for Oscar Piastri and overturning result",
+                    "F1管理者呼吁惩罚Oscar Piastri 和推翻结果",
+                ),
+                "stewards_make_call",
+                "F1 干事调查后决定是否处罚 Piastri、是否改写赛果",
+            ),
+            (
+                audit.TranslationEntry(
+                    "news",
+                    "f1_news_title",
+                    "https://example.com/recovery",
+                    "Example",
+                    "Piastri Austria Recovery Gives McLaren Ferrari Reality Check",
+                    "Piastri奥地利复苏 给McLarenFerrari现实检查",
+                ),
+                "idiom_reality_check",
+                "Piastri 奥地利站反弹，让 McLaren 与 Ferrari 看清现实差距",
+            ),
+            (
+                audit.TranslationEntry(
+                    "news",
+                    "f1_news_title",
+                    "https://example.com/clear-penalty",
+                    "Example",
+                    "‘Clear penalty’: Max reignites bitter rivalry; strong Piastri signs as big title statement sent — F1 wrap",
+                    "“清罚”:马克思点燃了激烈的争斗;强烈的Piastri标志,",
+                ),
+                "quote_penalty_idiom",
+                "“这明显该罚”：Max 再度点燃激烈对抗；Piastri 展现强势信号",
+            ),
+        ]
+
+        for entry, expected_issue, expected_suggestion in cases:
+            with self.subTest(entry=entry.source_text):
+                issues = audit.detect_issues(entry)
+                self.assertIn(expected_issue, {issue.error_type for issue in issues})
+                self.assertEqual(audit.suggested_translation(entry), expected_suggestion)
+
     def test_run_audit_writes_candidate_csv_and_xlsx(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             tmp = Path(tmpdir)

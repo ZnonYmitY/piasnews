@@ -156,6 +156,18 @@ def apply_glossary(value: str, glossary: tuple[tuple[str, str, bool], ...] | Non
 
 def manual_headline_translation(text: str) -> str | None:
     lowered = text.lower()
+    if all(token in lowered for token in ("monster", "piastri", "cans")):
+        if "limited-edition" in lowered or "limited edition" in lowered:
+            return "Monster 推出 Oscar Piastri 限量版 F1 联名罐"
+        if "unveils" in lowered:
+            return "Monster Energy 发布新的 Oscar Piastri 联名罐"
+        return "Monster 推出 Oscar Piastri F1 联名罐"
+    if "stewards make call" in lowered and "piastri" in lowered:
+        return "F1 干事调查后决定是否处罚 Piastri、是否改写赛果"
+    if all(token in lowered for token in ("piastri", "austria recovery", "reality check")):
+        return "Piastri 奥地利站反弹，让 McLaren 与 Ferrari 看清现实差距"
+    if "clear penalty" in lowered and "strong piastri signs" in lowered:
+        return "“这明显该罚”：Max 再度点燃激烈对抗；Piastri 展现强势信号"
     if all(token in lowered for token in ("webber", "red bull move", "piastri")):
         return "Webber 准备推动 Piastri 转会 Red Bull"
     if all(token in lowered for token in ("piastri", "bemoans", "magicless", "mclaren")):
@@ -262,7 +274,16 @@ def update_news_item(
     title = clean_text(item.get("title"))
     summary = clean_text(item.get("summary"))
     if title:
-        item["title_zh"] = translate_or_fallback(title, translator, manual_translations=manual_translations)
+        manual = manual_translation_for(title, manual_translations) or manual_headline_translation(title)
+        existing_title_zh = clean_text(item.get("title_zh"))
+        if manual:
+            item["title_zh"] = manual
+        elif translator:
+            item["title_zh"] = translate_or_fallback(title, translator, manual_translations=manual_translations)
+        elif existing_title_zh and has_cjk(existing_title_zh):
+            item["title_zh"] = apply_glossary(existing_title_zh)
+        else:
+            item["title_zh"] = fallback_title(title)
     existing_summary_zh = clean_text(item.get("summary_zh"))
     if existing_summary_zh and has_cjk(existing_summary_zh):
         item["summary_zh"] = apply_glossary(existing_summary_zh)

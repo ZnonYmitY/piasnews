@@ -75,6 +75,7 @@ PERSON_REPLACEMENTS = (
     ("布伦德", "Brundle"),
     ("马克·韦伯", "Mark Webber"),
     ("韦伯", "Webber"),
+    ("马克思", "Max"),
 )
 
 TEAM_REPLACEMENTS = (
@@ -95,6 +96,7 @@ TERM_REPLACEMENTS = (
     ("拿起杆子", "拿下杆位"),
     ("降压", "下压力"),
     ("发烧", "parc ferme"),
+    ("清罚", "明显处罚"),
 )
 
 MACHINE_ENGLISH_WORDS = {
@@ -324,6 +326,13 @@ def detect_issues(entry: TranslationEntry) -> list[Issue]:
             ("stewards", "penalty", entry.domain),
             "stewards 应译为 FIA 干事，不能译成管家/服务员/主管。",
         ))
+    if "stewards make call" in lowered and "呼吁" in zh:
+        issues.append(Issue(
+            "stewards_make_call",
+            "high",
+            ("stewards", "penalty", "headline", entry.domain),
+            "make call 在处罚/干事语境应译为作出决定，不是呼吁。",
+        ))
     if ("qualifying" in lowered or "quali" in lowered) and "资格" in zh:
         issues.append(Issue(
             "qualifying_term",
@@ -351,6 +360,43 @@ def detect_issues(entry: TranslationEntry) -> list[Issue]:
             "high",
             ("parc_ferme", "penalty", entry.domain),
             "parc ferme 不应译成发烧。",
+        ))
+    if "monster" in lowered and "piastri" in lowered and "can" in lowered and any(
+        term in zh for term in ("怪物", "怪兽", "发射", "罐头", "罐")
+    ):
+        issues.append(Issue(
+            "merch_sponsorship_title",
+            "high",
+            ("merch", "sponsor", "headline", entry.domain),
+            "Monster 是品牌名；cans 在商业/周边语境应译为联名罐，不应直译为怪物发射/罐头。",
+        ))
+    if "reality check" in lowered and "现实检查" in zh:
+        issues.append(Issue(
+            "idiom_reality_check",
+            "high",
+            ("idiom", "headline", entry.domain),
+            "reality check 在新闻标题中应译为看清现实/现实提醒，不是现实检查。",
+        ))
+    if "recovery" in lowered and "复苏" in zh:
+        issues.append(Issue(
+            "race_recovery_context",
+            "medium",
+            ("race", "headline", entry.domain),
+            "recovery 在比赛语境多指反弹/追回，不宜直译为复苏。",
+        ))
+    if "clear penalty" in lowered and "清罚" in zh:
+        issues.append(Issue(
+            "quote_penalty_idiom",
+            "high",
+            ("penalty", "quote", "headline", entry.domain),
+            "clear penalty 是“明显该罚/明显处罚”，不是清罚。",
+        ))
+    if "strong piastri signs" in lowered and "标志" in zh:
+        issues.append(Issue(
+            "signs_context",
+            "medium",
+            ("headline", "race", entry.domain),
+            "signs 在标题语境为迹象/信号，不是标志。",
         ))
 
     english_hits = machine_english_hits(zh)
@@ -386,10 +432,24 @@ def detect_issues(entry: TranslationEntry) -> list[Issue]:
 
 
 def suggested_translation(entry: TranslationEntry) -> str:
+    lowered = entry.source_text.casefold()
+    if all(token in lowered for token in ("monster", "piastri", "cans")):
+        if "limited-edition" in lowered or "limited edition" in lowered:
+            return "Monster 推出 Oscar Piastri 限量版 F1 联名罐"
+        if "unveils" in lowered:
+            return "Monster Energy 发布新的 Oscar Piastri 联名罐"
+        return "Monster 推出 Oscar Piastri F1 联名罐"
+    if "stewards make call" in lowered and "piastri" in lowered:
+        return "F1 干事调查后决定是否处罚 Piastri、是否改写赛果"
+    if all(token in lowered for token in ("piastri", "austria recovery", "reality check")):
+        return "Piastri 奥地利站反弹，让 McLaren 与 Ferrari 看清现实差距"
+    if "clear penalty" in lowered and "strong piastri signs" in lowered:
+        return "“这明显该罚”：Max 再度点燃激烈对抗；Piastri 展现强势信号"
+
     result = entry.current_zh
     for bad, good in (*PERSON_REPLACEMENTS, *TEAM_REPLACEMENTS, *TERM_REPLACEMENTS):
         result = result.replace(bad, good)
-    if "qualifying" in entry.source_text.casefold() or "quali" in entry.source_text.casefold():
+    if "qualifying" in lowered or "quali" in lowered:
         result = result.replace("资格赛", "排位赛").replace("资格", "排位赛")
     result = result.replace("  ", " ").strip()
     return result if result != entry.current_zh else ""
@@ -460,11 +520,21 @@ def write_csv(path: Path | str, rows: list[dict[str, str]]) -> None:
         writer.writerows(rows)
 
 
-def append_candidates(path: Path | str, existing_rows: list[dict[str, str]], new_rows: list[dict[str, str]]) -> None:
+def append_candidates(
+    path: Path | str,
+    existing_rows: list[dict[str, str]],
+    new_rows: list[dict[str, str]],
+    approved_keys: set[tuple[str, str]] | None = None,
+) -> None:
+    approved_keys = approved_keys or set()
     rows = [
         normalize_existing_candidate_row(row)
         for row in existing_rows
         if not candidate_errors_are_glossary_managed(row)
+        and (
+            clean_text(row.get("source_type")) or "unknown",
+            clean_text(row.get("source_text")).casefold(),
+        ) not in approved_keys
     ] + new_rows
     write_csv(path, rows)
 
@@ -592,7 +662,7 @@ def run_audit(args: argparse.Namespace) -> list[dict[str, str]]:
         run_id=run_id,
         seen_at=seen_at,
     )
-    append_candidates(args.candidates, existing_rows, new_rows)
+    append_candidates(args.candidates, existing_rows, new_rows, approved_keys)
     write_csv(args.latest_csv, new_rows)
     write_xlsx(args.latest_xlsx, new_rows)
     print(
