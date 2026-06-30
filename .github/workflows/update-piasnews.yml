@@ -65,6 +65,14 @@ jobs:
           FEISHU_BASE_TABLE_ID: ${{ secrets.FEISHU_BASE_TABLE_ID }}
         run: python scripts/import_feishu_translation_review.py --review-csv data/translation_review.csv
 
+      - name: Sync approved translation cases to Feishu Base
+        env:
+          FEISHU_APP_ID: ${{ secrets.FEISHU_APP_ID }}
+          FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
+          FEISHU_BASE_APP_TOKEN: ${{ secrets.FEISHU_BASE_APP_TOKEN }}
+          FEISHU_CASE_TABLE_ID: ${{ secrets.FEISHU_CASE_TABLE_ID }}
+        run: python scripts/sync_feishu_translation_cases.py --review-csv data/translation_review.csv
+
       - name: Audit translation badcases
         run: |
           python scripts/audit_translations.py \

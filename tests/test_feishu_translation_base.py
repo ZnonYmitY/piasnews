@@ -1,4 +1,5 @@
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -7,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import import_feishu_translation_review as importer  # noqa: E402
+import sync_feishu_translation_cases as case_syncer  # noqa: E402
 import sync_feishu_translation_base as syncer  # noqa: E402
 
 
@@ -89,7 +91,63 @@ class FeishuTranslationBaseTest(unittest.TestCase):
         self.assertEqual(added, 0)
         self.assertEqual(len(merged), 1)
 
+    def test_case_library_syncs_only_approved_rows_by_sample_id(self):
+        client = FakeClient([
+            {
+                "record_id": "rec_existing",
+                "fields": {"样本ID": "tr-existing"},
+            }
+        ])
+        rows = [
+            {
+                "id": "tr-existing",
+                "source_type": "social",
+                "domain": "x_post",
+                "source_text": "existing source",
+                "current_zh": "bad",
+                "suggested_zh": "good",
+                "status": "approved",
+                "priority": "high",
+                "tags": "fan-source",
+                "notes": "confirmed",
+            },
+            {
+                "id": "tr-new",
+                "source_type": "news",
+                "domain": "f1_news_title",
+                "source_text": "new source",
+                "current_zh": "old",
+                "suggested_zh": "new",
+                "status": "approved",
+                "priority": "medium",
+                "tags": "headline",
+                "notes": "confirmed",
+            },
+        ]
+
+        created, updated = case_syncer.sync_cases(client, rows)
+
+        self.assertEqual((created, updated), (1, 1))
+        self.assertEqual(client.created[0]["样本ID"], "tr-new")
+        self.assertEqual(client.created[0]["英文原文"], "new source")
+        self.assertEqual(client.created[0]["审核状态"], "approved")
+        self.assertEqual(client.updated[0][0], "rec_existing")
+        self.assertEqual(client.updated[0][1]["建议中文"], "good")
+
+    def test_case_library_reads_only_approved_review_rows(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            path = Path(tmpdir) / "translation-review.csv"
+            path.write_text(
+                "id,source_text,status\n"
+                "tr-approved,Oscar title,approved\n"
+                "tr-pending,Pending title,pending\n"
+                "tr-empty,,approved\n",
+                encoding="utf-8",
+            )
+            rows = case_syncer.approved_review_rows(path)
+
+        self.assertEqual([row["id"] for row in rows], ["tr-approved"])
+
 
 if __name__ == "__main__":
     unittest.main()
-

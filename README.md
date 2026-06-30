@@ -115,12 +115,12 @@ Summarize the latest Oscar Piastri news in English.
 
 ## 飞书翻译审核表
 
-翻译 badcase 的主审核界面推荐使用飞书多维表格 Base，而不是每次下载 Excel。工作流支持以下环境配置：
+翻译 badcase 的主审核界面推荐使用飞书多维表格 Base，而不是每次下载 Excel。飞书审核表负责待审和人工确认，仓库内 `data/translation_review.csv` 是最终可追溯案例库；另建一个飞书“翻译案例库”表作为 approved 样本镜像，方便查看已经入库的案例。工作流支持以下环境配置：
 
-- GitHub Secrets：`FEISHU_APP_ID`、`FEISHU_APP_SECRET`、`FEISHU_BASE_APP_TOKEN`、`FEISHU_BASE_TABLE_ID`。
+- GitHub Secrets：`FEISHU_APP_ID`、`FEISHU_APP_SECRET`、`FEISHU_BASE_APP_TOKEN`、`FEISHU_BASE_TABLE_ID`、`FEISHU_CASE_TABLE_ID`。
 - GitHub Variable：`FEISHU_BASE_URL`，用于飞书通知中展示可点击的审核表链接。
 
-Base 表建议字段：
+审核表建议字段：
 
 - `候选ID`
 - `运行ID`
@@ -138,20 +138,37 @@ Base 表建议字段：
 - `标签`
 - `备注`
 
+审核表视图建议把 `英文原文`、`当前中文`、`建议中文`、`审核状态`、`备注` 放在前部。飞书 Base 会强制主字段在第一列，因此如果 `候选ID` 是主字段，它会保留在最前。
+
+“翻译案例库”表建议字段：
+
+- `英文原文`
+- `当前中文`
+- `建议中文`
+- `审核状态`
+- `备注`
+- `样本ID`
+- `来源类型`
+- `场景`
+- `优先级`
+- `标签`
+
 审核方式：
 
 1. 打开飞书审核表。
 2. 检查 `英文原文`、`当前中文`、`建议中文`。
 3. 如果建议译文可以进入确认集，把 `审核状态` 改为 `approved`。
 4. 如果不需要处理，可以改为 `ignored` 或保持 `pending`。
-5. 下一次 `Update Piasnews Data` workflow 会先读取飞书 Base 中的 `approved` 行，追加到 `data/translation_review.csv`，再执行新一轮审查。
+5. 下一次 `Update Piasnews Data` workflow 会先读取飞书审核表中的 `approved` 行，追加到 `data/translation_review.csv`，同步到“翻译案例库”表，再执行新一轮审查。
 
 同步规则：
 
 - 新增候选会写入飞书 Base。
 - 已存在候选会更新原文、当前译文、建议译文和备注等字段。
 - 已经在飞书中标为 `approved`、`rejected`、`ignore` 或 `ignored` 的行不会被工作流覆盖审核状态。
-- `data/translation_review.csv` 是仓库内可追溯的批准结果；飞书 Base 是人工审核入口。
+- `data/translation_review.csv` 是仓库内可追溯的批准结果；飞书审核表是人工审核入口，飞书案例库表是 approved 样本镜像。
+- “翻译案例库”表使用 `样本ID` 去重；同一 approved 样本会更新既有行，不会重复新增。
+- 全自动飞书读写依赖 GitHub Actions 中的飞书应用凭证。缺少 `FEISHU_APP_ID` / `FEISHU_APP_SECRET` 时，本地人工授权仍可写表，但 workflow 会跳过飞书读写。
 
 ## 历史审核台
 
@@ -397,6 +414,7 @@ python3 scripts/validate_history.py
 │   ├── import_feishu_translation_review.py
 │   ├── notify_feishu_badcases.py
 │   ├── review_history.py
+│   ├── sync_feishu_translation_cases.py
 │   ├── sync_feishu_translation_base.py
 │   ├── update_social_agent_reach.sh
 │   └── validate_history.py
@@ -536,9 +554,9 @@ The current knowledge base uses structured-facet retrieval. `piasnews/references
 
 ## Feishu Translation Review Table
 
-The preferred review surface for translation badcases is a Feishu Base table, not repeated Excel downloads. The workflow supports these settings:
+The preferred review surface for translation badcases is a Feishu Base table, not repeated Excel downloads. The Feishu review table is the inbox for pending and human-approved cases, while `data/translation_review.csv` is the repository-tracked source of truth. A separate Feishu `翻译案例库` table mirrors approved samples for easier reading. The workflow supports these settings:
 
-- GitHub Secrets: `FEISHU_APP_ID`, `FEISHU_APP_SECRET`, `FEISHU_BASE_APP_TOKEN`, `FEISHU_BASE_TABLE_ID`.
+- GitHub Secrets: `FEISHU_APP_ID`, `FEISHU_APP_SECRET`, `FEISHU_BASE_APP_TOKEN`, `FEISHU_BASE_TABLE_ID`, `FEISHU_CASE_TABLE_ID`.
 - GitHub Variable: `FEISHU_BASE_URL`, used in Feishu notifications as the clickable review-table link.
 
 Recommended Base fields:
@@ -559,20 +577,37 @@ Recommended Base fields:
 - `标签`
 - `备注`
 
+Put `英文原文`, `当前中文`, `建议中文`, `审核状态`, and `备注` near the front of the review view. Feishu Base keeps the primary field first, so `候选ID` remains the first column if it is the primary field.
+
+Recommended fields for the `翻译案例库` table:
+
+- `英文原文`
+- `当前中文`
+- `建议中文`
+- `审核状态`
+- `备注`
+- `样本ID`
+- `来源类型`
+- `场景`
+- `优先级`
+- `标签`
+
 Review flow:
 
 1. Open the Feishu review table.
 2. Check `英文原文`, `当前中文`, and `建议中文`.
 3. If the suggested translation should enter the confirmed set, set `审核状态` to `approved`.
 4. If no action is needed, set it to `ignored` or leave it as `pending`.
-5. The next `Update Piasnews Data` workflow imports approved Feishu rows into `data/translation_review.csv` before running the next audit.
+5. The next `Update Piasnews Data` workflow imports approved review rows into `data/translation_review.csv`, syncs approved samples to the `翻译案例库` table, then runs the next audit.
 
 Sync rules:
 
 - New candidates are inserted into Feishu Base.
 - Existing candidates are refreshed with source text, current translation, suggested translation, and notes.
 - Rows already marked `approved`, `rejected`, `ignore`, or `ignored` keep their review status.
-- `data/translation_review.csv` remains the repository-tracked approval set; Feishu Base is the human review surface.
+- `data/translation_review.csv` remains the repository-tracked approval set; the review table is the human inbox and the case-library table is an approved-sample mirror.
+- The `翻译案例库` table deduplicates by `样本ID`; an approved sample updates its existing row instead of creating duplicates.
+- Fully automated Feishu reads and writes require valid Feishu app credentials in GitHub Actions. Without `FEISHU_APP_ID` / `FEISHU_APP_SECRET`, local user-authorized writes can still work, but the workflow skips Feishu I/O.
 
 ## History Review Console
 
@@ -816,7 +851,10 @@ python3 scripts/validate_history.py
 │   ├── fetch_f1_calendar.py
 │   ├── fetch_piasnews.py
 │   ├── fetch_social_sources.py
+│   ├── import_feishu_translation_review.py
 │   ├── review_history.py
+│   ├── sync_feishu_translation_base.py
+│   ├── sync_feishu_translation_cases.py
 │   ├── update_social_agent_reach.sh
 │   └── validate_history.py
 ├── tests/
