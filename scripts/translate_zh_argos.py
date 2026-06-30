@@ -331,8 +331,7 @@ def update_social_item(
 ) -> None:
     summary = clean_text(item.get("summary") or item.get("title"))
     if summary:
-        manual = manual_translation_for(summary, manual_translations)
-        translated = manual or clean_text(summary)
+        translated = translate_or_fallback(summary, translator, manual_translations=manual_translations)
         item["summary_zh"] = translated
         item["title_zh"] = f"{social_prefix(item)}{translated}"
 
