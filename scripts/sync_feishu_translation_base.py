@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import re
 from pathlib import Path
 from typing import Any
 
@@ -23,6 +24,8 @@ from feishu_translation_base import (
 
 
 PRESERVED_STATUS = {"approved", "rejected", "ignore", "ignored"}
+MARKDOWN_LINK_RE = re.compile(r"^\[[^\]]+\]\((https?://[^)]+)\)$")
+URL_RE = re.compile(r"^https?://\S+$")
 
 
 def parse_args() -> argparse.Namespace:
@@ -37,10 +40,25 @@ def base_payload(row: dict[str, str], *, include_status: bool) -> dict[str, Any]
     for csv_field, base_field in BASE_FIELDS.items():
         if csv_field == "status" and not include_status:
             continue
-        payload[base_field] = row.get(csv_field, "")
+        value = row.get(csv_field, "")
+        if csv_field == "url":
+            value = normalize_url(value)
+            if not value:
+                continue
+        payload[base_field] = value
     if include_status and not clean(payload.get(BASE_STATUS_FIELD)):
         payload[BASE_STATUS_FIELD] = "pending"
     return payload
+
+
+def normalize_url(value: str) -> str:
+    cleaned = clean(value)
+    if not cleaned:
+        return ""
+    markdown_match = MARKDOWN_LINK_RE.match(cleaned)
+    if markdown_match:
+        cleaned = markdown_match.group(1)
+    return cleaned if URL_RE.match(cleaned) else ""
 
 
 def existing_records_by_candidate_id(client: FeishuBaseClient) -> dict[str, dict[str, Any]]:
@@ -100,4 +118,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main_guard(main))
-

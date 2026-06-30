@@ -51,6 +51,28 @@ class FeishuTranslationBaseTest(unittest.TestCase):
         self.assertEqual(client.updated[0][0], "rec_existing")
         self.assertNotIn("审核状态", client.updated[0][1])
 
+    def test_sync_normalizes_url_field_for_feishu_url_cells(self):
+        payload = syncer.base_payload(
+            {
+                "id": "tc-url",
+                "url": "[https://example.com/item](https://example.com/item)",
+                "status": "pending",
+            },
+            include_status=True,
+        )
+        empty_payload = syncer.base_payload(
+            {"id": "tc-empty", "url": "", "status": "pending"},
+            include_status=True,
+        )
+        invalid_payload = syncer.base_payload(
+            {"id": "tc-invalid", "url": "not a url", "status": "pending"},
+            include_status=True,
+        )
+
+        self.assertEqual(payload["原始链接"], "https://example.com/item")
+        self.assertNotIn("原始链接", empty_payload)
+        self.assertNotIn("原始链接", invalid_payload)
+
     def test_import_only_approved_rows_and_deduplicates_by_source_text(self):
         client = FakeClient([
             {
