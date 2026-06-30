@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-30T13:39:43.972767Z",
+  "generated_at": "2026-06-30T13:48:02.765415Z",
   "window_days": 3,
-  "total_items": 40,
+  "total_items": 47,
   "latest_date": "2026-06-30",
   "days": [
     {
@@ -27,14 +27,14 @@
       "x_new_items": 0,
       "rumor_new_items": 3,
       "sources": {
+        "Asian Trader": 1,
         "F1 Oversteer": 2,
         "GPToday.net": 1,
+        "Grocery Trader": 1,
         "PlanetF1": 1,
         "Scottish Grocer & Convenience Retailer": 1,
-        "Scottish Local Retailer": 1,
         "The Sporting Base": 1,
         "TheJudge13": 1,
-        "Wholesale Manager": 1,
         "news.gp": 1,
         "racingnews365.com": 1
       },
@@ -46,12 +46,13 @@
     },
     {
       "date": "2026-06-28",
-      "total_new_items": 24,
+      "total_new_items": 30,
       "official_new_items": 1,
-      "media_new_items": 23,
+      "media_new_items": 29,
       "x_new_items": 0,
-      "rumor_new_items": 0,
+      "rumor_new_items": 1,
       "sources": {
+        "7NEWS": 1,
         "Akses.co.id": 1,
         "Auto Action": 5,
         "F1 Oversteer": 2,
@@ -59,35 +60,41 @@
         "Fox Sports": 3,
         "GPblog": 2,
         "Nine.com.au": 1,
+        "Paddock News 24": 2,
+        "RaceFans": 1,
         "Read Motorsport": 1,
         "Speedcafe.com": 1,
+        "The Canberra Times": 1,
         "Yahoo News Australia": 1,
         "Yahoo News New Zealand": 1,
         "asatunews.co.id": 1,
         "grandprix247": 2,
-        "racingnews365.com": 2
+        "racingnews365.com": 2,
+        "total-motorsport.com": 1
       },
       "categories": {
         "interview": 1,
         "other": 2,
-        "race": 17,
+        "race": 22,
+        "rumor": 1,
         "team": 4
       }
     },
     {
       "date": "2026-06-27",
-      "total_new_items": 3,
+      "total_new_items": 4,
       "official_new_items": 0,
-      "media_new_items": 3,
+      "media_new_items": 4,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
+        "7NEWS": 1,
         "BVM Sports": 1,
         "Read Motorsport": 1,
         "Speedcafe.com": 1
       },
       "categories": {
-        "race": 3
+        "race": 4
       }
     }
   ],
@@ -118,7 +125,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 64
+      "items": 65
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
@@ -158,13 +165,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 79,
-      "kept": 40,
+      "checked": 81,
+      "kept": 47,
       "results": {
         "outside_window": 4,
         "publisher_date_missing": 27,
-        "publisher_unavailable": 8,
-        "verified": 40
+        "publisher_unavailable": 3,
+        "verified": 47
       }
     }
   ]
