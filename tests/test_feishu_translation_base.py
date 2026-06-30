@@ -73,6 +73,30 @@ class FeishuTranslationBaseTest(unittest.TestCase):
         self.assertNotIn("原始链接", empty_payload)
         self.assertNotIn("原始链接", invalid_payload)
 
+    def test_mark_missing_pending_rows_as_ignored(self):
+        client = FakeClient([
+            {
+                "record_id": "rec_active",
+                "fields": {"候选ID": "tc-active", "审核状态": "pending"},
+            },
+            {
+                "record_id": "rec_stale",
+                "fields": {"候选ID": "tc-stale", "审核状态": "pending", "备注": "old note"},
+            },
+            {
+                "record_id": "rec_approved",
+                "fields": {"候选ID": "tc-approved", "审核状态": "approved"},
+            },
+        ])
+
+        marked = syncer.mark_missing_pending_ignored(client, [{"id": "tc-active"}])
+
+        self.assertEqual(marked, 1)
+        self.assertEqual(client.updated[0][0], "rec_stale")
+        self.assertEqual(client.updated[0][1]["审核状态"], "ignored")
+        self.assertIn("old note", client.updated[0][1]["备注"])
+        self.assertIn("已不在当前 translation_candidates.csv", client.updated[0][1]["备注"])
+
     def test_import_only_approved_rows_and_deduplicates_by_source_text(self):
         client = FakeClient([
             {

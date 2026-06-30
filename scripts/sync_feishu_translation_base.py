@@ -31,6 +31,7 @@ URL_RE = re.compile(r"^https?://\S+$")
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Sync translation badcases to Feishu Base.")
     parser.add_argument("--input-csv", default=str(DEFAULT_CANDIDATES_CSV))
+    parser.add_argument("--mark-missing-ignored", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
     return parser.parse_args()
 
@@ -102,6 +103,48 @@ def sync_rows(client: FeishuBaseClient, rows: list[dict[str, str]], *, dry_run: 
     return created, updated
 
 
+def mark_missing_pending_ignored(
+    client: FeishuBaseClient,
+    rows: list[dict[str, str]],
+    *,
+    dry_run: bool = False,
+) -> int:
+    existing = existing_records_by_candidate_id(client)
+    active_candidate_ids = {clean(row.get("id")) for row in rows if clean(row.get("id"))}
+    marked = 0
+    for candidate_id, existing_record in existing.items():
+        if candidate_id in active_candidate_ids:
+            continue
+        fields = record_fields(existing_record)
+        existing_status = clean(fields.get(BASE_STATUS_FIELD)).casefold()
+        if existing_status in PRESERVED_STATUS:
+            continue
+        rid = record_id(existing_record)
+        if not rid:
+            continue
+        payload = {
+            BASE_STATUS_FIELD: "ignored",
+            BASE_FIELDS["notes"]: append_note(
+                clean(fields.get(BASE_FIELDS["notes"])),
+                "自动标记：该候选已不在当前 translation_candidates.csv 中，可能已由规则/审核集覆盖。",
+            ),
+        }
+        if dry_run:
+            print(f"mark_missing_ignored {candidate_id} record_id={rid}")
+        else:
+            client.update_record(rid, payload)
+        marked += 1
+    return marked
+
+
+def append_note(existing_note: str, new_note: str) -> str:
+    if not existing_note:
+        return new_note
+    if new_note in existing_note:
+        return existing_note
+    return f"{existing_note} | {new_note}"
+
+
 def main() -> int:
     args = parse_args()
     rows = load_csv(Path(args.input_csv))
@@ -112,7 +155,13 @@ def main() -> int:
     if client is None:
         return 0
     created, updated = sync_rows(client, rows, dry_run=args.dry_run)
-    print(f"Feishu Base synced: created={created}, updated={updated}, input={args.input_csv}")
+    marked_ignored = 0
+    if args.mark_missing_ignored:
+        marked_ignored = mark_missing_pending_ignored(client, rows, dry_run=args.dry_run)
+    print(
+        f"Feishu Base synced: created={created}, updated={updated}, "
+        f"marked_ignored={marked_ignored}, input={args.input_csv}"
+    )
     return 0
 
 

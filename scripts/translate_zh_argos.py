@@ -156,6 +156,32 @@ def apply_glossary(value: str, glossary: tuple[tuple[str, str, bool], ...] | Non
 
 def manual_headline_translation(text: str) -> str | None:
     lowered = text.lower()
+    if "mark webber is now in talks with surprise midfield team over potential oscar piastri deal" in lowered:
+        return "Mark Webber 正与一支意外的中游车队商谈潜在的 Oscar Piastri 转会"
+    if "fia reaches oscar piastri decision after austrian gp investigation" in lowered:
+        return "FIA 在奥地利站调查后作出 Oscar Piastri 裁定"
+    if "fia clears oscar piastri following austrian grand prix investigation" in lowered:
+        return "奥地利站调查后，FIA 认定 Oscar Piastri 无需处罚"
+    if "oscar piastri issues mclaren 'evidence' in progress defence" in lowered:
+        return "Oscar Piastri 以 McLaren 进步“证据”为近期表现辩护"
+    if "oscar piastri leads lewis hamilton at the 2026 austrian grand prix" in lowered:
+        return "2026 年奥地利大奖赛中，Oscar Piastri 跑在 Lewis Hamilton 前方"
+    if "lando norris and oscar piastri agree about mclaren’s 2026 car as winless run continues" in lowered:
+        return "McLaren 持续无胜，Lando Norris 与 Oscar Piastri 对 2026 赛车看法一致"
+    if "lando norris and oscar piastri agree about mclaren's 2026 car as winless run continues" in lowered:
+        return "McLaren 持续无胜，Lando Norris 与 Oscar Piastri 对 2026 赛车看法一致"
+    if "everything went wrong" in lowered and "how piastri first silenced greats" in lowered:
+        return "“一切都出了问题”：离奇失速原因解析；Piastri 如何先让名宿安静下来"
+    if "as good as it gets for oscar piastri and lando norris in austria" in lowered:
+        return "Oscar Piastri 与 Lando Norris 在奥地利已接近上限，但 McLaren 仍不够好"
+    if "max verstappen transfer update" in lowered and "shock destination" in lowered:
+        return "Max Verstappen 转会动态：在 Oscar Piastri 不确定性下，McLaren 成为意外下家"
+    if "verstappen to leave red bull for mclaren" in lowered and "piastri to red bull" in lowered:
+        return "Formula 1 传闻：Verstappen 可能离开 Red Bull 加盟 McLaren，Piastri 可能转投 Red Bull"
+    if "mclaren’s piastri spotlights key progress with mcl40 after austrian gp friday" in lowered:
+        return "奥地利大奖赛周五后，McLaren 车手 Piastri 强调 MCL40 的关键进步"
+    if "mclaren's piastri spotlights key progress with mcl40 after austrian gp friday" in lowered:
+        return "奥地利大奖赛周五后，McLaren 车手 Piastri 强调 MCL40 的关键进步"
     if all(token in lowered for token in ("monster", "piastri", "cans")):
         if "limited-edition" in lowered or "limited edition" in lowered:
             return "Monster 推出 Oscar Piastri 限量版 F1 联名罐"

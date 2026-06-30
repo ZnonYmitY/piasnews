@@ -51,6 +51,26 @@ class TranslationAuditTest(unittest.TestCase):
 
         self.assertEqual(rows, [])
 
+    def test_skips_approved_social_rows_with_media_suffix(self):
+        entry = audit.TranslationEntry(
+            source_type="social",
+            domain="x_post",
+            url="https://x.com/example/status/1",
+            source="@example",
+            source_text="oscar filmed a segment for dazn! https://t.co/example",
+            current_zh="oscar filmed a segment for dazn!",
+        )
+
+        rows = audit.audit_entries(
+            [entry],
+            approved_keys={("social", "oscar filmed a segment for dazn!")},
+            existing_ids=set(),
+            run_id="run",
+            seen_at="2026-06-29T00:00:00Z",
+        )
+
+        self.assertEqual(rows, [])
+
     def test_skips_glossary_managed_entity_only_rows(self):
         entry = audit.TranslationEntry(
             source_type="news",
@@ -96,6 +116,26 @@ class TranslationAuditTest(unittest.TestCase):
                 }],
                 [],
                 {("news", "monster launches oscar piastri f1 cans")},
+            )
+
+            with output.open(newline="", encoding="utf-8") as handle:
+                rows = list(csv.DictReader(handle))
+
+        self.assertEqual(rows, [])
+
+    def test_append_candidates_prunes_approved_existing_social_variant(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            output = Path(tmpdir) / "candidates.csv"
+            audit.append_candidates(
+                output,
+                [{
+                    "id": "tc-old-social",
+                    "source_type": "social",
+                    "source_text": "oscar filmed a segment for dazn! https://t.co/example",
+                    "error_type": "untranslated_fallback",
+                }],
+                [],
+                {("social", "oscar filmed a segment for dazn!")},
             )
 
             with output.open(newline="", encoding="utf-8") as handle:

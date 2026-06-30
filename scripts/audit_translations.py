@@ -214,6 +214,20 @@ def approved_review_keys(path: Path | str) -> set[tuple[str, str]]:
     return keys
 
 
+def approved_review_covers(approved_keys: set[tuple[str, str]], source_type: str, source_text: str) -> bool:
+    cleaned = clean_text(source_text).casefold()
+    if not cleaned:
+        return False
+    if (source_type, cleaned) in approved_keys:
+        return True
+    for approved_source_type, approved_text in approved_keys:
+        if approved_source_type != source_type or len(approved_text) < 12:
+            continue
+        if cleaned.startswith(approved_text) or approved_text in cleaned:
+            return True
+    return False
+
+
 def existing_candidate_ids(rows: Iterable[dict[str, str]]) -> set[str]:
     return {clean_text(row.get("id")) for row in rows if clean_text(row.get("id"))}
 
@@ -433,6 +447,32 @@ def detect_issues(entry: TranslationEntry) -> list[Issue]:
 
 def suggested_translation(entry: TranslationEntry) -> str:
     lowered = entry.source_text.casefold()
+    if "mclaren drivers norris and piastri hope for better at austria qualifying" in lowered:
+        return "McLaren 车手 Norris 和 Piastri 期待奥地利排位赛有更好表现"
+    if "mclaren face harsh reality after austria qualifying as lando norris and oscar piastri chase rivals" in lowered:
+        return "奥地利排位赛后，McLaren 面临严峻现实，Norris 与 Piastri 仍需追赶对手"
+    if "oscar piastri summoned to the stewards after austrian grand prix" in lowered:
+        return "Oscar Piastri 奥地利大奖赛后被干事传唤：原因在这里"
+    if "piastri avoids penalty after austrian gp stewards review" in lowered:
+        return "奥地利大奖赛干事审查后，Piastri 避免处罚"
+    if "f1 austria gp qualifying mclaren piastri reflects on maximising package ahead of race" in lowered:
+        return "F1 奥地利 GP 排位赛：Piastri 谈正赛前如何最大化赛车表现"
+    if "what went wrong for mclaren in qualifying at austrian gp" in lowered:
+        return "McLaren 在奥地利 GP 排位赛出了什么问题？Norris 和 Piastri 给出解释"
+    if "f1 nation podcast on oscar's drive in austria" in lowered:
+        return "F1 Nation 播客谈 Oscar 在奥地利的表现：“我会问他‘你开过比这更好的比赛吗？’他很出色；这是一场争冠级车手必须交出的比赛。”"
+    if "oscar and lando with baseball player dexter fowler" in lowered:
+        return "Oscar 和 Lando 与棒球运动员 Dexter Fowler 同框"
+    if "thank you to bestie @pizzapiastri for letting me know about this" in lowered:
+        return "谢谢好友 @PIZZAPIASTRI 提醒我这件事"
+    if "that sleeve is holding on for dear life" in lowered:
+        return "那只袖子真是强撑着没掉下来"
+    if "the 3 artists in charge of designing oscar's special helmets for silverstone" in lowered:
+        return "负责设计 Oscar Silverstone 特别头盔的 3 位艺术家发布了预览图，可以去他们的 Instagram 查看作品，有些还能投票选最喜欢的设计。"
+    if "the fia’s thoughts are with harald" in lowered or "the fia's thoughts are with harald" in lowered:
+        return "FIA 向奥地利站赛前突发心脏问题的赛道工作人员 Harald 表达关切，并祝他早日康复。"
+    if "oscar fully folded over laughing" in lowered:
+        return "Oscar 笑到整个人都弯下去了"
     if all(token in lowered for token in ("monster", "piastri", "cans")):
         if "limited-edition" in lowered or "limited edition" in lowered:
             return "Monster 推出 Oscar Piastri 限量版 F1 联名罐"
@@ -497,7 +537,7 @@ def audit_entries(
         source_text = clean_text(entry.source_text)
         if not source_text or not clean_text(entry.current_zh):
             continue
-        if (entry.source_type, source_text.casefold()) in approved_keys:
+        if approved_review_covers(approved_keys, entry.source_type, source_text):
             continue
         row_id = make_id(entry)
         if row_id in existing_ids or row_id in new_ids:
@@ -531,10 +571,11 @@ def append_candidates(
         normalize_existing_candidate_row(row)
         for row in existing_rows
         if not candidate_errors_are_glossary_managed(row)
-        and (
+        and not approved_review_covers(
+            approved_keys,
             clean_text(row.get("source_type")) or "unknown",
-            clean_text(row.get("source_text")).casefold(),
-        ) not in approved_keys
+            clean_text(row.get("source_text")),
+        )
     ] + new_rows
     write_csv(path, rows)
 
@@ -545,6 +586,16 @@ def normalize_row(row: dict[str, str]) -> dict[str, str]:
 
 def normalize_existing_candidate_row(row: dict[str, str]) -> dict[str, str]:
     normalized = normalize_row(row)
+    refreshed_suggestion = suggested_translation(TranslationEntry(
+        source_type=clean_text(normalized.get("source_type")) or "unknown",
+        domain=clean_text(normalized.get("domain")),
+        url=clean_text(normalized.get("url")),
+        source=clean_text(normalized.get("source")),
+        source_text=clean_text(normalized.get("source_text")),
+        current_zh=clean_text(normalized.get("current_zh")),
+    ))
+    if refreshed_suggestion:
+        normalized["suggested_zh"] = refreshed_suggestion
     error_types = [
         clean_text(error_type)
         for error_type in normalized["error_type"].split(",")

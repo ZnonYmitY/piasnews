@@ -89,7 +89,7 @@ jobs:
           FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
           FEISHU_BASE_APP_TOKEN: ${{ secrets.FEISHU_BASE_APP_TOKEN }}
           FEISHU_BASE_TABLE_ID: ${{ secrets.FEISHU_BASE_TABLE_ID }}
-        run: python scripts/sync_feishu_translation_base.py --input-csv data/translation_candidates_latest.csv
+        run: python scripts/sync_feishu_translation_base.py --input-csv data/translation_candidates.csv --mark-missing-ignored
 
       - name: Upload translation badcase Excel
         uses: actions/upload-artifact@v4
