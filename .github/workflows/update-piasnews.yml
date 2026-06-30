@@ -57,6 +57,14 @@ jobs:
       - name: Translate Chinese fields
         run: python scripts/translate_zh_argos.py --items data/items.json --social data/social.json
 
+      - name: Import approved Feishu translation reviews
+        env:
+          FEISHU_APP_ID: ${{ secrets.FEISHU_APP_ID }}
+          FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
+          FEISHU_BASE_APP_TOKEN: ${{ secrets.FEISHU_BASE_APP_TOKEN }}
+          FEISHU_BASE_TABLE_ID: ${{ secrets.FEISHU_BASE_TABLE_ID }}
+        run: python scripts/import_feishu_translation_review.py --review-csv data/translation_review.csv
+
       - name: Audit translation badcases
         run: |
           python scripts/audit_translations.py \
@@ -66,6 +74,14 @@ jobs:
             --candidates data/translation_candidates.csv \
             --latest-csv data/translation_candidates_latest.csv \
             --latest-xlsx data/translation_candidates_latest.xlsx
+
+      - name: Sync translation badcases to Feishu Base
+        env:
+          FEISHU_APP_ID: ${{ secrets.FEISHU_APP_ID }}
+          FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
+          FEISHU_BASE_APP_TOKEN: ${{ secrets.FEISHU_BASE_APP_TOKEN }}
+          FEISHU_BASE_TABLE_ID: ${{ secrets.FEISHU_BASE_TABLE_ID }}
+        run: python scripts/sync_feishu_translation_base.py --input-csv data/translation_candidates_latest.csv
 
       - name: Upload translation badcase Excel
         uses: actions/upload-artifact@v4
@@ -85,7 +101,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/items.json data/daily.json data/rss.xml data/calendar.json data/social.json data/history-candidates.json data/translation_candidates.csv
+          git add data/items.json data/daily.json data/rss.xml data/calendar.json data/social.json data/history-candidates.json data/translation_candidates.csv data/translation_review.csv
           if git diff --cached --quiet; then
             echo "No Piasnews data changes."
           else
@@ -120,5 +136,6 @@ jobs:
       - name: Notify Feishu translation badcases
         env:
           FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
+          FEISHU_BASE_URL: ${{ vars.FEISHU_BASE_URL }}
           PIASNEWS_PAGE_URL: ${{ steps.deployment.outputs.page_url }}
         run: python scripts/notify_feishu_badcases.py --latest-csv data/translation_candidates_latest.csv

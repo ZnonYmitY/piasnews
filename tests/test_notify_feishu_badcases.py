@@ -44,6 +44,7 @@ class FeishuBadcaseNotificationTest(unittest.TestCase):
                 "error_type": "semantic_term",
                 "source_text": "Webber preparing Red Bull move for Piastri",
             }],
+            base_url="https://example.feishu.cn/base/abc",
             page_url="https://example.github.io/piasnews/",
             repo="ZnonYmitY/piasnews",
             run_id="123",
@@ -51,6 +52,7 @@ class FeishuBadcaseNotificationTest(unittest.TestCase):
 
         self.assertIn("本轮新增候选：1 条", text)
         self.assertIn("Webber preparing Red Bull move for Piastri", text)
+        self.assertIn("飞书审核表", text)
         self.assertIn("translation_candidates_latest.xlsx", text)
         self.assertIn("https://github.com/ZnonYmitY/piasnews/actions/runs/123", text)
 
@@ -72,6 +74,7 @@ class FeishuBadcaseNotificationTest(unittest.TestCase):
             args = type("Args", (), {
                 "latest_csv": str(latest_csv),
                 "webhook_url": "",
+                "base_url": "",
                 "page_url": "",
                 "repo": "",
                 "run_id": "",

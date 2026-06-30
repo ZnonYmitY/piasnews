@@ -109,9 +109,49 @@ Summarize the latest Oscar Piastri news in English.
 - 页面分别显示北京时间的新闻数据更新时间、X / IG 粉丝源采集时间和最新内容时间，并提供手动刷新按钮。
 - 页面接入 F1 赛历，展示下一场大奖赛、比赛周时间和每秒更新的正赛倒计时。
 - 每次数据工作流都会完整遍历中文翻译，自动审查疑似 badcase，写入 `data/translation_candidates.csv`，并上传本轮新增候选 Excel artifact。
-- 如果仓库配置了 `FEISHU_WEBHOOK_URL` secret，工作流会在发现本轮新增翻译 badcase 后向飞书发送通知，包含新增数量、预览和最新 Excel 链接。Codex 当前对话不作为 GitHub Actions 的稳定入站通知目标。
+- 如果仓库配置了 `FEISHU_WEBHOOK_URL` secret，工作流会在发现本轮新增翻译 badcase 后向飞书发送通知，包含新增数量、预览、飞书审核表链接和最新 Excel 链接。Codex 当前对话不作为 GitHub Actions 的稳定入站通知目标。
 - 每次 GitHub Actions 完成信息抓取后，会在同一工作流中重新部署网页和 JSON/RSS，因此页面与公开数据同步更新。
 - 日报由浏览器中的确定性模板生成，不调用大模型，不消耗项目方或访问者的模型 token。
+
+## 飞书翻译审核表
+
+翻译 badcase 的主审核界面推荐使用飞书多维表格 Base，而不是每次下载 Excel。工作流支持以下环境配置：
+
+- GitHub Secrets：`FEISHU_APP_ID`、`FEISHU_APP_SECRET`、`FEISHU_BASE_APP_TOKEN`、`FEISHU_BASE_TABLE_ID`。
+- GitHub Variable：`FEISHU_BASE_URL`，用于飞书通知中展示可点击的审核表链接。
+
+Base 表建议字段：
+
+- `候选ID`
+- `运行ID`
+- `首次发现`
+- `来源类型`
+- `场景`
+- `原始链接`
+- `来源`
+- `英文原文`
+- `当前中文`
+- `建议中文`
+- `审核状态`
+- `优先级`
+- `错误类型`
+- `标签`
+- `备注`
+
+审核方式：
+
+1. 打开飞书审核表。
+2. 检查 `英文原文`、`当前中文`、`建议中文`。
+3. 如果建议译文可以进入确认集，把 `审核状态` 改为 `approved`。
+4. 如果不需要处理，可以改为 `ignored` 或保持 `pending`。
+5. 下一次 `Update Piasnews Data` workflow 会先读取飞书 Base 中的 `approved` 行，追加到 `data/translation_review.csv`，再执行新一轮审查。
+
+同步规则：
+
+- 新增候选会写入飞书 Base。
+- 已存在候选会更新原文、当前译文、建议译文和备注等字段。
+- 已经在飞书中标为 `approved`、`rejected`、`ignore` 或 `ignored` 的行不会被工作流覆盖审核状态。
+- `data/translation_review.csv` 是仓库内可追溯的批准结果；飞书 Base 是人工审核入口。
 
 ## 历史审核台
 
@@ -350,10 +390,14 @@ python3 scripts/validate_history.py
 │   ├── build_history_candidates.py
 │   ├── compact_social_input.py
 │   ├── collect_agent_reach_social.py
+│   ├── feishu_translation_base.py
 │   ├── fetch_f1_calendar.py
 │   ├── fetch_piasnews.py
 │   ├── fetch_social_sources.py
+│   ├── import_feishu_translation_review.py
+│   ├── notify_feishu_badcases.py
 │   ├── review_history.py
+│   ├── sync_feishu_translation_base.py
 │   ├── update_social_agent_reach.sh
 │   └── validate_history.py
 ├── tests/
@@ -486,9 +530,49 @@ The current knowledge base uses structured-facet retrieval. `piasnews/references
 - The page shows separate China Standard Time refresh times for news data, X / IG fan-source generation, and the newest retained X / IG item, and includes a manual refresh control.
 - The page reads the F1 calendar and shows the next Grand Prix, race-week timing, and a live race-start countdown.
 - Each data workflow fully audits Chinese translations, appends suspected badcases to `data/translation_candidates.csv`, and uploads the current run's new candidates as an Excel artifact.
-- If the repository has a `FEISHU_WEBHOOK_URL` secret, the workflow sends a Feishu notification when the current run finds new translation badcases, including the count, preview, and latest Excel link. The active Codex conversation is not treated as a stable inbound target for GitHub Actions.
+- If the repository has a `FEISHU_WEBHOOK_URL` secret, the workflow sends a Feishu notification when the current run finds new translation badcases, including the count, preview, Feishu review table link, and latest Excel link. The active Codex conversation is not treated as a stable inbound target for GitHub Actions.
 - Each successful GitHub Actions collection redeploys the page and JSON/RSS in the same workflow, keeping them synchronized.
 - Browser-side deterministic templates generate the views without an LLM or model-token usage.
+
+## Feishu Translation Review Table
+
+The preferred review surface for translation badcases is a Feishu Base table, not repeated Excel downloads. The workflow supports these settings:
+
+- GitHub Secrets: `FEISHU_APP_ID`, `FEISHU_APP_SECRET`, `FEISHU_BASE_APP_TOKEN`, `FEISHU_BASE_TABLE_ID`.
+- GitHub Variable: `FEISHU_BASE_URL`, used in Feishu notifications as the clickable review-table link.
+
+Recommended Base fields:
+
+- `候选ID`
+- `运行ID`
+- `首次发现`
+- `来源类型`
+- `场景`
+- `原始链接`
+- `来源`
+- `英文原文`
+- `当前中文`
+- `建议中文`
+- `审核状态`
+- `优先级`
+- `错误类型`
+- `标签`
+- `备注`
+
+Review flow:
+
+1. Open the Feishu review table.
+2. Check `英文原文`, `当前中文`, and `建议中文`.
+3. If the suggested translation should enter the confirmed set, set `审核状态` to `approved`.
+4. If no action is needed, set it to `ignored` or leave it as `pending`.
+5. The next `Update Piasnews Data` workflow imports approved Feishu rows into `data/translation_review.csv` before running the next audit.
+
+Sync rules:
+
+- New candidates are inserted into Feishu Base.
+- Existing candidates are refreshed with source text, current translation, suggested translation, and notes.
+- Rows already marked `approved`, `rejected`, `ignore`, or `ignored` keep their review status.
+- `data/translation_review.csv` remains the repository-tracked approval set; Feishu Base is the human review surface.
 
 ## History Review Console
 

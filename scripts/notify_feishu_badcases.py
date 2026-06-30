@@ -21,6 +21,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Send Piasnews translation badcase notification to Feishu.")
     parser.add_argument("--latest-csv", default=str(DEFAULT_LATEST_CSV))
     parser.add_argument("--webhook-url", default=os.environ.get("FEISHU_WEBHOOK_URL", ""))
+    parser.add_argument("--base-url", default=os.environ.get("FEISHU_BASE_URL", ""))
     parser.add_argument("--page-url", default=os.environ.get("PIASNEWS_PAGE_URL", ""))
     parser.add_argument("--repo", default=os.environ.get("GITHUB_REPOSITORY", ""))
     parser.add_argument("--run-id", default=os.environ.get("GITHUB_RUN_ID", ""))
@@ -48,7 +49,7 @@ def run_url(repo: str, run_id: str) -> str:
     return f"https://github.com/{repo}/actions/runs/{run_id}"
 
 
-def build_text(rows: list[dict[str, str]], *, page_url: str, repo: str, run_id: str) -> str:
+def build_text(rows: list[dict[str, str]], *, base_url: str, page_url: str, repo: str, run_id: str) -> str:
     count = len(rows)
     xlsx_url = public_file_url(page_url, "translation_candidates_latest.xlsx")
     csv_url = public_file_url(page_url, "translation_candidates_latest.csv")
@@ -63,6 +64,8 @@ def build_text(rows: list[dict[str, str]], *, page_url: str, repo: str, run_id: 
         preview.append(f"- [{error_type}] {source}: {text}")
     preview_text = "\n".join(preview) if preview else "- 本轮没有新增候选。"
     links = []
+    if base_url:
+        links.append(f"飞书审核表: {base_url}")
     if xlsx_url:
         links.append(f"Excel: {xlsx_url}")
     if csv_url:
@@ -74,6 +77,7 @@ def build_text(rows: list[dict[str, str]], *, page_url: str, repo: str, run_id: 
         "Piasnews 翻译 badcase 审查更新\n"
         f"本轮新增候选：{count} 条\n\n"
         f"{preview_text}\n\n"
+        "审核方式：在飞书审核表中把“审核状态”改为 approved，下一次 workflow 会自动导入仓库。\n\n"
         f"{links_text}"
     )
 
@@ -110,7 +114,7 @@ def main() -> int:
         return 0
     post_feishu_text(
         args.webhook_url,
-        build_text(rows, page_url=args.page_url, repo=args.repo, run_id=args.run_id),
+        build_text(rows, base_url=args.base_url, page_url=args.page_url, repo=args.repo, run_id=args.run_id),
     )
     return 0
 
