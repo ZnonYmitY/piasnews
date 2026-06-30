@@ -1,22 +1,23 @@
 {
-  "generated_at": "2026-06-30T15:06:25.076542Z",
+  "generated_at": "2026-06-30T15:42:19.664189Z",
   "window_days": 3,
-  "total_items": 48,
+  "total_items": 49,
   "latest_date": "2026-06-30",
   "days": [
     {
       "date": "2026-06-30",
-      "total_new_items": 2,
+      "total_new_items": 3,
       "official_new_items": 0,
-      "media_new_items": 2,
+      "media_new_items": 3,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "KamCity": 1,
-        "supermarketnews.co.nz": 1
+        "supermarketnews.co.nz": 1,
+        "total-motorsport.com": 1
       },
       "categories": {
-        "team": 2
+        "team": 3
       }
     },
     {
@@ -126,14 +127,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 64
+      "items": 65
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 48
+      "items": 49
     },
     {
       "query": "\"OP81\" when:3d",
@@ -166,13 +167,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 78,
-      "kept": 48,
+      "checked": 80,
+      "kept": 49,
       "results": {
         "outside_window": 4,
-        "publisher_date_missing": 24,
+        "publisher_date_missing": 25,
         "publisher_unavailable": 2,
-        "verified": 48
+        "verified": 49
       }
     }
   ]
