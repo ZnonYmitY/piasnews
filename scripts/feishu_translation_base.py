@@ -7,6 +7,7 @@ import csv
 import json
 import os
 import sys
+import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -134,8 +135,18 @@ class FeishuBaseClient:
         if auth:
             headers["Authorization"] = f"Bearer {self.tenant_token()}"
         request = urllib.request.Request(url, data=data, headers=headers, method=method)
-        with urllib.request.urlopen(request, timeout=30) as response:
-            body = response.read().decode("utf-8", errors="replace")
+        try:
+            with urllib.request.urlopen(request, timeout=30) as response:
+                body = response.read().decode("utf-8", errors="replace")
+        except urllib.error.HTTPError as exc:
+            body = exc.read().decode("utf-8", errors="replace")
+            try:
+                result = json.loads(body) if body else {}
+            except json.JSONDecodeError:
+                result = {}
+            code = result.get("code") or exc.code
+            message = result.get("msg") or result.get("message") or exc.reason
+            raise FeishuError(f"Feishu API failed at {path}: http={exc.code} code={code} msg={message}") from exc
         result = json.loads(body) if body else {}
         code = result.get("code", 0)
         if code not in (0, "0"):
@@ -219,4 +230,3 @@ def main_guard(fn) -> int:
     except FeishuError as exc:
         print(str(exc), file=sys.stderr)
         return 1
-
