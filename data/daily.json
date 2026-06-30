@@ -1,88 +1,179 @@
 {
-  "generated_at": "2026-06-30T14:25:50.660824Z",
+  "generated_at": "2026-06-30T14:43:10.792291Z",
   "window_days": 3,
-  "total_items": 0,
-  "latest_date": null,
-  "days": [],
+  "total_items": 48,
+  "latest_date": "2026-06-30",
+  "days": [
+    {
+      "date": "2026-06-30",
+      "total_new_items": 2,
+      "official_new_items": 0,
+      "media_new_items": 2,
+      "x_new_items": 0,
+      "rumor_new_items": 0,
+      "sources": {
+        "KamCity": 1,
+        "supermarketnews.co.nz": 1
+      },
+      "categories": {
+        "team": 2
+      }
+    },
+    {
+      "date": "2026-06-29",
+      "total_new_items": 12,
+      "official_new_items": 0,
+      "media_new_items": 12,
+      "x_new_items": 0,
+      "rumor_new_items": 3,
+      "sources": {
+        "Asian Trader": 1,
+        "F1 Oversteer": 2,
+        "GPToday.net": 1,
+        "PlanetF1": 1,
+        "Scottish Grocer & Convenience Retailer": 1,
+        "Scottish Local Retailer": 1,
+        "The Sporting Base": 1,
+        "TheJudge13": 1,
+        "Wholesale Manager": 1,
+        "news.gp": 1,
+        "racingnews365.com": 1
+      },
+      "categories": {
+        "race": 3,
+        "rumor": 3,
+        "team": 6
+      }
+    },
+    {
+      "date": "2026-06-28",
+      "total_new_items": 30,
+      "official_new_items": 1,
+      "media_new_items": 29,
+      "x_new_items": 0,
+      "rumor_new_items": 1,
+      "sources": {
+        "7NEWS": 1,
+        "Akses.co.id": 1,
+        "Auto Action": 5,
+        "F1 Oversteer": 2,
+        "Formula 1": 1,
+        "Fox Sports": 3,
+        "GPblog": 2,
+        "Nine.com.au": 1,
+        "Paddock News 24": 2,
+        "RaceFans": 1,
+        "Read Motorsport": 1,
+        "Speedcafe.com": 1,
+        "The Canberra Times": 1,
+        "Yahoo News Australia": 1,
+        "Yahoo News New Zealand": 1,
+        "asatunews.co.id": 1,
+        "grandprix247": 2,
+        "racingnews365.com": 2,
+        "total-motorsport.com": 1
+      },
+      "categories": {
+        "interview": 1,
+        "other": 2,
+        "race": 22,
+        "rumor": 1,
+        "team": 4
+      }
+    },
+    {
+      "date": "2026-06-27",
+      "total_new_items": 4,
+      "official_new_items": 0,
+      "media_new_items": 4,
+      "x_new_items": 0,
+      "rumor_new_items": 0,
+      "sources": {
+        "7NEWS": 1,
+        "BVM Sports": 1,
+        "Read Motorsport": 1,
+        "Speedcafe.com": 1
+      },
+      "categories": {
+        "race": 4
+      }
+    }
+  ],
   "feed_status": [
     {
       "query": "site:mclaren.com/racing/formula-1/articles/ \"Piastri\" when:3d",
       "source_group": "official_direct",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=site%3Amclaren.com%2Fracing%2Fformula-1%2Farticles%2F+%22Piastri%22+when%3A3d",
-      "ok": false,
-      "items": 0,
-      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+      "ok": true,
+      "items": 0
     },
     {
       "query": "site:formula1.com/en/latest \"Piastri\" when:3d",
       "source_group": "official_direct",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=site%3Aformula1.com%2Fen%2Flatest+%22Piastri%22+when%3A3d",
-      "ok": false,
-      "items": 0,
-      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+      "ok": true,
+      "items": 2
     },
     {
       "query": "site:oscarpiastri.com \"Piastri\" when:3d",
       "source_group": "official_direct",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=site%3Aoscarpiastri.com+%22Piastri%22+when%3A3d",
-      "ok": false,
-      "items": 0,
-      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+      "ok": true,
+      "items": 0
     },
     {
       "query": "\"Oscar Piastri\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
-      "ok": false,
-      "items": 0,
-      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+      "ok": true,
+      "items": 64
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
-      "ok": false,
-      "items": 0,
-      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+      "ok": true,
+      "items": 48
     },
     {
       "query": "\"OP81\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22OP81%22+when%3A3d",
-      "ok": false,
-      "items": 0,
-      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+      "ok": true,
+      "items": 0
     },
     {
       "query": "\"Oscar Piastri\" \"qualifying\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
-      "ok": false,
-      "items": 0,
-      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+      "ok": true,
+      "items": 13
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
-      "ok": false,
-      "items": 0,
-      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+      "ok": true,
+      "items": 31
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22interview%22+when%3A3d",
-      "ok": false,
-      "items": 0,
-      "error": "HTTPError: HTTP Error 503: Service Unavailable"
+      "ok": true,
+      "items": 3
     },
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 0,
-      "kept": 0,
-      "results": {}
+      "checked": 78,
+      "kept": 48,
+      "results": {
+        "outside_window": 4,
+        "publisher_date_missing": 24,
+        "publisher_unavailable": 2,
+        "verified": 48
+      }
     }
   ]
 }
