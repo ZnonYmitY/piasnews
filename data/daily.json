@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-01T15:22:11.911247Z",
+  "generated_at": "2026-07-01T20:14:44.734182Z",
   "window_days": 3,
-  "total_items": 45,
+  "total_items": 30,
   "latest_date": "2026-07-01",
   "days": [
     {
@@ -27,21 +27,19 @@
     },
     {
       "date": "2026-06-30",
-      "total_new_items": 6,
+      "total_new_items": 4,
       "official_new_items": 0,
-      "media_new_items": 6,
+      "media_new_items": 4,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "F1 Oversteer": 1,
         "KamCity": 1,
         "Packaging Scotland": 1,
-        "Paddock News 24": 1,
-        "racingnews365.com": 1,
-        "total-motorsport.com": 1
+        "racingnews365.com": 1
       },
       "categories": {
-        "team": 6
+        "team": 4
       }
     },
     {
@@ -74,33 +72,21 @@
     },
     {
       "date": "2026-06-28",
-      "total_new_items": 19,
-      "official_new_items": 1,
-      "media_new_items": 18,
+      "total_new_items": 6,
+      "official_new_items": 0,
+      "media_new_items": 6,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "7NEWS": 1,
-        "Akses.co.id": 1,
         "Auto Action": 2,
-        "F1 Oversteer": 1,
-        "Formula 1": 1,
-        "Fox Sports": 3,
-        "GPblog": 1,
-        "Nine.com.au": 1,
-        "Paddock News 24": 1,
-        "Read Motorsport": 1,
-        "Speedcafe.com": 1,
+        "Fox Sports": 1,
         "Yahoo News Australia": 1,
-        "Yahoo News New Zealand": 1,
-        "asatunews.co.id": 1,
-        "edenmagnet.com.au": 1,
-        "grandprix247": 1
+        "Yahoo News New Zealand": 1
       },
       "categories": {
-        "other": 3,
-        "race": 14,
-        "team": 2
+        "race": 5,
+        "team": 1
       }
     }
   ],
@@ -117,7 +103,7 @@
       "source_group": "official_direct",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=site%3Aformula1.com%2Fen%2Flatest+%22Piastri%22+when%3A3d",
       "ok": true,
-      "items": 2
+      "items": 0
     },
     {
       "query": "site:oscarpiastri.com \"Piastri\" when:3d",
@@ -131,14 +117,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 68
+      "items": 56
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 44
+      "items": 28
     },
     {
       "query": "\"OP81\" when:3d",
@@ -152,14 +138,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 9
+      "items": 5
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 33
+      "items": 20
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -171,13 +157,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 78,
-      "kept": 45,
+      "checked": 56,
+      "kept": 30,
       "results": {
-        "outside_window": 3,
-        "publisher_date_missing": 27,
-        "publisher_unavailable": 2,
-        "verified": 46
+        "outside_window": 2,
+        "publisher_date_missing": 18,
+        "publisher_unavailable": 5,
+        "verified": 31
       }
     }
   ]
