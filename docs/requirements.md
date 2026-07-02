@@ -551,6 +551,7 @@ V1 is complete when:
 - The static frontend never receives a GitHub token; the Worker dispatches the controlled workflow.
 - Automatic nomination uses no LLM and does not repeatedly nominate sources already rejected.
 - The public daily can report anonymous page views, and the admin console can display 7/30-day aggregates without storing IP addresses, cookies, or visitor identifiers.
+- Local Immersive Translate capture is available as an optional no-LLM enhancement: after syncing GitHub data, the local runner builds a workbench, opens Chrome only when missing translation targets exist, captures translated DOM mappings, and can optionally commit/push the mapping and trigger the data workflow.
 
 V2 is complete when:
 

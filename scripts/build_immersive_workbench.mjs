@@ -140,6 +140,50 @@ function renderWorkbench(targets) {
   <p class="summary">${targets.length} source texts
 Translate this page with Immersive Translate, then extract translated rows from the DOM.</p>
   <script id="targets" type="application/json">${escapeHtml(payload)}</script>
+  <script>
+    window.__piasnewsExtractImmersiveTranslations = function () {
+      const clean = (value) => String(value || "").replace(/\\s+/g, " ").trim();
+      const hasCjk = (value) => /[\\u3400-\\u9fff]/.test(value);
+      const targets = JSON.parse(document.getElementById("targets").textContent || "[]");
+      const rows = Array.from(document.querySelectorAll(".translation-row"));
+      return rows.map((row, index) => {
+        const target = targets[index] || {};
+        const source = clean(target.source_text);
+        const ignored = new Set([
+          clean(target.key),
+          clean(target.dataset),
+          clean(target.target_field),
+          clean(target.source_name),
+          clean(source),
+          clean(row.dataset.translationKey),
+        ].filter(Boolean));
+        const texts = [];
+        const push = (value) => {
+          const text = clean(value);
+          if (!text || ignored.has(text) || text === source) return;
+          if (source && text.startsWith(source)) {
+            const withoutSource = clean(text.slice(source.length));
+            if (withoutSource && !ignored.has(withoutSource)) texts.push(withoutSource);
+            return;
+          }
+          texts.push(text);
+        };
+
+        for (const element of row.querySelectorAll("*")) {
+          const className = String(element.className || "");
+          const isSource = element.classList && element.classList.contains("source-text");
+          const isImmersive = /immersive|translate|translation/i.test(className);
+          if (isImmersive && !isSource) push(element.innerText || element.textContent);
+        }
+        for (const line of String(row.innerText || "").split("\\n")) push(line);
+
+        const zh = texts
+          .filter(hasCjk)
+          .sort((a, b) => b.length - a.length)[0] || "";
+        return { ...target, zh };
+      });
+    };
+  </script>
   ${rows || "<p>No missing translation targets.</p>"}
 </body>
 </html>`;

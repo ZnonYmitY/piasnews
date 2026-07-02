@@ -331,6 +331,33 @@ GitHub raw fallback：
 
 GitHub Actions 在抓取新闻和 social 数据后会运行 `scripts/translate_zh_argos.py`，优先使用 Argos Translate 的离线 en→zh 模型生成 `title_zh` 和 `summary_zh`。Argos 是开源离线翻译库，不调用在线翻译 API；如果当次依赖安装或模型下载失败，脚本会退回术语表清洗，保证数据更新不中断。
 
+沉浸式翻译可作为本机增强链路。`scripts/build_immersive_workbench.mjs` 会为缺失中文映射的新闻标题、新闻摘要和粉丝源摘要生成 workbench；`scripts/run_immersive_workbench.mjs` 会在 `targets_count > 0` 时打开本机 Chrome，等待沉浸式翻译插件改写页面 DOM，采集中文映射并写入 `data/immersive_translations.zh.json`。该流程不调用大模型，只有通过 Codex 手动操纵浏览器时才消耗 Codex token。
+
+手动运行：
+
+```bash
+node scripts/run_immersive_workbench.mjs
+```
+
+默认只更新本地映射并应用到 `data/items.json` / `data/social.json`。如需自动提交映射、push 并触发 GitHub Pages 更新：
+
+```bash
+PIASNEWS_IMMERSIVE_PUBLISH=1 node scripts/run_immersive_workbench.mjs
+```
+
+无人值守运行使用 wrapper，它会先同步 GitHub 最新数据，再检测是否有新增翻译目标：
+
+```bash
+scripts/update_immersive_translations.sh
+```
+
+macOS 定时运行可以安装仓库内的 launchd 模板。默认每 30 分钟检查一次；无新增目标时会直接跳过，不打开 Chrome。模板内已设置 `PIASNEWS_IMMERSIVE_PUBLISH=1` 和 `PIASNEWS_IMMERSIVE_APPLY=0`：有新映射时提交映射、push 并触发 GitHub workflow，但不把生成数据长期留成本地未提交改动。
+
+```bash
+cp scripts/com.znonymity.piasnews.immersive.plist ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/com.znonymity.piasnews.immersive.plist
+```
+
 本地更新：
 
 ```bash
@@ -769,6 +796,33 @@ GitHub raw fallback:
 ## Chinese Translation
 
 After news and social data are fetched, GitHub Actions runs `scripts/translate_zh_argos.py`. It prefers Argos Translate's offline en-to-zh model for `title_zh` and `summary_zh`. Argos is an open-source offline translation library and does not call an online translation API. If dependency installation or model download fails during a run, the script falls back to glossary cleanup so data refreshes continue.
+
+Immersive Translate can be used as a local enhancement path. `scripts/build_immersive_workbench.mjs` creates a workbench for missing Chinese mappings in news titles, news summaries, and fan-source summaries. `scripts/run_immersive_workbench.mjs` opens local Chrome only when `targets_count > 0`, waits for the Immersive Translate extension to rewrite the page DOM, captures Chinese mappings, and writes `data/immersive_translations.zh.json`. This flow does not call an LLM; Codex tokens are used only when Codex itself is asked to drive or debug the browser.
+
+Manual run:
+
+```bash
+node scripts/run_immersive_workbench.mjs
+```
+
+By default it only updates local mappings and applies them to `data/items.json` / `data/social.json`. To commit the mapping, push it, and trigger the GitHub Pages refresh:
+
+```bash
+PIASNEWS_IMMERSIVE_PUBLISH=1 node scripts/run_immersive_workbench.mjs
+```
+
+For unattended local operation, use the wrapper. It pulls the latest GitHub data first, then checks whether new translation targets exist:
+
+```bash
+scripts/update_immersive_translations.sh
+```
+
+On macOS, install the included launchd template. It checks every 30 minutes by default and skips without opening Chrome when there are no new targets. The template sets `PIASNEWS_IMMERSIVE_PUBLISH=1` and `PIASNEWS_IMMERSIVE_APPLY=0`: new mappings are committed, pushed, and followed by a GitHub workflow dispatch, while generated data files are not left as recurring local dirty changes.
+
+```bash
+cp scripts/com.znonymity.piasnews.immersive.plist ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/com.znonymity.piasnews.immersive.plist
+```
 
 To enable Feishu notifications for new translation badcase Excel exports, create a Feishu incoming webhook in the target group and add it as the GitHub Actions secret `FEISHU_WEBHOOK_URL`. The notification sends a link to the latest published Excel file; uploading the file itself requires a Feishu app with file-upload permission.
 

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.znonymity.piasnews.immersive</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/bytedance/Documents/piasnews/scripts/update_immersive_translations.sh</string>
+  </array>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PIASNEWS_IMMERSIVE_PUBLISH</key>
+    <string>1</string>
+    <key>PIASNEWS_IMMERSIVE_APPLY</key>
+    <string>0</string>
+  </dict>
+  <key>StartInterval</key>
+  <integer>1800</integer>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/tmp/piasnews-immersive.log</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/piasnews-immersive.err</string>
+</dict>
+</plist>
