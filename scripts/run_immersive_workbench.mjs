@@ -20,6 +20,7 @@ function parseArgs(argv) {
     apply: process.env.PIASNEWS_IMMERSIVE_APPLY !== "0",
     publish: process.env.PIASNEWS_IMMERSIVE_PUBLISH === "1",
     open: process.env.PIASNEWS_IMMERSIVE_OPEN !== "0",
+    close: process.env.PIASNEWS_IMMERSIVE_CLOSE !== "0",
   };
   for (let index = 0; index < argv.length; index += 1) {
     const flag = argv[index];
@@ -32,6 +33,7 @@ function parseArgs(argv) {
     else if (flag === "--no-apply") args.apply = false;
     else if (flag === "--publish") args.publish = true;
     else if (flag === "--no-open") args.open = false;
+    else if (flag === "--no-close") args.close = false;
     else if (flag === "--help") {
       console.log(`Usage: node scripts/run_immersive_workbench.mjs [options]
 
@@ -48,6 +50,7 @@ Options:
   --no-apply       Do not apply mappings to data/items.json and data/social.json.
   --publish        Commit mapping, push, and trigger update-piasnews.yml.
   --no-open        Do not open Chrome; useful if the page is already open.
+  --no-close       Keep matching Chrome workbench tabs open after capture.
 `);
       process.exit(0);
     } else {
@@ -146,6 +149,24 @@ return "[]"
 `;
   const output = osascript(script);
   return JSON.parse(output || "[]");
+}
+
+function closeChromeTabs(urlPrefix) {
+  const escapedPrefix = urlPrefix.replaceAll("\\", "\\\\").replaceAll('"', '\\"');
+  const script = `
+tell application "Google Chrome"
+  repeat with w in windows
+    set tabCount to count tabs of w
+    repeat with i from tabCount to 1 by -1
+      set currentTab to tab i of w
+      if (URL of currentTab starts with "${escapedPrefix}") then
+        close currentTab
+      end if
+    end repeat
+  end repeat
+end tell
+`;
+  osascript(script);
 }
 
 async function readJson(file, fallback) {
@@ -261,6 +282,13 @@ async function main() {
     if (args.publish) publishMappings();
     return translated === build.targets_count ? 0 : 2;
   } finally {
+    if (args.close) {
+      try {
+        closeChromeTabs(url);
+      } catch (error) {
+        console.error(`Chrome tab close failed: ${error.message}`);
+      }
+    }
     await new Promise((resolve) => server.close(resolve));
   }
 }
