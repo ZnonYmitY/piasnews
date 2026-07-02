@@ -42,8 +42,8 @@ class ApplyImmersiveTranslationsTest(unittest.TestCase):
                 ]
             }), encoding="utf-8")
 
-            exact, without_urls = immersive.load_social_translations(mapping_path)
-            updated = immersive.apply_social_translations(social_path, exact, without_urls)
+            grouped = immersive.load_translations(mapping_path)
+            updated = immersive.apply_social_translations(social_path, grouped)
 
             self.assertEqual(updated, 1)
             item = json.loads(social_path.read_text())["items"][0]
@@ -83,12 +83,60 @@ class ApplyImmersiveTranslationsTest(unittest.TestCase):
                 ]
             }), encoding="utf-8")
 
-            exact, without_urls = immersive.load_social_translations(mapping_path)
-            updated = immersive.apply_social_translations(social_path, exact, without_urls)
+            grouped = immersive.load_translations(mapping_path)
+            updated = immersive.apply_social_translations(social_path, grouped)
 
             self.assertEqual(updated, 1)
             item = json.loads(social_path.read_text())["items"][0]
             self.assertEqual(item["summary_zh"], "回到我的老地方。期待这个周末。")
+
+    def test_applies_news_title_and_summary_mappings(self):
+        title = "Oscar Piastri surprised to beat Ferrari after P4 in Austria"
+        summary = "Oscar Piastri says McLaren exceeded expectations in Austria."
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            mapping_path = Path(tmpdir) / "immersive.json"
+            items_path = Path(tmpdir) / "items.json"
+            mapping_path.write_text(json.dumps({
+                "translations": {
+                    "title": {
+                        "dataset": "items",
+                        "target_field": "title_zh",
+                        "source_text": title,
+                        "zh": "Oscar Piastri 对奥地利站 P4 完赛并击败 Ferrari 感到意外",
+                    },
+                    "summary": {
+                        "dataset": "news",
+                        "target_field": "summary_zh",
+                        "source_text": summary,
+                        "zh": "Oscar Piastri 表示 McLaren 在奥地利的表现超过预期。",
+                    },
+                }
+            }), encoding="utf-8")
+            items_path.write_text(json.dumps({
+                "items": [
+                    {
+                        "title": title,
+                        "title_zh": "旧标题",
+                        "summary": summary,
+                        "summary_zh": "旧摘要",
+                    }
+                ]
+            }), encoding="utf-8")
+
+            grouped = immersive.load_translations(mapping_path)
+            updated = immersive.apply_item_translations(items_path, grouped)
+
+            self.assertEqual(updated, 2)
+            item = json.loads(items_path.read_text())["items"][0]
+            self.assertEqual(
+                item["title_zh"],
+                "Oscar Piastri 对奥地利站 P4 完赛并击败 Ferrari 感到意外",
+            )
+            self.assertEqual(
+                item["summary_zh"],
+                "Oscar Piastri 表示 McLaren 在奥地利的表现超过预期。",
+            )
 
 
 if __name__ == "__main__":

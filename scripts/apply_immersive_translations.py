@@ -19,6 +19,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_MAPPING = ROOT / "data" / "immersive_translations.zh.json"
+DEFAULT_ITEMS = ROOT / "data" / "items.json"
 DEFAULT_SOCIAL = ROOT / "data" / "social.json"
 WHITESPACE_RE = re.compile(r"\s+")
 URL_RE = re.compile(r"https?://\S+")
@@ -30,6 +31,7 @@ from translate_zh_argos import apply_glossary, social_prefix  # noqa: E402
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Apply Immersive Translate mappings to Piasnews data.")
     parser.add_argument("--mapping", default=str(DEFAULT_MAPPING), help="Immersive translation mapping JSON.")
+    parser.add_argument("--items", default=str(DEFAULT_ITEMS), help="News items JSON to update.")
     parser.add_argument("--social", default=str(DEFAULT_SOCIAL), help="Social items JSON to update.")
     return parser.parse_args()
 
@@ -59,32 +61,73 @@ def source_aware_repairs(source_text: str, zh: str) -> str:
     return normalize(result)
 
 
-def load_social_translations(mapping_path: Path) -> tuple[dict[str, str], dict[str, str]]:
+def load_translations(mapping_path: Path) -> dict[tuple[str, str], tuple[dict[str, str], dict[str, str]]]:
     if not mapping_path.exists():
-        return {}, {}
+        return {}
     payload = json.loads(mapping_path.read_text(encoding="utf-8"))
     translations = payload.get("translations") or {}
-    exact: dict[str, str] = {}
-    without_urls: dict[str, str] = {}
+    grouped: dict[tuple[str, str], tuple[dict[str, str], dict[str, str]]] = {}
     for entry in translations.values():
         if not isinstance(entry, dict):
             continue
-        if entry.get("dataset") != "social" or entry.get("target_field") != "summary_zh":
+        dataset = normalize(entry.get("dataset"))
+        if dataset == "news":
+            dataset = "items"
+        target_field = normalize(entry.get("target_field"))
+        if dataset not in {"items", "social"} or target_field not in {"title_zh", "summary_zh"}:
             continue
         source_text = normalize(entry.get("source_text"))
         zh = normalize(entry.get("zh"))
         if not source_text or not zh:
             continue
         repaired = source_aware_repairs(source_text, zh)
+        exact, without_urls = grouped.setdefault((dataset, target_field), ({}, {}))
         exact[source_text] = repaired
         without_url = normalize(source_text, strip_urls=True)
         if without_url:
             without_urls[without_url] = repaired
-    return exact, without_urls
+    return grouped
 
 
-def apply_social_translations(social_path: Path, exact: dict[str, str], without_urls: dict[str, str]) -> int:
-    if not social_path.exists() or not exact:
+def get_translation(
+    source_text: str,
+    grouped: dict[tuple[str, str], tuple[dict[str, str], dict[str, str]]],
+    dataset: str,
+    target_field: str,
+) -> str | None:
+    exact, without_urls = grouped.get((dataset, target_field), ({}, {}))
+    normalized = normalize(source_text)
+    return exact.get(normalized) or without_urls.get(normalize(normalized, strip_urls=True))
+
+
+def apply_item_translations(
+    items_path: Path,
+    grouped: dict[tuple[str, str], tuple[dict[str, str], dict[str, str]]],
+) -> int:
+    if not items_path.exists():
+        return 0
+    payload: dict[str, Any] = json.loads(items_path.read_text(encoding="utf-8"))
+    updated = 0
+    for item in payload.get("items", []):
+        if not isinstance(item, dict):
+            continue
+        title_zh = get_translation(item.get("title") or "", grouped, "items", "title_zh")
+        if title_zh:
+            item["title_zh"] = title_zh
+            updated += 1
+        summary_zh = get_translation(item.get("summary") or "", grouped, "items", "summary_zh")
+        if summary_zh:
+            item["summary_zh"] = summary_zh
+            updated += 1
+    items_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    return updated
+
+
+def apply_social_translations(
+    social_path: Path,
+    grouped: dict[tuple[str, str], tuple[dict[str, str], dict[str, str]]],
+) -> int:
+    if not social_path.exists():
         return 0
     payload: dict[str, Any] = json.loads(social_path.read_text(encoding="utf-8"))
     updated = 0
@@ -92,7 +135,7 @@ def apply_social_translations(social_path: Path, exact: dict[str, str], without_
         if not isinstance(item, dict):
             continue
         source_text = normalize(item.get("summary") or item.get("title"))
-        translated = exact.get(source_text) or without_urls.get(normalize(source_text, strip_urls=True))
+        translated = get_translation(source_text, grouped, "social", "summary_zh")
         if not translated:
             continue
         item["summary_zh"] = translated
@@ -104,9 +147,14 @@ def apply_social_translations(social_path: Path, exact: dict[str, str], without_
 
 def main() -> int:
     args = parse_args()
-    exact, without_urls = load_social_translations(Path(args.mapping))
-    social_count = apply_social_translations(Path(args.social), exact, without_urls)
-    print(f"Applied Immersive Translate mappings: social={social_count} mappings={len(exact)}")
+    grouped = load_translations(Path(args.mapping))
+    item_count = apply_item_translations(Path(args.items), grouped)
+    social_count = apply_social_translations(Path(args.social), grouped)
+    mapping_count = sum(len(exact) for exact, _ in grouped.values())
+    print(
+        "Applied Immersive Translate mappings: "
+        f"items={item_count} social={social_count} mappings={mapping_count}"
+    )
     return 0
 
 
