@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-02T09:31:53.034704Z",
+  "generated_at": "2026-07-02T09:40:05.835987Z",
   "window_days": 3,
-  "total_items": 21,
+  "total_items": 20,
   "latest_date": "2026-07-02",
   "days": [
     {
@@ -64,22 +64,21 @@
     },
     {
       "date": "2026-06-29",
-      "total_new_items": 5,
+      "total_new_items": 4,
       "official_new_items": 0,
-      "media_new_items": 5,
+      "media_new_items": 4,
       "x_new_items": 0,
       "rumor_new_items": 2,
       "sources": {
         "GPToday.net": 1,
         "Scottish Grocer & Convenience Retailer": 1,
-        "Scottish Local Retailer": 1,
         "TheJudge13": 1,
         "news.gp": 1
       },
       "categories": {
         "race": 1,
         "rumor": 2,
-        "team": 2
+        "team": 1
       }
     }
   ],
@@ -110,7 +109,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 39
+      "items": 37
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
@@ -131,7 +130,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 1
+      "items": 3
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
@@ -150,13 +149,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 39,
-      "kept": 21,
+      "checked": 38,
+      "kept": 20,
       "results": {
         "outside_window": 3,
-        "publisher_date_missing": 13,
-        "publisher_unavailable": 2,
-        "verified": 21
+        "publisher_date_missing": 11,
+        "publisher_unavailable": 4,
+        "verified": 20
       }
     }
   ]
