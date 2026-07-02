@@ -107,7 +107,7 @@ Summarize the latest Oscar Piastri news in English.
 - 粉丝源 Tab 读取 `data/social.json` 展示已抓取到的 X / IG 发帖与转帖；后台维护的账号表不在公开页面展示。
 - 页面右上角支持中文 / English 切换。中文模式优先读取 `title_zh` 和 `summary_zh`，链接文字也可以显示为中文标题；原始英文标题保留为溯源字段。
 - 页面分别显示北京时间的新闻数据更新时间、X / IG 粉丝源采集时间和最新内容时间，并提供手动刷新按钮。
-- 页面接入 F1 赛历，展示下一场大奖赛、比赛周时间和每秒更新的正赛倒计时。
+- 页面接入 F1 赛历，展示下一场大奖赛、比赛周时间、每秒更新的正赛倒计时，并提供下一场正赛 / 比赛周末的 iCalendar 一键导入链接。
 - 每次数据工作流都会完整遍历中文翻译，自动审查疑似 badcase，写入 `data/translation_candidates.csv`，并上传本轮新增候选 Excel artifact。
 - 如果仓库配置了 `FEISHU_WEBHOOK_URL` secret，工作流会在发现本轮新增翻译 badcase 后向飞书发送通知，包含新增数量、预览、飞书审核表链接和最新 Excel 链接。Codex 当前对话不作为 GitHub Actions 的稳定入站通知目标。
 - 每次 GitHub Actions 完成信息抓取后，会在同一工作流中重新部署网页和 JSON/RSS，因此页面与公开数据同步更新。
@@ -312,6 +312,8 @@ GitHub Pages：
 - 每日统计：https://znonymity.github.io/piasnews/data/daily.json
 - RSS Feed：https://znonymity.github.io/piasnews/data/rss.xml
 - F1 赛历：https://znonymity.github.io/piasnews/data/calendar.json
+- 添加下一场正赛：https://znonymity.github.io/piasnews/data/next-race.ics
+- 添加下一场比赛周末：https://znonymity.github.io/piasnews/data/next-weekend.ics
 - X / IG 动态：https://znonymity.github.io/piasnews/data/social.json
 - 历史事件：https://znonymity.github.io/piasnews/data/history.json
 - 历史候选：https://znonymity.github.io/piasnews/data/history-candidates.json
@@ -323,6 +325,8 @@ GitHub raw fallback：
 - 每日统计：[data/daily.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/daily.json)
 - RSS Feed：[data/rss.xml](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/rss.xml)
 - F1 赛历：[data/calendar.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/calendar.json)
+- 添加下一场正赛：[data/next-race.ics](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/next-race.ics)
+- 添加下一场比赛周末：[data/next-weekend.ics](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/next-weekend.ics)
 - 历史事件：[data/history.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/history.json)
 - 历史候选：[data/history-candidates.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/history-candidates.json)
 - 历史检索配置：[piasnews/references/history-retrieval.json](piasnews/references/history-retrieval.json)
@@ -573,7 +577,7 @@ The current knowledge base uses structured-facet retrieval. `piasnews/references
 - The fan-source tab displays collected X / IG posts and reposts only. The maintained source list remains backend configuration and is not shown on the public page.
 - The top-right language switch toggles Chinese and English UI. Chinese mode prefers `title_zh` and `summary_zh`, so even the article link text can be Chinese while the original English title remains available for traceability.
 - The page shows separate China Standard Time refresh times for news data, X / IG fan-source generation, and the newest retained X / IG item, and includes a manual refresh control.
-- The page reads the F1 calendar and shows the next Grand Prix, race-week timing, and a live race-start countdown.
+- The page reads the F1 calendar and shows the next Grand Prix, race-week timing, a live race-start countdown, and iCalendar links for adding the next race or whole race weekend to Apple Calendar and other calendar apps.
 - Each data workflow fully audits Chinese translations, appends suspected badcases to `data/translation_candidates.csv`, and uploads the current run's new candidates as an Excel artifact.
 - If the repository has a `FEISHU_WEBHOOK_URL` secret, the workflow sends a Feishu notification when the current run finds new translation badcases, including the count, preview, Feishu review table link, and latest Excel link. The active Codex conversation is not treated as a stable inbound target for GitHub Actions.
 - Each successful GitHub Actions collection redeploys the page and JSON/RSS in the same workflow, keeping them synchronized.

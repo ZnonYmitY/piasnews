@@ -159,6 +159,7 @@ The GitHub Pages root serves a read-only daily report for all fans. Report conte
 - The page provides a top-right Chinese / English switch. Chinese mode prefers `title_zh` and `summary_zh`; when a Chinese title exists, the article link text should use that Chinese title while the original English title remains available for traceability.
 - Short and daily read the same `data/items.json`, `data/daily.json`, and approved `data/history.json`; news data is not duplicated. Fan sources reads `data/social.json` and renders social entries with `source_type=x|instagram`.
 - The page reads `data/calendar.json` for the next Grand Prix, race-week timing, and race-start countdown. Calendar metadata is outside the three-day news window and cannot fill a daily report.
+- The data workflow generates `data/next-race.ics` and `data/next-weekend.ics` from the next-race calendar metadata. The public page exposes them as one-click calendar imports for Apple Calendar and other iCalendar-compatible apps.
 - The page displays the `generated_at` timestamp in China Standard Time and the active three-day window.
 - The page displays `data/items.json.generated_at`, `data/social.json.generated_at`, and the newest retained `data/social.json.items[].published_at` in China Standard Time so news refresh, social generation, and actual fan-source freshness are not conflated.
 - Short mode uses at most five bullets, omits rumor messaging when there are no rumors, and has no data panel.
@@ -544,7 +545,7 @@ V1 is complete when:
 - GitHub Pages publishes the static data entrypoint.
 - The GitHub Pages root publishes the short, daily, and fan-source tabs, displays separate news and X / IG fan-source refresh times, and updates after each collection workflow.
 - Short and daily share static news data, fan sources reads the `data/social.json` update feed, and page rendering uses no LLM; short has no data panel, while daily keeps lightweight stats at the bottom.
-- The page displays the next F1 race countdown, China Standard Time schedule, and official calendar link; calendar data refreshes with the collection workflow.
+- The page displays the next F1 race countdown, China Standard Time schedule, official calendar link, and next-race / next-weekend iCalendar import links; calendar data refreshes with the collection workflow.
 - `data/history.json` is available for optional historical context and is published with Pages.
 - Unreviewed events never enter Looking Back; vector embeddings remain optional and are disabled by default.
 - The review console reads pending records, confirms Chinese content, and submits approval or rejection; candidate rules assign historical value automatically.

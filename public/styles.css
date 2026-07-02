@@ -363,13 +363,34 @@ a {
   font-weight: 800;
 }
 
+.calendar-actions {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 .calendar-link {
   width: fit-content;
-  margin-top: 14px;
+  border: 1px solid rgba(23, 23, 20, 0.32);
+  border-radius: 999px;
+  padding: 7px 10px;
   color: #171714;
   font-size: 11px;
   font-weight: 900;
+  line-height: 1;
+  text-decoration: none;
   text-underline-offset: 3px;
+}
+
+.calendar-link-primary {
+  background: #171714;
+  color: #fff;
+}
+
+.calendar-link:hover {
+  text-decoration: underline;
 }
 
 .race-board.is-live .countdown-panel {

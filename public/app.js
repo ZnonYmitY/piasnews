@@ -82,6 +82,9 @@ const I18N = {
     liveLabel: "正赛进行中",
     countdownAria: "距离下一场正赛的倒计时",
     countdownUnits: ["天", "时", "分", "秒"],
+    addRaceCalendar: "添加正赛",
+    addWeekendCalendar: "添加比赛周末",
+    calendarActionsLabel: "日历操作",
     calendarLink: "查看 F1 官方赛历",
     footerText: "GitHub Actions 每 6 小时更新。只展示原站发布日期可核验的最近 3 天信息。",
     stats: "统计",
@@ -188,6 +191,9 @@ const I18N = {
     liveLabel: "Race live",
     countdownAria: "Countdown to the next race",
     countdownUnits: ["d", "h", "m", "s"],
+    addRaceCalendar: "Add race",
+    addWeekendCalendar: "Add weekend",
+    calendarActionsLabel: "Calendar actions",
     calendarLink: "View official F1 calendar",
     footerText: "GitHub Actions updates every 6 hours. Only publisher-date-verified items from the latest 3 days are shown.",
     stats: "Stats",
@@ -270,6 +276,9 @@ const elements = {
   countdownHours: document.querySelector("#countdownHours"),
   countdownMinutes: document.querySelector("#countdownMinutes"),
   countdownSeconds: document.querySelector("#countdownSeconds"),
+  calendarActions: document.querySelector(".calendar-actions"),
+  addRaceCalendarLink: document.querySelector("#addRaceCalendarLink"),
+  addWeekendCalendarLink: document.querySelector("#addWeekendCalendarLink"),
   officialCalendarLink: document.querySelector("#officialCalendarLink"),
   reportShell: document.querySelector(".report-shell"),
   footerText: document.querySelector(".site-footer p"),
@@ -417,6 +426,13 @@ function setRaceDetails(race) {
   elements.raceStartTime.textContent = t().raceStart(formatRaceTime(race.race_start));
   elements.raceStartTime.dateTime = race.race_start;
   elements.raceCalendarMeta.textContent = t().calendarUpdated(formatDateTime(state.calendar.generated_at));
+  elements.calendarActions.setAttribute("aria-label", t().calendarActionsLabel);
+  elements.addRaceCalendarLink.href = "data/next-race.ics";
+  elements.addRaceCalendarLink.setAttribute("download", `${race.id || "next-f1-race"}.ics`);
+  elements.addRaceCalendarLink.textContent = t().addRaceCalendar;
+  elements.addWeekendCalendarLink.href = "data/next-weekend.ics";
+  elements.addWeekendCalendarLink.setAttribute("download", `${race.id || "next-f1-weekend"}-weekend.ics`);
+  elements.addWeekendCalendarLink.textContent = t().addWeekendCalendar;
   elements.officialCalendarLink.href = state.calendar.source?.official_calendar_url || race.official_url;
   elements.officialCalendarLink.textContent = t().calendarLink;
 }
