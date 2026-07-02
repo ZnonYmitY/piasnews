@@ -138,6 +138,38 @@ class ApplyImmersiveTranslationsTest(unittest.TestCase):
                 "Oscar Piastri 表示 McLaren 在奥地利的表现超过预期。",
             )
 
+    def test_manual_translation_beats_immersive_news_mapping(self):
+        title = "Monster taps F1 demand with Oscar Piastri cans"
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            mapping_path = Path(tmpdir) / "immersive.json"
+            items_path = Path(tmpdir) / "items.json"
+            mapping_path.write_text(json.dumps({
+                "translations": {
+                    "title": {
+                        "dataset": "items",
+                        "target_field": "title_zh",
+                        "source_text": title,
+                        "zh": "怪物们满足了 F1 的需求，而 Oscar Piastri 则被淘汰了。",
+                    },
+                }
+            }), encoding="utf-8")
+            items_path.write_text(json.dumps({
+                "items": [
+                    {
+                        "title": title,
+                        "title_zh": "旧标题",
+                    }
+                ]
+            }), encoding="utf-8")
+
+            grouped = immersive.load_translations(mapping_path)
+            updated = immersive.apply_item_translations(items_path, grouped, {})
+
+            self.assertEqual(updated, 1)
+            item = json.loads(items_path.read_text())["items"][0]
+            self.assertEqual(item["title_zh"], "Monster 推出 Oscar Piastri F1 联名罐")
+
 
 if __name__ == "__main__":
     unittest.main()

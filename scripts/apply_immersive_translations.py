@@ -25,7 +25,14 @@ WHITESPACE_RE = re.compile(r"\s+")
 URL_RE = re.compile(r"https?://\S+")
 
 sys.path.insert(0, str(ROOT / "scripts"))
-from translate_zh_argos import apply_glossary, social_prefix  # noqa: E402
+from translate_zh_argos import (  # noqa: E402
+    DEFAULT_REVIEW_PATH,
+    apply_glossary,
+    load_manual_translations,
+    manual_headline_translation,
+    manual_translation_for,
+    social_prefix,
+)
 
 
 def parse_args() -> argparse.Namespace:
@@ -33,6 +40,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--mapping", default=str(DEFAULT_MAPPING), help="Immersive translation mapping JSON.")
     parser.add_argument("--items", default=str(DEFAULT_ITEMS), help="News items JSON to update.")
     parser.add_argument("--social", default=str(DEFAULT_SOCIAL), help="Social items JSON to update.")
+    parser.add_argument("--review", default=str(DEFAULT_REVIEW_PATH), help="Approved manual translation CSV.")
     return parser.parse_args()
 
 
@@ -103,6 +111,7 @@ def get_translation(
 def apply_item_translations(
     items_path: Path,
     grouped: dict[tuple[str, str], tuple[dict[str, str], dict[str, str]]],
+    manual_translations: dict[str, str] | None = None,
 ) -> int:
     if not items_path.exists():
         return 0
@@ -111,11 +120,22 @@ def apply_item_translations(
     for item in payload.get("items", []):
         if not isinstance(item, dict):
             continue
-        title_zh = get_translation(item.get("title") or "", grouped, "items", "title_zh")
+        title = item.get("title") or ""
+        title_zh = (
+            manual_translation_for(title, manual_translations)
+            or manual_headline_translation(title)
+            or get_translation(title, grouped, "items", "title_zh")
+        )
         if title_zh:
             item["title_zh"] = title_zh
             updated += 1
-        summary_zh = get_translation(item.get("summary") or "", grouped, "items", "summary_zh")
+        summary = item.get("summary") or ""
+        summary_zh = manual_translation_for(summary, manual_translations) or get_translation(
+            summary,
+            grouped,
+            "items",
+            "summary_zh",
+        )
         if summary_zh:
             item["summary_zh"] = summary_zh
             updated += 1
@@ -126,6 +146,7 @@ def apply_item_translations(
 def apply_social_translations(
     social_path: Path,
     grouped: dict[tuple[str, str], tuple[dict[str, str], dict[str, str]]],
+    manual_translations: dict[str, str] | None = None,
 ) -> int:
     if not social_path.exists():
         return 0
@@ -135,7 +156,12 @@ def apply_social_translations(
         if not isinstance(item, dict):
             continue
         source_text = normalize(item.get("summary") or item.get("title"))
-        translated = get_translation(source_text, grouped, "social", "summary_zh")
+        translated = manual_translation_for(source_text, manual_translations) or get_translation(
+            source_text,
+            grouped,
+            "social",
+            "summary_zh",
+        )
         if not translated:
             continue
         item["summary_zh"] = translated
@@ -148,8 +174,9 @@ def apply_social_translations(
 def main() -> int:
     args = parse_args()
     grouped = load_translations(Path(args.mapping))
-    item_count = apply_item_translations(Path(args.items), grouped)
-    social_count = apply_social_translations(Path(args.social), grouped)
+    manual_translations = load_manual_translations(args.review)
+    item_count = apply_item_translations(Path(args.items), grouped, manual_translations)
+    social_count = apply_social_translations(Path(args.social), grouped, manual_translations)
     mapping_count = sum(len(exact) for exact, _ in grouped.values())
     print(
         "Applied Immersive Translate mappings: "
