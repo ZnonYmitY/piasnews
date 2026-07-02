@@ -55,9 +55,13 @@ def normalize(value: str | None, *, strip_urls: bool = False) -> str:
 def source_aware_repairs(source_text: str, zh: str) -> str:
     result = apply_glossary(zh)
     source_lower = source_text.casefold()
+    if re.search(r"\bfia\b", source_lower):
+        result = result.replace("Fia", "FIA")
+        result = result.replace("国际汽联", "FIA")
     if re.search(r"\bmax\b", source_lower):
         result = result.replace("最大", "Max")
         result = result.replace("马克斯", "Max")
+        result = result.replace("马克思", "Max")
     if re.search(r"\blando\b", source_lower):
         result = result.replace("兰多", "Lando")
     if re.search(r"\boscar\b", source_lower):
@@ -67,6 +71,33 @@ def source_aware_repairs(source_text: str, zh: str) -> str:
     if re.search(r"\bzak brown\b", source_lower):
         result = result.replace("扎克·布朗", "Zak Brown")
         result = result.replace("扎克布朗", "Zak Brown")
+    if "steward" in source_lower:
+        result = result.replace("服务员", "FIA 干事")
+        result = result.replace("管家", "FIA 干事")
+        result = result.replace("主管", "FIA 干事")
+    if "qualifying" in source_lower or re.search(r"\bquali\b", source_lower):
+        result = result.replace("资格赛", "排位赛")
+        result = result.replace("资格", "排位赛")
+    if "pole" in source_lower:
+        result = result.replace("极点", "杆位")
+        result = result.replace("杆位位置", "杆位")
+    if "downforce" in source_lower:
+        result = result.replace("降压", "下压力")
+    if "parc ferme" in source_lower or "parc fermé" in source_lower:
+        result = result.replace("发烧", "parc ferme")
+        result = result.replace("帕克费尔梅", "parc ferme")
+    if "monster" in source_lower and "piastri" in source_lower and "can" in source_lower:
+        result = result.replace("怪物能源", "Monster Energy")
+        result = result.replace("怪物", "Monster")
+        result = result.replace("Monster发射", "Monster 推出")
+        result = result.replace("Monster 发射", "Monster 推出")
+        result = result.replace("罐头", "联名罐")
+        result = result.replace("F1罐", "F1 联名罐")
+        result = result.replace("F1 罐", "F1 联名罐")
+    if "red bull move" in source_lower or "move for piastri" in source_lower:
+        result = result.replace("Red Bull行动", "Red Bull 转会")
+        result = result.replace("Red Bull 行动", "Red Bull 转会")
+        result = result.replace("行动", "转会")
     return normalize(result)
 
 

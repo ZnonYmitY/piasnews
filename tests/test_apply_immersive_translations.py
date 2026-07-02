@@ -170,6 +170,22 @@ class ApplyImmersiveTranslationsTest(unittest.TestCase):
             item = json.loads(items_path.read_text())["items"][0]
             self.assertEqual(item["title_zh"], "Monster 推出 Oscar Piastri F1 联名罐")
 
+    def test_repairs_deterministic_f1_terms_after_immersive_mapping(self):
+        cases = {
+            "Oscar Piastri summoned to the stewards after qualifying":
+                ("Oscar Piastri在资格赛后被服务员传唤", "Oscar Piastri在排位赛后被FIA 干事传唤"),
+            "McLaren adds downforce before parc ferme":
+                ("McLaren在发烧前增加降压", "McLaren在parc ferme前增加下压力"),
+            "Webber preparing Red Bull move for Piastri":
+                ("Webber 正在准备 Red Bull 行动", "Webber 正在准备 Red Bull 转会"),
+            "Monster launches Oscar Piastri F1 cans":
+                ("怪物发射 Oscar Piastri F1罐", "Monster 推出 Oscar Piastri F1 联名罐"),
+        }
+
+        for source, (raw_zh, expected) in cases.items():
+            with self.subTest(source=source):
+                self.assertEqual(immersive.source_aware_repairs(source, raw_zh), expected)
+
 
 if __name__ == "__main__":
     unittest.main()

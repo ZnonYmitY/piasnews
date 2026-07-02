@@ -18,8 +18,8 @@
 
 1. 数据抓取写入英文原文，并为缺少中文映射的新内容保留确定性中文概括或英文兜底。
 2. 本机沉浸式翻译采集链路对缺失目标生成 workbench，采集 `原文 -> 中文译文` 映射并写入 `data/immersive_translations.zh.json`。
-3. GitHub Actions 调用 `scripts/apply_immersive_translations.py` 应用沉浸式翻译映射，覆盖 `title_zh` / `summary_zh`。
-4. `data/translation_glossary.csv` 和脚本规则继续处理稳定术语，保留 `Piastri`、`McLaren`、`FP1`、`P4`、`team radio` 等高识别度词。
+3. GitHub Actions 调用 `scripts/apply_immersive_translations.py` 应用沉浸式翻译映射，并立即执行 deterministic auto-repair，覆盖 `title_zh` / `summary_zh`。
+4. deterministic auto-repair 来自已沉淀的术语表和低风险脚本规则：`data/translation_glossary.csv` 负责专名、车队、赛道、赛段、位置和常见 F1 术语，脚本规则负责 `stewards`、`qualifying`、`pole`、`downforce`、`parc ferme`、Monster 联名罐、Red Bull 转会语境等确定性坏例。规则能稳定修正的问题不进入人工 pending。
 5. 飞书审核表和 `data/translation_review.csv` 可保存人工确认样本，但 `status=approved` 不再进入默认生产覆盖链路；它只用于训练、评估和后续规则沉淀。
 6. `scripts/audit_translations.py` 在每次数据更新后完整遍历最终展示中文，自动发现疑似坏例，写入 `data/translation_candidates.csv`，并生成本轮新增 Excel。
 
