@@ -2,7 +2,7 @@
 
 ## 当前目标
 
-中文界面的主读者是中文车迷，但 X / IG 粉丝源天然包含口语、梗、缩写、车队无线电和情绪表达。翻译优化的最终目标是让离线模型和规则在这个垂直场景里持续变好；英文原文只作为上线质量保护，不是长期替代方案。
+中文界面的主读者是中文车迷，但 X / IG 粉丝源天然包含口语、梗、缩写、车队无线电和情绪表达。翻译优化的最终目标是让沉浸式翻译映射、术语规则和后续离线模型在这个垂直场景里持续变好；英文原文只作为上线质量保护，不是长期替代方案。
 
 页面展示策略改为：
 
@@ -14,26 +14,29 @@
 
 ## 翻译链路
 
-当前采用三层策略：
+当前生产链路：
 
-1. Argos Translate 离线 en-to-zh 生成初版中文。
-2. `data/translation_glossary.csv` 做术语表后处理，保留 `Piastri`、`McLaren`、`FP1`、`P4`、`team radio` 等高识别度词。
-3. `data/translation_review.csv` 保存人工确认样本。只有 `status=approved` 的条目会覆盖翻译结果，`pending` 只用于审核、评估和后续训练准备。
-4. 对高频坏例和首页高曝光标题加人工规则，避免 `奥斯卡·Piastri(Oscar Piastri)`、`银行第七`、`拿起杆子` 这类直译。
-5. `scripts/audit_translations.py` 在每次数据更新后完整遍历新闻和社交翻译，自动发现疑似坏例，写入 `data/translation_candidates.csv`，并生成本轮新增 Excel。
+1. 数据抓取写入英文原文，并为缺少中文映射的新内容保留确定性中文概括或英文兜底。
+2. 本机沉浸式翻译采集链路对缺失目标生成 workbench，采集 `原文 -> 中文译文` 映射并写入 `data/immersive_translations.zh.json`。
+3. GitHub Actions 调用 `scripts/import_feishu_translation_review.py` 导入 approved 人工案例，再调用 `scripts/apply_immersive_translations.py` 应用人工案例和沉浸式翻译映射，覆盖 `title_zh` / `summary_zh`。
+4. `data/translation_glossary.csv` 和脚本规则继续处理稳定术语，保留 `Piastri`、`McLaren`、`FP1`、`P4`、`team radio` 等高识别度词。
+5. `data/translation_review.csv` 保存人工确认样本。只有 `status=approved` 的条目会覆盖翻译结果，`pending` 只用于审核、评估和后续训练准备。
+6. `scripts/audit_translations.py` 在每次数据更新后完整遍历最终展示中文，自动发现疑似坏例，写入 `data/translation_candidates.csv`，并生成本轮新增 Excel。
+
+`scripts/translate_zh_argos.py` 不再进入默认生产 workflow，仅保留为手动 fallback、历史对照和模型选型评估工具。
 
 结构化数据说明见 [translation-dataset.zh-CN.md](translation-dataset.zh-CN.md)。
 
 ## 模型选型评估
 
-最初选择 Argos Translate 的原因是工程约束优先：它开源、离线、可在 GitHub Actions 中直接安装，不调用在线翻译 API，不需要用户或访问者承担 token / API 成本；同时脚本可以在依赖或模型不可用时退回术语表清洗，保证新闻抓取和静态 JSON 发布不中断。
+最初选择 Argos Translate 的原因是工程约束优先：它开源、离线、可在 GitHub Actions 中直接安装，不调用在线翻译 API，不需要用户或访问者承担 token / API 成本；同时脚本可以在依赖或模型不可用时退回术语表清洗，保证新闻抓取和静态 JSON 发布不中断。现在生产链路已切到沉浸式翻译映射优先，Argos 只作为手动 fallback 和对照基线。
 
 2026-06-30 用 `facebook/nllb-200-distilled-600M` 对 10 条 Piasnews 样本做过一次本地对比，样本覆盖 X 粉丝梗、车队无线电、采访问答、传闻标题和新闻标题。结论：
 
-- NLLB 冷启动成本更高：首次下载和加载明显慢于 Argos，放进 3 小时 / 6 小时更新链路会增加 GitHub Actions 耗时和缓存压力。
+- NLLB 冷启动成本更高：首次下载和加载明显慢于 Argos，直接放进 3 小时 / 6 小时更新链路会增加 GitHub Actions 耗时和缓存压力。
 - NLLB 在通用句子上更自然的概率更高，但在 Piasnews 当前高频文本里没有稳定胜出；短 X 梗、缩写、对话体和 F1 转会语境仍会漏译、截断或误译。
 - Argos 和 NLLB 都不能单独解决 `move` 译为“转会”、`stewards` 译为“干事”、TR 口语、粉丝梗意译等领域问题。
-- 当前生产策略仍保留 Argos 作为默认离线模型，把质量提升重点放在术语表、人工确认集、规则和 badcase loop；NLLB 暂不切为默认，只保留为后续微调或二阶段评估候选。
+- 当前生产策略把质量提升重点放在沉浸式翻译映射、术语表、人工确认集、规则和 badcase loop；Argos / NLLB 暂不切为默认，只保留为手动 fallback、后续微调或二阶段评估候选。
 
 ## 待确认优化样例
 

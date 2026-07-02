@@ -178,7 +178,7 @@ The GitHub Pages root serves a read-only daily report for all fans. Report conte
 - X collection can migrate to an always-on mini host, VPS, or external scheduler by generating compact social JSON, updating `PIASNEWS_SOCIAL_INPUT_JSON`, and triggering `Update Piasnews Data` through GitHub API. Prefer a home/always-on local environment over data-center IPs because X may apply stricter risk controls to VPS traffic.
 - The fan-source tab must show one removal-on-rights-request notice above the feed; each card shows only account attribution to avoid repeated notices.
 - Looking Back uses approved history only and is omitted when no same-date event qualifies.
-- GitHub Actions runs `scripts/translate_zh_argos.py` after data collection. It prefers Argos Translate's offline en-to-zh model for `title_zh` and `summary_zh`, then falls back to glossary cleanup if Argos setup fails.
+- GitHub Actions runs `scripts/apply_immersive_translations.py` after data collection. It imports approved review cases, applies captured Immersive Translate mappings to `title_zh` and `summary_zh`, and leaves deterministic Chinese or English fallback text in place until a mapping exists. Argos remains available only as a manual fallback/evaluation tool, not as the default production translator.
 - Browser-side deterministic templates render the reports without an LLM or model-token usage.
 - `.github/workflows/update-piasnews.yml` packages `public/` with the current run's generated data, so the page and JSON/RSS update in the same Pages deployment. The workflow keeps both the primary schedule and the ten-minute backup schedule.
 - The UI includes loading, empty, error, and manual-refresh states, responsive layouts, and keyboard-operable tabs.

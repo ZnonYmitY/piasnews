@@ -53,22 +53,7 @@ jobs:
           FEISHU_BASE_TABLE_ID: ${{ secrets.FEISHU_BASE_TABLE_ID }}
         run: python scripts/import_feishu_translation_review.py --review-csv data/translation_review.csv
 
-      - name: Cache Argos Translate packages
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.cache/pip
-            ~/.local/cache/argos-translate
-            ~/.local/share/argos-translate
-          key: argos-en-zh-v1
-
-      - name: Install optional Argos Translate
-        run: python -m pip install argostranslate || true
-
-      - name: Translate Chinese fields
-        run: python scripts/translate_zh_argos.py --items data/items.json --social data/social.json
-
-      - name: Apply Immersive Translate mappings
+      - name: Apply approved and Immersive Translate mappings
         run: python scripts/apply_immersive_translations.py --mapping data/immersive_translations.zh.json --items data/items.json --social data/social.json
 
       - name: Sync approved translation cases to Feishu Base
