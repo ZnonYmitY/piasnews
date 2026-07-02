@@ -107,7 +107,7 @@ Summarize the latest Oscar Piastri news in English.
 - 粉丝源 Tab 读取 `data/social.json` 展示已抓取到的 X / IG 发帖与转帖；后台维护的账号表不在公开页面展示。
 - 页面右上角支持中文 / English 切换。中文模式优先读取 `title_zh` 和 `summary_zh`，链接文字也可以显示为中文标题；原始英文标题保留为溯源字段。
 - 页面分别显示北京时间的新闻数据更新时间、X / IG 粉丝源采集时间和最新内容时间，并提供手动刷新按钮。
-- 页面接入 F1 赛历，展示下一场大奖赛、比赛周时间、每秒更新的正赛倒计时，并提供下一场正赛 / 比赛周末的 iCalendar 一键导入链接。
+- 页面接入 F1 赛历，展示下一场大奖赛、比赛周时间、每秒更新的下一赛段倒计时；练习赛、冲刺排位、冲刺赛、排位赛或正赛进行中时自动切为正计时，结束后切到下一赛段。页面提供下一场正赛 / 比赛周末的 iCalendar 导入链接。
 - 每次数据工作流都会完整遍历中文翻译，自动审查疑似 badcase，写入 `data/translation_candidates.csv`，并上传本轮新增候选 Excel artifact。
 - 如果仓库配置了 `FEISHU_WEBHOOK_URL` secret，工作流会在发现本轮新增翻译 badcase 后向飞书发送通知，包含新增数量、预览、飞书审核表链接和最新 Excel 链接。Codex 当前对话不作为 GitHub Actions 的稳定入站通知目标。
 - 每次 GitHub Actions 完成信息抓取后，会在同一工作流中重新部署网页和 JSON/RSS，因此页面与公开数据同步更新。
@@ -115,9 +115,9 @@ Summarize the latest Oscar Piastri news in English.
 
 ## 飞书翻译审核表
 
-翻译 badcase 的主审核界面推荐使用飞书多维表格 Base，而不是每次下载 Excel。飞书审核表负责待审和人工确认，仓库内 `data/translation_review.csv` 是最终可追溯案例库；另建一个飞书“翻译案例库”表作为 approved 样本镜像，方便查看已经入库的案例。工作流支持以下环境配置：
+翻译 badcase 的主审核界面推荐使用飞书多维表格 Base，而不是每次下载 Excel。飞书审核表负责待审和人工确认；仓库内 `data/translation_candidates.csv` 是自动发现的 badcase 队列。`data/translation_review.csv` 可作为后续训练 / 评估样本集维护，但默认生产 workflow 不再导入 approved 样本，也不会用 approved 样本覆盖线上中文。工作流支持以下环境配置：
 
-- GitHub Secrets：`FEISHU_APP_ID`、`FEISHU_APP_SECRET`、`FEISHU_BASE_APP_TOKEN`、`FEISHU_BASE_TABLE_ID`、`FEISHU_CASE_TABLE_ID`。
+- GitHub Secrets：`FEISHU_APP_ID`、`FEISHU_APP_SECRET`、`FEISHU_BASE_APP_TOKEN`、`FEISHU_BASE_TABLE_ID`。
 - GitHub Variable：`FEISHU_BASE_URL`，用于飞书通知中展示可点击的审核表链接。
 
 审核表建议字段：
@@ -140,7 +140,7 @@ Summarize the latest Oscar Piastri news in English.
 
 审核表视图建议把 `英文原文`、`当前中文`、`建议中文`、`审核状态`、`备注` 放在前部。飞书 Base 会强制主字段在第一列，因此如果 `候选ID` 是主字段，它会保留在最前。
 
-“翻译案例库”表建议字段：
+如后续需要单独维护训练样本库，可建立“翻译案例库”表，建议字段：
 
 - `英文原文`
 - `当前中文`
@@ -159,15 +159,15 @@ Summarize the latest Oscar Piastri news in English.
 2. 检查 `英文原文`、`当前中文`、`建议中文`。
 3. 如果建议译文可以进入确认集，把 `审核状态` 改为 `approved`。
 4. 如果不需要处理，可以改为 `ignored` 或保持 `pending`。
-5. 下一次 `Update Piasnews Data` workflow 会先读取飞书审核表中的 `approved` 行，追加到 `data/translation_review.csv`，同步到“翻译案例库”表，再执行新一轮审查。
+5. 默认生产 workflow 不会读取 approved 行覆盖线上译文；approved 仅表示该样本可进入后续训练 / 评估集。
 
 同步规则：
 
 - 新增候选会写入飞书 Base。
 - 已存在候选会更新原文、当前译文、建议译文和备注等字段。
 - 已经在飞书中标为 `approved`、`rejected`、`ignore` 或 `ignored` 的行不会被工作流覆盖审核状态。
-- `data/translation_review.csv` 是仓库内可追溯的批准结果；飞书审核表是人工审核入口，飞书案例库表是 approved 样本镜像。
-- “翻译案例库”表使用 `样本ID` 去重；同一 approved 样本会更新既有行，不会重复新增。
+- `data/translation_candidates.csv` 是仓库内可追溯的自动审查队列；飞书审核表是人工审核入口。
+- “翻译案例库”表目前是可选训练样本镜像，不参与默认生产翻译链路。
 - 全自动飞书读写依赖 GitHub Actions 中的飞书应用凭证。缺少 `FEISHU_APP_ID` / `FEISHU_APP_SECRET` 时，本地人工授权仍可写表，但 workflow 会跳过飞书读写。
 
 ## 历史审核台
@@ -333,7 +333,7 @@ GitHub raw fallback：
 
 ## 中文翻译
 
-GitHub Actions 在抓取新闻和 social 数据后会运行 `scripts/apply_immersive_translations.py`，先导入已审核通过的人工案例，再应用 `data/immersive_translations.zh.json` 中的沉浸式翻译映射，覆盖 `title_zh` 和 `summary_zh`。缺少映射的新内容会保留抓取脚本生成的确定性中文概括或英文兜底，等待本机沉浸式翻译采集补齐。
+GitHub Actions 在抓取新闻和 social 数据后会运行 `scripts/apply_immersive_translations.py`，应用 `data/immersive_translations.zh.json` 中的沉浸式翻译映射，覆盖 `title_zh` 和 `summary_zh`。缺少映射的新内容会保留抓取脚本生成的确定性中文概括或英文兜底，等待本机沉浸式翻译采集补齐。
 
 沉浸式翻译是当前默认中文增强链路。`scripts/build_immersive_workbench.mjs` 会为缺失中文映射的新闻标题、新闻摘要和粉丝源摘要生成 workbench；`scripts/run_immersive_workbench.mjs` 会在 `targets_count > 0` 时打开本机 Chrome，等待沉浸式翻译插件改写页面 DOM，采集中文映射并写入 `data/immersive_translations.zh.json`。该流程不调用大模型，只有通过 Codex 手动操纵浏览器时才消耗 Codex token。
 
@@ -579,7 +579,7 @@ The current knowledge base uses structured-facet retrieval. `piasnews/references
 - The fan-source tab displays collected X / IG posts and reposts only. The maintained source list remains backend configuration and is not shown on the public page.
 - The top-right language switch toggles Chinese and English UI. Chinese mode prefers `title_zh` and `summary_zh`, so even the article link text can be Chinese while the original English title remains available for traceability.
 - The page shows separate China Standard Time refresh times for news data, X / IG fan-source generation, and the newest retained X / IG item, and includes a manual refresh control.
-- The page reads the F1 calendar and shows the next Grand Prix, race-week timing, a live race-start countdown, and iCalendar links for adding the next race or whole race weekend to Apple Calendar and other calendar apps.
+- The page reads the F1 calendar and shows the next Grand Prix, race-week timing, and a live countdown to the next session. During practice, sprint qualifying, sprint, qualifying, or the race, the timer switches to elapsed time, then moves to the next session after the expected session duration. The page exposes iCalendar links for adding the next race or whole race weekend to any iCalendar-compatible calendar app.
 - Each data workflow fully audits Chinese translations, appends suspected badcases to `data/translation_candidates.csv`, and uploads the current run's new candidates as an Excel artifact.
 - If the repository has a `FEISHU_WEBHOOK_URL` secret, the workflow sends a Feishu notification when the current run finds new translation badcases, including the count, preview, Feishu review table link, and latest Excel link. The active Codex conversation is not treated as a stable inbound target for GitHub Actions.
 - Each successful GitHub Actions collection redeploys the page and JSON/RSS in the same workflow, keeping them synchronized.
@@ -587,9 +587,9 @@ The current knowledge base uses structured-facet retrieval. `piasnews/references
 
 ## Feishu Translation Review Table
 
-The preferred review surface for translation badcases is a Feishu Base table, not repeated Excel downloads. The Feishu review table is the inbox for pending and human-approved cases, while `data/translation_review.csv` is the repository-tracked source of truth. A separate Feishu `翻译案例库` table mirrors approved samples for easier reading. The workflow supports these settings:
+The preferred review surface for translation badcases is a Feishu Base table, not repeated Excel downloads. The Feishu review table is the inbox for pending and reviewed cases, while `data/translation_candidates.csv` is the repository-tracked badcase queue. `data/translation_review.csv` may still be maintained as a future training/evaluation set, but the default production workflow no longer imports approved rows or uses them to overwrite live Chinese text. The workflow supports these settings:
 
-- GitHub Secrets: `FEISHU_APP_ID`, `FEISHU_APP_SECRET`, `FEISHU_BASE_APP_TOKEN`, `FEISHU_BASE_TABLE_ID`, `FEISHU_CASE_TABLE_ID`.
+- GitHub Secrets: `FEISHU_APP_ID`, `FEISHU_APP_SECRET`, `FEISHU_BASE_APP_TOKEN`, `FEISHU_BASE_TABLE_ID`.
 - GitHub Variable: `FEISHU_BASE_URL`, used in Feishu notifications as the clickable review-table link.
 
 Recommended Base fields:
@@ -612,7 +612,7 @@ Recommended Base fields:
 
 Put `英文原文`, `当前中文`, `建议中文`, `审核状态`, and `备注` near the front of the review view. Feishu Base keeps the primary field first, so `候选ID` remains the first column if it is the primary field.
 
-Recommended fields for the `翻译案例库` table:
+If a separate future training-sample library is needed, recommended fields for the `翻译案例库` table:
 
 - `英文原文`
 - `当前中文`
@@ -631,15 +631,15 @@ Review flow:
 2. Check `英文原文`, `当前中文`, and `建议中文`.
 3. If the suggested translation should enter the confirmed set, set `审核状态` to `approved`.
 4. If no action is needed, set it to `ignored` or leave it as `pending`.
-5. The next `Update Piasnews Data` workflow imports approved review rows into `data/translation_review.csv`, syncs approved samples to the `翻译案例库` table, then runs the next audit.
+5. The default production workflow does not import approved rows to overwrite live translations; `approved` only marks samples that may enter a future training/evaluation set.
 
 Sync rules:
 
 - New candidates are inserted into Feishu Base.
 - Existing candidates are refreshed with source text, current translation, suggested translation, and notes.
 - Rows already marked `approved`, `rejected`, `ignore`, or `ignored` keep their review status.
-- `data/translation_review.csv` remains the repository-tracked approval set; the review table is the human inbox and the case-library table is an approved-sample mirror.
-- The `翻译案例库` table deduplicates by `样本ID`; an approved sample updates its existing row instead of creating duplicates.
+- `data/translation_candidates.csv` remains the repository-tracked audit queue; the review table is the human inbox.
+- The `翻译案例库` table is currently an optional training-sample mirror and is not part of the default production translation path.
 - Fully automated Feishu reads and writes require valid Feishu app credentials in GitHub Actions. Without `FEISHU_APP_ID` / `FEISHU_APP_SECRET`, local user-authorized writes can still work, but the workflow skips Feishu I/O.
 
 ## History Review Console
@@ -801,7 +801,7 @@ GitHub raw fallback:
 
 ## Chinese Translation
 
-After news and social data are fetched, GitHub Actions runs `scripts/apply_immersive_translations.py`. It imports approved manual review cases, then applies mappings from `data/immersive_translations.zh.json` to overwrite `title_zh` and `summary_zh`. New content without a mapping keeps the deterministic Chinese summary or English fallback generated by the fetch scripts until local Immersive Translate capture fills the mapping.
+After news and social data are fetched, GitHub Actions runs `scripts/apply_immersive_translations.py`. It applies mappings from `data/immersive_translations.zh.json` to overwrite `title_zh` and `summary_zh`. New content without a mapping keeps the deterministic Chinese summary or English fallback generated by the fetch scripts until local Immersive Translate capture fills the mapping.
 
 Immersive Translate is the default Chinese enhancement path. `scripts/build_immersive_workbench.mjs` creates a workbench for missing Chinese mappings in news titles, news summaries, and fan-source summaries. `scripts/run_immersive_workbench.mjs` opens local Chrome only when `targets_count > 0`, waits for the Immersive Translate extension to rewrite the page DOM, captures Chinese mappings, and writes `data/immersive_translations.zh.json`. This flow does not call an LLM; Codex tokens are used only when Codex itself is asked to drive or debug the browser.
 

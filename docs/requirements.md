@@ -158,8 +158,8 @@ The GitHub Pages root serves a read-only daily report for all fans. Report conte
 - The page provides short, daily, and fan-source tabs. Short and daily align with the Skill's report modes; fan sources reads the generated X / Instagram social-update feed.
 - The page provides a top-right Chinese / English switch. Chinese mode prefers `title_zh` and `summary_zh`; when a Chinese title exists, the article link text should use that Chinese title while the original English title remains available for traceability.
 - Short and daily read the same `data/items.json`, `data/daily.json`, and approved `data/history.json`; news data is not duplicated. Fan sources reads `data/social.json` and renders social entries with `source_type=x|instagram`.
-- The page reads `data/calendar.json` for the next Grand Prix, race-week timing, and race-start countdown. Calendar metadata is outside the three-day news window and cannot fill a daily report.
-- The data workflow generates `data/next-race.ics` and `data/next-weekend.ics` from the next-race calendar metadata. The public page exposes them as one-click calendar imports for Apple Calendar and other iCalendar-compatible apps.
+- The page reads `data/calendar.json` for the next Grand Prix, race-week timing, and a countdown to the next session. During practice, sprint qualifying, sprint, qualifying, or the race, the timer switches to elapsed time from session start, then advances to the next session after the expected duration. Calendar metadata is outside the three-day news window and cannot fill a daily report.
+- The data workflow generates `data/next-race.ics` and `data/next-weekend.ics` from the next-race calendar metadata. The public page exposes them as calendar imports for iCalendar-compatible apps, including Apple Calendar, Google Calendar, and Outlook. Import UI differs by product, but the underlying `.ics` file format is shared.
 - The page displays the `generated_at` timestamp in China Standard Time and the active three-day window.
 - The page displays `data/items.json.generated_at`, `data/social.json.generated_at`, and the newest retained `data/social.json.items[].published_at` in China Standard Time so news refresh, social generation, and actual fan-source freshness are not conflated.
 - Short mode uses at most five bullets, omits rumor messaging when there are no rumors, and has no data panel.
@@ -178,11 +178,11 @@ The GitHub Pages root serves a read-only daily report for all fans. Report conte
 - X collection can migrate to an always-on mini host, VPS, or external scheduler by generating compact social JSON, updating `PIASNEWS_SOCIAL_INPUT_JSON`, and triggering `Update Piasnews Data` through GitHub API. Prefer a home/always-on local environment over data-center IPs because X may apply stricter risk controls to VPS traffic.
 - The fan-source tab must show one removal-on-rights-request notice above the feed; each card shows only account attribution to avoid repeated notices.
 - Looking Back uses approved history only and is omitted when no same-date event qualifies.
-- GitHub Actions runs `scripts/apply_immersive_translations.py` after data collection. It imports approved review cases, applies captured Immersive Translate mappings to `title_zh` and `summary_zh`, and leaves deterministic Chinese or English fallback text in place until a mapping exists. Argos remains available only as a manual fallback/evaluation tool, not as the default production translator.
+- GitHub Actions runs `scripts/apply_immersive_translations.py` after data collection. It applies captured Immersive Translate mappings to `title_zh` and `summary_zh`, and leaves deterministic Chinese or English fallback text in place until a mapping exists. Approved manual cases are no longer default production overrides; they only mark samples for future training/evaluation. Argos remains available only as a manual fallback/evaluation tool, not as the default production translator.
 - Browser-side deterministic templates render the reports without an LLM or model-token usage.
 - `.github/workflows/update-piasnews.yml` packages `public/` with the current run's generated data, so the page and JSON/RSS update in the same Pages deployment. The workflow keeps both the primary schedule and the ten-minute backup schedule.
 - The UI includes loading, empty, error, and manual-refresh states, responsive layouts, and keyboard-operable tabs.
-- The countdown updates locally every second. If the calendar API fails, deployment keeps the last valid committed calendar.
+- The countdown updates locally every second and targets the next session first. In-session timers count up from session start; after a session ends, the target advances to the next session. If the calendar API fails, deployment keeps the last valid committed calendar.
 
 ### V1.3: Anonymous Page Analytics
 

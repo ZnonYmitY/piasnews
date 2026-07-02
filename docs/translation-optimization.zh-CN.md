@@ -18,9 +18,9 @@
 
 1. 数据抓取写入英文原文，并为缺少中文映射的新内容保留确定性中文概括或英文兜底。
 2. 本机沉浸式翻译采集链路对缺失目标生成 workbench，采集 `原文 -> 中文译文` 映射并写入 `data/immersive_translations.zh.json`。
-3. GitHub Actions 调用 `scripts/import_feishu_translation_review.py` 导入 approved 人工案例，再调用 `scripts/apply_immersive_translations.py` 应用人工案例和沉浸式翻译映射，覆盖 `title_zh` / `summary_zh`。
+3. GitHub Actions 调用 `scripts/apply_immersive_translations.py` 应用沉浸式翻译映射，覆盖 `title_zh` / `summary_zh`。
 4. `data/translation_glossary.csv` 和脚本规则继续处理稳定术语，保留 `Piastri`、`McLaren`、`FP1`、`P4`、`team radio` 等高识别度词。
-5. `data/translation_review.csv` 保存人工确认样本。只有 `status=approved` 的条目会覆盖翻译结果，`pending` 只用于审核、评估和后续训练准备。
+5. 飞书审核表和 `data/translation_review.csv` 可保存人工确认样本，但 `status=approved` 不再进入默认生产覆盖链路；它只用于训练、评估和后续规则沉淀。
 6. `scripts/audit_translations.py` 在每次数据更新后完整遍历最终展示中文，自动发现疑似坏例，写入 `data/translation_candidates.csv`，并生成本轮新增 Excel。
 
 `scripts/translate_zh_argos.py` 不再进入默认生产 workflow，仅保留为手动 fallback、历史对照和模型选型评估工具。

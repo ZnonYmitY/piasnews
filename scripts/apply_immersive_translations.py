@@ -3,7 +3,9 @@
 
 The Chrome extension cannot run inside GitHub Actions, so the workflow treats
 the captured mapping file as a reviewed build input. This script applies those
-translations after the normal offline translator has populated Chinese fields.
+translations after fetchers have populated deterministic Chinese or English
+fallback fields. Approved review rows are optional and are not part of the
+default production path.
 """
 
 from __future__ import annotations
@@ -26,7 +28,6 @@ URL_RE = re.compile(r"https?://\S+")
 
 sys.path.insert(0, str(ROOT / "scripts"))
 from translate_zh_argos import (  # noqa: E402
-    DEFAULT_REVIEW_PATH,
     apply_glossary,
     load_manual_translations,
     manual_headline_translation,
@@ -40,7 +41,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--mapping", default=str(DEFAULT_MAPPING), help="Immersive translation mapping JSON.")
     parser.add_argument("--items", default=str(DEFAULT_ITEMS), help="News items JSON to update.")
     parser.add_argument("--social", default=str(DEFAULT_SOCIAL), help="Social items JSON to update.")
-    parser.add_argument("--review", default=str(DEFAULT_REVIEW_PATH), help="Approved manual translation CSV.")
+    parser.add_argument("--review", default="", help="Optional approved manual translation CSV.")
     return parser.parse_args()
 
 
@@ -174,7 +175,7 @@ def apply_social_translations(
 def main() -> int:
     args = parse_args()
     grouped = load_translations(Path(args.mapping))
-    manual_translations = load_manual_translations(args.review)
+    manual_translations = load_manual_translations(args.review) if args.review else {}
     item_count = apply_item_translations(Path(args.items), grouped, manual_translations)
     social_count = apply_social_translations(Path(args.social), grouped, manual_translations)
     mapping_count = sum(len(exact) for exact, _ in grouped.values())

@@ -45,31 +45,15 @@ jobs:
           PIASNEWS_SOCIAL_INPUT_JSON: ${{ vars.PIASNEWS_SOCIAL_INPUT_JSON }}
         run: python scripts/fetch_social_sources.py --days 3 --output data/social.json
 
-      - name: Import approved Feishu translation reviews
-        env:
-          FEISHU_APP_ID: ${{ secrets.FEISHU_APP_ID }}
-          FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
-          FEISHU_BASE_APP_TOKEN: ${{ secrets.FEISHU_BASE_APP_TOKEN }}
-          FEISHU_BASE_TABLE_ID: ${{ secrets.FEISHU_BASE_TABLE_ID }}
-        run: python scripts/import_feishu_translation_review.py --review-csv data/translation_review.csv
-
-      - name: Apply approved and Immersive Translate mappings
+      - name: Apply Immersive Translate mappings
         run: python scripts/apply_immersive_translations.py --mapping data/immersive_translations.zh.json --items data/items.json --social data/social.json
-
-      - name: Sync approved translation cases to Feishu Base
-        env:
-          FEISHU_APP_ID: ${{ secrets.FEISHU_APP_ID }}
-          FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
-          FEISHU_BASE_APP_TOKEN: ${{ secrets.FEISHU_BASE_APP_TOKEN }}
-          FEISHU_CASE_TABLE_ID: ${{ secrets.FEISHU_CASE_TABLE_ID }}
-        run: python scripts/sync_feishu_translation_cases.py --review-csv data/translation_review.csv
 
       - name: Audit translation badcases
         run: |
           python scripts/audit_translations.py \
             --items data/items.json \
             --social data/social.json \
-            --review data/translation_review.csv \
+            --review /tmp/piasnews-no-production-review.csv \
             --candidates data/translation_candidates.csv \
             --latest-csv data/translation_candidates_latest.csv \
             --latest-xlsx data/translation_candidates_latest.xlsx
@@ -100,7 +84,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/items.json data/daily.json data/rss.xml data/calendar.json data/next-race.ics data/next-weekend.ics data/social.json data/immersive_translations.zh.json data/history-candidates.json data/translation_candidates.csv data/translation_review.csv
+          git add data/items.json data/daily.json data/rss.xml data/calendar.json data/next-race.ics data/next-weekend.ics data/social.json data/immersive_translations.zh.json data/history-candidates.json data/translation_candidates.csv
           if git diff --cached --quiet; then
             echo "No Piasnews data changes."
           else

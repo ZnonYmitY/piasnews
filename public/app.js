@@ -72,16 +72,27 @@ const I18N = {
     rumorBadge: "传闻",
     fanBadge: "粉丝",
     categoryFallback: "其他动态",
-    nextRace: "NEXT RACE",
+    nextRace: "NEXT SESSION",
     round: (round, code) => `ROUND ${round} · ${code}`,
     weekendStart: (time) => `周末开始 ${time}`,
     qualifying: (time) => `排位 ${time}`,
     raceStart: (time) => `正赛 ${time} 北京时间`,
+    sessionStart: (name, time) => `${name} ${time} 北京时间`,
     calendarUpdated: (time) => `赛历更新于 ${time} 北京时间`,
-    countdownLabel: "距离正赛",
-    liveLabel: "正赛进行中",
-    countdownAria: "距离下一场正赛的倒计时",
+    countdownLabel: (name) => `距离${name}`,
+    liveLabel: (name) => `${name}进行中`,
+    countdownAria: (name) => `距离下一次${name}的倒计时`,
+    countupAria: (name) => `${name}已开始的正计时`,
     countdownUnits: ["天", "时", "分", "秒"],
+    sessionLabels: {
+      practice_1: "一练",
+      practice_2: "二练",
+      practice_3: "三练",
+      sprint_qualifying: "冲刺排位",
+      sprint: "冲刺赛",
+      qualifying: "排位赛",
+      race: "正赛",
+    },
     addRaceCalendar: "添加正赛",
     addWeekendCalendar: "添加比赛周末",
     calendarActionsLabel: "日历操作",
@@ -181,16 +192,27 @@ const I18N = {
     rumorBadge: "Rumor",
     fanBadge: "Fan",
     categoryFallback: "Other",
-    nextRace: "NEXT RACE",
+    nextRace: "NEXT SESSION",
     round: (round, code) => `ROUND ${round} · ${code}`,
     weekendStart: (time) => `Weekend starts ${time}`,
     qualifying: (time) => `Qualifying ${time}`,
     raceStart: (time) => `Race ${time} CST`,
+    sessionStart: (name, time) => `${name} ${time} CST`,
     calendarUpdated: (time) => `Calendar updated ${time} CST`,
-    countdownLabel: "Until race",
-    liveLabel: "Race live",
-    countdownAria: "Countdown to the next race",
+    countdownLabel: (name) => `Until ${name}`,
+    liveLabel: (name) => `${name} live`,
+    countdownAria: (name) => `Countdown to the next ${name}`,
+    countupAria: (name) => `${name} elapsed time`,
     countdownUnits: ["d", "h", "m", "s"],
+    sessionLabels: {
+      practice_1: "Practice 1",
+      practice_2: "Practice 2",
+      practice_3: "Practice 3",
+      sprint_qualifying: "Sprint Qualifying",
+      sprint: "Sprint",
+      qualifying: "Qualifying",
+      race: "Race",
+    },
     addRaceCalendar: "Add race",
     addWeekendCalendar: "Add weekend",
     calendarActionsLabel: "Calendar actions",
@@ -234,9 +256,29 @@ const state = {
 };
 
 const DIRECT_PIASTRI_RE = /\b(piastri|oscar|op81)\b/i;
+const SESSION_ORDER = [
+  "practice_1",
+  "practice_2",
+  "practice_3",
+  "sprint_qualifying",
+  "sprint",
+  "qualifying",
+  "race",
+];
+const SESSION_DURATIONS_MS = {
+  practice_1: 60 * 60 * 1000,
+  practice_2: 60 * 60 * 1000,
+  practice_3: 60 * 60 * 1000,
+  sprint_qualifying: 60 * 60 * 1000,
+  sprint: 60 * 60 * 1000,
+  qualifying: 60 * 60 * 1000,
+  race: 2 * 60 * 60 * 1000,
+};
 const SESSION_KEYWORDS = {
   race: /\b(race|grand prix|gp|win|podium|points|strategy|pit|lap)\b/i,
   qualifying: /\b(qualifying|quali|q1|q2|q3|pole|grid)\b/i,
+  sprint: /\b(sprint)\b/i,
+  sprint_qualifying: /\b(sprint qualifying|sprint shootout|sq1|sq2|sq3)\b/i,
   practice_3: /\b(fp3|practice 3|final practice|third practice)\b/i,
   practice_2: /\b(fp2|practice 2|second practice|friday practice)\b/i,
   practice_1: /\b(fp1|practice 1|first practice|friday practice)\b/i,
@@ -401,14 +443,41 @@ function section(title, body, note = "") {
     </section>`;
 }
 
-function selectCountdownRace(calendar, now = Date.now()) {
+function sessionName(key) {
+  return t().sessionLabels?.[key] || key.replace(/_/g, " ");
+}
+
+function sessionEntriesForRace(race) {
+  const sessions = race?.sessions || {};
+  return SESSION_ORDER
+    .map((key) => {
+      const time = sessions[key] || (key === "race" ? race?.race_start : null);
+      const start = new Date(time).getTime();
+      return {
+        key,
+        time,
+        start,
+        end: start + (SESSION_DURATIONS_MS[key] || 60 * 60 * 1000),
+      };
+    })
+    .filter((session) => session.time && Number.isFinite(session.start))
+    .sort((a, b) => a.start - b.start);
+}
+
+function selectCountdownTarget(calendar, now = Date.now()) {
   const races = Array.isArray(calendar?.races) ? calendar.races : [];
-  const activeRace = races.find((race) => {
-    const start = new Date(race.race_start).getTime();
-    return start <= now && now < start + 3 * 60 * 60 * 1000;
-  });
-  if (activeRace) return activeRace;
-  return races.find((race) => new Date(race.race_start).getTime() > now) || null;
+  const targets = races.flatMap((race) => sessionEntriesForRace(race).map((session) => ({
+    race,
+    session,
+    live: session.start <= now && now < session.end,
+  })));
+  return targets
+    .filter((target) => now < target.session.end)
+    .sort((a, b) => a.session.start - b.session.start)[0] || null;
+}
+
+function selectCountdownRace(calendar, now = Date.now()) {
+  return selectCountdownTarget(calendar, now)?.race || null;
 }
 
 function setRaceDetails(race) {
@@ -438,24 +507,30 @@ function setRaceDetails(race) {
 }
 
 function updateRaceCountdown() {
-  const currentRace = selectCountdownRace(state.calendar);
-  if (!currentRace) {
+  const target = selectCountdownTarget(state.calendar);
+  if (!target) {
     elements.raceBoard.hidden = true;
     return;
   }
+  const currentRace = target.race;
   if (currentRace.id !== state.displayRace?.id) setRaceDetails(currentRace);
 
   const now = Date.now();
-  const start = new Date(currentRace.race_start).getTime();
-  const remaining = Math.max(0, start - now);
-  const live = start <= now && now < start + 3 * 60 * 60 * 1000;
-  const days = Math.floor(remaining / 86400000);
-  const hours = Math.floor((remaining % 86400000) / 3600000);
-  const minutes = Math.floor((remaining % 3600000) / 60000);
-  const seconds = Math.floor((remaining % 60000) / 1000);
+  const sessionLabel = sessionName(target.session.key);
+  const elapsedOrRemaining = Math.max(0, target.live ? now - target.session.start : target.session.start - now);
+  const days = Math.floor(elapsedOrRemaining / 86400000);
+  const hours = Math.floor((elapsedOrRemaining % 86400000) / 3600000);
+  const minutes = Math.floor((elapsedOrRemaining % 3600000) / 60000);
+  const seconds = Math.floor((elapsedOrRemaining % 60000) / 1000);
 
-  elements.raceBoard.classList.toggle("is-live", live);
-  elements.countdownLabel.textContent = live ? t().liveLabel : t().countdownLabel;
+  elements.raceStartTime.textContent = t().sessionStart(sessionLabel, formatRaceTime(target.session.time));
+  elements.raceStartTime.dateTime = target.session.time;
+  elements.raceBoard.classList.toggle("is-live", target.live);
+  elements.countdownLabel.textContent = target.live ? t().liveLabel(sessionLabel) : t().countdownLabel(sessionLabel);
+  elements.countdownGrid.setAttribute(
+    "aria-label",
+    target.live ? t().countupAria(sessionLabel) : t().countdownAria(sessionLabel),
+  );
   [elements.countdownDays, elements.countdownHours, elements.countdownMinutes, elements.countdownSeconds].forEach((node, index) => {
     node.textContent = padded([days, hours, minutes, seconds][index]);
   });
@@ -466,13 +541,13 @@ function renderRaceCountdown(calendar) {
   state.countdownTimer = null;
   state.calendar = calendar;
   state.displayRace = null;
-  const race = selectCountdownRace(calendar);
-  if (!race) {
+  const target = selectCountdownTarget(calendar);
+  if (!target) {
     elements.raceBoard.hidden = true;
     return;
   }
 
-  setRaceDetails(race);
+  setRaceDetails(target.race);
   elements.raceBoard.hidden = false;
   updateRaceCountdown();
   state.countdownTimer = window.setInterval(updateRaceCountdown, 1000);
@@ -490,28 +565,18 @@ function itemText(item) {
 }
 
 function currentSessionKey(now = Date.now()) {
-  const race = state.displayRace || selectCountdownRace(state.calendar, now);
-  const sessions = race?.sessions || {};
-  const ordered = ["practice_1", "practice_2", "practice_3", "qualifying", "race"]
-    .map((key) => ({ key, time: sessions[key] || (key === "race" ? race?.race_start : null) }))
-    .filter((session) => session.time)
-    .map((session) => ({ ...session, timestamp: new Date(session.time).getTime() }))
-    .filter((session) => Number.isFinite(session.timestamp))
-    .sort((a, b) => a.timestamp - b.timestamp);
-  let latest = null;
-  ordered.forEach((session) => {
-    if (session.timestamp <= now + 30 * 60 * 1000) latest = session;
-  });
-  return latest?.key || null;
+  const target = selectCountdownTarget(state.calendar, now);
+  if (!target) return null;
+  return target.live || target.session.start <= now + 30 * 60 * 1000 ? target.session.key : null;
 }
 
 function sessionIndex(key) {
-  return ["practice_1", "practice_2", "practice_3", "qualifying", "race"].indexOf(key);
+  return SESSION_ORDER.indexOf(key);
 }
 
 function itemSessionKey(item) {
   const text = itemText(item);
-  for (const key of ["race", "qualifying", "practice_3", "practice_2", "practice_1"]) {
+  for (const key of [...SESSION_ORDER].reverse()) {
     if (SESSION_KEYWORDS[key].test(text)) return key;
   }
   return null;
