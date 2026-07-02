@@ -2,8 +2,9 @@
 import crypto from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const repo = path.resolve(new URL("..", import.meta.url).pathname);
+const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dataDir = path.join(repo, "data");
 const defaultOutputDir = "/private/tmp/piasnews-immersive-workbench";
 const outputDir = process.env.PIASNEWS_IMMERSIVE_WORKBENCH_DIR || defaultOutputDir;

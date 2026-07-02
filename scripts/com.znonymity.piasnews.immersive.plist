@@ -7,7 +7,9 @@
   <string>com.znonymity.piasnews.immersive</string>
   <key>ProgramArguments</key>
   <array>
-    <string>/Users/bytedance/Documents/piasnews/scripts/update_immersive_translations.sh</string>
+    <string>/bin/bash</string>
+    <string>-lc</string>
+    <string>REPO="$HOME/Library/Application Support/piasnews/repo"; cd "$REPO" &amp;&amp; export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:$PATH" &amp;&amp; git -c rebase.autoStash=true pull --rebase &amp;&amp; node scripts/run_immersive_workbench.mjs</string>
   </array>
   <key>EnvironmentVariables</key>
   <dict>
