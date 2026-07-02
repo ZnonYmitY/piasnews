@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-02T11:34:03.788585Z",
+  "generated_at": "2026-07-02T12:07:27.475865Z",
   "window_days": 3,
-  "total_items": 20,
+  "total_items": 19,
   "latest_date": "2026-07-02",
   "days": [
     {
@@ -65,19 +65,18 @@
     },
     {
       "date": "2026-06-29",
-      "total_new_items": 3,
+      "total_new_items": 2,
       "official_new_items": 0,
-      "media_new_items": 3,
+      "media_new_items": 2,
       "x_new_items": 0,
       "rumor_new_items": 1,
       "sources": {
         "GPToday.net": 1,
-        "Scottish Grocer & Convenience Retailer": 1,
         "Scottish Local Retailer": 1
       },
       "categories": {
         "rumor": 1,
-        "team": 2
+        "team": 1
       }
     }
   ],
@@ -129,14 +128,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 2
+      "items": 1
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 13
+      "items": 14
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -148,13 +147,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 37,
-      "kept": 20,
+      "checked": 38,
+      "kept": 19,
       "results": {
-        "outside_window": 3,
-        "publisher_date_missing": 11,
-        "publisher_unavailable": 3,
-        "verified": 20
+        "outside_window": 2,
+        "publisher_date_missing": 13,
+        "publisher_unavailable": 4,
+        "verified": 19
       }
     }
   ]
