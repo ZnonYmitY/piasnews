@@ -28,7 +28,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.x"
+          python-version: "3.11"
 
       - name: Fetch latest Piasnews data
         run: python scripts/fetch_piasnews.py --days 3 --output-dir data
@@ -44,6 +44,12 @@ jobs:
           PIASNEWS_X_BEARER_TOKEN: ${{ secrets.PIASNEWS_X_BEARER_TOKEN }}
           PIASNEWS_SOCIAL_INPUT_JSON: ${{ vars.PIASNEWS_SOCIAL_INPUT_JSON }}
         run: python scripts/fetch_social_sources.py --days 3 --output data/social.json
+
+      - name: Install offline Chinese translation fallback
+        run: python -m pip install argostranslate
+
+      - name: Apply offline Chinese translation fallback
+        run: python scripts/translate_zh_argos.py --items data/items.json --social data/social.json --strict-argos
 
       - name: Apply Immersive Translate mappings
         run: python scripts/apply_immersive_translations.py --mapping data/immersive_translations.zh.json --items data/items.json --social data/social.json
