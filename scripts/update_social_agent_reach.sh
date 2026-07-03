@@ -9,6 +9,8 @@ export PATH="/Users/bytedance/.agent-reach-venv/bin:/opt/homebrew/bin:$PATH"
 DAYS="${PIASNEWS_DAYS:-3}"
 PER_SOURCE="${PIASNEWS_PER_SOURCE:-30}"
 IMPORT_JSON="${PIASNEWS_SOCIAL_IMPORT:-/tmp/piasnews-agent-reach-social.json}"
+INSTAGRAM_JSON="${PIASNEWS_INSTAGRAM_IMPORT:-/tmp/piasnews-instagram-social.json}"
+COMBINED_IMPORT_JSON="${PIASNEWS_SOCIAL_COMBINED_IMPORT:-/tmp/piasnews-social-combined.json}"
 COMPACT_JSON="${PIASNEWS_SOCIAL_COMPACT:-/tmp/piasnews-social-input-compact.json}"
 COMPACT_CACHE="${PIASNEWS_SOCIAL_COMPACT_CACHE:-/tmp/piasnews-social-input-compact.last.json}"
 SOCIAL_OUTPUT="${PIASNEWS_SOCIAL_OUTPUT:-data/social.json}"
@@ -32,20 +34,44 @@ if [[ ${#GROUP_ARGS[@]} -gt 0 ]]; then
 fi
 "${COLLECT_CMD[@]}"
 
-python3 - "$IMPORT_JSON" <<'PY'
+if [[ "${PIASNEWS_COLLECT_INSTAGRAM:-1}" != "0" ]]; then
+  if ! node scripts/collect_instagram_chrome.mjs \
+    --output "$INSTAGRAM_JSON" \
+    --days "$DAYS"; then
+    echo "Instagram Chrome collection failed or produced no recent items; continuing with X import." >&2
+  fi
+fi
+
+python3 - "$IMPORT_JSON" "$INSTAGRAM_JSON" "$COMBINED_IMPORT_JSON" "$DAYS" <<'PY'
 import json
 import sys
 from pathlib import Path
 
-payload = json.loads(Path(sys.argv[1]).read_text())
-statuses = payload.get("source_status") or []
+items = []
+statuses = []
+sources = []
+for raw_path in sys.argv[1:3]:
+    path = Path(raw_path)
+    if not path.exists():
+        continue
+    payload = json.loads(path.read_text())
+    sources.append(payload.get("source") or str(path))
+    items.extend(payload.get("items") or [])
+    statuses.extend(payload.get("source_status") or [])
+output = {
+    "source": "+".join(sources) or "piasnews-local-social",
+    "window_days": int(sys.argv[4]),
+    "items": items,
+    "source_status": statuses,
+}
+Path(sys.argv[3]).write_text(json.dumps(output, indent=2, ensure_ascii=False) + "\n")
 if not any(status.get("ok") for status in statuses):
-    print("No X source collected successfully; skipped social publish.", file=sys.stderr)
+    print("No social source collected successfully; skipped social publish.", file=sys.stderr)
     sys.exit(2)
 PY
 
 python3 scripts/fetch_social_sources.py \
-  --input-json "$IMPORT_JSON" \
+  --input-json "$COMBINED_IMPORT_JSON" \
   --days "$DAYS" \
   --output "$SOCIAL_OUTPUT"
 

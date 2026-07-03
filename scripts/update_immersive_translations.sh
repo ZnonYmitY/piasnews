@@ -8,5 +8,7 @@ export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
 
 git -c rebase.autoStash=true pull --rebase
 
-node scripts/run_immersive_workbench.mjs
+export PIASNEWS_IMMERSIVE_PUBLISH="${PIASNEWS_IMMERSIVE_PUBLISH:-1}"
+export PIASNEWS_IMMERSIVE_APPLY="${PIASNEWS_IMMERSIVE_APPLY:-0}"
 
+node scripts/run_immersive_workbench.mjs

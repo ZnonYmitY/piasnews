@@ -9,7 +9,7 @@
   <array>
     <string>/bin/bash</string>
     <string>-c</string>
-    <string>REPO="$HOME/Library/Application Support/piasnews/repo"; cd "$REPO" &amp;&amp; export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:$PATH" &amp;&amp; git -c rebase.autoStash=true pull --rebase &amp;&amp; node scripts/run_immersive_workbench.mjs</string>
+    <string>REPO="$HOME/Library/Application Support/piasnews/repo"; cd "$REPO" &amp;&amp; export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:$PATH" &amp;&amp; scripts/update_immersive_translations.sh</string>
   </array>
   <key>EnvironmentVariables</key>
   <dict>

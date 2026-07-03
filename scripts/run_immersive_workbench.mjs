@@ -114,11 +114,21 @@ function startServer(root, port) {
 }
 
 function osascript(script) {
-  return execFileSync("osascript", ["-e", script], {
-    cwd: ROOT,
-    encoding: "utf8",
-    stdio: ["ignore", "pipe", "pipe"],
-  }).trim();
+  try {
+    return execFileSync("osascript", ["-e", script], {
+      cwd: ROOT,
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "pipe"],
+    }).trim();
+  } catch (error) {
+    const stderr = String(error.stderr || error.message || "");
+    if (stderr.includes("-1723") || stderr.includes("不允许访问")) {
+      throw new Error(
+        "Chrome blocked JavaScript from Apple Events. In Chrome, enable View > Developer > Allow JavaScript from Apple Events, then rerun the Piasnews Immersive job."
+      );
+    }
+    throw error;
+  }
 }
 
 function openChrome(url) {
@@ -134,13 +144,13 @@ function extractFromChrome(urlPrefix) {
     return JSON.stringify(window.__piasnewsExtractImmersiveTranslations());
   })();`;
   const escapedPrefix = urlPrefix.replaceAll("\\", "\\\\").replaceAll('"', '\\"');
-  const escapedJs = js.replaceAll("\\", "\\\\").replaceAll('"', '\\"');
+  const encodedJs = Buffer.from(js, "utf8").toString("base64");
   const script = `
 tell application "Google Chrome"
   repeat with w in windows
     repeat with t in tabs of w
       if (URL of t starts with "${escapedPrefix}") then
-        return execute javascript "${escapedJs}" in t
+        return execute javascript "eval(atob('${encodedJs}'))" in t
       end if
     end repeat
   end repeat
