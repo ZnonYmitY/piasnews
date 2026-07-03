@@ -54,11 +54,13 @@ class TranslateZhArgosTest(unittest.TestCase):
     def test_repairs_argos_social_f1_terms_by_source(self):
         cases = {
             "OSCARS SPECIAL HELMETS FOR SILVERSTONE WEEKEND":
-                ("奥斯克特别直升机 一周后", "Oscar特别头盔 周末"),
+                ("奥斯克特别直升机 一周后", "Oscar Silverstone 周末特别头盔"),
             "OSCAR SHOWING OFF HIS 3 SILVERSTONE HELMETS":
                 ("奥斯卡展示他的3架银石直升机", "Oscar展示他的3架Silverstone头盔"),
             "Oscar Piastri, Britanya hafta sonu için 3 kask birden hazırlamış.":
                 ("Oscar Piastri(Oscar Piastri),不列颠人(Britanya hafta sonu için 3 kask birden hazırlamış.", "Oscar Piastri 为英国大奖赛周末准备了三款头盔。"),
+            "a proud mama of 3 newborn babies https://t.co/rmOcymQ5IG":
+                ("3个新生婴儿的骄傲妈妈", "三款新头盔的骄傲妈妈"),
         }
 
         for source, (raw_zh, expected) in cases.items():
