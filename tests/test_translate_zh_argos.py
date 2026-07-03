@@ -57,6 +57,8 @@ class TranslateZhArgosTest(unittest.TestCase):
                 ("奥斯克特别直升机 一周后", "Oscar特别头盔 周末"),
             "OSCAR SHOWING OFF HIS 3 SILVERSTONE HELMETS":
                 ("奥斯卡展示他的3架银石直升机", "Oscar展示他的3架Silverstone头盔"),
+            "Oscar Piastri, Britanya hafta sonu için 3 kask birden hazırlamış.":
+                ("Oscar Piastri(Oscar Piastri),不列颠人(Britanya hafta sonu için 3 kask birden hazırlamış.", "Oscar Piastri 为英国大奖赛周末准备了三款头盔。"),
         }
 
         for source, (raw_zh, expected) in cases.items():
