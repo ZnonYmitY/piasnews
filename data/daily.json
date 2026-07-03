@@ -1,25 +1,29 @@
 {
-  "generated_at": "2026-07-03T09:39:34.278986Z",
+  "generated_at": "2026-07-03T14:31:57.991331Z",
   "window_days": 3,
-  "total_items": 27,
+  "total_items": 31,
   "latest_date": "2026-07-03",
   "days": [
     {
       "date": "2026-07-03",
-      "total_new_items": 3,
+      "total_new_items": 7,
       "official_new_items": 1,
-      "media_new_items": 2,
+      "media_new_items": 6,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "Auto Action": 1,
         "Formula 1": 1,
-        "Fox Sports": 1
+        "Fox Sports": 1,
+        "Sky Sports": 2,
+        "Tatler": 1,
+        "grandprix247": 1
       },
       "categories": {
         "interview": 1,
-        "other": 1,
-        "team": 1
+        "other": 2,
+        "race": 1,
+        "team": 3
       }
     },
     {
@@ -113,7 +117,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 51
+      "items": 53
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
@@ -134,14 +138,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 7
+      "items": 6
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 19
+      "items": 18
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -153,13 +157,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 52,
-      "kept": 27,
+      "checked": 54,
+      "kept": 31,
       "results": {
         "outside_window": 1,
-        "publisher_date_missing": 18,
+        "publisher_date_missing": 16,
         "publisher_unavailable": 6,
-        "verified": 27
+        "verified": 31
       }
     }
   ]
