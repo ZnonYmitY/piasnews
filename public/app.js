@@ -95,6 +95,7 @@ const I18N = {
     },
     addRaceCalendar: "添加正赛",
     addWeekendCalendar: "添加比赛周末",
+    addSeasonCalendar: "添加全年赛历",
     calendarActionsLabel: "日历操作",
     calendarLink: "查看 F1 官方赛历",
     footerText: "GitHub Actions 每 6 小时更新。只展示原站发布日期可核验的最近 3 天信息。",
@@ -215,6 +216,7 @@ const I18N = {
     },
     addRaceCalendar: "Add race",
     addWeekendCalendar: "Add weekend",
+    addSeasonCalendar: "Add full season",
     calendarActionsLabel: "Calendar actions",
     calendarLink: "View official F1 calendar",
     footerText: "GitHub Actions updates every 6 hours. Only publisher-date-verified items from the latest 3 days are shown.",
@@ -321,6 +323,7 @@ const elements = {
   calendarActions: document.querySelector(".calendar-actions"),
   addRaceCalendarLink: document.querySelector("#addRaceCalendarLink"),
   addWeekendCalendarLink: document.querySelector("#addWeekendCalendarLink"),
+  addSeasonCalendarLink: document.querySelector("#addSeasonCalendarLink"),
   officialCalendarLink: document.querySelector("#officialCalendarLink"),
   reportShell: document.querySelector(".report-shell"),
   footerText: document.querySelector(".site-footer p"),
@@ -502,6 +505,9 @@ function setRaceDetails(race) {
   elements.addWeekendCalendarLink.href = "data/next-weekend.ics";
   elements.addWeekendCalendarLink.setAttribute("download", `${race.id || "next-f1-weekend"}-weekend.ics`);
   elements.addWeekendCalendarLink.textContent = t().addWeekendCalendar;
+  elements.addSeasonCalendarLink.href = "data/full-season.ics";
+  elements.addSeasonCalendarLink.setAttribute("download", `${race.season || state.calendar?.season || "f1"}-full-season.ics`);
+  elements.addSeasonCalendarLink.textContent = t().addSeasonCalendar;
   elements.officialCalendarLink.href = state.calendar.source?.official_calendar_url || race.official_url;
   elements.officialCalendarLink.textContent = t().calendarLink;
 }

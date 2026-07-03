@@ -65,7 +65,7 @@ def build_text(rows: list[dict[str, str]], *, base_url: str, page_url: str, repo
     preview_text = "\n".join(preview) if preview else "- 本轮没有新增候选。"
     links = []
     if base_url:
-        links.append(f"飞书审核表: {base_url}")
+        links.append(f"飞书记录表: {base_url}")
     if xlsx_url:
         links.append(f"Excel: {xlsx_url}")
     if csv_url:
@@ -77,7 +77,7 @@ def build_text(rows: list[dict[str, str]], *, base_url: str, page_url: str, repo
         "Piasnews 翻译 badcase 审查更新\n"
         f"本轮新增候选：{count} 条\n\n"
         f"{preview_text}\n\n"
-        "审核方式：在飞书审核表中把“审核状态”改为 approved，下一次 workflow 会自动导入仓库。\n\n"
+        "说明：生产链路已不依赖飞书 pending 审核；这里仅通知仍需人工关注、且已带建议中文的候选。\n\n"
         f"{links_text}"
     )
 

@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CALENDAR = ROOT / "data" / "calendar.json"
 DEFAULT_RACE_OUTPUT = ROOT / "data" / "next-race.ics"
 DEFAULT_WEEKEND_OUTPUT = ROOT / "data" / "next-weekend.ics"
+DEFAULT_SEASON_OUTPUT = ROOT / "data" / "full-season.ics"
 
 SESSION_LABELS = {
     "practice_1": "Practice 1",
@@ -51,6 +52,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--calendar", default=str(DEFAULT_CALENDAR), help="Input data/calendar.json path.")
     parser.add_argument("--race-output", default=str(DEFAULT_RACE_OUTPUT), help="Output ICS for the next race only.")
     parser.add_argument("--weekend-output", default=str(DEFAULT_WEEKEND_OUTPUT), help="Output ICS for the next race weekend.")
+    parser.add_argument("--season-output", default=str(DEFAULT_SEASON_OUTPUT), help="Output ICS for the full F1 season.")
     return parser.parse_args()
 
 
@@ -148,35 +150,52 @@ def event_for_session(race: dict[str, Any], session_key: str) -> dict[str, str] 
     }
 
 
-def build_events(calendar: dict[str, Any]) -> tuple[list[dict[str, str]], list[dict[str, str]]]:
-    race = calendar.get("next_race")
-    if not isinstance(race, dict):
-        return [], []
-    race_event = event_for_session(race, "race")
-    race_events = [race_event] if race_event else []
-    weekend_events = [
+def session_events_for_race(race: dict[str, Any]) -> list[dict[str, str]]:
+    return [
         event
         for key in SESSION_ORDER
         if (event := event_for_session(race, key)) is not None
     ]
-    return race_events, weekend_events
+
+
+def build_events(calendar: dict[str, Any]) -> tuple[list[dict[str, str]], list[dict[str, str]], list[dict[str, str]]]:
+    race = calendar.get("next_race")
+    if isinstance(race, dict):
+        race_event = event_for_session(race, "race")
+        race_events = [race_event] if race_event else []
+        weekend_events = session_events_for_race(race)
+    else:
+        race_events = []
+        weekend_events = []
+
+    season_events = [
+        event
+        for season_race in calendar.get("races", [])
+        if isinstance(season_race, dict)
+        for event in session_events_for_race(season_race)
+    ]
+    return race_events, weekend_events, season_events
 
 
 def main() -> int:
     args = parse_args()
     calendar_path = Path(args.calendar)
     calendar = json.loads(calendar_path.read_text(encoding="utf-8"))
-    race_events, weekend_events = build_events(calendar)
+    race_events, weekend_events, season_events = build_events(calendar)
     generated_at = calendar.get("generated_at")
 
     race_output = Path(args.race_output)
     weekend_output = Path(args.weekend_output)
+    season_output = Path(args.season_output)
     with race_output.open("w", encoding="utf-8", newline="") as handle:
         handle.write(calendar_text(race_events, calendar_name="Piasnews Next F1 Race", generated_at=generated_at))
     with weekend_output.open("w", encoding="utf-8", newline="") as handle:
         handle.write(calendar_text(weekend_events, calendar_name="Piasnews Next F1 Weekend", generated_at=generated_at))
+    with season_output.open("w", encoding="utf-8", newline="") as handle:
+        handle.write(calendar_text(season_events, calendar_name="Piasnews Full F1 Season", generated_at=generated_at))
     print(f"Wrote {len(race_events)} race event(s) to {race_output}")
     print(f"Wrote {len(weekend_events)} weekend event(s) to {weekend_output}")
+    print(f"Wrote {len(season_events)} season event(s) to {season_output}")
     return 0
 
 

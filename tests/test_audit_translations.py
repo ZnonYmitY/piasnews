@@ -143,6 +143,47 @@ class TranslationAuditTest(unittest.TestCase):
 
         self.assertEqual(rows, [])
 
+    def test_skips_candidates_without_concrete_suggestion(self):
+        entry = audit.TranslationEntry(
+            source_type="social",
+            domain="x_post",
+            url="https://x.com/example/status/1",
+            source="@example",
+            source_text="they named the plushies oscar pastry and landonut norris",
+            current_zh="他们把意大利面点心和Landonut Norris 命名为...",
+        )
+
+        rows = audit.audit_entries(
+            [entry],
+            approved_keys=set(),
+            existing_ids=set(),
+            run_id="run",
+            seen_at="2026-06-29T00:00:00Z",
+        )
+
+        self.assertEqual(rows, [])
+
+    def test_append_candidates_prunes_existing_rows_without_suggestions(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            output = Path(tmpdir) / "candidates.csv"
+            audit.append_candidates(
+                output,
+                [{
+                    "id": "tc-empty-suggestion",
+                    "source_type": "social",
+                    "source_text": "they named the plushies oscar pastry and landonut norris",
+                    "current_zh": "他们把意大利面点心和Landonut Norris 命名为...",
+                    "suggested_zh": "",
+                    "error_type": "truncated_translation",
+                }],
+                [],
+            )
+
+            with output.open(newline="", encoding="utf-8") as handle:
+                rows = list(csv.DictReader(handle))
+
+        self.assertEqual(rows, [])
+
     def test_detects_merch_and_headline_semantic_badcases(self):
         cases = [
             (

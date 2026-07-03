@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Audit Piasnews Chinese translations and emit pending badcase candidates.
+"""Audit Piasnews Chinese translations and emit review-needed badcase candidates.
 
-The audit is deterministic and intentionally conservative about approval:
-it can discover likely bad translations, but every row is written as
-``pending`` for human review before it can affect production translation.
+The production path applies deterministic repair before publishing. This audit
+keeps only cases that still have a concrete suggested Chinese replacement, so
+review exports do not contain empty-suggestion pending rows.
 """
 
 from __future__ import annotations
@@ -469,6 +469,30 @@ def suggested_translation(entry: TranslationEntry) -> str:
         return "那只袖子真是强撑着没掉下来"
     if "the 3 artists in charge of designing oscar's special helmets for silverstone" in lowered:
         return "负责设计 Oscar Silverstone 特别头盔的 3 位艺术家发布了预览图，可以去他们的 Instagram 查看作品，有些还能投票选最喜欢的设计。"
+    if "the fact that zak brown's using the max verstappen rumors as an opportunity to do silly bits on the radio" in lowered:
+        return "Zak Brown 借 Max Verstappen 传闻在节目里开玩笑：“如果必须为了 Max Verstappen 让 Lando 或 Oscar 让位，你会让谁走？”"
+    if "who'd you trust more to be ceo of mcl for a day" in lowered:
+        return "问：LN 和 OP，谁更适合当一天 McLaren CEO？Zak Brown 选 OP；问最不想和谁困在电梯里，他选 LN；最佳着装选 LN；最大 diva 倾向也觉得会是 LN。"
+    if "we've got two awesome drivers. no intention of a different lineup" in lowered:
+        return "Zak Brown 表示 McLaren 有两位出色车手，没有更换阵容的打算，计划继续保持现有组合；Lando 和 Oscar 去年为车队赢下 14 场，他期待接下来的 14 场。"
+    if "a paddock insider revealed mark webber has been talking to me regarding a possible transfer for oscar into my pocket" in lowered:
+        return "粉丝玩笑：所谓“围场内幕”称 Mark Webber 正和我谈 Oscar 转会到我口袋里的可能性。"
+    if "here is the remaining helmet poll" in lowered:
+        return "这里是剩下的头盔投票！这些设计看起来都很好，已经等不及看最终效果。"
+    if "red bull rumours are done for this year so we're going to audi now apparently" in lowered:
+        return "粉丝调侃：今年 Red Bull 传闻结束了，所以现在又轮到 Audi 传闻了。"
+    if "zak brown on f1 silly season and whether he'd like to keep the mclaren lineup" in lowered:
+        return "Zak Brown 谈 F1 转会季和 McLaren 阵容：他想要连续性，希望 Lando 在这里结束职业生涯，Oscar 也一样，两人继续做队友；但前提是这套组合必须有效。"
+    if "zak brown praises oscar's approach to racing" in lowered:
+        return "Zak Brown 称赞 Oscar 的比赛心态：自己以前很情绪化，但 Oscar 即使遇到糟糕一天也能放下继续向前，这种特质有助于成功。"
+    if lowered == "oscar piastri x monster energy":
+        return "Oscar Piastri x Monster Energy 联名"
+    if "oscar piastri was the @aramco speed master in austria" in lowered:
+        return "Oscar Piastri 是奥地利站 @aramco Speed Master，最高时速达到 348 km/h。"
+    if lowered == "give me the full hd pic right now":
+        return "现在就给我高清原图"
+    if lowered == "white suit for silverstone !!!":
+        return "Silverstone 站白色比赛服！！！"
     if "the fia’s thoughts are with harald" in lowered or "the fia's thoughts are with harald" in lowered:
         return "FIA 向奥地利站赛前突发心脏问题的赛道工作人员 Harald 表达关切，并祝他早日康复。"
     if "oscar fully folded over laughing" in lowered:
@@ -546,7 +570,10 @@ def audit_entries(
         issues = [issue for issue in issues if issue.error_type not in GLOSSARY_MANAGED_ERRORS]
         if not issues:
             continue
-        new_rows.append(candidate_row(entry, issues, run_id, seen_at))
+        row = candidate_row(entry, issues, run_id, seen_at)
+        if not clean_text(row.get("suggested_zh")):
+            continue
+        new_rows.append(row)
         new_ids.add(row_id)
     return sorted(new_rows, key=lambda row: (priority_rank(row["priority"]), row["source_type"], row["domain"], row["source_text"]))
 
@@ -568,9 +595,11 @@ def append_candidates(
 ) -> None:
     approved_keys = approved_keys or set()
     rows = [
-        normalize_existing_candidate_row(row)
+        normalized
         for row in existing_rows
+        if (normalized := normalize_existing_candidate_row(row))
         if not candidate_errors_are_glossary_managed(row)
+        and clean_text(normalized.get("suggested_zh"))
         and not approved_review_covers(
             approved_keys,
             clean_text(row.get("source_type")) or "unknown",

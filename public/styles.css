@@ -372,7 +372,8 @@ a {
 }
 
 .calendar-link {
-  width: fit-content;
+  flex: 1 1 132px;
+  min-width: 0;
   border: 1px solid rgba(23, 23, 20, 0.32);
   border-radius: 999px;
   padding: 7px 10px;
@@ -380,8 +381,10 @@ a {
   font-size: 11px;
   font-weight: 900;
   line-height: 1;
+  text-align: center;
   text-decoration: none;
   text-underline-offset: 3px;
+  white-space: nowrap;
 }
 
 .calendar-link-primary {
@@ -1037,6 +1040,11 @@ a {
 
   .countdown-grid strong {
     font-size: 29px;
+  }
+
+  .calendar-link {
+    flex-basis: calc(50% - 4px);
+    font-size: 10px;
   }
 
   .tab small {

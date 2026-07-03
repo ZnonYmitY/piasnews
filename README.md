@@ -107,15 +107,15 @@ Summarize the latest Oscar Piastri news in English.
 - 粉丝源 Tab 读取 `data/social.json` 展示已抓取到的 X / IG 发帖与转帖；后台维护的账号表不在公开页面展示。
 - 页面右上角支持中文 / English 切换。中文模式优先读取 `title_zh` 和 `summary_zh`，链接文字也可以显示为中文标题；原始英文标题保留为溯源字段。
 - 页面分别显示北京时间的新闻数据更新时间、X / IG 粉丝源采集时间和最新内容时间，并提供手动刷新按钮。
-- 页面接入 F1 赛历，展示下一场大奖赛、比赛周时间、每秒更新的下一赛段倒计时；练习赛、冲刺排位、冲刺赛、排位赛或正赛进行中时自动切为正计时，结束后切到下一赛段。页面提供下一场正赛 / 比赛周末的 iCalendar 导入链接。
-- 每次数据工作流都会完整遍历中文翻译，自动审查疑似 badcase，写入 `data/translation_candidates.csv`，并上传本轮新增候选 Excel artifact。
+- 页面接入 F1 赛历，展示下一场大奖赛、比赛周时间、每秒更新的下一赛段倒计时；练习赛、冲刺排位、冲刺赛、排位赛或正赛进行中时自动切为正计时，结束后切到下一赛段。页面提供下一场正赛、比赛周末和全年赛历的 iCalendar 导入链接。
+- 每次数据工作流都会完整遍历中文翻译，自动审查疑似 badcase，写入 `data/translation_candidates.csv`，并上传本轮新增候选 Excel artifact；候选必须有建议中文，否则不进入 review-needed 队列。
 - 如果仓库配置了 `FEISHU_WEBHOOK_URL` secret，工作流会在发现本轮新增翻译 badcase 后向飞书发送通知，包含新增数量、预览、飞书审核表链接和最新 Excel 链接。Codex 当前对话不作为 GitHub Actions 的稳定入站通知目标。
 - 每次 GitHub Actions 完成信息抓取后，会在同一工作流中重新部署网页和 JSON/RSS，因此页面与公开数据同步更新。
 - 日报由浏览器中的确定性模板生成，不调用大模型，不消耗项目方或访问者的模型 token。
 
 ## 飞书翻译审核表
 
-翻译 badcase 的主审核界面推荐使用飞书多维表格 Base，而不是每次下载 Excel。飞书审核表负责待审和人工确认；仓库内 `data/translation_candidates.csv` 是自动发现的 badcase 队列。`data/translation_review.csv` 可作为后续训练 / 评估样本集维护，但默认生产 workflow 不再导入 approved 样本，也不会用 approved 样本覆盖线上中文。工作流支持以下环境配置：
+翻译 badcase 的主记录界面可以使用飞书多维表格 Base 或 Excel artifact。仓库内 `data/translation_candidates.csv` 是自动发现的 review-needed 队列；生产 workflow 不再把候选同步成飞书 pending 队列，也不再把缺失候选标记为 ignored。`data/translation_review.csv` 可作为后续训练 / 评估样本集维护，但默认生产 workflow 不再导入 approved 样本，也不会用 approved 样本覆盖线上中文。工作流支持以下环境配置：
 
 - GitHub Secrets：`FEISHU_APP_ID`、`FEISHU_APP_SECRET`、`FEISHU_BASE_APP_TOKEN`、`FEISHU_BASE_TABLE_ID`。
 - GitHub Variable：`FEISHU_BASE_URL`，用于飞书通知中展示可点击的审核表链接。
@@ -314,6 +314,7 @@ GitHub Pages：
 - F1 赛历：https://znonymity.github.io/piasnews/data/calendar.json
 - 添加下一场正赛：https://znonymity.github.io/piasnews/data/next-race.ics
 - 添加下一场比赛周末：https://znonymity.github.io/piasnews/data/next-weekend.ics
+- 添加全年赛历：https://znonymity.github.io/piasnews/data/full-season.ics
 - X / IG 动态：https://znonymity.github.io/piasnews/data/social.json
 - 历史事件：https://znonymity.github.io/piasnews/data/history.json
 - 历史候选：https://znonymity.github.io/piasnews/data/history-candidates.json
@@ -327,6 +328,7 @@ GitHub raw fallback：
 - F1 赛历：[data/calendar.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/calendar.json)
 - 添加下一场正赛：[data/next-race.ics](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/next-race.ics)
 - 添加下一场比赛周末：[data/next-weekend.ics](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/next-weekend.ics)
+- 添加全年赛历：[data/full-season.ics](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/full-season.ics)
 - 历史事件：[data/history.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/history.json)
 - 历史候选：[data/history-candidates.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/history-candidates.json)
 - 历史检索配置：[piasnews/references/history-retrieval.json](piasnews/references/history-retrieval.json)
@@ -581,15 +583,15 @@ The current knowledge base uses structured-facet retrieval. `piasnews/references
 - The fan-source tab displays collected X / IG posts and reposts only. The maintained source list remains backend configuration and is not shown on the public page.
 - The top-right language switch toggles Chinese and English UI. Chinese mode prefers `title_zh` and `summary_zh`, so even the article link text can be Chinese while the original English title remains available for traceability.
 - The page shows separate China Standard Time refresh times for news data, X / IG fan-source generation, and the newest retained X / IG item, and includes a manual refresh control.
-- The page reads the F1 calendar and shows the next Grand Prix, race-week timing, and a live countdown to the next session. During practice, sprint qualifying, sprint, qualifying, or the race, the timer switches to elapsed time, then moves to the next session after the expected session duration. The page exposes iCalendar links for adding the next race or whole race weekend to any iCalendar-compatible calendar app.
-- Each data workflow fully audits Chinese translations, appends suspected badcases to `data/translation_candidates.csv`, and uploads the current run's new candidates as an Excel artifact.
+- The page reads the F1 calendar and shows the next Grand Prix, race-week timing, and a live countdown to the next session. During practice, sprint qualifying, sprint, qualifying, or the race, the timer switches to elapsed time, then moves to the next session after the expected session duration. The page exposes iCalendar links for adding the next race, the next race weekend, or the full season to any iCalendar-compatible calendar app.
+- Each data workflow fully audits Chinese translations, appends suspected review-needed badcases with concrete suggested Chinese text to `data/translation_candidates.csv`, and uploads the current run's new candidates as an Excel artifact.
 - If the repository has a `FEISHU_WEBHOOK_URL` secret, the workflow sends a Feishu notification when the current run finds new translation badcases, including the count, preview, Feishu review table link, and latest Excel link. The active Codex conversation is not treated as a stable inbound target for GitHub Actions.
 - Each successful GitHub Actions collection redeploys the page and JSON/RSS in the same workflow, keeping them synchronized.
 - Browser-side deterministic templates generate the views without an LLM or model-token usage.
 
 ## Feishu Translation Review Table
 
-The preferred review surface for translation badcases is a Feishu Base table, not repeated Excel downloads. The Feishu review table is the inbox for pending and reviewed cases, while `data/translation_candidates.csv` is the repository-tracked badcase queue. `data/translation_review.csv` may still be maintained as a future training/evaluation set, but the default production workflow no longer imports approved rows or uses them to overwrite live Chinese text. The workflow supports these settings:
+The review surface for translation badcases can be a Feishu Base table or the Excel artifact. `data/translation_candidates.csv` is the repository-tracked review-needed queue; the production workflow no longer syncs candidates into a Feishu pending queue and no longer marks missing candidates as ignored. `data/translation_review.csv` may still be maintained as a future training/evaluation set, but the default production workflow no longer imports approved rows or uses them to overwrite live Chinese text. The workflow supports these settings:
 
 - GitHub Secrets: `FEISHU_APP_ID`, `FEISHU_APP_SECRET`, `FEISHU_BASE_APP_TOKEN`, `FEISHU_BASE_TABLE_ID`.
 - GitHub Variable: `FEISHU_BASE_URL`, used in Feishu notifications as the clickable review-table link.
@@ -786,6 +788,9 @@ GitHub Pages:
 - Daily stats: https://znonymity.github.io/piasnews/data/daily.json
 - RSS feed: https://znonymity.github.io/piasnews/data/rss.xml
 - F1 calendar: https://znonymity.github.io/piasnews/data/calendar.json
+- Add next race: https://znonymity.github.io/piasnews/data/next-race.ics
+- Add next race weekend: https://znonymity.github.io/piasnews/data/next-weekend.ics
+- Add full season: https://znonymity.github.io/piasnews/data/full-season.ics
 - X / IG updates: https://znonymity.github.io/piasnews/data/social.json
 - Historical events: https://znonymity.github.io/piasnews/data/history.json
 - History candidates: https://znonymity.github.io/piasnews/data/history-candidates.json
@@ -797,6 +802,9 @@ GitHub raw fallback:
 - Daily stats: [data/daily.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/daily.json)
 - RSS feed: [data/rss.xml](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/rss.xml)
 - F1 calendar: [data/calendar.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/calendar.json)
+- Add next race: [data/next-race.ics](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/next-race.ics)
+- Add next race weekend: [data/next-weekend.ics](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/next-weekend.ics)
+- Add full season: [data/full-season.ics](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/full-season.ics)
 - Historical events: [data/history.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/history.json)
 - History candidates: [data/history-candidates.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/history-candidates.json)
 - History retrieval config: [piasnews/references/history-retrieval.json](piasnews/references/history-retrieval.json)
