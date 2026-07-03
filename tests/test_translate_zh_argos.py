@@ -51,6 +51,18 @@ class TranslateZhArgosTest(unittest.TestCase):
             with self.subTest(source=source):
                 self.assertEqual(translator.translate_or_fallback(source, None), expected)
 
+    def test_repairs_argos_social_f1_terms_by_source(self):
+        cases = {
+            "OSCARS SPECIAL HELMETS FOR SILVERSTONE WEEKEND":
+                ("奥斯克特别直升机 一周后", "Oscar特别头盔 周末"),
+            "OSCAR SHOWING OFF HIS 3 SILVERSTONE HELMETS":
+                ("奥斯卡展示他的3架银石直升机", "Oscar展示他的3架Silverstone头盔"),
+        }
+
+        for source, (raw_zh, expected) in cases.items():
+            with self.subTest(source=source):
+                self.assertEqual(translator.repair_translation_by_source(source, raw_zh), expected)
+
     def test_updates_news_and_social_payloads(self):
         def fake_translate(text):
             return f"译文:{text}"
@@ -83,10 +95,10 @@ class TranslateZhArgosTest(unittest.TestCase):
 
             news = json.loads(news_path.read_text())
             social = json.loads(social_path.read_text())
-            self.assertEqual(news["items"][0]["title_zh"], "译文:Piastri takes pole in Austrian GP")
+            self.assertEqual(news["items"][0]["title_zh"], "译文:Piastri takes 杆位 in 奥地利大奖赛")
             self.assertEqual(news["items"][0]["summary_zh"], "媒体来源围绕 Piastri 比赛动态展开。")
-            self.assertEqual(social["items"][0]["summary_zh"], "Oscar talks about qualifying.")
-            self.assertEqual(social["items"][0]["title_zh"], "X 发帖 @PiastriNews：Oscar talks about qualifying.")
+            self.assertEqual(social["items"][0]["summary_zh"], "译文:Oscar talks about 排位赛.")
+            self.assertEqual(social["items"][0]["title_zh"], "X 发帖 @PiastriNews：译文:Oscar talks about 排位赛.")
 
     def test_news_update_preserves_existing_chinese_when_translator_unavailable(self):
         item = {
@@ -98,7 +110,7 @@ class TranslateZhArgosTest(unittest.TestCase):
 
         self.assertEqual(
             item["title_zh"],
-            "Mark Webber 正在与一支意外的中游车队讨论潜在 Oscar Piastri 交易",
+            "Mark Webber 正与一支意外的中游车队商谈潜在的 Oscar Piastri 转会",
         )
 
     def test_loads_approved_manual_translation_only(self):

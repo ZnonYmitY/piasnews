@@ -49,6 +49,13 @@ TERM_REPLACEMENTS = (
     ("podium", "领奖台"),
     ("team radio", "车队无线电"),
     ("Team Radio", "车队无线电"),
+    ("helmet", "头盔"),
+    ("Helmet", "头盔"),
+    ("helmets", "头盔"),
+    ("Helmets", "头盔"),
+    ("Silverstone", "Silverstone"),
+    ("British GP", "英国大奖赛"),
+    ("British Grand Prix", "英国大奖赛"),
 )
 
 
@@ -150,7 +157,30 @@ def apply_glossary(value: str, glossary: tuple[tuple[str, str, bool], ...] | Non
     result = result.replace("迈凯伦", "McLaren")
     result = result.replace("皮亚斯特里", "Piastri")
     result = result.replace("奥斯卡·皮亚斯特里", "Oscar Piastri")
+    result = result.replace("奥斯克", "Oscar")
     result = result.replace("一级方程式", "Formula 1")
+    return clean_text(result)
+
+
+def repair_translation_by_source(source_text: str, zh: str) -> str:
+    source_lower = clean_text(source_text).casefold()
+    result = apply_glossary(zh)
+    if "oscar" in source_lower:
+        result = result.replace("奥斯卡奖", "Oscar")
+        result = result.replace("奥斯卡", "Oscar")
+        result = result.replace("奥斯克", "Oscar")
+    if "helmet" in source_lower:
+        result = result.replace("直升机", "头盔")
+        result = result.replace("发射三个头盔", "发布三款头盔")
+        result = result.replace("头盔周末", "头盔")
+    if "silverstone" in source_lower:
+        result = result.replace("银石", "Silverstone")
+    if "british" in source_lower:
+        result = result.replace("不列颠人", "英国")
+        result = result.replace("英国人", "英国")
+    if "weekend" in source_lower:
+        result = result.replace("一周后", "周末")
+        result = result.replace("一周", "周末")
     return clean_text(result)
 
 
@@ -288,7 +318,7 @@ def translate_or_fallback(
     if translator:
         translated = translator(cleaned)
         if translated and translated != cleaned:
-            return translated
+            return repair_translation_by_source(cleaned, translated)
     return fallback_title(cleaned, prefix=prefix)
 
 
@@ -307,12 +337,12 @@ def update_news_item(
         elif translator:
             item["title_zh"] = translate_or_fallback(title, translator, manual_translations=manual_translations)
         elif existing_title_zh and has_cjk(existing_title_zh):
-            item["title_zh"] = apply_glossary(existing_title_zh)
+            item["title_zh"] = repair_translation_by_source(title, existing_title_zh)
         else:
             item["title_zh"] = fallback_title(title)
     existing_summary_zh = clean_text(item.get("summary_zh"))
     if existing_summary_zh and has_cjk(existing_summary_zh):
-        item["summary_zh"] = apply_glossary(existing_summary_zh)
+        item["summary_zh"] = repair_translation_by_source(summary or title, existing_summary_zh)
     elif summary:
         item["summary_zh"] = translate_or_fallback(summary, translator, manual_translations=manual_translations)
 
