@@ -1,24 +1,26 @@
 {
-  "generated_at": "2026-07-05T14:14:27.334471Z",
+  "generated_at": "2026-07-05T16:57:44.849125Z",
   "window_days": 3,
-  "total_items": 36,
+  "total_items": 35,
   "latest_date": "2026-07-05",
   "days": [
     {
       "date": "2026-07-05",
-      "total_new_items": 3,
+      "total_new_items": 4,
       "official_new_items": 0,
-      "media_new_items": 3,
+      "media_new_items": 4,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "Fox Sports": 1,
         "Road & Track": 1,
+        "The Canberra Times": 1,
         "autohebdof1.com": 1
       },
       "categories": {
         "interview": 1,
         "other": 1,
+        "race": 1,
         "team": 1
       }
     },
@@ -75,25 +77,23 @@
     },
     {
       "date": "2026-07-02",
-      "total_new_items": 9,
+      "total_new_items": 7,
       "official_new_items": 0,
-      "media_new_items": 9,
+      "media_new_items": 7,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "Camden Haven Courier": 1,
-        "GPblog": 1,
         "Nine.com.au": 1,
         "Sky Sports": 1,
         "Speedcafe.com": 1,
         "The Sporting Base": 1,
-        "Yahoo Sports": 1,
         "racingnews365.com": 2
       },
       "categories": {
         "other": 3,
         "race": 1,
-        "team": 5
+        "team": 3
       }
     }
   ],
@@ -124,14 +124,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 55
+      "items": 54
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 51
+      "items": 50
     },
     {
       "query": "\"OP81\" when:3d",
@@ -164,13 +164,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 67,
-      "kept": 36,
+      "checked": 66,
+      "kept": 35,
       "results": {
-        "outside_window": 1,
-        "publisher_date_missing": 25,
+        "outside_window": 2,
+        "publisher_date_missing": 24,
         "publisher_unavailable": 3,
-        "verified": 38
+        "verified": 37
       }
     }
   ]
