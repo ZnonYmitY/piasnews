@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-06-19T00:00:00Z",
+  "schema_version": 2,
+  "description": "Approved Oscar Piastri historical events for the optional fan-daily Looking Back section.",
+  "curation": {
+    "display_requires_approval": true,
+    "minimum_historical_value": 70,
+    "score_scale": "0-100",
+    "notes": "Only approved events are stored here. Pending and rejected events live in data/history-candidates.json."
+  },
+  "events": []
+}

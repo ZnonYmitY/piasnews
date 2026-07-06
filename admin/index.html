@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>Piasnews 历史审核台</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="app-bar">
+      <div class="brand-and-nav">
+        <div class="brand-block">
+          <p class="eyebrow">PIASNEWS</p>
+          <h1>管理后台</h1>
+        </div>
+        <nav class="view-switch" aria-label="后台功能">
+          <button class="view-tab is-active" data-view="review" type="button">历史审核</button>
+          <button class="view-tab" data-view="analytics" type="button">访问看板</button>
+        </nav>
+      </div>
+      <div class="app-actions">
+        <span class="connection-state" id="connectionState">未连接审核接口</span>
+        <button class="button button-quiet" id="refreshButton" type="button">刷新</button>
+        <button class="button button-dark" id="settingsButton" type="button">连接设置</button>
+      </div>
+    </header>
+
+    <main class="workspace" id="reviewView">
+      <aside class="queue-panel" aria-label="候选事件队列">
+        <div class="queue-heading">
+          <div>
+            <p class="section-label">审核队列</p>
+            <p class="queue-updated" id="queueUpdated">正在读取...</p>
+          </div>
+          <span class="pending-count" id="pendingCount">0 待审</span>
+        </div>
+
+        <div class="filters" role="tablist" aria-label="审核状态筛选">
+          <button class="filter is-active" data-filter="pending" type="button">待审</button>
+          <button class="filter" data-filter="approved" type="button">已通过</button>
+          <button class="filter" data-filter="rejected" type="button">已拒绝</button>
+          <button class="filter" data-filter="all" type="button">全部</button>
+        </div>
+
+        <div class="candidate-list" id="candidateList" aria-live="polite"></div>
+      </aside>
+
+      <section class="editor-panel" aria-label="候选事件审核">
+        <div class="empty-state" id="emptyState">
+          <p class="empty-title">选择一条候选事件</p>
+          <p>选择后可确认中文内容并批准或拒绝。</p>
+        </div>
+
+        <form id="reviewForm" hidden>
+          <header class="editor-heading">
+            <div>
+              <div class="editor-meta-row">
+                <span class="status-badge" id="statusBadge">待审</span>
+                <span id="candidateScore">规则分 0</span>
+              </div>
+              <h2 id="editorTitle">候选事件</h2>
+              <p class="editor-original" id="originalTitle"></p>
+            </div>
+            <a class="source-link" id="sourceLink" href="#" target="_blank" rel="noreferrer">查看原始来源</a>
+          </header>
+
+          <fieldset class="form-section">
+            <legend>审核内容</legend>
+            <div class="field-grid field-grid-two">
+              <label class="field field-wide">
+                <span>中文标题</span>
+                <input id="titleZhInput" name="title_zh" required maxlength="300">
+              </label>
+              <label class="field">
+                <span>事件日期</span>
+                <input id="dateInput" name="date" type="date" required>
+              </label>
+              <label class="field">
+                <span>事件类型</span>
+                <select id="typeInput" name="type">
+                  <option value="race_win">大奖赛胜利</option>
+                  <option value="career_milestone">生涯里程碑</option>
+                  <option value="career_turning_point">生涯转折</option>
+                  <option value="contract">合同</option>
+                  <option value="team">车队事件</option>
+                  <option value="social_moment">社媒名场面</option>
+                  <option value="other">其他</option>
+                </select>
+              </label>
+              <label class="field field-wide">
+                <span>中文摘要</span>
+                <textarea id="summaryZhInput" name="summary_zh" rows="3" required maxlength="1200"></textarea>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-section">
+            <legend>判断依据</legend>
+            <div class="field-grid">
+              <label class="field field-wide">
+                <span>中文入选理由</span>
+                <textarea id="reasonZhInput" rows="2" required maxlength="1200"></textarea>
+              </label>
+              <label class="field field-wide">
+                <span>审核备注（可选）</span>
+                <textarea id="decisionReasonInput" rows="2" maxlength="1200"></textarea>
+              </label>
+            </div>
+          </fieldset>
+
+          <footer class="review-actions">
+            <p id="actionHint">批准后将由 GitHub Actions 校验并写入正式历史库。</p>
+            <div>
+              <button class="button button-danger" id="rejectButton" type="button">拒绝</button>
+              <button class="button button-primary" id="approveButton" type="submit">批准并入库</button>
+            </div>
+          </footer>
+        </form>
+      </section>
+    </main>
+
+    <section class="analytics-page" id="analyticsView" aria-labelledby="analyticsTitle" hidden>
+      <header class="analytics-heading">
+        <div>
+          <p class="section-label">PAGE ANALYTICS</p>
+          <h2 id="analyticsTitle">页面访问看板</h2>
+          <p id="analyticsUpdated">等待读取统计数据</p>
+        </div>
+        <div class="range-switch" aria-label="统计时间范围">
+          <button class="range-button is-active" data-analytics-days="7" type="button">近 7 天</button>
+          <button class="range-button" data-analytics-days="30" type="button">近 30 天</button>
+        </div>
+      </header>
+
+      <div class="analytics-message" id="analyticsMessage">请先在连接设置中配置 Worker URL 和管理员密钥。</div>
+
+      <div id="analyticsContent" hidden>
+        <div class="metric-grid" aria-label="访问概览">
+          <article class="analytics-metric">
+            <span>今日访问</span>
+            <strong id="metricToday">0</strong>
+          </article>
+          <article class="analytics-metric">
+            <span id="metricPeriodLabel">近 7 天</span>
+            <strong id="metricPeriod">0</strong>
+          </article>
+          <article class="analytics-metric">
+            <span>日均访问</span>
+            <strong id="metricAverage">0</strong>
+          </article>
+          <article class="analytics-metric">
+            <span>较上一周期</span>
+            <strong id="metricChange">--</strong>
+          </article>
+        </div>
+
+        <section class="analytics-section" aria-labelledby="trendTitle">
+          <div class="analytics-section-heading">
+            <h3 id="trendTitle">访问趋势</h3>
+            <p>按北京时间统计页面浏览次数</p>
+          </div>
+          <div class="bar-chart" id="analyticsChart" role="img" aria-label="每日页面访问趋势"></div>
+        </section>
+
+        <div class="analytics-tables">
+          <section class="analytics-section" aria-labelledby="pathsTitle">
+            <div class="analytics-section-heading">
+              <h3 id="pathsTitle">热门页面</h3>
+            </div>
+            <div id="topPaths"></div>
+          </section>
+          <section class="analytics-section" aria-labelledby="referrersTitle">
+            <div class="analytics-section-heading">
+              <h3 id="referrersTitle">来源站点</h3>
+              <p>不含直接访问</p>
+            </div>
+            <div id="topReferrers"></div>
+          </section>
+        </div>
+      </div>
+
+      <p class="privacy-note">只统计页面浏览次数、页面路径和来源站点域名；不保存 IP、Cookie 或访客标识，原始记录保留 90 天。</p>
+    </section>
+
+    <dialog id="settingsDialog">
+      <form method="dialog" id="settingsForm">
+        <header class="dialog-heading">
+          <div>
+            <p class="section-label">审核接口</p>
+            <h2>连接设置</h2>
+          </div>
+          <button class="dialog-close" value="cancel" aria-label="关闭" type="submit">×</button>
+        </header>
+        <label class="field">
+          <span>Worker URL</span>
+          <input id="workerUrlInput" type="url" placeholder="https://piasnews-review.example.workers.dev" required>
+        </label>
+        <label class="field">
+          <span>管理员密钥</span>
+          <input id="adminKeyInput" type="password" autocomplete="off" required>
+        </label>
+        <p class="dialog-note">URL 保存在本机；管理员密钥只保留到当前浏览器会话结束。</p>
+        <footer class="dialog-actions">
+          <button class="button button-quiet" value="cancel" type="submit">取消</button>
+          <button class="button button-dark" id="saveSettingsButton" value="default" type="button">保存连接</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js" defer></script>
+  </body>
+</html>

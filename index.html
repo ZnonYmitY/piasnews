@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <meta name="description" content="Oscar Piastri 最近 3 天新闻的公开粉丝日报，提供速读、日报和粉丝源三个栏目。">
+    <title>Piasnews | Oscar Piastri 粉丝日报</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="./" aria-label="Piasnews 首页">
+          <span class="brand-mark" aria-hidden="true">81</span>
+          <span>PIASNEWS</span>
+        </a>
+        <nav class="header-links" aria-label="相关链接">
+          <a href="data/rss.xml">RSS</a>
+          <a href="https://github.com/ZnonYmitY/piasnews">GitHub</a>
+          <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch language">EN</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="report-header" aria-labelledby="pageTitle">
+        <div class="report-heading">
+          <p class="kicker">OSCAR PIASTRI · LATEST 3 DAYS</p>
+          <h1 id="pageTitle">Oscar Piastri 粉丝日报</h1>
+          <p class="report-deck">最近三天值得关注的比赛、车队与围场动态。</p>
+        </div>
+        <div class="update-panel" aria-live="polite">
+          <span class="sync-dot" aria-hidden="true"></span>
+          <div>
+            <span class="update-label">数据更新时间</span>
+            <time id="updatedAt">正在读取...</time>
+            <span class="social-update-label">X / IG 更新时间</span>
+            <time id="socialUpdatedAt">正在读取...</time>
+          </div>
+          <button class="refresh-button" id="refreshButton" type="button">刷新</button>
+        </div>
+      </section>
+
+      <section class="race-board" id="raceBoard" aria-labelledby="raceName" hidden>
+        <div class="race-details">
+          <div class="race-heading-row">
+            <p class="race-kicker">NEXT RACE</p>
+            <span class="race-round" id="raceRound">ROUND</span>
+          </div>
+          <h2 id="raceName">下一场比赛</h2>
+          <p class="race-location" id="raceLocation"></p>
+          <div class="race-schedule">
+            <p id="raceWeekend"></p>
+            <time id="raceStartTime"></time>
+          </div>
+          <p class="race-source" id="raceCalendarMeta"></p>
+        </div>
+        <div class="countdown-panel">
+          <p class="countdown-label" id="countdownLabel">距离下一赛段</p>
+          <div class="countdown-grid" aria-label="距离下一赛段的倒计时">
+            <div><strong id="countdownDays">00</strong><span>天</span></div>
+            <div><strong id="countdownHours">00</strong><span>时</span></div>
+            <div><strong id="countdownMinutes">00</strong><span>分</span></div>
+            <div><strong id="countdownSeconds">00</strong><span>秒</span></div>
+          </div>
+          <div class="calendar-actions" aria-label="日历操作">
+            <a class="calendar-link calendar-link-primary" id="addRaceCalendarLink" href="data/next-race.ics">添加正赛</a>
+            <a class="calendar-link" id="addWeekendCalendarLink" href="data/next-weekend.ics">添加比赛周末</a>
+            <a class="calendar-link" id="addSeasonCalendarLink" href="data/full-season.ics">添加全年赛历</a>
+            <a class="calendar-link" id="officialCalendarLink" href="https://www.formula1.com/en/racing/2026" target="_blank" rel="noreferrer">查看 F1 官方赛历</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="report-shell" aria-label="粉丝日报">
+        <div class="report-meta">
+          <p id="windowLabel">最近 3 天</p>
+          <p id="itemCount">正在加载新闻</p>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="日报版本">
+          <button class="tab is-active" id="tab-short" type="button" role="tab" aria-selected="true" aria-controls="panel-short" data-mode="short">
+            <span>速读</span>
+            <small>1 分钟</small>
+          </button>
+          <button class="tab" id="tab-daily" type="button" role="tab" aria-selected="false" aria-controls="panel-daily" data-mode="daily" tabindex="-1">
+            <span>日报</span>
+            <small>完整整理</small>
+          </button>
+          <button class="tab" id="tab-fan" type="button" role="tab" aria-selected="false" aria-controls="panel-fan" data-mode="fan" tabindex="-1">
+            <span>粉丝源</span>
+            <small>X / IG</small>
+          </button>
+        </div>
+
+        <div class="loading-state" id="loadingState" role="status">
+          <span class="loading-line loading-line-wide"></span>
+          <span class="loading-line"></span>
+          <span class="loading-line loading-line-short"></span>
+        </div>
+
+        <div class="error-state" id="errorState" hidden>
+          <h2>暂时无法读取日报</h2>
+          <p id="errorMessage">请稍后刷新页面。</p>
+          <button class="retry-button" id="retryButton" type="button">重新加载</button>
+        </div>
+
+        <section class="tab-panel" id="panel-short" role="tabpanel" aria-labelledby="tab-short"></section>
+        <section class="tab-panel" id="panel-daily" role="tabpanel" aria-labelledby="tab-daily" hidden></section>
+        <section class="tab-panel" id="panel-fan" role="tabpanel" aria-labelledby="tab-fan" hidden></section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>PIASNEWS</strong>
+        <p>GitHub Actions 每 6 小时更新。只展示原站发布日期可核验的最近 3 天信息。</p>
+      </div>
+      <div class="footer-links">
+        <a href="data/items.json">JSON</a>
+        <a href="data/daily.json">统计</a>
+        <a href="admin/">历史审核台</a>
+      </div>
+    </footer>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>

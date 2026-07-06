@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "section": {
+    "zh": "\u5f80\u65e5\u56de\u987e",
+    "en": "Looking Back",
+    "max_items": 1,
+    "omit_when_empty": true
+  },
+  "eligibility": {
+    "review_status": "approved",
+    "include": true,
+    "minimum_historical_value": 70
+  },
+  "candidate_routes": {
+    "anniversary": {
+      "enabled": true,
+      "filter": "exact month_day match",
+      "requires_semantic_match": false
+    },
+    "contextual": {
+      "enabled": true,
+      "filter": "at least one exact strong semantic facet",
+      "requires_semantic_match": true,
+      "broad_facets_do_not_qualify": ["Formula 1", "McLaren", "race", "street circuit"]
+    }
+  },
+  "ranking": {
+    "strategy": "rules_first_hybrid",
+    "importance_cannot_rescue_weak_relevance": true,
+    "weights": {
+      "vector_similarity": 0.45,
+      "strong_facet_overlap": 0.35,
+      "historical_value": 0.2
+    }
+  },
+  "embeddings": {
+    "enabled": false,
+    "execution_mode": "disabled",
+    "model_id": null,
+    "model_revision": null,
+    "runtime": null,
+    "license": null,
+    "dimensions": null,
+    "artifact_url": null,
+    "sha256": null,
+    "index_path": "data/history.embeddings.json",
+    "weights_repository_policy": "Do not commit model weights. Record model ID, revision, license, and checksum here; publish large artifacts through a release or model registry."
+  }
+}
