@@ -72,9 +72,13 @@ jobs:
           PIASNEWS_WORKER_URL: ${{ vars.PIASNEWS_WORKER_URL }}
         run: |
           mkdir -p public/data
-          cp data/items.json data/daily.json data/rss.xml data/calendar.json data/social.json data/history.json data/history-candidates.json public/data/
+          cp data/items.json data/daily.json data/rss.xml data/calendar.json data/next-race.ics data/next-weekend.ics data/full-season.ics data/social.json data/history.json data/history-candidates.json public/data/
+          cp data/translation_candidates.csv public/data/translation_candidates.csv
+          cp data/translation_candidates_latest.csv public/data/translation_candidates_latest.csv
+          cp data/translation_candidates_latest.xlsx public/data/translation_candidates_latest.xlsx
           cp piasnews/references/history-retrieval.json public/data/history-retrieval.json
           python scripts/write_runtime_config.py --output public/data/runtime-config.json
+          touch public/.nojekyll
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

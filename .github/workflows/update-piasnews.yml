@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: https://znonymity.github.io/piasnews/
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -111,19 +111,17 @@ jobs:
           python scripts/write_runtime_config.py --output public/data/runtime-config.json
           touch public/.nojekyll
 
-      - name: Publish Pages branch
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          publish_dir="$(mktemp -d)"
-          cp -R public/. "$publish_dir"/
-          git init -b gh-pages "$publish_dir"
-          git -C "$publish_dir" config user.name "github-actions[bot]"
-          git -C "$publish_dir" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git -C "$publish_dir" add -A
-          git -C "$publish_dir" commit -m "Deploy Piasnews pages"
-          git -C "$publish_dir" remote add origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-          git -C "$publish_dir" push --force origin gh-pages
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
       - name: Notify Feishu translation badcases
         env:
