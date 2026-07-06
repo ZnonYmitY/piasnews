@@ -65,7 +65,7 @@ def build_text(rows: list[dict[str, str]], *, base_url: str, page_url: str, repo
     preview_text = "\n".join(preview) if preview else "- 本轮没有新增候选。"
     links = []
     if base_url:
-        links.append(f"飞书记录表: {base_url}")
+        links.append(f"飞书审核表: {base_url}")
     if xlsx_url:
         links.append(f"Excel: {xlsx_url}")
     if csv_url:

@@ -14,6 +14,11 @@ const mappingPath = path.join(dataDir, "immersive_translations.zh.json");
 const itemsPath = path.join(dataDir, "items.json");
 const socialPath = path.join(dataDir, "social.json");
 
+function parsePositiveInteger(value, fallback) {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) && parsed > 0 ? Math.floor(parsed) : fallback;
+}
+
 function clean(value) {
   return String(value || "").replace(/\s+/g, " ").trim();
 }
@@ -28,6 +33,13 @@ function escapeHtml(value) {
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
+}
+
+function escapeScriptJson(value) {
+  return String(value || "")
+    .replaceAll("<", "\\u003c")
+    .replaceAll(">", "\\u003e")
+    .replaceAll("&", "\\u0026");
 }
 
 async function readJson(file, fallback) {
@@ -140,7 +152,7 @@ function renderWorkbench(targets) {
   <h1>Piasnews Immersive Translation Workbench</h1>
   <p class="summary">${targets.length} source texts
 Translate this page with Immersive Translate, then extract translated rows from the DOM.</p>
-  <script id="targets" type="application/json">${escapeHtml(payload)}</script>
+  <script id="targets" type="application/json">${escapeScriptJson(payload)}</script>
   <script>
     window.__piasnewsExtractImmersiveTranslations = function () {
       const clean = (value) => String(value || "").replace(/\\s+/g, " ").trim();
@@ -170,13 +182,15 @@ Translate this page with Immersive Translate, then extract translated rows from 
           texts.push(text);
         };
 
-        for (const element of row.querySelectorAll("*")) {
+        const sourceElement = row.querySelector(".source-text") || row;
+        for (const element of sourceElement.querySelectorAll("*")) {
           const className = String(element.className || "");
           const isSource = element.classList && element.classList.contains("source-text");
           const isImmersive = /immersive|translate|translation/i.test(className);
           if (isImmersive && !isSource) push(element.innerText || element.textContent);
         }
-        for (const line of String(row.innerText || "").split("\\n")) push(line);
+        const sourceBlockText = String(sourceElement.innerText || "") + "\\n" + String(sourceElement.textContent || "");
+        for (const line of String(sourceBlockText).split("\\n")) push(line);
 
         const zh = texts
           .filter(hasCjk)
@@ -190,7 +204,18 @@ Translate this page with Immersive Translate, then extract translated rows from 
 </html>`;
 }
 
+function chunkTargets(targets, tabCount) {
+  if (tabCount <= 1 || targets.length <= 1) return [targets];
+  const chunkSize = Math.ceil(targets.length / tabCount);
+  const chunks = [];
+  for (let index = 0; index < targets.length; index += chunkSize) {
+    chunks.push(targets.slice(index, index + chunkSize));
+  }
+  return chunks;
+}
+
 async function main() {
+  const tabCount = parsePositiveInteger(process.env.PIASNEWS_IMMERSIVE_TABS, 1);
   await fs.mkdir(outputDir, { recursive: true });
   const items = await readJson(itemsPath, { items: [] });
   const social = await readJson(socialPath, { items: [] });
@@ -205,6 +230,26 @@ async function main() {
   const targets = [...itemTargets, ...socialTargets];
   await fs.writeFile(workbenchPath, renderWorkbench(targets), "utf8");
   await fs.writeFile(manifestPath, JSON.stringify({ targets }, null, 2) + "\n", "utf8");
+  const chunks = chunkTargets(targets, tabCount);
+  const workbenchPages = [];
+  if (chunks.length <= 1) {
+    workbenchPages.push({
+      path: workbenchPath,
+      url_path: "/translation-workbench.html",
+      targets_count: targets.length,
+    });
+  } else {
+    for (let index = 0; index < chunks.length; index += 1) {
+      const filename = `translation-workbench-${index + 1}.html`;
+      const pagePath = path.join(outputDir, filename);
+      await fs.writeFile(pagePath, renderWorkbench(chunks[index]), "utf8");
+      workbenchPages.push({
+        path: pagePath,
+        url_path: `/${filename}`,
+        targets_count: chunks[index].length,
+      });
+    }
+  }
 
   console.log(JSON.stringify({
     repo,
@@ -213,6 +258,8 @@ async function main() {
     targets_count: targets.length,
     item_targets_count: itemTargets.length,
     social_targets_count: socialTargets.length,
+    tabs_count: workbenchPages.length,
+    workbench_pages: workbenchPages,
     workbench_path: workbenchPath,
     manifest_path: manifestPath,
     mapping_path: mappingPath,

@@ -230,11 +230,19 @@ X 不是必需依赖。只有当用户提供自己的 X 访问方式，或项目
 python3 scripts/fetch_social_sources.py --input-json social-import.json --days 3 --output data/social.json
 ```
 
-GitHub Actions 导入：把同样的 JSON 写入仓库变量 `PIASNEWS_SOCIAL_INPUT_JSON`，下一次 `Update Piasnews Data` 会生成并发布粉丝源动态。粉丝源 Tab 顶部统一展示 `如有侵权请联系删除。`，每条动态只展示账号归属。
+GitHub Actions 导入：把同样的 JSON 写入仓库变量 `PIASNEWS_SOCIAL_INPUT_JSON`，或把返回 compact JSON 的远程地址写入仓库变量 `PIASNEWS_SOCIAL_INPUT_URL`；如果远程地址需要 bearer token，把 token 写入 secret `PIASNEWS_SOCIAL_INPUT_AUTH_BEARER`。下一次 `Update Piasnews Data` 会生成并发布粉丝源动态。粉丝源 Tab 顶部统一展示 `如有侵权请联系删除。`，每条动态只展示账号归属。
 
 粉丝源和日报新闻的发布层一致，都会落到 GitHub Pages 的静态 JSON；采集层不同。日报新闻由 GitHub Actions 每 6 小时抓取 RSS/网页并核验原站发布日期，并额外配置一个 10 分钟后的备用 schedule，降低 GitHub 定时任务延迟或丢触发的影响。粉丝源由本机 Agent-Reach、常在线机器或外部调度器先生成公开动态导入文件，再交给 GitHub Actions 归一化和部署。GitHub Actions 本身不会读取你的本机 X 登录态。
 
-如果要把 X 采集迁到常在线环境，推荐路径是：在小主机、VPS 或外部调度器上运行采集器，生成 compact social JSON，再用 GitHub token 更新仓库变量 `PIASNEWS_SOCIAL_INPUT_JSON` 并触发 `Update Piasnews Data` workflow。X 对数据中心 IP 有风控风险，低成本优先级建议是本地常开小主机或家宽环境，其次才是 VPS。Cloudflare Worker Cron 更适合做调度和触发 GitHub，不适合直接复用你的浏览器 X 登录态。
+如果要把 X 采集迁到常在线环境，推荐路径是：在小主机、VPS、Supabase Edge Function 或外部调度器上运行采集器，生成 compact social JSON，再通过 `PIASNEWS_SOCIAL_INPUT_URL` 或仓库变量 `PIASNEWS_SOCIAL_INPUT_JSON` 交给 `Update Piasnews Data` workflow。X 对数据中心 IP 有风控风险，低成本优先级建议是本地常开小主机或家宽环境；如果使用官方 X API bearer token，Supabase 可以解决“本机睡眠导致调度不跑”的问题。Supabase 不能复用你的本机 Chrome 登录态、Agent-Reach cookies 或沉浸式翻译浏览器插件；这类链路仍需要本机或改成服务器可运行的 API。
+
+仓库提供了 Supabase 迁移骨架：
+
+- `supabase/migrations/0001_social_import_snapshots.sql`：存储最新 compact social import 快照。
+- `supabase/functions/collect-social/index.ts`：用官方 X API 采集账号时间线，写入快照表，并可触发 `update-piasnews.yml`。
+- `supabase/functions/collect-social/README.md`：列出 Supabase secrets、GitHub 变量和定时配置。
+
+配置完成后，把 `PIASNEWS_SOCIAL_INPUT_URL` 指向 `https://<project>.functions.supabase.co/collect-social`。Supabase 定时函数负责生成新快照，GitHub Actions 负责复用现有归一化、翻译、审计和 Pages 发布流程。
 
 本机已支持 Agent-Reach 采集入口。先确认 Twitter/X 后端状态：
 
@@ -254,7 +262,7 @@ env PATH=/Users/bytedance/.agent-reach-venv/bin:$PATH \
   --update-social
 ```
 
-这会读取 `piasnews/references/x-sources.json` 中的 X 账号，默认调用本地 `twitter-cli user-posts` 拉取账号公开时间线，再按最近 3 天过滤，生成导入 JSON，并更新 `data/social.json`。如果 `agent-reach configure --from-browser chrome` 已经写入 `~/.agent-reach/config.yaml`，采集脚本会自动把其中的 Twitter/X cookies 传给 `twitter-cli`，不需要把 token 写进仓库。`twitter search` 端点不稳定，仅在明确需要时用 `--method search`。
+这会读取 `piasnews/references/x-sources.json` 中的 X 账号，默认调用本地 `twitter-cli user-posts` 拉取账号公开时间线，再按最近 3 天过滤，生成导入 JSON，并更新 `data/social.json`。如果 `agent-reach configure --from-browser chrome` 已经写入 `~/.agent-reach/config.yaml`，采集脚本会自动把其中的 Twitter/X cookies 传给 `twitter-cli`，不需要把 token 写进仓库。如果 `twitter-cli` 的网络层失败，脚本会复用同一组本机 cookies 自动降级到 X Web GraphQL 读取路径；导入 JSON 的 `source_status[].method` 会显示 `x-web`。`twitter search` 端点不稳定，仅在明确需要时用 `--method search`。
 
 这个本地采集不是常驻服务。手动运行时只执行一次；如果希望粉丝源无人值守更新，需要额外用 macOS `launchd`、cron 或其他调度器定时运行上面的命令。脚本本身是普通 Python/CLI 流程，不调用大模型，不消耗 Codex token；只有让 Codex 代你执行、提交或排障时才会占用 Codex 会话额度。
 
@@ -266,7 +274,7 @@ env PATH=/Users/bytedance/.agent-reach-venv/bin:$PATH \
 scripts/update_social_agent_reach.sh
 ```
 
-默认采集全部 X 分组，并额外尝试用本机已登录 Chrome 采集 Oscar Piastri Instagram 主页最近公开 posts/reels。脚本随后更新 `data/social.json`，生成 compact import，写入 GitHub 变量 `PIASNEWS_SOCIAL_INPUT_JSON`，并触发 `Update Piasnews Data` workflow。compact import 不写入每次变化的生成时间；如果内容和上次发布完全一致，脚本会跳过 GitHub 变量更新和 workflow 触发。脚本会先确认至少一个社交来源采集成功；如果认证、DNS、网络或 Chrome DOM 权限失败且没有任何来源成功，它会停止在发布前，避免把失败采集伪装成新的 X / IG 更新时间。需要强制发布时设置 `PIASNEWS_FORCE_SOCIAL_PUBLISH=1`。只更新本地、不触发 GitHub：
+默认采集全部 X 分组，并额外尝试用本机已登录 Chrome 采集 Oscar Piastri Instagram 主页最近公开 posts/reels。如果 Chrome Apple Events 仍阻止 DOM 读取，Instagram 采集器会自动降级到 OpenCLI Browser Bridge；导入 JSON 的 `source_status[].method` 会显示 `opencli-browser`。脚本随后更新 `data/social.json`，生成 compact import，写入 GitHub 变量 `PIASNEWS_SOCIAL_INPUT_JSON`，并触发 `Update Piasnews Data` workflow。compact import 不写入每次变化的生成时间；如果内容和上次发布完全一致，脚本会跳过 GitHub 变量更新和 workflow 触发。脚本会先确认至少一个社交来源采集成功；如果认证、DNS、网络或 Chrome DOM 权限失败且没有任何来源成功，它会停止在发布前，避免把失败采集伪装成新的 X / IG 更新时间。需要强制发布时设置 `PIASNEWS_FORCE_SOCIAL_PUBLISH=1`。只更新本地、不触发 GitHub：
 
 ```bash
 PIASNEWS_SKIP_GITHUB=1 scripts/update_social_agent_reach.sh
@@ -278,29 +286,13 @@ PIASNEWS_SKIP_GITHUB=1 scripts/update_social_agent_reach.sh
 PIASNEWS_SOCIAL_GROUPS=fan_watch scripts/update_social_agent_reach.sh
 ```
 
-macOS 每 3 小时定时运行 Agent-Reach 采集可以使用 `launchd`。如果比赛日要临时改成 30 分钟，把 `StartInterval` 改为 `1800`；平时 3 小时能兼顾更新速度、X 访问频率和 GitHub Pages 部署噪声。把下面文件保存为 `~/Library/LaunchAgents/com.znonymity.piasnews.social.plist` 后执行 `launchctl load ~/Library/LaunchAgents/com.znonymity.piasnews.social.plist`：
+macOS 无人值守运行可以使用 `launchd`。当前模板每 10 分钟轻量检查一次，但通过 `PIASNEWS_SOCIAL_MIN_INTERVAL_SECONDS=10800` 限制为距离上次成功采集超过 3 小时才真正访问 X / IG；如果电脑睡眠错过周期，醒来后的下一次检查会补跑。安装模板：
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-  <key>Label</key>
-  <string>com.znonymity.piasnews.social</string>
-  <key>ProgramArguments</key>
-  <array>
-    <string>/Users/bytedance/Documents/piasnews/scripts/update_social_agent_reach.sh</string>
-  </array>
-  <key>StartInterval</key>
-  <integer>10800</integer>
-  <key>RunAtLoad</key>
-  <true/>
-  <key>StandardOutPath</key>
-  <string>/tmp/piasnews-social.log</string>
-  <key>StandardErrorPath</key>
-  <string>/tmp/piasnews-social.err</string>
-</dict>
-</plist>
+```bash
+mkdir -p "$HOME/Library/Application Support/piasnews"
+cp -X scripts/update_social_agent_reach.sh "$HOME/Library/Application Support/piasnews/update_social_agent_reach.sh"
+cp scripts/com.znonymity.piasnews.social.plist "$HOME/Library/LaunchAgents/"
+launchctl load "$HOME/Library/LaunchAgents/com.znonymity.piasnews.social.plist"
 ```
 
 ## 静态数据
@@ -337,9 +329,9 @@ GitHub raw fallback：
 
 GitHub Actions 在抓取新闻和 social 数据后会运行 `scripts/apply_immersive_translations.py`，应用 `data/immersive_translations.zh.json` 中的沉浸式翻译映射，覆盖 `title_zh` 和 `summary_zh`，随后执行 deterministic auto-repair 修正已沉淀的低风险术语坏例。缺少映射的新内容会保留抓取脚本生成的确定性中文概括或英文兜底，等待本机沉浸式翻译采集补齐。
 
-沉浸式翻译是当前默认中文增强链路。`scripts/build_immersive_workbench.mjs` 会为缺失中文映射的新闻标题、新闻摘要和粉丝源摘要生成 workbench；`scripts/run_immersive_workbench.mjs` 会在 `targets_count > 0` 时打开本机 Chrome，等待沉浸式翻译插件改写页面 DOM，采集中文映射并写入 `data/immersive_translations.zh.json`。采集结束后默认关闭对应 workbench 标签页；如需保留页面，可使用 `--no-close` 或 `PIASNEWS_IMMERSIVE_CLOSE=0`。该流程不调用大模型，只有通过 Codex 手动操纵浏览器时才消耗 Codex token。
+沉浸式翻译是当前默认中文增强链路。`scripts/build_immersive_workbench.mjs` 会为缺失中文映射的新闻标题、新闻摘要和粉丝源摘要生成 workbench；`scripts/run_immersive_workbench.mjs` 会在 `targets_count > 0` 时打开本机 Chrome，等待沉浸式翻译插件改写页面 DOM，采集中文映射并写入 `data/immersive_translations.zh.json`。采集结束后默认关闭对应 workbench 标签页；如需保留页面，可使用 `--no-close` 或 `PIASNEWS_IMMERSIVE_CLOSE=0`。目标较多时可用 `--tabs 3` 分成多个 workbench tab；如果 Chrome Apple Events 仍不能读取 DOM，但 OpenCLI Browser Bridge 可用，可加 `--browser-driver opencli`。该流程不调用大模型，只有通过 Codex 手动操纵浏览器时才消耗 Codex token。
 
-本机 Chrome 自动采集依赖 Chrome Apple Events 执行只读 DOM 脚本。首次使用前需要在 Chrome 菜单开启 `显示/查看 > 开发者 > 允许来自 Apple Events 的 JavaScript`（英文界面为 `View > Developer > Allow JavaScript from Apple Events`）。如果未开启，沉浸式映射和 Instagram 本机采集都会打开页面但无法读取 DOM，日志会提示 Chrome blocked JavaScript from Apple Events。
+本机 Chrome 自动采集依赖 Chrome Apple Events 执行只读 DOM 脚本。首次使用前需要在 Chrome 菜单开启 `显示/查看 > 开发者 > 允许来自 Apple Events 的 JavaScript`（英文界面为 `View > Developer > Allow JavaScript from Apple Events`）。如果未开启，沉浸式映射和 Instagram 本机采集都会打开页面但无法读取 DOM，日志会提示 Chrome blocked JavaScript from Apple Events。沉浸式任务检测到该阻断后会写入 `/private/tmp/piasnews-immersive-state.json` 并进入默认 6 小时冷却，后续定时任务会跳过打开 Chrome；开启权限后可用 `PIASNEWS_IMMERSIVE_IGNORE_COOLDOWN=1` 手动跑一次恢复。
 
 生产 workflow 会先运行 `scripts/translate_zh_argos.py` 作为离线中文 fallback，再运行沉浸式翻译映射覆盖。Argos 只在 GitHub Actions 构建时运行，不调用在线翻译 API，也不消耗模型 token；如果后续沉浸式映射可用，它的结果优先级高于 Argos fallback。
 
@@ -347,6 +339,7 @@ GitHub Actions 在抓取新闻和 social 数据后会运行 `scripts/apply_immer
 
 ```bash
 node scripts/run_immersive_workbench.mjs
+node scripts/run_immersive_workbench.mjs --browser-driver opencli --tabs 3 --ignore-cooldown
 ```
 
 默认只更新本地映射并应用到 `data/items.json` / `data/social.json`。如需自动提交映射、push 并触发 GitHub Pages 更新：
@@ -443,6 +436,8 @@ python3 scripts/validate_history.py
 ├── scripts/
 │   ├── build_history_candidates.py
 │   ├── compact_social_input.py
+│   ├── com.znonymity.piasnews.immersive.plist
+│   ├── com.znonymity.piasnews.social.plist
 │   ├── collect_agent_reach_social.py
 │   ├── feishu_translation_base.py
 │   ├── fetch_f1_calendar.py
@@ -455,6 +450,10 @@ python3 scripts/validate_history.py
 │   ├── sync_feishu_translation_base.py
 │   ├── update_social_agent_reach.sh
 │   └── validate_history.py
+├── supabase/
+│   ├── functions/
+│   │   └── collect-social/
+│   └── migrations/
 ├── tests/
 │   ├── test_compact_social_input.py
 │   ├── test_collect_agent_reach_social.py
@@ -706,11 +705,19 @@ Local import:
 python3 scripts/fetch_social_sources.py --input-json social-import.json --days 3 --output data/social.json
 ```
 
-GitHub Actions import: store the same JSON in the repository variable `PIASNEWS_SOCIAL_INPUT_JSON`; the next `Update Piasnews Data` run will generate and publish the fan-source feed. The fan-source tab shows one removal-on-rights-request notice above the feed; each card only shows account attribution.
+GitHub Actions import: store the same JSON in the repository variable `PIASNEWS_SOCIAL_INPUT_JSON`, or store a remote compact-JSON endpoint in repository variable `PIASNEWS_SOCIAL_INPUT_URL`. If the endpoint needs a bearer token, store it as secret `PIASNEWS_SOCIAL_INPUT_AUTH_BEARER`. The next `Update Piasnews Data` run will generate and publish the fan-source feed. The fan-source tab shows one removal-on-rights-request notice above the feed; each card only shows account attribution.
 
 Fan sources and daily news share the same static GitHub Pages delivery layer, but their collection layers differ. Daily news is collected every six hours by GitHub Actions through RSS/web sources with publisher-date verification, with a second backup schedule ten minutes later to reduce the impact of delayed or dropped GitHub scheduled runs. Fan sources are collected locally through Agent-Reach, an always-on machine, or an external scheduler, then normalized and deployed by GitHub Actions. GitHub Actions cannot read your local X browser session.
 
-To migrate X collection to an always-on environment, run the collector on a mini PC, VPS, or external scheduler, generate compact social JSON, then use a GitHub token to update `PIASNEWS_SOCIAL_INPUT_JSON` and trigger the `Update Piasnews Data` workflow. X can apply stricter risk controls to data-center IPs, so the low-cost preference is an always-on local/home machine first, then a VPS. Cloudflare Worker Cron is useful for scheduling and triggering GitHub, but it cannot reuse your browser X login state.
+To migrate X collection to an always-on environment, run the collector on a mini PC, VPS, Supabase Edge Function, or external scheduler, generate compact social JSON, then pass it into the `Update Piasnews Data` workflow through `PIASNEWS_SOCIAL_INPUT_URL` or `PIASNEWS_SOCIAL_INPUT_JSON`. X can apply stricter risk controls to data-center IPs, so the low-cost preference is an always-on local/home machine first. If an official X API bearer token is available, Supabase can solve the "local host is asleep, so the schedule does not run" problem. Supabase cannot reuse your local Chrome login state, Agent-Reach cookies, or the Immersive Translate browser extension; those flows still require a local host or a server-side API replacement.
+
+The repository includes a Supabase migration skeleton:
+
+- `supabase/migrations/0001_social_import_snapshots.sql`: stores the latest compact social import snapshots.
+- `supabase/functions/collect-social/index.ts`: collects X timelines through the official X API, writes a snapshot, and can dispatch `update-piasnews.yml`.
+- `supabase/functions/collect-social/README.md`: lists Supabase secrets, GitHub variables, and scheduling setup.
+
+After deployment, set `PIASNEWS_SOCIAL_INPUT_URL` to `https://<project>.functions.supabase.co/collect-social`. Supabase creates the fresh snapshot on a schedule, while GitHub Actions keeps the existing normalization, translation, audit, and Pages deployment pipeline.
 
 This repo now includes a local Agent-Reach collection entrypoint. First check the Twitter/X backend:
 
@@ -730,7 +737,7 @@ env PATH=/Users/bytedance/.agent-reach-venv/bin:$PATH \
   --update-social
 ```
 
-The script reads X accounts from `piasnews/references/x-sources.json`, calls local `twitter-cli user-posts` by default, filters to the latest three days, writes the import JSON, and updates `data/social.json`. If `agent-reach configure --from-browser chrome` has written cookies to `~/.agent-reach/config.yaml`, the collector automatically passes them to `twitter-cli`; no token is committed to the repo. The `twitter search` endpoint is less stable and is available only via `--method search`.
+The script reads X accounts from `piasnews/references/x-sources.json`, calls local `twitter-cli user-posts` by default, filters to the latest three days, writes the import JSON, and updates `data/social.json`. If `agent-reach configure --from-browser chrome` has written cookies to `~/.agent-reach/config.yaml`, the collector automatically passes them to `twitter-cli`; no token is committed to the repo. If the `twitter-cli` network layer fails, the collector reuses the same local cookies and automatically falls back to the X Web GraphQL read path; `source_status[].method` will show `x-web` in the import JSON. The `twitter search` endpoint is less stable and is available only via `--method search`.
 
 This local collection is not a resident service. A manual run executes once; unattended fan-source updates require an external scheduler such as macOS `launchd`, cron, or another local runner. The script is plain Python/CLI work and does not call an LLM or consume Codex tokens; Codex quota is used only when Codex is asked to run, commit, or debug it.
 
@@ -742,7 +749,7 @@ Full local publish script:
 scripts/update_social_agent_reach.sh
 ```
 
-By default it collects all X groups and also tries to collect Oscar Piastri's latest public Instagram posts/reels through the logged-in local Chrome profile. It then updates `data/social.json`, builds the compact import JSON, writes `PIASNEWS_SOCIAL_INPUT_JSON`, and triggers the `Update Piasnews Data` workflow. The compact import omits per-run generated timestamps; when the compact content is unchanged from the previous publish, the script skips the GitHub variable update and workflow dispatch. The public page displays both the social feed generation time and the newest retained post time, because a fresh generation can still contain no newer qualifying posts after the Piastri relevance filter runs. The script verifies that at least one social source collected successfully before publishing; authentication, DNS, network, or Chrome DOM permission failures stop before updating GitHub when no source succeeded, so a failed collection is not presented as a fresh X / IG update. Set `PIASNEWS_FORCE_SOCIAL_PUBLISH=1` to force a publish. To update local files only:
+By default it collects all X groups and also tries to collect Oscar Piastri's latest public Instagram posts/reels through the logged-in local Chrome profile. If Chrome Apple Events still blocks DOM reads, the Instagram collector automatically falls back to OpenCLI Browser Bridge; `source_status[].method` will show `opencli-browser` in the import JSON. It then updates `data/social.json`, builds the compact import JSON, writes `PIASNEWS_SOCIAL_INPUT_JSON`, and triggers the `Update Piasnews Data` workflow. The compact import omits per-run generated timestamps; when the compact content is unchanged from the previous publish, the script skips the GitHub variable update and workflow dispatch. The public page displays both the social feed generation time and the newest retained post time, because a fresh generation can still contain no newer qualifying posts after the Piastri relevance filter runs. The script verifies that at least one social source collected successfully before publishing; authentication, DNS, network, or Chrome DOM permission failures stop before updating GitHub when no source succeeded, so a failed collection is not presented as a fresh X / IG update. Set `PIASNEWS_FORCE_SOCIAL_PUBLISH=1` to force a publish. To update local files only:
 
 ```bash
 PIASNEWS_SKIP_GITHUB=1 scripts/update_social_agent_reach.sh
@@ -754,29 +761,13 @@ To collect only fan sources:
 PIASNEWS_SOCIAL_GROUPS=fan_watch scripts/update_social_agent_reach.sh
 ```
 
-For a three-hour macOS Agent-Reach schedule, save this as `~/Library/LaunchAgents/com.znonymity.piasnews.social.plist`, then run `launchctl load ~/Library/LaunchAgents/com.znonymity.piasnews.social.plist`. For a temporary 30-minute race-day schedule, change `StartInterval` to `1800`; three hours is the quieter default for normal days.
+For unattended macOS operation, use `launchd`. The included template runs a lightweight check every 10 minutes, but `PIASNEWS_SOCIAL_MIN_INTERVAL_SECONDS=10800` makes the script collect only when the last successful collection is more than three hours old. If the Mac sleeps through the interval, the next check after wake catches up.
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-  <key>Label</key>
-  <string>com.znonymity.piasnews.social</string>
-  <key>ProgramArguments</key>
-  <array>
-    <string>/Users/bytedance/Documents/piasnews/scripts/update_social_agent_reach.sh</string>
-  </array>
-  <key>StartInterval</key>
-  <integer>10800</integer>
-  <key>RunAtLoad</key>
-  <true/>
-  <key>StandardOutPath</key>
-  <string>/tmp/piasnews-social.log</string>
-  <key>StandardErrorPath</key>
-  <string>/tmp/piasnews-social.err</string>
-</dict>
-</plist>
+```bash
+mkdir -p "$HOME/Library/Application Support/piasnews"
+cp -X scripts/update_social_agent_reach.sh "$HOME/Library/Application Support/piasnews/update_social_agent_reach.sh"
+cp scripts/com.znonymity.piasnews.social.plist "$HOME/Library/LaunchAgents/"
+launchctl load "$HOME/Library/LaunchAgents/com.znonymity.piasnews.social.plist"
 ```
 
 ## Static Data
@@ -813,9 +804,9 @@ GitHub raw fallback:
 
 After news and social data are fetched, GitHub Actions first runs `scripts/translate_zh_argos.py` as an offline Chinese fallback, then runs `scripts/apply_immersive_translations.py`. Immersive mappings from `data/immersive_translations.zh.json` overwrite `title_zh` and `summary_zh`, then deterministic auto-repair fixes accumulated low-risk terminology issues. Argos runs only at build time, does not call an online translation API, and does not use model tokens.
 
-Immersive Translate is the default Chinese enhancement path. `scripts/build_immersive_workbench.mjs` creates a workbench for missing Chinese mappings in news titles, news summaries, and fan-source summaries. `scripts/run_immersive_workbench.mjs` opens local Chrome only when `targets_count > 0`, waits for the Immersive Translate extension to rewrite the page DOM, captures Chinese mappings, and writes `data/immersive_translations.zh.json`. After capture, it closes matching workbench tabs by default; use `--no-close` or `PIASNEWS_IMMERSIVE_CLOSE=0` to keep the page open. This flow does not call an LLM; Codex tokens are used only when Codex itself is asked to drive or debug the browser.
+Immersive Translate is the default Chinese enhancement path. `scripts/build_immersive_workbench.mjs` creates a workbench for missing Chinese mappings in news titles, news summaries, and fan-source summaries. `scripts/run_immersive_workbench.mjs` opens local Chrome only when `targets_count > 0`, waits for the Immersive Translate extension to rewrite the page DOM, captures Chinese mappings, and writes `data/immersive_translations.zh.json`. After capture, it closes matching workbench tabs by default; use `--no-close` or `PIASNEWS_IMMERSIVE_CLOSE=0` to keep the page open. For larger batches, pass `--tabs 3` to split targets across several workbench tabs. If Chrome Apple Events still cannot read DOM but OpenCLI Browser Bridge is available, pass `--browser-driver opencli`. This flow does not call an LLM; Codex tokens are used only when Codex itself is asked to drive or debug the browser.
 
-Local Chrome capture depends on Chrome Apple Events running a read-only DOM script. Before first use, enable `View > Developer > Allow JavaScript from Apple Events` in Chrome. Without it, the Immersive mapping job and local Instagram collector can open pages but cannot read DOM; logs will report that Chrome blocked JavaScript from Apple Events.
+Local Chrome capture depends on Chrome Apple Events running a read-only DOM script. Before first use, enable `View > Developer > Allow JavaScript from Apple Events` in Chrome. Without it, the Immersive mapping job and local Instagram collector can open pages but cannot read DOM; logs will report that Chrome blocked JavaScript from Apple Events. When the Immersive job detects that block, it writes `/private/tmp/piasnews-immersive-state.json` and enters a default six-hour cooldown, so later scheduled runs skip opening Chrome. After enabling the Chrome setting, run once with `PIASNEWS_IMMERSIVE_IGNORE_COOLDOWN=1` to resume immediately.
 
 The production workflow installs and runs `scripts/translate_zh_argos.py` as a build-time offline fallback before Immersive Translate mappings are applied. If Immersive mappings exist, they remain the higher-priority source.
 
@@ -823,6 +814,7 @@ Manual run:
 
 ```bash
 node scripts/run_immersive_workbench.mjs
+node scripts/run_immersive_workbench.mjs --browser-driver opencli --tabs 3 --ignore-cooldown
 ```
 
 By default it only updates local mappings and applies them to `data/items.json` / `data/social.json`. To commit the mapping, push it, and trigger the GitHub Pages refresh:
