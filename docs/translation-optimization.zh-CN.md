@@ -17,7 +17,7 @@
 当前生产链路以实际 GitHub Actions 为准：
 
 1. 数据抓取写入英文原文，并为缺少中文映射的新内容保留确定性中文概括或英文兜底。
-2. GitHub Actions 在临时 runner 中安装 Argos Translate，调用 `scripts/translate_zh_argos.py` 为 `data/items.json` / `data/social.json` 生成离线中文 fallback。Argos 的定位是“沉浸式映射尚未覆盖时的自动保底”，不是最终质量层。
+2. GitHub Actions 在临时 runner 中恢复 Python / Argos cache，并在 cache 未命中时安装 Argos Translate；随后调用 `scripts/translate_zh_argos.py` 为 `data/items.json` / `data/social.json` 生成离线中文 fallback。Argos 的定位是“沉浸式映射尚未覆盖时的自动保底”，不是最终质量层。
 3. GitHub Actions 调用 `scripts/apply_immersive_translations.py`，读取 `data/immersive_translations.zh.json` 中已经采集并提交到仓库的沉浸式翻译映射；命中英文原文后覆盖 `title_zh` / `summary_zh`。
 4. 沉浸式映射应用时立即执行 deterministic auto-repair：先套用 `data/translation_glossary.csv` 中已批准术语，再根据英文 `source_text` 执行低风险脚本纠偏，例如 `stewards`、`qualifying`、`pole`、`downforce`、`parc ferme`、Monster 联名罐、Red Bull 转会语境等。规则能稳定修正的问题不进入人工 pending。
 5. 飞书审核表和 `data/translation_review.csv` 可保存人工确认样本，但 `status=approved` 不进入默认生产覆盖链路；它只用于训练、评估和后续规则沉淀。
@@ -27,6 +27,8 @@
 
 ```text
 GitHub Actions 抓取英文原文
+  ↓
+恢复 pip / Argos cache，必要时安装 Argos
   ↓
 Argos 离线中文 fallback
   ↓
@@ -41,15 +43,27 @@ audit_translations.py 发现仍未修复的 badcase
 
 ## Argos fallback 与 cache
 
-GitHub Actions 的 runner 是临时云端环境，和本机电脑不是同一个 Python / Chrome / 插件环境。因此即使本机已经安装过 Argos，workflow 里仍需要安装 `argostranslate`；如果 en→zh 语言包不存在，脚本还可能更新 package index 并安装语言包。
+GitHub Actions 的 runner 是临时云端环境，和本机电脑不是同一个 Python / Chrome / 插件环境。因此即使本机已经安装过 Argos，workflow 里仍需要准备 `argostranslate`；如果 en→zh 语言包不存在，脚本还可能更新 package index 并安装语言包。
 
-这解释了为什么“每次抓取都安装 Argos”在当前实现中会发生：它不是在重复安装到你的电脑，而是在每次新的 GitHub Actions runner 里准备依赖。
+当前 workflow 已在 `actions/setup-python` 之后、Argos 安装之前加入 `actions/cache@v4`，缓存路径包括：
 
-后续可考虑给 workflow 增加 cache，但 cache 只解决速度和稳定性，不改变翻译策略：
+- `~/.cache/pip`：pip 下载与 wheel 缓存，用于减少 `argostranslate` 等 Python 包的重复下载。
+- `~/.local/cache/argos-translate`：Argos 可能使用的本地缓存目录。
+- `~/.local/share/argos-translate`：Argos 语言包和运行数据的常见目录。
+- `~/.argos-translate`：兼容旧版或不同环境下的 Argos 数据目录。
 
-- pip cache：缓存 `argostranslate` 等 Python 包下载结果。
-- Argos package cache：缓存 en→zh 语言包安装目录。
-- cache 命中时可以减少下载和安装耗时；cache 未命中时 workflow 仍能按原逻辑安装。
+cache key 当前为：
+
+```text
+${{ runner.os }}-python-3.11-argos-v1
+```
+
+这意味着：
+
+- 第一次运行或 cache 失效时，workflow 仍会正常安装 Argos 和 en→zh 包，并在任务结束后保存缓存。
+- 后续运行命中 cache 时，可以复用 pip 包和 Argos 语言包，减少下载耗时和网络失败概率。
+- cache 只优化速度和稳定性，不改变翻译质量层级；即使命中失败，原有 Argos fallback 仍会按原逻辑运行。
+- 如果未来需要强制刷新 Argos 缓存，可以把 key 里的 `argos-v1` 改成 `argos-v2`。
 
 当前之所以仍需要 Argos fallback，是因为沉浸式翻译映射不能在 GitHub Actions 中立即触发。沉浸式翻译依赖本机 Chrome 页面和浏览器插件，新增新闻首次进入仓库时通常还没有对应映射；Argos 负责让这些新内容先有可发布的中文保底，等待后续本机采集沉浸式映射后再覆盖。
 
