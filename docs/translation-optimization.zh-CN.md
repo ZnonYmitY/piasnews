@@ -12,31 +12,89 @@
 
 “英文原文兜底”的含义：当某条机器翻译没有进入确认集、且质量无法保证时，页面仍展示英文原文，避免把明显错误的中文放到线上。人工确认集不是为了让人工长期兜底，而是作为后续术语表、规则和离线模型微调的训练 / 评估数据。
 
-## 翻译链路
+## 当前翻译链路
 
-当前生产链路：
+当前生产链路以实际 GitHub Actions 为准：
 
 1. 数据抓取写入英文原文，并为缺少中文映射的新内容保留确定性中文概括或英文兜底。
-2. 本机沉浸式翻译采集链路对缺失目标生成 workbench，采集 `原文 -> 中文译文` 映射并写入 `data/immersive_translations.zh.json`。
-3. GitHub Actions 调用 `scripts/apply_immersive_translations.py` 应用沉浸式翻译映射，并立即执行 deterministic auto-repair，覆盖 `title_zh` / `summary_zh`。
-4. deterministic auto-repair 来自已沉淀的术语表和低风险脚本规则：`data/translation_glossary.csv` 负责专名、车队、赛道、赛段、位置和常见 F1 术语，脚本规则负责 `stewards`、`qualifying`、`pole`、`downforce`、`parc ferme`、Monster 联名罐、Red Bull 转会语境等确定性坏例。规则能稳定修正的问题不进入人工 pending。
-5. 飞书审核表和 `data/translation_review.csv` 可保存人工确认样本，但 `status=approved` 不再进入默认生产覆盖链路；它只用于训练、评估和后续规则沉淀。
+2. GitHub Actions 在临时 runner 中安装 Argos Translate，调用 `scripts/translate_zh_argos.py` 为 `data/items.json` / `data/social.json` 生成离线中文 fallback。Argos 的定位是“沉浸式映射尚未覆盖时的自动保底”，不是最终质量层。
+3. GitHub Actions 调用 `scripts/apply_immersive_translations.py`，读取 `data/immersive_translations.zh.json` 中已经采集并提交到仓库的沉浸式翻译映射；命中英文原文后覆盖 `title_zh` / `summary_zh`。
+4. 沉浸式映射应用时立即执行 deterministic auto-repair：先套用 `data/translation_glossary.csv` 中已批准术语，再根据英文 `source_text` 执行低风险脚本纠偏，例如 `stewards`、`qualifying`、`pole`、`downforce`、`parc ferme`、Monster 联名罐、Red Bull 转会语境等。规则能稳定修正的问题不进入人工 pending。
+5. 飞书审核表和 `data/translation_review.csv` 可保存人工确认样本，但 `status=approved` 不进入默认生产覆盖链路；它只用于训练、评估和后续规则沉淀。
 6. `scripts/audit_translations.py` 在每次数据更新后完整遍历最终展示中文，自动发现疑似坏例，写入 `data/translation_candidates.csv`，并生成本轮新增 Excel。
 
-`scripts/translate_zh_argos.py` 不再进入默认生产 workflow，仅保留为手动 fallback、历史对照和模型选型评估工具。
+可以把当前链路理解为：
 
-结构化数据说明见 [translation-dataset.zh-CN.md](translation-dataset.zh-CN.md)。
+```text
+GitHub Actions 抓取英文原文
+  ↓
+Argos 离线中文 fallback
+  ↓
+仓库内已存在的沉浸式翻译映射覆盖
+  ↓
+术语表 + source-aware auto-repair 自动纠偏
+  ↓
+audit_translations.py 发现仍未修复的 badcase
+  ↓
+写入 candidates / 发送飞书通知 / 发布 Pages
+```
+
+## Argos fallback 与 cache
+
+GitHub Actions 的 runner 是临时云端环境，和本机电脑不是同一个 Python / Chrome / 插件环境。因此即使本机已经安装过 Argos，workflow 里仍需要安装 `argostranslate`；如果 en→zh 语言包不存在，脚本还可能更新 package index 并安装语言包。
+
+这解释了为什么“每次抓取都安装 Argos”在当前实现中会发生：它不是在重复安装到你的电脑，而是在每次新的 GitHub Actions runner 里准备依赖。
+
+后续可考虑给 workflow 增加 cache，但 cache 只解决速度和稳定性，不改变翻译策略：
+
+- pip cache：缓存 `argostranslate` 等 Python 包下载结果。
+- Argos package cache：缓存 en→zh 语言包安装目录。
+- cache 命中时可以减少下载和安装耗时；cache 未命中时 workflow 仍能按原逻辑安装。
+
+当前之所以仍需要 Argos fallback，是因为沉浸式翻译映射不能在 GitHub Actions 中立即触发。沉浸式翻译依赖本机 Chrome 页面和浏览器插件，新增新闻首次进入仓库时通常还没有对应映射；Argos 负责让这些新内容先有可发布的中文保底，等待后续本机采集沉浸式映射后再覆盖。
+
+## 沉浸式翻译映射采集
+
+沉浸式翻译映射是本机半自动链路，不在 GitHub Actions 中直接运行。它的目标是把浏览器插件生成的中文结果沉淀为稳定的 `原文 -> 中文` 映射文件。
+
+当前推荐流程：
+
+1. 运行 `scripts/run_immersive_workbench.mjs`。
+2. 脚本会为缺少映射的 `items.title`、`items.summary`、`social.summary/title` 生成本地 workbench 页面。
+3. 脚本打开本机 Chrome / 浏览器页面后，需要人工点击沉浸式翻译悬浮球触发页面翻译；不要依赖脚本反复尝试快捷键触发，否则可能造成重复翻译、浪费翻译额度 / token，并增加采集等待时间。
+4. 页面被沉浸式翻译插件改写为中文后，脚本通过 Apple Events 或 OpenCLI Browser Bridge 读取翻译后的 DOM。
+5. 脚本把采集到的译文合并进 `data/immersive_translations.zh.json`。后续提交并触发 workflow 后，这些映射才会在生产数据中覆盖 Argos fallback。
+
+`Allow JavaScript from Apple Events` 不是沉浸式翻译插件运行的必要条件；它只是默认 Apple Events 方式读取 Chrome DOM 时需要的浏览器权限。如果改用 `--browser-driver opencli`，可以不依赖 Apple Events，但仍需要本机浏览器和沉浸式翻译插件完成页面翻译。
+
+常用命令：
+
+```bash
+node scripts/run_immersive_workbench.mjs
+```
+
+如果 Apple Events 读取 DOM 失败，但 OpenCLI Browser Bridge 可用：
+
+```bash
+node scripts/run_immersive_workbench.mjs --browser-driver opencli --tabs 3 --ignore-cooldown
+```
+
+如果要采集后自动提交映射、push 并触发 Pages 更新：
+
+```bash
+PIASNEWS_IMMERSIVE_PUBLISH=1 node scripts/run_immersive_workbench.mjs
+```
 
 ## 模型选型评估
 
-最初选择 Argos Translate 的原因是工程约束优先：它开源、离线、可在 GitHub Actions 中直接安装，不调用在线翻译 API，不需要用户或访问者承担 token / API 成本；同时脚本可以在依赖或模型不可用时退回术语表清洗，保证新闻抓取和静态 JSON 发布不中断。现在生产链路已切到沉浸式翻译映射优先，Argos 只作为手动 fallback 和对照基线。
+最初选择 Argos Translate 的原因是工程约束优先：它开源、离线、可在 GitHub Actions 中直接安装，不调用在线翻译 API，不需要用户或访问者承担 token / API 成本；同时脚本可以在依赖或模型不可用时退回术语表清洗，保证新闻抓取和静态 JSON 发布不中断。当前生产链路中，Argos 仍作为自动 fallback 运行；质量提升重点放在沉浸式翻译映射、术语表、人工确认集、规则和 badcase loop。
 
 2026-06-30 用 `facebook/nllb-200-distilled-600M` 对 10 条 Piasnews 样本做过一次本地对比，样本覆盖 X 粉丝梗、车队无线电、采访问答、传闻标题和新闻标题。结论：
 
 - NLLB 冷启动成本更高：首次下载和加载明显慢于 Argos，直接放进 3 小时 / 6 小时更新链路会增加 GitHub Actions 耗时和缓存压力。
 - NLLB 在通用句子上更自然的概率更高，但在 Piasnews 当前高频文本里没有稳定胜出；短 X 梗、缩写、对话体和 F1 转会语境仍会漏译、截断或误译。
 - Argos 和 NLLB 都不能单独解决 `move` 译为“转会”、`stewards` 译为“干事”、TR 口语、粉丝梗意译等领域问题。
-- 当前生产策略把质量提升重点放在沉浸式翻译映射、术语表、人工确认集、规则和 badcase loop；Argos / NLLB 暂不切为默认，只保留为手动 fallback、后续微调或二阶段评估候选。
+- 当前生产策略把质量提升重点放在沉浸式翻译映射、术语表、人工确认集、规则和 badcase loop；Argos / NLLB 暂不升级为最终质量层，只保留为 fallback、历史对照、后续微调或二阶段评估候选。
 
 ## 待确认优化样例
 
