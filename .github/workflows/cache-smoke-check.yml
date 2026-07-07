@@ -1,0 +1,112 @@
+name: Cache Smoke Check
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - ".github/workflows/cache-smoke-check.yml"
+      - "scripts/translate_zh_argos.py"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cache-smoke-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pip-argos-cache:
+    name: pip and Argos cache smoke check
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Show cache paths
+        run: |
+          echo "PIP_CACHE_DIR=$HOME/.cache/pip" >> "$GITHUB_ENV"
+          echo "ARGOS_PACKAGE_DIR=$HOME/.local/share/argos-translate" >> "$GITHUB_ENV"
+          python -m pip --version
+          python - <<'PY'
+          from pathlib import Path
+          for path in (Path.home() / ".cache" / "pip", Path.home() / ".local" / "share" / "argos-translate"):
+              print(f"{path}: exists={path.exists()}")
+          PY
+
+      - name: Restore pip cache
+        id: restore-pip
+        uses: actions/cache/restore@v4
+        with:
+          path: ~/.cache/pip
+          key: piasnews-${{ runner.os }}-python-3.11-pip-argostranslate-v1
+          restore-keys: |
+            piasnews-${{ runner.os }}-python-3.11-pip-
+
+      - name: Report pip restore result
+        run: echo "pip cache hit: ${{ steps.restore-pip.outputs.cache-hit }}"
+
+      - name: Install Argos Python package
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install argostranslate
+          python - <<'PY'
+          import argostranslate
+          print(f"argostranslate package: {argostranslate.__file__}")
+          PY
+
+      - name: Save pip cache
+        if: steps.restore-pip.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ steps.restore-pip.outputs.cache-primary-key }}
+
+      - name: Restore Argos model cache
+        id: restore-argos
+        uses: actions/cache/restore@v4
+        with:
+          path: ~/.local/share/argos-translate
+          key: piasnews-${{ runner.os }}-argos-en-zh-v1
+          restore-keys: |
+            piasnews-${{ runner.os }}-argos-
+
+      - name: Report Argos restore result
+        run: echo "Argos model cache hit: ${{ steps.restore-argos.outputs.cache-hit }}"
+
+      - name: Ensure Argos en to zh package exists
+        run: |
+          python - <<'PY'
+          import sys
+          from pathlib import Path
+
+          sys.path.insert(0, "scripts")
+          import translate_zh_argos
+
+          translator = translate_zh_argos.load_argos_translator(strict=True)
+          translated = translator("Oscar Piastri leads the British Grand Prix practice.")
+          print(f"sample translation: {translated}")
+
+          argos_dir = Path.home() / ".local" / "share" / "argos-translate"
+          if not argos_dir.exists():
+              raise SystemExit(f"Argos directory was not created: {argos_dir}")
+          for child in sorted(argos_dir.rglob("*"))[:30]:
+              print(child)
+          PY
+
+      - name: Show cache sizes
+        run: |
+          du -sh "$HOME/.cache/pip" || true
+          du -sh "$HOME/.local/share/argos-translate" || true
+
+      - name: Save Argos model cache
+        if: steps.restore-argos.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: ~/.local/share/argos-translate
+          key: ${{ steps.restore-argos.outputs.cache-primary-key }}
