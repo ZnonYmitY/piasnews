@@ -1,24 +1,25 @@
 {
-  "generated_at": "2026-07-06T20:27:54.052976Z",
+  "generated_at": "2026-07-07T00:32:13.264584Z",
   "window_days": 3,
-  "total_items": 27,
+  "total_items": 28,
   "latest_date": "2026-07-06",
   "days": [
     {
       "date": "2026-07-06",
-      "total_new_items": 5,
+      "total_new_items": 6,
       "official_new_items": 0,
-      "media_new_items": 5,
+      "media_new_items": 6,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "Auto Action": 2,
         "PlanetF1": 1,
         "The West Australian": 1,
-        "racingnews365.com": 1
+        "racingnews365.com": 1,
+        "total-motorsport.com": 1
       },
       "categories": {
-        "race": 2,
+        "race": 3,
         "team": 3
       }
     },
@@ -101,14 +102,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 50
+      "items": 52
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 26
+      "items": 27
     },
     {
       "query": "\"OP81\" when:3d",
@@ -141,13 +142,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 46,
-      "kept": 27,
+      "checked": 48,
+      "kept": 28,
       "results": {
         "outside_window": 1,
-        "publisher_date_missing": 14,
+        "publisher_date_missing": 15,
         "publisher_unavailable": 4,
-        "verified": 27
+        "verified": 28
       }
     }
   ]
