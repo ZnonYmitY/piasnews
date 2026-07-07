@@ -39,6 +39,11 @@ const I18N = {
     anotherFocus: "另一关注",
     rumorReminder: "传闻提醒",
     rumorUnconfirmed: "目前没有官方确认。",
+    dailySearchLabel: "搜索",
+    dailySearchPlaceholder: "输入关键词",
+    dailySearchClear: "清除",
+    dailySearchResults: (count) => `${count} 条匹配结果`,
+    dailySearchEmpty: "没有匹配结果",
     todayFocus: "今日重点",
     reliableFirst: "可靠来源优先",
     reportStats: "本期统计",
@@ -160,6 +165,11 @@ const I18N = {
     anotherFocus: "Another focus",
     rumorReminder: "Rumor note",
     rumorUnconfirmed: "No official confirmation yet.",
+    dailySearchLabel: "Search",
+    dailySearchPlaceholder: "Enter keywords",
+    dailySearchClear: "Clear",
+    dailySearchResults: (count) => `${count} matching results`,
+    dailySearchEmpty: "No matching results",
     todayFocus: "Key Points",
     reliableFirst: "Reliable sources first",
     reportStats: "Report Stats",
@@ -254,6 +264,7 @@ const state = {
   generatedAt: null,
   activeMode: "short",
   language: localStorage.getItem("piasnewsLanguage") || "zh",
+  dailySearchQuery: "",
   analyticsReported: false,
 };
 
@@ -566,8 +577,27 @@ function itemText(item) {
     item.summary,
     item.summary_zh,
     item.source,
+    item.category,
+    categoryLabel(item.category),
     ...(Array.isArray(item.tags) ? item.tags : []),
   ].filter(Boolean).join(" ");
+}
+
+function normalizeSearchText(value) {
+  return String(value || "").trim().toLocaleLowerCase();
+}
+
+function searchTokens(query) {
+  return normalizeSearchText(query).split(/\s+/).filter(Boolean);
+}
+
+function searchItems(items, query) {
+  const tokens = searchTokens(query);
+  if (!tokens.length) return [];
+  return items.filter((item) => {
+    const text = normalizeSearchText(itemText(item));
+    return tokens.every((token) => text.includes(token));
+  });
 }
 
 function currentSessionKey(now = Date.now()) {
@@ -794,9 +824,37 @@ function renderOfficialSpotlight(items) {
     </div>`;
 }
 
+function renderDailySearch() {
+  const query = state.dailySearchQuery;
+  return `
+    <div class="daily-search" role="search">
+      <label for="dailySearchInput">${escapeHtml(t().dailySearchLabel)}</label>
+      <div class="daily-search-control">
+        <input
+          id="dailySearchInput"
+          type="search"
+          autocomplete="off"
+          placeholder="${escapeHtml(t().dailySearchPlaceholder)}"
+          value="${escapeHtml(query)}"
+        >
+        <button class="daily-search-clear" type="button" ${query ? "" : "hidden"}>${escapeHtml(t().dailySearchClear)}</button>
+      </div>
+    </div>`;
+}
+
+function renderDailySearchResults(ordered) {
+  const query = state.dailySearchQuery.trim();
+  if (!query) return "";
+  const results = searchItems(ordered, query);
+  const body = results.length
+    ? `<div class="news-list">${results.map(renderNewsItem).join("")}</div>`
+    : `<div class="search-empty">${escapeHtml(t().dailySearchEmpty)}</div>`;
+  return section(t().dailySearchLabel, body, t().dailySearchResults(results.length));
+}
+
 function renderDaily() {
   const ordered = dailyItems();
-  if (!ordered.length) return renderEmpty();
+  if (!ordered.length) return `${renderDailySearch()}${renderEmpty()}`;
   const officialItems = ordered.filter((item) => item.official);
   const mediaItems = ordered.filter((item) => !item.official && item.category !== "rumor" && item.verified);
   const rumorItems = ordered.filter((item) => item.category === "rumor" || !item.verified);
@@ -809,7 +867,10 @@ function renderDaily() {
     .map(([category, items]) => renderTopicCard(category, items))
     .join("");
 
-  let html = focusItems.length
+  let html = renderDailySearch();
+  html += renderDailySearchResults(ordered);
+  if (state.dailySearchQuery.trim()) return html;
+  html += focusItems.length
     ? section(
       t().todayFocus,
       `<ol class="focus-list">${focusItems.map((item) => `<li>${safeLink(item)} <span>· ${escapeHtml(item.source)}</span></li>`).join("")}</ol>`,
@@ -885,6 +946,23 @@ function render() {
   elements.panels.short.innerHTML = renderShort();
   elements.panels.daily.innerHTML = renderDaily();
   elements.panels.fan.innerHTML = renderFanFeed();
+}
+
+function renderDailyPanel(preserveFocus = false) {
+  const activeElement = document.activeElement;
+  const shouldRestoreFocus = preserveFocus && activeElement?.id === "dailySearchInput";
+  const selectionStart = shouldRestoreFocus ? activeElement.selectionStart : null;
+  const selectionEnd = shouldRestoreFocus ? activeElement.selectionEnd : null;
+
+  elements.panels.daily.innerHTML = renderDaily();
+
+  if (shouldRestoreFocus) {
+    const input = document.querySelector("#dailySearchInput");
+    input?.focus();
+    if (input && selectionStart !== null && selectionEnd !== null) {
+      input.setSelectionRange(selectionStart, selectionEnd);
+    }
+  }
 }
 
 function setMode(mode, updateHash = true) {
@@ -1074,6 +1152,19 @@ elements.languageToggle.addEventListener("click", () => {
 
 elements.refreshButton.addEventListener("click", loadData);
 elements.retryButton.addEventListener("click", loadData);
+
+elements.panels.daily.addEventListener("input", (event) => {
+  if (!(event.target instanceof HTMLInputElement) || event.target.id !== "dailySearchInput") return;
+  state.dailySearchQuery = event.target.value;
+  renderDailyPanel(true);
+});
+
+elements.panels.daily.addEventListener("click", (event) => {
+  if (!(event.target instanceof Element) || !event.target.classList.contains("daily-search-clear")) return;
+  state.dailySearchQuery = "";
+  renderDailyPanel();
+  document.querySelector("#dailySearchInput")?.focus();
+});
 
 const initialMode = window.location.hash.slice(1);
 if (elements.panels[initialMode]) state.activeMode = initialMode;

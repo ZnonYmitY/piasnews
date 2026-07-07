@@ -470,6 +470,74 @@ a {
   padding: 34px 0 10px;
 }
 
+.daily-search {
+  margin-bottom: 26px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px;
+  display: grid;
+  grid-template-columns: minmax(150px, 0.28fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+  background: var(--surface);
+}
+
+.daily-search label {
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.daily-search-control {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+}
+
+.daily-search input {
+  min-width: 0;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 9px 10px;
+  background: var(--surface-soft);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+}
+
+.daily-search input:focus {
+  border-color: var(--papaya-dark);
+  background: var(--surface);
+}
+
+.daily-search-clear {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 9px 11px;
+  background: var(--surface-soft);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.daily-search-clear:hover {
+  border-color: #aaa9a0;
+}
+
+.search-empty {
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  padding: 20px;
+  background: var(--surface-soft);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+  text-align: center;
+}
+
 .report-section {
   padding: 8px 0 32px;
 }
@@ -1053,6 +1121,11 @@ a {
 
   .tab-panel {
     padding-top: 24px;
+  }
+
+  .daily-search {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 
   .quick-list {
