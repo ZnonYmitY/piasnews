@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-07T10:00:38.565040Z",
+  "generated_at": "2026-07-07T10:04:33.710212Z",
   "window_days": 3,
-  "total_items": 26,
+  "total_items": 27,
   "latest_date": "2026-07-07",
   "days": [
     {
@@ -22,19 +22,20 @@
     },
     {
       "date": "2026-07-06",
-      "total_new_items": 5,
+      "total_new_items": 6,
       "official_new_items": 0,
-      "media_new_items": 5,
+      "media_new_items": 6,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "Auto Action": 2,
         "PlanetF1": 1,
         "The West Australian": 1,
-        "racingnews365.com": 1
+        "racingnews365.com": 1,
+        "total-motorsport.com": 1
       },
       "categories": {
-        "race": 2,
+        "race": 3,
         "team": 3
       }
     },
@@ -113,14 +114,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 53
+      "items": 54
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 32
+      "items": 31
     },
     {
       "query": "\"OP81\" when:3d",
@@ -134,7 +135,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 12
+      "items": 11
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
@@ -153,13 +154,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 51,
-      "kept": 26,
+      "checked": 50,
+      "kept": 27,
       "results": {
         "outside_window": 4,
-        "publisher_date_missing": 16,
+        "publisher_date_missing": 14,
         "publisher_unavailable": 5,
-        "verified": 26
+        "verified": 27
       }
     }
   ]
