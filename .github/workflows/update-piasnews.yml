@@ -35,6 +35,18 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Cache Python and Argos translation assets
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pip
+            ~/.local/cache/argos-translate
+            ~/.local/share/argos-translate
+            ~/.argos-translate
+          key: ${{ runner.os }}-python-3.11-argos-v1
+          restore-keys: |
+            ${{ runner.os }}-python-3.11-argos-
+
       - name: Fetch latest Piasnews data
         run: python scripts/fetch_piasnews.py --days 3 --output-dir data
 
