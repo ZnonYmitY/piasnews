@@ -61,6 +61,38 @@ class ImmersiveWorkbenchTest(unittest.TestCase):
                 self.assertIn('script id="targets"', html)
                 self.assertNotIn("&quot;", html.split('script id="targets"', 1)[1].split("</script>", 1)[0])
 
+    def test_all_target_mode_includes_existing_mappings(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            default_dir = Path(tmpdir) / "default"
+            all_dir = Path(tmpdir) / "all"
+            base_env = {**os.environ, "PIASNEWS_IMMERSIVE_WORKBENCH_DIR": str(default_dir)}
+            default_result = subprocess.run(
+                ["node", str(ROOT / "scripts" / "build_immersive_workbench.mjs")],
+                cwd=ROOT,
+                env=base_env,
+                text=True,
+                capture_output=True,
+                check=True,
+            )
+            all_result = subprocess.run(
+                ["node", str(ROOT / "scripts" / "build_immersive_workbench.mjs")],
+                cwd=ROOT,
+                env={
+                    **os.environ,
+                    "PIASNEWS_IMMERSIVE_WORKBENCH_DIR": str(all_dir),
+                    "PIASNEWS_IMMERSIVE_TARGETS": "all",
+                },
+                text=True,
+                capture_output=True,
+                check=True,
+            )
+
+            default_payload = json.loads(default_result.stdout)
+            all_payload = json.loads(all_result.stdout)
+            self.assertEqual(default_payload["target_mode"], "missing")
+            self.assertEqual(all_payload["target_mode"], "all")
+            self.assertGreaterEqual(all_payload["targets_count"], default_payload["targets_count"])
+
 
 if __name__ == "__main__":
     unittest.main()

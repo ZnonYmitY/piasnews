@@ -77,7 +77,7 @@ jobs:
           cp data/translation_candidates_latest.csv public/data/translation_candidates_latest.csv
           cp data/translation_candidates_latest.xlsx public/data/translation_candidates_latest.xlsx
           cp piasnews/references/history-retrieval.json public/data/history-retrieval.json
-          PIASNEWS_IMMERSIVE_WORKBENCH_DIR=public/immersive node scripts/build_immersive_workbench.mjs
+          PIASNEWS_IMMERSIVE_WORKBENCH_DIR=public/immersive PIASNEWS_IMMERSIVE_TARGETS=all PIASNEWS_IMMERSIVE_TABS=3 node scripts/build_immersive_workbench.mjs
           python scripts/write_runtime_config.py --output public/data/runtime-config.json
           touch public/.nojekyll
 

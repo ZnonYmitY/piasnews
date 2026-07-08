@@ -35,6 +35,8 @@ function parseArgs(argv) {
     triggerShortcut: process.env.PIASNEWS_IMMERSIVE_TRIGGER_SHORTCUT || "",
     triggerWaitMs: Number(process.env.PIASNEWS_IMMERSIVE_TRIGGER_WAIT_MS || 15000),
     publicBaseUrl: process.env.PIASNEWS_IMMERSIVE_PUBLIC_BASE_URL || "",
+    targets: process.env.PIASNEWS_IMMERSIVE_TARGETS || "missing",
+    overwriteExisting: process.env.PIASNEWS_IMMERSIVE_OVERWRITE_EXISTING === "1",
   };
   for (let index = 0; index < argv.length; index += 1) {
     const flag = argv[index];
@@ -59,6 +61,8 @@ function parseArgs(argv) {
     else if (flag === "--trigger-shortcut") args.triggerShortcut = next();
     else if (flag === "--trigger-wait-ms") args.triggerWaitMs = Number(next());
     else if (flag === "--public-base-url") args.publicBaseUrl = next();
+    else if (flag === "--targets") args.targets = next();
+    else if (flag === "--overwrite-existing") args.overwriteExisting = true;
     else if (flag === "--help") {
       console.log(`Usage: node scripts/run_immersive_workbench.mjs [options]
 
@@ -97,6 +101,12 @@ Options:
   --public-base-url URL
                   Open and poll pre-published HTTPS workbench pages from this base
                   URL instead of starting a local 127.0.0.1 server.
+  --targets missing|non-immersive|all
+                  Build workbench targets for missing mappings only, mappings not
+                  captured by Immersive Translate, or all current source texts.
+                  Default: missing.
+  --overwrite-existing
+                  Replace existing mapping entries for captured rows.
 `);
       process.exit(0);
     } else {
@@ -115,6 +125,11 @@ function normalizeArgs(args) {
   if (args.browserDriver === "opencli" && args.openWaitMs === 0) args.openWaitMs = 5000;
   if (!Number.isFinite(args.triggerWaitMs) || args.triggerWaitMs < 0) args.triggerWaitMs = 0;
   args.publicBaseUrl = String(args.publicBaseUrl || "").replace(/\/+$/, "");
+  args.targets = String(args.targets || "missing").trim().toLowerCase();
+  if (!["missing", "non-immersive", "all"].includes(args.targets)) {
+    throw new Error(`Unknown targets mode: ${args.targets}`);
+  }
+  if (args.targets !== "missing") args.overwriteExisting = true;
   return args;
 }
 
@@ -138,6 +153,7 @@ function buildWorkbench(args) {
     env: {
       PIASNEWS_IMMERSIVE_WORKBENCH_DIR: args.out,
       PIASNEWS_IMMERSIVE_TABS: String(args.tabs),
+      PIASNEWS_IMMERSIVE_TARGETS: args.targets,
     },
   });
   const payload = JSON.parse(stdout);
@@ -389,7 +405,7 @@ async function shouldSkipForFailureCooldown(args) {
   return true;
 }
 
-async function mergeTranslations(mappingPath, rows) {
+async function mergeTranslations(mappingPath, rows, args) {
   const mapping = await readJson(mappingPath, {
     schema_version: 1,
     generated_at: null,
@@ -397,10 +413,11 @@ async function mergeTranslations(mappingPath, rows) {
   });
   mapping.schema_version = mapping.schema_version || 1;
   mapping.translations = mapping.translations || {};
-  let added = 0;
+  let written = 0;
   const capturedAt = new Date().toISOString();
   for (const row of rows) {
-    if (!row?.key || !row?.zh || mapping.translations[row.key]?.zh) continue;
+    if (!row?.key || !row?.zh) continue;
+    if (mapping.translations[row.key]?.zh && !args.overwriteExisting) continue;
     mapping.translations[row.key] = {
       dataset: row.dataset,
       item_id: row.item_id,
@@ -411,13 +428,13 @@ async function mergeTranslations(mappingPath, rows) {
       engine: "immersive_translate_chrome",
       captured_at: capturedAt,
     };
-    added += 1;
+    written += 1;
   }
-  if (added > 0) {
+  if (written > 0) {
     mapping.generated_at = capturedAt;
     await writeJson(mappingPath, mapping);
   }
-  return added;
+  return written;
 }
 
 function sleep(ms) {
@@ -517,14 +534,14 @@ async function main() {
     }
     const { rows, blockedByAppleEvents } = await pollTranslations(pages, build.targets_count, args);
     const translated = rows.filter((row) => row.zh).length;
-    const added = await mergeTranslations(args.mapping, rows);
-    console.log(`Captured ${translated}/${build.targets_count}; added ${added} new mappings.`);
-    if (blockedByAppleEvents && translated === 0 && added === 0) {
+    const written = await mergeTranslations(args.mapping, rows, args);
+    console.log(`Captured ${translated}/${build.targets_count}; wrote ${written} mapping entries.`);
+    if (blockedByAppleEvents && translated === 0 && written === 0) {
       await writeFailureState(args, "chrome_apple_events_blocked", build);
       console.log("Recorded Apple Events cooldown; future scheduled runs will skip Chrome until the cooldown expires.");
       return 0;
     }
-    if (added === 0) {
+    if (written === 0) {
       if (translated === build.targets_count) await removeFile(args.state);
       return translated === build.targets_count ? 0 : 2;
     }

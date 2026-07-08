@@ -13,6 +13,14 @@ const manifestPath = path.join(outputDir, "translation-targets.json");
 const mappingPath = path.join(dataDir, "immersive_translations.zh.json");
 const itemsPath = path.join(dataDir, "items.json");
 const socialPath = path.join(dataDir, "social.json");
+const IMMERSIVE_ENGINE = "immersive_translate_chrome";
+const targetMode = normalizeTargetMode(process.env.PIASNEWS_IMMERSIVE_TARGETS || "missing");
+
+function normalizeTargetMode(value) {
+  const mode = String(value || "missing").trim().toLowerCase();
+  if (["missing", "non-immersive", "all"].includes(mode)) return mode;
+  throw new Error(`Unknown PIASNEWS_IMMERSIVE_TARGETS mode: ${value}`);
+}
 
 function parsePositiveInteger(value, fallback) {
   const parsed = Number(value);
@@ -66,12 +74,21 @@ function targetKey(dataset, itemId, field, sourceText) {
   return `${dataset}:${itemId}:${field}:${sha256(sourceText)}`;
 }
 
-function hasTranslation(mapping, key) {
-  return Boolean(mapping.translations?.[key]?.zh);
+function existingTranslation(mapping, key) {
+  const entry = mapping.translations?.[key];
+  return entry?.zh ? entry : null;
+}
+
+function shouldCollectTarget(mapping, key) {
+  const entry = existingTranslation(mapping, key);
+  if (!entry) return true;
+  if (targetMode === "all") return true;
+  if (targetMode === "non-immersive") return entry.engine !== IMMERSIVE_ENGINE;
+  return false;
 }
 
 function pushTarget(targets, mapping, target) {
-  if (!target.source_text || hasTranslation(mapping, target.key)) return;
+  if (!target.source_text || !shouldCollectTarget(mapping, target.key)) return;
   targets.push(target);
 }
 
@@ -271,6 +288,7 @@ async function main() {
     item_targets_count: itemTargets.length,
     social_targets_count: socialTargets.length,
     tabs_count: workbenchPages.length,
+    target_mode: targetMode,
     workbench_pages: workbenchPages,
     workbench_path: workbenchPath,
     manifest_path: manifestPath,

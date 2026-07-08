@@ -11,5 +11,6 @@ git -c rebase.autoStash=true pull --rebase
 export PIASNEWS_IMMERSIVE_PUBLISH="${PIASNEWS_IMMERSIVE_PUBLISH:-1}"
 export PIASNEWS_IMMERSIVE_APPLY="${PIASNEWS_IMMERSIVE_APPLY:-0}"
 export PIASNEWS_IMMERSIVE_PUBLIC_BASE_URL="${PIASNEWS_IMMERSIVE_PUBLIC_BASE_URL:-https://znonymity.github.io/piasnews/immersive}"
+export PIASNEWS_IMMERSIVE_TARGETS="${PIASNEWS_IMMERSIVE_TARGETS:-non-immersive}"
 
 node scripts/run_immersive_workbench.mjs

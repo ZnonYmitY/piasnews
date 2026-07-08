@@ -42,6 +42,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--items", default=str(DEFAULT_ITEMS), help="News items JSON to update.")
     parser.add_argument("--social", default=str(DEFAULT_SOCIAL), help="Social items JSON to update.")
     parser.add_argument("--review", default="", help="Optional approved manual translation CSV.")
+    parser.add_argument(
+        "--engine",
+        action="append",
+        default=[],
+        help="Only apply mapping entries captured by this engine. Repeat to allow multiple engines.",
+    )
     return parser.parse_args()
 
 
@@ -101,7 +107,10 @@ def source_aware_repairs(source_text: str, zh: str) -> str:
     return normalize(result)
 
 
-def load_translations(mapping_path: Path) -> dict[tuple[str, str], tuple[dict[str, str], dict[str, str]]]:
+def load_translations(
+    mapping_path: Path,
+    engines: set[str] | None = None,
+) -> dict[tuple[str, str], tuple[dict[str, str], dict[str, str]]]:
     if not mapping_path.exists():
         return {}
     payload = json.loads(mapping_path.read_text(encoding="utf-8"))
@@ -109,6 +118,9 @@ def load_translations(mapping_path: Path) -> dict[tuple[str, str], tuple[dict[st
     grouped: dict[tuple[str, str], tuple[dict[str, str], dict[str, str]]] = {}
     for entry in translations.values():
         if not isinstance(entry, dict):
+            continue
+        engine = normalize(entry.get("engine"))
+        if engines and engine not in engines:
             continue
         dataset = normalize(entry.get("dataset"))
         if dataset == "news":
@@ -205,7 +217,8 @@ def apply_social_translations(
 
 def main() -> int:
     args = parse_args()
-    grouped = load_translations(Path(args.mapping))
+    engines = {normalize(engine) for engine in args.engine if normalize(engine)}
+    grouped = load_translations(Path(args.mapping), engines or None)
     manual_translations = load_manual_translations(args.review) if args.review else {}
     item_count = apply_item_translations(Path(args.items), grouped, manual_translations)
     social_count = apply_social_translations(Path(args.social), grouped, manual_translations)

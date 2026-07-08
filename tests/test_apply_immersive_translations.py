@@ -138,6 +138,46 @@ class ApplyImmersiveTranslationsTest(unittest.TestCase):
                 "Oscar Piastri 表示 McLaren 在奥地利的表现超过预期。",
             )
 
+    def test_can_filter_mapping_entries_by_engine(self):
+        immersive_title = "Oscar Piastri explains Silverstone start"
+        fallback_title = "Fallback-only headline"
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            mapping_path = Path(tmpdir) / "immersive.json"
+            items_path = Path(tmpdir) / "items.json"
+            mapping_path.write_text(json.dumps({
+                "translations": {
+                    "immersive": {
+                        "dataset": "items",
+                        "target_field": "title_zh",
+                        "source_text": immersive_title,
+                        "zh": "Oscar Piastri 解释 Silverstone 起步",
+                        "engine": "immersive_translate_chrome",
+                    },
+                    "fallback": {
+                        "dataset": "items",
+                        "target_field": "title_zh",
+                        "source_text": fallback_title,
+                        "zh": "非沉浸式旧翻译",
+                        "engine": "existing_data_zh",
+                    },
+                }
+            }), encoding="utf-8")
+            items_path.write_text(json.dumps({
+                "items": [
+                    {"title": immersive_title, "title_zh": "旧标题 1"},
+                    {"title": fallback_title, "title_zh": "旧标题 2"},
+                ]
+            }), encoding="utf-8")
+
+            grouped = immersive.load_translations(mapping_path, {"immersive_translate_chrome"})
+            updated = immersive.apply_item_translations(items_path, grouped)
+
+            self.assertEqual(updated, 1)
+            items = json.loads(items_path.read_text())["items"]
+            self.assertEqual(items[0]["title_zh"], "Oscar Piastri 解释 Silverstone 起步")
+            self.assertEqual(items[1]["title_zh"], "旧标题 2")
+
     def test_manual_translation_beats_immersive_news_mapping(self):
         title = "Monster taps F1 demand with Oscar Piastri cans"
 
