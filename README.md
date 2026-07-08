@@ -329,7 +329,7 @@ GitHub raw fallback：
 
 GitHub Actions 在抓取新闻和 social 数据后会运行 `scripts/apply_immersive_translations.py`，应用 `data/immersive_translations.zh.json` 中的沉浸式翻译映射，覆盖 `title_zh` 和 `summary_zh`，随后执行 deterministic auto-repair 修正已沉淀的低风险术语坏例。缺少映射的新内容会保留抓取脚本生成的确定性中文概括或英文兜底，等待本机沉浸式翻译采集补齐。
 
-沉浸式翻译是当前默认中文增强链路。`scripts/build_immersive_workbench.mjs` 会为缺失中文映射的新闻标题、新闻摘要和粉丝源摘要生成 workbench；`scripts/run_immersive_workbench.mjs` 会在 `targets_count > 0` 时打开本机 Chrome，等待沉浸式翻译插件改写页面 DOM，采集中文映射并写入 `data/immersive_translations.zh.json`。采集结束后默认关闭对应 workbench 标签页；如需保留页面，可使用 `--no-close` 或 `PIASNEWS_IMMERSIVE_CLOSE=0`。目标较多时可用 `--tabs 3` 分成多个 workbench tab；如果 Chrome Apple Events 仍不能读取 DOM，但 OpenCLI Browser Bridge 可用，可加 `--browser-driver opencli`。该流程不调用大模型，只有通过 Codex 手动操纵浏览器时才消耗 Codex token。
+沉浸式翻译是当前默认中文增强链路。`scripts/build_immersive_workbench.mjs` 会为缺失中文映射的新闻标题、新闻摘要和粉丝源摘要生成 workbench；生产 Pages artifact 会额外发布同一批采集页到 `https://znonymity.github.io/piasnews/immersive/`。`scripts/run_immersive_workbench.mjs` 会在 `targets_count > 0` 时打开 Chrome，等待沉浸式翻译插件改写页面 DOM，采集中文映射并写入 `data/immersive_translations.zh.json`。默认直接运行脚本仍使用本机 workbench；传入 `--public-base-url https://znonymity.github.io/piasnews/immersive` 或设置 `PIASNEWS_IMMERSIVE_PUBLIC_BASE_URL` 后会改用线上 HTTPS workbench。采集结束后默认关闭对应 workbench 标签页；如需保留页面，可使用 `--no-close` 或 `PIASNEWS_IMMERSIVE_CLOSE=0`。目标较多时可用 `--tabs 3` 分成多个 workbench tab；如果 Chrome Apple Events 仍不能读取 DOM，但 OpenCLI Browser Bridge 可用，可加 `--browser-driver opencli`。该流程不调用大模型，只有通过 Codex 手动操纵浏览器时才消耗 Codex token。
 
 本机 Chrome 自动采集依赖 Chrome Apple Events 执行只读 DOM 脚本。首次使用前需要在 Chrome 菜单开启 `显示/查看 > 开发者 > 允许来自 Apple Events 的 JavaScript`（英文界面为 `View > Developer > Allow JavaScript from Apple Events`）。如果未开启，沉浸式映射和 Instagram 本机采集都会打开页面但无法读取 DOM，日志会提示 Chrome blocked JavaScript from Apple Events。沉浸式任务检测到该阻断后会写入 `/private/tmp/piasnews-immersive-state.json` 并进入默认 6 小时冷却，后续定时任务会跳过打开 Chrome；开启权限后可用 `PIASNEWS_IMMERSIVE_IGNORE_COOLDOWN=1` 手动跑一次恢复。
 
@@ -339,6 +339,7 @@ GitHub Actions 在抓取新闻和 social 数据后会运行 `scripts/apply_immer
 
 ```bash
 node scripts/run_immersive_workbench.mjs
+node scripts/run_immersive_workbench.mjs --public-base-url https://znonymity.github.io/piasnews/immersive
 node scripts/run_immersive_workbench.mjs --browser-driver opencli --tabs 3 --ignore-cooldown
 ```
 
@@ -348,7 +349,7 @@ node scripts/run_immersive_workbench.mjs --browser-driver opencli --tabs 3 --ign
 PIASNEWS_IMMERSIVE_PUBLISH=1 node scripts/run_immersive_workbench.mjs
 ```
 
-无人值守运行使用 wrapper，它会先同步 GitHub 最新数据，再检测是否有新增翻译目标：
+无人值守运行使用 wrapper，它会先同步 GitHub 最新数据，再默认使用线上 HTTPS workbench 检测是否有新增翻译目标：
 
 ```bash
 scripts/update_immersive_translations.sh
@@ -804,7 +805,7 @@ GitHub raw fallback:
 
 After news and social data are fetched, GitHub Actions first runs `scripts/translate_zh_argos.py` as an offline Chinese fallback, then runs `scripts/apply_immersive_translations.py`. Immersive mappings from `data/immersive_translations.zh.json` overwrite `title_zh` and `summary_zh`, then deterministic auto-repair fixes accumulated low-risk terminology issues. Argos runs only at build time, does not call an online translation API, and does not use model tokens.
 
-Immersive Translate is the default Chinese enhancement path. `scripts/build_immersive_workbench.mjs` creates a workbench for missing Chinese mappings in news titles, news summaries, and fan-source summaries. `scripts/run_immersive_workbench.mjs` opens local Chrome only when `targets_count > 0`, waits for the Immersive Translate extension to rewrite the page DOM, captures Chinese mappings, and writes `data/immersive_translations.zh.json`. After capture, it closes matching workbench tabs by default; use `--no-close` or `PIASNEWS_IMMERSIVE_CLOSE=0` to keep the page open. For larger batches, pass `--tabs 3` to split targets across several workbench tabs. If Chrome Apple Events still cannot read DOM but OpenCLI Browser Bridge is available, pass `--browser-driver opencli`. This flow does not call an LLM; Codex tokens are used only when Codex itself is asked to drive or debug the browser.
+Immersive Translate is the default Chinese enhancement path. `scripts/build_immersive_workbench.mjs` creates a workbench for missing Chinese mappings in news titles, news summaries, and fan-source summaries, and the production Pages artifact publishes the same capture pages under `https://znonymity.github.io/piasnews/immersive/`. `scripts/run_immersive_workbench.mjs` opens Chrome only when `targets_count > 0`, waits for the Immersive Translate extension to rewrite the page DOM, captures Chinese mappings, and writes `data/immersive_translations.zh.json`. Running the script directly still uses the local workbench by default; pass `--public-base-url https://znonymity.github.io/piasnews/immersive` or set `PIASNEWS_IMMERSIVE_PUBLIC_BASE_URL` to use the HTTPS workbench. After capture, it closes matching workbench tabs by default; use `--no-close` or `PIASNEWS_IMMERSIVE_CLOSE=0` to keep the page open. For larger batches, pass `--tabs 3` to split targets across several workbench tabs. If Chrome Apple Events still cannot read DOM but OpenCLI Browser Bridge is available, pass `--browser-driver opencli`. This flow does not call an LLM; Codex tokens are used only when Codex itself is asked to drive or debug the browser.
 
 Local Chrome capture depends on Chrome Apple Events running a read-only DOM script. Before first use, enable `View > Developer > Allow JavaScript from Apple Events` in Chrome. Without it, the Immersive mapping job and local Instagram collector can open pages but cannot read DOM; logs will report that Chrome blocked JavaScript from Apple Events. When the Immersive job detects that block, it writes `/private/tmp/piasnews-immersive-state.json` and enters a default six-hour cooldown, so later scheduled runs skip opening Chrome. After enabling the Chrome setting, run once with `PIASNEWS_IMMERSIVE_IGNORE_COOLDOWN=1` to resume immediately.
 
@@ -814,6 +815,7 @@ Manual run:
 
 ```bash
 node scripts/run_immersive_workbench.mjs
+node scripts/run_immersive_workbench.mjs --public-base-url https://znonymity.github.io/piasnews/immersive
 node scripts/run_immersive_workbench.mjs --browser-driver opencli --tabs 3 --ignore-cooldown
 ```
 

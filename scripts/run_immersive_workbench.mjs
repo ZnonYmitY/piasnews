@@ -34,6 +34,7 @@ function parseArgs(argv) {
     openWaitMs: Number(process.env.PIASNEWS_IMMERSIVE_OPEN_WAIT_MS || 0),
     triggerShortcut: process.env.PIASNEWS_IMMERSIVE_TRIGGER_SHORTCUT || "",
     triggerWaitMs: Number(process.env.PIASNEWS_IMMERSIVE_TRIGGER_WAIT_MS || 15000),
+    publicBaseUrl: process.env.PIASNEWS_IMMERSIVE_PUBLIC_BASE_URL || "",
   };
   for (let index = 0; index < argv.length; index += 1) {
     const flag = argv[index];
@@ -57,11 +58,12 @@ function parseArgs(argv) {
     else if (flag === "--open-wait-ms") args.openWaitMs = Number(next());
     else if (flag === "--trigger-shortcut") args.triggerShortcut = next();
     else if (flag === "--trigger-wait-ms") args.triggerWaitMs = Number(next());
+    else if (flag === "--public-base-url") args.publicBaseUrl = next();
     else if (flag === "--help") {
       console.log(`Usage: node scripts/run_immersive_workbench.mjs [options]
 
-Build the Immersive Translate workbench, open it in local Chrome when missing
-translations exist, poll the translated DOM through Chrome AppleScript, save new
+Build the Immersive Translate workbench, open Chrome when missing translations
+exist, poll the translated DOM through Chrome AppleScript or OpenCLI, save new
 mapping entries, and optionally apply/publish them.
 
 Options:
@@ -92,6 +94,9 @@ Options:
                   Press a browser shortcut in each OpenCLI tab before polling, e.g. Alt+W.
   --trigger-wait-ms MS
                   Wait after shortcut trigger before polling. Default: 15000.
+  --public-base-url URL
+                  Open and poll pre-published HTTPS workbench pages from this base
+                  URL instead of starting a local 127.0.0.1 server.
 `);
       process.exit(0);
     } else {
@@ -109,6 +114,7 @@ function normalizeArgs(args) {
   if (!Number.isFinite(args.openWaitMs) || args.openWaitMs < 0) args.openWaitMs = 0;
   if (args.browserDriver === "opencli" && args.openWaitMs === 0) args.openWaitMs = 5000;
   if (!Number.isFinite(args.triggerWaitMs) || args.triggerWaitMs < 0) args.triggerWaitMs = 0;
+  args.publicBaseUrl = String(args.publicBaseUrl || "").replace(/\/+$/, "");
   return args;
 }
 
@@ -425,7 +431,9 @@ function workbenchPages(build, args) {
   return pages.map((page, index) => ({
     ...page,
     index,
-    url: `http://127.0.0.1:${args.port}${page.url_path || "/translation-workbench.html"}`,
+    url: args.publicBaseUrl
+      ? `${args.publicBaseUrl}${page.url_path || "/translation-workbench.html"}`
+      : `http://127.0.0.1:${args.port}${page.url_path || "/translation-workbench.html"}`,
   }));
 }
 
@@ -498,7 +506,7 @@ async function main() {
   }
   if (await shouldSkipForFailureCooldown(args)) return 0;
 
-  const server = await startServer(args.out, args.port);
+  const server = args.publicBaseUrl ? null : await startServer(args.out, args.port);
   const pages = workbenchPages(build, args);
   try {
     if (args.open) openWorkbenchPages(pages, args);
@@ -538,7 +546,7 @@ async function main() {
         }
       }
     }
-    await new Promise((resolve) => server.close(resolve));
+    if (server) await new Promise((resolve) => server.close(resolve));
   }
 }
 
