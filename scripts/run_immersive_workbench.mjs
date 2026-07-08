@@ -306,7 +306,9 @@ tell application "Google Chrome"
   repeat with w in windows
     repeat with t in tabs of w
       if (URL of t starts with "${escapedPrefix}") then
-        return execute javascript "eval(atob('${encodedJs}'))" in t
+        tell t
+          return execute javascript "eval(atob('${encodedJs}'))"
+        end tell
       end if
     end repeat
   end repeat
@@ -397,6 +399,49 @@ tell application "Google Chrome"
 end tell
 `;
   osascript(script);
+}
+
+function scrollChromePage(page, position) {
+  const escapedPrefix = page.url.replaceAll("\\", "\\\\").replaceAll('"', '\\"');
+  const clampedPosition = Math.max(0, Math.min(1, Number(position) || 0));
+  const js = `(() => {
+    const root = document.scrollingElement || document.documentElement || document.body;
+    const maxY = Math.max(0, root.scrollHeight - window.innerHeight);
+    root.scrollTop = Math.round(maxY * ${clampedPosition});
+    window.scrollTo(0, Math.round(maxY * ${clampedPosition}));
+    return String(root.scrollTop || window.scrollY || 0);
+  })()`;
+  const encodedJs = Buffer.from(js, "utf8").toString("base64");
+  const script = `
+tell application "Google Chrome"
+  activate
+  repeat with w in windows
+    repeat with i from 1 to count tabs of w
+      set currentTab to tab i of w
+      if (URL of currentTab starts with "${escapedPrefix}") then
+        set active tab index of w to i
+        set index of w to 1
+        delay 0.2
+        tell currentTab
+          return execute javascript "eval(atob('${encodedJs}'))"
+        end tell
+      end if
+    end repeat
+  end repeat
+end tell
+return ""
+`;
+  osascript(script);
+}
+
+async function warmChromePageTranslations(pages, args) {
+  if (!args.triggerShortcut || args.browserDriver !== "apple-events") return;
+  for (const page of pages) {
+    for (const position of [0, 0.2, 0.4, 0.6, 0.8, 1, 0]) {
+      scrollChromePage(page, position);
+      await sleep(Math.min(1200, Math.max(400, Math.floor(args.pollMs / 4))));
+    }
+  }
 }
 
 function closeChromeTabs(urlPrefix) {
@@ -595,6 +640,7 @@ async function main() {
         if (args.browserDriver === "opencli") triggerOpenCliShortcut(page, args);
         else triggerChromeShortcut(page, args);
       }
+      await warmChromePageTranslations(pages, args);
       if (args.triggerWaitMs > 0) await sleep(args.triggerWaitMs);
     }
     const { rows, blockedByAppleEvents } = await pollTranslations(pages, build.targets_count, args);
