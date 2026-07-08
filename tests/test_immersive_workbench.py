@@ -96,6 +96,59 @@ class ImmersiveWorkbenchTest(unittest.TestCase):
             self.assertEqual(all_payload["target_mode"], "all")
             self.assertGreaterEqual(all_payload["targets_count"], default_payload["targets_count"])
 
+    def test_shortcut_timeout_records_cooldown(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            fake_bin = tmp / "bin"
+            fake_bin.mkdir()
+            fake_osascript = fake_bin / "osascript"
+            fake_osascript.write_text(
+                "#!/bin/sh\n"
+                "echo '438:486: execution error: System Events timed out. (-1712)' >&2\n"
+                "exit 1\n"
+            )
+            fake_osascript.chmod(0o755)
+            mapping = tmp / "immersive_translations.zh.json"
+            mapping.write_text(json.dumps({"schema_version": 1, "translations": {}}) + "\n")
+            state = tmp / "state.json"
+
+            result = subprocess.run(
+                [
+                    "node",
+                    str(ROOT / "scripts" / "run_immersive_workbench.mjs"),
+                    "--out",
+                    str(tmp / "workbench"),
+                    "--mapping",
+                    str(mapping),
+                    "--state",
+                    str(state),
+                    "--public-base-url",
+                    "https://znonymity.github.io/piasnews/immersive",
+                    "--targets",
+                    "missing",
+                    "--trigger-shortcut",
+                    "Option+A",
+                    "--no-open",
+                    "--no-close",
+                    "--no-apply",
+                    "--wait-ms",
+                    "1",
+                    "--poll-ms",
+                    "1",
+                ],
+                cwd=ROOT,
+                env={**os.environ, "PATH": f"{fake_bin}{os.pathsep}{os.environ.get('PATH', '')}"},
+                text=True,
+                capture_output=True,
+                check=False,
+            )
+
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertIn("Recorded Apple Events cooldown", result.stdout)
+            payload = json.loads(state.read_text())
+            self.assertEqual(payload["reason"], "chrome_apple_events_control_failed")
+            self.assertGreater(payload["targets_count"], 0)
+
 
 if __name__ == "__main__":
     unittest.main()

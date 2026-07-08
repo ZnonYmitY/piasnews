@@ -154,6 +154,7 @@ function buildWorkbench(args) {
     capture: true,
     env: {
       PIASNEWS_IMMERSIVE_WORKBENCH_DIR: args.out,
+      PIASNEWS_IMMERSIVE_MAPPING: args.mapping,
       PIASNEWS_IMMERSIVE_TABS: String(args.tabs),
       PIASNEWS_IMMERSIVE_TARGETS: args.targets,
     },
@@ -482,8 +483,23 @@ async function removeFile(file) {
   }
 }
 
-function appleEventsBlocked(error) {
-  return String(error?.message || error || "").includes("Chrome blocked JavaScript from Apple Events");
+function appleEventsControlFailed(error) {
+  const message = String(error?.message || error || "");
+  return (
+    message.includes("Chrome blocked JavaScript from Apple Events") ||
+    message.includes("AppleEvent") ||
+    message.includes("-1712") ||
+    message.includes("System Events") ||
+    message.includes("不允许访问")
+  );
+}
+
+function appleEventsFailureHint(error) {
+  const message = String(error?.message || error || "");
+  if (message.includes("-1712") || message.includes("System Events")) {
+    return "macOS System Events could not send the Chrome shortcut. Check Accessibility permission for the launching process, then rerun with --ignore-cooldown.";
+  }
+  return "Chrome Apple Events control failed. Enable Chrome > View > Developer > Allow JavaScript from Apple Events, then rerun with --ignore-cooldown.";
 }
 
 async function writeFailureState(args, reason, build) {
@@ -499,15 +515,15 @@ async function writeFailureState(args, reason, build) {
 async function shouldSkipForFailureCooldown(args) {
   if (args.ignoreCooldown || args.failureCooldownMs <= 0) return false;
   const state = await readJson(args.state, null);
-  if (state?.reason !== "chrome_apple_events_blocked" || !state.at) return false;
+  if (!["chrome_apple_events_blocked", "chrome_apple_events_control_failed"].includes(state?.reason) || !state.at) return false;
   const failedAt = Date.parse(state.at);
   if (!Number.isFinite(failedAt)) return false;
   const elapsed = Date.now() - failedAt;
   if (elapsed >= args.failureCooldownMs) return false;
   const remainingMinutes = Math.ceil((args.failureCooldownMs - elapsed) / 60000);
   console.log(
-    `Skipped Chrome collection: Apple Events DOM access was blocked at ${state.at}; cooldown has ${remainingMinutes} minute(s) remaining. ` +
-      "Enable Chrome > View > Developer > Allow JavaScript from Apple Events, or rerun with --ignore-cooldown."
+    `Skipped Chrome collection: Apple Events browser control failed at ${state.at}; cooldown has ${remainingMinutes} minute(s) remaining. ` +
+      "Fix Chrome Apple Events/System Events permissions, or rerun with --ignore-cooldown."
   );
   return true;
 }
@@ -584,7 +600,7 @@ async function pollTranslations(pages, total, args) {
       console.log(`Immersive workbench translated ${translated}/${total}`);
       if (translated >= total) return { rows: latest, blockedByAppleEvents };
     } catch (error) {
-      if (appleEventsBlocked(error)) blockedByAppleEvents = true;
+      if (appleEventsControlFailed(error)) blockedByAppleEvents = true;
       console.error(`Chrome DOM extraction failed: ${error.message}`);
     }
     await sleep(args.pollMs);
@@ -636,11 +652,22 @@ async function main() {
     if (args.open) openWorkbenchPages(pages, args);
     if (args.openWaitMs > 0) await sleep(args.openWaitMs);
     if (args.triggerShortcut) {
-      for (const page of pages) {
-        if (args.browserDriver === "opencli") triggerOpenCliShortcut(page, args);
-        else triggerChromeShortcut(page, args);
+      try {
+        for (const page of pages) {
+          if (args.browserDriver === "opencli") triggerOpenCliShortcut(page, args);
+          else triggerChromeShortcut(page, args);
+        }
+        await warmChromePageTranslations(pages, args);
+      } catch (error) {
+        if (args.browserDriver === "apple-events" && appleEventsControlFailed(error)) {
+          console.error(`Chrome shortcut trigger failed: ${error.message}`);
+          await writeFailureState(args, "chrome_apple_events_control_failed", build);
+          console.log(`Skipped Chrome collection: ${appleEventsFailureHint(error)}`);
+          console.log("Recorded Apple Events cooldown; future scheduled runs will skip Chrome until the cooldown expires.");
+          return 0;
+        }
+        throw error;
       }
-      await warmChromePageTranslations(pages, args);
       if (args.triggerWaitMs > 0) await sleep(args.triggerWaitMs);
     }
     const { rows, blockedByAppleEvents } = await pollTranslations(pages, build.targets_count, args);
