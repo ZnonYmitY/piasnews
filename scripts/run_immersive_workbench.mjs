@@ -617,7 +617,7 @@ function publishMappings() {
   run("git", ["add", "data/immersive_translations.zh.json"]);
   run("git", ["commit", "--only", "data/immersive_translations.zh.json", "-m", "Update Immersive Translate mappings"]);
   run("git", ["push"]);
-  run("gh", ["workflow", "run", "update-piasnews.yml", "--ref", "main"]);
+  run("gh", ["workflow", "run", "update-piasnews.yml", "--ref", "main", "-f", "apply_only=true"]);
 }
 
 async function main() {

@@ -5,6 +5,12 @@ on:
     - cron: "17 */6 * * *"
     - cron: "27 */6 * * *"
   workflow_dispatch:
+    inputs:
+      apply_only:
+        description: "Apply committed translation mappings without fetching fresh data"
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -36,15 +42,19 @@ jobs:
           python-version: "3.11"
 
       - name: Fetch latest Piasnews data
+        if: ${{ inputs.apply_only != true }}
         run: python scripts/fetch_piasnews.py --days 3 --output-dir data
 
       - name: Fetch Formula 1 calendar
+        if: ${{ inputs.apply_only != true }}
         run: python scripts/fetch_f1_calendar.py --output data/calendar.json
 
       - name: Build Formula 1 calendar files
+        if: ${{ inputs.apply_only != true }}
         run: python scripts/build_f1_calendar_ics.py --calendar data/calendar.json --race-output data/next-race.ics --weekend-output data/next-weekend.ics --season-output data/full-season.ics
 
       - name: Fetch optional X and Instagram social data
+        if: ${{ inputs.apply_only != true }}
         env:
           PIASNEWS_X_BEARER_TOKEN: ${{ secrets.PIASNEWS_X_BEARER_TOKEN }}
           PIASNEWS_SOCIAL_INPUT_JSON: ${{ vars.PIASNEWS_SOCIAL_INPUT_JSON }}
