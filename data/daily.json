@@ -1,30 +1,31 @@
 {
-  "generated_at": "2026-07-08T08:55:27.469579Z",
+  "generated_at": "2026-07-08T09:04:15.720781Z",
   "window_days": 3,
-  "total_items": 30,
+  "total_items": 29,
   "latest_date": "2026-07-08",
   "days": [
     {
       "date": "2026-07-08",
-      "total_new_items": 4,
+      "total_new_items": 5,
       "official_new_items": 0,
-      "media_new_items": 4,
+      "media_new_items": 5,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "F1 Oversteer": 2,
         "SMH.com.au": 1,
+        "racingnews365.com": 1,
         "streamlinefeed.co.ke": 1
       },
       "categories": {
-        "team": 4
+        "team": 5
       }
     },
     {
       "date": "2026-07-07",
-      "total_new_items": 15,
+      "total_new_items": 13,
       "official_new_items": 0,
-      "media_new_items": 15,
+      "media_new_items": 13,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
@@ -33,19 +34,18 @@
         "F1i.com": 1,
         "F1ingenerale": 1,
         "Formula1News.co.uk": 1,
-        "GPFans": 1,
         "MotorBiscuit": 1,
         "Motorsport Week": 1,
         "Paddock News 24": 1,
         "The Times of India": 1,
         "asatunews.co.id": 2,
-        "myKhel": 1,
-        "total-motorsport.com": 2
+        "gpfans.com": 1,
+        "myKhel": 1
       },
       "categories": {
         "contract": 1,
         "other": 1,
-        "team": 13
+        "team": 11
       }
     },
     {
@@ -114,14 +114,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 57
+      "items": 58
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 41
+      "items": 42
     },
     {
       "query": "\"OP81\" when:3d",
@@ -154,13 +154,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 56,
-      "kept": 30,
+      "checked": 57,
+      "kept": 29,
       "results": {
         "outside_window": 3,
-        "publisher_date_missing": 16,
+        "publisher_date_missing": 18,
         "publisher_unavailable": 7,
-        "verified": 30
+        "verified": 29
       }
     }
   ]
