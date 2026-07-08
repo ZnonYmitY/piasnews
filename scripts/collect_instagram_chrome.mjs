@@ -6,6 +6,7 @@ import process from "node:process";
 
 const DEFAULT_OUTPUT = "/tmp/piasnews-instagram-social.json";
 const DEFAULT_HANDLE = "oscarpiastri";
+const DEFAULT_OPENCLI_SESSION = "piasnews-ig";
 
 function parseArgs(argv) {
   const args = {
@@ -14,6 +15,9 @@ function parseArgs(argv) {
     limit: Number(process.env.PIASNEWS_INSTAGRAM_LIMIT || 6),
     days: Number(process.env.PIASNEWS_DAYS || 3),
     waitMs: Number(process.env.PIASNEWS_INSTAGRAM_WAIT_MS || 5000),
+    opencliCmd: process.env.PIASNEWS_OPENCLI_CMD || "opencli",
+    opencliSession: process.env.PIASNEWS_OPENCLI_SESSION || DEFAULT_OPENCLI_SESSION,
+    opencliFallback: process.env.PIASNEWS_INSTAGRAM_OPENCLI_FALLBACK !== "0",
   };
   for (let index = 0; index < argv.length; index += 1) {
     const flag = argv[index];
@@ -23,6 +27,9 @@ function parseArgs(argv) {
     else if (flag === "--limit") args.limit = Number(next());
     else if (flag === "--days") args.days = Number(next());
     else if (flag === "--wait-ms") args.waitMs = Number(next());
+    else if (flag === "--opencli-cmd") args.opencliCmd = next();
+    else if (flag === "--opencli-session") args.opencliSession = next();
+    else if (flag === "--no-opencli-fallback") args.opencliFallback = false;
     else if (flag === "--help") {
       console.log(`Usage: node scripts/collect_instagram_chrome.mjs [options]
 
@@ -35,6 +42,11 @@ Options:
   --limit N         Max profile links to inspect. Default: 6.
   --days N          Recency window. Default: 3.
   --wait-ms MS      Wait after opening each page. Default: 5000.
+  --opencli-cmd CMD OpenCLI binary for fallback. Default: opencli.
+  --opencli-session NAME
+                    OpenCLI browser session for fallback. Default: piasnews-ig.
+  --no-opencli-fallback
+                    Disable OpenCLI fallback when Chrome Apple Events fail.
 `);
       process.exit(0);
     } else {
@@ -111,6 +123,23 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+function runJsonCommand(command, args) {
+  const result = spawnSync(command, args, {
+    encoding: "utf8",
+    stdio: ["ignore", "pipe", "pipe"],
+  });
+  if (result.error) throw result.error;
+  if (result.status !== 0) {
+    const message = [result.stderr, result.stdout].filter(Boolean).join("\n").trim();
+    throw new Error(message || `${command} exited ${result.status}`);
+  }
+  return JSON.parse(result.stdout || "{}");
+}
+
+function opencliBrowser(args, opencliCmd, session) {
+  return runJsonCommand(opencliCmd, ["browser", session, ...args]);
+}
+
 function parseCaption(description) {
   const text = String(description || "");
   const match = text.match(/[：:]\s*["“]([^"”]+)["”]\.?\s*$/);
@@ -172,6 +201,68 @@ async function collectPost(handle, url, waitMs) {
   };
 }
 
+async function collectProfileLinksOpenCli(handle, waitMs, limit, opencliCmd, session) {
+  const profileUrl = `https://www.instagram.com/${handle}/`;
+  opencliBrowser(["open", profileUrl, "--window", "background"], opencliCmd, session);
+  await sleep(waitMs);
+  const profile = opencliBrowser([
+    "eval",
+    `(() => {
+      const links = Array.from(document.querySelectorAll('a[href]'))
+        .map((a) => a.href)
+        .filter((href) => href.includes('/${handle}/p/') || href.includes('/${handle}/reel/'));
+      return { links: Array.from(new Set(links)).slice(0, ${limit}) };
+    })()`,
+  ], opencliCmd, session);
+  return profile.links || [];
+}
+
+async function collectPostOpenCli(handle, url, waitMs, opencliCmd, session) {
+  opencliBrowser(["open", url, "--window", "background"], opencliCmd, session);
+  await sleep(waitMs);
+  const detail = opencliBrowser([
+    "eval",
+    `(() => {
+      const meta = (selector) => document.querySelector(selector)?.getAttribute('content') || '';
+      const times = Array.from(document.querySelectorAll('time[datetime]'))
+        .map((time) => time.getAttribute('datetime'))
+        .filter(Boolean)
+        .sort();
+      return {
+        url: location.href,
+        description: meta('meta[property="og:description"]') || meta('meta[name="description"]'),
+        title: meta('meta[property="og:title"]') || document.title,
+        published_at: times[0] || '',
+      };
+    })()`,
+  ], opencliCmd, session);
+  if (!detail.published_at || !detail.description) return null;
+  const kind = url.includes(`/${handle}/reel/`) ? "reel" : "post";
+  return {
+    platform: "instagram",
+    handle,
+    id: url.replace(/\/$/, "").split("/").pop(),
+    url: detail.url || url,
+    text: parseCaption(detail.description) || detail.title,
+    created_at: detail.published_at,
+    kind,
+    metrics: parseMetrics(detail.description),
+    language: "en",
+  };
+}
+
+async function collectWithOpenCli(args, cutoff) {
+  const links = await collectProfileLinksOpenCli(args.handle, args.waitMs, args.limit, args.opencliCmd, args.opencliSession);
+  const items = [];
+  for (const url of links) {
+    const item = await collectPostOpenCli(args.handle, url, args.waitMs, args.opencliCmd, args.opencliSession);
+    if (!item) continue;
+    const timestamp = Date.parse(item.created_at);
+    if (Number.isFinite(timestamp) && timestamp >= cutoff) items.push(item);
+  }
+  return { links, items };
+}
+
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const openedUrls = [`https://www.instagram.com/${args.handle}/`];
@@ -199,8 +290,39 @@ async function main() {
       platform: "instagram",
       handle: args.handle,
       ok: false,
+      method: "chrome-apple-events",
       error: String(error?.message || error),
     });
+    if (args.opencliFallback) {
+      try {
+        const fallback = await collectWithOpenCli(args, cutoff);
+        items.push(...fallback.items);
+        statuses.push({
+          platform: "instagram",
+          handle: args.handle,
+          ok: true,
+          method: "opencli-browser",
+          links: fallback.links.length,
+          items: fallback.items.length,
+          fallback_from: "chrome-apple-events",
+        });
+      } catch (fallbackError) {
+        statuses.push({
+          platform: "instagram",
+          handle: args.handle,
+          ok: false,
+          method: "opencli-browser",
+          error: String(fallbackError?.message || fallbackError),
+          fallback_from: "chrome-apple-events",
+        });
+      } finally {
+        try {
+          opencliBrowser(["close"], args.opencliCmd, args.opencliSession);
+        } catch {
+          // Best effort: OpenCLI can leave its tab lease behind without corrupting data.
+        }
+      }
+    }
   } finally {
     try {
       closeChromeTabs(openedUrls);
@@ -210,7 +332,9 @@ async function main() {
   }
 
   const payload = {
-    source: "chrome-instagram",
+    source: statuses.some((status) => status.method === "opencli-browser" && status.ok)
+      ? "chrome-instagram+opencli-browser"
+      : "chrome-instagram",
     window_days: args.days,
     items,
     source_status: statuses,

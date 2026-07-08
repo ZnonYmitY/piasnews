@@ -1,7 +1,16 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [[ -n "${PIASNEWS_REPO_DIR:-}" ]]; then
+  ROOT_DIR="$PIASNEWS_REPO_DIR"
+elif [[ -f "$SCRIPT_DIR/../scripts/collect_agent_reach_social.py" ]]; then
+  ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+elif [[ -f "$HOME/Library/Application Support/piasnews/repo/scripts/collect_agent_reach_social.py" ]]; then
+  ROOT_DIR="$HOME/Library/Application Support/piasnews/repo"
+else
+  ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+fi
 cd "$ROOT_DIR"
 
 export PATH="/Users/bytedance/.agent-reach-venv/bin:/opt/homebrew/bin:$PATH"
@@ -13,8 +22,32 @@ INSTAGRAM_JSON="${PIASNEWS_INSTAGRAM_IMPORT:-/tmp/piasnews-instagram-social.json
 COMBINED_IMPORT_JSON="${PIASNEWS_SOCIAL_COMBINED_IMPORT:-/tmp/piasnews-social-combined.json}"
 COMPACT_JSON="${PIASNEWS_SOCIAL_COMPACT:-/tmp/piasnews-social-input-compact.json}"
 COMPACT_CACHE="${PIASNEWS_SOCIAL_COMPACT_CACHE:-/tmp/piasnews-social-input-compact.last.json}"
+SUCCESS_MARKER="${PIASNEWS_SOCIAL_SUCCESS_MARKER:-/tmp/piasnews-social.last_success}"
+MIN_INTERVAL_SECONDS="${PIASNEWS_SOCIAL_MIN_INTERVAL_SECONDS:-0}"
 SOCIAL_OUTPUT="${PIASNEWS_SOCIAL_OUTPUT:-data/social.json}"
 REF="${PIASNEWS_WORKFLOW_REF:-main}"
+
+file_mtime_epoch() {
+  local path="$1"
+  [[ -f "$path" ]] || return 1
+  stat -f %m "$path" 2>/dev/null || stat -c %Y "$path" 2>/dev/null
+}
+
+if [[ "$MIN_INTERVAL_SECONDS" =~ ^[0-9]+$ ]] && (( MIN_INTERVAL_SECONDS > 0 )) && [[ "${PIASNEWS_FORCE_SOCIAL_PUBLISH:-0}" != "1" ]]; then
+  LAST_SUCCESS_EPOCH="$(file_mtime_epoch "$SUCCESS_MARKER" || file_mtime_epoch "$COMPACT_CACHE" || true)"
+  if [[ "$LAST_SUCCESS_EPOCH" =~ ^[0-9]+$ ]]; then
+    NOW_EPOCH="$(date +%s)"
+    AGE_SECONDS=$((NOW_EPOCH - LAST_SUCCESS_EPOCH))
+    if (( AGE_SECONDS < MIN_INTERVAL_SECONDS )); then
+      REMAINING_SECONDS=$((MIN_INTERVAL_SECONDS - AGE_SECONDS))
+      echo "Last successful social collection was ${AGE_SECONDS}s ago; next due in ${REMAINING_SECONDS}s."
+      exit 0
+    fi
+    echo "Last successful social collection was ${AGE_SECONDS}s ago; running catch-up collection."
+  else
+    echo "No previous successful social collection marker found; running collection."
+  fi
+fi
 
 GROUP_ARGS=()
 if [[ -n "${PIASNEWS_SOCIAL_GROUPS:-}" ]]; then
@@ -85,6 +118,7 @@ if [[ "${PIASNEWS_SKIP_GITHUB:-0}" == "1" ]]; then
 fi
 
 if [[ "${PIASNEWS_FORCE_SOCIAL_PUBLISH:-0}" != "1" ]] && [[ -f "$COMPACT_CACHE" ]] && cmp -s "$COMPACT_JSON" "$COMPACT_CACHE"; then
+  touch "$SUCCESS_MARKER"
   echo "Social compact input unchanged; skipped GitHub variable update and workflow dispatch."
   exit 0
 fi
@@ -92,3 +126,4 @@ fi
 gh variable set PIASNEWS_SOCIAL_INPUT_JSON < "$COMPACT_JSON"
 gh workflow run update-piasnews.yml --ref "$REF"
 cp "$COMPACT_JSON" "$COMPACT_CACHE"
+touch "$SUCCESS_MARKER"

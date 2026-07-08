@@ -42,6 +42,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--limit", type=int, default=DEFAULT_LIMIT, help="Maximum normalized social items.")
     parser.add_argument("--now", help="Override current UTC time, ISO-8601 format.")
     parser.add_argument("--input-json", help="Optional local JSON export to normalize instead of live API.")
+    parser.add_argument("--input-url", help="Optional remote JSON export URL to normalize instead of live API.")
     return parser.parse_args(argv)
 
 
@@ -308,6 +309,38 @@ def normalize_import(path: Path, sources: dict[str, Any], now: datetime, cutoff:
     return normalize_import_payload(json.loads(path.read_text()), str(path), sources, now, cutoff)
 
 
+def unwrap_import_payload(payload: Any) -> Any:
+    """Accept direct compact JSON or common Supabase row/function envelopes."""
+    if isinstance(payload, list):
+        for row in payload:
+            if isinstance(row, dict) and isinstance(row.get("payload"), (dict, list)):
+                return row["payload"]
+        return payload
+    if not isinstance(payload, dict):
+        return payload
+    for key in ("payload", "compact_payload", "social_import"):
+        if isinstance(payload.get(key), (dict, list)):
+            return payload[key]
+    data = payload.get("data")
+    if isinstance(data, dict):
+        return unwrap_import_payload(data)
+    if isinstance(data, list):
+        return unwrap_import_payload(data)
+    return payload
+
+
+def read_import_url(url: str, bearer_token: str | None = None) -> Any:
+    headers = {
+        "User-Agent": "piasnews-social/0.1 (+https://github.com/ZnonYmitY/piasnews)",
+        "Accept": "application/json",
+    }
+    if bearer_token:
+        headers["Authorization"] = f"Bearer {bearer_token}"
+    request = urllib.request.Request(url, headers=headers)
+    with urllib.request.urlopen(request, timeout=HTTP_TIMEOUT_SECONDS) as response:
+        return unwrap_import_payload(json.loads(response.read().decode("utf-8")))
+
+
 def dedupe_items(items: list[dict[str, Any]], limit: int) -> list[dict[str, Any]]:
     result = {}
     for item in sorted(items, key=lambda entry: entry["published_at"], reverse=True):
@@ -344,6 +377,21 @@ def main_with_args(argv: list[str] | None = None) -> int:
         imported_items, import_status = normalize_import(Path(input_json), sources, now, cutoff)
         items.extend(imported_items)
         statuses.append({"stage": "json_import", **import_status})
+
+    input_url = args.input_url or os.environ.get("PIASNEWS_SOCIAL_INPUT_URL")
+    if input_url:
+        try:
+            imported_items, import_status = normalize_import_payload(
+                read_import_url(input_url, os.environ.get("PIASNEWS_SOCIAL_INPUT_AUTH_BEARER")),
+                input_url,
+                sources,
+                now,
+                cutoff,
+            )
+            items.extend(imported_items)
+            statuses.append({"stage": "json_import_url", **import_status})
+        except (json.JSONDecodeError, urllib.error.URLError, TimeoutError) as exc:
+            statuses.append({"stage": "json_import_url", "source": input_url, "ok": False, "error": f"{type(exc).__name__}: {exc}"})
 
     input_json_text = os.environ.get("PIASNEWS_SOCIAL_INPUT_JSON")
     if input_json_text:

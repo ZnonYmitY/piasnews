@@ -48,6 +48,8 @@ jobs:
         env:
           PIASNEWS_X_BEARER_TOKEN: ${{ secrets.PIASNEWS_X_BEARER_TOKEN }}
           PIASNEWS_SOCIAL_INPUT_JSON: ${{ vars.PIASNEWS_SOCIAL_INPUT_JSON }}
+          PIASNEWS_SOCIAL_INPUT_URL: ${{ vars.PIASNEWS_SOCIAL_INPUT_URL }}
+          PIASNEWS_SOCIAL_INPUT_AUTH_BEARER: ${{ secrets.PIASNEWS_SOCIAL_INPUT_AUTH_BEARER }}
         run: python scripts/fetch_social_sources.py --days 3 --output data/social.json
 
       - name: Install offline Chinese translation fallback

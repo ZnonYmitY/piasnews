@@ -130,6 +130,31 @@ class SocialSourcesTest(unittest.TestCase):
         self.assertEqual(items[0]["summary_zh"], "Oscar Piastri family-side McLaren race-week note.")
         self.assertEqual(items[0]["copyright_notice_zh"], "如有侵权请联系删除。")
 
+    def test_supabase_payload_envelope_is_unwrapped(self):
+        payload = collector.unwrap_import_payload([
+            {
+                "payload": {
+                    "items": [
+                        {
+                            "platform": "x",
+                            "handle": "PiastriNews",
+                            "id": "789",
+                            "text": "Oscar Piastri remote Supabase import.",
+                            "created_at": "2026-06-26T09:30:00Z",
+                        }
+                    ]
+                }
+            }
+        ])
+        sources = collector.load_sources(SOURCES_PATH)
+        now = collector.parse_now(NOW)
+        cutoff = now - collector.timedelta(days=3)
+        items, status = collector.normalize_import_payload(payload, "supabase", sources, now, cutoff)
+
+        self.assertEqual(status["items"], 1)
+        self.assertEqual(items[0]["source"], "@PiastriNews")
+        self.assertEqual(items[0]["url"], "https://x.com/PiastriNews/status/789")
+
     def test_social_summary_keeps_full_original_text(self):
         text = "Oscar finishes FP2 in P2 and looks fastest in high speed corners. Extra detail kept."
         sources = collector.load_sources(SOURCES_PATH)
