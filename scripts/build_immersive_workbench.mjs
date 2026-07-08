@@ -14,6 +14,7 @@ const mappingPath = path.join(dataDir, "immersive_translations.zh.json");
 const itemsPath = path.join(dataDir, "items.json");
 const socialPath = path.join(dataDir, "social.json");
 const IMMERSIVE_ENGINE = "immersive_translate_chrome";
+const URL_ONLY_RE = /^https?:\/\/\S+$/i;
 const targetMode = normalizeTargetMode(process.env.PIASNEWS_IMMERSIVE_TARGETS || "missing");
 
 function normalizeTargetMode(value) {
@@ -87,8 +88,12 @@ function shouldCollectTarget(mapping, key) {
   return false;
 }
 
+function isUrlOnly(value) {
+  return URL_ONLY_RE.test(clean(value));
+}
+
 function pushTarget(targets, mapping, target) {
-  if (!target.source_text || !shouldCollectTarget(mapping, target.key)) return;
+  if (!target.source_text || isUrlOnly(target.source_text) || !shouldCollectTarget(mapping, target.key)) return;
   targets.push(target);
 }
 

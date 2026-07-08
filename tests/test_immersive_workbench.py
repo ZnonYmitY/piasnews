@@ -1,5 +1,6 @@
 import json
 import os
+import re
 import subprocess
 import tempfile
 import unittest
@@ -7,6 +8,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+URL_ONLY_RE = re.compile(r"^https?://\S+$", re.IGNORECASE)
 
 
 class ImmersiveWorkbenchTest(unittest.TestCase):
@@ -32,6 +34,7 @@ class ImmersiveWorkbenchTest(unittest.TestCase):
             manifest = json.loads(Path(payload["manifest_path"]).read_text())
             datasets = {target["dataset"] for target in manifest["targets"]}
             self.assertTrue(datasets <= {"items", "social"})
+            self.assertFalse(any(URL_ONLY_RE.match(target["source_text"]) for target in manifest["targets"]))
 
     def test_splits_targets_across_workbench_tabs(self):
         with tempfile.TemporaryDirectory() as tmpdir:

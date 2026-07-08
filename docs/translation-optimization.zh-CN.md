@@ -25,7 +25,7 @@
 7. 飞书审核表和 `data/translation_review.csv` 可保存人工确认样本，但 `status=approved` 不再进入默认生产覆盖链路；它只用于训练、评估和后续规则沉淀。
 8. `scripts/audit_translations.py` 在每次数据更新后完整遍历最终展示中文，自动发现疑似坏例，写入 `data/translation_candidates.csv`，并生成本轮新增 Excel。
 
-纯 URL 目标不会被沉浸式翻译生成中文，最终覆盖统计允许这类目标留空；正文、标题和可翻译社交文本不应留空。
+纯 URL 目标不会被沉浸式翻译生成中文，`scripts/build_immersive_workbench.mjs` 会直接过滤这类目标，避免定时任务反复等待不可翻译的短链；正文、标题和可翻译社交文本不应留空。
 
 Codex 流程已封装为 `.agents/skills/piasnews-immersive-update/SKILL.md`。后续在新对话里直接要求运行 `piasnews-immersive-update`，即可按固定步骤同步仓库、打开线上 workbench、触发 Chrome `Option+A`、采集映射、提交/push、触发 apply-only workflow，并验证线上 JSON。
 

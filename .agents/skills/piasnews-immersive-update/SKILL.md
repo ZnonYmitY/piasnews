@@ -52,7 +52,7 @@ Expected behavior:
 
 - The script opens three online workbench tabs.
 - It sends `Option+A`, scrolls each page, and polls `Immersive workbench translated X/Y`.
-- It may exit `2` when the only remaining untranslated targets are pure URLs. That is acceptable after verification.
+- It may exit `2` if the published Pages workbench still contains stale URL-only targets from an older artifact. After the next apply-only deploy, URL-only targets should be filtered out by `scripts/build_immersive_workbench.mjs`.
 - With `PIASNEWS_IMMERSIVE_PUBLISH=1`, it commits and pushes mapping changes, then dispatches `update-piasnews.yml` with `apply_only=true`.
 
 ## Verify
@@ -66,7 +66,7 @@ git pull --rebase
 git status -sb
 ```
 
-For live-data verification, fetch cache-busted Pages JSON and compare the live workbench targets against the mapping using the same source-text logic as `scripts/apply_immersive_translations.py`. Treat pure `https://t.co/...` targets as allowed missing translations; real title/summary text should be covered.
+For live-data verification, fetch cache-busted Pages JSON and compare the live workbench targets against the mapping using the same source-text logic as `scripts/apply_immersive_translations.py`. URL-only targets should not appear in a fresh workbench artifact; real title/summary text should be covered.
 
 ## Scheduled Job Diagnosis
 
