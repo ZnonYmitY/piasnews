@@ -341,10 +341,11 @@ GitHub Actions 在抓取新闻和 social 数据后会运行 `scripts/apply_immer
 node scripts/run_immersive_workbench.mjs
 node scripts/run_immersive_workbench.mjs --public-base-url https://znonymity.github.io/piasnews/immersive
 node scripts/run_immersive_workbench.mjs --public-base-url https://znonymity.github.io/piasnews/immersive --targets all --tabs 3
+node scripts/run_immersive_workbench.mjs --public-base-url https://znonymity.github.io/piasnews/immersive --targets all --tabs 3 --trigger-shortcut Alt+W
 node scripts/run_immersive_workbench.mjs --browser-driver opencli --tabs 3 --ignore-cooldown
 ```
 
-默认只更新本地映射并应用到 `data/items.json` / `data/social.json`。如需自动提交映射、push 并触发 GitHub Pages 更新：
+`--trigger-shortcut` 可用于 Apple Events 和 OpenCLI 两种 driver：脚本会先选中每个 workbench 标签页，再发送沉浸式翻译扩展快捷键；快捷键需要在 Chrome 扩展快捷键页中与沉浸式翻译的翻译动作一致。默认只更新本地映射并应用到 `data/items.json` / `data/social.json`。如需自动提交映射、push 并触发 GitHub Pages 更新：
 
 ```bash
 PIASNEWS_IMMERSIVE_PUBLISH=1 node scripts/run_immersive_workbench.mjs
@@ -818,10 +819,11 @@ Manual run:
 node scripts/run_immersive_workbench.mjs
 node scripts/run_immersive_workbench.mjs --public-base-url https://znonymity.github.io/piasnews/immersive
 node scripts/run_immersive_workbench.mjs --public-base-url https://znonymity.github.io/piasnews/immersive --targets all --tabs 3
+node scripts/run_immersive_workbench.mjs --public-base-url https://znonymity.github.io/piasnews/immersive --targets all --tabs 3 --trigger-shortcut Alt+W
 node scripts/run_immersive_workbench.mjs --browser-driver opencli --tabs 3 --ignore-cooldown
 ```
 
-By default it only updates local mappings and applies them to `data/items.json` / `data/social.json`. To commit the mapping, push it, and trigger the GitHub Pages refresh:
+`--trigger-shortcut` works with both Apple Events and OpenCLI drivers: the script selects each workbench tab and sends the Immersive Translate extension shortcut. Configure the shortcut in Chrome's extension shortcuts page so it matches the extension's translate action. By default it only updates local mappings and applies them to `data/items.json` / `data/social.json`. To commit the mapping, push it, and trigger the GitHub Pages refresh:
 
 ```bash
 PIASNEWS_IMMERSIVE_PUBLISH=1 node scripts/run_immersive_workbench.mjs

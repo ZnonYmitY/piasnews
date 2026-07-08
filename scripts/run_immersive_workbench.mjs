@@ -95,7 +95,8 @@ Options:
   --open-wait-ms MS
                   Wait after opening tabs before polling. Default: 5000 for opencli, 0 for apple-events.
   --trigger-shortcut KEY
-                  Press a browser shortcut in each OpenCLI tab before polling, e.g. Alt+W.
+                  Press a browser shortcut in each workbench tab before polling,
+                  e.g. Alt+W. For apple-events this uses macOS System Events.
   --trigger-wait-ms MS
                   Wait after shortcut trigger before polling. Default: 15000.
   --public-base-url URL
@@ -123,6 +124,7 @@ function normalizeArgs(args) {
   }
   if (!Number.isFinite(args.openWaitMs) || args.openWaitMs < 0) args.openWaitMs = 0;
   if (args.browserDriver === "opencli" && args.openWaitMs === 0) args.openWaitMs = 5000;
+  if (args.browserDriver === "apple-events" && args.triggerShortcut && args.openWaitMs === 0) args.openWaitMs = 3000;
   if (!Number.isFinite(args.triggerWaitMs) || args.triggerWaitMs < 0) args.triggerWaitMs = 0;
   args.publicBaseUrl = String(args.publicBaseUrl || "").replace(/\/+$/, "");
   args.targets = String(args.targets || "missing").trim().toLowerCase();
@@ -213,6 +215,38 @@ function openChrome(url) {
     cwd: ROOT,
     stdio: "ignore",
   });
+}
+
+function appleScriptString(value) {
+  return `"${String(value || "").replaceAll("\\", "\\\\").replaceAll('"', '\\"')}"`;
+}
+
+function appleScriptKeystroke(shortcut) {
+  const parts = String(shortcut || "").split("+").map((part) => part.trim()).filter(Boolean);
+  if (parts.length === 0) return "";
+  const key = parts.at(-1);
+  const modifiers = [];
+  for (const modifier of parts.slice(0, -1)) {
+    const normalized = modifier.toLowerCase();
+    if (["alt", "option", "opt"].includes(normalized)) modifiers.push("option down");
+    else if (["cmd", "command", "meta"].includes(normalized)) modifiers.push("command down");
+    else if (["ctrl", "control"].includes(normalized)) modifiers.push("control down");
+    else if (normalized === "shift") modifiers.push("shift down");
+    else throw new Error(`Unknown shortcut modifier: ${modifier}`);
+  }
+  const using = modifiers.length ? ` using {${modifiers.join(", ")}}` : "";
+  if (key.length === 1) return `keystroke ${appleScriptString(key.toLowerCase())}${using}`;
+  const keyCodes = {
+    enter: 36,
+    return: 36,
+    tab: 48,
+    space: 49,
+    escape: 53,
+    esc: 53,
+  };
+  const keyCode = keyCodes[key.toLowerCase()];
+  if (!keyCode) throw new Error(`Unsupported shortcut key: ${key}`);
+  return `key code ${keyCode}${using}`;
 }
 
 function extractionExpression() {
@@ -335,6 +369,34 @@ function triggerOpenCliShortcut(page, args) {
   const session = opencliSessionName(args, page.index);
   runOpenCli(args, ["browser", session, "tab", "select", page.opencliTab]);
   runOpenCli(args, ["browser", session, "keys", "--tab", page.opencliTab, args.triggerShortcut]);
+}
+
+function triggerChromeShortcut(page, args) {
+  if (!args.triggerShortcut) return;
+  const escapedPrefix = page.url.replaceAll("\\", "\\\\").replaceAll('"', '\\"');
+  const keystroke = appleScriptKeystroke(args.triggerShortcut);
+  const script = `
+tell application "Google Chrome"
+  activate
+  repeat with w in windows
+    repeat with i from 1 to count tabs of w
+      set currentTab to tab i of w
+      if (URL of currentTab starts with "${escapedPrefix}") then
+        set active tab index of w to i
+        set index of w to 1
+        delay 0.2
+        tell application "System Events"
+          tell process "Google Chrome"
+            ${keystroke}
+          end tell
+        end tell
+        return
+      end if
+    end repeat
+  end repeat
+end tell
+`;
+  osascript(script);
 }
 
 function closeChromeTabs(urlPrefix) {
@@ -528,8 +590,11 @@ async function main() {
   try {
     if (args.open) openWorkbenchPages(pages, args);
     if (args.openWaitMs > 0) await sleep(args.openWaitMs);
-    if (args.browserDriver === "opencli" && args.triggerShortcut) {
-      for (const page of pages) triggerOpenCliShortcut(page, args);
+    if (args.triggerShortcut) {
+      for (const page of pages) {
+        if (args.browserDriver === "opencli") triggerOpenCliShortcut(page, args);
+        else triggerChromeShortcut(page, args);
+      }
       if (args.triggerWaitMs > 0) await sleep(args.triggerWaitMs);
     }
     const { rows, blockedByAppleEvents } = await pollTranslations(pages, build.targets_count, args);
