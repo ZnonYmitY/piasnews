@@ -45,7 +45,19 @@ function escapeScriptJson(value) {
 async function readJson(file, fallback) {
   try {
     return JSON.parse(await fs.readFile(file, "utf8"));
-  } catch {
+  } catch (error) {
+    if (error.code === "ENOENT") return fallback;
+    throw new Error(`Failed to parse JSON at ${file}: ${error.message}`);
+  }
+}
+
+async function readOptionalJson(file, fallback) {
+  try {
+    return JSON.parse(await fs.readFile(file, "utf8"));
+  } catch (error) {
+    if (error.code !== "ENOENT") {
+      throw new Error(`Failed to parse JSON at ${file}: ${error.message}`);
+    }
     return fallback;
   }
 }
@@ -219,7 +231,7 @@ async function main() {
   await fs.mkdir(outputDir, { recursive: true });
   const items = await readJson(itemsPath, { items: [] });
   const social = await readJson(socialPath, { items: [] });
-  const mapping = await readJson(mappingPath, {
+  const mapping = await readOptionalJson(mappingPath, {
     schema_version: 1,
     generated_at: null,
     translations: {},
