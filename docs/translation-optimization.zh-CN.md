@@ -17,26 +17,30 @@
 当前生产链路：
 
 1. 数据抓取写入英文原文，并为缺少中文映射的新内容保留确定性中文概括或英文兜底。
-2. 本机沉浸式翻译采集链路对缺失目标生成 workbench，采集 `原文 -> 中文译文` 映射并写入 `data/immersive_translations.zh.json`。
-3. GitHub Actions 调用 `scripts/apply_immersive_translations.py` 应用沉浸式翻译映射，并立即执行 deterministic auto-repair，覆盖 `title_zh` / `summary_zh`。
-4. deterministic auto-repair 来自已沉淀的术语表和低风险脚本规则：`data/translation_glossary.csv` 负责专名、车队、赛道、赛段、位置和常见 F1 术语，脚本规则负责 `stewards`、`qualifying`、`pole`、`downforce`、`parc ferme`、Monster 联名罐、Red Bull 转会语境等确定性坏例。规则能稳定修正的问题不进入人工 pending。
-5. 飞书审核表和 `data/translation_review.csv` 可保存人工确认样本，但 `status=approved` 不再进入默认生产覆盖链路；它只用于训练、评估和后续规则沉淀。
-6. `scripts/audit_translations.py` 在每次数据更新后完整遍历最终展示中文，自动发现疑似坏例，写入 `data/translation_candidates.csv`，并生成本轮新增 Excel。
+2. GitHub Actions 先运行 `scripts/translate_zh_argos.py` 作为离线中文 fallback，保证新内容在没有沉浸式映射时仍可发布。Argos 不调用在线翻译 API，不消耗模型 token。
+3. 本机沉浸式翻译采集链路对线上 workbench 发送 `Option+A`，滚动每个 workbench 页，采集 `原文 -> 中文译文` 映射并写入 `data/immersive_translations.zh.json`。
+4. 映射发布时只提交 `data/immersive_translations.zh.json`，随后用 `update-piasnews.yml` 的 `apply_only=true` 触发线上应用。apply-only 会跳过新闻、赛历和社交源重新抓取，避免应用映射时又引入新的英文目标。
+5. GitHub Actions 调用 `scripts/apply_immersive_translations.py` 应用 `engine=immersive_translate_chrome` 的映射；脚本按 `dataset + target_field + source_text` 匹配，因此新闻或社交 item id 变化时，仍可复用同一英文原文的沉浸式译文。
+6. deterministic auto-repair 来自已沉淀的术语表和低风险脚本规则：`data/translation_glossary.csv` 负责专名、车队、赛道、赛段、位置和常见 F1 术语，脚本规则负责 `stewards`、`qualifying`、`pole`、`downforce`、`parc ferme`、Monster 联名罐、Red Bull 转会语境等确定性坏例。规则能稳定修正的问题不进入人工 pending。
+7. 飞书审核表和 `data/translation_review.csv` 可保存人工确认样本，但 `status=approved` 不再进入默认生产覆盖链路；它只用于训练、评估和后续规则沉淀。
+8. `scripts/audit_translations.py` 在每次数据更新后完整遍历最终展示中文，自动发现疑似坏例，写入 `data/translation_candidates.csv`，并生成本轮新增 Excel。
 
-`scripts/translate_zh_argos.py` 不再进入默认生产 workflow，仅保留为手动 fallback、历史对照和模型选型评估工具。
+纯 URL 目标不会被沉浸式翻译生成中文，最终覆盖统计允许这类目标留空；正文、标题和可翻译社交文本不应留空。
+
+Codex 流程已封装为 `.agents/skills/piasnews-immersive-update/SKILL.md`。后续在新对话里直接要求运行 `piasnews-immersive-update`，即可按固定步骤同步仓库、打开线上 workbench、触发 Chrome `Option+A`、采集映射、提交/push、触发 apply-only workflow，并验证线上 JSON。
 
 结构化数据说明见 [translation-dataset.zh-CN.md](translation-dataset.zh-CN.md)。
 
 ## 模型选型评估
 
-最初选择 Argos Translate 的原因是工程约束优先：它开源、离线、可在 GitHub Actions 中直接安装，不调用在线翻译 API，不需要用户或访问者承担 token / API 成本；同时脚本可以在依赖或模型不可用时退回术语表清洗，保证新闻抓取和静态 JSON 发布不中断。现在生产链路已切到沉浸式翻译映射优先，Argos 只作为手动 fallback 和对照基线。
+最初选择 Argos Translate 的原因是工程约束优先：它开源、离线、可在 GitHub Actions 中直接安装，不调用在线翻译 API，不需要用户或访问者承担 token / API 成本；同时脚本可以在依赖或模型不可用时退回术语表清洗，保证新闻抓取和静态 JSON 发布不中断。现在生产链路以沉浸式翻译映射为最高优先级，Argos 仍作为 build-time fallback 和对照基线存在，不能覆盖已捕获的沉浸式译文。
 
 2026-06-30 用 `facebook/nllb-200-distilled-600M` 对 10 条 Piasnews 样本做过一次本地对比，样本覆盖 X 粉丝梗、车队无线电、采访问答、传闻标题和新闻标题。结论：
 
 - NLLB 冷启动成本更高：首次下载和加载明显慢于 Argos，直接放进 3 小时 / 6 小时更新链路会增加 GitHub Actions 耗时和缓存压力。
 - NLLB 在通用句子上更自然的概率更高，但在 Piasnews 当前高频文本里没有稳定胜出；短 X 梗、缩写、对话体和 F1 转会语境仍会漏译、截断或误译。
 - Argos 和 NLLB 都不能单独解决 `move` 译为“转会”、`stewards` 译为“干事”、TR 口语、粉丝梗意译等领域问题。
-- 当前生产策略把质量提升重点放在沉浸式翻译映射、术语表、人工确认集、规则和 badcase loop；Argos / NLLB 暂不切为默认，只保留为手动 fallback、后续微调或二阶段评估候选。
+- 当前生产策略把质量提升重点放在沉浸式翻译映射、术语表、人工确认集、规则和 badcase loop；Argos 仅承担低优先级离线 fallback，NLLB 暂不切为默认，只保留为后续微调或二阶段评估候选。
 
 ## 待确认优化样例
 

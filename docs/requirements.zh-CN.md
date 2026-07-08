@@ -548,7 +548,7 @@ V1 完成标准：
 - GitHub Token 不出现在静态前端，审核请求通过 Worker 触发受控 workflow。
 - 自动候选流程不调用大模型，并能避免重复提名已拒绝来源事件。
 - 公开日报可匿名上报页面浏览，审核后台可查看 7/30 天聚合看板；统计不保存 IP、Cookie 或访客标识。
-- 本机沉浸式翻译采集作为可选无大模型增强链路：同步 GitHub 最新数据后，本机 runner 生成 workbench，仅在存在缺失翻译目标时打开 Chrome，采集已翻译 DOM 映射，并可选提交/push 映射后触发数据 workflow。
+- 本机沉浸式翻译采集作为可选无大模型增强链路：同步 GitHub 最新数据后，本机 runner 生成线上 workbench，打开 Chrome，发送沉浸式翻译快捷键 `Option+A`，滚动页面并采集已翻译 DOM 映射；提交/push 映射后触发 `update-piasnews.yml` 的 `apply_only=true` 模式，只应用翻译、auto-repair、badcase audit 和 Pages 部署，不重新抓新数据。
 
 V2 完成标准：
 

@@ -5,6 +5,12 @@ __pycache__/
 
 # Local agent skill installation outputs
 .agents/
+!.agents/
+.agents/*
+!.agents/skills/
+.agents/skills/*
+!.agents/skills/piasnews-immersive-update/
+!.agents/skills/piasnews-immersive-update/SKILL.md
 .aiden/
 .claude/
 .coco/
@@ -12,6 +18,9 @@ __pycache__/
 .trae/
 .trae-cn/
 skills/
+!.agents/skills/
+!.agents/skills/piasnews-immersive-update/
+!.agents/skills/piasnews-immersive-update/SKILL.md
 skills-lock.json
 config/mcporter.json
 
