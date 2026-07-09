@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-09T03:09:57.682138Z",
+  "generated_at": "2026-07-09T04:13:09.857155Z",
   "window_days": 3,
-  "total_items": 22,
+  "total_items": 25,
   "latest_date": "2026-07-08",
   "days": [
     {
@@ -28,17 +28,20 @@
     },
     {
       "date": "2026-07-07",
-      "total_new_items": 10,
+      "total_new_items": 13,
       "official_new_items": 0,
-      "media_new_items": 10,
+      "media_new_items": 13,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "BVM Sports": 1,
         "F1 Oversteer": 1,
         "F1i.com": 1,
+        "F1ingenerale": 1,
         "Formula1News.co.uk": 1,
+        "MotorBiscuit": 1,
         "Motorsport Week": 1,
+        "Paddock News 24": 1,
         "The Times of India": 1,
         "asatunews.co.id": 2,
         "gpfans.com": 1,
@@ -47,7 +50,7 @@
       "categories": {
         "contract": 1,
         "other": 1,
-        "team": 8
+        "team": 11
       }
     },
     {
@@ -95,14 +98,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 55
+      "items": 53
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 44
+      "items": 43
     },
     {
       "query": "\"OP81\" when:3d",
@@ -135,13 +138,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 53,
-      "kept": 22,
+      "checked": 52,
+      "kept": 25,
       "results": {
         "outside_window": 3,
-        "publisher_date_missing": 17,
-        "publisher_unavailable": 11,
-        "verified": 22
+        "publisher_date_missing": 16,
+        "publisher_unavailable": 8,
+        "verified": 25
       }
     }
   ]
