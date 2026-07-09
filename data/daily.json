@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-09T15:33:17.208315Z",
+  "generated_at": "2026-07-09T15:39:18.267553Z",
   "window_days": 3,
   "total_items": 35,
   "latest_date": "2026-07-09",
@@ -122,14 +122,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 56
+      "items": 58
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 45
+      "items": 46
     },
     {
       "query": "\"OP81\" when:3d",
@@ -150,7 +150,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 16
+      "items": 17
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -162,12 +162,12 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 55,
+      "checked": 56,
       "kept": 35,
       "results": {
-        "outside_window": 1,
+        "outside_window": 3,
         "publisher_date_missing": 12,
-        "publisher_unavailable": 7,
+        "publisher_unavailable": 6,
         "verified": 35
       }
     }
