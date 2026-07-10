@@ -1,9 +1,23 @@
 {
-  "generated_at": "2026-07-10T04:30:12.250400Z",
+  "generated_at": "2026-07-10T06:15:33.353858Z",
   "window_days": 3,
-  "total_items": 35,
-  "latest_date": "2026-07-09",
+  "total_items": 36,
+  "latest_date": "2026-07-10",
   "days": [
+    {
+      "date": "2026-07-10",
+      "total_new_items": 1,
+      "official_new_items": 0,
+      "media_new_items": 1,
+      "x_new_items": 0,
+      "rumor_new_items": 1,
+      "sources": {
+        "gpfans.com": 1
+      },
+      "categories": {
+        "rumor": 1
+      }
+    },
     {
       "date": "2026-07-09",
       "total_new_items": 9,
@@ -115,7 +129,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 48
+      "items": 49
     },
     {
       "query": "\"OP81\" when:3d",
@@ -136,25 +150,25 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 20
+      "items": 17
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22interview%22+when%3A3d",
       "ok": true,
-      "items": 1
+      "items": 2
     },
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 56,
-      "kept": 35,
+      "checked": 58,
+      "kept": 36,
       "results": {
         "outside_window": 2,
         "publisher_date_missing": 14,
-        "publisher_unavailable": 5,
-        "verified": 35
+        "publisher_unavailable": 6,
+        "verified": 36
       }
     }
   ]
