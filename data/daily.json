@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-10T19:51:05.069931Z",
+  "generated_at": "2026-07-10T19:56:58.403258Z",
   "window_days": 3,
-  "total_items": 35,
+  "total_items": 33,
   "latest_date": "2026-07-10",
   "days": [
     {
@@ -76,22 +76,6 @@
         "rumor": 1,
         "team": 7
       }
-    },
-    {
-      "date": "2026-07-07",
-      "total_new_items": 2,
-      "official_new_items": 0,
-      "media_new_items": 2,
-      "x_new_items": 0,
-      "rumor_new_items": 0,
-      "sources": {
-        "Formula1News.co.uk": 1,
-        "total-motorsport.com": 1
-      },
-      "categories": {
-        "contract": 1,
-        "team": 1
-      }
     }
   ],
   "feed_status": [
@@ -121,14 +105,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 51
+      "items": 48
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 43
+      "items": 40
     },
     {
       "query": "\"OP81\" when:3d",
@@ -142,7 +126,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 9
+      "items": 8
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
@@ -161,13 +145,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 52,
-      "kept": 35,
+      "checked": 49,
+      "kept": 33,
       "results": {
-        "outside_window": 1,
-        "publisher_date_missing": 9,
-        "publisher_unavailable": 7,
-        "verified": 35
+        "outside_window": 2,
+        "publisher_date_missing": 8,
+        "publisher_unavailable": 6,
+        "verified": 33
       }
     }
   ]
