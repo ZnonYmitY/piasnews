@@ -1,23 +1,26 @@
 {
-  "generated_at": "2026-07-11T10:22:07.278115Z",
+  "generated_at": "2026-07-11T13:26:18.431163Z",
   "window_days": 3,
-  "total_items": 40,
+  "total_items": 42,
   "latest_date": "2026-07-11",
   "days": [
     {
       "date": "2026-07-11",
-      "total_new_items": 8,
+      "total_new_items": 11,
       "official_new_items": 0,
-      "media_new_items": 8,
+      "media_new_items": 11,
       "x_new_items": 0,
       "rumor_new_items": 2,
       "sources": {
         "ABC News & Headlines – Australian Broadcasting Corporation": 1,
+        "BurgasMedia": 1,
         "F1 Oversteer": 1,
         "F1i.com": 1,
+        "Motorsport Week": 1,
         "SMH.com.au": 1,
-        "The Mirror": 1,
         "grandprix247": 1,
+        "mirror.co.uk": 1,
+        "motors-addict": 1,
         "roundtable.io": 1,
         "streamlinefeed.co.ke": 1
       },
@@ -25,14 +28,14 @@
         "interview": 1,
         "other": 2,
         "rumor": 2,
-        "team": 3
+        "team": 6
       }
     },
     {
       "date": "2026-07-10",
-      "total_new_items": 20,
+      "total_new_items": 21,
       "official_new_items": 2,
-      "media_new_items": 18,
+      "media_new_items": 19,
       "x_new_items": 0,
       "rumor_new_items": 2,
       "sources": {
@@ -43,7 +46,7 @@
         "F1ingenerale": 1,
         "Formula 1": 1,
         "Fox Sports": 1,
-        "GPblog": 1,
+        "GPblog": 2,
         "McLaren": 1,
         "Newcastle Herald": 1,
         "PlanetF1": 1,
@@ -58,7 +61,7 @@
         "interview": 3,
         "other": 2,
         "rumor": 2,
-        "team": 13
+        "team": 14
       }
     },
     {
@@ -86,21 +89,18 @@
     },
     {
       "date": "2026-07-08",
-      "total_new_items": 4,
+      "total_new_items": 2,
       "official_new_items": 0,
-      "media_new_items": 4,
+      "media_new_items": 2,
       "x_new_items": 0,
       "rumor_new_items": 1,
       "sources": {
         "Auto Action": 1,
-        "GPblog": 1,
-        "TheJudge13": 1,
         "racingnews365.com": 1
       },
       "categories": {
-        "other": 2,
-        "rumor": 1,
-        "team": 1
+        "other": 1,
+        "rumor": 1
       }
     }
   ],
@@ -117,7 +117,7 @@
       "source_group": "official_direct",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=site%3Aformula1.com%2Fen%2Flatest+%22Piastri%22+when%3A3d",
       "ok": true,
-      "items": 3
+      "items": 2
     },
     {
       "query": "site:oscarpiastri.com \"Piastri\" when:3d",
@@ -131,14 +131,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 57
+      "items": 58
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 45
+      "items": 46
     },
     {
       "query": "\"OP81\" when:3d",
@@ -152,14 +152,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 7
+      "items": 9
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 16
+      "items": 14
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -171,13 +171,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 57,
-      "kept": 40,
+      "checked": 60,
+      "kept": 42,
       "results": {
         "outside_window": 3,
         "publisher_date_missing": 8,
-        "publisher_unavailable": 5,
-        "verified": 41
+        "publisher_unavailable": 6,
+        "verified": 43
       }
     }
   ]
