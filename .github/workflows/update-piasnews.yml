@@ -41,6 +41,11 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Snapshot current public data
+        run: |
+          mkdir -p "$RUNNER_TEMP/piasnews-before-data"
+          cp data/items.json data/daily.json data/social.json data/calendar.json data/immersive_translations.zh.json data/history-candidates.json "$RUNNER_TEMP/piasnews-before-data/" 2>/dev/null || true
+
       - name: Fetch latest Piasnews data
         if: ${{ inputs.apply_only != true }}
         run: python scripts/fetch_piasnews.py --days 3 --output-dir data
@@ -95,6 +100,11 @@ jobs:
       - name: Validate history knowledge base
         run: python scripts/validate_history.py
 
+      - name: Build Feishu refresh notification summary
+        env:
+          PIASNEWS_PAGE_URL: https://znonymity.github.io/piasnews/
+        run: python scripts/notify_feishu_refresh.py --build-summary --before-dir "$RUNNER_TEMP/piasnews-before-data" --data-dir data --summary-json "$RUNNER_TEMP/piasnews-refresh-summary.json"
+
       - name: Commit data changes
         run: |
           git config user.name "github-actions[bot]"
@@ -142,3 +152,9 @@ jobs:
           FEISHU_BASE_URL: ${{ vars.FEISHU_BASE_URL }}
           PIASNEWS_PAGE_URL: https://znonymity.github.io/piasnews/
         run: python scripts/notify_feishu_badcases.py --latest-csv data/translation_candidates_latest.csv
+
+      - name: Notify Feishu public refresh
+        env:
+          PIASNEWS_FEISHU_WEBHOOK_URL: ${{ secrets.PIASNEWS_FEISHU_WEBHOOK_URL }}
+          PIASNEWS_PAGE_URL: https://znonymity.github.io/piasnews/
+        run: python scripts/notify_feishu_refresh.py --summary-json "$RUNNER_TEMP/piasnews-refresh-summary.json"

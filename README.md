@@ -110,6 +110,7 @@ Summarize the latest Oscar Piastri news in English.
 - 页面接入 F1 赛历，展示下一场大奖赛、比赛周时间、每秒更新的下一赛段倒计时；练习赛、冲刺排位、冲刺赛、排位赛或正赛进行中时自动切为正计时，结束后切到下一赛段。页面提供下一场正赛、比赛周末和全年赛历的 iCalendar 导入链接。
 - 每次数据工作流都会完整遍历中文翻译，自动审查疑似 badcase，写入 `data/translation_candidates.csv`，并上传本轮新增候选 Excel artifact；候选必须有建议中文，否则不进入 review-needed 队列。
 - 如果仓库配置了 `FEISHU_WEBHOOK_URL` secret，工作流会在发现本轮新增翻译 badcase 后向飞书发送通知，包含新增数量、预览、飞书审核表链接和最新 Excel 链接。Codex 当前对话不作为 GitHub Actions 的稳定入站通知目标。
+- 如果另一个飞书账号的群配置了独立自定义机器人，并把 webhook URL 写入 GitHub Actions secret `PIASNEWS_FEISHU_WEBHOOK_URL`，工作流会在新闻数据、粉丝源或其他公开网页数据发生实际内容变化且 Pages 部署成功后，向该群推送刷新通知。这个机器人不复用翻译审核通知的 `FEISHU_WEBHOOK_URL`。
 - 每次 GitHub Actions 完成信息抓取后，会在同一工作流中重新部署网页和 JSON/RSS，因此页面与公开数据同步更新。
 - 日报由浏览器中的确定性模板生成，不调用大模型，不消耗项目方或访问者的模型 token。
 
@@ -599,6 +600,7 @@ The current knowledge base uses structured-facet retrieval. `piasnews/references
 - The page reads the F1 calendar and shows the next Grand Prix, race-week timing, and a live countdown to the next session. During practice, sprint qualifying, sprint, qualifying, or the race, the timer switches to elapsed time, then moves to the next session after the expected session duration. The page exposes iCalendar links for adding the next race, the next race weekend, or the full season to any iCalendar-compatible calendar app.
 - Each data workflow fully audits Chinese translations, appends suspected review-needed badcases with concrete suggested Chinese text to `data/translation_candidates.csv`, and uploads the current run's new candidates as an Excel artifact.
 - If the repository has a `FEISHU_WEBHOOK_URL` secret, the workflow sends a Feishu notification when the current run finds new translation badcases, including the count, preview, Feishu review table link, and latest Excel link. The active Codex conversation is not treated as a stable inbound target for GitHub Actions.
+- If another Feishu account creates a separate custom bot in the target group and its webhook URL is stored as the GitHub Actions secret `PIASNEWS_FEISHU_WEBHOOK_URL`, the workflow sends a refresh notification after meaningful public data changes are deployed to Pages. This public-refresh bot is separate from the translation-review `FEISHU_WEBHOOK_URL`.
 - Each successful GitHub Actions collection redeploys the page and JSON/RSS in the same workflow, keeping them synchronized.
 - Browser-side deterministic templates generate the views without an LLM or model-token usage.
 
@@ -865,6 +867,8 @@ launchctl print gui/$(id -u)/com.znonymity.piasnews.immersive
 ```
 
 To enable Feishu notifications for new translation badcase Excel exports, create a Feishu incoming webhook in the target group and add it as the GitHub Actions secret `FEISHU_WEBHOOK_URL`. The notification sends a link to the latest published Excel file; uploading the file itself requires a Feishu app with file-upload permission.
+
+To enable the separate public-refresh group notification, use the other Feishu account to create a custom bot in that group and add its webhook URL as the GitHub Actions secret `PIASNEWS_FEISHU_WEBHOOK_URL`. This bot is intentionally separate from `FEISHU_WEBHOOK_URL`: it sends only post-deploy website refresh messages for meaningful changes in public data such as news, fan-source updates, calendar data, translation mappings, or history candidates.
 
 Update locally:
 
