@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-13T10:10:32.040951Z",
+  "generated_at": "2026-07-13T12:39:31.577199Z",
   "window_days": 3,
-  "total_items": 36,
+  "total_items": 35,
   "latest_date": "2026-07-13",
   "days": [
     {
@@ -22,9 +22,9 @@
     },
     {
       "date": "2026-07-11",
-      "total_new_items": 13,
+      "total_new_items": 14,
       "official_new_items": 0,
-      "media_new_items": 13,
+      "media_new_items": 14,
       "x_new_items": 0,
       "rumor_new_items": 3,
       "sources": {
@@ -39,11 +39,12 @@
         "The Mirror": 1,
         "The Sunday Guardian": 1,
         "Yahoo Sports": 1,
+        "beIN SPORTS": 1,
         "grandprix247": 1,
         "streamlinefeed.co.ke": 1
       },
       "categories": {
-        "interview": 1,
+        "interview": 2,
         "other": 2,
         "race": 1,
         "rumor": 3,
@@ -52,23 +53,23 @@
     },
     {
       "date": "2026-07-10",
-      "total_new_items": 20,
+      "total_new_items": 18,
       "official_new_items": 2,
-      "media_new_items": 18,
+      "media_new_items": 16,
       "x_new_items": 0,
-      "rumor_new_items": 1,
+      "rumor_new_items": 0,
       "sources": {
         "7NEWS": 1,
-        "BVM Sports": 2,
+        "BVM Sports": 1,
         "CNA": 1,
         "Crash.net": 1,
         "Daily Express": 1,
-        "F1 Oversteer": 3,
+        "F1 Oversteer": 2,
         "F1ingenerale": 1,
         "Formula 1": 1,
         "Fox Sports": 1,
         "GPblog": 1,
-        "McLaren": 1,
+        "McLaren.com": 1,
         "Newcastle Herald": 1,
         "PlanetF1": 1,
         "Yahoo Sports": 1,
@@ -79,8 +80,7 @@
       "categories": {
         "interview": 3,
         "other": 3,
-        "rumor": 1,
-        "team": 13
+        "team": 12
       }
     }
   ],
@@ -97,7 +97,7 @@
       "source_group": "official_direct",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=site%3Aformula1.com%2Fen%2Flatest+%22Piastri%22+when%3A3d",
       "ok": true,
-      "items": 1
+      "items": 2
     },
     {
       "query": "site:oscarpiastri.com \"Piastri\" when:3d",
@@ -111,14 +111,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 75
+      "items": 76
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 65
+      "items": 67
     },
     {
       "query": "\"OP81\" when:3d",
@@ -151,13 +151,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 71,
-      "kept": 36,
+      "checked": 73,
+      "kept": 35,
       "results": {
-        "outside_window": 1,
-        "publisher_date_missing": 26,
-        "publisher_unavailable": 6,
-        "verified": 38
+        "outside_window": 2,
+        "publisher_date_missing": 30,
+        "publisher_unavailable": 4,
+        "verified": 37
       }
     }
   ]
