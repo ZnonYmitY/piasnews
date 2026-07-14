@@ -1,25 +1,23 @@
 {
-  "generated_at": "2026-07-14T14:21:19.554372Z",
+  "generated_at": "2026-07-14T14:34:38.064801Z",
   "window_days": 3,
-  "total_items": 10,
+  "total_items": 8,
   "latest_date": "2026-07-14",
   "days": [
     {
       "date": "2026-07-14",
-      "total_new_items": 5,
+      "total_new_items": 4,
       "official_new_items": 0,
-      "media_new_items": 5,
+      "media_new_items": 4,
       "x_new_items": 0,
-      "rumor_new_items": 1,
+      "rumor_new_items": 0,
       "sources": {
         "F1 Oversteer": 1,
         "F1i.com": 1,
-        "MotorBiscuit": 1,
         "Motorsport Week": 1,
         "racingnews365.com": 1
       },
       "categories": {
-        "rumor": 1,
         "team": 4
       }
     },
@@ -42,17 +40,16 @@
     },
     {
       "date": "2026-07-11",
-      "total_new_items": 2,
+      "total_new_items": 1,
       "official_new_items": 0,
-      "media_new_items": 2,
+      "media_new_items": 1,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
-        "Read Motorsport": 1,
-        "autohebdof1.com": 1
+        "Read Motorsport": 1
       },
       "categories": {
-        "team": 2
+        "team": 1
       }
     }
   ],
@@ -83,14 +80,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 35
+      "items": 36
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 26
+      "items": 27
     },
     {
       "query": "\"OP81\" when:3d",
@@ -124,12 +121,12 @@
       "stage": "publisher_date_verification",
       "ok": true,
       "checked": 36,
-      "kept": 10,
+      "kept": 8,
       "results": {
-        "outside_window": 3,
+        "outside_window": 4,
         "publisher_date_missing": 21,
-        "publisher_unavailable": 2,
-        "verified": 10
+        "publisher_unavailable": 3,
+        "verified": 8
       }
     }
   ]
