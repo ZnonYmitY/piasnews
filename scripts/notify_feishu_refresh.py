@@ -122,12 +122,16 @@ def compare_collection(before_payload: Any, current_payload: Any) -> dict[str, A
     before_items = item_map(before_payload)
     current_items = item_map(current_payload)
     new_keys = sorted(set(current_items) - set(before_items))
+    removed_keys = sorted(set(before_items) - set(current_items))
     changed_keys = sorted(key for key in set(current_items) & set(before_items) if current_items[key] != before_items[key])
     return {
         "current_count": len(current_items),
+        "previous_count": len(before_items),
         "new_count": len(new_keys),
+        "removed_count": len(removed_keys),
         "changed_count": len(changed_keys),
-        "changed": bool(new_keys or changed_keys),
+        "count_delta": len(current_items) - len(before_items),
+        "changed": bool(new_keys or removed_keys or changed_keys),
         "latest": latest_item(current_payload),
     }
 
@@ -162,6 +166,8 @@ def build_summary(before_dir: Path, data_dir: Path, *, page_url: str, repo: str,
     for section, (filename, label) in TRACKED_FILES.items():
         if section in {"news", "social"}:
             changed = sections[section]["changed"]
+        elif section == "daily" and sections["news"]["changed"]:
+            changed = False
         else:
             changed = compare_json_file(before_dir, data_dir, filename)
         if changed:
@@ -197,6 +203,22 @@ def format_latest(item: dict[str, str]) -> str:
     return f"{item.get('title') or '未命名'}{source}{when}"
 
 
+def format_count_delta(delta: int) -> str:
+    if delta > 0:
+        return f"+{delta}"
+    return str(delta)
+
+
+def format_collection_line(label: str, section: dict[str, Any]) -> str:
+    return (
+        f"{label}：新增 {section.get('new_count', 0)} 条，"
+        f"移出 {section.get('removed_count', 0)} 条，"
+        f"内容变更 {section.get('changed_count', 0)} 条，"
+        f"当前保留 {section.get('current_count', 0)} 条"
+        f"（近3天，较上次 {format_count_delta(int(section.get('count_delta', 0)))}）"
+    )
+
+
 def build_text(summary: dict[str, Any]) -> str:
     sections = summary.get("sections") or {}
     news = sections.get("news") or {}
@@ -214,9 +236,9 @@ def build_text(summary: dict[str, Any]) -> str:
     return (
         "Piasnews 网页信息刷新\n"
         f"已更新模块：{changed_text}\n\n"
-        f"新闻数据：新增 {news.get('new_count', 0)} 条，内容变更 {news.get('changed_count', 0)} 条，当前 {news.get('current_count', 0)} 条\n"
+        f"{format_collection_line('新闻数据', news)}\n"
         f"最新新闻：{format_latest(news.get('latest') or {})}\n\n"
-        f"粉丝源：新增 {social.get('new_count', 0)} 条，内容变更 {social.get('changed_count', 0)} 条，当前 {social.get('current_count', 0)} 条\n"
+        f"{format_collection_line('粉丝源', social)}\n"
         f"最新粉丝源：{format_latest(social.get('latest') or {})}\n\n"
         f"{links_text}"
     )
