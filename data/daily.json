@@ -1,23 +1,25 @@
 {
-  "generated_at": "2026-07-14T14:34:38.064801Z",
+  "generated_at": "2026-07-14T17:44:16.539304Z",
   "window_days": 3,
-  "total_items": 8,
+  "total_items": 9,
   "latest_date": "2026-07-14",
   "days": [
     {
       "date": "2026-07-14",
-      "total_new_items": 4,
+      "total_new_items": 5,
       "official_new_items": 0,
-      "media_new_items": 4,
+      "media_new_items": 5,
       "x_new_items": 0,
-      "rumor_new_items": 0,
+      "rumor_new_items": 1,
       "sources": {
         "F1 Oversteer": 1,
         "F1i.com": 1,
+        "MotorBiscuit": 1,
         "Motorsport Week": 1,
         "racingnews365.com": 1
       },
       "categories": {
+        "rumor": 1,
         "team": 4
       }
     },
@@ -80,14 +82,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 36
+      "items": 25
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 27
+      "items": 19
     },
     {
       "query": "\"OP81\" when:3d",
@@ -108,7 +110,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 7
+      "items": 5
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -120,13 +122,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 36,
-      "kept": 8,
+      "checked": 26,
+      "kept": 9,
       "results": {
-        "outside_window": 4,
-        "publisher_date_missing": 21,
-        "publisher_unavailable": 3,
-        "verified": 8
+        "outside_window": 3,
+        "publisher_date_missing": 12,
+        "publisher_unavailable": 2,
+        "verified": 9
       }
     }
   ]
