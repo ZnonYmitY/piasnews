@@ -1,9 +1,23 @@
 {
-  "generated_at": "2026-07-16T02:08:20.877358Z",
+  "generated_at": "2026-07-16T03:35:52.958650Z",
   "window_days": 3,
-  "total_items": 11,
-  "latest_date": "2026-07-15",
+  "total_items": 12,
+  "latest_date": "2026-07-16",
   "days": [
+    {
+      "date": "2026-07-16",
+      "total_new_items": 1,
+      "official_new_items": 0,
+      "media_new_items": 1,
+      "x_new_items": 0,
+      "rumor_new_items": 0,
+      "sources": {
+        "Fox Sports": 1
+      },
+      "categories": {
+        "team": 1
+      }
+    },
     {
       "date": "2026-07-15",
       "total_new_items": 3,
@@ -92,7 +106,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 15
+      "items": 16
     },
     {
       "query": "\"OP81\" when:3d",
@@ -106,14 +120,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 6
+      "items": 7
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 4
+      "items": 5
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -126,11 +140,11 @@
       "stage": "publisher_date_verification",
       "ok": true,
       "checked": 19,
-      "kept": 11,
+      "kept": 12,
       "results": {
-        "outside_window": 2,
+        "outside_window": 1,
         "publisher_date_missing": 6,
-        "verified": 11
+        "verified": 12
       }
     }
   ]
