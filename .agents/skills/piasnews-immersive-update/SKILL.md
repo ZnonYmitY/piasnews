@@ -30,11 +30,58 @@ The online workflow then runs Argos fallback, applies only `engine=immersive_tra
 - macOS must allow the running shell/Codex process to control Chrome and System Events.
 - Immersive Translate's page translation action must be bound to `Option+A`.
 - Do not use Codex's browser-control surfaces for this domain if they were previously blocked. Use the repo script and Apple Events path.
+- Do not open or leave behind Codex Browser, Playwright MCP, OpenCLI Browser, or other temporary Chrome-control windows before this workflow. They can create a visible Chrome UI window while `tell application "Google Chrome"` reports `windows=0`, which prevents the script from targeting the real workbench tabs.
 - Do not run `git add .`; the publish script stages only `data/immersive_translations.zh.json`.
+
+## Chrome Control Preflight
+
+Before the standard full update, verify that the Chrome window visible to the user is also visible to Chrome AppleScript. This prevents the known failure where the page and Immersive Translate floating ball are visible, but the repo script sees no controllable Chrome window and therefore sends `Option+A` to no useful target.
+
+Run from the repo root:
+
+```bash
+osascript -e 'tell application id "com.google.Chrome" to return "chrome windows=" & (count windows)'
+osascript -e 'tell application "System Events"' \
+  -e 'tell process "Google Chrome"' \
+  -e 'set out to "ui windows=" & (count windows) & linefeed' \
+  -e 'repeat with w in windows' \
+  -e 'set out to out & (name of w) & linefeed' \
+  -e 'end repeat' \
+  -e 'return out' \
+  -e 'end tell' \
+  -e 'end tell'
+osascript -e 'tell application id "com.google.Chrome"' \
+  -e 'activate' \
+  -e 'if (count windows) = 0 then make new window' \
+  -e 'set URL of active tab of front window to "https://example.com"' \
+  -e 'delay 2' \
+  -e 'tell active tab of front window to return execute javascript "document.title"' \
+  -e 'end tell'
+```
+
+Healthy signs:
+
+- `chrome windows` is at least `1`.
+- The System Events window list does not include `OpenCLI Browser`, `Playwright`, `about:blank - belongs to OpenCLI Browser`, or other temporary browser-control windows.
+- The JavaScript smoke test returns `Example Domain`.
+
+If System Events shows a visible Chrome window but Chrome AppleScript reports `chrome windows=0`, close temporary automation windows first. Prefer using the owning tool when known, for example closing the Playwright MCP tab. If needed, close the stray UI window directly:
+
+```bash
+osascript -e 'tell application "System Events"' \
+  -e 'tell process "Google Chrome"' \
+  -e 'repeat with w in windows' \
+  -e 'if (name of w contains "OpenCLI Browser") then click button 1 of w' \
+  -e 'end repeat' \
+  -e 'end tell' \
+  -e 'end tell'
+```
+
+Then rerun the preflight. Do not start the full update until Chrome AppleScript and the visible UI agree on at least one normal Chrome window.
 
 ## Standard Full Update
 
-Run from the repo root:
+Run from the repo root after the Chrome control preflight passes:
 
 ```bash
 git status -sb
@@ -54,6 +101,29 @@ Expected behavior:
 - It sends `Option+A`, scrolls each page, and polls `Immersive workbench translated X/Y`.
 - It may exit `2` if the published Pages workbench still contains stale URL-only targets from an older artifact. After the next apply-only deploy, URL-only targets should be filtered out by `scripts/build_immersive_workbench.mjs`.
 - With `PIASNEWS_IMMERSIVE_PUBLISH=1`, it commits and pushes mapping changes, then dispatches `update-piasnews.yml` with `apply_only=true`.
+
+If the poll stays at `Immersive workbench translated 0/N`, do not blindly rerun. Diagnose in this order:
+
+1. Check Chrome AppleScript visibility:
+   ```bash
+   osascript -e 'tell application id "com.google.Chrome" to return "chrome windows=" & (count windows)'
+   ```
+   If this is `0` while the UI visibly has Chrome windows, close stray `OpenCLI Browser` / Playwright automation windows and rerun the preflight.
+2. Check that the workbench tabs are visible to AppleScript:
+   ```bash
+   osascript -e 'tell application id "com.google.Chrome"' \
+     -e 'set out to ""' \
+     -e 'repeat with w in windows' \
+     -e 'repeat with t in tabs of w' \
+     -e 'set out to out & (URL of t) & linefeed' \
+     -e 'end repeat' \
+     -e 'end repeat' \
+     -e 'return out' \
+     -e 'end tell'
+   ```
+   The output must include the three `https://znonymity.github.io/piasnews/immersive/translation-workbench-*.html` URLs.
+3. If workbench tabs exist but still show `0/N`, ask the user to confirm whether the Immersive Translate floating ball appears and the page visibly contains Chinese translations. If the page is visibly translated, use the script against the same visible Chrome state; if it is not visibly translated, send `Option+A` again only after selecting the workbench tabs.
+4. If Chrome reports `execute javascript` is disabled, the problem is DOM extraction, not `Option+A`. Re-run the JavaScript smoke test from the preflight before continuing.
 
 ## Verify
 
