@@ -1,37 +1,59 @@
 {
-  "generated_at": "2026-07-17T19:38:03.022640Z",
+  "generated_at": "2026-07-18T03:11:09.337241Z",
   "window_days": 3,
-  "total_items": 32,
-  "latest_date": "2026-07-17",
+  "total_items": 39,
+  "latest_date": "2026-07-18",
   "days": [
     {
-      "date": "2026-07-17",
-      "total_new_items": 9,
+      "date": "2026-07-18",
+      "total_new_items": 2,
       "official_new_items": 0,
-      "media_new_items": 9,
+      "media_new_items": 2,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
+        "Auto Action": 1,
+        "Fox Sports": 1
+      },
+      "categories": {
+        "other": 1,
+        "team": 1
+      }
+    },
+    {
+      "date": "2026-07-17",
+      "total_new_items": 14,
+      "official_new_items": 0,
+      "media_new_items": 14,
+      "x_new_items": 0,
+      "rumor_new_items": 1,
+      "sources": {
+        "Daily Tribune": 1,
+        "Eastern Riverina Chronicle": 1,
         "F1 Oversteer": 1,
         "F1i.com": 1,
+        "Fox Sports": 1,
+        "Paddock News 24": 1,
         "SMH.com.au": 1,
+        "SPEEDWEEK.com": 1,
         "Speedcafe.com": 2,
+        "Speedway Digest": 1,
         "The Age": 1,
-        "The Canberra Times": 1,
         "TheJudge13": 1,
         "Yahoo News Australia": 1
       },
       "categories": {
         "other": 2,
-        "race": 4,
-        "team": 3
+        "race": 6,
+        "rumor": 1,
+        "team": 5
       }
     },
     {
       "date": "2026-07-16",
-      "total_new_items": 20,
+      "total_new_items": 21,
       "official_new_items": 0,
-      "media_new_items": 20,
+      "media_new_items": 21,
       "x_new_items": 0,
       "rumor_new_items": 2,
       "sources": {
@@ -44,6 +66,7 @@
         "GPblog": 1,
         "LiveonScore.com": 1,
         "Motorsport Week": 1,
+        "Paddock News 24": 1,
         "PlanetF1": 1,
         "Speedcafe.com": 1,
         "SportyTV": 1,
@@ -57,24 +80,22 @@
         "interview": 2,
         "other": 1,
         "rumor": 2,
-        "team": 15
+        "team": 16
       }
     },
     {
       "date": "2026-07-15",
-      "total_new_items": 3,
+      "total_new_items": 2,
       "official_new_items": 0,
-      "media_new_items": 3,
+      "media_new_items": 2,
       "x_new_items": 0,
       "rumor_new_items": 1,
       "sources": {
-        "F1 Oversteer": 2,
-        "f1i.autojournal.fr": 1
+        "F1 Oversteer": 2
       },
       "categories": {
         "interview": 1,
-        "rumor": 1,
-        "team": 1
+        "rumor": 1
       }
     }
   ],
@@ -105,14 +126,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 52
+      "items": 58
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 37
+      "items": 42
     },
     {
       "query": "\"OP81\" when:3d",
@@ -126,14 +147,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 6
+      "items": 9
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 15
+      "items": 13
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -145,13 +166,12 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 48,
-      "kept": 32,
+      "checked": 53,
+      "kept": 39,
       "results": {
-        "outside_window": 1,
-        "publisher_date_missing": 7,
+        "publisher_date_missing": 6,
         "publisher_unavailable": 8,
-        "verified": 32
+        "verified": 39
       }
     }
   ]
