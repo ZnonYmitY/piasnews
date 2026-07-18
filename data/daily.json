@@ -1,30 +1,31 @@
 {
-  "generated_at": "2026-07-18T03:11:09.337241Z",
+  "generated_at": "2026-07-18T03:30:32.381998Z",
   "window_days": 3,
-  "total_items": 39,
+  "total_items": 38,
   "latest_date": "2026-07-18",
   "days": [
     {
       "date": "2026-07-18",
-      "total_new_items": 2,
+      "total_new_items": 3,
       "official_new_items": 0,
-      "media_new_items": 2,
+      "media_new_items": 3,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "Auto Action": 1,
-        "Fox Sports": 1
+        "Fox Sports": 1,
+        "Nine.com.au": 1
       },
       "categories": {
         "other": 1,
-        "team": 1
+        "team": 2
       }
     },
     {
       "date": "2026-07-17",
-      "total_new_items": 14,
+      "total_new_items": 13,
       "official_new_items": 0,
-      "media_new_items": 14,
+      "media_new_items": 13,
       "x_new_items": 0,
       "rumor_new_items": 1,
       "sources": {
@@ -33,7 +34,6 @@
         "F1 Oversteer": 1,
         "F1i.com": 1,
         "Fox Sports": 1,
-        "Paddock News 24": 1,
         "SMH.com.au": 1,
         "SPEEDWEEK.com": 1,
         "Speedcafe.com": 2,
@@ -44,16 +44,16 @@
       },
       "categories": {
         "other": 2,
-        "race": 6,
+        "race": 5,
         "rumor": 1,
         "team": 5
       }
     },
     {
       "date": "2026-07-16",
-      "total_new_items": 21,
+      "total_new_items": 20,
       "official_new_items": 0,
-      "media_new_items": 21,
+      "media_new_items": 20,
       "x_new_items": 0,
       "rumor_new_items": 2,
       "sources": {
@@ -66,7 +66,6 @@
         "GPblog": 1,
         "LiveonScore.com": 1,
         "Motorsport Week": 1,
-        "Paddock News 24": 1,
         "PlanetF1": 1,
         "Speedcafe.com": 1,
         "SportyTV": 1,
@@ -80,7 +79,7 @@
         "interview": 2,
         "other": 1,
         "rumor": 2,
-        "team": 16
+        "team": 15
       }
     },
     {
@@ -126,7 +125,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 58
+      "items": 60
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
@@ -166,12 +165,12 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 53,
-      "kept": 39,
+      "checked": 54,
+      "kept": 38,
       "results": {
         "publisher_date_missing": 6,
-        "publisher_unavailable": 8,
-        "verified": 39
+        "publisher_unavailable": 10,
+        "verified": 38
       }
     }
   ]
