@@ -1,39 +1,42 @@
 {
-  "generated_at": "2026-07-20T09:39:57.007565Z",
+  "generated_at": "2026-07-20T11:45:33.645586Z",
   "window_days": 3,
-  "total_items": 43,
+  "total_items": 46,
   "latest_date": "2026-07-20",
   "days": [
     {
       "date": "2026-07-20",
-      "total_new_items": 5,
+      "total_new_items": 9,
       "official_new_items": 0,
-      "media_new_items": 5,
+      "media_new_items": 9,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "7NEWS": 1,
-        "Auto Action": 1,
+        "Auto Action": 2,
+        "Crash.net": 1,
         "Fox Sports": 1,
+        "GPToday.net": 1,
         "grandprix247": 1,
+        "las-motorsport.com": 1,
         "racingnews365.com": 1
       },
       "categories": {
-        "other": 2,
-        "race": 1,
-        "team": 2
+        "other": 3,
+        "race": 2,
+        "team": 4
       }
     },
     {
       "date": "2026-07-19",
-      "total_new_items": 18,
+      "total_new_items": 19,
       "official_new_items": 0,
-      "media_new_items": 18,
+      "media_new_items": 19,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "ABC News & Headlines – Australian Broadcasting Corporation": 1,
-        "FormulaRapida.net": 2,
+        "FormulaRapida.net": 3,
         "Fox Sports": 3,
         "GPblog": 2,
         "Nine.com.au": 2,
@@ -47,15 +50,15 @@
       },
       "categories": {
         "other": 4,
-        "race": 8,
+        "race": 9,
         "team": 6
       }
     },
     {
       "date": "2026-07-18",
-      "total_new_items": 15,
+      "total_new_items": 14,
       "official_new_items": 0,
-      "media_new_items": 15,
+      "media_new_items": 14,
       "x_new_items": 0,
       "rumor_new_items": 1,
       "sources": {
@@ -64,7 +67,6 @@
         "F1 Oversteer": 1,
         "Fox Sports": 1,
         "Nine.com.au": 1,
-        "Paddock News 24": 1,
         "SMH.com.au": 1,
         "SPEEDWEEK.com": 1,
         "Speedcafe.com": 1,
@@ -73,27 +75,26 @@
       },
       "categories": {
         "other": 2,
-        "race": 10,
+        "race": 9,
         "rumor": 1,
         "team": 2
       }
     },
     {
       "date": "2026-07-17",
-      "total_new_items": 5,
+      "total_new_items": 4,
       "official_new_items": 0,
-      "media_new_items": 5,
+      "media_new_items": 4,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "Daily Tribune": 1,
-        "Paddock News 24": 1,
         "Speedcafe.com": 1,
         "Speedway Digest": 1,
         "TheJudge13": 1
       },
       "categories": {
-        "race": 2,
+        "race": 1,
         "team": 3
       }
     }
@@ -125,7 +126,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 63
+      "items": 65
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
@@ -165,13 +166,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 76,
-      "kept": 43,
+      "checked": 81,
+      "kept": 46,
       "results": {
         "outside_window": 3,
         "publisher_date_missing": 21,
-        "publisher_unavailable": 9,
-        "verified": 43
+        "publisher_unavailable": 11,
+        "verified": 46
       }
     }
   ]
