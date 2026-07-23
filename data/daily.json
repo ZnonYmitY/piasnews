@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-23T02:09:45.501557Z",
+  "generated_at": "2026-07-23T03:44:07.020756Z",
   "window_days": 3,
-  "total_items": 40,
+  "total_items": 41,
   "latest_date": "2026-07-22",
   "days": [
     {
@@ -55,20 +55,21 @@
     },
     {
       "date": "2026-07-20",
-      "total_new_items": 19,
+      "total_new_items": 20,
       "official_new_items": 0,
-      "media_new_items": 19,
+      "media_new_items": 20,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
-        "7NEWS": 1,
         "Crash.net": 1,
         "F1i.com": 1,
+        "F1ingenerale": 2,
         "FormulaRapida.net": 1,
-        "Fox Sports": 2,
+        "Fox Sports": 1,
         "GPToday.net": 1,
         "GPblog": 2,
         "Motorsport Week": 1,
+        "Paddock News 24": 1,
         "PlanetF1": 1,
         "RaceFans": 1,
         "SPEEDWEEK.com": 1,
@@ -83,7 +84,7 @@
         "interview": 1,
         "other": 7,
         "race": 3,
-        "team": 8
+        "team": 9
       }
     }
   ],
@@ -100,7 +101,7 @@
       "source_group": "official_direct",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=site%3Aformula1.com%2Fen%2Flatest+%22Piastri%22+when%3A3d",
       "ok": true,
-      "items": 0
+      "items": 1
     },
     {
       "query": "site:oscarpiastri.com \"Piastri\" when:3d",
@@ -142,7 +143,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 25
+      "items": 26
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -155,12 +156,12 @@
       "stage": "publisher_date_verification",
       "ok": true,
       "checked": 70,
-      "kept": 40,
+      "kept": 41,
       "results": {
-        "outside_window": 3,
-        "publisher_date_missing": 15,
-        "publisher_unavailable": 12,
-        "verified": 40
+        "outside_window": 4,
+        "publisher_date_missing": 14,
+        "publisher_unavailable": 11,
+        "verified": 41
       }
     }
   ]
