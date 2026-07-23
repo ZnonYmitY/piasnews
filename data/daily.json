@@ -1,9 +1,23 @@
 {
-  "generated_at": "2026-07-23T10:14:06.655214Z",
+  "generated_at": "2026-07-23T14:30:35.015489Z",
   "window_days": 3,
-  "total_items": 34,
-  "latest_date": "2026-07-22",
+  "total_items": 32,
+  "latest_date": "2026-07-23",
   "days": [
+    {
+      "date": "2026-07-23",
+      "total_new_items": 1,
+      "official_new_items": 0,
+      "media_new_items": 1,
+      "x_new_items": 0,
+      "rumor_new_items": 0,
+      "sources": {
+        "GB News": 1
+      },
+      "categories": {
+        "race": 1
+      }
+    },
     {
       "date": "2026-07-22",
       "total_new_items": 8,
@@ -13,11 +27,11 @@
       "rumor_new_items": 0,
       "sources": {
         "F1 Oversteer": 2,
+        "GPFans": 1,
         "Mundo Deportivo": 1,
         "Nine.com.au": 1,
         "Sky Sports": 1,
         "Yahoo Sports": 1,
-        "gpfans.com": 1,
         "news.gp": 1
       },
       "categories": {
@@ -56,28 +70,26 @@
     },
     {
       "date": "2026-07-20",
-      "total_new_items": 12,
+      "total_new_items": 9,
       "official_new_items": 0,
-      "media_new_items": 12,
+      "media_new_items": 9,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
-        "F1i.com": 1,
+        "F1ingenerale": 1,
         "FormulaRapida.net": 1,
-        "Fox Sports": 1,
-        "GPblog": 2,
+        "GPblog": 1,
         "Motorsport Week": 1,
+        "Paddock News 24": 1,
         "PlanetF1": 1,
         "RaceFans": 1,
         "SPEEDWEEK.com": 1,
-        "SPORTbible": 1,
-        "The Race": 1,
         "Yahoo Sports": 1
       },
       "categories": {
         "interview": 1,
-        "other": 5,
-        "race": 2,
+        "other": 3,
+        "race": 1,
         "team": 4
       }
     }
@@ -95,7 +107,7 @@
       "source_group": "official_direct",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=site%3Aformula1.com%2Fen%2Flatest+%22Piastri%22+when%3A3d",
       "ok": true,
-      "items": 1
+      "items": 0
     },
     {
       "query": "site:oscarpiastri.com \"Piastri\" when:3d",
@@ -109,14 +121,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 64
+      "items": 52
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 36
+      "items": 29
     },
     {
       "query": "\"OP81\" when:3d",
@@ -130,14 +142,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 19
+      "items": 18
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 20
+      "items": 16
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -149,13 +161,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 60,
-      "kept": 34,
+      "checked": 51,
+      "kept": 32,
       "results": {
-        "outside_window": 4,
-        "publisher_date_missing": 10,
-        "publisher_unavailable": 12,
-        "verified": 34
+        "outside_window": 1,
+        "publisher_date_missing": 13,
+        "publisher_unavailable": 5,
+        "verified": 32
       }
     }
   ]
