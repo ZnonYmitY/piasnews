@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-23T19:45:16.017771Z",
+  "generated_at": "2026-07-23T19:53:18.625361Z",
   "window_days": 3,
-  "total_items": 31,
+  "total_items": 33,
   "latest_date": "2026-07-23",
   "days": [
     {
@@ -12,7 +12,6 @@
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
-        "Crash.net": 1,
         "F1ingenerale": 1,
         "GB News": 1,
         "PlanetF1": 1,
@@ -20,7 +19,7 @@
         "Scuderia Ferrari Fans": 1,
         "TSN": 1,
         "grandepremio.com": 1,
-        "motors-addict": 1
+        "motors-addict": 2
       },
       "categories": {
         "other": 2,
@@ -37,11 +36,11 @@
       "rumor_new_items": 0,
       "sources": {
         "F1 Oversteer": 2,
-        "GPFans": 1,
         "Mundo Deportivo": 1,
         "Nine.com.au": 1,
         "Sky Sports": 1,
         "Yahoo Sports": 1,
+        "gpfans.com": 1,
         "news.gp": 1
       },
       "categories": {
@@ -80,16 +79,20 @@
     },
     {
       "date": "2026-07-20",
-      "total_new_items": 1,
+      "total_new_items": 3,
       "official_new_items": 0,
-      "media_new_items": 1,
+      "media_new_items": 3,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
+        "F1ingenerale": 1,
+        "Paddock News 24": 1,
         "RaceFans": 1
       },
       "categories": {
-        "interview": 1
+        "interview": 1,
+        "other": 1,
+        "team": 1
       }
     }
   ],
@@ -120,7 +123,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 52
+      "items": 53
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
@@ -161,12 +164,12 @@
       "stage": "publisher_date_verification",
       "ok": true,
       "checked": 49,
-      "kept": 31,
+      "kept": 33,
       "results": {
         "outside_window": 1,
         "publisher_date_missing": 9,
-        "publisher_unavailable": 8,
-        "verified": 31
+        "publisher_unavailable": 6,
+        "verified": 33
       }
     }
   ]
