@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-24T03:43:06.756597Z",
+  "generated_at": "2026-07-24T03:51:19.602181Z",
   "window_days": 3,
-  "total_items": 34,
+  "total_items": 35,
   "latest_date": "2026-07-24",
   "days": [
     {
@@ -48,12 +48,13 @@
     },
     {
       "date": "2026-07-22",
-      "total_new_items": 8,
+      "total_new_items": 9,
       "official_new_items": 0,
-      "media_new_items": 8,
+      "media_new_items": 9,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
+        "Azat TV": 1,
         "F1 Oversteer": 2,
         "Mundo Deportivo": 1,
         "Nine.com.au": 1,
@@ -64,7 +65,7 @@
       },
       "categories": {
         "other": 2,
-        "race": 3,
+        "race": 4,
         "team": 3
       }
     },
@@ -123,7 +124,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 52
+      "items": 51
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
@@ -164,12 +165,12 @@
       "stage": "publisher_date_verification",
       "ok": true,
       "checked": 49,
-      "kept": 34,
+      "kept": 35,
       "results": {
         "outside_window": 1,
-        "publisher_date_missing": 8,
+        "publisher_date_missing": 7,
         "publisher_unavailable": 6,
-        "verified": 34
+        "verified": 35
       }
     }
   ]
