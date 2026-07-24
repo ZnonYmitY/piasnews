@@ -1,29 +1,47 @@
 {
-  "generated_at": "2026-07-23T19:53:18.625361Z",
+  "generated_at": "2026-07-24T03:13:13.592150Z",
   "window_days": 3,
   "total_items": 33,
-  "latest_date": "2026-07-23",
+  "latest_date": "2026-07-24",
   "days": [
     {
-      "date": "2026-07-23",
-      "total_new_items": 9,
+      "date": "2026-07-24",
+      "total_new_items": 2,
       "official_new_items": 0,
-      "media_new_items": 9,
+      "media_new_items": 2,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
-        "F1ingenerale": 1,
+        "Auto Action": 1,
+        "Fox Sports": 1
+      },
+      "categories": {
+        "team": 2
+      }
+    },
+    {
+      "date": "2026-07-23",
+      "total_new_items": 10,
+      "official_new_items": 0,
+      "media_new_items": 10,
+      "x_new_items": 0,
+      "rumor_new_items": 0,
+      "sources": {
+        "Dailyhunt": 1,
         "GB News": 1,
+        "Nine.com.au": 1,
         "PlanetF1": 1,
         "SPEEDWEEK.com": 1,
         "Scuderia Ferrari Fans": 1,
+        "Speedcafe.com": 1,
         "TSN": 1,
         "grandepremio.com": 1,
-        "motors-addict": 2
+        "motors-addict": 1
       },
       "categories": {
-        "other": 2,
-        "race": 4,
+        "interview": 1,
+        "other": 3,
+        "race": 3,
         "team": 3
       }
     },
@@ -55,15 +73,14 @@
       "official_new_items": 0,
       "media_new_items": 13,
       "x_new_items": 0,
-      "rumor_new_items": 1,
+      "rumor_new_items": 2,
       "sources": {
         "Crash.net": 1,
         "F1i.com": 1,
-        "GPblog": 1,
+        "GPblog": 2,
         "LiveonScore.com": 1,
         "PlanetF1": 1,
         "Sky Sports": 1,
-        "Speedcafe.com": 1,
         "Yahoo Sports": 1,
         "autohebdof1.com": 1,
         "grandprix247": 1,
@@ -71,28 +88,10 @@
       },
       "categories": {
         "interview": 1,
-        "other": 3,
+        "other": 2,
         "race": 5,
-        "rumor": 1,
+        "rumor": 2,
         "team": 3
-      }
-    },
-    {
-      "date": "2026-07-20",
-      "total_new_items": 3,
-      "official_new_items": 0,
-      "media_new_items": 3,
-      "x_new_items": 0,
-      "rumor_new_items": 0,
-      "sources": {
-        "F1ingenerale": 1,
-        "Paddock News 24": 1,
-        "RaceFans": 1
-      },
-      "categories": {
-        "interview": 1,
-        "other": 1,
-        "team": 1
       }
     }
   ],
@@ -123,14 +122,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 53
+      "items": 52
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 28
+      "items": 27
     },
     {
       "query": "\"OP81\" when:3d",
@@ -144,21 +143,21 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 17
+      "items": 15
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 18
+      "items": 22
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22interview%22+when%3A3d",
       "ok": true,
-      "items": 0
+      "items": 1
     },
     {
       "stage": "publisher_date_verification",
@@ -167,8 +166,8 @@
       "kept": 33,
       "results": {
         "outside_window": 1,
-        "publisher_date_missing": 9,
-        "publisher_unavailable": 6,
+        "publisher_date_missing": 8,
+        "publisher_unavailable": 7,
         "verified": 33
       }
     }
