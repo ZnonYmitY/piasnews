@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-24T03:13:13.592150Z",
+  "generated_at": "2026-07-24T03:43:06.756597Z",
   "window_days": 3,
-  "total_items": 33,
+  "total_items": 34,
   "latest_date": "2026-07-24",
   "days": [
     {
@@ -21,13 +21,14 @@
     },
     {
       "date": "2026-07-23",
-      "total_new_items": 10,
+      "total_new_items": 11,
       "official_new_items": 0,
-      "media_new_items": 10,
+      "media_new_items": 11,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "Dailyhunt": 1,
+        "F1ingenerale": 1,
         "GB News": 1,
         "Nine.com.au": 1,
         "PlanetF1": 1,
@@ -41,7 +42,7 @@
       "categories": {
         "interview": 1,
         "other": 3,
-        "race": 3,
+        "race": 4,
         "team": 3
       }
     },
@@ -150,7 +151,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 22
+      "items": 21
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -163,12 +164,12 @@
       "stage": "publisher_date_verification",
       "ok": true,
       "checked": 49,
-      "kept": 33,
+      "kept": 34,
       "results": {
         "outside_window": 1,
         "publisher_date_missing": 8,
-        "publisher_unavailable": 7,
-        "verified": 33
+        "publisher_unavailable": 6,
+        "verified": 34
       }
     }
   ]
