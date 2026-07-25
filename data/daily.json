@@ -1,30 +1,40 @@
 {
-  "generated_at": "2026-07-25T14:07:29.519359Z",
+  "generated_at": "2026-07-25T16:15:03.567567Z",
   "window_days": 3,
-  "total_items": 42,
+  "total_items": 59,
   "latest_date": "2026-07-25",
   "days": [
     {
       "date": "2026-07-25",
-      "total_new_items": 2,
+      "total_new_items": 13,
       "official_new_items": 0,
-      "media_new_items": 2,
+      "media_new_items": 13,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
-        "The Canberra Times": 1,
+        "Crash.net": 1,
+        "F1 Oversteer": 1,
+        "F1i.com": 1,
+        "GPblog": 2,
+        "MotorBiscuit": 3,
+        "RaceFans": 1,
+        "Scuderia Ferrari Fans": 1,
+        "Sky Sports": 1,
+        "Stock Journal": 1,
         "roundtable.io": 1
       },
       "categories": {
-        "interview": 1,
-        "race": 1
+        "interview": 2,
+        "other": 1,
+        "race": 9,
+        "team": 1
       }
     },
     {
       "date": "2026-07-24",
-      "total_new_items": 24,
+      "total_new_items": 28,
       "official_new_items": 1,
-      "media_new_items": 23,
+      "media_new_items": 27,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
@@ -33,11 +43,14 @@
         "Boss Hunting": 1,
         "Crash.net": 2,
         "F1 Oversteer": 1,
+        "F1ingenerale": 1,
         "Formula 1": 1,
         "Fox Sports": 1,
         "GB News": 1,
         "GPblog": 2,
+        "MotorBiscuit": 1,
         "Motorsport Week": 1,
+        "Paddock News 24": 2,
         "RaceFans": 1,
         "SPEEDWEEK.com": 1,
         "Speedcafe.com": 3,
@@ -47,36 +60,38 @@
       },
       "categories": {
         "interview": 1,
-        "other": 4,
-        "race": 8,
+        "other": 5,
+        "race": 11,
         "team": 11
       }
     },
     {
       "date": "2026-07-23",
-      "total_new_items": 12,
+      "total_new_items": 14,
       "official_new_items": 0,
-      "media_new_items": 12,
+      "media_new_items": 14,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "Auto Action": 1,
-        "BVM Sports": 1,
         "Crash.net": 1,
         "Dailyhunt": 1,
+        "F1ingenerale": 1,
         "GB News": 1,
         "Nine.com.au": 1,
         "PlanetF1": 1,
         "SPEEDWEEK.com": 1,
         "Scuderia Ferrari Fans": 1,
         "Speedcafe.com": 1,
+        "TSN": 1,
         "Yahoo News UK": 1,
+        "Yahoo Sports": 1,
         "grandepremio.com": 1
       },
       "categories": {
         "interview": 1,
         "other": 3,
-        "race": 5,
+        "race": 7,
         "team": 3
       }
     },
@@ -127,14 +142,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 59
+      "items": 55
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 33
+      "items": 39
     },
     {
       "query": "\"OP81\" when:3d",
@@ -148,32 +163,32 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 14
+      "items": 18
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 29
+      "items": 32
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22interview%22+when%3A3d",
       "ok": true,
-      "items": 1
+      "items": 3
     },
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 60,
-      "kept": 42,
+      "checked": 68,
+      "kept": 59,
       "results": {
-        "outside_window": 4,
-        "publisher_date_missing": 3,
-        "publisher_unavailable": 11,
-        "verified": 42
+        "outside_window": 3,
+        "publisher_date_missing": 2,
+        "publisher_unavailable": 4,
+        "verified": 59
       }
     }
   ]
