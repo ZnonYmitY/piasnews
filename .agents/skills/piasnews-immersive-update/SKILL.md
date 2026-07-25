@@ -30,14 +30,14 @@ The online workflow then runs Argos fallback, applies only `engine=immersive_tra
 - macOS must allow the running shell/Codex process to control Chrome and System Events.
 - Immersive Translate's page translation action must be bound to `Option+A`.
 - Do not use Codex's browser-control surfaces for this domain if they were previously blocked. Use the repo script and Apple Events path.
-- Do not open or leave behind Codex Browser, Playwright MCP, OpenCLI Browser, or other temporary Chrome-control windows before this workflow. They can create a visible Chrome UI window while `tell application "Google Chrome"` reports `windows=0`, which prevents the script from targeting the real workbench tabs.
+- Do not create, open, or leave behind Codex Browser, Playwright MCP, OpenCLI Browser, or other temporary Chrome-control windows before this workflow. They can create a visible Chrome UI window while `tell application "Google Chrome"` reports `windows=0`, which prevents the script from targeting the real workbench tabs. Do not use browser-control tooling that creates an `OpenCLI Browser` window for this workflow.
 - Do not run `git add .`; the publish script stages only `data/immersive_translations.zh.json`.
 
 ## Chrome Control Preflight
 
 Before the standard full update, verify that the Chrome window visible to the user is also visible to Chrome AppleScript. This prevents the known failure where the page and Immersive Translate floating ball are visible, but the repo script sees no controllable Chrome window and therefore sends `Option+A` to no useful target.
 
-Run from the repo root:
+Run the default preflight from the repo root:
 
 ```bash
 osascript -e 'tell application id "com.google.Chrome" to return "chrome windows=" & (count windows)'
@@ -50,20 +50,22 @@ osascript -e 'tell application "System Events"' \
   -e 'return out' \
   -e 'end tell' \
   -e 'end tell'
-osascript -e 'tell application id "com.google.Chrome"' \
-  -e 'activate' \
-  -e 'if (count windows) = 0 then make new window' \
-  -e 'set URL of active tab of front window to "https://example.com"' \
-  -e 'delay 2' \
-  -e 'tell active tab of front window to return execute javascript "document.title"' \
-  -e 'end tell'
 ```
 
 Healthy signs:
 
 - `chrome windows` is at least `1`.
 - The System Events window list does not include `OpenCLI Browser`, `Playwright`, `about:blank - belongs to OpenCLI Browser`, or other temporary browser-control windows.
-- The JavaScript smoke test returns `Example Domain`.
+
+Do not navigate to `https://example.com` during normal preflight. Do not create an `OpenCLI Browser` window to perform this check.
+
+Run a JavaScript smoke test only when permissions recently changed, the workbench poll stays at `0/N`, DOM extraction fails, or Chrome Apple Events reports an error. Use the current front tab without changing its URL:
+
+```bash
+osascript -e 'tell application id "com.google.Chrome" to tell active tab of front window to return execute javascript "document.title"'
+```
+
+Healthy sign: the command returns the current page title instead of an Apple Events or JavaScript permission error.
 
 If System Events shows a visible Chrome window but Chrome AppleScript reports `chrome windows=0`, close temporary automation windows first. Prefer using the owning tool when known, for example closing the Playwright MCP tab. If needed, close the stray UI window directly:
 
@@ -123,7 +125,7 @@ If the poll stays at `Immersive workbench translated 0/N`, do not blindly rerun.
    ```
    The output must include the three `https://znonymity.github.io/piasnews/immersive/translation-workbench-*.html` URLs.
 3. If workbench tabs exist but still show `0/N`, ask the user to confirm whether the Immersive Translate floating ball appears and the page visibly contains Chinese translations. If the page is visibly translated, use the script against the same visible Chrome state; if it is not visibly translated, send `Option+A` again only after selecting the workbench tabs.
-4. If Chrome reports `execute javascript` is disabled, the problem is DOM extraction, not `Option+A`. Re-run the JavaScript smoke test from the preflight before continuing.
+4. If Chrome reports `execute javascript` is disabled, the problem is DOM extraction, not `Option+A`. Re-run the conditional current-tab JavaScript smoke test from the preflight before continuing.
 
 ## Verify
 
