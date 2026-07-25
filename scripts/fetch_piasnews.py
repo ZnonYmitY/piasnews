@@ -611,6 +611,14 @@ def fetch_items(days: int, limit: int, now: datetime) -> tuple[list[dict[str, An
             status["error"] = f"{type(exc).__name__}: {exc}"
         feed_status.append(status)
 
+    feed_checks = [status for status in feed_status if "query" in status]
+    if feed_checks and not any(status.get("ok") for status in feed_checks):
+        errors = "; ".join(
+            f"{status['query']}: {status.get('error', 'unknown error')}"
+            for status in feed_checks
+        )
+        raise RuntimeError(f"All Google News RSS queries failed; refusing to overwrite data with an empty feed. {errors}")
+
     rss_deduped: dict[str, dict[str, Any]] = {}
     title_seen: set[str] = set()
     for item in sorted(all_items, key=lambda it: it["published_at"], reverse=True):

@@ -130,5 +130,24 @@ class SourceDateVerificationTest(unittest.TestCase):
         self.assertIn("summary_zh", item)
 
 
+class FeedHealthTest(unittest.TestCase):
+    def test_refuses_to_treat_total_feed_outage_as_empty_news(self):
+        original_fetch_text = collector.fetch_text
+
+        def failing_fetch(_url):
+            raise RuntimeError("rss unavailable")
+
+        collector.fetch_text = failing_fetch
+        try:
+            with self.assertRaisesRegex(RuntimeError, "All Google News RSS queries failed"):
+                collector.fetch_items(
+                    days=3,
+                    limit=10,
+                    now=datetime(2026, 7, 25, 12, 0, tzinfo=timezone.utc),
+                )
+        finally:
+            collector.fetch_text = original_fetch_text
+
+
 if __name__ == "__main__":
     unittest.main()
