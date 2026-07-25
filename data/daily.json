@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-25T13:25:19.535912Z",
+  "generated_at": "2026-07-25T14:01:21.393328Z",
   "window_days": 3,
-  "total_items": 42,
+  "total_items": 48,
   "latest_date": "2026-07-25",
   "days": [
     {
@@ -23,9 +23,9 @@
     },
     {
       "date": "2026-07-24",
-      "total_new_items": 25,
+      "total_new_items": 28,
       "official_new_items": 1,
-      "media_new_items": 24,
+      "media_new_items": 27,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
@@ -33,6 +33,8 @@
         "AutoRacing1.com": 1,
         "Boss Hunting": 1,
         "Crash.net": 2,
+        "F1 Oversteer": 1,
+        "F1ingenerale": 1,
         "Formula 1": 1,
         "Fox Sports": 1,
         "GB News": 1,
@@ -40,6 +42,7 @@
         "MotorBiscuit": 1,
         "Motorsport Week": 1,
         "Paddock News 24": 2,
+        "RaceFans": 1,
         "SPEEDWEEK.com": 1,
         "Speedcafe.com": 3,
         "The Race": 1,
@@ -48,22 +51,23 @@
       },
       "categories": {
         "interview": 1,
-        "other": 4,
-        "race": 9,
+        "other": 5,
+        "race": 11,
         "team": 11
       }
     },
     {
       "date": "2026-07-23",
-      "total_new_items": 11,
+      "total_new_items": 13,
       "official_new_items": 0,
-      "media_new_items": 11,
+      "media_new_items": 13,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "Auto Action": 1,
         "BVM Sports": 1,
-        "Crash.net": 1,
+        "Dailyhunt": 1,
+        "F1ingenerale": 1,
         "GB News": 1,
         "Nine.com.au": 1,
         "PlanetF1": 1,
@@ -71,28 +75,32 @@
         "Scuderia Ferrari Fans": 1,
         "Speedcafe.com": 1,
         "Yahoo News UK": 1,
-        "grandepremio.com": 1
+        "grandepremio.com": 1,
+        "motors-addict": 1
       },
       "categories": {
+        "interview": 1,
         "other": 3,
-        "race": 5,
+        "race": 6,
         "team": 3
       }
     },
     {
       "date": "2026-07-22",
-      "total_new_items": 3,
+      "total_new_items": 4,
       "official_new_items": 0,
-      "media_new_items": 3,
+      "media_new_items": 4,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "Nine.com.au": 1,
+        "Sky Sports": 1,
         "Yahoo Sports": 1,
         "news.gp": 1
       },
       "categories": {
         "other": 2,
+        "race": 1,
         "team": 1
       }
     }
@@ -124,14 +132,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 60
+      "items": 58
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 33
+      "items": 34
     },
     {
       "query": "\"OP81\" when:3d",
@@ -164,13 +172,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 59,
-      "kept": 42,
+      "checked": 60,
+      "kept": 48,
       "results": {
-        "outside_window": 1,
-        "publisher_date_missing": 5,
-        "publisher_unavailable": 11,
-        "verified": 42
+        "outside_window": 4,
+        "publisher_date_missing": 3,
+        "publisher_unavailable": 5,
+        "verified": 48
       }
     }
   ]
