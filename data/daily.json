@@ -1,28 +1,30 @@
 {
-  "generated_at": "2026-07-28T03:43:48.584776Z",
+  "generated_at": "2026-07-28T05:59:50.820293Z",
   "window_days": 3,
   "total_items": 80,
   "latest_date": "2026-07-28",
   "days": [
     {
       "date": "2026-07-28",
-      "total_new_items": 1,
+      "total_new_items": 2,
       "official_new_items": 0,
-      "media_new_items": 1,
+      "media_new_items": 2,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
-        "Speedcafe.com": 1
+        "Speedcafe.com": 1,
+        "racingnews365.com": 1
       },
       "categories": {
-        "other": 1
+        "other": 1,
+        "team": 1
       }
     },
     {
       "date": "2026-07-27",
-      "total_new_items": 30,
+      "total_new_items": 28,
       "official_new_items": 0,
-      "media_new_items": 30,
+      "media_new_items": 28,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
@@ -31,8 +33,8 @@
         "Crash.net": 2,
         "Devdiscourse": 1,
         "F1i.com": 1,
-        "GPblog": 4,
-        "Motor Sport Magazine": 2,
+        "GPblog": 3,
+        "Motor Sport Magazine": 1,
         "Motorsport Week": 1,
         "PlanetF1": 3,
         "SPEEDWEEK.com": 2,
@@ -48,15 +50,15 @@
       "categories": {
         "interview": 2,
         "other": 4,
-        "race": 13,
+        "race": 11,
         "team": 11
       }
     },
     {
       "date": "2026-07-26",
-      "total_new_items": 49,
+      "total_new_items": 50,
       "official_new_items": 3,
-      "media_new_items": 46,
+      "media_new_items": 47,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
@@ -90,6 +92,7 @@
         "Yahoo News Australia": 1,
         "Yahoo Sports": 1,
         "Zee News": 1,
+        "beIN SPORTS": 1,
         "gpfans.com": 1,
         "grandepremio.com": 1,
         "inkl": 2,
@@ -97,7 +100,7 @@
         "upday News": 1
       },
       "categories": {
-        "other": 9,
+        "other": 10,
         "race": 24,
         "team": 16
       }
@@ -137,7 +140,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 75
+      "items": 76
     },
     {
       "query": "\"OP81\" when:3d",
@@ -170,12 +173,12 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 172,
-      "kept": 133,
+      "checked": 171,
+      "kept": 132,
       "results": {
-        "publisher_date_missing": 11,
-        "publisher_unavailable": 28,
-        "verified": 133
+        "publisher_date_missing": 13,
+        "publisher_unavailable": 26,
+        "verified": 132
       }
     }
   ]
