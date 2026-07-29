@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26T23:23:59.737776Z",
+  "generated_at": "2026-07-29T03:13:37.329059Z",
   "schema_version": 1,
   "description": "History candidates awaiting or recording human review decisions.",
   "candidates": [
@@ -790,6 +790,83 @@
           "f1_norris_wins_hungary_as_retires"
         ],
         "embedding_text": "F1 – Norris wins in Hungary as Piastri retires and Verstappen claims second ahead of Antonelli. Oscar Piastri-related item discovered from public news metadata."
+      },
+      "tags": [
+        "Oscar Piastri",
+        "McLaren",
+        "F1",
+        "race_win"
+      ]
+    },
+    {
+      "id": "piastri-2026-07-28-auto-6cda083911",
+      "date": "2026-07-28",
+      "month_day": "07-28",
+      "year": 2026,
+      "title": "2026 Hungarian Grand Prix Recap: Norris Wins as Piastri’s Podium Bid Ends in Heartbreak",
+      "title_zh": null,
+      "summary": "Race-week or performance-related item discovered from public news metadata.",
+      "summary_zh": null,
+      "type": "race_win",
+      "source": "Sharp Magazine",
+      "url": "https://sharpmagazine.com/2026/07/28/2026-hungarian-grand-prix-recap-norris-wins-piastri-hamilton-leclerc/",
+      "verification": {
+        "status": "needs_review",
+        "source_type": "media",
+        "primary_source": false
+      },
+      "candidate": {
+        "status": "pending",
+        "score": 85,
+        "signals": [
+          "race_win",
+          "podium_or_pole"
+        ],
+        "source_count": 1,
+        "sources": [
+          "Sharp Magazine"
+        ],
+        "source_item_ids": [
+          "piasnews-88d0f3e0c3ba3531"
+        ],
+        "discovered_at": "2026-07-29T03:13:37.329059Z",
+        "origin": "deterministic_recent_news_rules",
+        "reviewed_at": null,
+        "reviewed_by": null,
+        "decision_reason": null
+      },
+      "selection": {
+        "review_status": "pending",
+        "include": null,
+        "historical_value": 85,
+        "peak_attention": null,
+        "lasting_significance": null,
+        "career_impact": null,
+        "fan_recognition": null,
+        "inclusion_reason": "Automatically nominated from signals: race_win, podium_or_pole.",
+        "inclusion_reason_zh": null
+      },
+      "semantic": {
+        "event_kind": "race_win",
+        "themes": [
+          "race_win",
+          "podium_or_pole"
+        ],
+        "entities": [
+          "Oscar Piastri",
+          "McLaren"
+        ],
+        "competition": "Formula 1",
+        "season": 2026,
+        "round": null,
+        "circuit": null,
+        "session": null,
+        "outcome": "2026 Hungarian Grand Prix Recap: Norris Wins as Piastri’s Podium Bid Ends in Heartbreak",
+        "strong_keys": [
+          "race_win",
+          "2026_hungarian_grand_prix_recap_norris"
+        ],
+        "embedding_text": "2026 Hungarian Grand Prix Recap: Norris Wins as Piastri’s Podium Bid Ends in Heartbreak. Race-week or performance-related item discovered from public news metadata."
       },
       "tags": [
         "Oscar Piastri",
