@@ -1,17 +1,18 @@
 {
-  "generated_at": "2026-07-29T09:32:38.156393Z",
+  "generated_at": "2026-07-29T14:30:45.764452Z",
   "window_days": 3,
   "total_items": 80,
   "latest_date": "2026-07-29",
   "days": [
     {
       "date": "2026-07-29",
-      "total_new_items": 4,
+      "total_new_items": 5,
       "official_new_items": 0,
-      "media_new_items": 4,
+      "media_new_items": 5,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
+        "Crash.net": 1,
         "Fox Sports": 1,
         "Speedcafe.com": 1,
         "Yahoo Sports": 1,
@@ -19,7 +20,7 @@
       },
       "categories": {
         "other": 3,
-        "race": 1
+        "race": 2
       }
     },
     {
@@ -52,22 +53,23 @@
     },
     {
       "date": "2026-07-27",
-      "total_new_items": 25,
+      "total_new_items": 27,
       "official_new_items": 0,
-      "media_new_items": 25,
+      "media_new_items": 27,
       "x_new_items": 0,
       "rumor_new_items": 1,
       "sources": {
         "Auto Action": 2,
         "Chosunbiz": 1,
         "Crash.net": 2,
+        "Devdiscourse": 1,
         "F1i.com": 1,
         "GPblog": 1,
         "Motorsport Week": 1,
         "PlanetF1": 3,
         "SPEEDWEEK.com": 2,
         "SPORTbible": 1,
-        "Sky Sports": 1,
+        "Sky Sports": 2,
         "Speedcafe.com": 1,
         "The Guardian": 1,
         "Yahoo Sports": 2,
@@ -79,23 +81,22 @@
       "categories": {
         "interview": 2,
         "other": 3,
-        "race": 9,
+        "race": 11,
         "rumor": 1,
         "team": 10
       }
     },
     {
       "date": "2026-07-26",
-      "total_new_items": 37,
+      "total_new_items": 34,
       "official_new_items": 2,
-      "media_new_items": 35,
+      "media_new_items": 32,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "7NEWS": 1,
-        "Crash.net": 2,
+        "Crash.net": 1,
         "DIVEBOMB Motorsport": 1,
-        "F1 Oversteer": 1,
         "Formula 1": 2,
         "Fox Sports": 2,
         "GB News": 1,
@@ -104,11 +105,13 @@
         "Last Word On Sports": 1,
         "Mashable India": 1,
         "Motorsport Week": 1,
-        "PlanetF1": 4,
+        "Paddock News 24": 1,
+        "PlanetF1": 3,
+        "RaceFans": 1,
         "Road & Track": 1,
         "SMH.com.au": 1,
         "SPEEDWEEK.com": 1,
-        "Sky Sports": 3,
+        "Sky Sports": 1,
         "Speedcafe.com": 2,
         "The New York Times": 1,
         "The Race": 1,
@@ -117,12 +120,12 @@
         "gpfans.com": 1,
         "grandepremio.com": 1,
         "inkl": 1,
-        "racingnews365.com": 2,
-        "upday News": 1
+        "juneesoutherncross.com.au": 1,
+        "racingnews365.com": 2
       },
       "categories": {
         "other": 9,
-        "race": 15,
+        "race": 12,
         "team": 13
       }
     }
@@ -140,7 +143,7 @@
       "source_group": "official_direct",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=site%3Aformula1.com%2Fen%2Flatest+%22Piastri%22+when%3A3d",
       "ok": true,
-      "items": 2
+      "items": 3
     },
     {
       "query": "site:oscarpiastri.com \"Piastri\" when:3d",
@@ -154,14 +157,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 89
+      "items": 88
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 74
+      "items": 75
     },
     {
       "query": "\"OP81\" when:3d",
@@ -175,7 +178,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 10
+      "items": 8
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
@@ -194,12 +197,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 145,
-      "kept": 106,
+      "checked": 147,
+      "kept": 109,
       "results": {
-        "publisher_date_missing": 12,
-        "publisher_unavailable": 27,
-        "verified": 106
+        "outside_window": 4,
+        "publisher_date_missing": 10,
+        "publisher_unavailable": 24,
+        "verified": 109
       }
     }
   ]
