@@ -1,31 +1,36 @@
 {
-  "generated_at": "2026-07-30T11:45:28.072308Z",
+  "generated_at": "2026-07-30T14:31:13.081255Z",
   "window_days": 3,
-  "total_items": 42,
+  "total_items": 45,
   "latest_date": "2026-07-30",
   "days": [
     {
       "date": "2026-07-30",
-      "total_new_items": 3,
+      "total_new_items": 7,
       "official_new_items": 1,
-      "media_new_items": 2,
+      "media_new_items": 6,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "Crash.net": 1,
         "F1 Oversteer": 1,
-        "Formula 1": 1
+        "Formula 1": 1,
+        "GPToday.net": 1,
+        "Motor Sport Magazine": 1,
+        "MotorBiscuit": 1,
+        "racefans.net": 1
       },
       "categories": {
-        "other": 1,
-        "team": 2
+        "interview": 1,
+        "other": 2,
+        "team": 4
       }
     },
     {
       "date": "2026-07-29",
-      "total_new_items": 11,
+      "total_new_items": 12,
       "official_new_items": 0,
-      "media_new_items": 11,
+      "media_new_items": 12,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
@@ -33,71 +38,68 @@
         "F1 Oversteer": 3,
         "Fox Sports": 2,
         "Motor Sport Magazine": 1,
+        "Speedcafe.com": 1,
+        "Yahoo Sports": 1,
         "grandepremio.com": 1,
         "news.gp": 1,
-        "speedcafe.com": 1,
-        "sports.yahoo.com": 1
+        "racingnews365.com": 1
       },
       "categories": {
         "other": 5,
         "race": 3,
-        "team": 3
+        "team": 4
       }
     },
     {
       "date": "2026-07-28",
-      "total_new_items": 15,
+      "total_new_items": 17,
       "official_new_items": 0,
-      "media_new_items": 15,
+      "media_new_items": 17,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
-        "AutoRacing1.com": 1,
-        "BVM Sports": 1,
+        "AutoRacing1.com": 2,
         "F1 Oversteer": 3,
         "Fox Sports": 1,
         "GPblog": 1,
         "Motorsport Week": 1,
+        "Nextgen-Auto.com": 1,
         "PlanetF1": 1,
         "SPEEDWEEK.com": 1,
         "Sharp Magazine": 1,
+        "Speedcafe.com": 1,
         "Yahoo News Australia": 1,
         "grandprix247": 1,
-        "racingnews365.com": 1,
-        "speedcafe.com": 1
+        "racefans.net": 1,
+        "racingnews365.com": 1
       },
       "categories": {
-        "other": 4,
-        "race": 4,
-        "team": 7
+        "other": 6,
+        "race": 5,
+        "team": 6
       }
     },
     {
       "date": "2026-07-27",
-      "total_new_items": 13,
+      "total_new_items": 9,
       "official_new_items": 0,
-      "media_new_items": 13,
+      "media_new_items": 9,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "Chosunbiz": 1,
-        "Crash.net": 1,
         "F1 Oversteer": 2,
-        "F1i.com": 1,
         "GPblog": 1,
         "International Business Times, Singapore Edition": 1,
         "Motor Sport Magazine": 1,
         "PlanetF1": 1,
-        "Sky Sports": 1,
-        "grandprix247": 1,
-        "sports.yahoo.com": 1,
+        "Yahoo Sports": 1,
         "조선일보": 1
       },
       "categories": {
-        "interview": 1,
         "other": 4,
-        "race": 4,
-        "team": 4
+        "race": 3,
+        "team": 2
       }
     }
   ],
@@ -128,14 +130,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 59
+      "items": 57
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 32
+      "items": 30
     },
     {
       "query": "\"OP81\" when:3d",
@@ -168,13 +170,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 60,
-      "kept": 42,
+      "checked": 59,
+      "kept": 45,
       "results": {
-        "outside_window": 4,
-        "publisher_date_missing": 3,
-        "publisher_unavailable": 11,
-        "verified": 42
+        "outside_window": 5,
+        "publisher_date_missing": 4,
+        "publisher_unavailable": 5,
+        "verified": 45
       }
     }
   ]
