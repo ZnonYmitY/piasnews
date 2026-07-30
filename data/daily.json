@@ -1,31 +1,34 @@
 {
-  "generated_at": "2026-07-30T14:38:52.758665Z",
+  "generated_at": "2026-07-30T18:06:24.412247Z",
   "window_days": 3,
-  "total_items": 46,
+  "total_items": 43,
   "latest_date": "2026-07-30",
   "days": [
     {
       "date": "2026-07-30",
-      "total_new_items": 8,
+      "total_new_items": 12,
       "official_new_items": 1,
-      "media_new_items": 7,
+      "media_new_items": 11,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "Crash.net": 1,
         "F1 Oversteer": 1,
-        "F1ingenerale": 1,
+        "F1ingenerale": 2,
         "Formula 1": 1,
         "GPToday.net": 1,
         "Motor Sport Magazine": 1,
-        "MotorBiscuit": 1,
-        "RaceFans": 1
+        "Paddock News 24": 1,
+        "RaceFans": 1,
+        "autohebdof1.com": 1,
+        "motorbiscuit.com": 1,
+        "racingnews365.com": 1
       },
       "categories": {
         "interview": 1,
-        "other": 2,
-        "race": 1,
-        "team": 4
+        "other": 3,
+        "race": 2,
+        "team": 6
       }
     },
     {
@@ -38,10 +41,10 @@
       "sources": {
         "Crash.net": 1,
         "F1 Oversteer": 3,
+        "Fox Sports": 2,
         "Motor Sport Magazine": 1,
         "Speedcafe.com": 1,
         "Yahoo Sports": 1,
-        "foxsports.com.au": 2,
         "grandepremio.com": 1,
         "news.gp": 1,
         "racingnews365.com": 1
@@ -54,15 +57,18 @@
     },
     {
       "date": "2026-07-28",
-      "total_new_items": 17,
+      "total_new_items": 19,
       "official_new_items": 0,
-      "media_new_items": 17,
+      "media_new_items": 19,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "AutoRacing1.com": 2,
+        "BVM Sports": 1,
         "F1 Oversteer": 3,
+        "Fox Sports": 1,
         "GPblog": 1,
+        "Motorsport-Magazin.com": 1,
         "Nextgen-Auto.com": 1,
         "PlanetF1": 1,
         "RaceFans": 1,
@@ -70,7 +76,6 @@
         "Sharp Magazine": 1,
         "Speedcafe.com": 1,
         "Yahoo News Australia": 1,
-        "foxsports.com.au": 1,
         "grandprix247": 1,
         "motorsportweek.com": 1,
         "racingnews365.com": 1
@@ -78,30 +83,7 @@
       "categories": {
         "other": 6,
         "race": 5,
-        "team": 6
-      }
-    },
-    {
-      "date": "2026-07-27",
-      "total_new_items": 9,
-      "official_new_items": 0,
-      "media_new_items": 9,
-      "x_new_items": 0,
-      "rumor_new_items": 0,
-      "sources": {
-        "Chosunbiz": 1,
-        "F1 Oversteer": 2,
-        "GPblog": 1,
-        "International Business Times, Singapore Edition": 1,
-        "Motor Sport Magazine": 1,
-        "PlanetF1": 1,
-        "Yahoo Sports": 1,
-        "조선일보": 1
-      },
-      "categories": {
-        "other": 4,
-        "race": 3,
-        "team": 2
+        "team": 8
       }
     }
   ],
@@ -132,14 +114,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 58
+      "items": 55
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 30
+      "items": 27
     },
     {
       "query": "\"OP81\" when:3d",
@@ -153,7 +135,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 6
+      "items": 8
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
@@ -172,13 +154,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 60,
-      "kept": 46,
+      "checked": 57,
+      "kept": 43,
       "results": {
         "outside_window": 5,
-        "publisher_date_missing": 4,
-        "publisher_unavailable": 5,
-        "verified": 46
+        "publisher_date_missing": 5,
+        "publisher_unavailable": 4,
+        "verified": 43
       }
     }
   ]
