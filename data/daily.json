@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-31T19:51:48.125616Z",
+  "generated_at": "2026-07-31T19:59:30.271127Z",
   "window_days": 3,
   "total_items": 35,
   "latest_date": "2026-07-31",
@@ -109,14 +109,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 46
+      "items": 45
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 26
+      "items": 27
     },
     {
       "query": "\"OP81\" when:3d",
@@ -149,12 +149,12 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 46,
+      "checked": 45,
       "kept": 35,
       "results": {
         "outside_window": 3,
         "publisher_date_missing": 2,
-        "publisher_unavailable": 6,
+        "publisher_unavailable": 5,
         "verified": 35
       }
     }
