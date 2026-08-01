@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-01T08:37:17.408078Z",
+  "generated_at": "2026-08-01T13:54:17.037825Z",
   "window_days": 3,
-  "total_items": 32,
+  "total_items": 25,
   "latest_date": "2026-08-01",
   "days": [
     {
@@ -26,71 +26,62 @@
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
-        "F1ingenerale": 1,
-        "Paddock News 24": 1,
+        "F1 Oversteer": 1,
+        "PlanetF1": 1,
         "SPEEDWEEK.com": 1,
         "Yahoo Sports": 1,
-        "f1oversteer.com": 1,
-        "motors-addict": 1,
-        "planetf1.com": 1
+        "motorcyclesports.net": 2,
+        "motors-addict": 1
       },
       "categories": {
         "interview": 1,
-        "race": 1,
-        "team": 5
+        "race": 2,
+        "team": 4
       }
     },
     {
       "date": "2026-07-30",
-      "total_new_items": 17,
+      "total_new_items": 13,
       "official_new_items": 1,
-      "media_new_items": 16,
+      "media_new_items": 12,
       "x_new_items": 0,
       "rumor_new_items": 1,
       "sources": {
         "BVM Sports": 1,
         "Crash.net": 1,
-        "F1ingenerale": 2,
+        "F1 Oversteer": 2,
         "Formula 1": 1,
+        "GPToday.net": 1,
         "GPblog": 1,
         "Motor Sport Magazine": 1,
-        "MotorBiscuit": 1,
-        "Paddock News 24": 1,
-        "RaceFans": 1,
+        "PlanetF1": 1,
         "Yahoo Sports": 1,
         "autohebdof1.com": 1,
-        "f1oversteer.com": 2,
-        "gptoday.net": 1,
-        "planetf1.com": 1,
+        "motorcyclesports.net": 1,
         "racingnews365.com": 1
       },
       "categories": {
-        "interview": 1,
-        "other": 3,
-        "race": 3,
+        "other": 1,
+        "race": 1,
         "rumor": 1,
-        "team": 9
+        "team": 10
       }
     },
     {
       "date": "2026-07-29",
-      "total_new_items": 7,
+      "total_new_items": 4,
       "official_new_items": 0,
-      "media_new_items": 7,
+      "media_new_items": 4,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
-        "Crash.net": 1,
+        "F1 Oversteer": 2,
         "Fox Sports": 1,
-        "Motor Sport Magazine": 1,
-        "f1oversteer.com": 2,
-        "grandepremio.com": 1,
         "racingnews365.com": 1
       },
       "categories": {
-        "other": 2,
-        "race": 1,
-        "team": 4
+        "other": 1,
+        "team": 3
       }
     }
   ],
@@ -142,14 +133,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 4
+      "items": 3
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 22
+      "items": 21
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -162,12 +153,12 @@
       "stage": "publisher_date_verification",
       "ok": true,
       "checked": 40,
-      "kept": 32,
+      "kept": 25,
       "results": {
-        "outside_window": 1,
-        "publisher_date_missing": 3,
-        "publisher_unavailable": 4,
-        "verified": 32
+        "outside_window": 2,
+        "publisher_date_missing": 2,
+        "publisher_unavailable": 11,
+        "verified": 25
       }
     }
   ]
