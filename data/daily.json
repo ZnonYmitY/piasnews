@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-03T04:04:00.602691Z",
+  "generated_at": "2026-08-03T06:10:30.836751Z",
   "window_days": 3,
-  "total_items": 19,
+  "total_items": 15,
   "latest_date": "2026-08-03",
   "days": [
     {
@@ -57,24 +57,18 @@
     },
     {
       "date": "2026-07-31",
-      "total_new_items": 7,
+      "total_new_items": 3,
       "official_new_items": 0,
-      "media_new_items": 7,
+      "media_new_items": 3,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
-        "F1 Oversteer": 1,
         "F1ingenerale": 1,
         "Paddock News 24": 1,
-        "PlanetF1": 1,
-        "SPEEDWEEK.com": 1,
-        "gpblog.com": 1,
-        "motors-addict": 1
+        "SPEEDWEEK.com": 1
       },
       "categories": {
-        "interview": 1,
-        "race": 1,
-        "team": 5
+        "team": 3
       }
     }
   ],
@@ -105,14 +99,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 22
+      "items": 17
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 19
+      "items": 17
     },
     {
       "query": "\"OP81\" when:3d",
@@ -126,14 +120,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 0
+      "items": 1
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 10
+      "items": 5
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -145,12 +139,12 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 23,
-      "kept": 19,
+      "checked": 18,
+      "kept": 15,
       "results": {
-        "publisher_date_missing": 2,
+        "publisher_date_missing": 1,
         "publisher_unavailable": 2,
-        "verified": 19
+        "verified": 15
       }
     }
   ]
