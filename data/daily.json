@@ -1,21 +1,24 @@
 {
-  "generated_at": "2026-08-03T12:22:05.348021Z",
+  "generated_at": "2026-08-03T15:15:21.698041Z",
   "window_days": 3,
-  "total_items": 12,
+  "total_items": 13,
   "latest_date": "2026-08-03",
   "days": [
     {
       "date": "2026-08-03",
-      "total_new_items": 1,
+      "total_new_items": 3,
       "official_new_items": 0,
-      "media_new_items": 1,
+      "media_new_items": 3,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
-        "Nine.com.au": 1
+        "Nine.com.au": 1,
+        "Speedcafe.com": 1,
+        "TSN": 1
       },
       "categories": {
-        "other": 1
+        "other": 2,
+        "team": 1
       }
     },
     {
@@ -52,20 +55,6 @@
       "categories": {
         "team": 5
       }
-    },
-    {
-      "date": "2026-07-31",
-      "total_new_items": 1,
-      "official_new_items": 0,
-      "media_new_items": 1,
-      "x_new_items": 0,
-      "rumor_new_items": 0,
-      "sources": {
-        "SPEEDWEEK.com": 1
-      },
-      "categories": {
-        "team": 1
-      }
     }
   ],
   "feed_status": [
@@ -95,7 +84,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 13
+      "items": 14
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
@@ -130,16 +119,16 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22interview%22+when%3A3d",
       "ok": true,
-      "items": 1
+      "items": 0
     },
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 14,
-      "kept": 12,
+      "checked": 15,
+      "kept": 13,
       "results": {
         "publisher_unavailable": 2,
-        "verified": 12
+        "verified": 13
       }
     }
   ]
