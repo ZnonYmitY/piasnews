@@ -1,9 +1,23 @@
 {
-  "generated_at": "2026-08-04T06:10:47.418252Z",
+  "generated_at": "2026-08-04T09:06:14.706335Z",
   "window_days": 3,
   "total_items": 15,
-  "latest_date": "2026-08-03",
+  "latest_date": "2026-08-04",
   "days": [
+    {
+      "date": "2026-08-04",
+      "total_new_items": 1,
+      "official_new_items": 0,
+      "media_new_items": 1,
+      "x_new_items": 0,
+      "rumor_new_items": 0,
+      "sources": {
+        "F1 Oversteer": 1
+      },
+      "categories": {
+        "team": 1
+      }
+    },
     {
       "date": "2026-08-03",
       "total_new_items": 6,
@@ -45,18 +59,18 @@
     },
     {
       "date": "2026-08-01",
-      "total_new_items": 4,
+      "total_new_items": 3,
       "official_new_items": 0,
-      "media_new_items": 4,
+      "media_new_items": 3,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "F1 Oversteer": 1,
         "PlanetF1": 1,
-        "racingnews365.com": 2
+        "racingnews365.com": 1
       },
       "categories": {
-        "team": 4
+        "team": 3
       }
     }
   ],
@@ -87,14 +101,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 18
+      "items": 19
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 17
+      "items": 18
     },
     {
       "query": "\"OP81\" when:3d",
@@ -127,10 +141,10 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 19,
+      "checked": 20,
       "kept": 15,
       "results": {
-        "publisher_unavailable": 4,
+        "publisher_unavailable": 5,
         "verified": 15
       }
     }
