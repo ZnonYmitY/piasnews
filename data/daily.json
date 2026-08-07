@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-07T00:20:49.934718Z",
+  "generated_at": "2026-08-07T03:16:43.543668Z",
   "window_days": 3,
-  "total_items": 12,
+  "total_items": 13,
   "latest_date": "2026-08-06",
   "days": [
     {
@@ -41,19 +41,20 @@
     },
     {
       "date": "2026-08-04",
-      "total_new_items": 5,
+      "total_new_items": 6,
       "official_new_items": 0,
-      "media_new_items": 5,
+      "media_new_items": 6,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "F1 Oversteer": 2,
+        "F1i.com": 1,
         "F1ingenerale": 1,
         "FormulaRapida.net": 1,
         "Motorsport Week": 1
       },
       "categories": {
-        "other": 1,
+        "other": 2,
         "team": 4
       }
     }
@@ -85,7 +86,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 17
+      "items": 18
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
@@ -106,14 +107,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 4
+      "items": 3
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 7
+      "items": 8
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -125,13 +126,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 17,
-      "kept": 12,
+      "checked": 18,
+      "kept": 13,
       "results": {
         "outside_window": 1,
         "publisher_date_missing": 1,
         "publisher_unavailable": 3,
-        "verified": 12
+        "verified": 13
       }
     }
   ]
