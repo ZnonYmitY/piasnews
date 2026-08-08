@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-08T02:26:22.603254Z",
+  "generated_at": "2026-08-08T07:14:00.198869Z",
   "window_days": 3,
-  "total_items": 16,
+  "total_items": 15,
   "latest_date": "2026-08-07",
   "days": [
     {
@@ -46,20 +46,19 @@
     },
     {
       "date": "2026-08-05",
-      "total_new_items": 4,
+      "total_new_items": 3,
       "official_new_items": 0,
-      "media_new_items": 4,
+      "media_new_items": 3,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "F1 Oversteer": 1,
         "Fox Sports": 1,
-        "grandprix247": 1,
         "racingnews365.com": 1
       },
       "categories": {
         "other": 1,
-        "team": 3
+        "team": 2
       }
     }
   ],
@@ -76,7 +75,7 @@
       "source_group": "official_direct",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=site%3Aformula1.com%2Fen%2Flatest+%22Piastri%22+when%3A3d",
       "ok": true,
-      "items": 0
+      "items": 1
     },
     {
       "query": "site:oscarpiastri.com \"Piastri\" when:3d",
@@ -118,7 +117,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 9
+      "items": 10
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -130,12 +129,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 31,
-      "kept": 16,
+      "checked": 30,
+      "kept": 15,
       "results": {
+        "outside_window": 1,
         "publisher_date_missing": 12,
-        "publisher_unavailable": 3,
-        "verified": 16
+        "publisher_unavailable": 2,
+        "verified": 15
       }
     }
   ]
