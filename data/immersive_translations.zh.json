@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-14T19:26:36.997147Z",
+  "generated_at": "2026-08-14T19:52:12.203382Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -11375,6 +11375,54 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-14T19:14:36.956944Z"
+    },
+    "social:piasnews-social-872960f5b6e79c6b:summary:ec6343b8fcc3bc1fc477c871": {
+      "dataset": "social",
+      "item_id": "piasnews-social-872960f5b6e79c6b",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "i'm so serious when i say you guys need to stop https://t.co/XrNltGbvyN",
+      "zh": "我是认真的，你们得停下来",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-14T19:52:12.203421Z"
+    },
+    "social:piasnews-social-10df997ac0215af6:summary:6347c2c8227ae2a71e0ec567": {
+      "dataset": "social",
+      "item_id": "piasnews-social-10df997ac0215af6",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "lando: \"there was some dodgy track limits\" oscar: \"eh\" lando: \"on the line is in, so\" oscar: \"exactly\" of course oscar piastri master of track limits (and avoiding them while going to the absolute limit) is unbothered 😭 https://t.co/kZmLSMZ93m",
+      "zh": "lando：“有些赛道限制很可疑” oscar：“嗯” lando：“压线算有效，所以” oscar：“没错” 当然，Oscar Piastri，赛道限制大师（以及在极限边缘避开它们的人）毫不在意😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-14T19:52:12.203426Z"
+    },
+    "social:piasnews-social-6ade435d6cdf908d:summary:1a956cfb4ded68fe40e36fe6": {
+      "dataset": "social",
+      "item_id": "piasnews-social-6ade435d6cdf908d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "this old man walk 😭😭 https://t.co/0qA63MeR0P",
+      "zh": "这老头走路😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-14T19:52:12.203429Z"
+    },
+    "social:piasnews-social-d8709dc4522b018e:summary:bb0789cf268c35d3e28c0f82": {
+      "dataset": "social",
+      "item_id": "piasnews-social-d8709dc4522b018e",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "fashion icon https://t.co/tMfev8hL0k",
+      "zh": "时尚偶像",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-14T19:52:12.203431Z"
     }
   }
 }
