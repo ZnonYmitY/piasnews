@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-14T03:53:14.724297Z",
+  "generated_at": "2026-08-14T07:50:57.431979Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -11267,6 +11267,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-14T03:53:14.724557Z"
+    },
+    "items:piasnews-cdba0aa526581977:title:7ebf9587111273f253634eb3": {
+      "dataset": "items",
+      "item_id": "piasnews-cdba0aa526581977",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri reflects on McLaren’s tough 2026 Formula 1 season",
+      "zh": "Oscar Piastri回顾McLaren艰难的2026年F1赛季",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-14T07:50:57.432032Z"
+    },
+    "items:piasnews-cdba0aa526581977:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-cdba0aa526581977",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-14T07:50:57.432041Z"
     }
   }
 }
