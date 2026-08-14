@@ -91,14 +91,15 @@ CSV 可以直接用 Excel / WPS / Numbers 打开。暂不把 `.xlsx` 作为主�
 1. 新抓取数据进入 `data/items.json` / `data/social.json`。
 2. 抓取脚本先写入确定性中文概括或英文兜底，保证没有映射时页面也能发布。
 3. GitHub Actions 先调用 `scripts/translate_zh_argos.py` 生成离线中文 fallback。
-4. GitHub Actions 调用 `scripts/apply_immersive_translations.py`，把 `data/immersive_translations.zh.json` 中 `engine=immersive_translate_chrome` 的沉浸式翻译映射覆盖到 `title_zh` / `summary_zh`。匹配优先使用当前 key，线上应用时按 `dataset + target_field + source_text` 兜底，因此 item id 变化不会让同一英文原文的映射失效。
-5. 映射采集脚本使用 `PIASNEWS_IMMERSIVE_PUBLISH=1` 发布时，会触发 `update-piasnews.yml` 的 `apply_only=true` 模式：跳过新闻、赛历和社交源重新抓取，只应用当前数据上的翻译、auto-repair、badcase audit 和 Pages 部署。
-6. GitHub Actions 调用 `scripts/audit_translations.py` 完整遍历最终展示中文，执行对抗式审查。
-7. 新发现的坏例进入 `data/translation_candidates.csv`，本轮新增候选同时导出为 `translation_candidates_latest.csv` 和 `translation_candidates_latest.xlsx`。
-8. 如果配置了飞书 Base，GitHub Actions 调用 `scripts/sync_feishu_translation_base.py`，把本轮新增候选同步到飞书审核表。
-9. 你在飞书审核表中检查 `英文原文`、`当前中文`、`建议中文`。如果认可，把 `审核状态` 改为 `approved`；如果暂不处理，保持 `pending`；如果不需要进入确认集，可改为 `ignored`。
-10. 默认 GitHub Actions 不会把飞书审核表的 approved 行写回生产链路，也不会用 approved 覆盖同一 `source_text`。
-11. 当样本积累到 100-300 条，再导出为微调或规则评估数据集。
+4. 如果配置了 `PIASNEWS_LLM_TRANSLATION_API_KEY`，GitHub Actions 调用 `scripts/translate_zh_llm_mapping.py`，对缺失映射的新内容生成 `engine=piasnews_llm_translation` 的映射；未配置或调用失败时跳过。
+5. GitHub Actions 调用 `scripts/apply_immersive_translations.py`，把 `data/immersive_translations.zh.json` 中 `engine=piasnews_llm_translation` 和 `engine=immersive_translate_chrome` 的映射覆盖到 `title_zh` / `summary_zh`。匹配优先使用当前 key，线上应用时按 `dataset + target_field + source_text` 兜底，因此 item id 变化不会让同一英文原文的映射失效。
+6. 沉浸式映射采集脚本使用 `PIASNEWS_IMMERSIVE_PUBLISH=1` 发布时，会触发 `update-piasnews.yml` 的 `apply_only=true` 模式：跳过新闻、赛历和社交源重新抓取，只应用当前数据上的翻译、auto-repair、badcase audit 和 Pages 部署。它现在主要承担 LLM 映射缺失或失败后的兜底增强。
+7. GitHub Actions 调用 `scripts/audit_translations.py` 完整遍历最终展示中文，执行对抗式审查。
+8. 新发现的坏例进入 `data/translation_candidates.csv`，本轮新增候选同时导出为 `translation_candidates_latest.csv` 和 `translation_candidates_latest.xlsx`。
+9. 如果配置了飞书 Base，GitHub Actions 调用 `scripts/sync_feishu_translation_base.py`，把本轮新增候选同步到飞书审核表。
+10. 你在飞书审核表中检查 `英文原文`、`当前中文`、`建议中文`。如果认可，把 `审核状态` 改为 `approved`；如果暂不处理，保持 `pending`；如果不需要进入确认集，可改为 `ignored`。
+11. 默认 GitHub Actions 不会把飞书审核表的 approved 行写回生产链路，也不会用 approved 覆盖同一 `source_text`。
+12. 当样本积累到 100-300 条，再导出为微调或规则评估数据集。
 
 ## 飞书 Base 配置
 

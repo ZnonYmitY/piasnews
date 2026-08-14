@@ -22,7 +22,7 @@ The pipeline captures browser-extension translations that cannot run in GitHub A
 9. Trigger `update-piasnews.yml` with `apply_only=true`.
 10. Watch the workflow and verify live Pages JSON.
 
-The online workflow then runs Argos fallback, applies only `engine=immersive_translate_chrome` mappings, performs deterministic auto-repair, audits badcases, and deploys GitHub Pages. `apply_only=true` skips fresh news/social/calendar fetching so new English text is not introduced while applying a just-captured mapping.
+The online workflow then runs Argos fallback, optionally generates missing `engine=piasnews_llm_translation` mappings when `PIASNEWS_LLM_TRANSLATION_API_KEY` is configured, applies both LLM and `engine=immersive_translate_chrome` mappings, performs deterministic auto-repair, audits badcases, and deploys GitHub Pages. The Immersive capture path is now the fallback enhancement when LLM mapping is unavailable or fails. `apply_only=true` skips fresh news/social/calendar fetching so new English text is not introduced while applying a just-captured mapping.
 
 ## Preconditions
 

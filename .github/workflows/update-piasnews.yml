@@ -73,8 +73,15 @@ jobs:
       - name: Apply offline Chinese translation fallback
         run: python scripts/translate_zh_argos.py --items data/items.json --social data/social.json --strict-argos
 
-      - name: Apply Immersive Translate mappings
-        run: python scripts/apply_immersive_translations.py --mapping data/immersive_translations.zh.json --items data/items.json --social data/social.json --engine immersive_translate_chrome
+      - name: Generate LLM Chinese translation mappings
+        env:
+          PIASNEWS_LLM_TRANSLATION_API_KEY: ${{ secrets.PIASNEWS_LLM_TRANSLATION_API_KEY }}
+          PIASNEWS_LLM_TRANSLATION_BASE_URL: ${{ vars.PIASNEWS_LLM_TRANSLATION_BASE_URL }}
+          PIASNEWS_LLM_TRANSLATION_MODEL: ${{ vars.PIASNEWS_LLM_TRANSLATION_MODEL }}
+        run: python scripts/translate_zh_llm_mapping.py --items data/items.json --social data/social.json --mapping data/immersive_translations.zh.json --limit 80
+
+      - name: Apply Chinese translation mappings
+        run: python scripts/apply_immersive_translations.py --mapping data/immersive_translations.zh.json --items data/items.json --social data/social.json --engine piasnews_llm_translation --engine immersive_translate_chrome
 
       - name: Audit translation badcases
         run: |

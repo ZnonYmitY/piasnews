@@ -177,7 +177,7 @@ GitHub Pages 根路径提供面向所有粉丝的只读日报页；日报内容�
 - X 采集可以迁移到常在线小主机、VPS 或外部调度器：外部环境生成 compact social JSON，更新 GitHub 仓库变量 `PIASNEWS_SOCIAL_INPUT_JSON`，再通过 GitHub API 触发 `Update Piasnews Data`。由于 X 可能对数据中心 IP 风控更严格，低成本方案优先选择家宽/本地常在线环境，再考虑 VPS。
 - 粉丝源 Tab 顶部统一展示 `如有侵权请联系删除。`；每条卡片只展示 `引用自 @账号`，避免重复提示。
 - “往日回顾”只读取人工审核通过的事件；没有同日合格事件时省略。
-- GitHub Actions 在数据采集后先运行 `scripts/translate_zh_argos.py` 作为离线中文 fallback，再运行 `scripts/apply_immersive_translations.py`，把沉浸式翻译采集到的映射覆盖到 `title_zh` 和 `summary_zh`，再执行 deterministic auto-repair 修正已沉淀的确定性术语坏例。Argos 只在构建时运行，不调用在线翻译 API，不消耗模型 token；沉浸式映射存在时优先级高于 Argos fallback。Approved 人工案例不再作为默认生产覆盖源，只作为后续训练 / 评估样本状态。翻译审查只导出仍需人工关注且已有 `suggested_zh` 的候选；生产 workflow 不再把候选同步成飞书 Base pending 队列，也不再把缺失候选标记为 ignored。
+- GitHub Actions 在数据采集后先运行 `scripts/translate_zh_argos.py` 作为离线中文 fallback；如果配置了 `PIASNEWS_LLM_TRANSLATION_API_KEY`，再运行 `scripts/translate_zh_llm_mapping.py`，只对缺失映射的新内容调用 OpenAI-compatible Chat Completions API，并写入 engine 为 `piasnews_llm_translation` 的映射。当前低成本推荐变量为 `PIASNEWS_LLM_TRANSLATION_BASE_URL=https://api.deepseek.com` 和 `PIASNEWS_LLM_TRANSLATION_MODEL=deepseek-v4-flash`。随后 `scripts/apply_immersive_translations.py` 同时应用 LLM 映射和沉浸式翻译映射，覆盖 `title_zh` 和 `summary_zh`，再执行 deterministic auto-repair 修正已沉淀的确定性术语坏例。Argos 只在构建时运行，不调用在线翻译 API，不消耗模型 token；LLM 映射不可用或失败时，沉浸式翻译作为兜底映射链路。Approved 人工案例不再作为默认生产覆盖源，只作为后续训练 / 评估样本状态。翻译审查只导出仍需人工关注且已有 `suggested_zh` 的候选；生产 workflow 不再把候选同步成飞书 Base pending 队列，也不再把缺失候选标记为 ignored。
 - 页面渲染采用浏览器端确定性模板，不调用大模型，不消耗访问者或项目方的模型 token。
 - `.github/workflows/update-piasnews.yml` 每次采集后打包 `public/` 和本次生成的数据，因此页面与 JSON/RSS 在同一次 Pages 部署中更新。workflow 同时保留主 schedule 和 10 分钟后的备用 schedule。
 - 页面保留加载、空数据、错误和手动刷新状态，并支持移动端布局和键盘切换 Tab。
