@@ -1,21 +1,22 @@
 {
-  "generated_at": "2026-08-14T07:55:35.925562Z",
+  "generated_at": "2026-08-14T09:09:55.495076Z",
   "window_days": 3,
-  "total_items": 9,
+  "total_items": 10,
   "latest_date": "2026-08-14",
   "days": [
     {
       "date": "2026-08-14",
-      "total_new_items": 1,
+      "total_new_items": 2,
       "official_new_items": 0,
-      "media_new_items": 1,
+      "media_new_items": 2,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
-        "Fox Sports": 1
+        "Fox Sports": 1,
+        "The New York Times": 1
       },
       "categories": {
-        "team": 1
+        "team": 2
       }
     },
     {
@@ -29,8 +30,8 @@
         "F1 Oversteer": 2,
         "Paddock News 24": 1,
         "SPEEDWEEK.com": 1,
-        "grandepremio.com": 1,
-        "thesportingbase.com": 1
+        "The Sporting Base": 1,
+        "grandepremio.com": 1
       },
       "categories": {
         "interview": 1,
@@ -121,7 +122,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 7
+      "items": 6
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -133,12 +134,12 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 11,
-      "kept": 9,
+      "checked": 12,
+      "kept": 10,
       "results": {
         "outside_window": 1,
         "publisher_unavailable": 1,
-        "verified": 9
+        "verified": 10
       }
     }
   ]
