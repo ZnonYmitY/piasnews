@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-14T13:52:12.658134Z",
+  "generated_at": "2026-08-14T19:14:36.956872Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -11327,6 +11327,54 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-14T09:11:38.712071Z"
+    },
+    "items:piasnews-d11e7e1f485a9e3f:title:0eabe7df3a0c49ffe3074459": {
+      "dataset": "items",
+      "item_id": "piasnews-d11e7e1f485a9e3f",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri targets reset after frustrating first half of 2026",
+      "zh": "Piastri在令人沮丧的2026赛季上半程后寻求调整",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-14T19:14:36.956927Z"
+    },
+    "items:piasnews-d11e7e1f485a9e3f:summary:70784e7f6008a4a7ae397845": {
+      "dataset": "items",
+      "item_id": "piasnews-d11e7e1f485a9e3f",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Rumor or speculative report; treat as unverified unless confirmed by official sources.",
+      "zh": "传闻或推测性报道；除非官方消息证实，否则视为未经证实。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-14T19:14:36.956935Z"
+    },
+    "items:piasnews-b9dc55560a089d48:title:5395cbc9c6b808b248a6f5fb": {
+      "dataset": "items",
+      "item_id": "piasnews-b9dc55560a089d48",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri embraces experimental driving style after title hopes fade",
+      "zh": "Oscar Piastri在冠军希望破灭后尝试实验性驾驶风格",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-14T19:14:36.956941Z"
+    },
+    "items:piasnews-b9dc55560a089d48:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-b9dc55560a089d48",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-14T19:14:36.956944Z"
     }
   }
 }
