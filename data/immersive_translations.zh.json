@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-14T07:50:57.431979Z",
+  "generated_at": "2026-08-14T07:57:09.227409Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -11291,6 +11291,18 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-14T07:50:57.432041Z"
+    },
+    "items:piasnews-e71e9ca41517432c:title:3b293c41a7a825f31905e8d5": {
+      "dataset": "items",
+      "item_id": "piasnews-e71e9ca41517432c",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "McLaren duo Lando Norris and Oscar Piastri: High marks from Andrea Stella",
+      "zh": "McLaren双雄Lando Norris和Oscar Piastri：安德烈亚·斯特拉给予高度评价",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-14T07:57:09.227452Z"
     }
   }
 }
