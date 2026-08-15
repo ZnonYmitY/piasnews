@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-15T12:59:42.210220Z",
+  "generated_at": "2026-08-15T18:48:54.225021Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -11603,6 +11603,78 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-15T12:59:42.210297Z"
+    },
+    "items:piasnews-19164154d5bb5890:title:c09954e9ec78fbe477a538b7": {
+      "dataset": "items",
+      "item_id": "piasnews-19164154d5bb5890",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri F1 struggles explained - and why the clues were there in 2025",
+      "zh": "Oscar PiastriF1困境解析——以及为何2025年已有线索",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-15T18:48:54.225068Z"
+    },
+    "items:piasnews-19164154d5bb5890:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-19164154d5bb5890",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-15T18:48:54.225078Z"
+    },
+    "items:piasnews-7c8605467e28fa93:title:d58b66fa74dd3c44750bf36f": {
+      "dataset": "items",
+      "item_id": "piasnews-7c8605467e28fa93",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri at risk of McLaren wingman status in Mark Webber repeat",
+      "zh": "Oscar Piastri面临成为McLaren僚机的风险，Mark Webber情景重演",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-15T18:48:54.225083Z"
+    },
+    "items:piasnews-7c8605467e28fa93:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-7c8605467e28fa93",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-15T18:48:54.225087Z"
+    },
+    "items:piasnews-f7eca4250a6d2432:title:f3a3fd8a83e69dd04859c1a9": {
+      "dataset": "items",
+      "item_id": "piasnews-f7eca4250a6d2432",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "McLaren upgrade to address MCL40 issue that hurts Lando Norris and Oscar Piastri on every lap",
+      "zh": "McLaren升级以解决MCL40问题，该问题每圈都影响Lando Norris和Oscar Piastri",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-15T18:48:54.225092Z"
+    },
+    "items:piasnews-f7eca4250a6d2432:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-f7eca4250a6d2432",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-15T18:48:54.225096Z"
     }
   }
 }
