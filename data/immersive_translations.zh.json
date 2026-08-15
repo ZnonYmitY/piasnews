@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-15T04:04:20.212607Z",
+  "generated_at": "2026-08-15T04:21:58.288863Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -11483,6 +11483,54 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-15T04:04:20.212669Z"
+    },
+    "items:piasnews-09cb7c3414113b65:title:6d6adfc83f074e264cf3d017": {
+      "dataset": "items",
+      "item_id": "piasnews-09cb7c3414113b65",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Gabriel Bortoleto clarifies Audi contract expiration date amid Carlos Sainz and Oscar Piastri links",
+      "zh": "Gabriel Bortoleto澄清Audi合同到期日期，涉及Carlos Sainz和Oscar Piastri传闻",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-15T04:21:58.288909Z"
+    },
+    "items:piasnews-4b2686399aec49a5:title:447aeff47a33897824bc6af2": {
+      "dataset": "items",
+      "item_id": "piasnews-4b2686399aec49a5",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "‘Would be bad’: F1 icon weighs in on Piastri-McLaren conspiracy theories",
+      "zh": "“会很糟糕”：F1名宿对Piastri-McLaren阴谋论发表看法",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-15T04:21:58.288917Z"
+    },
+    "social:piasnews-social-4499b2e103600db1:summary:29fd844a33567e029e8f3b9c": {
+      "dataset": "social",
+      "item_id": "piasnews-social-4499b2e103600db1",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "what kind of psychological torture is having to (pretend to) read the zak brown book for work https://t.co/0DRViBYujv",
+      "zh": "为了工作而（假装）读Zak Brown的书，这算哪种心理折磨？",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-15T04:21:58.288923Z"
+    },
+    "social:piasnews-social-ea018e12133eef9b:summary:8aea73c8782adef66a9c5dcf": {
+      "dataset": "social",
+      "item_id": "piasnews-social-ea018e12133eef9b",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "the google pixel x oscar piastri campaign has won bronze at the AWARD awards! congratulations to all the team who worked on it 👏🏻 https://t.co/hkDc1quRJK",
+      "zh": "谷歌Pixel x Oscar Piastri广告活动在AWARD奖项中荣获铜奖！祝贺所有参与团队👏🏻",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-15T04:21:58.288928Z"
     }
   }
 }
