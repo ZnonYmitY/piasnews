@@ -115,6 +115,20 @@ class TranslateZhLlmMappingTest(unittest.TestCase):
 
         self.assertEqual(translated, {"known": "Oscar 谈到了排位赛。"})
 
+    def test_prompt_preserves_zak_brown_as_proper_name(self):
+        messages = llm_mapping.build_prompt([{
+            "key": "one",
+            "dataset": "social",
+            "item_id": "one",
+            "field": "summary",
+            "target_field": "summary_zh",
+            "source_text": "read the zak brown book for work",
+            "source_url": "",
+            "source_name": "@source",
+        }])
+
+        self.assertIn("Zak Brown", messages[0]["content"])
+
     def test_cli_skips_without_api_key(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             tmp = Path(tmpdir)

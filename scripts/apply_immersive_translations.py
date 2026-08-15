@@ -77,6 +77,8 @@ def source_aware_repairs(source_text: str, zh: str) -> str:
     if re.search(r"\bzak brown\b", source_lower):
         result = result.replace("扎克·布朗", "Zak Brown")
         result = result.replace("扎克布朗", "Zak Brown")
+        result = result.replace("扎克棕色", "Zak Brown")
+        result = result.replace("Zak Brown书", "Zak Brown 的书")
     if "steward" in source_lower:
         result = result.replace("服务员", "FIA 干事")
         result = result.replace("管家", "FIA 干事")

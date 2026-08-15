@@ -220,6 +220,8 @@ class ApplyImmersiveTranslationsTest(unittest.TestCase):
                 ("Webber 正在准备 Red Bull 行动", "Webber 正在准备 Red Bull 转会"),
             "Monster launches Oscar Piastri F1 cans":
                 ("怪物发射 Oscar Piastri F1罐", "Monster 推出 Oscar Piastri F1 联名罐"),
+            "what kind of psychological torture is having to read the zak brown book for work":
+                ("什么样的心理折磨 需要阅读 扎克棕色书的工作", "什么样的心理折磨 需要阅读 Zak Brown 的书的工作"),
         }
 
         for source, (raw_zh, expected) in cases.items():

@@ -187,6 +187,11 @@ def repair_translation_by_source(source_text: str, zh: str) -> str:
     if "weekend" in source_lower:
         result = result.replace("一周后", "周末")
         result = result.replace("一周", "周末")
+    if "zak brown" in source_lower:
+        result = result.replace("扎克·布朗", "Zak Brown")
+        result = result.replace("扎克布朗", "Zak Brown")
+        result = result.replace("扎克棕色", "Zak Brown")
+        result = result.replace("Zak Brown书", "Zak Brown 的书")
     return clean_text(result)
 
 

@@ -61,6 +61,8 @@ class TranslateZhArgosTest(unittest.TestCase):
                 ("Oscar Piastri(Oscar Piastri),不列颠人(Britanya hafta sonu için 3 kask birden hazırlamış.", "Oscar Piastri 为英国大奖赛周末准备了三款头盔。"),
             "a proud mama of 3 newborn babies https://t.co/rmOcymQ5IG":
                 ("3个新生婴儿的骄傲妈妈", "三款新头盔的骄傲妈妈"),
+            "what kind of psychological torture is having to (pretend to) read the zak brown book for work":
+                ("什么样的心理折磨 需要(预想)阅读 扎克棕色书的工作", "什么样的心理折磨 需要(预想)阅读 Zak Brown 的书的工作"),
         }
 
         for source, (raw_zh, expected) in cases.items():

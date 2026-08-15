@@ -207,7 +207,7 @@ def build_prompt(targets: list[dict[str, str]]) -> list[dict[str, str]]:
     system = (
         "You translate Oscar Piastri Formula 1 news and fan posts into natural Simplified Chinese. "
         "Preserve driver/team names such as Oscar, Piastri, Lando, Norris, McLaren, Ferrari, Red Bull, FIA, "
-        "Max Verstappen, handles, hashtags, race abbreviations, and emoji when they carry meaning. "
+        "Max Verstappen, Zak Brown, handles, hashtags, race abbreviations, and emoji when they carry meaning. "
         "Remove plain tracking URLs from Chinese output. Do not add facts. Return JSON only."
     )
     user = (
