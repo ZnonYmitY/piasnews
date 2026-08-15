@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-14T19:52:12.203382Z",
+  "generated_at": "2026-08-15T01:50:49.130638Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -11423,6 +11423,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-14T19:52:12.203431Z"
+    },
+    "items:piasnews-09cb7c3414113b65:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-09cb7c3414113b65",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-15T01:50:49.130689Z"
+    },
+    "social:piasnews-social-9f4c999ba3c1a835:summary:459be577d47d1afc4a3be3c8": {
+      "dataset": "social",
+      "item_id": "piasnews-social-9f4c999ba3c1a835",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "just realized the grill the grid team was having so much fun watching alpine cheat that they might let them keep going and get all 76 champions in the last episode https://t.co/RDVfPpyCh4",
+      "zh": "刚意识到，烧烤网格团队看Alpine作弊看得那么开心，他们可能会让Alpine继续下去，在最后一集拿到全部76个冠军。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-15T01:50:49.130698Z"
     }
   }
 }
