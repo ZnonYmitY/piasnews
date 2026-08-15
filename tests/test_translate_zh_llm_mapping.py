@@ -129,6 +129,14 @@ class TranslateZhLlmMappingTest(unittest.TestCase):
 
         self.assertIn("Zak Brown", messages[0]["content"])
 
+    def test_valid_translation_allows_zak_brown_proper_name(self):
+        result = llm_mapping.valid_translation(
+            "read the zak brown book for work",
+            "为了工作阅读 Zak Brown 的书是一种心理折磨",
+        )
+
+        self.assertEqual(result, "为了工作阅读 Zak Brown 的书是一种心理折磨")
+
     def test_cli_skips_without_api_key(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             tmp = Path(tmpdir)

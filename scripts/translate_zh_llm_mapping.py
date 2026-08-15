@@ -40,6 +40,7 @@ ALLOWED_EN_WORDS = {
     "alpine",
     "aston",
     "audi",
+    "brown",
     "bull",
     "bulls",
     "cadillac",
@@ -71,6 +72,7 @@ ALLOWED_EN_WORDS = {
     "sauber",
     "verstappen",
     "williams",
+    "zak",
 }
 
 sys.path.insert(0, str(ROOT / "scripts"))
