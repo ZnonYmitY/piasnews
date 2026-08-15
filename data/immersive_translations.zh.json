@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-15T04:21:58.288863Z",
+  "generated_at": "2026-08-15T12:59:42.210220Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -11531,6 +11531,78 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-15T04:21:58.288928Z"
+    },
+    "items:piasnews-9db8711635c60924:title:aec2675de21cadba1066928b": {
+      "dataset": "items",
+      "item_id": "piasnews-9db8711635c60924",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "F1 2026 mid-season driver ratings - 22-12: Oscar Piastri a surprise outlier",
+      "zh": "F1 2026赛季中期车手评分 - 22-12：Oscar Piastri成为意外之选",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-15T12:59:42.210272Z"
+    },
+    "items:piasnews-9db8711635c60924:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-9db8711635c60924",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-15T12:59:42.210280Z"
+    },
+    "items:piasnews-2b1f15cb59abf90e:title:01ef58d75a60f80212e412e2": {
+      "dataset": "items",
+      "item_id": "piasnews-2b1f15cb59abf90e",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "McLaren outline relief after Lando Norris-Oscar Piastri concern",
+      "zh": "McLaren在Lando Norris-Oscar Piastri的担忧后表达宽慰",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-15T12:59:42.210284Z"
+    },
+    "items:piasnews-2b1f15cb59abf90e:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-2b1f15cb59abf90e",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-15T12:59:42.210288Z"
+    },
+    "items:piasnews-578c54851c586bc5:title:0ef02760d7e699996a700084": {
+      "dataset": "items",
+      "item_id": "piasnews-578c54851c586bc5",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Preparation in the F1 simulator: Oscar Piastri disagrees with Lewis Hamilton",
+      "zh": "F1模拟器中的准备：Oscar Piastri不同意Lewis Hamilton",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-15T12:59:42.210292Z"
+    },
+    "items:piasnews-578c54851c586bc5:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-578c54851c586bc5",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-15T12:59:42.210297Z"
     }
   }
 }
