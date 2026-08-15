@@ -137,6 +137,14 @@ class TranslateZhLlmMappingTest(unittest.TestCase):
 
         self.assertEqual(result, "为了工作阅读 Zak Brown 的书是一种心理折磨")
 
+    def test_valid_translation_allows_domain_english_in_chinese_output(self):
+        result = llm_mapping.valid_translation(
+            "Oscar and Lando talk about a Drive to Survive clip with McLaren",
+            "Oscar 和 Lando 在 McLaren 的 Drive to Survive 片段里聊天",
+        )
+
+        self.assertEqual(result, "Oscar 和 Lando 在 McLaren 的 Drive to Survive 片段里聊天")
+
     def test_cli_skips_without_api_key(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             tmp = Path(tmpdir)

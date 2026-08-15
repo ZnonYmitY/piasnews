@@ -34,46 +34,6 @@ DEFAULT_MODEL = "gpt-4.1-mini"
 WHITESPACE_RE = re.compile(r"\s+")
 URL_ONLY_RE = re.compile(r"^https?://\S+$", re.IGNORECASE)
 CJK_RE = re.compile(r"[\u3400-\u9fff]")
-EN_WORD_RE = re.compile(r"[A-Za-z][A-Za-z'’-]*")
-ALLOWED_EN_WORDS = {
-    "ai",
-    "alpine",
-    "aston",
-    "audi",
-    "brown",
-    "bull",
-    "bulls",
-    "cadillac",
-    "drs",
-    "ferrari",
-    "fia",
-    "f1",
-    "fp1",
-    "fp2",
-    "fp3",
-    "gp",
-    "haas",
-    "hamilton",
-    "lando",
-    "lewis",
-    "max",
-    "mclaren",
-    "mercedes",
-    "norris",
-    "op",
-    "op81",
-    "oscar",
-    "piastri",
-    "q1",
-    "q2",
-    "q3",
-    "racing",
-    "red",
-    "sauber",
-    "verstappen",
-    "williams",
-    "zak",
-}
 
 sys.path.insert(0, str(ROOT / "scripts"))
 from apply_immersive_translations import source_aware_repairs  # noqa: E402
@@ -278,17 +238,11 @@ def openai_chat_completion_client(
 
 
 def valid_translation(source_text: str, zh: str) -> str:
-    repaired = source_aware_repairs(source_text, clean(zh))
+    cleaned_zh = clean(zh)
+    if cleaned_zh.casefold() == clean(source_text).casefold():
+        return ""
+    repaired = source_aware_repairs(source_text, cleaned_zh)
     if not repaired or not CJK_RE.search(repaired):
-        return ""
-    if repaired.casefold() == clean(source_text).casefold():
-        return ""
-    disallowed_words = [
-        word for word in EN_WORD_RE.findall(repaired)
-        if word.casefold() not in ALLOWED_EN_WORDS
-        and not re.fullmatch(r"[PQ]\d{1,2}", word, re.IGNORECASE)
-    ]
-    if len(disallowed_words) >= 2:
         return ""
     return repaired
 
