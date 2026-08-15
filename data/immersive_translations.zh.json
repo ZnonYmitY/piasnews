@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-15T03:59:43.419029Z",
+  "generated_at": "2026-08-15T04:04:20.212607Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -11447,6 +11447,42 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-15T01:50:49.130698Z"
+    },
+    "social:piasnews-social-df03072f5f7cc2b5:summary:cf4d3d96d2b16a5299a384c4": {
+      "dataset": "social",
+      "item_id": "piasnews-social-df03072f5f7cc2b5",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "the tamagotchi is upside down for fuck's sake oscar",
+      "zh": "电子宠物都拿反了，天哪，Oscar",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-15T04:04:20.212655Z"
+    },
+    "social:piasnews-social-6bf5a2af748ae6d6:summary:cde43ef2f80a1431990cbb76": {
+      "dataset": "social",
+      "item_id": "piasnews-social-6bf5a2af748ae6d6",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "\"would be good if i could count\" ??? 😭😭 https://t.co/8yZILJ0qsg",
+      "zh": "“要是能数得清就好了”？？？😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-15T04:04:20.212664Z"
+    },
+    "social:piasnews-social-c07a77f032125fa6:summary:95d0d2555e24e3f912f86377": {
+      "dataset": "social",
+      "item_id": "piasnews-social-c07a77f032125fa6",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "A PROUD FATHER 👨🏻‍🍼 https://t.co/QmQ8LbFRhu",
+      "zh": "一位骄傲的父亲 👨🏻‍🍼",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-15T04:04:20.212669Z"
     }
   }
 }
