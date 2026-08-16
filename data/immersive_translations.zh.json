@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-15T18:48:54.225021Z",
+  "generated_at": "2026-08-16T01:58:59.721219Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -11675,6 +11675,102 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-15T18:48:54.225096Z"
+    },
+    "items:piasnews-2123df4e0bdcbf40:title:2a6a1ee83812a55c677b20ef": {
+      "dataset": "items",
+      "item_id": "piasnews-2123df4e0bdcbf40",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri shocks F1 2026 mid-season ratings despite podium finish",
+      "zh": "Oscar Piastri在2026年F1赛季中期评分中令人震惊，尽管登上领奖台",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-16T01:58:59.721275Z"
+    },
+    "items:piasnews-2123df4e0bdcbf40:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-2123df4e0bdcbf40",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-16T01:58:59.721283Z"
+    },
+    "items:piasnews-d00c89fd0c3f9673:title:6751efd2bc40a2bbbc2845ad": {
+      "dataset": "items",
+      "item_id": "piasnews-d00c89fd0c3f9673",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Andrea Stella reveals relief as Norris and Piastri strengthen their McLaren bond",
+      "zh": "安德烈亚·斯特拉透露Norris和Piastri加强McLaren纽带后的宽慰",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-16T01:58:59.721288Z"
+    },
+    "items:piasnews-d00c89fd0c3f9673:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-d00c89fd0c3f9673",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-16T01:58:59.721292Z"
+    },
+    "social:piasnews-social-a482ca22983386ad:summary:e01e016a7b4a0eed8cd1567c": {
+      "dataset": "social",
+      "item_id": "piasnews-social-a482ca22983386ad",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "hopping around... so carefree... so much joy... so much to live for... https://t.co/92pTM84a8a",
+      "zh": "蹦蹦跳跳……无忧无虑……如此快乐……有太多值得活下去的东西……",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-16T01:58:59.721296Z"
+    },
+    "social:piasnews-social-e8da586b7a1439cb:summary:ba3ccc26f818c9746dadc044": {
+      "dataset": "social",
+      "item_id": "piasnews-social-e8da586b7a1439cb",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "aussie WRC2 driver taylor gill has commented \"time to get you in a real one\" on oscar's newest reel where he plays the WRC game 👀 https://t.co/eSsf65yRZE",
+      "zh": "澳大利亚WRC2车手泰勒·吉尔在Oscar的最新视频下评论“是时候让你开真车了”，视频中他在玩WRC游戏👀",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-16T01:58:59.721299Z"
+    },
+    "social:piasnews-social-86466b22849c2837:summary:f065a1dbf2236a94e7192977": {
+      "dataset": "social",
+      "item_id": "piasnews-social-86466b22849c2837",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "\"ahh i'm now backwardsss... hmm... i'm now sliding down a mountain\" oscar's new reel gives us 3 additional seconds of simscar, it's tough out here 😭😭 https://t.co/sGQIgsOlDs",
+      "zh": "“啊，我现在倒着……嗯……我现在在从山上滑下来”Oscar的新视频又给了我们3秒的模拟赛车画面，太难了😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-16T01:58:59.721304Z"
+    },
+    "social:piasnews-social-831f334156dd8255:summary:2e1b109594417d0e1d7ed1a7": {
+      "dataset": "social",
+      "item_id": "piasnews-social-831f334156dd8255",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "i'm so excited for oscar's holiday photodump just because i hope he has discovered the caption-per-slide feature",
+      "zh": "我很期待Oscar的假期照片集，因为我希望他发现了每张幻灯片配标题的功能",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-16T01:58:59.721311Z"
     }
   }
 }
