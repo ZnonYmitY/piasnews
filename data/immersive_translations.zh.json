@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-16T13:08:19.308377Z",
+  "generated_at": "2026-08-16T18:47:51.736378Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -11771,6 +11771,54 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-16T01:58:59.721311Z"
+    },
+    "items:piasnews-ea5343b3e4468159:title:228471c3d742c3120b845a13": {
+      "dataset": "items",
+      "item_id": "piasnews-ea5343b3e4468159",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri urged to take McLaren down ‘rabbit holes’ to find answers",
+      "zh": "Oscar Piastri被敦促带领McLaren深入‘兔子洞’寻找答案",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-16T18:47:51.736424Z"
+    },
+    "items:piasnews-ea5343b3e4468159:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-ea5343b3e4468159",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-16T18:47:51.736433Z"
+    },
+    "items:piasnews-886ef2009e19b809:title:f9db7d08caaebf29358377ea": {
+      "dataset": "items",
+      "item_id": "piasnews-886ef2009e19b809",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "McLaren reveal Norris-Piastri surprise after intense 2025 title battle: 'It was not a given'",
+      "zh": "McLaren在2025年激烈冠军争夺战后揭示Norris-Piastri的惊喜：‘这并非理所当然’",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-16T18:47:51.736439Z"
+    },
+    "items:piasnews-886ef2009e19b809:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-886ef2009e19b809",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-16T18:47:51.736444Z"
     }
   }
 }
