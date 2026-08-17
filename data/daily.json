@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T01:54:11.847358Z",
+  "generated_at": "2026-08-17T01:59:24.650060Z",
   "window_days": 3,
   "total_items": 11,
   "latest_date": "2026-08-16",
@@ -45,8 +45,8 @@
       "rumor_new_items": 1,
       "sources": {
         "F1 Oversteer": 1,
-        "The New York Times": 1,
-        "news.gp": 1
+        "news.gp": 1,
+        "nytimes.com": 1
       },
       "categories": {
         "rumor": 1,
@@ -81,7 +81,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 15
+      "items": 16
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
@@ -121,10 +121,11 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 15,
+      "checked": 16,
       "kept": 11,
       "results": {
         "outside_window": 3,
+        "publisher_date_missing": 1,
         "publisher_unavailable": 1,
         "verified": 11
       }
