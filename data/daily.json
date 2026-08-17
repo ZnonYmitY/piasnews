@@ -1,22 +1,25 @@
 {
-  "generated_at": "2026-08-17T13:13:07.703130Z",
+  "generated_at": "2026-08-17T18:47:22.216629Z",
   "window_days": 3,
-  "total_items": 12,
+  "total_items": 14,
   "latest_date": "2026-08-17",
   "days": [
     {
       "date": "2026-08-17",
-      "total_new_items": 2,
-      "official_new_items": 0,
-      "media_new_items": 2,
+      "total_new_items": 4,
+      "official_new_items": 1,
+      "media_new_items": 3,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
+        "GPblog": 1,
+        "McLaren": 1,
         "Nine.com.au": 1,
         "Speedcafe.com": 1
       },
       "categories": {
-        "other": 2
+        "other": 3,
+        "team": 1
       }
     },
     {
@@ -27,9 +30,9 @@
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
+        "Fox Sports": 1,
         "GPblog": 1,
-        "PlanetF1": 1,
-        "foxsports.com.au": 1
+        "planetf1.com": 1
       },
       "categories": {
         "other": 1,
@@ -45,8 +48,8 @@
       "rumor_new_items": 0,
       "sources": {
         "F1 Oversteer": 1,
-        "PlanetF1": 1,
         "SPEEDWEEK.com": 1,
+        "planetf1.com": 1,
         "racingnews365.com": 3
       },
       "categories": {
@@ -95,7 +98,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 16
+      "items": 18
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
@@ -123,25 +126,25 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 10
+      "items": 12
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22interview%22+when%3A3d",
       "ok": true,
-      "items": 1
+      "items": 2
     },
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 16,
-      "kept": 12,
+      "checked": 18,
+      "kept": 14,
       "results": {
         "outside_window": 1,
         "publisher_date_missing": 1,
         "publisher_unavailable": 2,
-        "verified": 12
+        "verified": 14
       }
     }
   ]

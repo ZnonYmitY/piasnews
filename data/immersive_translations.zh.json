@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T13:14:53.973605Z",
+  "generated_at": "2026-08-17T18:49:01.416644Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -12155,6 +12155,186 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-17T10:52:15.889546Z"
+    },
+    "items:piasnews-b81b3686d33415f0:title:bd7d5340101e67c3f88d8172": {
+      "dataset": "items",
+      "item_id": "piasnews-b81b3686d33415f0",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "A DAY IN THE LIFE OF OSCAR PIASTRI - PRESENTED BY DELL TECHNOLOGIES",
+      "zh": "Oscar Piastri的一天——由戴尔科技呈现",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-17T18:49:01.416698Z"
+    },
+    "items:piasnews-b81b3686d33415f0:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-b81b3686d33415f0",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-17T18:49:01.416707Z"
+    },
+    "items:piasnews-fb2940364f2fbb43:title:c47610a659f50c1e344c80af": {
+      "dataset": "items",
+      "item_id": "piasnews-fb2940364f2fbb43",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Norris suffers late heartbreak at Zandvoort as Piastri wins ahead of home hero Verstappen",
+      "zh": "Norris在Zandvoort遭遇心碎，Piastri在主场英雄Verstappen之前夺冠",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-17T18:49:01.416712Z"
+    },
+    "items:piasnews-fb2940364f2fbb43:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-fb2940364f2fbb43",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-17T18:49:01.416716Z"
+    },
+    "social:piasnews-social-6901b81fdafbe6ff:summary:6197ff8cae4dad7fb8aeb7ec": {
+      "dataset": "social",
+      "item_id": "piasnews-social-6901b81fdafbe6ff",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "snippet of oscar and lando guessing their guest in lights out ep3! https://t.co/YUl3eoiAs8",
+      "zh": "Oscar和Lando在《熄灯》第三集中猜测他们的嘉宾的片段！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-17T18:49:01.416720Z"
+    },
+    "social:piasnews-social-5cee001de3ceaecb:summary:7c4ed716b24d3a7954c8e609": {
+      "dataset": "social",
+      "item_id": "piasnews-social-5cee001de3ceaecb",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "already clean shaven and with his hair cut, he wasted no time 😭😭 https://t.co/xzsUnIjSSH",
+      "zh": "已经刮了胡子剪了头发，他毫不耽误时间 😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-17T18:49:01.416723Z"
+    },
+    "social:piasnews-social-646a9ae538895984:summary:eaa02df81c9873084e59fac5": {
+      "dataset": "social",
+      "item_id": "piasnews-social-646a9ae538895984",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar filmed an episode of the cricket show \"the switch\" with kevin pietersen today! https://t.co/a7xK5JLREt",
+      "zh": "Oscar今天和凯文·彼得森一起拍摄了一集板球节目《The Switch》！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-17T18:49:01.416728Z"
+    },
+    "social:piasnews-social-4cfa815b1838e341:summary:e7a6cc1772049e5a96daa275": {
+      "dataset": "social",
+      "item_id": "piasnews-social-4cfa815b1838e341",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "lando: i'm getting ready for summer, got some necklaces.. oscar: i love that your mind went \"getting ready for summer: necklaces\". i was thinking shorts, tshirts.. lando: i got load of clothes as well! but i didnt bring a suitcase oscar: good thing we got a suitcase sponsor 😏 https://t.co/FWAXHLxMsC",
+      "zh": "Lando：我在为夏天做准备，买了一些项链……Oscar：我喜欢你想到“为夏天做准备”时想到的是项链。我想的是短裤、T恤……Lando：我也买了很多衣服！但我没带行李箱。Oscar：幸好我们有行李箱赞助商 😏",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-17T18:49:01.416735Z"
+    },
+    "social:piasnews-social-e1620553cb25694a:summary:a0ff4fed31c54ac5b7c94663": {
+      "dataset": "social",
+      "item_id": "piasnews-social-e1620553cb25694a",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar talking about how meeting the XRAY team in austria really stuck with him 🥹🫶🏻 https://t.co/TUdybDIKWk",
+      "zh": "Oscar谈到在奥地利见到XRAY团队的经历让他印象深刻 🥹🫶🏻",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-17T18:49:01.416740Z"
+    },
+    "social:piasnews-social-aea7b747d65d6a28:summary:eb4f8d4f89ce2f59cbfcd6d7": {
+      "dataset": "social",
+      "item_id": "piasnews-social-aea7b747d65d6a28",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "\"most recent driver from another team who gave you an unexpected compliment?\" oscar: \"...... it doesn't really happen\" 😭😭😭 https://t.co/S6Dgp6FN5d",
+      "zh": "“最近有哪位其他车队的车手给了你意想不到的赞美？”Oscar：“……这种事真的不常发生” 😭😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-17T18:49:01.416744Z"
+    },
+    "social:piasnews-social-ad1ee1486ef64578:summary:7258d43af05e4e53396222a8": {
+      "dataset": "social",
+      "item_id": "piasnews-social-ad1ee1486ef64578",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar and lando talking about how seeing zak brown all dressed up and in a top hat left them speechless 😭😭😭 https://t.co/78r3tviF8H",
+      "zh": "Oscar和Lando谈到看到Zak Brown盛装打扮戴着高顶礼帽让他们目瞪口呆 😭😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-17T18:49:01.416747Z"
+    },
+    "social:piasnews-social-7301417df7a934df:summary:c7785a32fb3114c632283a36": {
+      "dataset": "social",
+      "item_id": "piasnews-social-7301417df7a934df",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "\"most recent message in the drivers' group chat that made you laugh out loud?\" oscar: \"i cant say that\" lando: \"oh, fernando!\" oscar: \"ah yeah, fernando. i was gonna say the one before that\" lando: \"oh yeah, or that one\" LET US IN !!! https://t.co/E02I67j9XH",
+      "zh": "“最近车手群聊里哪条消息让你笑出声？”Oscar：“我不能说那个。”Lando：“哦，费尔南多！”Oscar：“啊，对，费尔南多。我本来想说之前那条。”Lando：“哦，对，或者那条。”让我们进去吧！！！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-17T18:49:01.416751Z"
+    },
+    "social:piasnews-social-80cfbfc3d3595e80:summary:1026f66a0af2b17dd587598e": {
+      "dataset": "social",
+      "item_id": "piasnews-social-80cfbfc3d3595e80",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "in austria oscar asked for scrambled eggs but he ended up getting a semi-omelette with more stuff in it and he liked it so much that he had artturi ask oscar's chef to re-create it for him 😭😭 https://t.co/avFvOkM1TJ",
+      "zh": "在奥地利，Oscar 点了炒蛋，但最后却得到了一个加了更多料的半煎蛋卷，他非常喜欢，以至于让 Artturi 去请 Oscar 的厨师为他重新做一份 😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-17T18:49:01.416755Z"
+    },
+    "social:piasnews-social-7883fc9e0c8ff212:summary:92ea3c89902e1e94eb8e9a04": {
+      "dataset": "social",
+      "item_id": "piasnews-social-7883fc9e0c8ff212",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar talking about how impressive cabo verde's goalkeeper was at the world cup 😭😭 https://t.co/U9I3zBD6CG",
+      "zh": "Oscar 谈到佛得角门将在世界杯上的表现有多令人印象深刻 😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-17T18:49:01.416758Z"
+    },
+    "social:piasnews-social-2437e3de6fe874ee:summary:1f0220bc1df2f316538fda27": {
+      "dataset": "social",
+      "item_id": "piasnews-social-2437e3de6fe874ee",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "this is triggering for me (i go back to work tomorrow) https://t.co/r1ujOKQ14X",
+      "zh": "这让我很焦虑（我明天要回去上班了）",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-17T18:49:01.416761Z"
     }
   }
 }
