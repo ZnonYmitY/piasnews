@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-18T06:04:34.070101Z",
+  "generated_at": "2026-08-18T07:03:39.191397Z",
   "window_days": 3,
-  "total_items": 13,
+  "total_items": 15,
   "latest_date": "2026-08-17",
   "days": [
     {
@@ -41,19 +41,20 @@
     },
     {
       "date": "2026-08-15",
-      "total_new_items": 6,
+      "total_new_items": 8,
       "official_new_items": 0,
-      "media_new_items": 6,
+      "media_new_items": 8,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
+        "F1 Oversteer": 1,
         "PlanetF1": 1,
         "SPEEDWEEK.com": 1,
-        "f1oversteer.com": 1,
+        "motorcyclesports.net": 2,
         "racingnews365.com": 3
       },
       "categories": {
-        "team": 6
+        "team": 8
       }
     }
   ],
@@ -84,14 +85,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 18
+      "items": 20
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 14
+      "items": 15
     },
     {
       "query": "\"OP81\" when:3d",
@@ -105,14 +106,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 3
+      "items": 4
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 12
+      "items": 13
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -124,13 +125,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 18,
-      "kept": 13,
+      "checked": 20,
+      "kept": 15,
       "results": {
         "outside_window": 1,
         "publisher_date_missing": 1,
         "publisher_unavailable": 3,
-        "verified": 13
+        "verified": 15
       }
     }
   ]
