@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-18T13:08:36.281065Z",
+  "generated_at": "2026-08-18T17:12:04.742580Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -12371,6 +12371,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-18T13:08:36.281127Z"
+    },
+    "items:piasnews-a6e4c9f3b7d40316:title:ab37a62a700fc1630d847bac": {
+      "dataset": "items",
+      "item_id": "piasnews-a6e4c9f3b7d40316",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri told to 'sacrifice' races in McLaren battle experiment: 'Who cares?'",
+      "zh": "Piastri被要求在McLaren战斗实验中'牺牲'比赛：'谁在乎？'",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-18T17:12:04.742612Z"
+    },
+    "items:piasnews-a6e4c9f3b7d40316:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-a6e4c9f3b7d40316",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-18T17:12:04.742621Z"
     }
   }
 }
