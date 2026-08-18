@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T18:49:01.416644Z",
+  "generated_at": "2026-08-18T01:05:26.252582Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -12335,6 +12335,18 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-17T18:49:01.416761Z"
+    },
+    "social:piasnews-social-c47461c1d6a06404:summary:dfa2735ba4926d0f31206e12": {
+      "dataset": "social",
+      "item_id": "piasnews-social-c47461c1d6a06404",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "kevin is so impressed by him 😭 https://t.co/2yzcTivGXX",
+      "zh": "凯文对他印象深刻😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-18T01:05:26.252630Z"
     }
   }
 }
