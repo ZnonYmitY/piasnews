@@ -235,15 +235,15 @@ GitHub Actions 导入：把同样的 JSON 写入仓库变量 `PIASNEWS_SOCIAL_IN
 
 粉丝源和日报新闻的发布层一致，都会落到 GitHub Pages 的静态 JSON；采集层不同。日报新闻由 GitHub Actions 每 6 小时抓取 RSS/网页并核验原站发布日期，并额外配置一个 10 分钟后的备用 schedule，降低 GitHub 定时任务延迟或丢触发的影响。粉丝源由本机 Agent-Reach、常在线机器或外部调度器先生成公开动态导入文件，再交给 GitHub Actions 归一化和部署。GitHub Actions 本身不会读取你的本机 X 登录态。
 
-如果要把 X 采集迁到常在线环境，推荐路径是：在小主机、VPS、Supabase Edge Function 或外部调度器上运行采集器，生成 compact social JSON，再通过 `PIASNEWS_SOCIAL_INPUT_URL` 或仓库变量 `PIASNEWS_SOCIAL_INPUT_JSON` 交给 `Update Piasnews Data` workflow。X 对数据中心 IP 有风控风险，低成本优先级建议是本地常开小主机或家宽环境；如果使用官方 X API bearer token，Supabase 可以解决“本机睡眠导致调度不跑”的问题。Supabase 不能复用你的本机 Chrome 登录态、Agent-Reach cookies 或沉浸式翻译浏览器插件；这类链路仍需要本机或改成服务器可运行的 API。
+如果要把 X / IG 采集迁到常在线环境，推荐路径是：在小主机、VPS、Supabase Edge Function 或外部调度器上运行采集器，生成 compact social JSON，再通过 `PIASNEWS_SOCIAL_INPUT_URL`、仓库变量 `PIASNEWS_SOCIAL_INPUT_JSON`，或 Supabase collector 的外部输入配置交给 `Update Piasnews Data` workflow。X 对数据中心 IP 有风控风险，低成本优先级建议是本地常开小主机或家宽环境；如果使用官方 X API bearer token，Supabase 可以解决“本机睡眠导致调度不跑”的问题。Supabase 不能复用你的本机 Chrome 登录态、Agent-Reach cookies 或沉浸式翻译浏览器插件；这类链路仍需要本机或改成服务器可运行的 API / compact JSON 推送。
 
 仓库提供了 Supabase 迁移骨架：
 
 - `supabase/migrations/0001_social_import_snapshots.sql`：存储最新 compact social import 快照。
-- `supabase/functions/collect-social/index.ts`：用官方 X API 采集账号时间线，写入快照表，并可触发 `update-piasnews.yml`。
+- `supabase/functions/collect-social/index.ts`：用官方 X API 采集账号时间线，也可合并外部 compact JSON 输入（包括 IG），写入快照表，并可触发 `update-piasnews.yml`。
 - `supabase/functions/collect-social/README.md`：列出 Supabase secrets、GitHub 变量和定时配置。
 
-配置完成后，把 `PIASNEWS_SOCIAL_INPUT_URL` 指向 `https://<project>.functions.supabase.co/collect-social`。Supabase 定时函数负责生成新快照，GitHub Actions 负责复用现有归一化、翻译、审计和 Pages 发布流程。
+配置完成后，把 `PIASNEWS_SOCIAL_INPUT_URL` 指向 `https://<project>.functions.supabase.co/collect-social`。Supabase 定时函数负责生成新快照，GitHub Actions 负责复用现有归一化、翻译、审计和 Pages 发布流程。若 IG 由另一个后端采集器生成 compact JSON，可把地址配置成 Supabase secret `PIASNEWS_INSTAGRAM_INPUT_URL`，或用带 JSON body 的 POST 推送到 collector；这样本机定时任务就不需要再打开 Instagram 页面。
 
 本机已支持 Agent-Reach 采集入口。先确认 Twitter/X 后端状态：
 
@@ -275,7 +275,7 @@ env PATH=/Users/bytedance/.agent-reach-venv/bin:$PATH \
 scripts/update_social_agent_reach.sh
 ```
 
-默认采集全部 X 分组，并额外尝试用本机已登录 Chrome 采集 Oscar Piastri Instagram 主页最近公开 posts/reels。如果 Chrome Apple Events 仍阻止 DOM 读取，Instagram 采集器会自动降级到 OpenCLI Browser Bridge；导入 JSON 的 `source_status[].method` 会显示 `opencli-browser`。脚本随后更新 `data/social.json`，生成 compact import，写入 GitHub 变量 `PIASNEWS_SOCIAL_INPUT_JSON`，并触发 `Update Piasnews Data` workflow。compact import 不写入每次变化的生成时间；如果内容和上次发布完全一致，脚本会跳过 GitHub 变量更新和 workflow 触发。脚本会先确认至少一个社交来源采集成功；如果认证、DNS、网络或 Chrome DOM 权限失败且没有任何来源成功，它会停止在发布前，避免把失败采集伪装成新的 X / IG 更新时间。需要强制发布时设置 `PIASNEWS_FORCE_SOCIAL_PUBLISH=1`。只更新本地、不触发 GitHub：
+默认采集全部 X 分组，并额外尝试用本机已登录 Chrome 采集 Oscar Piastri Instagram 主页最近公开 posts/reels。如果 Chrome Apple Events 仍阻止 DOM 读取，Instagram 采集器会自动降级到 OpenCLI Browser Bridge；导入 JSON 的 `source_status[].method` 会显示 `opencli-browser`。如果 IG 已改由 Supabase 或外部后端导入，设置 `PIASNEWS_COLLECT_INSTAGRAM=0` 可让本机脚本只采 X，不再打开 Instagram 或 OpenCLI Browser。脚本随后更新 `data/social.json`，生成 compact import，写入 GitHub 变量 `PIASNEWS_SOCIAL_INPUT_JSON`，并触发 `Update Piasnews Data` workflow。compact import 不写入每次变化的生成时间；如果内容和上次发布完全一致，脚本会跳过 GitHub 变量更新和 workflow 触发。脚本会先确认至少一个社交来源采集成功；如果认证、DNS、网络或 Chrome DOM 权限失败且没有任何来源成功，它会停止在发布前，避免把失败采集伪装成新的 X / IG 更新时间。需要强制发布时设置 `PIASNEWS_FORCE_SOCIAL_PUBLISH=1`。只更新本地、不触发 GitHub：
 
 ```bash
 PIASNEWS_SKIP_GITHUB=1 scripts/update_social_agent_reach.sh
@@ -725,15 +725,15 @@ GitHub Actions import: store the same JSON in the repository variable `PIASNEWS_
 
 Fan sources and daily news share the same static GitHub Pages delivery layer, but their collection layers differ. Daily news is collected every six hours by GitHub Actions through RSS/web sources with publisher-date verification, with a second backup schedule ten minutes later to reduce the impact of delayed or dropped GitHub scheduled runs. Fan sources are collected locally through Agent-Reach, an always-on machine, or an external scheduler, then normalized and deployed by GitHub Actions. GitHub Actions cannot read your local X browser session.
 
-To migrate X collection to an always-on environment, run the collector on a mini PC, VPS, Supabase Edge Function, or external scheduler, generate compact social JSON, then pass it into the `Update Piasnews Data` workflow through `PIASNEWS_SOCIAL_INPUT_URL` or `PIASNEWS_SOCIAL_INPUT_JSON`. X can apply stricter risk controls to data-center IPs, so the low-cost preference is an always-on local/home machine first. If an official X API bearer token is available, Supabase can solve the "local host is asleep, so the schedule does not run" problem. Supabase cannot reuse your local Chrome login state, Agent-Reach cookies, or the Immersive Translate browser extension; those flows still require a local host or a server-side API replacement.
+To migrate X / IG collection to an always-on environment, run the collector on a mini PC, VPS, Supabase Edge Function, or external scheduler, generate compact social JSON, then pass it into the `Update Piasnews Data` workflow through `PIASNEWS_SOCIAL_INPUT_URL`, `PIASNEWS_SOCIAL_INPUT_JSON`, or the Supabase collector's external-input configuration. X can apply stricter risk controls to data-center IPs, so the low-cost preference is an always-on local/home machine first. If an official X API bearer token is available, Supabase can solve the "local host is asleep, so the schedule does not run" problem. Supabase cannot reuse your local Chrome login state, Agent-Reach cookies, or the Immersive Translate browser extension; those flows still require a local host or a server-side API / compact JSON push replacement.
 
 The repository includes a Supabase migration skeleton:
 
 - `supabase/migrations/0001_social_import_snapshots.sql`: stores the latest compact social import snapshots.
-- `supabase/functions/collect-social/index.ts`: collects X timelines through the official X API, writes a snapshot, and can dispatch `update-piasnews.yml`.
+- `supabase/functions/collect-social/index.ts`: collects X timelines through the official X API, can merge external compact JSON inputs including IG, writes a snapshot, and can dispatch `update-piasnews.yml`.
 - `supabase/functions/collect-social/README.md`: lists Supabase secrets, GitHub variables, and scheduling setup.
 
-After deployment, set `PIASNEWS_SOCIAL_INPUT_URL` to `https://<project>.functions.supabase.co/collect-social`. Supabase creates the fresh snapshot on a schedule, while GitHub Actions keeps the existing normalization, translation, audit, and Pages deployment pipeline.
+After deployment, set `PIASNEWS_SOCIAL_INPUT_URL` to `https://<project>.functions.supabase.co/collect-social`. Supabase creates the fresh snapshot on a schedule, while GitHub Actions keeps the existing normalization, translation, audit, and Pages deployment pipeline. If IG is collected by another backend, configure its compact JSON endpoint as Supabase secret `PIASNEWS_INSTAGRAM_INPUT_URL`, or push a JSON body to the collector; the local scheduler then no longer needs to open Instagram.
 
 This repo now includes a local Agent-Reach collection entrypoint. First check the Twitter/X backend:
 
@@ -765,7 +765,7 @@ Full local publish script:
 scripts/update_social_agent_reach.sh
 ```
 
-By default it collects all X groups and also tries to collect Oscar Piastri's latest public Instagram posts/reels through the logged-in local Chrome profile. If Chrome Apple Events still blocks DOM reads, the Instagram collector automatically falls back to OpenCLI Browser Bridge; `source_status[].method` will show `opencli-browser` in the import JSON. It then updates `data/social.json`, builds the compact import JSON, writes `PIASNEWS_SOCIAL_INPUT_JSON`, and triggers the `Update Piasnews Data` workflow. The compact import omits per-run generated timestamps; when the compact content is unchanged from the previous publish, the script skips the GitHub variable update and workflow dispatch. The public page displays both the social feed generation time and the newest retained post time, because a fresh generation can still contain no newer qualifying posts after the Piastri relevance filter runs. The script verifies that at least one social source collected successfully before publishing; authentication, DNS, network, or Chrome DOM permission failures stop before updating GitHub when no source succeeded, so a failed collection is not presented as a fresh X / IG update. Set `PIASNEWS_FORCE_SOCIAL_PUBLISH=1` to force a publish. To update local files only:
+By default it collects all X groups and also tries to collect Oscar Piastri's latest public Instagram posts/reels through the logged-in local Chrome profile. If Chrome Apple Events still blocks DOM reads, the Instagram collector automatically falls back to OpenCLI Browser Bridge; `source_status[].method` will show `opencli-browser` in the import JSON. If IG has moved to Supabase or another backend import, set `PIASNEWS_COLLECT_INSTAGRAM=0` so the local script collects X only and does not open Instagram or OpenCLI Browser. It then updates `data/social.json`, builds the compact import JSON, writes `PIASNEWS_SOCIAL_INPUT_JSON`, and triggers the `Update Piasnews Data` workflow. The compact import omits per-run generated timestamps; when the compact content is unchanged from the previous publish, the script skips the GitHub variable update and workflow dispatch. The public page displays both the social feed generation time and the newest retained post time, because a fresh generation can still contain no newer qualifying posts after the Piastri relevance filter runs. The script verifies that at least one social source collected successfully before publishing; authentication, DNS, network, or Chrome DOM permission failures stop before updating GitHub when no source succeeded, so a failed collection is not presented as a fresh X / IG update. Set `PIASNEWS_FORCE_SOCIAL_PUBLISH=1` to force a publish. To update local files only:
 
 ```bash
 PIASNEWS_SKIP_GITHUB=1 scripts/update_social_agent_reach.sh

@@ -13,10 +13,14 @@ type Source = {
 };
 
 type Status = {
-  platform: string;
-  handle: string;
+  stage?: string;
+  platform?: string;
+  handle?: string;
+  source?: string;
   ok: boolean;
   items?: number;
+  skipped?: number;
+  reason?: string;
   error?: string;
 };
 
@@ -63,6 +67,169 @@ async function fetchJson(url: string, init: RequestInit = {}): Promise<any> {
   return body ? JSON.parse(body) : null;
 }
 
+function splitEnvList(name: string): string[] {
+  return env(name)
+    .split(/[\n,]+/)
+    .map((value) => value.trim())
+    .filter(Boolean);
+}
+
+function unwrapImportPayload(payload: any): any {
+  if (Array.isArray(payload)) {
+    for (const row of payload) {
+      if (row && typeof row === "object" && (Array.isArray(row.payload) || typeof row.payload === "object")) {
+        return row.payload;
+      }
+    }
+    return payload;
+  }
+  if (!payload || typeof payload !== "object") return payload;
+  for (const key of ["payload", "compact_payload", "social_import"]) {
+    if (Array.isArray(payload[key]) || (payload[key] && typeof payload[key] === "object")) return payload[key];
+  }
+  if (Array.isArray(payload.data) || (payload.data && typeof payload.data === "object")) {
+    return unwrapImportPayload(payload.data);
+  }
+  return payload;
+}
+
+function compactImportedItem(raw: any): Record<string, unknown> | null {
+  const platform = cleanText(raw?.platform || raw?.source_type).toLowerCase();
+  const handle = cleanText(raw?.handle || raw?.source_handle || raw?.source || "").replace(/^@/, "");
+  const url = cleanText(raw?.url);
+  const text = cleanText(raw?.text || raw?.summary || raw?.title);
+  const createdAt = cleanText(raw?.created_at || raw?.published_at);
+  if (!platform || !handle || !url || !text || !createdAt) return null;
+  const id = cleanText(raw?.id || url.replace(/\/+$/, "").split("/").pop());
+  return {
+    platform,
+    handle,
+    id,
+    url,
+    text,
+    created_at: createdAt,
+    kind: cleanText(raw?.kind || raw?.post_kind || "post").toLowerCase() || "post",
+    metrics: raw?.metrics || raw?.public_metrics || {},
+    language: raw?.language || raw?.lang || "unknown",
+  };
+}
+
+function importItemsFromPayload(payload: any): { items: Record<string, unknown>[]; skipped: number } {
+  const unwrapped = unwrapImportPayload(payload);
+  const rawItems = Array.isArray(unwrapped) ? unwrapped : Array.isArray(unwrapped?.items) ? unwrapped.items : [];
+  const items: Record<string, unknown>[] = [];
+  let skipped = 0;
+  for (const raw of rawItems) {
+    const item = compactImportedItem(raw);
+    if (item) items.push(item);
+    else skipped += 1;
+  }
+  return { items, skipped };
+}
+
+async function readImportUrl(url: string, bearerToken = ""): Promise<any> {
+  return await fetchJson(url, {
+    headers: {
+      ...(bearerToken ? { authorization: `Bearer ${bearerToken}` } : {}),
+      "user-agent": "piasnews-social-supabase/0.1",
+    },
+  });
+}
+
+async function readOptionalRequestJson(request: Request): Promise<any | null> {
+  const contentType = request.headers.get("content-type") || "";
+  if (!contentType.toLowerCase().includes("application/json")) return null;
+  const body = await request.text();
+  if (!body.trim()) return null;
+  return JSON.parse(body);
+}
+
+async function collectImportUrl(label: string, url: string, bearerToken = ""): Promise<{
+  items: Record<string, unknown>[];
+  status: Status;
+}> {
+  const status: Status = { stage: "json_import_url", source: label, ok: false, items: 0 };
+  try {
+    const result = importItemsFromPayload(await readImportUrl(url, bearerToken));
+    status.ok = true;
+    status.items = result.items.length;
+    status.skipped = result.skipped;
+    return { items: result.items, status };
+  } catch (error) {
+    status.error = error instanceof Error ? error.message : String(error);
+    return { items: [], status };
+  }
+}
+
+function collectImportPayload(label: string, payload: any): { items: Record<string, unknown>[]; status: Status } {
+  const result = importItemsFromPayload(payload);
+  return {
+    items: result.items,
+    status: {
+      stage: "json_import",
+      source: label,
+      ok: true,
+      items: result.items.length,
+      skipped: result.skipped,
+    },
+  };
+}
+
+async function collectExternalImports(requestPayload: any | null): Promise<{
+  items: Record<string, unknown>[];
+  statuses: Status[];
+}> {
+  const items: Record<string, unknown>[] = [];
+  const statuses: Status[] = [];
+
+  if (requestPayload) {
+    const result = collectImportPayload("request_body", requestPayload);
+    items.push(...result.items);
+    statuses.push(result.status);
+  }
+
+  for (
+    const [label, raw] of [
+      ["PIASNEWS_SOCIAL_EXTRA_INPUT_JSON", env("PIASNEWS_SOCIAL_EXTRA_INPUT_JSON")],
+      ["PIASNEWS_INSTAGRAM_INPUT_JSON", env("PIASNEWS_INSTAGRAM_INPUT_JSON")],
+    ]
+  ) {
+    if (!raw.trim()) continue;
+    try {
+      const result = collectImportPayload(label, JSON.parse(raw));
+      items.push(...result.items);
+      statuses.push(result.status);
+    } catch (error) {
+      statuses.push({
+        stage: "json_import",
+        source: label,
+        ok: false,
+        error: error instanceof Error ? error.message : String(error),
+      });
+    }
+  }
+
+  const genericBearer = env("PIASNEWS_SOCIAL_EXTRA_INPUT_AUTH_BEARER");
+  for (const url of splitEnvList("PIASNEWS_SOCIAL_EXTRA_INPUT_URLS")) {
+    const result = await collectImportUrl(url, url, genericBearer);
+    items.push(...result.items);
+    statuses.push(result.status);
+  }
+
+  const instagramUrl = env("PIASNEWS_INSTAGRAM_INPUT_URL");
+  if (instagramUrl) {
+    const result = await collectImportUrl(
+      "PIASNEWS_INSTAGRAM_INPUT_URL",
+      instagramUrl,
+      env("PIASNEWS_INSTAGRAM_INPUT_AUTH_BEARER") || genericBearer,
+    );
+    items.push(...result.items);
+    statuses.push(result.status);
+  }
+
+  return { items, statuses };
+}
+
 async function xGet(path: string, bearerToken: string, params?: Record<string, string>): Promise<any> {
   const query = params ? `?${new URLSearchParams(params)}` : "";
   let lastError: Error | undefined;
@@ -103,6 +270,16 @@ function compactTweet(source: Source, tweet: any): Record<string, unknown> | nul
     metrics: tweet?.public_metrics || {},
     language: tweet?.lang || "unknown",
   };
+}
+
+function dedupeItems(items: Record<string, unknown>[]): Record<string, unknown>[] {
+  const result = new Map<string, Record<string, unknown>>();
+  for (const item of items) {
+    const key = cleanText(item.url) || `${cleanText(item.platform)}:${cleanText(item.handle)}:${cleanText(item.id)}`;
+    if (!key) continue;
+    if (!result.has(key)) result.set(key, item);
+  }
+  return [...result.values()];
 }
 
 async function loadSources(): Promise<Source[]> {
@@ -231,19 +408,33 @@ Deno.serve(async (request) => {
       return jsonResponse(401, { ok: false, error: "unauthorized" });
     }
 
-    const bearerToken = env("PIASNEWS_X_BEARER_TOKEN") || env("X_BEARER_TOKEN");
-    if (!bearerToken) return jsonResponse(500, { ok: false, error: "PIASNEWS_X_BEARER_TOKEN is not configured" });
-
     const windowDays = Number(env("PIASNEWS_DAYS", "3"));
     const perSource = Number(env("PIASNEWS_PER_SOURCE", "30"));
-    const sources = await loadSources();
+    const requestPayload = await readOptionalRequestJson(request);
     const sourceStatus: Status[] = [];
     const items: Record<string, unknown>[] = [];
-    for (const source of sources) {
-      const result = await collectSource(source, bearerToken, perSource);
-      sourceStatus.push(result.status);
-      items.push(...result.items);
+
+    const bearerToken = env("PIASNEWS_X_BEARER_TOKEN") || env("X_BEARER_TOKEN");
+    if (bearerToken) {
+      const sources = await loadSources();
+      for (const source of sources) {
+        const result = await collectSource(source, bearerToken, perSource);
+        sourceStatus.push(result.status);
+        items.push(...result.items);
+      }
+    } else {
+      sourceStatus.push({
+        stage: "x_api",
+        platform: "x",
+        ok: false,
+        reason: "PIASNEWS_X_BEARER_TOKEN is not configured",
+      });
     }
+
+    const externalImports = await collectExternalImports(requestPayload);
+    sourceStatus.push(...externalImports.statuses);
+    items.push(...externalImports.items);
+
     const anySourceOk = sourceStatus.some((status) => status.ok);
     if (!anySourceOk) {
       return jsonResponse(502, {
@@ -255,11 +446,14 @@ Deno.serve(async (request) => {
       });
     }
 
+    const compactItems = dedupeItems(items);
     const payload = {
-      source: "supabase-edge/x-api",
+      source: sourceStatus.some((status) => status.stage?.startsWith("json_import"))
+        ? "supabase-edge/x-api+external-import"
+        : "supabase-edge/x-api",
       generated_at: new Date().toISOString(),
       window_days: windowDays,
-      items,
+      items: compactItems,
       source_status: sourceStatus,
     };
     await insertSnapshot(payload, sourceStatus);
@@ -267,7 +461,7 @@ Deno.serve(async (request) => {
 
     return jsonResponse(200, {
       ok: sourceStatus.some((status) => status.ok),
-      total_items: items.length,
+      total_items: compactItems.length,
       source_status: sourceStatus,
       dispatched,
     });

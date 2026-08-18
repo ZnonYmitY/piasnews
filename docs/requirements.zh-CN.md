@@ -168,13 +168,13 @@ GitHub Pages 根路径提供面向所有粉丝的只读日报页；日报内容�
 - 日报版不默认展示来源可信度和明日关注；底部保留轻量统计，避免影响正文阅读。
 - 粉丝源 Tab 不展示后台账号表，只展示抓取或导入到 `data/social.json` 的公开发帖与转帖文本、时间、链接和账号归属；未配置访问能力时，不应伪造社交动态。
 - `data/social.json` 可由 X API、用户导出的 JSON、Agent-Reach 类本地采集工具或其他外部流程生成。外部流程只写入公开动态文本、时间、链接和账号归属，不保存私信、登录态、长线程展开或非公开内容。
-- Oscar Piastri Instagram 属于 `daily_core` 官方来源。Agent-Reach 当前没有 Instagram 后端；本机已登录 Chrome 可读取主页网格链接和单条 post/reel 详情页的 caption、`time[datetime]`、公开互动元数据。IG collector 需要按“主页取最近链接 -> 打开详情页取 `published_at` 与正文 -> 过滤三日内 -> 导入 `data/social.json`”实现；主页网格本身没有稳定发布时间，不能只靠主页链接判断三日窗口。
+- Oscar Piastri Instagram 属于 `daily_core` 官方来源。Agent-Reach 当前没有 Instagram 后端；本机已登录 Chrome 可读取主页网格链接和单条 post/reel 详情页的 caption、`time[datetime]`、公开互动元数据。IG collector 需要按“主页取最近链接 -> 打开详情页取 `published_at` 与正文 -> 过滤三日内 -> 导入 `data/social.json`”实现；主页网格本身没有稳定发布时间，不能只靠主页链接判断三日窗口。若 IG 由另一个可信后端提供，Supabase social collector 可通过 `PIASNEWS_INSTAGRAM_INPUT_URL`、`PIASNEWS_INSTAGRAM_INPUT_JSON` 或 JSON POST body 合并这份 compact JSON，让本机调度器不再需要打开 Instagram。
 - 本地 Agent-Reach 采集入口由 `scripts/collect_agent_reach_social.py` 提供。它读取 `piasnews/references/x-sources.json`，默认调用本机 Agent-Reach 选中的 `twitter-cli user-posts` 后端，生成 `/tmp/piasnews-agent-reach-social.json`，再导入 `data/social.json`。若 `agent-reach configure --from-browser chrome` 已将 Twitter/X cookies 写入 `~/.agent-reach/config.yaml`，采集脚本会自动桥接为 `twitter-cli` 环境变量。未认证时只输出失败状态，不伪造内容。
 - `fan_watch` 是人工维护的 Piastri 粉丝源，进入粉丝源 Feed 时不强制要求每条都直接包含 `Piastri` / `Oscar` / `OP81` 关键词；`daily_core` 中非车手本人来源仍要求直接相关，避免泛 F1 噪音进入日报。
 - Agent-Reach 本地采集建议默认每 3 小时运行一次，每个账号默认请求最近 30 条公开动态；比赛日可临时提高频率。
 - 本地发布脚本在 compact import 内容未变化时应跳过 GitHub 变量更新和 workflow 触发，以支持更高频采集时降低无效部署。
 - 本地发布脚本还必须在没有任何 X 来源采集成功时停止发布，避免认证、DNS 或网络失败被显示成新的 X / IG 更新时间。
-- X 采集可以迁移到常在线小主机、VPS 或外部调度器：外部环境生成 compact social JSON，更新 GitHub 仓库变量 `PIASNEWS_SOCIAL_INPUT_JSON`，再通过 GitHub API 触发 `Update Piasnews Data`。由于 X 可能对数据中心 IP 风控更严格，低成本方案优先选择家宽/本地常在线环境，再考虑 VPS。
+- X 采集可以迁移到常在线小主机、VPS、Supabase Edge Function 或外部调度器：外部环境生成 compact social JSON，更新 GitHub 仓库变量 `PIASNEWS_SOCIAL_INPUT_JSON`、暴露 `PIASNEWS_SOCIAL_INPUT_URL`，或把外部 compact 输入推给 Supabase social collector，再通过 GitHub API 触发 `Update Piasnews Data`。由于 X 可能对数据中心 IP 风控更严格，低成本方案优先选择家宽/本地常在线环境，再考虑 VPS。
 - 粉丝源 Tab 顶部统一展示 `如有侵权请联系删除。`；每条卡片只展示 `引用自 @账号`，避免重复提示。
 - “往日回顾”只读取人工审核通过的事件；没有同日合格事件时省略。
 - GitHub Actions 在数据采集后先运行 `scripts/translate_zh_argos.py` 作为离线中文 fallback；如果配置了 `PIASNEWS_LLM_TRANSLATION_API_KEY`，再运行 `scripts/translate_zh_llm_mapping.py`，只对缺失映射的新内容调用 OpenAI-compatible Chat Completions API，并写入 engine 为 `piasnews_llm_translation` 的映射。当前低成本推荐变量为 `PIASNEWS_LLM_TRANSLATION_BASE_URL=https://api.deepseek.com` 和 `PIASNEWS_LLM_TRANSLATION_MODEL=deepseek-v4-flash`。随后 `scripts/apply_immersive_translations.py` 同时应用 LLM 映射和沉浸式翻译映射，覆盖 `title_zh` 和 `summary_zh`，再执行 deterministic auto-repair 修正已沉淀的确定性术语坏例。Argos 只在构建时运行，不调用在线翻译 API，不消耗模型 token；LLM 映射不可用或失败时，沉浸式翻译作为兜底映射链路。Approved 人工案例不再作为默认生产覆盖源，只作为后续训练 / 评估样本状态。翻译审查只导出仍需人工关注且已有 `suggested_zh` 的候选；生产 workflow 不再把候选同步成飞书 Base pending 队列，也不再把缺失候选标记为 ignored。
