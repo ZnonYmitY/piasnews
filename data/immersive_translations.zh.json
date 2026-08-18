@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-18T01:05:26.252582Z",
+  "generated_at": "2026-08-18T13:08:36.281065Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -12347,6 +12347,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-18T01:05:26.252630Z"
+    },
+    "items:piasnews-b0d043763f6aaef9:title:05a243126f182c45f3583939": {
+      "dataset": "items",
+      "item_id": "piasnews-b0d043763f6aaef9",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri urged to 'sacrifice' three races in Norris battle experiment: 'Who cares?'",
+      "zh": "Piastri被敦促在与Norris的争夺中‘牺牲’三场比赛作为试验：‘谁在乎？’",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-18T13:08:36.281117Z"
+    },
+    "items:piasnews-b0d043763f6aaef9:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-b0d043763f6aaef9",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现与比赛周或表现相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-18T13:08:36.281127Z"
     }
   }
 }
