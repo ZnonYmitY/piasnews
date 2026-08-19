@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-19T13:09:24.741307Z",
+  "generated_at": "2026-08-19T16:58:42.747480Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -12563,6 +12563,90 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-19T13:09:24.741369Z"
+    },
+    "items:piasnews-7bf1c86ec7ca5abb:title:bcef1c34b414709737bf53de": {
+      "dataset": "items",
+      "item_id": "piasnews-7bf1c86ec7ca5abb",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "McLaren makes major change before Dutch GP with Lando Norris and Oscar Piastri handed boost",
+      "zh": "McLaren在荷兰大奖赛前做出重大调整，Lando Norris和Oscar Piastri获得助力",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-19T16:58:42.747551Z"
+    },
+    "items:piasnews-7bf1c86ec7ca5abb:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-7bf1c86ec7ca5abb",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-19T16:58:42.747561Z"
+    },
+    "social:piasnews-social-09c15f5e70a6c82c:summary:7fd610f611aac1f4a5029dd2": {
+      "dataset": "social",
+      "item_id": "piasnews-social-09c15f5e70a6c82c",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "she's meditating guys she's died https://t.co/Phc6fC4cjG",
+      "zh": "她在冥想，伙计们，她死了",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-19T16:58:42.747567Z"
+    },
+    "social:piasnews-social-bc18fcf4d09e6cdb:summary:5f73f05bb6534f437ed14be7": {
+      "dataset": "social",
+      "item_id": "piasnews-social-bc18fcf4d09e6cdb",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "\"a wellness retreat sounds good right now - like 🧍🏻‍♂️💆🏻‍♂️😴\" what is that pose 😭😭😭 https://t.co/X4rhhoFzlt",
+      "zh": "“现在来个健康疗养听起来不错——比如🧍🏻‍♂️💆🏻‍♂️😴”那是什么姿势😭😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-19T16:58:42.747573Z"
+    },
+    "social:piasnews-social-170489e24b8d8db9:summary:bee904e24689cf7fb9b2d29d": {
+      "dataset": "social",
+      "item_id": "piasnews-social-170489e24b8d8db9",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "this or that with oscar! the winner was a masterclass in italy with a local chef; you can never take the love for pasta away from him, must be the italian roots 🍝👨🏻‍🍳 https://t.co/fmQV7oXzrJ",
+      "zh": "和Oscar玩这个或那个！赢家是在意大利与当地厨师一起上大师课；你永远无法夺走他对意大利面的热爱，一定是意大利血统🍝👨🏻‍🍳",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-19T16:58:42.747578Z"
+    },
+    "social:piasnews-social-d222459aa5fbc89f:summary:51bf263682736591e6c9c6ed": {
+      "dataset": "social",
+      "item_id": "piasnews-social-d222459aa5fbc89f",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Pole Position ✅ Race Win ✅ Fastest Lap ✅ Led Every Lap ✅ OP's first Grand Slam was at last year's #DutchGP 🏆 #McLarenF1 https://t.co/qCY1NRvWAi",
+      "zh": "杆位✅ 比赛胜利✅ 最快圈速✅ 领跑每一圈✅ OP的首个大满贯是在去年的#荷兰大奖赛🏆 #McLarenF1",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-19T16:58:42.747583Z"
+    },
+    "social:piasnews-social-b5898692574e2a12:summary:202b899a96b7f116319898ca": {
+      "dataset": "social",
+      "item_id": "piasnews-social-b5898692574e2a12",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "huge day for nicole piastri",
+      "zh": "妮可·Piastri的大日子",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-19T16:58:42.747590Z"
     }
   }
 }
