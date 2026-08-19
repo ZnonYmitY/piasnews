@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-18T19:04:32.849363Z",
+  "generated_at": "2026-08-19T01:52:35.943285Z",
   "window_days": 3,
   "total_items": 9,
   "latest_date": "2026-08-18",
@@ -13,7 +13,7 @@
       "rumor_new_items": 0,
       "sources": {
         "GPblog": 1,
-        "sports.yahoo.com": 1
+        "Yahoo Sports": 1
       },
       "categories": {
         "race": 2
@@ -28,9 +28,9 @@
       "rumor_new_items": 0,
       "sources": {
         "GPblog": 1,
-        "McLaren": 1,
-        "Nine.com.au": 1,
-        "Speedcafe.com": 1
+        "Speedcafe.com": 1,
+        "mclaren.com": 1,
+        "nine.com.au": 1
       },
       "categories": {
         "other": 3,
@@ -47,7 +47,7 @@
       "sources": {
         "Fox Sports": 1,
         "GPblog": 1,
-        "PlanetF1": 1
+        "planetf1.com": 1
       },
       "categories": {
         "other": 1,
@@ -82,14 +82,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 13
+      "items": 15
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 10
+      "items": 12
     },
     {
       "query": "\"OP81\" when:3d",
@@ -103,7 +103,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 2
+      "items": 1
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
@@ -122,11 +122,11 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 14,
+      "checked": 16,
       "kept": 9,
       "results": {
-        "outside_window": 1,
-        "publisher_date_missing": 1,
+        "outside_window": 2,
+        "publisher_date_missing": 2,
         "publisher_unavailable": 3,
         "verified": 9
       }
