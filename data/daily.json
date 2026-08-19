@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-19T16:56:50.746546Z",
+  "generated_at": "2026-08-19T18:52:33.845348Z",
   "window_days": 3,
-  "total_items": 9,
+  "total_items": 8,
   "latest_date": "2026-08-19",
   "days": [
     {
@@ -29,7 +29,7 @@
       "rumor_new_items": 0,
       "sources": {
         "GPblog": 1,
-        "sports.yahoo.com": 1
+        "Yahoo Sports": 1
       },
       "categories": {
         "race": 2
@@ -44,7 +44,7 @@
       "rumor_new_items": 0,
       "sources": {
         "GPblog": 1,
-        "McLaren": 1,
+        "McLaren.com": 1,
         "Nine.com.au": 1
       },
       "categories": {
@@ -54,18 +54,16 @@
     },
     {
       "date": "2026-08-16",
-      "total_new_items": 2,
+      "total_new_items": 1,
       "official_new_items": 0,
-      "media_new_items": 2,
+      "media_new_items": 1,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
-        "Fox Sports": 1,
-        "PlanetF1": 1
+        "Fox Sports": 1
       },
       "categories": {
-        "other": 1,
-        "team": 1
+        "other": 1
       }
     }
   ],
@@ -96,14 +94,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 17
+      "items": 15
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 13
+      "items": 11
     },
     {
       "query": "\"OP81\" when:3d",
@@ -124,7 +122,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 10
+      "items": 8
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -136,13 +134,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 18,
-      "kept": 9,
+      "checked": 16,
+      "kept": 8,
       "results": {
-        "outside_window": 3,
+        "outside_window": 2,
         "publisher_date_missing": 3,
         "publisher_unavailable": 3,
-        "verified": 9
+        "verified": 8
       }
     }
   ]
