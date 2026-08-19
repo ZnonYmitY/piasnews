@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-19T11:09:26.557244Z",
+  "generated_at": "2026-08-19T13:09:24.741307Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -12539,6 +12539,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-19T11:09:26.557361Z"
+    },
+    "items:piasnews-cf1d81ea4d197232:title:f3a415b7d1440d0d0afca062": {
+      "dataset": "items",
+      "item_id": "piasnews-cf1d81ea4d197232",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri sets clear target for second half of the season as he picks out McLaren’s ‘real strength’",
+      "zh": "Piastri为赛季下半段设定明确目标，并指出McLaren的‘真正优势’",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-19T13:09:24.741360Z"
+    },
+    "items:piasnews-cf1d81ea4d197232:summary:70784e7f6008a4a7ae397845": {
+      "dataset": "items",
+      "item_id": "piasnews-cf1d81ea4d197232",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Rumor or speculative report; treat as unverified unless confirmed by official sources.",
+      "zh": "传闻或推测性报道；除非经官方消息证实，否则视为未经证实。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-19T13:09:24.741369Z"
     }
   }
 }
