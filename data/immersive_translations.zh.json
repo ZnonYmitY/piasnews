@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-20T03:13:50.629048Z",
+  "generated_at": "2026-08-20T12:34:55.740624Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -12683,6 +12683,186 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-20T03:13:50.629100Z"
+    },
+    "items:piasnews-9ed37655a8d95cea:title:d148583f30eb129bcadf6e59": {
+      "dataset": "items",
+      "item_id": "piasnews-9ed37655a8d95cea",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "F1’s biggest silly season deal finally confirmed... it’s huge for Piastri, and his team’s title hopes",
+      "zh": "F1最重磅的‘愚蠢赛季’交易终于官宣……这对Piastri和他的车队争冠希望意义重大",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-20T12:34:55.740677Z"
+    },
+    "items:piasnews-9ed37655a8d95cea:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-9ed37655a8d95cea",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-20T12:34:55.740686Z"
+    },
+    "social:piasnews-social-f00f913be2e4a6b1:summary:60193b3eba3d86ee3eeaab22": {
+      "dataset": "social",
+      "item_id": "piasnews-social-f00f913be2e4a6b1",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "they made a official poster for the grill the grid title fight 😭😭😭 https://t.co/kLZm8Eez4B",
+      "zh": "他们为《Grill the 发车格》冠军争夺战制作了官方海报 😭😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-20T12:34:55.740693Z"
+    },
+    "social:piasnews-social-2870ed7aba2cbea8:summary:554f46dae27836654f876952": {
+      "dataset": "social",
+      "item_id": "piasnews-social-2870ed7aba2cbea8",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Title decider incoming… Will Oscar retain his crown or can Max topple him? 👑 Watch Episode 4 of Grill The Grid on our official YouTube channel at 15:00 UTC to find out 📺 #F1 https://t.co/TTmNuEaIod",
+      "zh": "冠军争夺战即将到来……Oscar能保住他的王冠，还是Max能将他击败？👑 北京时间15:00在我们的官方YouTube频道观看《Grill the 发车格》第4集，揭晓答案 📺 #F1",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-20T12:34:55.740698Z"
+    },
+    "social:piasnews-social-5844203c23ba64d5:summary:fbcfa8e33864be0eab32b4c8": {
+      "dataset": "social",
+      "item_id": "piasnews-social-5844203c23ba64d5",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "not the socmed team trying to test oscar's new small talk skills and him just giving short answers and then making admin talk 😭😭 https://t.co/4TFmpx2ZFy",
+      "zh": "社媒团队想测试Oscar的新闲聊技巧，结果他只是简短回答，然后让管理员自己说 😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-20T12:34:55.740703Z"
+    },
+    "social:piasnews-social-17d837af369a4334:summary:9257b7ce69f52807e626272a": {
+      "dataset": "social",
+      "item_id": "piasnews-social-17d837af369a4334",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar declining a stroopwafel because he has to stay in shape after banqueting during the summer break 😭 \"i'm okay for now! i've had a good summer 😅\" https://t.co/xX28em0zkP",
+      "zh": "Oscar拒绝了荷兰华夫饼，因为他在夏休期间参加宴会后需要保持身材 😭 “我现在还好！我度过了一个愉快的夏天 😅”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-20T12:34:55.740708Z"
+    },
+    "social:piasnews-social-0aeb49f55fb53c3d:summary:7fbb001182d4856a2b22a35d": {
+      "dataset": "social",
+      "item_id": "piasnews-social-0aeb49f55fb53c3d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "GLOWING ✨ https://t.co/6aHcnjPFDz",
+      "zh": "容光焕发 ✨",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-20T12:34:55.740714Z"
+    },
+    "social:piasnews-social-1eeb2671a522443f:summary:136279776bbee10d86f687a9": {
+      "dataset": "social",
+      "item_id": "piasnews-social-1eeb2671a522443f",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "we're sooo backkk oscar arrives for media day at zandvoort! https://t.co/TbMwAKHxSm",
+      "zh": "我们回来了！！Oscar抵达赞德福特媒体日！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-20T12:34:55.740721Z"
+    },
+    "social:piasnews-social-02bc2b4d9c9efb6b:summary:c3ce633d5a59751f6c042988": {
+      "dataset": "social",
+      "item_id": "piasnews-social-02bc2b4d9c9efb6b",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "quarter zip ✅ fluffy hair ✅ distressed look on his face ✅ WE ARE SO BACK !!! https://t.co/iLWXSzqWeV",
+      "zh": "四分之一拉链 ✅ 蓬松头发 ✅ 脸上苦恼的表情 ✅ 我们回来了！！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-20T12:34:55.740726Z"
+    },
+    "social:piasnews-social-dff1f38a3ef85e4b:summary:9fa6418e60a4420010707ebb": {
+      "dataset": "social",
+      "item_id": "piasnews-social-dff1f38a3ef85e4b",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar has arrived for media day in zandvoort! second half of the season is underway 🫡 https://t.co/uAAbqVJNW1",
+      "zh": "Oscar已抵达赞德福特媒体日！赛季下半程开始了 🫡",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-20T12:34:55.740731Z"
+    },
+    "social:piasnews-social-58ff8e5f7909b20c:summary:46c95597d03f2a23f207f259": {
+      "dataset": "social",
+      "item_id": "piasnews-social-58ff8e5f7909b20c",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "last time he was on the way to the the track gabi was lecturing him about looking uninterested when he spoke to him, now he's \"Working on it\" by reading a book about small talk 😭😭😭 https://t.co/CuFLpaoGRd",
+      "zh": "上次他在去赛道的路上，Gabi还教训他说话时显得不感兴趣，现在他通过读一本关于闲聊的书来“改进” 😭😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-20T12:34:55.740735Z"
+    },
+    "social:piasnews-social-aad24656305a8b96:summary:53773959f5ebd6c3c2d7f12b": {
+      "dataset": "social",
+      "item_id": "piasnews-social-aad24656305a8b96",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "he's learning \"the fine art of small talk\" he's so 😭😭😭 https://t.co/0FrsOqR4oU",
+      "zh": "他在学习“闲聊的艺术”，他太 😭😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-20T12:34:55.740739Z"
+    },
+    "social:piasnews-social-abc3d2e4ed51c3bc:summary:44864e972dd46ba34fcac797": {
+      "dataset": "social",
+      "item_id": "piasnews-social-abc3d2e4ed51c3bc",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "'Working on it 👍\" and the book is about small talk 😭😭😭 https://t.co/rRlJlKHxdW",
+      "zh": "'正在努力 👍' 而那本书是关于闲聊的 😭😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-20T12:34:55.740743Z"
+    },
+    "social:piasnews-social-276f243e9ae29fd2:summary:0d419fd24a433a38dc652f29": {
+      "dataset": "social",
+      "item_id": "piasnews-social-276f243e9ae29fd2",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Working on it 👍 https://t.co/iuXQRm09s9",
+      "zh": "正在努力 👍",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-20T12:34:55.740747Z"
+    },
+    "social:piasnews-social-887d83dbd36c25f1:summary:c6a2c905de631b66dfcbbf47": {
+      "dataset": "social",
+      "item_id": "piasnews-social-887d83dbd36c25f1",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "everyone who has disregarded oscar's words and used his name for clout APOLOGIZE NOW 🫵🏻",
+      "zh": "所有无视Oscar的话并利用他的名字博取关注的人，现在道歉 🫵🏻",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-20T12:34:55.740751Z"
     }
   }
 }
