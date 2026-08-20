@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-20T12:34:55.740624Z",
+  "generated_at": "2026-08-20T19:00:02.395779Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -12863,6 +12863,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-20T12:34:55.740751Z"
+    },
+    "items:piasnews-7a53c82a923e2491:title:b214a3594f7bca0979d3d3b3": {
+      "dataset": "items",
+      "item_id": "piasnews-7a53c82a923e2491",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri praises layout and laments Zandvoort’s F1 departure: “We will miss it”",
+      "zh": "Piastri称赞赛道布局，并感叹赞德福特告别F1：“我们会想念它的”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-20T19:00:02.395831Z"
+    },
+    "items:piasnews-7a53c82a923e2491:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-7a53c82a923e2491",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-20T19:00:02.395839Z"
     }
   }
 }
