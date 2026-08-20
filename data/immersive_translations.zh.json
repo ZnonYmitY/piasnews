@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-19T23:02:23.421484Z",
+  "generated_at": "2026-08-20T03:13:50.629048Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -12671,6 +12671,18 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-19T23:02:23.421526Z"
+    },
+    "social:piasnews-social-d24093491d7d548f:summary:0f22d52fa6ca73e59bd03f7a": {
+      "dataset": "social",
+      "item_id": "piasnews-social-d24093491d7d548f",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "the things they have him film man 😭😭 https://t.co/pNyz6xTgA4",
+      "zh": "他们让他拍的东西啊😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-20T03:13:50.629100Z"
     }
   }
 }
