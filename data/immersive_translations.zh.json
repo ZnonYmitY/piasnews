@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-21T06:05:32.771460Z",
+  "generated_at": "2026-08-21T07:08:06.584663Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -13391,6 +13391,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-21T06:05:32.771551Z"
+    },
+    "items:piasnews-5db4cbcae217b10a:title:49f4034a5c136697e0012e65": {
+      "dataset": "items",
+      "item_id": "piasnews-5db4cbcae217b10a",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri confirms talks with McLaren rival amid Max Verstappen threat as exit door left open",
+      "zh": "Oscar Piastri确认与McLaren竞争对手谈判，面对Max Verstappen威胁，离队之门敞开",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T07:08:06.584709Z"
+    },
+    "items:piasnews-5db4cbcae217b10a:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-5db4cbcae217b10a",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T07:08:06.584717Z"
     }
   }
 }
