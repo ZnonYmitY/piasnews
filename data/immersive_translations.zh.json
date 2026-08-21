@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-21T13:11:59.182651Z",
+  "generated_at": "2026-08-21T13:25:54.061715Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -13751,6 +13751,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-21T13:11:59.182768Z"
+    },
+    "items:piasnews-656dcf301cb8c2ab:title:f82406338b2f6922a3707589": {
+      "dataset": "items",
+      "item_id": "piasnews-656dcf301cb8c2ab",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri Could Be The Biggest Winner From Max Verstappen’s Contract Update",
+      "zh": "Oscar Piastri可能是Max Verstappen合同更新后的Max赢家",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T13:25:54.061764Z"
+    },
+    "items:piasnews-656dcf301cb8c2ab:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-656dcf301cb8c2ab",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T13:25:54.061773Z"
     }
   }
 }
