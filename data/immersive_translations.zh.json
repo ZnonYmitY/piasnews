@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-20T20:15:49.103527Z",
+  "generated_at": "2026-08-21T01:40:02.189771Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -13199,6 +13199,102 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-20T20:15:49.103680Z"
+    },
+    "items:piasnews-7a81e489e0d15137:title:7867191a7d09ff5815864f07": {
+      "dataset": "items",
+      "item_id": "piasnews-7a81e489e0d15137",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri backs McLaren to fight for Dutch Grand Prix victory",
+      "zh": "Piastri支持McLaren争夺荷兰大奖赛胜利",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T01:40:02.189820Z"
+    },
+    "items:piasnews-7a81e489e0d15137:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-7a81e489e0d15137",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T01:40:02.189828Z"
+    },
+    "items:piasnews-18aead31604bbc96:title:7468c134db900a01a9e9caa0": {
+      "dataset": "items",
+      "item_id": "piasnews-18aead31604bbc96",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "How Piastri became a pawn in Max’s contract talks",
+      "zh": "Piastri如何成为Max合同谈判中的棋子",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T01:40:02.189834Z"
+    },
+    "items:piasnews-18aead31604bbc96:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-18aead31604bbc96",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T01:40:02.189838Z"
+    },
+    "items:piasnews-1901beb0b74ce67c:title:35553e89b3c2b836aa3be622": {
+      "dataset": "items",
+      "item_id": "piasnews-1901beb0b74ce67c",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "F1 news: Oscar Piastri eyes Dutch redemption after Hungary heartbreak",
+      "zh": "F1新闻：Oscar Piastri在匈牙利心碎后瞄准荷兰救赎",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T01:40:02.189842Z"
+    },
+    "items:piasnews-1901beb0b74ce67c:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-1901beb0b74ce67c",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与车队或赛车性能相关的项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T01:40:02.189845Z"
+    },
+    "social:piasnews-social-bf6e062c1d475ba6:summary:ca24279d03d24aa0224a2840": {
+      "dataset": "social",
+      "item_id": "piasnews-social-bf6e062c1d475ba6",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "huge thank you to @ReeceyJamesEra for letting me know about this 🫶🏻",
+      "zh": "非常感谢@ReeceyJamesEra告诉我这件事🫶🏻",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T01:40:02.189851Z"
+    },
+    "social:piasnews-social-00e58270704efe5d:summary:10d2ed41dcf4f404c93611b1": {
+      "dataset": "social",
+      "item_id": "piasnews-social-00e58270704efe5d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "the f1 game has a little pun/easter egg during the podium ceremony when oscar wins! \"They give out trophies for the winners; today they're Oscars. Your winner today, Oscar Piastri!\" https://t.co/lZAihdzcLJ",
+      "zh": "F1游戏在颁奖典礼上Oscar获胜时有一个小双关/彩蛋！\"他们为获胜者颁发奖杯；今天他们颁发的是Oscar奖。今天的获胜者是Oscar Piastri！\"",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T01:40:02.189859Z"
     }
   }
 }
