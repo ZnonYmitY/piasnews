@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-21T09:09:18.702569Z",
+  "generated_at": "2026-08-21T13:11:59.182651Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -13607,6 +13607,150 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-21T09:09:18.702717Z"
+    },
+    "items:piasnews-49911fc2bc87e43d:title:69d853736089039befaf064a": {
+      "dataset": "items",
+      "item_id": "piasnews-49911fc2bc87e43d",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Formula 2 in 2021: Oscar Piastri sets new standard with familiar names in the fray",
+      "zh": "2021年F2：Oscar Piastri树立新标准，熟悉的名字参与竞争",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T13:11:59.182707Z"
+    },
+    "items:piasnews-49911fc2bc87e43d:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-49911fc2bc87e43d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T13:11:59.182716Z"
+    },
+    "items:piasnews-822922b692c04025:title:3ec2cb0294c5e4dc76768134": {
+      "dataset": "items",
+      "item_id": "piasnews-822922b692c04025",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri speaks out on Max Verstappen contract decision amid Red Bull driver swap talk",
+      "zh": "Oscar Piastri就Max Verstappen合同决定发声，Red Bull车手互换传闻四起",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T13:11:59.182723Z"
+    },
+    "items:piasnews-822922b692c04025:summary:70784e7f6008a4a7ae397845": {
+      "dataset": "items",
+      "item_id": "piasnews-822922b692c04025",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Rumor or speculative report; treat as unverified unless confirmed by official sources.",
+      "zh": "传闻或推测性报道；除非官方消息确认，否则视为未经证实。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T13:11:59.182727Z"
+    },
+    "items:piasnews-6c82b38fcff1c760:title:f82406338b2f6922a3707589": {
+      "dataset": "items",
+      "item_id": "piasnews-6c82b38fcff1c760",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri Could Be The Biggest Winner From Max Verstappen’s Contract Update",
+      "zh": "Oscar Piastri可能是Max Verstappen合同更新的Max赢家",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T13:11:59.182731Z"
+    },
+    "items:piasnews-6c82b38fcff1c760:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-6c82b38fcff1c760",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T13:11:59.182735Z"
+    },
+    "items:piasnews-951bb1cc1e872106:title:366bbf092f3d24c33365633f": {
+      "dataset": "items",
+      "item_id": "piasnews-951bb1cc1e872106",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri and Sainz Shared a ‘Couple of Messages’ After Heated Hungarian Grand Prix Clash",
+      "zh": "Piastri和Sainz在匈牙利大奖赛激烈冲突后互发“几条消息”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T13:11:59.182741Z"
+    },
+    "items:piasnews-951bb1cc1e872106:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-951bb1cc1e872106",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T13:11:59.182748Z"
+    },
+    "items:piasnews-9232dd99d205246d:title:2ec1de409f3be2b98d883578": {
+      "dataset": "items",
+      "item_id": "piasnews-9232dd99d205246d",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri explains why Ferrari’s SF-26 pace remains so difficult to predict in F1 2026",
+      "zh": "Oscar Piastri解释为何FerrariSF-26在2026年F1中的速度仍难以预测",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T13:11:59.182753Z"
+    },
+    "items:piasnews-9232dd99d205246d:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-9232dd99d205246d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T13:11:59.182758Z"
+    },
+    "items:piasnews-443b56e544e2dc74:title:54327c9ac97dfd8c36cf5355": {
+      "dataset": "items",
+      "item_id": "piasnews-443b56e544e2dc74",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri surprised by Ferrari’s unpredictable pace as F1 competitiveness remains unclear",
+      "zh": "Piastri对Ferrari难以预测的速度感到惊讶，F1竞争力仍不明朗",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T13:11:59.182763Z"
+    },
+    "items:piasnews-443b56e544e2dc74:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-443b56e544e2dc74",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T13:11:59.182768Z"
     }
   }
 }
