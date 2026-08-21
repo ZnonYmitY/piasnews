@@ -1,21 +1,27 @@
 {
-  "generated_at": "2026-08-21T02:04:23.665842Z",
+  "generated_at": "2026-08-21T06:03:45.938280Z",
   "window_days": 3,
-  "total_items": 10,
+  "total_items": 15,
   "latest_date": "2026-08-21",
   "days": [
     {
       "date": "2026-08-21",
-      "total_new_items": 1,
+      "total_new_items": 5,
       "official_new_items": 0,
-      "media_new_items": 1,
+      "media_new_items": 5,
       "x_new_items": 0,
-      "rumor_new_items": 0,
+      "rumor_new_items": 1,
       "sources": {
-        "Auto Action": 1
+        "Auto Action": 2,
+        "Fox Sports": 1,
+        "racingnews365.com": 1,
+        "sportingnews.com": 1
       },
       "categories": {
-        "race": 1
+        "other": 1,
+        "race": 2,
+        "rumor": 1,
+        "team": 1
       }
     },
     {
@@ -59,16 +65,17 @@
     },
     {
       "date": "2026-08-18",
-      "total_new_items": 1,
+      "total_new_items": 2,
       "official_new_items": 0,
-      "media_new_items": 1,
+      "media_new_items": 2,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
-        "GPblog": 1
+        "GPblog": 1,
+        "Yahoo Sports": 1
       },
       "categories": {
-        "race": 1
+        "race": 2
       }
     }
   ],
@@ -99,14 +106,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 22
+      "items": 27
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 18
+      "items": 20
     },
     {
       "query": "\"OP81\" when:3d",
@@ -127,25 +134,25 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 6
+      "items": 9
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22interview%22+when%3A3d",
       "ok": true,
-      "items": 3
+      "items": 2
     },
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 23,
-      "kept": 10,
+      "checked": 27,
+      "kept": 15,
       "results": {
-        "outside_window": 2,
-        "publisher_date_missing": 6,
-        "publisher_unavailable": 5,
-        "verified": 10
+        "outside_window": 1,
+        "publisher_date_missing": 7,
+        "publisher_unavailable": 4,
+        "verified": 15
       }
     }
   ]

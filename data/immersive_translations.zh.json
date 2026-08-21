@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-21T01:40:02.189771Z",
+  "generated_at": "2026-08-21T06:05:32.771460Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -13295,6 +13295,102 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-21T01:40:02.189859Z"
+    },
+    "items:piasnews-f0b1936ae7008a7f:title:6b8acd2fc9e74fb99de8720e": {
+      "dataset": "items",
+      "item_id": "piasnews-f0b1936ae7008a7f",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "What Max Verstappen’s new Red Bull deal means for Australia's Oscar Piastri?",
+      "zh": "Max Verstappen的新Red Bull合同对澳大利亚的Oscar Piastri意味着什么？",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T06:05:32.771511Z"
+    },
+    "items:piasnews-f0b1936ae7008a7f:summary:70784e7f6008a4a7ae397845": {
+      "dataset": "items",
+      "item_id": "piasnews-f0b1936ae7008a7f",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Rumor or speculative report; treat as unverified unless confirmed by official sources.",
+      "zh": "谣言或推测性报道；除非官方消息证实，否则视为未经证实。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T06:05:32.771521Z"
+    },
+    "items:piasnews-f6663f77a9ec1554:title:38f9b8028cf543e3a14e7eab": {
+      "dataset": "items",
+      "item_id": "piasnews-f6663f77a9ec1554",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri confirms Carlos Sainz messages over blue flag fiasco",
+      "zh": "Oscar Piastri确认与Carlos Sainz就蓝旗事件有交流",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T06:05:32.771526Z"
+    },
+    "items:piasnews-f6663f77a9ec1554:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-f6663f77a9ec1554",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与车队或赛车性能相关的项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T06:05:32.771531Z"
+    },
+    "items:piasnews-1ad464c6a15ba1ed:title:cf656e4aa6dd9834847f123f": {
+      "dataset": "items",
+      "item_id": "piasnews-1ad464c6a15ba1ed",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri eyes race-winning redemption",
+      "zh": "Piastri瞄准比赛胜利的救赎",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T06:05:32.771536Z"
+    },
+    "items:piasnews-1ad464c6a15ba1ed:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-1ad464c6a15ba1ed",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T06:05:32.771539Z"
+    },
+    "items:piasnews-aa3acaa222246993:title:234ef36d903ddd2ed8518340": {
+      "dataset": "items",
+      "item_id": "piasnews-aa3acaa222246993",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "The ‘good answers’ that could end Piastri drought; axed driver’s redemption shot: Talking Pts",
+      "zh": "可能结束Piastri荒的“好答案”；被裁掉车手的救赎机会：讨论要点",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T06:05:32.771544Z"
+    },
+    "items:piasnews-aa3acaa222246993:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-aa3acaa222246993",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T06:05:32.771551Z"
     }
   }
 }
