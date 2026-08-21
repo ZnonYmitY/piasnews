@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-21T16:10:29.653565Z",
+  "generated_at": "2026-08-21T18:57:01.942839Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -14051,6 +14051,150 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-21T16:10:29.653744Z"
+    },
+    "items:piasnews-d62d803c68d7e82e:title:e1f85177127a48bb2d487642": {
+      "dataset": "items",
+      "item_id": "piasnews-d62d803c68d7e82e",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "McLaren have momentum with Lando Norris P2 and Oscar Piastri P4 in Zandvoort Sprint Qualifying",
+      "zh": "McLaren势头正盛，Lando NorrisP2、Oscar PiastriP4，赞德福特冲刺排位赛",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T18:57:01.942895Z"
+    },
+    "items:piasnews-d62d803c68d7e82e:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-d62d803c68d7e82e",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T18:57:01.942904Z"
+    },
+    "items:piasnews-513395612ebf1856:title:3346ed5c1255b32a3e0ed455": {
+      "dataset": "items",
+      "item_id": "piasnews-513395612ebf1856",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri admits disappointment in Zandvoort Sprint qualifying: \"Could have been on pole\"",
+      "zh": "Piastri承认对赞德福特冲刺排位赛感到失望：“本可以拿到杆位”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T18:57:01.942909Z"
+    },
+    "items:piasnews-513395612ebf1856:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-513395612ebf1856",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T18:57:01.942913Z"
+    },
+    "items:piasnews-1089b6ea58715418:title:767bec88ea0380242e5ab28f": {
+      "dataset": "items",
+      "item_id": "piasnews-1089b6ea58715418",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "F1 news: Oscar Piastri rues missed Dutch sprint pole",
+      "zh": "F1新闻：Oscar Piastri遗憾错失荷兰冲刺赛杆位",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T18:57:01.942916Z"
+    },
+    "items:piasnews-1089b6ea58715418:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-1089b6ea58715418",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与车队或赛车表现相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T18:57:01.942920Z"
+    },
+    "items:piasnews-94ac96c0b4dcb033:title:a3ce24706e1ce0df9148d4ce": {
+      "dataset": "items",
+      "item_id": "piasnews-94ac96c0b4dcb033",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri on grid second row for Zandvoort sprint",
+      "zh": "Piastri赞德福特冲刺赛第二排发车",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T18:57:01.942926Z"
+    },
+    "items:piasnews-94ac96c0b4dcb033:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-94ac96c0b4dcb033",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T18:57:01.942932Z"
+    },
+    "items:piasnews-faf5c0af604588ed:title:290dcd11cfddaa081eff52ac": {
+      "dataset": "items",
+      "item_id": "piasnews-faf5c0af604588ed",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri Leads the Way in SQ2 at Zandvoort as the Fight for Sprint Pole Heats Up",
+      "zh": "Oscar Piastri在赞德福特SQ2中领跑，冲刺赛杆位之争白热化",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T18:57:01.942937Z"
+    },
+    "items:piasnews-faf5c0af604588ed:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-faf5c0af604588ed",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与车队或赛车表现相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T18:57:01.942940Z"
+    },
+    "items:piasnews-3f167c47665700a3:title:f82406338b2f6922a3707589": {
+      "dataset": "items",
+      "item_id": "piasnews-3f167c47665700a3",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri Could Be The Biggest Winner From Max Verstappen’s Contract Update",
+      "zh": "Oscar Piastri可能是Max Verstappen合同更新的Max赢家",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T18:57:01.942944Z"
+    },
+    "items:piasnews-3f167c47665700a3:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-3f167c47665700a3",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与车队或赛车表现相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-21T18:57:01.942947Z"
     }
   }
 }
