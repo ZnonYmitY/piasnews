@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-22T01:51:48.757842Z",
+  "generated_at": "2026-08-22T04:04:19.182024Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -14459,6 +14459,78 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-22T01:51:48.757910Z"
+    },
+    "items:piasnews-e2070f77e98cbca5:title:969900985142c0b5a39ddd96": {
+      "dataset": "items",
+      "item_id": "piasnews-e2070f77e98cbca5",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri falls short as fine margins decide Dutch Sprint pole",
+      "zh": "Piastri惜败，细微差距决定荷兰冲刺赛杆位",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T04:04:19.182074Z"
+    },
+    "items:piasnews-e2070f77e98cbca5:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-e2070f77e98cbca5",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T04:04:19.182081Z"
+    },
+    "items:piasnews-05a0b77a419eb0e6:title:b4d1d3101ebafb9ceebe781f": {
+      "dataset": "items",
+      "item_id": "piasnews-05a0b77a419eb0e6",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "‘Been a while’: What Russell pole means to flagging title tilt; Piastri’s quali boost — Talking Pts",
+      "zh": "“久违了”：拉塞尔的杆位对低迷的争冠意味着什么；Piastri的排位赛提振——讨论要点",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T04:04:19.182085Z"
+    },
+    "items:piasnews-05a0b77a419eb0e6:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-05a0b77a419eb0e6",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T04:04:19.182088Z"
+    },
+    "items:piasnews-419357bcb76666d8:title:6b18d7dd9802efcebfd91a25": {
+      "dataset": "items",
+      "item_id": "piasnews-419357bcb76666d8",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri at the 2026 F1 Hungarian Grand Prix",
+      "zh": "Oscar Piastri在2026年F1匈牙利大奖赛上",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T04:04:19.182090Z"
+    },
+    "items:piasnews-419357bcb76666d8:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-419357bcb76666d8",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T04:04:19.182093Z"
     }
   }
 }
