@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-22T04:04:19.182024Z",
+  "generated_at": "2026-08-22T07:00:30.022654Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -14531,6 +14531,102 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-22T04:04:19.182093Z"
+    },
+    "items:piasnews-2f6c8359a757821b:title:549949434550ad12e77578ef": {
+      "dataset": "items",
+      "item_id": "piasnews-2f6c8359a757821b",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri explains: These rivals will be breathing down McLaren’s neck",
+      "zh": "Oscar Piastri解释：这些对手将紧追McLaren",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T07:00:30.022711Z"
+    },
+    "items:piasnews-2f6c8359a757821b:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-2f6c8359a757821b",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T07:00:30.022748Z"
+    },
+    "items:piasnews-0c65adc40499bd01:title:5cb212344ef222c06cb875e1": {
+      "dataset": "items",
+      "item_id": "piasnews-0c65adc40499bd01",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri points to season-long struggle in Zandvoort pole near-miss",
+      "zh": "Oscar Piastri指出赞德福特杆位失之交臂源于赛季长期挣扎",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T07:00:30.022753Z"
+    },
+    "items:piasnews-0c65adc40499bd01:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-0c65adc40499bd01",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T07:00:30.022757Z"
+    },
+    "items:piasnews-b1cacbbd2aab7b99:title:c0c3a34f2a59780c2c2eb849": {
+      "dataset": "items",
+      "item_id": "piasnews-b1cacbbd2aab7b99",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri’s quali boost in ‘bittersweet’ day; Mercedes star breaks drought: F1 Talking Points",
+      "zh": "Piastri在“苦乐参半”的一天中排位赛提升；Mercedes明星打破干旱：F1 话题要点",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T07:00:30.022760Z"
+    },
+    "items:piasnews-b1cacbbd2aab7b99:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-b1cacbbd2aab7b99",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T07:00:30.022764Z"
+    },
+    "items:piasnews-58a4125f36a679a1:title:f82406338b2f6922a3707589": {
+      "dataset": "items",
+      "item_id": "piasnews-58a4125f36a679a1",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri Could Be The Biggest Winner From Max Verstappen’s Contract Update",
+      "zh": "Oscar Piastri可能是Max Verstappen合同更新后的Max赢家",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T07:00:30.022770Z"
+    },
+    "items:piasnews-58a4125f36a679a1:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-58a4125f36a679a1",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T07:00:30.022777Z"
     }
   }
 }
