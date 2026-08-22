@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-21T22:30:59.997142Z",
+  "generated_at": "2026-08-22T01:51:48.757842Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -14435,6 +14435,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-21T22:30:59.997293Z"
+    },
+    "items:piasnews-a9cae58d89101f47:title:03529a0721dbdc5ce636b4f3": {
+      "dataset": "items",
+      "item_id": "piasnews-a9cae58d89101f47",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "‘Right there’: Piastri’s big boost in F1 nailbiter as title leader blunder opens door to rivals",
+      "zh": "‘就在那里’：Piastri在F1惊险对决中获得巨大提升，积分领跑者失误为对手打开大门",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T01:51:48.757903Z"
+    },
+    "items:piasnews-a9cae58d89101f47:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-a9cae58d89101f47",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T01:51:48.757910Z"
     }
   }
 }
