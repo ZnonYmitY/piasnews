@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-22T09:24:52.220353Z",
+  "generated_at": "2026-08-22T14:30:29.409166Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -14651,6 +14651,186 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-22T09:24:52.220413Z"
+    },
+    "items:piasnews-cb59094ea3ba17d2:title:44892e628e59fb7aded520a4": {
+      "dataset": "items",
+      "item_id": "piasnews-cb59094ea3ba17d2",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri ‘surprised’ Jolyon Palmer with what he saw in Dutch GP Sprint",
+      "zh": "Oscar Piastri在荷兰大奖赛冲刺赛中的表现让乔利恩·帕尔默感到‘惊讶’",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T14:30:29.409233Z"
+    },
+    "items:piasnews-cb59094ea3ba17d2:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-cb59094ea3ba17d2",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T14:30:29.409239Z"
+    },
+    "items:piasnews-c8b30b3c3a1e4b62:title:bbddc68902a48cfcb73c7713": {
+      "dataset": "items",
+      "item_id": "piasnews-c8b30b3c3a1e4b62",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Max Verstappen in P6 in the Zandvoort Sprint: “Whenever I got closer to Piastri …”",
+      "zh": "Max Verstappen在赞德福特冲刺赛中获得第六名：“每当我靠近Piastri时……”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T14:30:29.409243Z"
+    },
+    "items:piasnews-c8b30b3c3a1e4b62:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-c8b30b3c3a1e4b62",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T14:30:29.409247Z"
+    },
+    "social:piasnews-social-3721c09ac96cd1fc:summary:a2c289e38e9580c3df9913d5": {
+      "dataset": "social",
+      "item_id": "piasnews-social-3721c09ac96cd1fc",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar makes an appearance in google pixel's new ad 😭 https://t.co/fe4IcGSbnm",
+      "zh": "Oscar出现在谷歌Pixel的新广告中 😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T14:30:29.409251Z"
+    },
+    "social:piasnews-social-7fb3466055cd79d6:summary:d95e1a13e7339be0e66ca54c": {
+      "dataset": "social",
+      "item_id": "piasnews-social-7fb3466055cd79d6",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "how me and my chronic back pain be moving https://t.co/3Z16gxGcp4",
+      "zh": "我和我的慢性背痛是怎么移动的",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T14:30:29.409254Z"
+    },
+    "social:piasnews-social-7d5e47bebe6fb516:summary:d16768ee9304f3ecf0d54a9f": {
+      "dataset": "social",
+      "item_id": "piasnews-social-7d5e47bebe6fb516",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar's post sprint interview: \"the start was a bit average. charles went a lot more on the inside than i thought he would and i just got pinched in behind him. the pace wasnt great either, for both cars it looked like, so we've got some work to do.\" https://t.co/b8N8lVRgtR",
+      "zh": "Oscar的赛后冲刺采访：“起步有点一般。查尔斯比我预想的更靠内线，我被他挤到了后面。速度也不太好，看起来两辆车都是这样，所以我们还有工作要做。”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T14:30:29.409258Z"
+    },
+    "social:piasnews-social-cb86e03690d3193b:summary:a98f5d7e74ad781d07f65aa9": {
+      "dataset": "social",
+      "item_id": "piasnews-social-cb86e03690d3193b",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Q: Are you in a race with Ferrari or is it still close with the top 3? \"It's tough to know. I think we didn't look great especially in the second half of that sprint, for the both of us. A little bit surprising because our one lap pace yesterday we thought, with some slightly better laps for both of us, we could've been on the front row. A little bit surprising to not have the pace today but hopefully we can qualify well and then hang on a bit better tomorrow.\"",
+      "zh": "问：你们是在和Ferrari竞争，还是和前三名仍然很接近？“很难说。我觉得我们在那场冲刺赛的后半段看起来不太好，对我们俩来说都是。有点意外，因为昨天我们的单圈速度，我们认为，如果我们俩都能跑出更好的圈速，我们本可以上第一排。今天没有这个速度有点意外，但希望我们能排位赛表现好，然后明天能坚持得更好一些。”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T14:30:29.409264Z"
+    },
+    "social:piasnews-social-8a234791470e9f7f:summary:efb4a35c1d2c0007991f9e6c": {
+      "dataset": "social",
+      "item_id": "piasnews-social-8a234791470e9f7f",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "max inspecting oscar's mclaren after the sprint 😭 https://t.co/TRa56qJOlw",
+      "zh": "Max在冲刺赛后检查Oscar的McLaren 😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T14:30:29.409268Z"
+    },
+    "social:piasnews-social-c63adffcea285d46:summary:35dc4729cf4603e2066f4ebe": {
+      "dataset": "social",
+      "item_id": "piasnews-social-c63adffcea285d46",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "onto quali 🧡 https://t.co/bn2FL2wPai",
+      "zh": "进入排位赛 🧡",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T14:30:29.409271Z"
+    },
+    "social:piasnews-social-66d7dcecb89b1a3c:summary:f90475fb3b4bc3da0e87078f": {
+      "dataset": "social",
+      "item_id": "piasnews-social-66d7dcecb89b1a3c",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "wow. sprints are so fun. so entertaining. never seen something like this. we sure do need 16 more of these.",
+      "zh": "哇。冲刺赛太有趣了。太有娱乐性了。从没见过这样的。我们确实需要再来16场这样的比赛。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T14:30:29.409274Z"
+    },
+    "social:piasnews-social-7751dd6e101338ec:summary:40c30515dc5c6f40ce0e1caf": {
+      "dataset": "social",
+      "item_id": "piasnews-social-7751dd6e101338ec",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Russell maintains the lead, Antonelli is up a place to P4 TOP 10 Russell Norris Leclerc Antonelli Piastri Verstappen Hamilton Gasly Bortoleto Lindblad #F1Sprint #DutchGP LAP 4/24 https://t.co/6dJzSwA2pd",
+      "zh": "拉塞尔保持领先，Antonelli上升一位至第四 前十名 拉塞尔 Norris Leclerc Antonelli Piastri Verstappen Hamilton Gasly 博尔托莱托 林德布拉德 #F1Sprint #DutchGP 第4圈/共24圈",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T14:30:29.409277Z"
+    },
+    "social:piasnews-social-2f3188d94aa60344:summary:219ebc37ea81d857b6b513df": {
+      "dataset": "social",
+      "item_id": "piasnews-social-2f3188d94aa60344",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar on the current conditions: \"not too bad. it's definitely cold, the track's had a little bit of a reset with the rain, the wind has picked up a little. i thunk generally the cooler conditions are a bit nicer in the car, so it should be an interesting race!\" https://t.co/UM1KF1ZkJ6",
+      "zh": "oscar谈当前状况：\"还不错。确实很冷，赛道因为下雨有点重新洗牌，风也大了一些。我觉得总体上凉爽的条件在车里更舒服一些，所以应该会是一场有趣的比赛！\"",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T14:30:29.409279Z"
+    },
+    "social:piasnews-social-a497e77247635dd2:summary:13511a1c8f8a82bff9129895": {
+      "dataset": "social",
+      "item_id": "piasnews-social-a497e77247635dd2",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "the drivers starting on the even side of the track will have a little less grip because that part of the track is a little damp... oscar starts p4 so let's hope it dries as much as possible in the next 15 minutes 🙏🏻",
+      "zh": "从赛道偶数侧起步的车手抓地力会稍差一些，因为那一侧赛道有点湿... oscar从第4位起步，希望接下来15分钟赛道能尽可能干一些🙏🏻",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T14:30:29.409283Z"
+    },
+    "social:piasnews-social-885e43600462cfbb:summary:19c00f19ecf4557665577769": {
+      "dataset": "social",
+      "item_id": "piasnews-social-885e43600462cfbb",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Let’s do this OP 🇳🇱 https://t.co/92TELSWgzZ",
+      "zh": "加油OP 🇳🇱",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-22T14:30:29.409286Z"
     }
   }
 }
