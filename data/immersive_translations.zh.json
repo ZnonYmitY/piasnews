@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-23T13:03:33.665491Z",
+  "generated_at": "2026-08-23T13:36:39.273924Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -15359,6 +15359,102 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-23T13:03:33.665542Z"
+    },
+    "social:piasnews-social-de982d20754e6470:summary:a8b661df7355b048bc4f5894": {
+      "dataset": "social",
+      "item_id": "piasnews-social-de982d20754e6470",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "IT'S RAINING AT THE TRACK !! https://t.co/NGfl1XNbMq",
+      "zh": "赛道上下雨了！！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-23T13:36:39.273976Z"
+    },
+    "social:piasnews-social-632f5359e8d5e84e:summary:f419a757b557d839b2f18d33": {
+      "dataset": "social",
+      "item_id": "piasnews-social-632f5359e8d5e84e",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "carlos says he was surprised no media showed his apology to oscar after the incident in hungary: \"i was surprised the media that came out of me was no apology when actually, in every tv i went to i said, \"i'm sorry for oscar, that shouldn't have happened\".\" https://t.co/ZXa9Hb9Zxc",
+      "zh": "卡洛斯说他很惊讶，在匈牙利事件后，媒体没有报道他向Oscar道歉：“我很惊讶媒体没有报道我的道歉，实际上，我上的每个电视节目都说了‘我为Oscar感到抱歉，那不应该发生’。”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-23T13:36:39.273985Z"
+    },
+    "social:piasnews-social-0c7cb42505e3c652:summary:087f013ce3bb4987e060ff77": {
+      "dataset": "social",
+      "item_id": "piasnews-social-0c7cb42505e3c652",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar with charles, george, gabi and ollie before the drivers' parade! https://t.co/4pR1hpPv8K",
+      "zh": "Oscar与查尔斯、乔治、加比和奥利在车手巡游前合影！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-23T13:36:39.273990Z"
+    },
+    "social:piasnews-social-723f4d99d4ec4c05:summary:565a0ecf58f700810c3c77c7": {
+      "dataset": "social",
+      "item_id": "piasnews-social-723f4d99d4ec4c05",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Zandvoort drivers parade 👋🇳🇱 https://t.co/FAylajTVJL",
+      "zh": "赞德福特车手巡游 👋🇳🇱",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-23T13:36:39.273995Z"
+    },
+    "social:piasnews-social-a54654102818fc2c:summary:32cc2b18e8dca5c75edd7c42": {
+      "dataset": "social",
+      "item_id": "piasnews-social-a54654102818fc2c",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "happy oscar waving to the crowd 😁🫶🏻 https://t.co/JxsebUVmx0",
+      "zh": "开心的Oscar向人群挥手 😁🫶🏻",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-23T13:36:39.273999Z"
+    },
+    "social:piasnews-social-dea088aa463c0004:summary:8a02b449c77b00e8a5db1549": {
+      "dataset": "social",
+      "item_id": "piasnews-social-dea088aa463c0004",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Q: Is this going to be a case of attacking or defending? \"Hopefully attacking! But I'm sure there will be some defending as well!\" https://t.co/J8HoHLTw7W",
+      "zh": "问：这会是进攻还是防守？“希望是进攻！但我肯定也会有一些防守！”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-23T13:36:39.274004Z"
+    },
+    "social:piasnews-social-49049719bc47420c:summary:07e981a171d04760ec956f87": {
+      "dataset": "social",
+      "item_id": "piasnews-social-49049719bc47420c",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Q: What are your thoughts ahead of the GP? \"We'll wait and see. i think it's gonna be tight between us, mercedes and ferrari so yeah let's see what we got but it's gonna be an exciting race I think!\" https://t.co/sCvnAGcQes",
+      "zh": "问：你对大奖赛有什么想法？“我们拭目以待。我认为我们、Mercedes和Ferrari之间会很接近，所以让我们看看我们有什么，但我觉得这会是一场激动人心的比赛！”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-23T13:36:39.274009Z"
+    },
+    "social:piasnews-social-51ec8ae02694d876:summary:1f89813e1d4159164cd827e0": {
+      "dataset": "social",
+      "item_id": "piasnews-social-51ec8ae02694d876",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Q: \"is this gonna be a case of attacking or defending?\" oscar: \"hopefully attacking! but i'm sure there's gonna be some defending as well 😊\" https://t.co/j0bMVxVhn7",
+      "zh": "问：“这会是进攻还是防守？”Oscar：“希望是进攻！但我肯定也会有一些防守 😊”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-23T13:36:39.274059Z"
     }
   }
 }
