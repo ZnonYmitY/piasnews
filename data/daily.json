@@ -1,9 +1,23 @@
 {
-  "generated_at": "2026-08-23T02:07:06.159492Z",
+  "generated_at": "2026-08-23T02:23:04.308913Z",
   "window_days": 3,
-  "total_items": 39,
-  "latest_date": "2026-08-22",
+  "total_items": 40,
+  "latest_date": "2026-08-23",
   "days": [
+    {
+      "date": "2026-08-23",
+      "total_new_items": 1,
+      "official_new_items": 0,
+      "media_new_items": 1,
+      "x_new_items": 0,
+      "rumor_new_items": 0,
+      "sources": {
+        "Auto Action": 1
+      },
+      "categories": {
+        "other": 1
+      }
+    },
     {
       "date": "2026-08-22",
       "total_new_items": 11,
@@ -98,7 +112,7 @@
       "source_group": "official_direct",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=site%3Aformula1.com%2Fen%2Flatest+%22Piastri%22+when%3A3d",
       "ok": true,
-      "items": 1
+      "items": 0
     },
     {
       "query": "site:oscarpiastri.com \"Piastri\" when:3d",
@@ -140,7 +154,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 20
+      "items": 19
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -153,12 +167,12 @@
       "stage": "publisher_date_verification",
       "ok": true,
       "checked": 57,
-      "kept": 39,
+      "kept": 40,
       "results": {
-        "outside_window": 3,
+        "outside_window": 2,
         "publisher_date_missing": 8,
         "publisher_unavailable": 7,
-        "verified": 39
+        "verified": 40
       }
     }
   ]
