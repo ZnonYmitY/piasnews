@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-23T09:50:12.669663Z",
+  "generated_at": "2026-08-23T13:03:33.665491Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -15335,6 +15335,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-23T09:50:12.669718Z"
+    },
+    "items:piasnews-447a82a82e744b60:title:e40635ebe32a9e2451670de6": {
+      "dataset": "items",
+      "item_id": "piasnews-447a82a82e744b60",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Carlos Sainz Shocked Media Ignored Oscar Piastri Apology After Hungarian GP Clash",
+      "zh": "Carlos Sainz震惊媒体忽视Oscar Piastri在匈牙利大奖赛冲突后的道歉",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-23T13:03:33.665535Z"
+    },
+    "items:piasnews-447a82a82e744b60:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-447a82a82e744b60",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-23T13:03:33.665542Z"
     }
   }
 }
