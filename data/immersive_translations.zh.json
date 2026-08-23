@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-23T07:02:50.716184Z",
+  "generated_at": "2026-08-23T09:50:12.669663Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -15311,6 +15311,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-23T07:02:50.716262Z"
+    },
+    "items:piasnews-30a4d61a1bd7fcf7:title:2e4bd368051357bdb0ff9607": {
+      "dataset": "items",
+      "item_id": "piasnews-30a4d61a1bd7fcf7",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri ‘surprised’ Jolyon Palmer with what he saw during F1 Sprint at the Dutch Grand Prix",
+      "zh": "Oscar Piastri在荷兰大奖赛F1冲刺赛中的表现让乔利恩·帕尔默感到‘惊讶’",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-23T09:50:12.669711Z"
+    },
+    "items:piasnews-30a4d61a1bd7fcf7:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-30a4d61a1bd7fcf7",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-23T09:50:12.669718Z"
     }
   }
 }
