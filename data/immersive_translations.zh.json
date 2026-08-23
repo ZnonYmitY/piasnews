@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-23T02:25:15.053190Z",
+  "generated_at": "2026-08-23T07:02:50.716184Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -15263,6 +15263,54 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-23T02:25:15.053230Z"
+    },
+    "items:piasnews-bf1468abb5b43120:title:76c00cdb1afa87c8d93586f5": {
+      "dataset": "items",
+      "item_id": "piasnews-bf1468abb5b43120",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri turns corner in fresh McLaren 'hope'",
+      "zh": "Oscar Piastri在McLaren的新‘希望’中迎来转折",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-23T07:02:50.716247Z"
+    },
+    "items:piasnews-bf1468abb5b43120:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-bf1468abb5b43120",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-23T07:02:50.716254Z"
+    },
+    "items:piasnews-562b4c2c6b42d2ff:title:46b5a90140ae6c3c2dd0ed0f": {
+      "dataset": "items",
+      "item_id": "piasnews-562b4c2c6b42d2ff",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri – Sprint Qualifying – 2026 F1 Dutch Grand Prix.",
+      "zh": "Oscar Piastri – 冲刺排位赛 – 2026年F1荷兰大奖赛。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-23T07:02:50.716258Z"
+    },
+    "items:piasnews-562b4c2c6b42d2ff:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-562b4c2c6b42d2ff",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-23T07:02:50.716262Z"
     }
   }
 }
