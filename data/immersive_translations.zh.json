@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-23T18:03:01.403004Z",
+  "generated_at": "2026-08-23T18:49:38.037747Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -15923,6 +15923,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-23T18:03:01.403217Z"
+    },
+    "items:piasnews-b8918f01508b7456:title:65976e9ec0975ad0048005f6": {
+      "dataset": "items",
+      "item_id": "piasnews-b8918f01508b7456",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri bemoans recurring bad luck after latest Dutch GP disappointment",
+      "zh": "Oscar Piastri在荷兰大奖赛再次失望后抱怨反复出现的坏运气",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-23T18:49:38.037780Z"
+    },
+    "items:piasnews-b8918f01508b7456:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-b8918f01508b7456",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-23T18:49:38.037788Z"
     }
   }
 }
