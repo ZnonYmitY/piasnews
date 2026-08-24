@@ -1,105 +1,27 @@
 {
-  "generated_at": "2026-08-23T18:53:36.612262Z",
+  "generated_at": "2026-08-24T01:11:18.482649Z",
   "window_days": 3,
-  "total_items": 44,
+  "total_items": 7,
   "latest_date": "2026-08-23",
   "days": [
     {
       "date": "2026-08-23",
-      "total_new_items": 8,
+      "total_new_items": 7,
       "official_new_items": 0,
-      "media_new_items": 8,
+      "media_new_items": 7,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
-        "Auto Action": 2,
-        "MotorBiscuit": 1,
+        "Auto Action": 1,
+        "Fox Sports": 3,
         "PlanetF1": 1,
-        "Scuderia Ferrari Fans": 1,
         "Speedcafe.com": 1,
-        "The Canberra Times": 1,
-        "racingnews365.com": 1
+        "aapnews.aap.com.au": 1
       },
       "categories": {
         "other": 1,
         "race": 5,
-        "team": 2
-      }
-    },
-    {
-      "date": "2026-08-22",
-      "total_new_items": 11,
-      "official_new_items": 0,
-      "media_new_items": 11,
-      "x_new_items": 0,
-      "rumor_new_items": 0,
-      "sources": {
-        "Auto Action": 2,
-        "F1 Oversteer": 2,
-        "Fox Sports": 1,
-        "Nine.com.au": 1,
-        "SPEEDWEEK.com": 2,
-        "Speedcafe.com": 1,
-        "UA.NEWS": 1,
-        "racingnews365.com": 1
-      },
-      "categories": {
-        "other": 3,
-        "race": 5,
-        "team": 3
-      }
-    },
-    {
-      "date": "2026-08-21",
-      "total_new_items": 21,
-      "official_new_items": 0,
-      "media_new_items": 21,
-      "x_new_items": 0,
-      "rumor_new_items": 5,
-      "sources": {
-        "7BU": 1,
-        "ABC News & Headlines – Australian Broadcasting Corporation": 1,
-        "Auto Action": 3,
-        "F1 Oversteer": 1,
-        "Fox Sports": 1,
-        "GPblog": 1,
-        "MotorBiscuit": 1,
-        "North Queensland Register": 1,
-        "PlanetF1": 1,
-        "SPORTbible": 1,
-        "Speedcafe.com": 1,
-        "Yahoo Sports": 1,
-        "autohebdof1.com": 1,
-        "fiaformula2.com": 1,
-        "grandepremio.com": 1,
-        "grandprix247": 1,
-        "racingnews365.com": 2,
-        "sportingnews.com": 1
-      },
-      "categories": {
-        "other": 3,
-        "race": 7,
-        "rumor": 5,
-        "team": 6
-      }
-    },
-    {
-      "date": "2026-08-20",
-      "total_new_items": 4,
-      "official_new_items": 0,
-      "media_new_items": 4,
-      "x_new_items": 0,
-      "rumor_new_items": 1,
-      "sources": {
-        "F1ingenerale": 1,
-        "Nine.com.au": 1,
-        "Speedcafe.com": 1,
-        "realestate.com.au": 1
-      },
-      "categories": {
-        "contract": 1,
-        "rumor": 1,
-        "team": 2
+        "team": 1
       }
     }
   ],
@@ -137,7 +59,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 27
+      "items": 28
     },
     {
       "query": "\"OP81\" when:3d",
@@ -158,7 +80,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 17
+      "items": 14
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -170,12 +92,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 54,
-      "kept": 44,
+      "checked": 55,
+      "kept": 7,
       "results": {
-        "publisher_date_missing": 5,
-        "publisher_unavailable": 4,
-        "verified": 45
+        "publisher_date_missing": 2,
+        "publisher_unavailable": 3,
+        "url_unresolved": 43,
+        "verified": 7
       }
     }
   ]
