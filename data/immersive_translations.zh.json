@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-24T01:59:07.408668Z",
+  "generated_at": "2026-08-24T06:31:33.256900Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -16163,6 +16163,126 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-24T01:59:07.408732Z"
+    },
+    "items:piasnews-cd7727e78340dffe:title:03fe580374dc692e32249e05": {
+      "dataset": "items",
+      "item_id": "piasnews-cd7727e78340dffe",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "No tears for Zandvoort, Verstappen power play, Piastri pressure, Lawson makes his case",
+      "zh": "Zandvoort无泪，Verstappen权力游戏，Piastri压力，Lawson证明自己",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T06:31:33.256952Z"
+    },
+    "items:piasnews-cd7727e78340dffe:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-cd7727e78340dffe",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T06:31:33.256958Z"
+    },
+    "items:piasnews-0e56907e0845d097:title:7523cbb0045c7688ac06c8b2": {
+      "dataset": "items",
+      "item_id": "piasnews-0e56907e0845d097",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri suffered 'downhill' spiral during 'painful' Dutch GP",
+      "zh": "Oscar Piastri在“痛苦”的荷兰大奖赛中经历“下坡”螺旋",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T06:31:33.256960Z"
+    },
+    "items:piasnews-0e56907e0845d097:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-0e56907e0845d097",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T06:31:33.256963Z"
+    },
+    "items:piasnews-6a9c1d8ed8481078:title:df9d3dcf31c34600e428a5b8": {
+      "dataset": "items",
+      "item_id": "piasnews-6a9c1d8ed8481078",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri pays the price for “painful” McLaren strategy",
+      "zh": "Piastri为“痛苦”的McLaren策略付出代价",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T06:31:33.256966Z"
+    },
+    "items:piasnews-6a9c1d8ed8481078:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-6a9c1d8ed8481078",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与车队或赛车表现相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T06:31:33.256968Z"
+    },
+    "items:piasnews-257eb64e3707fa5d:title:7b62c4c661247809e9879496": {
+      "dataset": "items",
+      "item_id": "piasnews-257eb64e3707fa5d",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "McLaren au GP des Pays-Bas : Norris gagne, Piastri sixième",
+      "zh": "McLaren在荷兰大奖赛：Norris获胜，Piastri第六",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T06:31:33.256972Z"
+    },
+    "items:piasnews-257eb64e3707fa5d:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-257eb64e3707fa5d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T06:31:33.256977Z"
+    },
+    "items:piasnews-f33540ad2e55b30a:title:5633d37a35b54ed8235389a5": {
+      "dataset": "items",
+      "item_id": "piasnews-f33540ad2e55b30a",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri’s overtake highlight reel squashed as teammate shines",
+      "zh": "Piastri的超车集锦被队友的光芒所掩盖",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T06:31:33.256981Z"
+    },
+    "items:piasnews-f33540ad2e55b30a:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-f33540ad2e55b30a",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T06:31:33.256983Z"
     }
   }
 }
