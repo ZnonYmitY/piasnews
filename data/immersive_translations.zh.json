@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-24T12:35:51.887885Z",
+  "generated_at": "2026-08-24T13:14:16.163975Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -16511,6 +16511,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-24T12:35:51.887956Z"
+    },
+    "items:piasnews-8359fb10ea99c351:title:04c682f95b510e351dd1d3a6": {
+      "dataset": "items",
+      "item_id": "piasnews-8359fb10ea99c351",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "The difficult situation of Oscar Piastri in Formula 1",
+      "zh": "Oscar Piastri在F1中的困境",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T13:14:16.164031Z"
+    },
+    "items:piasnews-8359fb10ea99c351:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-8359fb10ea99c351",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T13:14:16.164040Z"
     }
   }
 }
