@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-24T06:31:33.256900Z",
+  "generated_at": "2026-08-24T07:21:52.610129Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -16283,6 +16283,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-24T06:31:33.256983Z"
+    },
+    "items:piasnews-a8021165a7acd5de:title:02ac30c9a0fdf2a0ee760753": {
+      "dataset": "items",
+      "item_id": "piasnews-a8021165a7acd5de",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri At McLaren: How One Year Undid A Title Favourite",
+      "zh": "Oscar Piastri在McLaren：一年如何毁掉一位冠军热门",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T07:21:52.610169Z"
+    },
+    "items:piasnews-a8021165a7acd5de:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-a8021165a7acd5de",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T07:21:52.610176Z"
     }
   }
 }
