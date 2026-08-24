@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-24T13:14:16.163975Z",
+  "generated_at": "2026-08-24T19:00:48.723046Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -16535,6 +16535,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-24T13:14:16.164040Z"
+    },
+    "items:piasnews-42e178170da046fc:title:a15725730d92c52998fe08cd": {
+      "dataset": "items",
+      "item_id": "piasnews-42e178170da046fc",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri, McLaren, Zandvoort, 2026",
+      "zh": "Oscar Piastri，McLaren，赞德福特，2026",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T19:00:48.723102Z"
+    },
+    "items:piasnews-42e178170da046fc:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-42e178170da046fc",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T19:00:48.723109Z"
     }
   }
 }
