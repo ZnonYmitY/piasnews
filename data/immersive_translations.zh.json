@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-24T09:34:11.993135Z",
+  "generated_at": "2026-08-24T12:35:51.887885Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -16439,6 +16439,78 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-24T09:34:11.993236Z"
+    },
+    "items:piasnews-82272950c1e67ec3:title:219b378a9ec311cd87577e8e": {
+      "dataset": "items",
+      "item_id": "piasnews-82272950c1e67ec3",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri (McLaren/6th): Fundamental problems and a drop in performance",
+      "zh": "Oscar Piastri（McLaren/第6名）：根本性问题和性能下滑",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T12:35:51.887930Z"
+    },
+    "items:piasnews-82272950c1e67ec3:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-82272950c1e67ec3",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与车队或赛车性能相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T12:35:51.887939Z"
+    },
+    "items:piasnews-906f5c9478659cf4:title:1c8498d25ef0935b8db32663": {
+      "dataset": "items",
+      "item_id": "piasnews-906f5c9478659cf4",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri Delivers Brutal Reality Check After Dutch GP Pace Collapse: \"Really a Long Way Off\"",
+      "zh": "Piastri在荷兰大奖赛速度崩溃后给出残酷现实检验：“真的差得很远”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T12:35:51.887944Z"
+    },
+    "items:piasnews-906f5c9478659cf4:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-906f5c9478659cf4",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T12:35:51.887949Z"
+    },
+    "items:piasnews-eb6866193ad043d0:title:a015d1545304705ef5cfa52f": {
+      "dataset": "items",
+      "item_id": "piasnews-eb6866193ad043d0",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Is Oscar Piastri sinking into F1 oblivion? McLaren star admits he has ‘no answers’ after Dutch GP",
+      "zh": "Oscar Piastri正在F1中沉沦吗？McLaren明星承认在荷兰大奖赛后“没有答案”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T12:35:51.887953Z"
+    },
+    "items:piasnews-eb6866193ad043d0:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-eb6866193ad043d0",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T12:35:51.887956Z"
     }
   }
 }
