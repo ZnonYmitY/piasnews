@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-24T07:36:20.068168Z",
+  "generated_at": "2026-08-24T09:34:11.993135Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -16331,6 +16331,114 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-24T07:36:20.068227Z"
+    },
+    "items:piasnews-773b0adde57f6fcb:title:fac85349cb27e36dc5955d97": {
+      "dataset": "items",
+      "item_id": "piasnews-773b0adde57f6fcb",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri suffers major Dutch GP setback as Lando Norris extends McLaren gap",
+      "zh": "Oscar Piastri在荷兰大奖赛遭遇重大挫折，Lando Norris扩大McLaren差距",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T09:34:11.993196Z"
+    },
+    "items:piasnews-773b0adde57f6fcb:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-773b0adde57f6fcb",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T09:34:11.993203Z"
+    },
+    "items:piasnews-82950ef47f78f9e6:title:022811ce1e99ef577740ae84": {
+      "dataset": "items",
+      "item_id": "piasnews-82950ef47f78f9e6",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri doesn’t ‘have any answers’ over lack of pace",
+      "zh": "Piastri对速度不足“没有任何答案”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T09:34:11.993208Z"
+    },
+    "items:piasnews-82950ef47f78f9e6:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-82950ef47f78f9e6",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与车队或赛车表现相关的项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T09:34:11.993211Z"
+    },
+    "social:piasnews-social-da38eddb1693d05c:summary:df7706a7b72f628fc3036a86": {
+      "dataset": "social",
+      "item_id": "piasnews-social-da38eddb1693d05c",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "there will be a mclaren racing live event in athens on october 3rd! iconic mclaren cars will take to OAKA, where the 2004 summer olympics were held 😮‍💨 https://t.co/3NCv7nqiiw",
+      "zh": "10月3日雅典将举办McLaren赛车现场活动！标志性的McLaren赛车将驶入OAKA，那里曾举办2004年夏季奥运会😮‍💨",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T09:34:11.993216Z"
+    },
+    "social:piasnews-social-19bed2fe0d20e150:summary:94074e1cb1769a64cc0a38eb": {
+      "dataset": "social",
+      "item_id": "piasnews-social-19bed2fe0d20e150",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Smart work from Charles 👏 Leclerc goes wheel to wheel with Piastri and gets past the Aussie ⚔️ #F1 #DutchGP https://t.co/wAZC0IN0rW",
+      "zh": "查尔斯的聪明操作👏Leclerc与Piastri并驾齐驱，超越了这位澳大利亚车手⚔️ #F1 #DutchGP",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T09:34:11.993220Z"
+    },
+    "social:piasnews-social-578ef24e11af5c6a:summary:d45646bf4703a69461665a58": {
+      "dataset": "social",
+      "item_id": "piasnews-social-578ef24e11af5c6a",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar after the race yesterday 🫶🏻 📸: estellevanoijen https://t.co/5Fcdk0WZgU",
+      "zh": "昨天比赛后的Oscar🫶🏻 📸: estellevanoijen",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T09:34:11.993225Z"
+    },
+    "social:piasnews-social-269cf43064c53e9d:summary:0f9ab64ff324b7230f4ccc08": {
+      "dataset": "social",
+      "item_id": "piasnews-social-269cf43064c53e9d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "i'm never leaving this app https://t.co/H3k6RntZwT",
+      "zh": "我永远不会离开这个应用",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T09:34:11.993232Z"
+    },
+    "social:piasnews-social-8b872c02acd97bae:summary:24079134f0cf42f9f097be23": {
+      "dataset": "social",
+      "item_id": "piasnews-social-8b872c02acd97bae",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "@Boccaloni @F1 the rainbow doesn't have fuckass papaya",
+      "zh": "@Boccaloni @F1 彩虹里没有该死的木瓜色",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-24T09:34:11.993236Z"
     }
   }
 }
