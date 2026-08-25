@@ -30,6 +30,7 @@ DEFAULT_DAYS = 3
 DEFAULT_LIMIT = 80
 HTTP_TIMEOUT_SECONDS = 15
 DATE_VERIFICATION_WORKERS = 6
+ARTICLE_SEARCH_TEXT_MAX_CHARS = 12_000
 
 GOOGLE_NEWS_BASE = "https://news.google.com/rss/search"
 GOOGLE_NEWS_ARTICLE_PREFIX = "https://news.google.com/rss/articles/"
@@ -156,6 +157,7 @@ class ArticleMetadataParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
         self.meta_dates: list[str] = []
+        self.meta_descriptions: list[str] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         if tag.lower() != "meta":
@@ -164,6 +166,38 @@ class ArticleMetadataParser(HTMLParser):
         field = (values.get("property") or values.get("name") or "").lower()
         if field in {"article:published_time", "date", "datepublished"} and values.get("content"):
             self.meta_dates.append(values["content"])
+        if field in {"description", "og:description", "twitter:description"} and values.get("content"):
+            self.meta_descriptions.append(values["content"])
+
+
+class ArticleParagraphParser(HTMLParser):
+    """Collect publisher-page paragraphs without adding another dependency."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.paragraphs: list[str] = []
+        self._paragraph_depth = 0
+        self._parts: list[str] = []
+
+    def handle_starttag(self, tag: str, _attrs: list[tuple[str, str | None]]) -> None:
+        if tag.lower() == "p":
+            if self._paragraph_depth == 0:
+                self._parts = []
+            self._paragraph_depth += 1
+
+    def handle_data(self, data: str) -> None:
+        if self._paragraph_depth:
+            self._parts.append(data)
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag.lower() != "p" or not self._paragraph_depth:
+            return
+        self._paragraph_depth -= 1
+        if self._paragraph_depth == 0:
+            paragraph = clean_text(" ".join(self._parts))
+            if len(paragraph) >= 40:
+                self.paragraphs.append(paragraph)
+            self._parts = []
 
 
 class GoogleNewsParamsParser(HTMLParser):
@@ -219,6 +253,62 @@ def extract_publisher_date(html_text: str) -> datetime | None:
         if parsed:
             return parsed
     return None
+
+
+def _json_ld_search_text(value: Any) -> list[str]:
+    texts: list[str] = []
+    if isinstance(value, list):
+        for entry in value:
+            texts.extend(_json_ld_search_text(entry))
+        return texts
+    if not isinstance(value, dict):
+        return texts
+    for key, entry in value.items():
+        if key.lower() in {"articlebody", "description"} and isinstance(entry, str):
+            texts.append(clean_text(re.sub(r"<[^>]+>", " ", html.unescape(entry))))
+        elif isinstance(entry, (dict, list)):
+            texts.extend(_json_ld_search_text(entry))
+    return texts
+
+
+def extract_article_search_text(html_text: str) -> str:
+    """Build a bounded, non-rendered text index from a publisher article page."""
+    parser = ArticleMetadataParser()
+    parser.feed(html_text)
+    candidates = [clean_text(html.unescape(value)) for value in parser.meta_descriptions]
+
+    json_ld_bodies: list[str] = []
+    script_pattern = re.compile(
+        r"<script\b[^>]*type\s*=\s*[\"']application/ld\+json[^\"']*[\"'][^>]*>(.*?)</script>",
+        re.IGNORECASE | re.DOTALL,
+    )
+    for match in script_pattern.finditer(html_text):
+        try:
+            payload = json.loads(match.group(1).strip())
+        except (json.JSONDecodeError, TypeError):
+            try:
+                payload = json.loads(html.unescape(match.group(1)).strip())
+            except (json.JSONDecodeError, TypeError):
+                continue
+        json_ld_bodies.extend(_json_ld_search_text(payload))
+    candidates.extend(json_ld_bodies)
+
+    if not json_ld_bodies:
+        paragraph_parser = ArticleParagraphParser()
+        paragraph_parser.feed(html_text)
+        candidates.extend(paragraph_parser.paragraphs)
+
+    unique: list[str] = []
+    seen: set[str] = set()
+    for candidate in candidates:
+        normalized = clean_text(candidate)
+        key = normalized.casefold()
+        if not normalized or key in seen:
+            continue
+        seen.add(key)
+        unique.append(normalized)
+
+    return " ".join(unique)[:ARTICLE_SEARCH_TEXT_MAX_CHARS].strip()
 
 
 def decode_google_news_url(
@@ -588,6 +678,9 @@ def verify_source_date(
         verified_item["category"],
         verified_item["official"],
     )
+    article_search_text = extract_article_search_text(publisher_html)
+    if article_search_text:
+        verified_item["article_search_text"] = article_search_text
     return verified_item, "verified"
 
 

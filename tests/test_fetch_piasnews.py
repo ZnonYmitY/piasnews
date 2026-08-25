@@ -60,6 +60,23 @@ class PublisherDateTest(unittest.TestCase):
         )
 
 
+class ArticleSearchTextTest(unittest.TestCase):
+    def test_prefers_json_ld_article_body_and_keeps_description(self):
+        html = """
+        <meta property="og:description" content="Piastri discussed the updated floor.">
+        <script type="application/ld+json">
+          {"@type":"NewsArticle","articleBody":"The team changed the suspension setup before qualifying."}
+        </script>
+        """
+        text = collector.extract_article_search_text(html)
+        self.assertIn("updated floor", text)
+        self.assertIn("suspension setup", text)
+
+    def test_falls_back_to_visible_paragraphs(self):
+        html = "<p>Oscar explained how tyre preparation changed the balance over the long run.</p>"
+        self.assertIn("tyre preparation", collector.extract_article_search_text(html))
+
+
 class ChineseLocalizationTest(unittest.TestCase):
     def test_known_title_translation(self):
         title = "Australian stars rally behind Piastri after Sky Sports backlash"
@@ -98,11 +115,15 @@ class SourceDateVerificationTest(unittest.TestCase):
         self.now = datetime(2026, 6, 21, 0, 0, tzinfo=timezone.utc)
         self.cutoff = datetime(2026, 6, 18, 0, 0, tzinfo=timezone.utc)
 
-    def verify(self, publisher_date):
+    def verify(self, publisher_date, article_body=""):
         def fetcher(url):
             if url.startswith(collector.GOOGLE_NEWS_ARTICLE_PREFIX):
                 return GOOGLE_PAGE
-            return f'<script type="application/ld+json">{{"datePublished":"{publisher_date}"}}</script>'
+            return (
+                '<script type="application/ld+json">'
+                f'{{"datePublished":"{publisher_date}","articleBody":"{article_body}"}}'
+                "</script>"
+            )
 
         return collector.verify_source_date(
             sample_item(),
@@ -118,7 +139,10 @@ class SourceDateVerificationTest(unittest.TestCase):
         self.assertEqual(status, "outside_window")
 
     def test_uses_publisher_date_for_recent_article(self):
-        item, status = self.verify("2026-06-20T07:00:00Z")
+        item, status = self.verify(
+            "2026-06-20T07:00:00Z",
+            "Piastri described a revised suspension setup before qualifying.",
+        )
         self.assertEqual(status, "verified")
         self.assertEqual(item["url"], SOURCE_URL)
         self.assertEqual(item["published_at"], "2026-06-20T07:00:00Z")
@@ -128,6 +152,7 @@ class SourceDateVerificationTest(unittest.TestCase):
         self.assertEqual(item["id"], collector.stable_id(item["title"], SOURCE_URL))
         self.assertIn("title_zh", item)
         self.assertIn("summary_zh", item)
+        self.assertIn("revised suspension setup", item["article_search_text"])
 
 
 class FeedHealthTest(unittest.TestCase):
