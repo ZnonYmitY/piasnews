@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-25T01:53:52.870905Z",
+  "generated_at": "2026-08-25T03:17:05.288778Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -16679,6 +16679,126 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-25T01:53:52.871001Z"
+    },
+    "items:piasnews-d54aa693b4d07971:title:f103856779689e8ed620737c": {
+      "dataset": "items",
+      "item_id": "piasnews-d54aa693b4d07971",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "F1 news: Mark Webber reveals F1 lessons behind Oscar Piastri guidance",
+      "zh": "F1新闻：Mark Webber揭示指导Oscar Piastri背后的F1经验",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T03:17:05.288831Z"
+    },
+    "items:piasnews-d54aa693b4d07971:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-d54aa693b4d07971",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T03:17:05.288839Z"
+    },
+    "social:piasnews-social-506a239a5d09ad21:summary:29aa5b50696e78aaac2d228c": {
+      "dataset": "social",
+      "item_id": "piasnews-social-506a239a5d09ad21",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "\"george's power unit selected reverse\" he will take every chance he gets to shit on the ai power units 😭😭 https://t.co/OkmBgf3dbE",
+      "zh": "“乔治的动力单元被选中反向”他会抓住每个机会来吐槽AI动力单元😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T03:17:05.288843Z"
+    },
+    "social:piasnews-social-2b40c87a811c1d5d:summary:25d99880692cd0c9e6945d11": {
+      "dataset": "social",
+      "item_id": "piasnews-social-2b40c87a811c1d5d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "i have no idea what this means, i would actually love to hear what you guys think about it. also shoutout to piastrisource on instagram for the translation!",
+      "zh": "我不知道这是什么意思，我真的很想听听你们的看法。另外感谢Instagram上的piastrisource提供的翻译！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T03:17:05.288847Z"
+    },
+    "social:piasnews-social-9efb66062e2cf8ef:summary:6cd0c3b5bf0e5b4ee22b8a30": {
+      "dataset": "social",
+      "item_id": "piasnews-social-9efb66062e2cf8ef",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "heikki kovalainen & mika salo about oscar: H: \"oscar is a very quick driver. i don't believe his pace has just vanished. there is something in the background that isn't working. maybe mika knows more than i do.\" M: \"yes, i can't say anything, but you're on the right track.\" https://t.co/do6qHPkQJC",
+      "zh": "海基·科瓦莱宁和米卡·萨洛谈论Oscar：H：“Oscar是一位非常快的车手。我不相信他的速度就这么消失了。背后肯定有什么东西不对劲。也许米卡知道的比我多。”M：“是的，我不能说什么，但你的方向是对的。”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T03:17:05.288851Z"
+    },
+    "social:piasnews-social-aee19385868f7ff2:summary:ec6761b547793959fcdc48f6": {
+      "dataset": "social",
+      "item_id": "piasnews-social-aee19385868f7ff2",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Seeing & BELIEVING i know that's right !!!! https://t.co/qqFc64cDQq",
+      "zh": "看到并相信我知道那是对的！！！！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T03:17:05.288855Z"
+    },
+    "social:piasnews-social-5345b7589544a004:summary:4682e244a28e9a8201ce5543": {
+      "dataset": "social",
+      "item_id": "piasnews-social-5345b7589544a004",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "andrea stella's full review of oscar's dutch gp! he talks about his struggles & the failed pitstop, but highlights oscar has been improving and he'll keep doing so: \"i'm happy with the improvements we have seen from oscar and i'm sure there'll be more in the rest of the season\" https://t.co/H5lzzLrL3D",
+      "zh": "安德烈亚·斯特拉对Oscar荷兰大奖赛的完整回顾！他谈到了Oscar的挣扎和失败的进站，但强调Oscar一直在进步，而且会继续进步：“我对Oscar的进步感到满意，我相信本赛季剩余时间里还会有更多进步。”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T03:17:05.288860Z"
+    },
+    "social:piasnews-social-413c0eaf3ffcad4f:summary:11a2192ee004864fa633a3c1": {
+      "dataset": "social",
+      "item_id": "piasnews-social-413c0eaf3ffcad4f",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Hard work continues ahead of Monza 💪 https://t.co/jkyo6r5kE6",
+      "zh": "Monza前的努力继续💪",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T03:17:05.288867Z"
+    },
+    "social:piasnews-social-8496d5c43c42b6d1:summary:2a5d18da74d9590114ede7f2": {
+      "dataset": "social",
+      "item_id": "piasnews-social-8496d5c43c42b6d1",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar getting pats in the back ☹️ https://t.co/RksDHw3nVl",
+      "zh": "Oscar被拍背☹️",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T03:17:05.288871Z"
+    },
+    "social:piasnews-social-81897a7de63e4d55:summary:a6b2b4199c8b0a7a69e436f1": {
+      "dataset": "social",
+      "item_id": "piasnews-social-81897a7de63e4d55",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar during (i assume) his holiday in greece! 📸: nikosgiatras https://t.co/AlaS26WH0A",
+      "zh": "Oscar在（我猜）希腊度假期间！📸：nikosgiatras",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T03:17:05.288875Z"
     }
   }
 }
