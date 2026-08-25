@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-25T07:58:17.644416Z",
+  "generated_at": "2026-08-25T12:20:26.595394Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -16871,6 +16871,102 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-25T07:58:17.644493Z"
+    },
+    "items:piasnews-04f10b8e3790e940:title:f80e7f45573db01467d41a23": {
+      "dataset": "items",
+      "item_id": "piasnews-04f10b8e3790e940",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri at centre of George Russell 'no deployment' Mercedes claim",
+      "zh": "Oscar Piastri成为乔治·拉塞尔‘无部署’Mercedes声明的焦点",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T12:20:26.595446Z"
+    },
+    "items:piasnews-04f10b8e3790e940:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-04f10b8e3790e940",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T12:20:26.595454Z"
+    },
+    "items:piasnews-db3457173987a4fe:title:839027cee4e5e7700027e787": {
+      "dataset": "items",
+      "item_id": "piasnews-db3457173987a4fe",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri details McLaren issues behind ‘painful’ F1 Dutch GP result",
+      "zh": "Oscar Piastri详述McLaren在‘痛苦’的F1荷兰大奖赛结果背后的问题",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T12:20:26.595458Z"
+    },
+    "items:piasnews-db3457173987a4fe:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-db3457173987a4fe",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T12:20:26.595461Z"
+    },
+    "items:piasnews-6215233f217af80d:title:34cd0401679948ab4c65a482": {
+      "dataset": "items",
+      "item_id": "piasnews-6215233f217af80d",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Formula 1 News: Norris surges as Piastri searches for answers",
+      "zh": "F1新闻：Norris势头强劲，Piastri寻求答案",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T12:20:26.595464Z"
+    },
+    "items:piasnews-6215233f217af80d:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-6215233f217af80d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T12:20:26.595467Z"
+    },
+    "social:piasnews-social-bf7f7810dcc80d3e:summary:46ca4c52097d339fca561449": {
+      "dataset": "social",
+      "item_id": "piasnews-social-bf7f7810dcc80d3e",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar talking about his holiday in greece! \"no, i'm not planning to buy a house in greece! i went to a different location this year. it's a really nice place, nice country, great food... i had a lot of good local seafood! nice beaches, nice weather... it's hard to go wrong.\" https://t.co/fmEtvchLSB",
+      "zh": "Oscar谈论他在希腊的假期！“不，我不打算在希腊买房子！我今年去了一个不同的地方。那是一个非常好的地方，美丽的国家，美食很棒……我吃了很多当地美味的海鲜！漂亮的海滩，好天气……很难出错。”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T12:20:26.595473Z"
+    },
+    "social:piasnews-social-368ab61f06ec479b:summary:415e5a7fb281b1838fc6d3af": {
+      "dataset": "social",
+      "item_id": "piasnews-social-368ab61f06ec479b",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "the hearing regarding mclaren's and redbull's appeals in response to the monaco-penalties situation is taking place right now! according to andrea stella, these are the 2 objectives they hope to achieve today: https://t.co/6qHEt0nJje",
+      "zh": "关于McLaren和Red Bull针对摩纳哥处罚事件的上诉听证会正在进行中！据安德烈亚·斯特拉称，这是他们今天希望实现的两个目标：",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T12:20:26.595480Z"
     }
   }
 }
