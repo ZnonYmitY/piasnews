@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-24T19:00:48.723046Z",
+  "generated_at": "2026-08-25T01:53:52.870905Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -16559,6 +16559,126 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-24T19:00:48.723109Z"
+    },
+    "items:piasnews-8305241944e17b94:title:6755e903be250706c1f6622c": {
+      "dataset": "items",
+      "item_id": "piasnews-8305241944e17b94",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri searching for answers as teammate re-enters F1 title picture",
+      "zh": "Piastri寻求答案，队友重新进入F1冠军争夺",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T01:53:52.870957Z"
+    },
+    "items:piasnews-8305241944e17b94:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-8305241944e17b94",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T01:53:52.870965Z"
+    },
+    "items:piasnews-446629fd8391ba08:title:bf75281c1462becfc567dbe8": {
+      "dataset": "items",
+      "item_id": "piasnews-446629fd8391ba08",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "F1 News: McLaren given Daniel Ricciardo 'black mark' as Project Piastri falters",
+      "zh": "F1新闻：McLaren因“Piastri计划”受挫被丹尼尔·里卡多记“黑点”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T01:53:52.870970Z"
+    },
+    "items:piasnews-446629fd8391ba08:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-446629fd8391ba08",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与车队或赛车性能相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T01:53:52.870974Z"
+    },
+    "items:piasnews-b8e8996fb8c56fc4:title:c9b8c854b55c0389cd057795": {
+      "dataset": "items",
+      "item_id": "piasnews-b8e8996fb8c56fc4",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "‘That’s all I need’: Bitter irony as Piastri faces thorny team orders reality in Norris title shot",
+      "zh": "“这就是我需要的”：Piastri在Norris冠军争夺中面临棘手的车队指令现实，苦涩的讽刺",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T01:53:52.870978Z"
+    },
+    "items:piasnews-b8e8996fb8c56fc4:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-b8e8996fb8c56fc4",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T01:53:52.870982Z"
+    },
+    "items:piasnews-812b7033fd58edfb:title:b22205bf8626f3196c4cb298": {
+      "dataset": "items",
+      "item_id": "piasnews-812b7033fd58edfb",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri – 2026 F1 Dutch Grand Prix",
+      "zh": "Oscar Piastri – 2026年F1荷兰大奖赛",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T01:53:52.870986Z"
+    },
+    "items:piasnews-812b7033fd58edfb:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-812b7033fd58edfb",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T01:53:52.870993Z"
+    },
+    "items:piasnews-904021982dfdb070:title:8c43fa73e423e930a5c49d35": {
+      "dataset": "items",
+      "item_id": "piasnews-904021982dfdb070",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Lando Norris, Oscar Piastri, Andrea Stella and McLaren team",
+      "zh": "Lando Norris、Oscar Piastri、安德烈亚·斯特拉和McLaren车队",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T01:53:52.870997Z"
+    },
+    "items:piasnews-904021982dfdb070:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-904021982dfdb070",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与车队或赛车性能相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T01:53:52.871001Z"
     }
   }
 }
