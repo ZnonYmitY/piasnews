@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-25T03:17:05.288778Z",
+  "generated_at": "2026-08-25T07:58:17.644416Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -16799,6 +16799,78 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-25T03:17:05.288875Z"
+    },
+    "items:piasnews-f21f7b6279c7f8ec:title:cfcf8e5b3dc206f4de8b4012": {
+      "dataset": "items",
+      "item_id": "piasnews-f21f7b6279c7f8ec",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Norris surges as Piastri searches for answers",
+      "zh": "Norris强势崛起，Piastri寻求答案",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T07:58:17.644466Z"
+    },
+    "items:piasnews-f21f7b6279c7f8ec:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-f21f7b6279c7f8ec",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T07:58:17.644475Z"
+    },
+    "items:piasnews-e65082aa61d1a7e8:title:bf50f15d74f56c143d0c43ef": {
+      "dataset": "items",
+      "item_id": "piasnews-e65082aa61d1a7e8",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Webber reveals F1 lessons behind Piastri guidance",
+      "zh": "Webber揭示指导Piastri背后的F1经验教训",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T07:58:17.644480Z"
+    },
+    "items:piasnews-e65082aa61d1a7e8:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-e65082aa61d1a7e8",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T07:58:17.644484Z"
+    },
+    "social:piasnews-social-3cc919c08444bfb2:summary:9220912c3c048636cd2884d7": {
+      "dataset": "social",
+      "item_id": "piasnews-social-3cc919c08444bfb2",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "thank you @howboutbrunch for sharing this with me 🫶🏻",
+      "zh": "谢谢你 @howboutbrunch 与我分享这个 🫶🏻",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T07:58:17.644488Z"
+    },
+    "social:piasnews-social-4ab0683c0d7cb7dd:summary:90e0b91a85da58a1a16ca78b": {
+      "dataset": "social",
+      "item_id": "piasnews-social-4ab0683c0d7cb7dd",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "the hosts of the show matt & alex made a song for oscar 😭😭😭 australia's favourite son for real !! \"WE BELIEVE IN YOU OSCARRR\" 🗣️🗣️ https://t.co/s9eR5GYbbx",
+      "zh": "节目主持人 matt 和 alex 为Oscar写了一首歌 😭😭😭 澳大利亚最爱的儿子，真的！！\"我们相信你，Oscar\" 🗣️🗣️",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T07:58:17.644493Z"
     }
   }
 }

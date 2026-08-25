@@ -1,21 +1,22 @@
 {
-  "generated_at": "2026-08-25T03:14:58.617481Z",
+  "generated_at": "2026-08-25T07:56:16.597284Z",
   "window_days": 3,
-  "total_items": 33,
+  "total_items": 32,
   "latest_date": "2026-08-25",
   "days": [
     {
       "date": "2026-08-25",
-      "total_new_items": 1,
+      "total_new_items": 2,
       "official_new_items": 0,
-      "media_new_items": 1,
+      "media_new_items": 2,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
+        "Nextgen-Auto.com": 1,
         "Speedcafe.com": 1
       },
       "categories": {
-        "team": 1
+        "other": 2
       }
     },
     {
@@ -72,21 +73,19 @@
     },
     {
       "date": "2026-08-22",
-      "total_new_items": 5,
+      "total_new_items": 3,
       "official_new_items": 0,
-      "media_new_items": 5,
+      "media_new_items": 3,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "Nine.com.au": 1,
-        "SPEEDWEEK.com": 2,
-        "Speedcafe.com": 1,
-        "racingnews365.com": 1
+        "SPEEDWEEK.com": 1,
+        "Speedcafe.com": 1
       },
       "categories": {
         "other": 2,
-        "race": 1,
-        "team": 2
+        "race": 1
       }
     }
   ],
@@ -124,7 +123,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 32
+      "items": 31
     },
     {
       "query": "\"OP81\" when:3d",
@@ -138,7 +137,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 13
+      "items": 12
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
@@ -157,13 +156,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 53,
-      "kept": 33,
+      "checked": 51,
+      "kept": 32,
       "results": {
         "outside_window": 3,
-        "publisher_date_missing": 8,
+        "publisher_date_missing": 7,
         "publisher_unavailable": 9,
-        "verified": 33
+        "verified": 32
       }
     }
   ]
