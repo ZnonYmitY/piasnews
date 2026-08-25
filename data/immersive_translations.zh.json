@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-25T12:20:26.595394Z",
+  "generated_at": "2026-08-25T18:58:03.743516Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -16967,6 +16967,54 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-25T12:20:26.595480Z"
+    },
+    "items:piasnews-68a76ca97d792acc:title:5776c5ef2479790b35b9db4d": {
+      "dataset": "items",
+      "item_id": "piasnews-68a76ca97d792acc",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Norris gathers momentum as Piastri searches for answers",
+      "zh": "Norris势头正盛，Piastri寻求答案",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T18:58:03.743562Z"
+    },
+    "items:piasnews-68a76ca97d792acc:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-68a76ca97d792acc",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T18:58:03.743571Z"
+    },
+    "items:piasnews-7b005f1b2212fde5:title:6a987ec443a9f861170376c5": {
+      "dataset": "items",
+      "item_id": "piasnews-7b005f1b2212fde5",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri's Title Charge Stalls as Norris Pulls 55 Points Clear",
+      "zh": "Piastri争冠受阻，Norris领先55分",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T18:58:03.743576Z"
+    },
+    "items:piasnews-7b005f1b2212fde5:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-7b005f1b2212fde5",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-25T18:58:03.743581Z"
     }
   }
 }
