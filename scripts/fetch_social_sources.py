@@ -39,6 +39,11 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--sources", default="piasnews/references/x-sources.json", help="X/IG source list.")
     parser.add_argument("--output", default="data/social.json", help="Output social JSON file.")
     parser.add_argument("--days", type=int, default=DEFAULT_DAYS, help="Recency window in days.")
+    parser.add_argument(
+        "--retention-days",
+        type=int,
+        help="Days to retain by merging the existing output; defaults to --days.",
+    )
     parser.add_argument("--limit", type=int, default=DEFAULT_LIMIT, help="Maximum normalized social items.")
     parser.add_argument("--now", help="Override current UTC time, ISO-8601 format.")
     parser.add_argument("--input-json", help="Optional local JSON export to normalize instead of live API.")
@@ -182,7 +187,7 @@ def normalize_social_item(raw: dict[str, Any], source: dict[str, Any], now: date
     attribution_en = source.get("attribution_template_en") or f"Referenced from @{handle}"
     summary = text
     summary_zh = clean_text(raw.get("summary_zh") or raw.get("text_zh")) or summary
-    return {
+    normalized = {
         "id": stable_id(platform, url, text),
         "title": title_for_item(platform, handle, kind, text),
         "title_zh": title_zh_for_item(platform, handle, kind, text),
@@ -212,6 +217,11 @@ def normalize_social_item(raw: dict[str, Any], source: dict[str, Any], now: date
         "language": raw.get("language") or raw.get("lang") or "unknown",
         "daily_key": published_at.date().isoformat(),
     }
+    for field in ("image_url", "video_url", "video_poster_url"):
+        value = clean_text(raw.get(field))
+        if value.startswith("https://"):
+            normalized[field] = value
+    return normalized
 
 
 def read_json_url(url: str, bearer_token: str) -> dict[str, Any]:
@@ -255,7 +265,9 @@ def fetch_x_source(source: dict[str, Any], bearer_token: str, now: datetime, cut
             return [], status
         params = {
             "max_results": str(max(5, min(100, limit))),
-            "tweet.fields": "created_at,public_metrics,referenced_tweets,lang",
+            "tweet.fields": "created_at,public_metrics,referenced_tweets,lang,attachments",
+            "expansions": "attachments.media_keys",
+            "media.fields": "media_key,type,url,preview_image_url,variants",
             "exclude": "replies",
         }
         timeline = x_get(f"/users/{user_id}/tweets", bearer_token, params)
@@ -263,6 +275,11 @@ def fetch_x_source(source: dict[str, Any], bearer_token: str, now: datetime, cut
         status["error"] = f"{type(exc).__name__}: {exc}"
         return [], status
 
+    media_by_key = {
+        media.get("media_key"): media
+        for media in (timeline.get("includes") or {}).get("media", [])
+        if isinstance(media, dict) and media.get("media_key")
+    }
     items = []
     for tweet in timeline.get("data", []):
         referenced = tweet.get("referenced_tweets") or []
@@ -277,6 +294,21 @@ def fetch_x_source(source: dict[str, Any], bearer_token: str, now: datetime, cut
             "public_metrics": tweet.get("public_metrics") or {},
             "lang": tweet.get("lang"),
         }
+        attached_media = [
+            media_by_key[key]
+            for key in (tweet.get("attachments") or {}).get("media_keys", [])
+            if key in media_by_key
+        ]
+        if attached_media:
+            first = attached_media[0]
+            if first.get("type") == "photo" and first.get("url"):
+                raw["image_url"] = first["url"]
+            else:
+                raw["video_poster_url"] = first.get("preview_image_url")
+                variants = [row for row in first.get("variants") or [] if row.get("content_type") == "video/mp4" and row.get("url")]
+                variants.sort(key=lambda row: int(row.get("bit_rate") or 0), reverse=True)
+                if variants:
+                    raw["video_url"] = variants[0]["url"]
         normalized = normalize_social_item(raw, source, now, cutoff)
         if normalized:
             items.append(normalized)
@@ -348,6 +380,22 @@ def dedupe_items(items: list[dict[str, Any]], limit: int) -> list[dict[str, Any]
     return list(result.values())[:limit]
 
 
+def retained_items(path: Path, now: datetime, retention_days: int) -> list[dict[str, Any]]:
+    if not path.exists():
+        return []
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return []
+    cutoff = now - timedelta(days=retention_days)
+    result = []
+    for item in payload.get("items") or []:
+        published = parse_iso_datetime(item.get("published_at")) if isinstance(item, dict) else None
+        if published and cutoff <= published <= now + timedelta(hours=2):
+            result.append(item)
+    return result
+
+
 def build_empty_output(now: datetime, days: int, statuses: list[dict[str, Any]]) -> dict[str, Any]:
     return {
         "generated_at": isoformat(now),
@@ -366,9 +414,11 @@ def write_output(path: Path, payload: dict[str, Any]) -> None:
 def main_with_args(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
     now = parse_now(args.now)
+    retention_days = max(args.days, args.retention_days or args.days)
     cutoff = now - timedelta(days=args.days)
     sources = load_sources(Path(args.sources))
     output_path = Path(args.output)
+    previous_items = retained_items(output_path, now, retention_days)
     statuses = []
     items: list[dict[str, Any]] = []
 
@@ -423,8 +473,16 @@ def main_with_args(argv: list[str] | None = None) -> int:
     if instagram_sources:
         statuses.append({"stage": "instagram", "ok": False, "reason": "Instagram public collection not configured; use PIASNEWS_SOCIAL_INPUT import", "sources": len(instagram_sources)})
 
-    final_items = dedupe_items(items, args.limit)
-    payload = build_empty_output(now, args.days, statuses)
+    final_items = dedupe_items([*items, *previous_items], args.limit)
+    statuses.append({
+        "stage": "retention_merge",
+        "ok": True,
+        "discovery_days": args.days,
+        "retention_days": retention_days,
+        "previous_items": len(previous_items),
+        "kept": len(final_items),
+    })
+    payload = build_empty_output(now, retention_days, statuses)
     payload["items"] = final_items
     payload["total_items"] = len(final_items)
     write_output(output_path, payload)

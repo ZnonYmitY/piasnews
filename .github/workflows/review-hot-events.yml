@@ -1,0 +1,72 @@
+name: Review Piasnews Hot Event
+
+on:
+  workflow_dispatch:
+    inputs:
+      event_id:
+        description: Hot event ID
+        required: true
+        type: string
+      override_status:
+        description: Draft or active override
+        required: true
+        type: choice
+        options:
+          - draft
+          - active
+      override_payload_b64:
+        description: URL-safe base64 encoded override
+        required: true
+        type: string
+      reviewer:
+        description: Authenticated workbench identity
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: piasnews-write
+  cancel-in-progress: false
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Apply hot-event override
+        env:
+          EVENT_ID: ${{ inputs.event_id }}
+          OVERRIDE_STATUS: ${{ inputs.override_status }}
+          OVERRIDE_PAYLOAD_B64: ${{ inputs.override_payload_b64 }}
+          REVIEWER: ${{ inputs.reviewer }}
+        run: |
+          python scripts/update_hot_event_override.py \
+            --event-id "$EVENT_ID" \
+            --status "$OVERRIDE_STATUS" \
+            --payload-b64 "$OVERRIDE_PAYLOAD_B64" \
+            --reviewer "$REVIEWER"
+
+      - name: Rebuild hot events
+        run: python scripts/build_hot_events.py
+
+      - name: Run hot-event tests
+        run: python -m unittest tests.test_build_hot_events tests.test_update_hot_event_override
+
+      - name: Commit configuration change
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/hot-event-overrides.json data/hot-event-audit.json data/hot-events.json
+          git commit -m "Update Piasnews hot event configuration"
+          git push
+
+      # Intentionally no Pages deployment here. The normal data refresh publishes active overrides.

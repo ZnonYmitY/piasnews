@@ -9,6 +9,7 @@ Agent-Reach routes to, writes an import JSON file, and leaves normalization and
 from __future__ import annotations
 
 import argparse
+import html
 import json
 import os
 import shutil
@@ -16,7 +17,9 @@ import subprocess
 import sys
 import tempfile
 import urllib.parse
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timedelta, timezone
+from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
 
@@ -232,6 +235,115 @@ def kind_from_tweet(tweet: dict[str, Any]) -> str:
     return "post"
 
 
+def media_from_tweet(tweet: dict[str, Any]) -> tuple[str | None, str | None, str | None]:
+    containers: list[Any] = [
+        tweet.get("media"),
+        deep_get(tweet, "attachments", "media"),
+        deep_get(tweet, "extended_entities", "media"),
+        deep_get(tweet, "entities", "media"),
+    ]
+    media_rows: list[dict[str, Any]] = []
+    for value in containers:
+        if isinstance(value, dict):
+            media_rows.append(value)
+        elif isinstance(value, list):
+            media_rows.extend(row for row in value if isinstance(row, dict))
+    image_url = video_url = video_poster_url = None
+    for media in media_rows:
+        media_type = str(media.get("type") or media.get("media_type") or "").lower()
+        preview = str(
+            media.get("media_url_https")
+            or media.get("preview_image_url")
+            or media.get("image_url")
+            or ""
+        ).strip() or None
+        media_url = str(media.get("url") or "").strip() or None
+        variants = deep_get(media, "video_info", "variants") or media.get("variants") or []
+        mp4_variants = [
+            row for row in variants
+            if isinstance(row, dict)
+            and str(row.get("content_type") or row.get("type") or "").lower() == "video/mp4"
+            and row.get("url")
+        ]
+        if mp4_variants:
+            mp4_variants.sort(key=lambda row: parse_int(row.get("bitrate") or row.get("bit_rate")), reverse=True)
+            video_url = video_url or str(mp4_variants[0]["url"])
+            video_poster_url = video_poster_url or preview
+        elif media_type in {"video", "animated_gif"} and media_url:
+            video_url = video_url or media_url
+            video_poster_url = video_poster_url or preview
+        elif media_type in {"photo", "image"} and (preview or media_url):
+            image_url = image_url or preview or media_url
+        elif preview:
+            image_url = image_url or preview
+    return image_url, video_url, video_poster_url
+
+
+class XPageMediaParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self.image_url: str | None = None
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag.lower() != "meta" or self.image_url:
+            return
+        values = {key.lower(): value for key, value in attrs if value is not None}
+        field = (values.get("property") or values.get("name") or "").lower()
+        if field in {"og:image", "og:image:secure_url", "twitter:image"} and values.get("content"):
+            self.image_url = html.unescape(values["content"])
+
+
+def fetch_x_page_preview(url: str, curl_cmd: str = DEFAULT_CURL_CMD) -> str | None:
+    if not url.startswith("https://x.com/"):
+        return None
+    result = subprocess.run(
+        [curl_cmd, "-L", "--fail", "--silent", "--show-error", "--max-time", "20", "-A", "Mozilla/5.0", url],
+        text=True,
+        capture_output=True,
+        check=False,
+        timeout=25,
+    )
+    if result.returncode != 0 or not result.stdout:
+        return None
+    parser = XPageMediaParser()
+    parser.feed(result.stdout)
+    return parser.image_url if parser.image_url and parser.image_url.startswith("https://") else None
+
+
+def enrich_recent_video_posters(
+    items: list[dict[str, Any]],
+    now: datetime,
+    days: int,
+    curl_cmd: str = DEFAULT_CURL_CMD,
+) -> int:
+    cutoff = now - timedelta(days=days)
+    targets = []
+    for item in items:
+        if not item.get("video_url") or item.get("video_poster_url"):
+            continue
+        created_at = parse_datetime(item.get("created_at"))
+        if not created_at:
+            continue
+        created = datetime.fromisoformat(created_at.replace("Z", "+00:00"))
+        if created >= cutoff:
+            targets.append(item)
+    if not targets:
+        return 0
+
+    enriched = 0
+    with ThreadPoolExecutor(max_workers=min(6, len(targets))) as executor:
+        futures = {executor.submit(fetch_x_page_preview, item["url"], curl_cmd): item for item in targets}
+        for future in as_completed(futures):
+            try:
+                poster = future.result()
+            except (OSError, subprocess.SubprocessError):
+                poster = None
+            if poster:
+                futures[future]["video_poster_url"] = poster
+                enriched += 1
+    return enriched
+
+
 def normalize_raw_tweet(tweet: dict[str, Any], handle: str) -> dict[str, Any] | None:
     tweet_id = id_from_tweet(tweet)
     text = text_from_tweet(tweet)
@@ -248,6 +360,10 @@ def normalize_raw_tweet(tweet: dict[str, Any], handle: str) -> dict[str, Any] | 
     author_handle = str(author.get("screenName") or author.get("username") or handle).lstrip("@")
     url = str(tweet.get("url") or tweet.get("link") or f"https://x.com/{author_handle}/status/{tweet_id}")
     metrics = tweet.get("metrics") or tweet.get("public_metrics") or {}
+    extracted_image, extracted_video, extracted_poster = media_from_tweet(tweet)
+    image_url = str(tweet.get("image_url") or extracted_image or "").strip() or None
+    video_url = str(tweet.get("video_url") or extracted_video or "").strip() or None
+    video_poster_url = str(tweet.get("video_poster_url") or extracted_poster or "").strip() or None
     return {
         "platform": "x",
         "handle": handle,
@@ -258,6 +374,9 @@ def normalize_raw_tweet(tweet: dict[str, Any], handle: str) -> dict[str, Any] | 
         "created_at": created_at,
         "kind": kind_from_tweet(tweet),
         "metrics": metrics,
+        "image_url": image_url,
+        "video_url": video_url,
+        "video_poster_url": video_poster_url,
         "language": tweet.get("lang") or tweet.get("language") or "unknown",
     }
 
@@ -471,6 +590,7 @@ def raw_tweet_from_x_result(result: dict[str, Any], handle: str) -> dict[str, An
     if not tweet_id or not text or not created_at:
         return None
     author_handle = x_author_handle(actual_user, handle)
+    image_url, video_url, video_poster_url = media_from_tweet(actual_legacy)
     return {
         "id": tweet_id,
         "text": text,
@@ -487,6 +607,9 @@ def raw_tweet_from_x_result(result: dict[str, Any], handle: str) -> dict[str, An
             "view_count": parse_int(deep_get(actual_data, "views", "count")),
             "bookmark_count": parse_int(actual_legacy.get("bookmark_count")),
         },
+        "image_url": image_url,
+        "video_url": video_url,
+        "video_poster_url": video_poster_url,
     }
 
 
@@ -622,11 +745,14 @@ def main() -> int:
         items.extend(source_items)
         statuses.append(status)
 
+    enriched_video_posters = enrich_recent_video_posters(items, now, args.days, args.curl_cmd)
+
     payload = {
         "generated_at": isoformat(now),
         "source": "agent-reach/twitter-cli",
         "window_days": args.days,
         "total_items": len(items),
+        "enriched_video_posters": enriched_video_posters,
         "items": items,
         "source_status": statuses,
     }

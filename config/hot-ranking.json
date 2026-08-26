@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "display_window_days": 7,
+  "active_heat_hours": 72,
+  "maximum_events": 10,
+  "minimum_heat": 8,
+  "max_items_per_source": 3,
+  "fallback_similarity": 0.42,
+  "media_review_phrases": [
+    "i'm never leaving this app",
+    "我永远不会离开这个应用",
+    "let's go boys",
+    "let’s go boys"
+  ],
+  "component_scale": {"official": 10, "media": 15, "fan": 8},
+  "decay": [
+    {"max_hours": 6, "factor": 1.0},
+    {"max_hours": 24, "factor": 0.75},
+    {"max_hours": 48, "factor": 0.45},
+    {"max_hours": 72, "factor": 0.2}
+  ],
+  "topic_rules": [
+    {
+      "id": "oscar-turtle-shark-gesture",
+      "hot_word_zh": "Oscar 在花絮视频中比划乌龟和鲨鱼",
+      "hot_word_en": "Oscar mimes a turtle and a shark in a behind-the-scenes video",
+      "match_all": [
+        ["turtle", "乌龟"],
+        ["shark", "鲨鱼"]
+      ]
+    },
+    {
+      "id": "dutch-gp-pace-loss",
+      "hot_word_zh": "Oscar 回应荷兰站赛车速度不足",
+      "hot_word_en": "Oscar addresses his lack of pace at the Dutch Grand Prix",
+      "match_any": ["lack of pace", "pace loss", "pace collapse", "no answers", "searching for answers", "没有答案", "速度不足", "失速", "slow stop", "failed pitstop", "fundamental problems", "painful mclaren strategy", "painful mclaren mistake", "major dutch gp setback", "off the pace at dutch gp", "dutch gp disappointment", "mystified by sudden", "hear from oscar after the #dutchgp", "difference between your car and lando's car"]
+    },
+    {
+      "id": "mclaren-title-fight",
+      "hot_word_zh": "诺里斯追分改变 McLaren 车手争冠形势",
+      "hot_word_en": "Norris's recovery changes McLaren's drivers' title fight",
+      "match_any": ["title fight", "title picture", "team orders", "project piastri", "title favourite", "冠军争夺", "车队指令"]
+    },
+    {
+      "id": "piastri-q3-record",
+      "hot_word_zh": "Oscar 创下 F1 历史最佳 Q3 进场率",
+      "hot_word_en": "Oscar records the best Q3 appearance rate in F1 history",
+      "match_any": ["best q3 appearance rate", "historic q3 record", "历史最佳 q3", "历史性q3纪录"]
+    },
+    {
+      "id": "leclerc-piastri-overtake",
+      "hot_word_zh": "勒克莱尔在荷兰站超越 Oscar",
+      "hot_word_en": "Leclerc overtakes Oscar at the Dutch Grand Prix",
+      "match_all": [["leclerc", "勒克莱尔"], ["overtake", "gets past", "超越", "超车"]]
+    },
+    {
+      "id": "russell-no-deployment",
+      "hot_word_zh": "Russell 的赛车在对阵 Oscar 时没有动力部署",
+      "hot_word_en": "Russell's car has no deployment while racing Oscar",
+      "match_all": [["russell", "拉塞尔"], ["no deployment", "selected reverse", "无部署", "挂倒挡"]]
+    },
+    {
+      "id": "webber-guidance",
+      "hot_word_zh": "Webber 谈自己如何指导 Oscar",
+      "hot_word_en": "Webber explains how he guides Oscar",
+      "match_all": [["webber", "韦伯"], ["guidance", "guide him", "mentoring", "指导"]]
+    },
+    {
+      "id": "oscar-greece-holiday",
+      "hot_word_zh": "Oscar 分享希腊假期见闻",
+      "hot_word_en": "Oscar shares details from his holiday in Greece",
+      "match_all": [["oscar", "皮亚斯特里"], ["greece", "希腊"]]
+    },
+    {
+      "id": "fan-season-frustration",
+      "hot_word_zh": "粉丝讨论 Oscar 荷兰站后的赛季处境",
+      "hot_word_en": "Fans discuss Oscar's season after the Dutch Grand Prix",
+      "match_any": ["this season is somehow breaking even me", "getting my sanity back"]
+    },
+    {
+      "id": "oscar-post-race-smile",
+      "hot_word_zh": "Oscar 在荷兰站赛后镜头中微笑",
+      "hot_word_en": "Oscar smiles for the camera after the Dutch Grand Prix",
+      "match_any": ["smiley", "微笑 🤏"]
+    },
+    {
+      "id": "ai-power-unit-joke",
+      "hot_word_zh": "Oscar 调侃 AI 动力单元为 Russell 挂入倒挡",
+      "hot_word_en": "Oscar jokes that the AI power unit selected reverse for Russell",
+      "match_any": ["power unit selected reverse", "ai power units", "动力单元被选中反向"]
+    },
+    {
+      "id": "nicole-dutch-gp-support",
+      "hot_word_zh": "Nicole Piastri 发布荷兰站赛前助威视频",
+      "hot_word_en": "Nicole Piastri posts a pre-race support video at the Dutch Grand Prix",
+      "match_any": ["let's go boys", "let’s go boys", "加油，小伙子们"]
+    },
+    {
+      "id": "piastri-background-issue",
+      "hot_word_zh": "Kovalainen 和 Salo 猜测 Oscar 的赛车存在背景问题",
+      "hot_word_en": "Kovalainen and Salo suggest an underlying issue with Oscar's car",
+      "match_any": ["kovalainen", "mika salo", "something in the background"]
+    },
+    {
+      "id": "song-for-oscar",
+      "hot_word_zh": "澳洲节目主持人为 Oscar 创作应援歌",
+      "hot_word_en": "Australian radio hosts make a support song for Oscar",
+      "match_any": ["song for oscar", "we believe in you oscar", "为 oscar 写应援歌"]
+    },
+    {
+      "id": "monaco-penalty-appeal",
+      "hot_word_zh": "McLaren 和 Red Bull 的摩纳哥处罚申诉举行听证",
+      "hot_word_en": "McLaren and Red Bull's Monaco penalty appeals go to a hearing",
+      "match_all": [["monaco", "摩纳哥"], ["appeal", "hearing", "申诉", "听证"]]
+    },
+    {
+      "id": "oscar-monza-preparation",
+      "hot_word_zh": "Oscar 开始为蒙扎站进行准备",
+      "hot_word_en": "Oscar begins preparations for Monza",
+      "match_all": [["oscar", "皮亚斯特里"], ["monza", "蒙扎"]]
+    },
+    {
+      "id": "dutch-gp-fan-reaction",
+      "hot_word_zh": "粉丝讨论 Oscar 荷兰站赛后状态",
+      "hot_word_en": "Fans discuss Oscar's mood after the Dutch Grand Prix",
+      "match_any": ["after the race", "leaving the track", "team celebration", "pats in the back", "crushed as i feel", "赛后状态"]
+    }
+  ]
+}

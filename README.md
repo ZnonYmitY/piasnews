@@ -387,6 +387,18 @@ python3 scripts/build_history_candidates.py
 python3 scripts/validate_history.py
 ```
 
+## 热榜 MVP（本地版本）
+
+本地前台已将“速读”替换为合并热榜，展示客观热点词、`官 / 媒 / 粉` 来源标签和热度。点击词条进入独立详情页，热点词固定在顶部，官方/媒体内容与粉丝讨论分区展示；图片、视频和封面归属于单条内容，整张内容卡（含标题与媒体）点击后打开原始来源。自动规则位于 `config/hot-ranking.json`，生成命令为：
+
+```bash
+python3 scripts/build_hot_events.py
+```
+
+后台 `/admin/` 新增热榜工作台。角色由 Worker 的 `ADMIN_KEYS_JSON` 配置：`viewer` 可查看，`editor` 可保存草稿，`publisher` 和 `admin` 可提交生效覆盖。工作台支持查看事件下的当前内容列表，新增、删除或编辑单条内容及其原链接和媒体。覆盖数据与采集数据分开保存，审核 workflow 不包含线上部署步骤。
+
+本版本不启用评论，也不让大模型直接决定聚类或排名。内容逐步保留 7 天、热度按 72 小时衰减、翻译缓存保留 8 天；正文搜索匹配英文原文。
+
 ## 路线图
 
 - **V0.5**：纯 Skill，已完成。
@@ -880,6 +892,14 @@ python3 scripts/fetch_social_sources.py --days 3 --output data/social.json
 python3 scripts/build_history_candidates.py
 python3 scripts/validate_history.py
 ```
+
+## Hot Ranking MVP (local only)
+
+The former Short tab is now a merged hot ranking with objective hot words, source labels, integer heat, and related items. Deterministic rules live in `config/hot-ranking.json`; generate the snapshot with `python3 scripts/build_hot_events.py`.
+
+The `/admin/` workbench uses Worker roles configured through `ADMIN_KEYS_JSON`: viewers can inspect, editors can save drafts, and publishers or admins can activate overrides. Editorial overlays remain separate from collected source data, and the review workflow does not deploy the site.
+
+Comments and direct model-based ranking are out of scope for this MVP. Content is gradually retained for seven days, heat uses a decayed 72-hour window, translations are cached for eight days, and body search matches original English text.
 
 ## Roadmap
 

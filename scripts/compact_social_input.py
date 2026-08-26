@@ -18,7 +18,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 
 
 def compact_item(item: dict[str, Any]) -> dict[str, Any]:
-    return {
+    compacted = {
         "platform": item.get("platform") or item.get("source_type"),
         "handle": item.get("source_handle"),
         "id": item.get("url", "").rstrip("/").split("/")[-1] or item.get("id"),
@@ -29,6 +29,10 @@ def compact_item(item: dict[str, Any]) -> dict[str, Any]:
         "metrics": item.get("metrics", {}),
         "language": item.get("language", "unknown"),
     }
+    for field in ("image_url", "video_url", "video_poster_url"):
+        if item.get(field):
+            compacted[field] = item[field]
+    return compacted
 
 
 def compact_payload(payload: dict[str, Any]) -> dict[str, Any]:

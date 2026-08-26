@@ -76,6 +76,15 @@ class ArticleSearchTextTest(unittest.TestCase):
         html = "<p>Oscar explained how tyre preparation changed the balance over the long run.</p>"
         self.assertIn("tyre preparation", collector.extract_article_search_text(html))
 
+    def test_extracts_open_graph_image_and_video(self):
+        html = """
+        <meta property="og:image" content="/images/piastri.jpg">
+        <meta property="og:video:secure_url" content="https://video.example.com/clip.mp4">
+        """
+        image, video = collector.extract_article_media(html, "https://example.com/news/story")
+        self.assertEqual(image, "https://example.com/images/piastri.jpg")
+        self.assertEqual(video, "https://video.example.com/clip.mp4")
+
 
 class ChineseLocalizationTest(unittest.TestCase):
     def test_known_title_translation(self):

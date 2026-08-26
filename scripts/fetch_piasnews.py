@@ -106,6 +106,11 @@ def utc_now() -> datetime:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Fetch latest Oscar Piastri news.")
     parser.add_argument("--days", type=int, default=DEFAULT_DAYS, help="Recency window in days.")
+    parser.add_argument(
+        "--retention-days",
+        type=int,
+        help="Days to retain by merging the existing output; defaults to --days.",
+    )
     parser.add_argument("--limit", type=int, default=DEFAULT_LIMIT, help="Maximum items to keep.")
     parser.add_argument("--output-dir", default="data", help="Output directory for JSON/RSS files.")
     parser.add_argument("--now", help="Override current UTC time, ISO-8601 format.")
@@ -158,6 +163,8 @@ class ArticleMetadataParser(HTMLParser):
         super().__init__()
         self.meta_dates: list[str] = []
         self.meta_descriptions: list[str] = []
+        self.meta_images: list[str] = []
+        self.meta_videos: list[str] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         if tag.lower() != "meta":
@@ -168,6 +175,10 @@ class ArticleMetadataParser(HTMLParser):
             self.meta_dates.append(values["content"])
         if field in {"description", "og:description", "twitter:description"} and values.get("content"):
             self.meta_descriptions.append(values["content"])
+        if field in {"og:image", "og:image:secure_url", "twitter:image", "twitter:image:src"} and values.get("content"):
+            self.meta_images.append(values["content"])
+        if field in {"og:video", "og:video:url", "og:video:secure_url", "twitter:player:stream"} and values.get("content"):
+            self.meta_videos.append(values["content"])
 
 
 class ArticleParagraphParser(HTMLParser):
@@ -253,6 +264,14 @@ def extract_publisher_date(html_text: str) -> datetime | None:
         if parsed:
             return parsed
     return None
+
+
+def extract_article_media(html_text: str, page_url: str) -> tuple[str | None, str | None]:
+    parser = ArticleMetadataParser()
+    parser.feed(html_text)
+    image = next((urllib.parse.urljoin(page_url, html.unescape(value).strip()) for value in parser.meta_images if value.strip()), None)
+    video = next((urllib.parse.urljoin(page_url, html.unescape(value).strip()) for value in parser.meta_videos if value.strip()), None)
+    return image, video
 
 
 def _json_ld_search_text(value: Any) -> list[str]:
@@ -681,6 +700,12 @@ def verify_source_date(
     article_search_text = extract_article_search_text(publisher_html)
     if article_search_text:
         verified_item["article_search_text"] = article_search_text
+    image_url, video_url = extract_article_media(publisher_html, source_url)
+    if image_url and image_url.startswith("https://"):
+        verified_item["image_url"] = image_url
+    if video_url and video_url.startswith("https://"):
+        verified_item["video_url"] = video_url
+        verified_item["video_poster_url"] = verified_item.get("image_url")
     return verified_item, "verified"
 
 
@@ -838,12 +863,53 @@ def write_outputs(output_dir: Path, items: list[dict[str, Any]], daily: dict[str
     (output_dir / "rss.xml").write_text(build_rss(items, now))
 
 
+def existing_items(path: Path) -> list[dict[str, Any]]:
+    if not path.exists():
+        return []
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return []
+    return [item for item in payload.get("items") or [] if isinstance(item, dict)]
+
+
+def merge_retained_items(
+    fresh: list[dict[str, Any]],
+    existing: list[dict[str, Any]],
+    now: datetime,
+    retention_days: int,
+    limit: int,
+) -> list[dict[str, Any]]:
+    cutoff = now - timedelta(days=retention_days)
+    merged: dict[str, dict[str, Any]] = {}
+    for item in [*fresh, *existing]:
+        published = parse_iso_date(item.get("published_at")) or parse_pub_date(item.get("published_at"))
+        if published is None or published < cutoff or published > now + timedelta(hours=2):
+            continue
+        key = normalize_url(item.get("url") or "") or item.get("id")
+        if key and key not in merged:
+            merged[key] = item
+    return sorted(merged.values(), key=lambda item: item["published_at"], reverse=True)[:limit]
+
+
 def main() -> int:
     args = parse_args()
     now = parse_now(args.now)
+    retention_days = max(args.days, args.retention_days or args.days)
+    output_dir = Path(args.output_dir)
+    retained_before = existing_items(output_dir / "items.json")
     items, feed_status = fetch_items(args.days, args.limit, now)
-    daily = build_daily(items, now, args.days, feed_status)
-    write_outputs(Path(args.output_dir), items, daily, now)
+    items = merge_retained_items(items, retained_before, now, retention_days, args.limit)
+    feed_status.append({
+        "stage": "retention_merge",
+        "ok": True,
+        "discovery_days": args.days,
+        "retention_days": retention_days,
+        "previous_items": len(retained_before),
+        "kept": len(items),
+    })
+    daily = build_daily(items, now, retention_days, feed_status)
+    write_outputs(output_dir, items, daily, now)
     print(f"Fetched {len(items)} items into {args.output_dir}")
     return 0
 

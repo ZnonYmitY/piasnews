@@ -82,6 +82,23 @@ class SocialSourcesTest(unittest.TestCase):
             self.assertEqual(items[0]["summary_zh"], "Oscar Piastri and McLaren updates from the paddock.")
             self.assertIn("Piastri", items[0]["title_zh"])
 
+    def test_import_preserves_per_post_media(self):
+        sources = collector.load_sources(SOURCES_PATH)
+        now = collector.parse_now(NOW)
+        items, status = collector.normalize_import_payload({"items": [{
+            "platform": "x",
+            "handle": "PiastriNews",
+            "id": "media",
+            "text": "Oscar Piastri turtle and shark clip",
+            "created_at": "2026-06-26T10:00:00Z",
+            "video_url": "https://video.example.com/clip.mp4",
+            "video_poster_url": "https://img.example.com/poster.jpg",
+        }]}, "media-import", sources, now, now - collector.timedelta(days=3))
+
+        self.assertEqual(status["items"], 1)
+        self.assertEqual(items[0]["video_url"], "https://video.example.com/clip.mp4")
+        self.assertEqual(items[0]["video_poster_url"], "https://img.example.com/poster.jpg")
+
     def test_import_can_normalize_instagram_item_with_url(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             import_path = Path(tmpdir) / "import.json"

@@ -6,16 +6,16 @@ const I18N = {
     navLabel: "相关链接",
     rss: "RSS",
     github: "GitHub",
-    kicker: "OSCAR PIASTRI · 最近 3 天",
+    kicker: "OSCAR PIASTRI · 最近 7 天",
     pageTitle: "Oscar Piastri 粉丝日报",
-    deck: "最近三天值得关注的比赛、车队与围场动态。",
+    deck: "最近七天值得关注的比赛、车队与围场动态。",
     updateLabel: "数据更新时间",
     socialUpdateLabel: "X / IG 数据",
     socialMeta: (generated, latest) => `采集 ${generated}\n最新内容 ${latest}`,
     loadingUpdatedAt: "正在读取...",
     refresh: "刷新",
     retry: "重新加载",
-    windowDefault: "最近 3 天",
+    windowDefault: "最近 7 天",
     loadingNews: "正在加载新闻",
     noNewsCount: "没有新信息",
     verifiedCount: (count) => `${count} 条已核验信息`,
@@ -25,14 +25,27 @@ const I18N = {
     readErrorDefault: "请稍后刷新页面。",
     readError: (message) => `数据读取失败：${message}`,
     tabsLabel: "日报版本",
-    shortTab: "速读",
-    shortTabSub: "1 分钟",
+    hotTab: "热榜",
+    hotTabSub: "官 · 媒 · 粉",
     dailyTab: "日报",
     dailyTabSub: "完整整理",
     fanTab: "粉丝源",
     fanTabSub: "X / IG",
-    shortTitle: "速读",
-    shortNote: "最多 5 条",
+    hotTitle: "热点排行",
+    hotNote: "近 72 小时热度，最近 7 天关联信息",
+    hotEmptyTitle: "暂无可展示热点",
+    hotEmptyBody: "热点需要达到最低热度并具备可核验来源。",
+    hotRelated: (count) => `${count} 条相关信息`,
+    hotBack: "返回热榜",
+    hotContentTitle: "官方与报道",
+    hotDiscussionTitle: "粉丝讨论",
+    hotDetailTabsLabel: "热点内容分类",
+    hotSectionEmpty: "当前没有这一类内容。",
+    hotVideoLabel: "播放原视频",
+    hotHeat: "热度",
+    sourceOfficial: "官",
+    sourceMedia: "媒",
+    sourceFan: "粉",
     topPick: "最值得看",
     officialUpdate: "官方动态",
     mediaMain: "媒体主线",
@@ -40,14 +53,15 @@ const I18N = {
     rumorReminder: "传闻提醒",
     rumorUnconfirmed: "目前没有官方确认。",
     dailySearchLabel: "搜索",
-    dailySearchPlaceholder: "搜索标题或文章内容",
+    dailySearchPlaceholder: "Search titles and original English article text",
+    dailySearchHint: "正文按英文原文搜索，不翻译正文",
     dailySearchClear: "清除",
     dailySearchResults: (count) => `${count} 条匹配结果`,
     dailySearchEmpty: "没有匹配结果",
     todayFocus: "今日重点",
     reliableFirst: "可靠来源优先",
     reportStats: "本期统计",
-    statTotal: "最近 3 天",
+    statTotal: "最近 7 天",
     statToday: "最近日新增",
     statOfficial: "官方",
     statMedia: "媒体",
@@ -71,7 +85,7 @@ const I18N = {
     historyLink: "查看历史来源",
     originalTitle: "原题",
     originalText: "英文原文",
-    noRecentTitle: "最近 3 天没有新信息",
+    noRecentTitle: "最近 7 天没有新信息",
     noRecentBody: "不会用更早的内容填充日报。",
     officialBadge: "官方",
     rumorBadge: "传闻",
@@ -103,7 +117,7 @@ const I18N = {
     addSeasonCalendar: "添加全年赛历",
     calendarActionsLabel: "日历操作",
     calendarLink: "查看 F1 官方赛历",
-    footerText: "GitHub Actions 每 6 小时更新。只展示原站发布日期可核验的最近 3 天信息。",
+    footerText: "非比赛周每日更新；比赛周按赛段更新。展示最近 7 天可核验信息。",
     stats: "统计",
     admin: "历史审核台",
     categoryLabels: {
@@ -132,16 +146,16 @@ const I18N = {
     navLabel: "Related links",
     rss: "RSS",
     github: "GitHub",
-    kicker: "OSCAR PIASTRI · LATEST 3 DAYS",
+    kicker: "OSCAR PIASTRI · LATEST 7 DAYS",
     pageTitle: "Oscar Piastri Fan Daily",
-    deck: "Race, team, and paddock updates worth tracking from the latest three days.",
+    deck: "Race, team, and paddock updates worth tracking from the latest seven days.",
     updateLabel: "Data updated",
     socialUpdateLabel: "X / IG data",
     socialMeta: (generated, latest) => `Generated ${generated}\nNewest item ${latest}`,
     loadingUpdatedAt: "Loading...",
     refresh: "Refresh",
     retry: "Reload",
-    windowDefault: "Latest 3 days",
+    windowDefault: "Latest 7 days",
     loadingNews: "Loading news",
     noNewsCount: "No new items",
     verifiedCount: (count) => `${count} verified items`,
@@ -151,14 +165,27 @@ const I18N = {
     readErrorDefault: "Please refresh later.",
     readError: (message) => `Data load failed: ${message}`,
     tabsLabel: "Report versions",
-    shortTab: "Short",
-    shortTabSub: "1 min",
+    hotTab: "Hot",
+    hotTabSub: "Official · Media · Fan",
     dailyTab: "Daily",
     dailyTabSub: "Full brief",
     fanTab: "Fan Sources",
     fanTabSub: "X / IG",
-    shortTitle: "Short",
-    shortNote: "Up to 5 items",
+    hotTitle: "Hot Topics",
+    hotNote: "Heat from the latest 72 hours, with seven days of context",
+    hotEmptyTitle: "No hot topics yet",
+    hotEmptyBody: "Topics must pass the heat threshold and have verifiable sources.",
+    hotRelated: (count) => `${count} related items`,
+    hotBack: "Back to Hot",
+    hotContentTitle: "Official & media",
+    hotDiscussionTitle: "Fan discussion",
+    hotDetailTabsLabel: "Topic content categories",
+    hotSectionEmpty: "No items in this section.",
+    hotVideoLabel: "Play original video",
+    hotHeat: "Heat",
+    sourceOfficial: "O",
+    sourceMedia: "M",
+    sourceFan: "F",
     topPick: "Top pick",
     officialUpdate: "Official",
     mediaMain: "Media line",
@@ -166,14 +193,15 @@ const I18N = {
     rumorReminder: "Rumor note",
     rumorUnconfirmed: "No official confirmation yet.",
     dailySearchLabel: "Search",
-    dailySearchPlaceholder: "Search titles or article text",
+    dailySearchPlaceholder: "Search titles and original English article text",
+    dailySearchHint: "Article-body search uses the original English text; bodies are not translated.",
     dailySearchClear: "Clear",
     dailySearchResults: (count) => `${count} matching results`,
     dailySearchEmpty: "No matching results",
     todayFocus: "Key Points",
     reliableFirst: "Reliable sources first",
     reportStats: "Report Stats",
-    statTotal: "Latest 3 days",
+    statTotal: "Latest 7 days",
     statToday: "Latest day",
     statOfficial: "Official",
     statMedia: "Media",
@@ -197,7 +225,7 @@ const I18N = {
     historyLink: "View historical source",
     originalTitle: "Original title",
     originalText: "Original text",
-    noRecentTitle: "No new information in the latest 3 days",
+    noRecentTitle: "No new information in the latest 7 days",
     noRecentBody: "Older items are not used as filler.",
     officialBadge: "Official",
     rumorBadge: "Rumor",
@@ -229,7 +257,7 @@ const I18N = {
     addSeasonCalendar: "Add full season",
     calendarActionsLabel: "Calendar actions",
     calendarLink: "View official F1 calendar",
-    footerText: "GitHub Actions updates every 6 hours. Only publisher-date-verified items from the latest 3 days are shown.",
+    footerText: "Daily updates off race weeks and session-based updates on race weeks. Shows seven days of verified information.",
     stats: "Stats",
     admin: "History console",
     categoryLabels: {
@@ -258,13 +286,16 @@ const state = {
   daily: null,
   history: [],
   social: null,
+  hotEvents: null,
   calendar: null,
   displayRace: null,
   countdownTimer: null,
   generatedAt: null,
-  activeMode: "short",
+  activeMode: "hot",
   language: localStorage.getItem("piasnewsLanguage") || "zh",
   dailySearchQuery: "",
+  hotDetailTab: "coverage",
+  hotDetailEventId: null,
   analyticsReported: false,
 };
 
@@ -341,7 +372,7 @@ const elements = {
   footerLinks: [...document.querySelectorAll(".footer-links a")],
   tabs: [...document.querySelectorAll("[role=tab]")],
   panels: {
-    short: document.querySelector("#panel-short"),
+    hot: document.querySelector("#panel-hot"),
     daily: document.querySelector("#panel-daily"),
     fan: document.querySelector("#panel-fan"),
   },
@@ -355,6 +386,16 @@ function escapeHtml(value) {
   const node = document.createElement("span");
   node.textContent = String(value ?? "");
   return node.innerHTML;
+}
+
+function safeMediaUrl(value) {
+  if (!value) return "";
+  try {
+    const url = new URL(value, window.location.href);
+    return url.protocol === "https:" ? url.href : "";
+  } catch (_error) {
+    return "";
+  }
 }
 
 function formatDateTime(value) {
@@ -741,33 +782,155 @@ function renderHistory() {
   );
 }
 
-function renderShort() {
-  if (!state.items.length) return renderEmpty();
-  const ordered = sortedItems(state.items, { priority: true });
-  const official = ordered.find((item) => item.official);
-  const reliable = ordered.filter((item) => item.category !== "rumor").slice(0, 3);
-  const rumor = ordered.find((item) => item.category === "rumor" || !item.verified);
-  const bullets = [];
-  const usedIds = new Set();
+function hotSourceBadge(label) {
+  const map = {
+    官: [t().sourceOfficial, "official"],
+    媒: [t().sourceMedia, "media"],
+    粉: [t().sourceFan, "fan"],
+  };
+  const [text, kind] = map[label] || [label, "media"];
+  return `<span class="hot-source hot-source-${kind}" title="${escapeHtml(label)}">${escapeHtml(text)}</span>`;
+}
 
-  if (reliable[0]) {
-    bullets.push(`<li><strong>${escapeHtml(t().topPick)}：</strong>${safeLink(reliable[0])}（${escapeHtml(reliable[0].source)}）</li>`);
-    usedIds.add(reliable[0].id);
-  }
-  if (official && !usedIds.has(official.id)) {
-    bullets.push(`<li><strong>${escapeHtml(t().officialUpdate)}：</strong>${safeLink(official)}</li>`);
-    usedIds.add(official.id);
-  }
-  reliable.filter((item) => !usedIds.has(item.id)).slice(0, 2).forEach((item, index) => {
-    const label = index === 0 ? t().mediaMain : t().anotherFocus;
-    bullets.push(`<li><strong>${escapeHtml(label)}：</strong>${safeLink(item)}（${escapeHtml(item.source)}）</li>`);
-    usedIds.add(item.id);
-  });
-  if (rumor && !usedIds.has(rumor.id) && bullets.length < 5) {
-    bullets.push(`<li><strong>${escapeHtml(t().rumorReminder)}：</strong>${safeLink(rumor)}，${escapeHtml(t().rumorUnconfirmed)}</li>`);
-  }
+function hotItemTitle(item) {
+  return state.language === "zh" ? item.title_zh || item.summary_zh || item.title : item.title || item.summary;
+}
 
-  return section(t().shortTitle, `<ul class="quick-list">${bullets.slice(0, 5).join("")}</ul>`, t().shortNote);
+function hotItemSummary(item) {
+  return state.language === "zh" ? item.summary_zh || item.summary : item.summary || item.summary_zh;
+}
+
+function hotEventRouteId() {
+  const hash = window.location.hash.slice(1);
+  if (!hash.startsWith("hot/")) return null;
+  try {
+    return decodeURIComponent(hash.slice(4));
+  } catch (_error) {
+    return hash.slice(4);
+  }
+}
+
+function renderHotItemMedia(item) {
+  const videoUrl = safeMediaUrl(item.video_url);
+  const poster = safeMediaUrl(item.video_poster_url || item.image_url);
+  const imageUrl = safeMediaUrl(item.image_url);
+  if (videoUrl) {
+    return `<span class="hot-content-media hot-content-video" data-media-kind="video">
+      ${poster ? `<img src="${escapeHtml(poster)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">` : ""}
+      <span class="hot-video-placeholder">▶</span>
+      <span class="hot-video-action">▶ ${escapeHtml(t().hotVideoLabel)}</span>
+    </span>`;
+  }
+  if (imageUrl) {
+    return `<span class="hot-content-media" data-media-kind="image"><img src="${escapeHtml(imageUrl)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>`;
+  }
+  return "";
+}
+
+function renderHotContentItem(item) {
+  const title = hotItemTitle(item);
+  const summary = hotItemSummary(item);
+  const label = item.source_type === "official" ? "官" : item.source_type === "fan" ? "粉" : "媒";
+  const media = renderHotItemMedia(item);
+  return `<a class="hot-content-card" href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(title)}">
+    <header>
+      ${hotSourceBadge(label)}
+      <strong>${escapeHtml(item.source || "Piasnews")}</strong>
+      ${item.published_at ? `<time datetime="${escapeHtml(item.published_at)}">${escapeHtml(formatDateTime(item.published_at))}</time>` : ""}
+    </header>
+    <div class="hot-content-card-body">
+      <div>
+        <h3>${escapeHtml(title)}</h3>
+        ${summary && summary !== title ? `<p>${escapeHtml(summary)}</p>` : ""}
+      </div>
+      ${media}
+    </div>
+  </a>`;
+}
+
+function renderHotFeed(items) {
+  return items.length
+    ? `<div class="hot-content-feed">${items.map(renderHotContentItem).join("")}</div>`
+    : `<p class="hot-section-empty">${escapeHtml(t().hotSectionEmpty)}</p>`;
+}
+
+function renderHotDetail(event) {
+  if (state.hotDetailEventId !== event.event_id) {
+    state.hotDetailEventId = event.event_id;
+    state.hotDetailTab = "coverage";
+  }
+  const title = state.language === "zh" ? event.hot_word_zh || event.hot_word_en : event.hot_word_en || event.hot_word_zh;
+  const labels = (event.source_labels || []).map(hotSourceBadge).join("");
+  const items = Array.isArray(event.items) ? event.items : [];
+  const content = items.filter((item) => item.source_type !== "fan");
+  const discussion = items.filter((item) => item.source_type === "fan");
+  const activeItems = state.hotDetailTab === "discussion" ? discussion : content;
+  return `<div class="hot-detail-page">
+    <a class="hot-back-link" href="#hot">← ${escapeHtml(t().hotBack)}</a>
+    <header class="hot-topic-hero">
+      <span class="hot-detail-rank">${escapeHtml(event.rank)}</span>
+      <div>
+        <h1>${escapeHtml(title)}</h1>
+        <div class="hot-detail-meta"><span class="hot-source-list">${labels}</span><strong>${escapeHtml(t().hotHeat)} ${escapeHtml(event.heat)}</strong></div>
+      </div>
+    </header>
+    <div class="hot-detail-tabs" role="tablist" aria-label="${escapeHtml(t().hotDetailTabsLabel)}">
+      <button class="hot-detail-tab${state.hotDetailTab === "coverage" ? " is-active" : ""}" type="button" role="tab" aria-selected="${state.hotDetailTab === "coverage"}" data-hot-detail-tab="coverage">
+        ${escapeHtml(t().hotContentTitle)} <span>${content.length}</span>
+      </button>
+      <button class="hot-detail-tab${state.hotDetailTab === "discussion" ? " is-active" : ""}" type="button" role="tab" aria-selected="${state.hotDetailTab === "discussion"}" data-hot-detail-tab="discussion">
+        ${escapeHtml(t().hotDiscussionTitle)} <span>${discussion.length}</span>
+      </button>
+    </div>
+    <section class="hot-detail-tabpanel" role="tabpanel" aria-label="${escapeHtml(state.hotDetailTab === "discussion" ? t().hotDiscussionTitle : t().hotContentTitle)}">
+      ${renderHotFeed(activeItems)}
+    </section>
+  </div>`;
+}
+
+function renderHotEvent(event) {
+  const title = state.language === "zh" ? event.hot_word_zh || event.hot_word_en : event.hot_word_en || event.hot_word_zh;
+  const labels = (event.source_labels || []).map(hotSourceBadge).join("");
+  const videoUrl = safeMediaUrl(event.video_url);
+  const posterUrl = safeMediaUrl(event.video_poster_url || event.image_url);
+  const imageUrl = safeMediaUrl(event.image_url);
+  const media = videoUrl
+    ? `<span class="hot-media hot-media-video" data-media-kind="video">${posterUrl ? `<img src="${escapeHtml(posterUrl)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">` : ""}<span>▶</span></span>`
+    : imageUrl
+      ? `<span class="hot-media" data-media-kind="image"><img src="${escapeHtml(imageUrl)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>`
+      : "";
+  return `
+    <a class="hot-event" data-event-id="${escapeHtml(event.event_id)}" href="#hot/${encodeURIComponent(event.event_id)}">
+      <div class="hot-rank">${escapeHtml(event.rank)}</div>
+      <div class="hot-event-main">
+        <div class="hot-event-title-row">
+          <h3>${escapeHtml(title)}</h3>
+          <div class="hot-source-list" aria-label="来源">${labels}</div>
+          <strong class="hot-score"><span>${escapeHtml(t().hotHeat)}</span>${escapeHtml(event.heat)}</strong>
+        </div>
+        <span class="hot-related-link">${escapeHtml(t().hotRelated((event.items || []).length))} →</span>
+      </div>
+      ${media}
+    </a>`;
+}
+
+function renderHot() {
+  const events = Array.isArray(state.hotEvents?.events) ? state.hotEvents.events : [];
+  const routeEventId = hotEventRouteId();
+  const routeEvent = routeEventId
+    ? events.find((row) => row.event_id === routeEventId)
+    : null;
+  document.body.classList.toggle("hot-detail-mode", Boolean(routeEvent));
+  if (!routeEvent) state.hotDetailEventId = null;
+  if (!events.length) {
+    return section(
+      t().hotTitle,
+      `<div class="empty-copy"><h2>${escapeHtml(t().hotEmptyTitle)}</h2><p>${escapeHtml(t().hotEmptyBody)}</p></div>`,
+      t().hotNote,
+    );
+  }
+  if (routeEvent) return renderHotDetail(routeEvent);
+  return section(t().hotTitle, `<div class="hot-list">${events.map(renderHotEvent).join("")}</div>`, t().hotNote);
 }
 
 function dailyItems() {
@@ -831,7 +994,7 @@ function renderDailySearch() {
   const query = state.dailySearchQuery;
   return `
     <div class="daily-search" role="search">
-      <label for="dailySearchInput">${escapeHtml(t().dailySearchLabel)}</label>
+      <label for="dailySearchInput">${escapeHtml(t().dailySearchLabel)}<small>${escapeHtml(t().dailySearchHint)}</small></label>
       <div class="daily-search-control">
         <input
           id="dailySearchInput"
@@ -946,7 +1109,7 @@ function renderEmpty() {
 }
 
 function render() {
-  elements.panels.short.innerHTML = renderShort();
+  elements.panels.hot.innerHTML = renderHot();
   elements.panels.daily.innerHTML = renderDaily();
   elements.panels.fan.innerHTML = renderFanFeed();
 }
@@ -969,9 +1132,14 @@ function renderDailyPanel(preserveFocus = false) {
 }
 
 function setMode(mode, updateHash = true) {
-  const normalizedMode = mode === "standard" || mode === "deep" ? "daily" : mode;
+  const normalizedMode = mode === "standard" || mode === "deep"
+    ? "daily"
+    : mode === "short"
+      ? "hot"
+      : mode;
   if (!elements.panels[normalizedMode]) return;
   state.activeMode = normalizedMode;
+  if (normalizedMode !== "hot") document.body.classList.remove("hot-detail-mode");
   elements.tabs.forEach((tab) => {
     const active = tab.dataset.mode === normalizedMode;
     tab.classList.toggle("is-active", active);
@@ -1025,8 +1193,8 @@ function applyStaticLanguage() {
   }
   elements.reportShell.setAttribute("aria-label", t().pageTitle);
   document.querySelector(".tabs").setAttribute("aria-label", t().tabsLabel);
-  document.querySelector("#tab-short span").textContent = t().shortTab;
-  document.querySelector("#tab-short small").textContent = t().shortTabSub;
+  document.querySelector("#tab-hot span").textContent = t().hotTab;
+  document.querySelector("#tab-hot small").textContent = t().hotTabSub;
   document.querySelector("#tab-daily span").textContent = t().dailyTab;
   document.querySelector("#tab-daily small").textContent = t().dailyTabSub;
   document.querySelector("#tab-fan span").textContent = t().fanTab;
@@ -1109,17 +1277,19 @@ async function loadData() {
   });
 
   try {
-    const [itemsPayload, dailyPayload, historyPayload, calendarPayload, socialPayload] = await Promise.all([
+    const [itemsPayload, dailyPayload, historyPayload, calendarPayload, socialPayload, hotEventsPayload] = await Promise.all([
       fetchJson("data/items.json"),
       fetchJson("data/daily.json"),
       fetchOptionalJson("data/history.json"),
       fetchOptionalJson("data/calendar.json"),
       fetchOptionalJson("data/social.json"),
+      fetchOptionalJson("data/hot-events.json"),
     ]);
     state.items = Array.isArray(itemsPayload.items) ? itemsPayload.items : [];
     state.daily = dailyPayload;
     state.history = Array.isArray(historyPayload?.events) ? historyPayload.events : [];
     state.social = socialPayload;
+    state.hotEvents = hotEventsPayload;
     state.generatedAt = itemsPayload.generated_at || dailyPayload.generated_at;
     updateMeta(state.generatedAt);
     renderRaceCountdown(calendarPayload);
@@ -1169,9 +1339,42 @@ elements.panels.daily.addEventListener("click", (event) => {
   document.querySelector("#dailySearchInput")?.focus();
 });
 
-const initialMode = window.location.hash.slice(1);
+elements.panels.hot.addEventListener("error", (event) => {
+  if (!(event.target instanceof HTMLImageElement)) return;
+  const media = event.target.closest("[data-media-kind]");
+  if (!media) return;
+  if (media.dataset.mediaKind === "image") {
+    media.hidden = true;
+    return;
+  }
+  media.classList.add("is-media-unavailable");
+}, true);
+
+elements.panels.hot.addEventListener("click", (event) => {
+  if (!(event.target instanceof Element)) return;
+  const tab = event.target.closest("[data-hot-detail-tab]");
+  if (!tab) return;
+  const nextTab = tab.dataset.hotDetailTab;
+  if (!['coverage', 'discussion'].includes(nextTab) || nextTab === state.hotDetailTab) return;
+  state.hotDetailTab = nextTab;
+  elements.panels.hot.innerHTML = renderHot();
+  elements.panels.hot.querySelector(`[data-hot-detail-tab="${nextTab}"]`)?.focus();
+});
+
+window.addEventListener("hashchange", () => {
+  const mode = window.location.hash.slice(1).split("/")[0];
+  if (elements.panels[mode]) {
+    state.activeMode = mode;
+    render();
+    setMode(mode, false);
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }
+});
+
+const initialMode = window.location.hash.slice(1).split("/")[0];
 if (elements.panels[initialMode]) state.activeMode = initialMode;
 if (initialMode === "standard" || initialMode === "deep") state.activeMode = "daily";
+if (initialMode === "short") state.activeMode = "hot";
 applyStaticLanguage();
 reportPageView();
 loadData();

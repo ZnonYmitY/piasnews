@@ -13,9 +13,4 @@ GITHUB_REF = "main"
 [[d1_databases]]
 binding = "ANALYTICS_DB"
 database_name = "piasnews-analytics"
-database_id = "replace-with-your-d1-database-id"
-
-# Set secrets with Wrangler; never commit their values:
-# npx wrangler secret put ADMIN_API_KEY
-# npx wrangler secret put ADMIN_KEYS_JSON
-# npx wrangler secret put GITHUB_TOKEN
+database_id = "a2f76ffc-76ae-4e95-b72e-c91c8c0eea99"

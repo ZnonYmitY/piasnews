@@ -26,6 +26,9 @@ class CompactSocialInputTest(unittest.TestCase):
                     "post_kind": "post",
                     "metrics": {"likes": 81},
                     "language": "en",
+                    "image_url": "https://img.example.com/oscar.jpg",
+                    "video_url": "https://video.example.com/oscar.mp4",
+                    "video_poster_url": "https://img.example.com/oscar-poster.jpg",
                 }
             ],
         }
@@ -37,6 +40,9 @@ class CompactSocialInputTest(unittest.TestCase):
         self.assertEqual(output["items"][0]["handle"], "PiastriNews")
         self.assertEqual(output["items"][0]["id"], "123")
         self.assertEqual(output["items"][0]["text"], "Oscar Piastri update")
+        self.assertEqual(output["items"][0]["image_url"], "https://img.example.com/oscar.jpg")
+        self.assertEqual(output["items"][0]["video_url"], "https://video.example.com/oscar.mp4")
+        self.assertEqual(output["items"][0]["video_poster_url"], "https://img.example.com/oscar-poster.jpg")
 
     def test_main_writes_output_file(self):
         with tempfile.TemporaryDirectory() as tmpdir:

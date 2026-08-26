@@ -453,6 +453,16 @@ Language behavior:
 
 ## 9. GitHub Synchronization
 
+### 9.1 Hot Ranking MVP (not deployed)
+
+The former Short tab becomes one merged hot ranking. Official, media, and fan items share a stable `event_id`; each row displays only the source labels `官`, `媒`, and `粉` plus an integer heat score. Selecting an event opens a dedicated topic view with a sticky topic title and separate coverage and fan-discussion sections.
+
+Hot words follow the objective MVP pattern “person + concrete action or quote + necessary context.” The deterministic layer retains seven days of context, calculates heat from only the latest 72 hours with time decay, caps repeated contributions per source, and clusters with configurable keyword rules plus conservative title similarity. The model does not directly select or rank events in this version. Ambiguous items stay separate unless an authorized operator corrects them.
+
+The workbench stores editorial changes in a separate overlay and supports `viewer`, `editor`, `publisher`, and `admin` roles. Editors can save drafts; publishers and admins can activate an override. Configurable event fields include the bilingual hot word, heat, pinned position, source labels, visibility, and change reason. Each event has an editable content list; every item owns its source metadata, original URL, image, video, and poster. In the topic detail view, the entire content card—including source, title, summary, and media preview—opens the original source, with no separate “View original” action. Vague media-dependent posts without captured media are held for review instead of receiving a specific automatic topic name. Comments are deferred.
+
+Discovery remains three days and merges retained items until the window gradually reaches seven days, without an initial backfill. Search matches the original English body without translating it. Incremental translation cache entries are retained for eight days. Ranking refreshes daily outside race weekends and after each completed race-weekend session. When a source reliably states Oscar's session position, a hard rule names and pins that result first; it does not infer a missing result.
+
 Current repository state:
 
 - Local repo path: `/Users/bytedance/Documents/piasnews`

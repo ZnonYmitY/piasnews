@@ -16,6 +16,7 @@
         </div>
         <nav class="view-switch" aria-label="后台功能">
           <button class="view-tab is-active" data-view="review" type="button">历史审核</button>
+          <button class="view-tab" data-view="hot" type="button">热榜工作台</button>
           <button class="view-tab" data-view="analytics" type="button">访问看板</button>
         </nav>
       </div>
@@ -118,6 +119,179 @@
           </footer>
         </form>
       </section>
+    </main>
+
+    <main class="hot-admin-page" id="hotView" hidden>
+      <header class="hot-admin-heading">
+        <div>
+          <p class="section-label">HOT EVENT WORKBENCH</p>
+          <h2>热榜工作台</h2>
+          <p>算法原始结果与人工覆盖分开保存；热点词采用“人物＋具体动作或原话＋必要场景”的 MVP 规则。</p>
+        </div>
+        <div class="role-summary">
+          <span id="roleBadge">未认证</span>
+          <button class="button button-quiet" id="newHotEventButton" type="button">新建人工事件</button>
+        </div>
+      </header>
+
+      <div class="hot-admin-message" id="hotAdminMessage">正在读取热榜数据...</div>
+
+      <div class="hot-admin-workspace" id="hotAdminWorkspace" hidden>
+        <aside class="hot-event-panel">
+          <div class="hot-event-panel-heading">
+            <strong>当前事件</strong>
+            <span id="hotEventCount">0 条</span>
+          </div>
+          <div class="hot-admin-list" id="hotAdminList"></div>
+        </aside>
+
+        <section class="hot-editor-panel">
+          <div class="empty-state" id="hotEditorEmpty">
+            <p class="empty-title">选择一条热点事件</p>
+            <p>可修改热点词、来源、热度、排序及媒体预览。</p>
+          </div>
+
+          <form id="hotEventForm" hidden>
+            <header class="editor-heading">
+              <div>
+                <div class="editor-meta-row">
+                  <span class="status-badge" id="hotOverrideStatus">算法结果</span>
+                  <span id="hotEventId"></span>
+                </div>
+                <h2 id="hotEditorTitle">热点事件</h2>
+                <p class="editor-original" id="hotEventMeta"></p>
+              </div>
+              <a class="source-link" id="hotSourceLink" href="#" target="_blank" rel="noreferrer">查看热度种子</a>
+            </header>
+
+            <fieldset class="form-section">
+              <legend>事件与展示</legend>
+              <div class="field-grid field-grid-two">
+                <label class="field field-wide">
+                  <span>中文热点词</span>
+                  <input id="hotWordZhInput" maxlength="80" required>
+                </label>
+                <label class="field field-wide">
+                  <span>英文热点词</span>
+                  <input id="hotWordEnInput" maxlength="180">
+                </label>
+                <label class="field">
+                  <span>覆盖热度（可选）</span>
+                  <input id="hotHeatInput" type="number" min="0" max="100" inputmode="numeric">
+                </label>
+                <label class="field">
+                  <span>固定名次（可选）</span>
+                  <input id="hotPinnedRankInput" type="number" min="1" max="15" inputmode="numeric">
+                </label>
+              </div>
+              <div class="source-checks" aria-label="来源标签">
+                <label><input type="checkbox" name="hotSourceLabel" value="官"> 官</label>
+                <label><input type="checkbox" name="hotSourceLabel" value="媒"> 媒</label>
+                <label><input type="checkbox" name="hotSourceLabel" value="粉"> 粉</label>
+                <label><input id="hotHiddenInput" type="checkbox"> 从前台隐藏</label>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+              <legend>当前内容列表</legend>
+              <div class="hot-content-heading">
+                <p>图片与视频归属于单条内容；选择内容后在右侧补充来源链接和媒体。</p>
+                <div>
+                  <span id="hotContentCount">0 条</span>
+                  <button class="button button-quiet" id="addHotContentButton" type="button">新增内容</button>
+                </div>
+              </div>
+              <div class="hot-content-workspace">
+                <div class="hot-content-list" id="hotContentList"></div>
+                <div class="hot-content-editor" id="hotContentEditor">
+                  <div class="hot-content-empty" id="hotContentEmpty">选择一条内容进行编辑</div>
+                  <div id="hotContentFields" hidden>
+                    <div class="hot-content-editor-head">
+                      <strong id="hotContentEditorTitle">内容</strong>
+                      <button class="button button-danger-quiet" id="deleteHotContentButton" type="button">删除这条内容</button>
+                    </div>
+                    <div class="field-grid field-grid-two">
+                      <label class="field">
+                        <span>来源类型</span>
+                        <select id="hotContentTypeInput">
+                          <option value="official">官</option>
+                          <option value="media">媒</option>
+                          <option value="fan">粉</option>
+                        </select>
+                      </label>
+                      <label class="field">
+                        <span>来源名称</span>
+                        <input id="hotContentSourceInput" maxlength="120">
+                      </label>
+                      <label class="field field-wide">
+                        <span>中文标题</span>
+                        <input id="hotContentTitleZhInput" maxlength="300">
+                      </label>
+                      <label class="field field-wide">
+                        <span>中文摘要</span>
+                        <textarea id="hotContentSummaryZhInput" rows="2" maxlength="2000"></textarea>
+                      </label>
+                      <label class="field field-wide">
+                        <span>内容原链接</span>
+                        <input id="hotContentUrlInput" type="url" placeholder="https://...">
+                      </label>
+                      <label class="field">
+                        <span>图片 URL</span>
+                        <input id="hotContentImageInput" type="url" placeholder="https://...">
+                      </label>
+                      <label class="field">
+                        <span>视频 URL</span>
+                        <input id="hotContentVideoInput" type="url" placeholder="https://...">
+                      </label>
+                      <label class="field">
+                        <span>视频封面 URL</span>
+                        <input id="hotContentPosterInput" type="url" placeholder="https://...">
+                      </label>
+                    </div>
+                    <div class="hot-media-preview" id="hotContentMediaPreview" hidden>
+                      <div class="hot-media-preview-frame" id="hotContentMediaPreviewFrame"></div>
+                      <p id="hotContentMediaPreviewStatus"></p>
+                    </div>
+                    <details class="hot-content-advanced">
+                      <summary>更多字段：英文内容与发布时间</summary>
+                      <div class="field-grid field-grid-two">
+                        <label class="field field-wide">
+                          <span>英文标题</span>
+                          <input id="hotContentTitleEnInput" maxlength="300">
+                        </label>
+                        <label class="field field-wide">
+                          <span>英文摘要</span>
+                          <textarea id="hotContentSummaryEnInput" rows="2" maxlength="2000"></textarea>
+                        </label>
+                        <label class="field">
+                          <span>发布时间</span>
+                          <input id="hotContentPublishedInput" type="datetime-local">
+                        </label>
+                      </div>
+                    </details>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+              <legend>修改记录</legend>
+              <label class="field">
+                <span>修改原因</span>
+                <textarea id="hotReasonInput" rows="2" maxlength="500" required></textarea>
+              </label>
+            </fieldset>
+
+            <footer class="review-actions">
+              <p id="hotActionHint">编辑者可保存草稿；发布者可启用覆盖。两种操作都不会从此页面直接发布线上站点。</p>
+              <div>
+                <button class="button button-quiet" id="saveHotDraftButton" type="button">保存草稿</button>
+                <button class="button button-primary" id="activateHotOverrideButton" type="submit">启用覆盖</button>
+              </div>
+            </footer>
+          </form>
+        </section>
+      </div>
     </main>
 
     <section class="analytics-page" id="analyticsView" aria-labelledby="analyticsTitle" hidden>

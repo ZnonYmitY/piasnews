@@ -2,8 +2,7 @@ name: Update Piasnews Data
 
 on:
   schedule:
-    - cron: "17 */6 * * *"
-    - cron: "27 */6 * * *"
+    - cron: "*/15 * * * *"
   workflow_dispatch:
     inputs:
       apply_only:
@@ -22,7 +21,24 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  gate:
+    runs-on: ubuntu-latest
+    outputs:
+      should_run: ${{ steps.refresh.outputs.should_run }}
+      reason: ${{ steps.refresh.outputs.reason }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Decide whether a full refresh is due
+        id: refresh
+        env:
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+        run: python scripts/should_refresh.py
+
   update:
+    needs: gate
+    if: ${{ needs.gate.outputs.should_run == 'true' }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -48,7 +64,7 @@ jobs:
 
       - name: Fetch latest Piasnews data
         if: ${{ inputs.apply_only != true }}
-        run: python scripts/fetch_piasnews.py --days 3 --output-dir data
+        run: python scripts/fetch_piasnews.py --days 3 --retention-days 7 --limit 200 --output-dir data
 
       - name: Fetch Formula 1 calendar
         if: ${{ inputs.apply_only != true }}
@@ -65,7 +81,7 @@ jobs:
           PIASNEWS_SOCIAL_INPUT_JSON: ${{ vars.PIASNEWS_SOCIAL_INPUT_JSON }}
           PIASNEWS_SOCIAL_INPUT_URL: ${{ vars.PIASNEWS_SOCIAL_INPUT_URL }}
           PIASNEWS_SOCIAL_INPUT_AUTH_BEARER: ${{ secrets.PIASNEWS_SOCIAL_INPUT_AUTH_BEARER }}
-        run: python scripts/fetch_social_sources.py --days 3 --output data/social.json
+        run: python scripts/fetch_social_sources.py --days 3 --retention-days 7 --limit 300 --output data/social.json
 
       - name: Install offline Chinese translation fallback
         run: python -m pip install argostranslate
@@ -82,6 +98,9 @@ jobs:
 
       - name: Apply Chinese translation mappings
         run: python scripts/apply_immersive_translations.py --mapping data/immersive_translations.zh.json --items data/items.json --social data/social.json --engine piasnews_llm_translation --engine immersive_translate_chrome
+
+      - name: Prune inactive translation cache
+        run: python scripts/prune_translation_cache.py --days 8
 
       - name: Audit translation badcases
         run: |
@@ -104,6 +123,9 @@ jobs:
       - name: Build history-review candidates
         run: python scripts/build_history_candidates.py
 
+      - name: Build merged hot-event ranking
+        run: python scripts/build_hot_events.py --refresh-reason "${{ needs.gate.outputs.reason }}"
+
       - name: Validate history knowledge base
         run: python scripts/validate_history.py
 
@@ -116,7 +138,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/items.json data/daily.json data/rss.xml data/calendar.json data/next-race.ics data/next-weekend.ics data/full-season.ics data/social.json data/immersive_translations.zh.json data/history-candidates.json data/translation_candidates.csv
+          git add data/items.json data/daily.json data/rss.xml data/calendar.json data/next-race.ics data/next-weekend.ics data/full-season.ics data/social.json data/immersive_translations.zh.json data/history-candidates.json data/hot-events.json data/translation_candidates.csv
           if git diff --cached --quiet; then
             echo "No Piasnews data changes."
           else
@@ -132,7 +154,7 @@ jobs:
           PIASNEWS_WORKER_URL: ${{ vars.PIASNEWS_WORKER_URL }}
         run: |
           mkdir -p public/data
-          cp data/items.json data/daily.json data/rss.xml data/calendar.json data/next-race.ics data/next-weekend.ics data/full-season.ics data/social.json data/history.json data/history-candidates.json public/data/
+          cp data/items.json data/daily.json data/rss.xml data/calendar.json data/next-race.ics data/next-weekend.ics data/full-season.ics data/social.json data/history.json data/history-candidates.json data/hot-events.json public/data/
           cp data/translation_candidates.csv public/data/translation_candidates.csv
           cp data/translation_candidates_latest.csv public/data/translation_candidates_latest.csv
           cp data/translation_candidates_latest.xlsx public/data/translation_candidates_latest.xlsx

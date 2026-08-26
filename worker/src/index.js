@@ -1,6 +1,7 @@
 const DEFAULT_ORIGIN = "https://znonymity.github.io";
 const MAX_BODY_BYTES = 64 * 1024;
 const ANALYTICS_RETENTION_DAYS = 90;
+const ROLE_LEVEL = { viewer: 1, editor: 2, publisher: 3, admin: 4 };
 
 function allowedOrigin(request, env) {
   const origin = request.headers.get("Origin");
@@ -49,6 +50,49 @@ function suppliedAdminKey(request) {
   return authorization.startsWith("Bearer ") ? authorization.slice(7) : "";
 }
 
+function configuredSessions(env) {
+  const sessions = [];
+  if (env.ADMIN_KEYS_JSON) {
+    try {
+      const configured = JSON.parse(env.ADMIN_KEYS_JSON);
+      for (const [key, value] of Object.entries(configured || {})) {
+        if (!key || !value || !ROLE_LEVEL[value.role]) continue;
+        sessions.push({ key, user: String(value.user || "workbench-user"), role: value.role });
+      }
+    } catch {
+      // A malformed optional role map must not disable the legacy admin key.
+    }
+  }
+  if (env.ADMIN_API_KEY) sessions.push({ key: env.ADMIN_API_KEY, user: "legacy-admin", role: "admin" });
+  return sessions;
+}
+
+async function authenticatedSession(request, env) {
+  const supplied = suppliedAdminKey(request);
+  for (const session of configuredSessions(env)) {
+    if (await safeEqual(supplied, session.key)) return { user: session.user, role: session.role };
+  }
+  return null;
+}
+
+function hasRole(session, minimumRole) {
+  return Boolean(session && ROLE_LEVEL[session.role] >= ROLE_LEVEL[minimumRole]);
+}
+
+function sessionPayload(session) {
+  return {
+    authenticated: true,
+    user: session.user,
+    role: session.role,
+    permissions: {
+      view: hasRole(session, "viewer"),
+      edit: hasRole(session, "editor"),
+      publish: hasRole(session, "publisher"),
+      administer: hasRole(session, "admin"),
+    },
+  };
+}
+
 function base64Url(value) {
   const bytes = new TextEncoder().encode(JSON.stringify(value));
   let binary = "";
@@ -68,6 +112,62 @@ function validateReview(body) {
       return "Approval requires Chinese title, summary, and inclusion reason.";
     }
   }
+  return null;
+}
+
+function validateHotEventChange(body) {
+  if (!body || typeof body !== "object") return "Request body must be an object.";
+  if (!/^evt-[a-z0-9-]{4,120}$/.test(body.event_id || "")) return "Invalid event_id.";
+  if (!["draft", "active"].includes(body.status)) return "Invalid override status.";
+  if (!body.change || typeof body.change !== "object") return "Missing hot-event change.";
+  const change = body.change;
+  if (typeof change.hot_word_zh !== "string" || !change.hot_word_zh.trim() || change.hot_word_zh.length > 80) {
+    return "Chinese hot word is required and must be at most 80 characters.";
+  }
+  if (typeof change.reason !== "string" || !change.reason.trim() || change.reason.length > 500) {
+    return "A change reason is required and must be at most 500 characters.";
+  }
+  if (change.source_labels != null && (
+    !Array.isArray(change.source_labels) || change.source_labels.some((label) => !["官", "媒", "粉"].includes(label))
+  )) return "Invalid source labels.";
+  for (const field of ["image_url", "video_url"]) {
+    if (change[field] && (typeof change[field] !== "string" || !change[field].startsWith("https://"))) {
+      return `${field} must use HTTPS.`;
+    }
+  }
+  if (change.content_items != null) {
+    if (!Array.isArray(change.content_items) || change.content_items.length > 50) {
+      return "content_items must contain at most 50 entries.";
+    }
+    const seenIds = new Set();
+    for (const item of change.content_items) {
+      if (!item || typeof item !== "object") return "Each content item must be an object.";
+      if (!/^[A-Za-z0-9._:-]{3,180}$/.test(item.item_id || "") || seenIds.has(item.item_id)) {
+        return "Each content item needs a unique valid item_id.";
+      }
+      seenIds.add(item.item_id);
+      if (!["official", "media", "fan"].includes(item.source_type)) return "Invalid content source_type.";
+      if (typeof item.source !== "string" || !item.source.trim() || item.source.length > 120) {
+        return "Each content item needs a source.";
+      }
+      if (![item.title, item.title_zh].some((value) => typeof value === "string" && value.trim())) {
+        return "Each content item needs a title.";
+      }
+      for (const field of ["url", "image_url", "video_url", "video_poster_url"]) {
+        if ((field === "url" || item[field]) && (typeof item[field] !== "string" || !item[field].startsWith("https://"))) {
+          return `${field} must use HTTPS.`;
+        }
+      }
+    }
+  }
+  const heat = change.heat;
+  if (heat != null && heat !== "" && (!Number.isInteger(Number(heat)) || Number(heat) < 0 || Number(heat) > 100)) {
+    return "Heat must be an integer from 0 to 100.";
+  }
+  const pinnedRank = change.pinned_rank;
+  if (pinnedRank != null && pinnedRank !== "" && (
+    !Number.isInteger(Number(pinnedRank)) || Number(pinnedRank) < 1 || Number(pinnedRank) > 15
+  )) return "Pinned rank must be an integer from 1 to 15.";
   return null;
 }
 
@@ -203,6 +303,60 @@ async function dispatchReview(body, env) {
   }
 }
 
+function repositoryDetails(env) {
+  return {
+    owner: env.GITHUB_OWNER || "ZnonYmitY",
+    repository: env.GITHUB_REPOSITORY || "piasnews",
+    gitRef: env.GITHUB_REF || "main",
+  };
+}
+
+async function repositoryJson(path, env) {
+  const { owner, repository, gitRef } = repositoryDetails(env);
+  const response = await fetch(
+    `https://api.github.com/repos/${owner}/${repository}/contents/${path}?ref=${encodeURIComponent(gitRef)}`,
+    {
+      headers: {
+        Accept: "application/vnd.github.raw+json",
+        Authorization: `Bearer ${env.GITHUB_TOKEN}`,
+        "User-Agent": "piasnews-review-worker/1.0",
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
+    },
+  );
+  if (!response.ok) throw new Error(`Unable to read ${path} (${response.status}).`);
+  return response.json();
+}
+
+async function dispatchHotEventChange(body, session, env) {
+  const { owner, repository, gitRef } = repositoryDetails(env);
+  const workflow = env.HOT_EVENTS_WORKFLOW || "review-hot-events.yml";
+  const endpoint = `https://api.github.com/repos/${owner}/${repository}/actions/workflows/${workflow}/dispatches`;
+  const githubResponse = await fetch(endpoint, {
+    method: "POST",
+    headers: {
+      Accept: "application/vnd.github+json",
+      Authorization: `Bearer ${env.GITHUB_TOKEN}`,
+      "Content-Type": "application/json",
+      "User-Agent": "piasnews-review-worker/1.0",
+      "X-GitHub-Api-Version": "2022-11-28",
+    },
+    body: JSON.stringify({
+      ref: gitRef,
+      inputs: {
+        event_id: body.event_id,
+        override_status: body.status,
+        override_payload_b64: base64Url(body.change),
+        reviewer: session.user,
+      },
+    }),
+  });
+  if (!githubResponse.ok) {
+    const detail = (await githubResponse.text()).slice(0, 500);
+    throw new Error(`GitHub workflow dispatch failed (${githubResponse.status}): ${detail}`);
+  }
+}
+
 async function readJson(request, origin) {
   const contentLength = Number(request.headers.get("Content-Length") || "0");
   if (contentLength > MAX_BODY_BYTES) return { response: jsonResponse({ error: "Request is too large." }, 413, origin) };
@@ -227,6 +381,12 @@ export default {
       return jsonResponse({ ok: true, service: "piasnews-worker" }, 200, origin);
     }
 
+    if (request.method === "GET" && url.pathname === "/session") {
+      const session = await authenticatedSession(request, env);
+      if (!session) return jsonResponse({ error: "Unauthorized." }, 401, origin);
+      return jsonResponse(sessionPayload(session), 200, origin);
+    }
+
     if (request.method === "POST" && url.pathname === "/analytics/view") {
       if (!request.headers.get("Origin")) return jsonResponse({ error: "Origin is required." }, 403, origin);
       if (!env.ANALYTICS_DB) return jsonResponse({ error: "Worker is missing ANALYTICS_DB." }, 503, origin);
@@ -243,9 +403,8 @@ export default {
     }
 
     if (request.method === "GET" && url.pathname === "/analytics/summary") {
-      if (!(await safeEqual(suppliedAdminKey(request), env.ADMIN_API_KEY))) {
-        return jsonResponse({ error: "Unauthorized." }, 401, origin);
-      }
+      const session = await authenticatedSession(request, env);
+      if (!hasRole(session, "viewer")) return jsonResponse({ error: "Unauthorized." }, 401, origin);
       if (!env.ANALYTICS_DB) return jsonResponse({ error: "Worker is missing ANALYTICS_DB." }, 503, origin);
       try {
         return jsonResponse(await analyticsSummary(url, env), 200, origin);
@@ -254,13 +413,46 @@ export default {
       }
     }
 
+    if (request.method === "GET" && url.pathname === "/hot-events/config") {
+      const session = await authenticatedSession(request, env);
+      if (!hasRole(session, "viewer")) return jsonResponse({ error: "Unauthorized." }, 401, origin);
+      if (!env.GITHUB_TOKEN) return jsonResponse({ error: "Worker is missing GITHUB_TOKEN." }, 503, origin);
+      try {
+        return jsonResponse({
+          session: sessionPayload(session),
+          overrides: await repositoryJson("data/hot-event-overrides.json", env),
+        }, 200, origin);
+      } catch (error) {
+        return jsonResponse({ error: error.message || "Unable to read hot-event configuration." }, 502, origin);
+      }
+    }
+
+    if (request.method === "POST" && url.pathname === "/hot-events/change") {
+      const session = await authenticatedSession(request, env);
+      if (!hasRole(session, "editor")) return jsonResponse({ error: "Editor role required." }, 403, origin);
+      if (!env.GITHUB_TOKEN) return jsonResponse({ error: "Worker is missing GITHUB_TOKEN." }, 503, origin);
+      const parsed = await readJson(request, origin);
+      if (parsed.response) return parsed.response;
+      const validationError = validateHotEventChange(parsed.body);
+      if (validationError) return jsonResponse({ error: validationError }, 400, origin);
+      if (parsed.body.status === "active" && !hasRole(session, "publisher")) {
+        return jsonResponse({ error: "Publisher role required to activate an override." }, 403, origin);
+      }
+      try {
+        await dispatchHotEventChange(parsed.body, session, env);
+        return jsonResponse({ accepted: true, event_id: parsed.body.event_id, status: parsed.body.status }, 202, origin);
+      } catch (error) {
+        return jsonResponse({ error: error.message || "Workflow dispatch failed." }, 502, origin);
+      }
+    }
+
     if (request.method !== "POST" || url.pathname !== "/review") {
       return jsonResponse({ error: "Not found." }, 404, origin);
     }
 
-    if (!(await safeEqual(suppliedAdminKey(request), env.ADMIN_API_KEY))) {
-      return jsonResponse({ error: "Unauthorized." }, 401, origin);
-    }
+    const reviewSession = await authenticatedSession(request, env);
+    if (!reviewSession) return jsonResponse({ error: "Unauthorized." }, 401, origin);
+    if (!hasRole(reviewSession, "publisher")) return jsonResponse({ error: "Publisher role required." }, 403, origin);
     if (!env.GITHUB_TOKEN) return jsonResponse({ error: "Worker is missing GITHUB_TOKEN." }, 503, origin);
 
     const parsed = await readJson(request, origin);

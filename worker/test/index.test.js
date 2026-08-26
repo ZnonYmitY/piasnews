@@ -41,6 +41,11 @@ function createAnalyticsDb() {
 const env = {
   ADMIN_ALLOWED_ORIGINS: "https://znonymity.github.io",
   ADMIN_API_KEY: "test-admin-key",
+  ADMIN_KEYS_JSON: JSON.stringify({
+    "viewer-key": { user: "viewer@example.com", role: "viewer" },
+    "editor-key": { user: "editor@example.com", role: "editor" },
+    "publisher-key": { user: "publisher@example.com", role: "publisher" },
+  }),
   ANALYTICS_DB: createAnalyticsDb(),
   GITHUB_OWNER: "ZnonYmitY",
   GITHUB_REPOSITORY: "piasnews",
@@ -48,6 +53,30 @@ const env = {
   GITHUB_REF: "main",
   GITHUB_TOKEN: "test-github-token",
 };
+
+
+function hotChangeRequest(apiKey, status = "draft", changeOverrides = {}) {
+  return new Request("https://worker.example/hot-events/change", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+      Origin: "https://znonymity.github.io",
+    },
+    body: JSON.stringify({
+      event_id: "evt-test-hot-event",
+      status,
+      change: {
+        hot_word_zh: "Oscar 分享测试花絮",
+        hot_word_en: "Oscar shares a test clip",
+        source_labels: ["粉"],
+        heat: 72,
+        reason: "修正热点词",
+        ...changeOverrides,
+      },
+    }),
+  });
+}
 
 
 function reviewRequest(apiKey = env.ADMIN_API_KEY) {
@@ -146,6 +175,96 @@ test("analytics summary requires the admin key", async () => {
     env,
   );
   assert.equal(response.status, 401);
+});
+
+
+test("session endpoint returns role permissions without exposing the key", async () => {
+  const response = await worker.fetch(
+    new Request("https://worker.example/session", {
+      headers: { Authorization: "Bearer editor-key", Origin: "https://znonymity.github.io" },
+    }),
+    env,
+  );
+  const payload = await response.json();
+  assert.equal(response.status, 200);
+  assert.equal(payload.user, "editor@example.com");
+  assert.equal(payload.role, "editor");
+  assert.equal(payload.permissions.edit, true);
+  assert.equal(payload.permissions.publish, false);
+  assert.equal(JSON.stringify(payload).includes("editor-key"), false);
+});
+
+
+test("editor may save a hot-event draft but may not activate it", async () => {
+  const originalFetch = globalThis.fetch;
+  let dispatchedBody;
+  globalThis.fetch = async (_url, options) => {
+    dispatchedBody = JSON.parse(options.body);
+    return new Response(null, { status: 204 });
+  };
+  try {
+    const draftResponse = await worker.fetch(hotChangeRequest("editor-key", "draft"), env);
+    assert.equal(draftResponse.status, 202);
+    assert.equal(dispatchedBody.inputs.override_status, "draft");
+    assert.equal(dispatchedBody.inputs.reviewer, "editor@example.com");
+
+    const activeResponse = await worker.fetch(hotChangeRequest("editor-key", "active"), env);
+    assert.equal(activeResponse.status, 403);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+
+test("publisher may activate a hot-event override", async () => {
+  const originalFetch = globalThis.fetch;
+  let dispatchedBody;
+  globalThis.fetch = async (_url, options) => {
+    dispatchedBody = JSON.parse(options.body);
+    return new Response(null, { status: 204 });
+  };
+  try {
+    const response = await worker.fetch(hotChangeRequest("publisher-key", "active"), env);
+    assert.equal(response.status, 202);
+    assert.equal(dispatchedBody.inputs.override_status, "active");
+    assert.equal(dispatchedBody.inputs.reviewer, "publisher@example.com");
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+
+test("hot-event overrides accept per-content media and reject insecure URLs", async () => {
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async () => new Response(null, { status: 204 });
+  const contentItems = [{
+    item_id: "content-1",
+    source_type: "fan",
+    source: "X",
+    title_zh: "Oscar 分享花絮视频",
+    url: "https://x.com/example/status/1",
+    image_url: "https://images.example/poster.jpg",
+    video_url: "https://video.example/clip.mp4",
+    video_poster_url: "https://images.example/video-poster.jpg",
+  }];
+  try {
+    const validResponse = await worker.fetch(
+      hotChangeRequest("publisher-key", "active", { content_items: contentItems }),
+      env,
+    );
+    assert.equal(validResponse.status, 202);
+
+    const invalidResponse = await worker.fetch(
+      hotChangeRequest("publisher-key", "active", {
+        content_items: [{ ...contentItems[0], url: "http://insecure.example/post" }],
+      }),
+      env,
+    );
+    assert.equal(invalidResponse.status, 400);
+    assert.match((await invalidResponse.json()).error, /HTTPS/);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
 });
 
 
