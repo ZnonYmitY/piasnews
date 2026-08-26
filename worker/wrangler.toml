@@ -1,6 +1,8 @@
 name = "piasnews-review"
 main = "src/index.js"
 compatibility_date = "2026-06-01"
+workers_dev = true
+preview_urls = false
 
 [vars]
 ADMIN_ALLOWED_ORIGINS = "https://znonymity.github.io,http://localhost:8766,http://127.0.0.1:8766"
