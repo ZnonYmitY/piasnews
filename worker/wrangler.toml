@@ -5,7 +5,7 @@ workers_dev = true
 preview_urls = false
 
 [vars]
-ADMIN_ALLOWED_ORIGINS = "https://znonymity.github.io,http://localhost:8766,http://127.0.0.1:8766"
+ADMIN_ALLOWED_ORIGINS = "https://znonymity.github.io,https://piasnews-preview.pages.dev,http://localhost:8766,http://127.0.0.1:8766"
 GITHUB_OWNER = "ZnonYmitY"
 GITHUB_REPOSITORY = "piasnews"
 GITHUB_WORKFLOW = "review-history.yml"
