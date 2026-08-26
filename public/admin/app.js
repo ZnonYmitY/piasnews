@@ -122,6 +122,19 @@ function adminKey() {
   return sessionStorage.getItem("piasnewsAdminKey") || "";
 }
 
+async function loadRuntimeWorkerUrl() {
+  if (workerUrl()) return;
+  try {
+    const response = await fetch("../data/runtime-config.json", { cache: "no-store" });
+    if (!response.ok) return;
+    const config = await response.json();
+    const runtimeUrl = String(config?.analytics_url || "").trim().replace(/\/$/, "");
+    if (runtimeUrl.startsWith("https://")) localStorage.setItem("piasnewsWorkerUrl", runtimeUrl);
+  } catch {
+    // Local previews may not include runtime config; connection settings remain available.
+  }
+}
+
 function updateConnectionState() {
   const connected = Boolean(workerUrl() && adminKey());
   elements.connectionState.textContent = connected ? "管理接口已配置" : "未连接管理接口";
@@ -925,5 +938,10 @@ document.querySelectorAll("[data-analytics-days]").forEach((button) => {
   });
 });
 
-updateConnectionState();
-loadCandidates({ preserveSelection: false });
+async function initializeWorkbench() {
+  await loadRuntimeWorkerUrl();
+  updateConnectionState();
+  loadCandidates({ preserveSelection: false });
+}
+
+initializeWorkbench();
