@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-26T03:24:45.484068Z",
+  "generated_at": "2026-08-26T06:26:13.933435Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -17183,6 +17183,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-26T03:24:45.484159Z"
+    },
+    "items:piasnews-c83bfe437ffd59a4:title:e27bc4e61a83dd61c0c87c08": {
+      "dataset": "items",
+      "item_id": "piasnews-c83bfe437ffd59a4",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "McLaren offer fascinating technical insight into ongoing Oscar Piastri woes",
+      "zh": "McLaren对Oscar Piastri持续困境提供引人入胜的技术见解",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-26T06:26:13.933484Z"
+    },
+    "items:piasnews-c83bfe437ffd59a4:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-c83bfe437ffd59a4",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-26T06:26:13.933491Z"
     }
   }
 }
