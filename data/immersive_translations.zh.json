@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-26T01:59:52.788088Z",
+  "generated_at": "2026-08-26T02:08:17.342888Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -17063,6 +17063,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-26T01:59:52.788167Z"
+    },
+    "items:piasnews-3ee8dc9f32f74203:title:d9c83e2001950d5db63b5d00": {
+      "dataset": "items",
+      "item_id": "piasnews-3ee8dc9f32f74203",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Norris Wins Again as Piastri Struggles with Pace at Zandvoort",
+      "zh": "Norris再夺冠，Piastri在赞德福特速度挣扎",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-26T02:08:17.342940Z"
+    },
+    "items:piasnews-3ee8dc9f32f74203:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-3ee8dc9f32f74203",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-26T02:08:17.342948Z"
     }
   }
 }
