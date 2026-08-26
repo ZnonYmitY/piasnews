@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T03:13:37.329059Z",
+  "generated_at": "2026-08-26T20:52:40.855620Z",
   "schema_version": 1,
   "description": "History candidates awaiting or recording human review decisions.",
   "candidates": [
@@ -867,6 +867,86 @@
           "2026_hungarian_grand_prix_recap_norris"
         ],
         "embedding_text": "2026 Hungarian Grand Prix Recap: Norris Wins as Piastri’s Podium Bid Ends in Heartbreak. Race-week or performance-related item discovered from public news metadata."
+      },
+      "tags": [
+        "Oscar Piastri",
+        "McLaren",
+        "F1",
+        "race_win"
+      ]
+    },
+    {
+      "id": "piastri-2026-08-25-auto-2c63c20123",
+      "date": "2026-08-25",
+      "month_day": "08-25",
+      "year": 2026,
+      "title": "Norris Wins Again as Piastri Struggles with Pace at Zandvoort",
+      "title_zh": null,
+      "summary": "Team or car-performance item discovered from public news metadata.",
+      "summary_zh": null,
+      "type": "race_win",
+      "source": "BVM Sports",
+      "url": "https://bvmsports.com/2026/08/25/norris-wins-again-as-piastri-struggles-with-pace-at-zandvoort/",
+      "verification": {
+        "status": "needs_review",
+        "source_type": "media",
+        "primary_source": false
+      },
+      "candidate": {
+        "status": "pending",
+        "score": 75,
+        "signals": [
+          "race_win",
+          "coverage_3_plus_sources"
+        ],
+        "source_count": 3,
+        "sources": [
+          "BVM Sports",
+          "Eastern Riverina Chronicle",
+          "aapnews.aap.com.au"
+        ],
+        "source_item_ids": [
+          "piasnews-3ee8dc9f32f74203",
+          "piasnews-829992f411dbe11a",
+          "piasnews-c4402f06009f71a8"
+        ],
+        "discovered_at": "2026-08-26T20:52:40.855620Z",
+        "origin": "deterministic_recent_news_rules",
+        "reviewed_at": null,
+        "reviewed_by": null,
+        "decision_reason": null
+      },
+      "selection": {
+        "review_status": "pending",
+        "include": null,
+        "historical_value": 70,
+        "peak_attention": null,
+        "lasting_significance": null,
+        "career_impact": null,
+        "fan_recognition": null,
+        "inclusion_reason": "Automatically nominated from signals: race_win, coverage_3_plus_sources.",
+        "inclusion_reason_zh": null
+      },
+      "semantic": {
+        "event_kind": "race_win",
+        "themes": [
+          "race_win"
+        ],
+        "entities": [
+          "Oscar Piastri",
+          "McLaren"
+        ],
+        "competition": "Formula 1",
+        "season": 2026,
+        "round": null,
+        "circuit": null,
+        "session": null,
+        "outcome": "Norris Wins Again as Piastri Struggles with Pace at Zandvoort",
+        "strong_keys": [
+          "race_win",
+          "norris_wins_again_as_struggles_pace"
+        ],
+        "embedding_text": "Norris Wins Again as Piastri Struggles with Pace at Zandvoort. Team or car-performance item discovered from public news metadata."
       },
       "tags": [
         "Oscar Piastri",
