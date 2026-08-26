@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-25T18:58:03.743516Z",
+  "generated_at": "2026-08-26T01:59:52.788088Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -17015,6 +17015,54 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-25T18:58:03.743581Z"
+    },
+    "items:piasnews-f6143ad7d5fd36f4:title:b22205bf8626f3196c4cb298": {
+      "dataset": "items",
+      "item_id": "piasnews-f6143ad7d5fd36f4",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri – 2026 F1 Dutch Grand Prix",
+      "zh": "Oscar Piastri – 2026年F1荷兰大奖赛",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-26T01:59:52.788147Z"
+    },
+    "items:piasnews-f6143ad7d5fd36f4:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-f6143ad7d5fd36f4",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-26T01:59:52.788157Z"
+    },
+    "items:piasnews-bb55e652c4ad43c3:title:8e93221663b0b0017867495c": {
+      "dataset": "items",
+      "item_id": "piasnews-bb55e652c4ad43c3",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri bemoans recurring bad luck after Dutch GP disappointment",
+      "zh": "Oscar Piastri在荷兰大奖赛失望后抱怨反复的坏运气",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-26T01:59:52.788162Z"
+    },
+    "items:piasnews-bb55e652c4ad43c3:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-bb55e652c4ad43c3",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-26T01:59:52.788167Z"
     }
   }
 }
