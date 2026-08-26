@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-26T09:27:09.212073Z",
+  "generated_at": "2026-08-26T12:28:03.415553Z",
   "translations": {
     "social:piasnews-social-9a17b8402eb40b2f:summary:ef57af80f09559df5377fbc8": {
       "dataset": "social",
@@ -17291,6 +17291,78 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-26T09:27:09.212154Z"
+    },
+    "items:piasnews-1b7cad634c2b70c6:title:6a1d2a08d7ff15f918825d44": {
+      "dataset": "items",
+      "item_id": "piasnews-1b7cad634c2b70c6",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Ralf Schumacher says Oscar Piastri is now officially McLaren’s ‘number two’ after the Dutch GP",
+      "zh": "拉尔夫·舒马赫表示，荷兰大奖赛后，Oscar Piastri正式成为McLaren的‘二号车手’",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-26T12:28:03.415601Z"
+    },
+    "items:piasnews-1b7cad634c2b70c6:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-1b7cad634c2b70c6",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-26T12:28:03.415610Z"
+    },
+    "items:piasnews-a800c4420d658fbc:title:1b8fbe56f7f5a2b88fc60b48": {
+      "dataset": "items",
+      "item_id": "piasnews-a800c4420d658fbc",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Formula 1 News: Stella admits Piastri struggle a lack of skill",
+      "zh": "F1新闻：斯特拉承认Piastri的挣扎是缺乏技术",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-26T12:28:03.415614Z"
+    },
+    "items:piasnews-a800c4420d658fbc:summary:0d864a8260f8519601fd9ae1": {
+      "dataset": "items",
+      "item_id": "piasnews-a800c4420d658fbc",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Quote or interview-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与引述或采访相关的项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-26T12:28:03.415619Z"
+    },
+    "items:piasnews-94d3d2aa246b45de:title:0dc8fcddea1f55c8409c9485": {
+      "dataset": "items",
+      "item_id": "piasnews-94d3d2aa246b45de",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri not able to drive ‘through pure instinct’ – Stella",
+      "zh": "斯特拉：Piastri无法‘纯粹凭直觉’驾驶",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-26T12:28:03.415623Z"
+    },
+    "items:piasnews-94d3d2aa246b45de:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-94d3d2aa246b45de",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-26T12:28:03.415626Z"
     }
   }
 }
