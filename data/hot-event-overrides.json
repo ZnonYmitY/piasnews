@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-27T03:44:06.488159Z",
+  "updated_at": "2026-08-27T06:41:19.767276Z",
   "changes": [
     {
       "event_id": "evt-2026-08-25-8fe1681ebfaa",
@@ -36,6 +36,58 @@
       ],
       "reason": "无关",
       "updated_at": "2026-08-27T03:44:06.488159Z",
+      "updated_by": "admin"
+    },
+    {
+      "event_id": "evt-leclerc-piastri-overtake",
+      "status": "active",
+      "manual_event": false,
+      "hot_word_zh": "勒克莱尔在荷兰站超越 Oscar",
+      "hot_word_en": "Leclerc overtakes Oscar at the Dutch Grand Prix",
+      "source_labels": [
+        "官"
+      ],
+      "heat": null,
+      "pinned_rank": null,
+      "hidden": true,
+      "image_url": null,
+      "video_url": null,
+      "content_items": [
+        {
+          "item_id": "piasnews-social-19bed2fe0d20e150",
+          "dataset": "social",
+          "source_type": "official",
+          "source": "@F1",
+          "title": "X post from @F1: Smart work from Charles 👏 Leclerc goes wheel to wheel with Piastri and gets past the Aussie ⚔️…",
+          "title_zh": "X 发帖 @F1：查尔斯的聪明操作👏Leclerc与Piastri并驾齐驱，超越了这位澳大利亚车手⚔️ #F1 #DutchGP",
+          "summary": "Smart work from Charles 👏 Leclerc goes wheel to wheel with Piastri and gets past the Aussie ⚔️ #F1 #DutchGP https://t.co/wAZC0IN0rW",
+          "summary_zh": "查尔斯的聪明操作👏Leclerc与Piastri并驾齐驱，超越了这位澳大利亚车手⚔️ #F1 #DutchGP",
+          "url": "https://x.com/F1/status/2091813765402796274",
+          "published_at": "2026-08-24T09:04:00.000Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2091620144254423040/vid/avc1/1080x1080/RYg_t7-i6BNH4exL.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2091620144254423040/img/Rg0CziC8iRzl6aPz.jpg",
+          "manual": false
+        },
+        {
+          "item_id": "piasnews-a77ea94cf23c5004",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Scuderia Ferrari Fans",
+          "title": "Must-see: Charles Leclerc pulls off brilliant Oscar Piastri overtake to take fourth at Zandvoort",
+          "title_zh": "必看：Charles Leclerc在Zandvoort精彩超越Oscar Piastri，升至第四",
+          "summary": "Team or car-performance item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+          "url": "https://scuderiafans.com/must-see-charles-leclerc-pulls-off-brilliant-oscar-piastri-overtake-to-take-fourth-at-zandvoort/",
+          "published_at": "2026-08-23T14:28:06Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "manual": false
+        }
+      ],
+      "reason": "负面",
+      "updated_at": "2026-08-27T06:41:19.767276Z",
       "updated_by": "admin"
     }
   ]

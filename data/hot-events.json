@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-27T06:20:29.768148Z",
+  "generated_at": "2026-08-27T06:41:19.832047Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -165,78 +165,6 @@
       "rank": 2
     },
     {
-      "event_id": "evt-leclerc-piastri-overtake",
-      "rule_id": "leclerc-piastri-overtake",
-      "hot_word_zh": "勒克莱尔在荷兰站超越 Oscar",
-      "hot_word_en": "Leclerc overtakes Oscar at the Dutch Grand Prix",
-      "first_seen_at": "2026-08-23T14:28:06Z",
-      "last_seen_at": "2026-08-24T09:04:00Z",
-      "anchor_item_id": "piasnews-social-19bed2fe0d20e150",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2091620144254423040/vid/avc1/1080x1080/RYg_t7-i6BNH4exL.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2091620144254423040/img/Rg0CziC8iRzl6aPz.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-19bed2fe0d20e150",
-          "dataset": "social",
-          "source_type": "official",
-          "source": "@F1",
-          "title": "X post from @F1: Smart work from Charles 👏 Leclerc goes wheel to wheel with Piastri and gets past the Aussie ⚔️…",
-          "title_zh": "X 发帖 @F1：查尔斯的聪明操作👏Leclerc与Piastri并驾齐驱，超越了这位澳大利亚车手⚔️ #F1 #DutchGP",
-          "summary": "Smart work from Charles 👏 Leclerc goes wheel to wheel with Piastri and gets past the Aussie ⚔️ #F1 #DutchGP https://t.co/wAZC0IN0rW",
-          "summary_zh": "查尔斯的聪明操作👏Leclerc与Piastri并驾齐驱，超越了这位澳大利亚车手⚔️ #F1 #DutchGP",
-          "url": "https://x.com/F1/status/2091813765402796274",
-          "published_at": "2026-08-24T09:04:00Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2091620144254423040/vid/avc1/1080x1080/RYg_t7-i6BNH4exL.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2091620144254423040/img/Rg0CziC8iRzl6aPz.jpg",
-          "heat_contribution": 7.7935,
-          "metrics": {
-            "likes": 6216,
-            "retweets": 641,
-            "replies": 52,
-            "quotes": 49,
-            "views": 436663,
-            "bookmarks": 163
-          }
-        },
-        {
-          "item_id": "piasnews-a77ea94cf23c5004",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Scuderia Ferrari Fans",
-          "title": "Must-see: Charles Leclerc pulls off brilliant Oscar Piastri overtake to take fourth at Zandvoort",
-          "title_zh": "必看：Charles Leclerc在Zandvoort精彩超越Oscar Piastri，升至第四",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
-          "url": "https://scuderiafans.com/must-see-charles-leclerc-pulls-off-brilliant-oscar-piastri-overtake-to-take-fourth-at-zandvoort/",
-          "published_at": "2026-08-23T14:28:06Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 0.0,
-          "metrics": {}
-        }
-      ],
-      "official_heat": 51,
-      "media_heat": 0,
-      "fan_heat": 0,
-      "heat": 51,
-      "source_labels": [
-        "官"
-      ],
-      "source_counts": {
-        "official": 1,
-        "media": 1,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 3
-    },
-    {
       "event_id": "evt-oscar-greece-holiday",
       "rule_id": "oscar-greece-holiday",
       "hot_word_zh": "Oscar 分享希腊假期见闻",
@@ -313,7 +241,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 4
+      "rank": 3
     },
     {
       "event_id": "evt-2026-08-24-5357ad25b6fe",
@@ -368,7 +296,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 5
+      "rank": 4
     },
     {
       "event_id": "evt-2026-08-26-38f4f5f4ba4b",
@@ -423,7 +351,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 5
     },
     {
       "event_id": "evt-2026-08-26-670e0cef7ab4",
@@ -478,7 +406,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 6
     },
     {
       "event_id": "evt-monaco-penalty-appeal",
@@ -533,7 +461,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 7
     },
     {
       "event_id": "evt-dutch-gp-fan-reaction",
@@ -708,7 +636,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 9
+      "rank": 8
     },
     {
       "event_id": "evt-2026-08-25-d79ed2790eb4",
@@ -746,6 +674,61 @@
             "quotes": 18,
             "views": 31540,
             "bookmarks": 196
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 37,
+      "heat": 37,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "event_id": "evt-2026-08-26-40e4f193e282",
+      "rule_id": null,
+      "hot_word_zh": "Oscar今天参加了在穆杰罗的轮胎测试！他测试了2027年的软胎、中性胎和硬胎，共完成93…",
+      "hot_word_en": "oscar took part in a tyre test session at mugello today! he tested the soft, medium and hard ty…",
+      "first_seen_at": "2026-08-26T18:43:49Z",
+      "last_seen_at": "2026-08-26T18:43:49Z",
+      "anchor_item_id": "piasnews-social-3a9d34ee2931c5f6",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-3a9d34ee2931c5f6",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar took part in a tyre test session at mugello today! he tested the soft, medium and hard ty…",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar今天参加了在穆杰罗的轮胎测试！他测试了2027年的软胎、中性胎和硬胎，共完成93圈，最快圈速为1:21.358。",
+          "summary": "oscar took part in a tyre test session at mugello today! he tested the soft, medium and hard tyres for 2027, completed a total of 93 laps, and did a best time of 1:21.358. https://t.co/mCrfIOpfYm",
+          "summary_zh": "Oscar今天参加了在穆杰罗的轮胎测试！他测试了2027年的软胎、中性胎和硬胎，共完成93圈，最快圈速为1:21.358。",
+          "url": "https://x.com/laurogeitabat/status/2092684455739539781",
+          "published_at": "2026-08-26T18:43:49Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 6.931,
+          "metrics": {
+            "likes": 1035,
+            "retweets": 63,
+            "replies": 1,
+            "quotes": 6,
+            "views": 18737,
+            "bookmarks": 31
           }
         }
       ],
