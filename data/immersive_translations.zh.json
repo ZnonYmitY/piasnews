@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-27T08:33:05.674576Z",
+  "generated_at": "2026-08-27T09:22:20.079179Z",
   "translations": {
     "social:piasnews-social-35694ef3e7ecf76c:summary:3e04e2e00e3f63a780091124": {
       "dataset": "social",
@@ -5329,6 +5329,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-27T06:20:27.320246Z"
+    },
+    "items:piasnews-5e55c30b2db48949:title:39fbffbede144c0af96c4595": {
+      "dataset": "items",
+      "item_id": "piasnews-5e55c30b2db48949",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Pirelli 2027 F1 Tyre Test Continues At Mugello With Piastri And Lawson",
+      "zh": "倍耐力2027年F1轮胎测试在穆杰罗继续进行，Piastri和Lawson参与",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-27T09:22:19.381782Z"
+    },
+    "items:piasnews-5e55c30b2db48949:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-5e55c30b2db48949",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-27T09:22:19.381787Z"
     }
   },
   "retention_days": 8
