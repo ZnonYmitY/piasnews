@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-27T09:22:21.473530Z",
+  "generated_at": "2026-08-27T12:24:54.241776Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -71,8 +71,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 71,
-      "heat": 71,
+      "fan_heat": 72,
+      "heat": 72,
       "source_labels": [
         "粉"
       ],
@@ -89,6 +89,85 @@
         "reason": "优化热点词"
       },
       "rank": 1
+    },
+    {
+      "event_id": "evt-2026-08-27-e498381a18be",
+      "rule_id": null,
+      "hot_word_zh": "😭🦈🐝",
+      "hot_word_en": "😭🦈🐝",
+      "first_seen_at": "2026-08-27T05:26:15Z",
+      "last_seen_at": "2026-08-27T07:07:06Z",
+      "anchor_item_id": "piasnews-social-fa874de71e8a0ee8",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-fa874de71e8a0ee8",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: 😭🦈🐝",
+          "title_zh": "X 转帖 @laurogeitabat：😭🦈🐝",
+          "summary": "😭🦈🐝 https://t.co/YGIxXJFeaU",
+          "summary_zh": "😭🦈🐝",
+          "url": "https://x.com/lveluxp/status/2092871512726675743",
+          "published_at": "2026-08-27T07:07:06Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 8.0373,
+          "metrics": {
+            "likes": 2017,
+            "retweets": 444,
+            "replies": 3,
+            "quotes": 18,
+            "views": 14333,
+            "bookmarks": 106
+          }
+        },
+        {
+          "item_id": "piasnews-social-ddded88ad78e56cd",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: Gwesped Piastrii",
+          "title_zh": "X 转帖 @laurogeitabat：格韦斯佩德·Piastri",
+          "summary": "Gwesped Piastrii https://t.co/LksHx4fzTK",
+          "summary_zh": "格韦斯佩德·Piastri",
+          "url": "https://x.com/QuadLockCase/status/2092846131634159887",
+          "published_at": "2026-08-27T05:26:15Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 7.7604,
+          "metrics": {
+            "likes": 2044,
+            "retweets": 400,
+            "replies": 8,
+            "quotes": 35,
+            "views": 18843,
+            "bookmarks": 173
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 57,
+      "heat": 57,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 2
     },
     {
       "event_id": "evt-oscar-monza-preparation",
@@ -118,13 +197,13 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 8.6425,
+          "heat_contribution": 8.6428,
           "metrics": {
-            "likes": 20081,
+            "likes": 20084,
             "retweets": 2271,
             "replies": 313,
             "quotes": 234,
-            "views": 230106,
+            "views": 230763,
             "bookmarks": 282
           }
         }
@@ -140,85 +219,6 @@
         "official": 1,
         "media": 0,
         "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 2
-    },
-    {
-      "event_id": "evt-2026-08-27-e498381a18be",
-      "rule_id": null,
-      "hot_word_zh": "格韦斯佩德·Piastri",
-      "hot_word_en": "Gwesped Piastrii",
-      "first_seen_at": "2026-08-27T05:26:15Z",
-      "last_seen_at": "2026-08-27T07:07:06Z",
-      "anchor_item_id": "piasnews-social-ddded88ad78e56cd",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-ddded88ad78e56cd",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X repost from @laurogeitabat: Gwesped Piastrii",
-          "title_zh": "X 转帖 @laurogeitabat：格韦斯佩德·Piastri",
-          "summary": "Gwesped Piastrii https://t.co/LksHx4fzTK",
-          "summary_zh": "格韦斯佩德·Piastri",
-          "url": "https://x.com/QuadLockCase/status/2092846131634159887",
-          "published_at": "2026-08-27T05:26:15Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 7.5344,
-          "metrics": {
-            "likes": 1182,
-            "retweets": 260,
-            "replies": 4,
-            "quotes": 27,
-            "views": 10226,
-            "bookmarks": 95
-          }
-        },
-        {
-          "item_id": "piasnews-social-fa874de71e8a0ee8",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X repost from @laurogeitabat: 😭🦈🐝",
-          "title_zh": "X 转帖 @laurogeitabat：😭🦈🐝",
-          "summary": "😭🦈🐝 https://t.co/YGIxXJFeaU",
-          "summary_zh": "😭🦈🐝",
-          "url": "https://x.com/lveluxp/status/2092871512726675743",
-          "published_at": "2026-08-27T07:07:06Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 7.3392,
-          "metrics": {
-            "likes": 953,
-            "retweets": 240,
-            "replies": 3,
-            "quotes": 13,
-            "views": 7044,
-            "bookmarks": 45
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 54,
-      "heat": 54,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
       },
       "pinned_rank": null,
       "hidden": false,
@@ -252,13 +252,13 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 6.7743,
+          "heat_contribution": 5.9677,
           "metrics": {
-            "likes": 1516,
-            "retweets": 74,
+            "likes": 1519,
+            "retweets": 75,
             "replies": 2,
             "quotes": 11,
-            "views": 25045,
+            "views": 25104,
             "bookmarks": 134
           }
         },
@@ -289,8 +289,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 48,
-      "heat": 48,
+      "fan_heat": 44,
+      "heat": 44,
       "source_labels": [
         "粉"
       ],
@@ -331,14 +331,14 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 7.8518,
+          "heat_contribution": 7.9202,
           "metrics": {
-            "likes": 2487,
-            "retweets": 386,
+            "likes": 2673,
+            "retweets": 409,
             "replies": 2,
             "quotes": 8,
-            "views": 14466,
-            "bookmarks": 161
+            "views": 15548,
+            "bookmarks": 170
           }
         }
       ],
@@ -357,61 +357,6 @@
       "pinned_rank": null,
       "hidden": false,
       "rank": 5
-    },
-    {
-      "event_id": "evt-monaco-penalty-appeal",
-      "rule_id": "monaco-penalty-appeal",
-      "hot_word_zh": "McLaren 和 Red Bull 的摩纳哥处罚申诉举行听证",
-      "hot_word_en": "McLaren and Red Bull's Monaco penalty appeals go to a hearing",
-      "first_seen_at": "2026-08-25T10:25:33Z",
-      "last_seen_at": "2026-08-25T10:25:33Z",
-      "anchor_item_id": "piasnews-social-368ab61f06ec479b",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-368ab61f06ec479b",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: the hearing regarding mclaren's and redbull's appeals in response to the monaco-penalties situa…",
-          "title_zh": "X 发帖 @laurogeitabat：关于McLaren和Red Bull针对摩纳哥处罚事件的上诉听证会正在进行中！据安德烈亚·斯特拉称，这是他们今天希望实现的两个目标：",
-          "summary": "the hearing regarding mclaren's and redbull's appeals in response to the monaco-penalties situation is taking place right now! according to andrea stella, these are the 2 objectives they hope to achieve today: https://t.co/6qHEt0nJje",
-          "summary_zh": "关于McLaren和Red Bull针对摩纳哥处罚事件的上诉听证会正在进行中！据安德烈亚·斯特拉称，这是他们今天希望实现的两个目标：",
-          "url": "https://x.com/laurogeitabat/status/2092196675930538461",
-          "published_at": "2026-08-25T10:25:33Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 7.8328,
-          "metrics": {
-            "likes": 859,
-            "retweets": 85,
-            "replies": 2,
-            "quotes": 101,
-            "views": 436522,
-            "bookmarks": 144
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 41,
-      "heat": 41,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 6
     },
     {
       "event_id": "evt-2026-08-26-38f4f5f4ba4b",
@@ -441,14 +386,14 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 7.5851,
+          "heat_contribution": 7.6027,
           "metrics": {
-            "likes": 3404,
-            "retweets": 275,
+            "likes": 3462,
+            "retweets": 282,
             "replies": 0,
             "quotes": 22,
-            "views": 37448,
-            "bookmarks": 485
+            "views": 38036,
+            "bookmarks": 494
           }
         }
       ],
@@ -466,7 +411,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 6
     },
     {
       "event_id": "evt-2026-08-27-eb6b2d84012d",
@@ -496,21 +441,21 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 7.3667,
+          "heat_contribution": 7.3056,
           "metrics": {
-            "likes": 980,
-            "retweets": 205,
+            "likes": 1264,
+            "retweets": 236,
             "replies": 1,
-            "quotes": 37,
-            "views": 11445,
-            "bookmarks": 100
+            "quotes": 45,
+            "views": 15441,
+            "bookmarks": 117
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 39,
-      "heat": 39,
+      "fan_heat": 38,
+      "heat": 38,
       "source_labels": [
         "粉"
       ],
@@ -521,7 +466,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 7
     },
     {
       "event_id": "evt-2026-08-25-d79ed2790eb4",
@@ -551,13 +496,13 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 6.9633,
+          "heat_contribution": 6.9658,
           "metrics": {
-            "likes": 1772,
-            "retweets": 108,
+            "likes": 1775,
+            "retweets": 109,
             "replies": 2,
             "quotes": 18,
-            "views": 31688,
+            "views": 31775,
             "bookmarks": 196
           }
         }
@@ -576,7 +521,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 9
+      "rank": 8
     },
     {
       "event_id": "evt-2026-08-26-40e4f193e282",
@@ -606,14 +551,69 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 7.0179,
+          "heat_contribution": 7.0622,
           "metrics": {
-            "likes": 1120,
-            "retweets": 70,
+            "likes": 1168,
+            "retweets": 72,
             "replies": 1,
             "quotes": 6,
-            "views": 21221,
-            "bookmarks": 34
+            "views": 22767,
+            "bookmarks": 38
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 37,
+      "heat": 37,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "event_id": "evt-monaco-penalty-appeal",
+      "rule_id": "monaco-penalty-appeal",
+      "hot_word_zh": "McLaren 和 Red Bull 的摩纳哥处罚申诉举行听证",
+      "hot_word_en": "McLaren and Red Bull's Monaco penalty appeals go to a hearing",
+      "first_seen_at": "2026-08-25T10:25:33Z",
+      "last_seen_at": "2026-08-25T10:25:33Z",
+      "anchor_item_id": "piasnews-social-368ab61f06ec479b",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-368ab61f06ec479b",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: the hearing regarding mclaren's and redbull's appeals in response to the monaco-penalties situa…",
+          "title_zh": "X 发帖 @laurogeitabat：关于McLaren和Red Bull针对摩纳哥处罚事件的上诉听证会正在进行中！据安德烈亚·斯特拉称，这是他们今天希望实现的两个目标：",
+          "summary": "the hearing regarding mclaren's and redbull's appeals in response to the monaco-penalties situation is taking place right now! according to andrea stella, these are the 2 objectives they hope to achieve today: https://t.co/6qHEt0nJje",
+          "summary_zh": "关于McLaren和Red Bull针对摩纳哥处罚事件的上诉听证会正在进行中！据安德烈亚·斯特拉称，这是他们今天希望实现的两个目标：",
+          "url": "https://x.com/laurogeitabat/status/2092196675930538461",
+          "published_at": "2026-08-25T10:25:33Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 7.0237,
+          "metrics": {
+            "likes": 861,
+            "retweets": 85,
+            "replies": 2,
+            "quotes": 101,
+            "views": 437057,
+            "bookmarks": 146
           }
         }
       ],
