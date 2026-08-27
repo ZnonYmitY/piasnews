@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-27T04:08:24.260219Z",
+  "generated_at": "2026-08-27T06:20:28.794948Z",
   "translations": {
     "social:piasnews-social-35694ef3e7ecf76c:summary:3e04e2e00e3f63a780091124": {
       "dataset": "social",
@@ -5221,6 +5221,114 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-26T20:52:36.166394Z"
+    },
+    "items:piasnews-78f34fd0ac3a666d:title:1b8fbe56f7f5a2b88fc60b48": {
+      "dataset": "items",
+      "item_id": "piasnews-78f34fd0ac3a666d",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Formula 1 News: Stella admits Piastri struggle a lack of skill",
+      "zh": "F1新闻：斯特拉承认Piastri挣扎是缺乏技术",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-27T06:20:27.320212Z"
+    },
+    "items:piasnews-78f34fd0ac3a666d:summary:0d864a8260f8519601fd9ae1": {
+      "dataset": "items",
+      "item_id": "piasnews-78f34fd0ac3a666d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Quote or interview-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的引用或采访相关项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-27T06:20:27.320219Z"
+    },
+    "items:piasnews-e0cbd3f4c8b67b97:title:0dc8fcddea1f55c8409c9485": {
+      "dataset": "items",
+      "item_id": "piasnews-e0cbd3f4c8b67b97",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri not able to drive ‘through pure instinct’ – Stella",
+      "zh": "Piastri无法“凭纯粹本能”驾驶——斯特拉",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-27T06:20:27.320222Z"
+    },
+    "items:piasnews-e0cbd3f4c8b67b97:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-e0cbd3f4c8b67b97",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的Oscar Piastri相关项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-27T06:20:27.320225Z"
+    },
+    "social:piasnews-social-23c4bec90a1e5dae:summary:b67340a71f9e570e2fafe295": {
+      "dataset": "social",
+      "item_id": "piasnews-social-23c4bec90a1e5dae",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "THE SHARK AND THE WASP 🦈🐝 https://t.co/LzCDhFcRV8",
+      "zh": "鲨鱼和黄蜂 🦈🐝",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-27T06:20:27.320228Z"
+    },
+    "social:piasnews-social-10ea304b326ec3b6:summary:5775b5b3ec560fcb65733a6a": {
+      "dataset": "social",
+      "item_id": "piasnews-social-10ea304b326ec3b6",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "pedro's \"eto e increible pavo\" has healed me",
+      "zh": "佩德罗的“这太不可思议了，火鸡”治愈了我",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-27T06:20:27.320232Z"
+    },
+    "social:piasnews-social-cdbe745fa0969f8d:summary:155d64b49868730eb94d565c": {
+      "dataset": "social",
+      "item_id": "piasnews-social-cdbe745fa0969f8d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "OSCAR BEEASTRI 😭😭😭😭 https://t.co/bAG0l8tVib",
+      "zh": "Oscar·比斯特里 😭😭😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-27T06:20:27.320237Z"
+    },
+    "social:piasnews-social-568dbeadda767c2a:summary:7c18099d297ac95513f42c1f": {
+      "dataset": "social",
+      "item_id": "piasnews-social-568dbeadda767c2a",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "QUADLOCK HAD OSCAR AND PEDRO DRESS UP AS A BEE AND A SHARK THIS IS INCREDIBLE https://t.co/Xmmy8KdrfJ",
+      "zh": "QUADLOCK让Oscar和佩德罗打扮成蜜蜂和鲨鱼，这太不可思议了",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-27T06:20:27.320243Z"
+    },
+    "social:piasnews-social-ddded88ad78e56cd:summary:12f69c066145602135cd5d0d": {
+      "dataset": "social",
+      "item_id": "piasnews-social-ddded88ad78e56cd",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Gwesped Piastrii https://t.co/LksHx4fzTK",
+      "zh": "格韦斯佩德·Piastri",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-27T06:20:27.320246Z"
     }
   },
   "retention_days": 8
