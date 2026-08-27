@@ -534,7 +534,7 @@ function setHotFormAccess() {
   elements.hotActionHint.textContent = !state.session
     ? "当前为本地只读预览。连接管理接口后按角色开放编辑能力。"
     : can("publish")
-      ? "可保存草稿或启用覆盖；启用只提交配置工作流，不从此页面直接部署线上站点。"
+      ? "可保存草稿或启用覆盖；启用后会自动触发正式站更新，通常需要 2–3 分钟。"
       : can("edit")
         ? "当前角色可保存草稿；启用覆盖需要 publisher 或 admin。"
         : "当前角色只有查看权限。";
@@ -681,7 +681,7 @@ async function submitHotChange(status) {
     });
     const payload = await response.json().catch(() => ({}));
     if (!response.ok) throw new Error(payload.error || `配置接口返回 ${response.status}`);
-    showToast(status === "active" ? "已提交启用覆盖，未直接部署线上。" : "已提交热榜草稿。");
+    showToast(status === "active" ? "已提交启用覆盖，正在自动发布线上。" : "已提交热榜草稿，不发布线上。");
   } catch (error) {
     showToast(error.message);
   } finally {

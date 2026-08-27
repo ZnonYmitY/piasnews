@@ -24,6 +24,7 @@ on:
         type: string
 
 permissions:
+  actions: write
   contents: write
 
 concurrency:
@@ -69,4 +70,8 @@ jobs:
           git commit -m "Update Piasnews hot event configuration"
           git push
 
-      # Intentionally no Pages deployment here. The normal data refresh publishes active overrides.
+      - name: Publish active override
+        if: ${{ inputs.override_status == 'active' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run update-piasnews.yml --ref main --field apply_only=true
