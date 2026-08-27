@@ -136,9 +136,16 @@ async function loadRuntimeWorkerUrl() {
 }
 
 function updateConnectionState() {
-  const connected = Boolean(workerUrl() && adminKey());
-  elements.connectionState.textContent = connected ? "管理接口已配置" : "未连接管理接口";
-  elements.connectionState.style.color = connected ? "var(--success)" : "var(--muted)";
+  const endpointConfigured = Boolean(workerUrl());
+  const keyConfigured = Boolean(adminKey());
+  if (!endpointConfigured) {
+    elements.connectionState.textContent = "未配置管理接口";
+  } else if (!keyConfigured) {
+    elements.connectionState.textContent = "管理接口已配置 · 未登录";
+  } else {
+    elements.connectionState.textContent = "正在验证管理权限…";
+  }
+  elements.connectionState.style.color = "var(--muted)";
 }
 
 function can(permission) {
@@ -147,8 +154,12 @@ function can(permission) {
 
 async function loadSession() {
   state.session = null;
-  if (!workerUrl() || !adminKey()) {
+  if (!workerUrl()) {
     elements.roleBadge.textContent = "本地只读";
+    return null;
+  }
+  if (!adminKey()) {
+    elements.roleBadge.textContent = "未登录";
     return null;
   }
   try {
@@ -160,9 +171,13 @@ async function loadSession() {
     if (!response.ok) throw new Error(payload.error || `权限接口返回 ${response.status}`);
     state.session = payload;
     elements.roleBadge.textContent = `${payload.user} · ${payload.role}`;
+    elements.connectionState.textContent = "管理接口已连接";
+    elements.connectionState.style.color = "var(--success)";
     return payload;
   } catch (error) {
     elements.roleBadge.textContent = "认证失败";
+    elements.connectionState.textContent = "管理接口认证失败";
+    elements.connectionState.style.color = "var(--danger)";
     showToast(error.message);
     return null;
   }

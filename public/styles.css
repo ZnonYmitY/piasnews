@@ -555,8 +555,8 @@ a {
   border-bottom: 1px solid var(--line);
   padding: 16px 0;
   display: grid;
-  grid-template-columns: 44px minmax(0, 1fr) auto;
-  align-items: start;
+  grid-template-columns: 44px minmax(0, 1fr) 92px max-content 60px;
+  align-items: center;
   gap: 14px;
   color: var(--ink);
   text-decoration: none;
@@ -566,7 +566,7 @@ a {
   background: rgba(243, 114, 34, 0.045);
 }
 
-.hot-event:hover .hot-event-title-row h3 {
+.hot-event:hover .hot-event-main h3 {
   text-decoration: underline;
   text-decoration-color: var(--papaya);
   text-underline-offset: 4px;
@@ -589,27 +589,19 @@ a {
   min-width: 0;
 }
 
-.hot-event-title-row {
-  min-width: 0;
-  display: flex;
-  align-items: center;
-  gap: 9px;
-}
-
-.hot-event-title-row h3 {
+.hot-event-main h3 {
   min-width: 0;
   margin: 0;
-  flex: 1;
   font-size: 17px;
   line-height: 1.4;
 }
 
-.hot-event-title-row h3 a {
+.hot-event-main h3 a {
   color: var(--ink);
   text-decoration: none;
 }
 
-.hot-event-title-row h3 a:hover {
+.hot-event-main h3 a:hover {
   text-decoration: underline;
   text-decoration-color: var(--papaya);
   text-underline-offset: 4px;
@@ -658,6 +650,12 @@ a {
   font-size: 18px;
   font-variant-numeric: tabular-nums;
   text-align: right;
+}
+
+.hot-media-slot {
+  width: 92px;
+  min-height: 58px;
+  display: block;
 }
 
 .hot-score span {
@@ -1606,29 +1604,36 @@ body.hot-detail-mode .tab-panel {
   }
 
   .hot-event {
-    grid-template-columns: 30px minmax(0, 1fr);
+    grid-template-areas:
+      "rank main main"
+      ". source score";
+    grid-template-columns: 30px minmax(0, 1fr) auto;
     gap: 9px;
   }
 
   .hot-rank {
+    grid-area: rank;
     font-size: 16px;
   }
 
-  .hot-event-title-row {
-    align-items: flex-start;
-    flex-wrap: wrap;
+  .hot-event-main {
+    grid-area: main;
   }
 
-  .hot-event-title-row h3 {
-    flex-basis: 100%;
+  .hot-event-main h3 {
     font-size: 15px;
   }
 
-  .hot-score {
-    margin-left: auto;
+  .hot-event > .hot-source-list {
+    grid-area: source;
+    justify-self: end;
   }
 
-  .hot-media {
+  .hot-score {
+    grid-area: score;
+  }
+
+  .hot-media-slot {
     display: none;
   }
 

@@ -855,16 +855,34 @@ function renderHotFeed(items) {
 }
 
 function renderHotDetail(event) {
-  if (state.hotDetailEventId !== event.event_id) {
-    state.hotDetailEventId = event.event_id;
-    state.hotDetailTab = "coverage";
-  }
   const title = state.language === "zh" ? event.hot_word_zh || event.hot_word_en : event.hot_word_en || event.hot_word_zh;
   const labels = (event.source_labels || []).map(hotSourceBadge).join("");
   const items = Array.isArray(event.items) ? event.items : [];
   const content = items.filter((item) => item.source_type !== "fan");
   const discussion = items.filter((item) => item.source_type === "fan");
+  const defaultTab = content.length ? "coverage" : "discussion";
+  if (state.hotDetailEventId !== event.event_id) {
+    state.hotDetailEventId = event.event_id;
+    state.hotDetailTab = defaultTab;
+  } else if (
+    (state.hotDetailTab === "coverage" && !content.length)
+    || (state.hotDetailTab === "discussion" && !discussion.length)
+  ) {
+    state.hotDetailTab = defaultTab;
+  }
   const activeItems = state.hotDetailTab === "discussion" ? discussion : content;
+  const tabs = [
+    content.length
+      ? `<button class="hot-detail-tab${state.hotDetailTab === "coverage" ? " is-active" : ""}" type="button" role="tab" aria-selected="${state.hotDetailTab === "coverage"}" data-hot-detail-tab="coverage">
+          ${escapeHtml(t().hotContentTitle)} <span>${content.length}</span>
+        </button>`
+      : "",
+    discussion.length
+      ? `<button class="hot-detail-tab${state.hotDetailTab === "discussion" ? " is-active" : ""}" type="button" role="tab" aria-selected="${state.hotDetailTab === "discussion"}" data-hot-detail-tab="discussion">
+          ${escapeHtml(t().hotDiscussionTitle)} <span>${discussion.length}</span>
+        </button>`
+      : "",
+  ].join("");
   return `<div class="hot-detail-page">
     <a class="hot-back-link" href="#hot">← ${escapeHtml(t().hotBack)}</a>
     <header class="hot-topic-hero">
@@ -875,12 +893,7 @@ function renderHotDetail(event) {
       </div>
     </header>
     <div class="hot-detail-tabs" role="tablist" aria-label="${escapeHtml(t().hotDetailTabsLabel)}">
-      <button class="hot-detail-tab${state.hotDetailTab === "coverage" ? " is-active" : ""}" type="button" role="tab" aria-selected="${state.hotDetailTab === "coverage"}" data-hot-detail-tab="coverage">
-        ${escapeHtml(t().hotContentTitle)} <span>${content.length}</span>
-      </button>
-      <button class="hot-detail-tab${state.hotDetailTab === "discussion" ? " is-active" : ""}" type="button" role="tab" aria-selected="${state.hotDetailTab === "discussion"}" data-hot-detail-tab="discussion">
-        ${escapeHtml(t().hotDiscussionTitle)} <span>${discussion.length}</span>
-      </button>
+      ${tabs}
     </div>
     <section class="hot-detail-tabpanel" role="tabpanel" aria-label="${escapeHtml(state.hotDetailTab === "discussion" ? t().hotDiscussionTitle : t().hotContentTitle)}">
       ${renderHotFeed(activeItems)}
@@ -903,14 +916,12 @@ function renderHotEvent(event) {
     <a class="hot-event" data-event-id="${escapeHtml(event.event_id)}" href="#hot/${encodeURIComponent(event.event_id)}">
       <div class="hot-rank">${escapeHtml(event.rank)}</div>
       <div class="hot-event-main">
-        <div class="hot-event-title-row">
-          <h3>${escapeHtml(title)}</h3>
-          <div class="hot-source-list" aria-label="来源">${labels}</div>
-          <strong class="hot-score"><span>${escapeHtml(t().hotHeat)}</span>${escapeHtml(event.heat)}</strong>
-        </div>
+        <h3>${escapeHtml(title)}</h3>
         <span class="hot-related-link">${escapeHtml(t().hotRelated((event.items || []).length))} →</span>
       </div>
-      ${media}
+      <span class="hot-media-slot">${media}</span>
+      <div class="hot-source-list" aria-label="来源">${labels}</div>
+      <strong class="hot-score"><span>${escapeHtml(t().hotHeat)}</span>${escapeHtml(event.heat)}</strong>
     </a>`;
 }
 
