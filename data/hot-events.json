@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-27T13:42:11.687192Z",
+  "generated_at": "2026-08-27T21:01:45.441075Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -12,11 +12,11 @@
       "hot_word_zh": "Oscar·bee斯特里 😭😭😭😭",
       "hot_word_en": "OSCAR BEEASTRI 😭😭😭😭",
       "first_seen_at": "2026-08-25T19:00:32Z",
-      "last_seen_at": "2026-08-27T06:03:03Z",
+      "last_seen_at": "2026-08-27T19:38:56Z",
       "anchor_item_id": "piasnews-social-cdbe745fa0969f8d",
       "image_url": null,
       "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2092848899408924672/img/svkfIQcqWFC1lEIV.jpg",
+      "video_poster_url": null,
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
@@ -71,8 +71,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 71,
-      "heat": 71,
+      "fan_heat": 73,
+      "heat": 73,
       "source_labels": [
         "粉"
       ],
@@ -91,61 +91,6 @@
       "rank": 1
     },
     {
-      "event_id": "evt-oscar-monza-preparation",
-      "rule_id": "oscar-monza-preparation",
-      "hot_word_zh": "Oscar 开始为蒙扎站进行准备",
-      "hot_word_en": "Oscar begins preparations for Monza",
-      "first_seen_at": "2026-08-24T18:44:12Z",
-      "last_seen_at": "2026-08-24T18:44:12Z",
-      "anchor_item_id": "piasnews-social-413c0eaf3ffcad4f",
-      "image_url": "https://pbs.twimg.com/media/HQgiS0-WMAASVpc.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HQgiS0-WMAASVpc.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-413c0eaf3ffcad4f",
-          "dataset": "social",
-          "source_type": "official",
-          "source": "@OscarPiastri",
-          "title": "X post from @OscarPiastri: Hard work continues ahead of Monza 💪",
-          "title_zh": "X 发帖 @OscarPiastri：Monza前的努力继续💪",
-          "summary": "Hard work continues ahead of Monza 💪 https://t.co/jkyo6r5kE6",
-          "summary_zh": "Monza前的努力继续💪",
-          "url": "https://x.com/OscarPiastri/status/2091959777534619706",
-          "published_at": "2026-08-24T18:44:12Z",
-          "image_url": "https://pbs.twimg.com/media/HQgiS0-WMAASVpc.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HQgiS0-WMAASVpc.jpg",
-          "heat_contribution": 8.6427,
-          "metrics": {
-            "likes": 20084,
-            "retweets": 2271,
-            "replies": 313,
-            "quotes": 234,
-            "views": 230617,
-            "bookmarks": 282
-          }
-        }
-      ],
-      "official_heat": 56,
-      "media_heat": 0,
-      "fan_heat": 0,
-      "heat": 56,
-      "source_labels": [
-        "官"
-      ],
-      "source_counts": {
-        "official": 1,
-        "media": 0,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 2
-    },
-    {
       "event_id": "evt-2026-08-27-e498381a18be",
       "rule_id": null,
       "hot_word_zh": "格韦斯佩德·Piastri",
@@ -153,9 +98,9 @@
       "first_seen_at": "2026-08-27T05:26:15Z",
       "last_seen_at": "2026-08-27T07:07:06Z",
       "anchor_item_id": "piasnews-social-ddded88ad78e56cd",
-      "image_url": "https://pbs.twimg.com/media/HQtfikfbsAAwhmd.jpg",
-      "video_url": "https://video.twimg.com/tweet_video/HQtIb8qaIAAE_QC.mp4",
-      "video_poster_url": "https://pbs.twimg.com/tweet_video_thumb/HQtIb8qaIAAE_QC.jpg",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
@@ -171,16 +116,16 @@
           "url": "https://x.com/QuadLockCase/status/2092846131634159887",
           "published_at": "2026-08-27T05:26:15Z",
           "image_url": null,
-          "video_url": "https://video.twimg.com/tweet_video/HQtIb8qaIAAE_QC.mp4",
-          "video_poster_url": "https://pbs.twimg.com/tweet_video_thumb/HQtIb8qaIAAE_QC.jpg",
-          "heat_contribution": 7.6802,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 8.252,
           "metrics": {
-            "likes": 1869,
-            "retweets": 381,
-            "replies": 8,
-            "quotes": 32,
-            "views": 16637,
-            "bookmarks": 160
+            "likes": 3371,
+            "retweets": 624,
+            "replies": 10,
+            "quotes": 50,
+            "views": 36320,
+            "bookmarks": 299
           }
         },
         {
@@ -194,24 +139,103 @@
           "summary_zh": "😭🦈🐝",
           "url": "https://x.com/lveluxp/status/2092871512726675743",
           "published_at": "2026-08-27T07:07:06Z",
-          "image_url": "https://pbs.twimg.com/media/HQtfikfbsAAwhmd.jpg",
+          "image_url": null,
           "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HQtfikfbsAAwhmd.jpg",
-          "heat_contribution": 7.6492,
+          "video_poster_url": null,
+          "heat_contribution": 8.174,
           "metrics": {
-            "likes": 1807,
-            "retweets": 409,
+            "likes": 3207,
+            "retweets": 627,
             "replies": 3,
-            "quotes": 17,
-            "views": 12939,
-            "bookmarks": 96
+            "quotes": 20,
+            "views": 21882,
+            "bookmarks": 168
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 55,
-      "heat": 55,
+      "fan_heat": 59,
+      "heat": 59,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "event_id": "evt-2026-08-27-169284e65725",
+      "rule_id": null,
+      "hot_word_zh": "更多Oscar在MTC的照片 ☺️",
+      "hot_word_en": "more pics of oscar at the mtc ☺️",
+      "first_seen_at": "2026-08-26T15:34:33Z",
+      "last_seen_at": "2026-08-27T16:46:27Z",
+      "anchor_item_id": "piasnews-social-d161cf513dd4f429",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-d161cf513dd4f429",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: more pics of oscar at the mtc ☺️",
+          "title_zh": "X 发帖 @laurogeitabat：更多Oscar在MTC的照片 ☺️",
+          "summary": "more pics of oscar at the mtc ☺️ https://t.co/vUvqxkhjna",
+          "summary_zh": "更多Oscar在MTC的照片 ☺️",
+          "url": "https://x.com/laurogeitabat/status/2093017310676029748",
+          "published_at": "2026-08-27T16:46:27Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 6.1993,
+          "metrics": {
+            "likes": 399,
+            "retweets": 19,
+            "replies": 1,
+            "quotes": 6,
+            "views": 3939,
+            "bookmarks": 16
+          }
+        },
+        {
+          "item_id": "piasnews-social-9f7039277f72e2d4",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar is back at the mtc!",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar回到了McLaren技术中心！",
+          "summary": "oscar is back at the mtc! https://t.co/ZQKiDkzar3",
+          "summary_zh": "Oscar回到了McLaren技术中心！",
+          "url": "https://x.com/laurogeitabat/status/2092636825760289159",
+          "published_at": "2026-08-26T15:34:33Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 5.9015,
+          "metrics": {
+            "likes": 629,
+            "retweets": 41,
+            "replies": 2,
+            "quotes": 11,
+            "views": 7122,
+            "bookmarks": 22
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 45,
+      "heat": 45,
       "source_labels": [
         "粉"
       ],
@@ -233,8 +257,8 @@
       "last_seen_at": "2026-08-26T07:57:49Z",
       "anchor_item_id": "piasnews-social-d509e354e7743a87",
       "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2092521866896257024/vid/avc1/576x1024/PqjfrUbValuL9yM4.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2092521866896257024/img/Xwxjb-xweDA8d2NY.jpg",
+      "video_url": null,
+      "video_poster_url": null,
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
@@ -250,16 +274,16 @@
           "url": "https://x.com/laurogeitabat/status/2092521887511302334",
           "published_at": "2026-08-26T07:57:49Z",
           "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2092521866896257024/vid/avc1/576x1024/PqjfrUbValuL9yM4.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2092521866896257024/img/Xwxjb-xweDA8d2NY.jpg",
-          "heat_contribution": 7.5978,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 7.6434,
           "metrics": {
-            "likes": 3444,
-            "retweets": 281,
+            "likes": 3611,
+            "retweets": 293,
             "replies": 0,
             "quotes": 22,
-            "views": 37857,
-            "bookmarks": 490
+            "views": 39397,
+            "bookmarks": 511
           }
         }
       ],
@@ -287,9 +311,9 @@
       "first_seen_at": "2026-08-26T13:41:00Z",
       "last_seen_at": "2026-08-26T13:41:00Z",
       "anchor_item_id": "piasnews-social-1109de43881806ee",
-      "image_url": "https://pbs.twimg.com/media/HQpwF-PWIAAwMmA.jpg",
+      "image_url": null,
       "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HQpwF-PWIAAwMmA.jpg",
+      "video_poster_url": null,
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
@@ -304,17 +328,17 @@
           "summary_zh": "小小的愿望 #f1art #oscarpiastri",
           "url": "https://x.com/hiroshi_x3/status/2092608251342807278",
           "published_at": "2026-08-26T13:41:00Z",
-          "image_url": "https://pbs.twimg.com/media/HQpwF-PWIAAwMmA.jpg",
+          "image_url": null,
           "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HQpwF-PWIAAwMmA.jpg",
-          "heat_contribution": 7.4,
+          "video_poster_url": null,
+          "heat_contribution": 7.4972,
           "metrics": {
-            "likes": 2642,
-            "retweets": 408,
+            "likes": 2910,
+            "retweets": 450,
             "replies": 2,
-            "quotes": 8,
-            "views": 15342,
-            "bookmarks": 169
+            "quotes": 9,
+            "views": 17035,
+            "bookmarks": 187
           }
         }
       ],
@@ -342,9 +366,9 @@
       "first_seen_at": "2026-08-27T05:36:00Z",
       "last_seen_at": "2026-08-27T05:36:00Z",
       "anchor_item_id": "piasnews-social-568dbeadda767c2a",
-      "image_url": "https://pbs.twimg.com/media/HQtKsaAXYAAl4aT.jpg",
-      "video_url": "https://video.twimg.com/amplify_video/2092848503689019392/vid/avc1/720x1280/udaY_nuYlXo6MUJ9.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2092848503689019392/img/57jNif-irLuaUN5y.jpg",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
@@ -359,17 +383,72 @@
           "summary_zh": "QUADLOCK让Oscar和佩德罗打扮成蜜蜂和鲨鱼，这太不可思议了",
           "url": "https://x.com/laurogeitabat/status/2092848583905054995",
           "published_at": "2026-08-27T05:36:00Z",
-          "image_url": "https://pbs.twimg.com/media/HQtKsaAXYAAl4aT.jpg",
-          "video_url": "https://video.twimg.com/amplify_video/2092848503689019392/vid/avc1/720x1280/udaY_nuYlXo6MUJ9.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2092848503689019392/img/57jNif-irLuaUN5y.jpg",
-          "heat_contribution": 7.2656,
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 7.4899,
           "metrics": {
-            "likes": 1210,
-            "retweets": 230,
+            "likes": 1546,
+            "retweets": 273,
             "replies": 1,
-            "quotes": 43,
-            "views": 14670,
-            "bookmarks": 113
+            "quotes": 48,
+            "views": 19421,
+            "bookmarks": 125
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 39,
+      "heat": 39,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "event_id": "evt-2026-08-27-bfc6db02c50e",
+      "rule_id": null,
+      "hot_word_zh": "鲨鱼和黄蜂 🦈🐝",
+      "hot_word_en": "THE SHARK AND THE WASP 🦈🐝",
+      "first_seen_at": "2026-08-27T06:03:03Z",
+      "last_seen_at": "2026-08-27T06:03:03Z",
+      "anchor_item_id": "piasnews-social-23c4bec90a1e5dae",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-23c4bec90a1e5dae",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: THE SHARK AND THE WASP 🦈🐝",
+          "title_zh": "X 发帖 @laurogeitabat：鲨鱼和黄蜂 🦈🐝",
+          "summary": "THE SHARK AND THE WASP 🦈🐝 https://t.co/LzCDhFcRV8",
+          "summary_zh": "鲨鱼和黄蜂 🦈🐝",
+          "url": "https://x.com/laurogeitabat/status/2092855393990942796",
+          "published_at": "2026-08-27T06:03:03Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 7.2137,
+          "metrics": {
+            "likes": 1331,
+            "retweets": 170,
+            "replies": 0,
+            "quotes": 19,
+            "views": 10025,
+            "bookmarks": 38
           }
         }
       ],
@@ -387,117 +466,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
-    },
-    {
-      "event_id": "evt-2026-08-25-d79ed2790eb4",
-      "rule_id": null,
-      "hot_word_zh": "他无缘无故把这件事搞得那么难😭",
-      "hot_word_en": "he made that so difficult for no reason 😭",
-      "first_seen_at": "2026-08-25T20:06:50Z",
-      "last_seen_at": "2026-08-25T20:06:50Z",
-      "anchor_item_id": "piasnews-social-8f20304f47d0c9c5",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-8f20304f47d0c9c5",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: he made that so difficult for no reason 😭",
-          "title_zh": "X 发帖 @laurogeitabat：他无缘无故把这件事搞得那么难😭",
-          "summary": "he made that so difficult for no reason 😭 https://t.co/acKwCV7zH2",
-          "summary_zh": "他无缘无故把这件事搞得那么难😭",
-          "url": "https://x.com/laurogeitabat/status/2092342959509270966",
-          "published_at": "2026-08-25T20:06:50Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 6.9658,
-          "metrics": {
-            "likes": 1775,
-            "retweets": 109,
-            "replies": 2,
-            "quotes": 18,
-            "views": 31775,
-            "bookmarks": 196
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 37,
-      "heat": 37,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
       "rank": 7
-    },
-    {
-      "event_id": "evt-2026-08-26-40e4f193e282",
-      "rule_id": null,
-      "hot_word_zh": "Oscar今天参加了在穆杰罗的轮胎测试！他测试了2027年的软胎、中性胎和硬胎，共完成93…",
-      "hot_word_en": "oscar took part in a tyre test session at mugello today! he tested the soft, medium and hard ty…",
-      "first_seen_at": "2026-08-26T18:43:49Z",
-      "last_seen_at": "2026-08-26T18:43:49Z",
-      "anchor_item_id": "piasnews-social-3a9d34ee2931c5f6",
-      "image_url": "https://pbs.twimg.com/media/HQq1a9NWgAAbev0.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HQq1a9NWgAAbev0.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-3a9d34ee2931c5f6",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar took part in a tyre test session at mugello today! he tested the soft, medium and hard ty…",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar今天参加了在穆杰罗的轮胎测试！他测试了2027年的软胎、中性胎和硬胎，共完成93圈，最快圈速为1:21.358。",
-          "summary": "oscar took part in a tyre test session at mugello today! he tested the soft, medium and hard tyres for 2027, completed a total of 93 laps, and did a best time of 1:21.358. https://t.co/mCrfIOpfYm",
-          "summary_zh": "Oscar今天参加了在穆杰罗的轮胎测试！他测试了2027年的软胎、中性胎和硬胎，共完成93圈，最快圈速为1:21.358。",
-          "url": "https://x.com/laurogeitabat/status/2092684455739539781",
-          "published_at": "2026-08-26T18:43:49Z",
-          "image_url": "https://pbs.twimg.com/media/HQq1a9NWgAAbev0.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HQq1a9NWgAAbev0.jpg",
-          "heat_contribution": 7.0516,
-          "metrics": {
-            "likes": 1157,
-            "retweets": 71,
-            "replies": 1,
-            "quotes": 6,
-            "views": 22429,
-            "bookmarks": 37
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 37,
-      "heat": 37,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 8
     },
     {
       "event_id": "evt-monaco-penalty-appeal",
@@ -552,44 +521,44 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 9
+      "rank": 8
     },
     {
-      "event_id": "evt-2026-08-26-9eb07d637016",
-      "rule_id": null,
-      "hot_word_zh": "他太帅了（5秒以上的进站和颜值）",
-      "hot_word_en": "he's SERVING (5+ second pitstops and face)",
-      "first_seen_at": "2026-08-26T16:51:49Z",
-      "last_seen_at": "2026-08-26T16:51:49Z",
-      "anchor_item_id": "piasnews-social-5e55b37a231ee655",
-      "image_url": "https://pbs.twimg.com/media/HQqbySMXYAAV8PE.jpg",
+      "event_id": "evt-piastri-background-issue",
+      "rule_id": "piastri-background-issue",
+      "hot_word_zh": "Kovalainen 和 Salo 猜测 Oscar 的赛车存在背景问题",
+      "hot_word_en": "Kovalainen and Salo suggest an underlying issue with Oscar's car",
+      "first_seen_at": "2026-08-24T21:13:06Z",
+      "last_seen_at": "2026-08-24T21:13:06Z",
+      "anchor_item_id": "piasnews-social-9efb66062e2cf8ef",
+      "image_url": null,
       "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HQqbySMXYAAV8PE.jpg",
+      "video_poster_url": null,
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
         {
-          "item_id": "piasnews-social-5e55b37a231ee655",
+          "item_id": "piasnews-social-9efb66062e2cf8ef",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: he's SERVING (5+ second pitstops and face)",
-          "title_zh": "X 发帖 @laurogeitabat：他太帅了（5秒以上的进站和颜值）",
-          "summary": "he's SERVING (5+ second pitstops and face) https://t.co/DWxgK6q6dQ",
-          "summary_zh": "他太帅了（5秒以上的进站和颜值）",
-          "url": "https://x.com/laurogeitabat/status/2092656273737011603",
-          "published_at": "2026-08-26T16:51:49Z",
-          "image_url": "https://pbs.twimg.com/media/HQqbySMXYAAV8PE.jpg",
+          "title": "X post from @laurogeitabat: heikki kovalainen &amp; mika salo about oscar: H: \"oscar is a very quick driver. i don't believ…",
+          "title_zh": "X 发帖 @laurogeitabat：海基·科瓦莱宁和米卡·萨洛谈论Oscar：H：“Oscar是一位非常快的车手。我不相信他的速度就这么消失了。背后肯定有什么东西不对劲。也许米卡知道的比我多。”M：“是的，我不能说什么，但你的方向是对的。”",
+          "summary": "heikki kovalainen &amp; mika salo about oscar: H: \"oscar is a very quick driver. i don't believe his pace has just vanished. there is something in the background that isn't working. maybe mika knows more than i do.\" M: \"yes, i can't say anything, but you're on the right track.\" https://t.co/do6qHPkQJC",
+          "summary_zh": "海基·科瓦莱宁和米卡·萨洛谈论Oscar：H：“Oscar是一位非常快的车手。我不相信他的速度就这么消失了。背后肯定有什么东西不对劲。也许米卡知道的比我多。”M：“是的，我不能说什么，但你的方向是对的。”",
+          "url": "https://x.com/laurogeitabat/status/2091997250389979316",
+          "published_at": "2026-08-24T21:13:06Z",
+          "image_url": null,
           "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HQqbySMXYAAV8PE.jpg",
-          "heat_contribution": 6.7482,
+          "video_poster_url": null,
+          "heat_contribution": 6.8664,
           "metrics": {
-            "likes": 859,
-            "retweets": 98,
-            "replies": 4,
-            "quotes": 2,
-            "views": 6437,
-            "bookmarks": 36
+            "likes": 1681,
+            "retweets": 161,
+            "replies": 18,
+            "quotes": 231,
+            "views": 227322,
+            "bookmarks": 392
           }
         }
       ],
@@ -597,6 +566,61 @@
       "media_heat": 0,
       "fan_heat": 36,
       "heat": 36,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "event_id": "evt-2026-08-26-40e4f193e282",
+      "rule_id": null,
+      "hot_word_zh": "Oscar今天参加了在穆杰罗的轮胎测试！他测试了2027年的软胎、中性胎和硬胎，共完成93…",
+      "hot_word_en": "oscar took part in a tyre test session at mugello today! he tested the soft, medium and hard ty…",
+      "first_seen_at": "2026-08-26T18:43:49Z",
+      "last_seen_at": "2026-08-26T18:43:49Z",
+      "anchor_item_id": "piasnews-social-3a9d34ee2931c5f6",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-3a9d34ee2931c5f6",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar took part in a tyre test session at mugello today! he tested the soft, medium and hard ty…",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar今天参加了在穆杰罗的轮胎测试！他测试了2027年的软胎、中性胎和硬胎，共完成93圈，最快圈速为1:21.358。",
+          "summary": "oscar took part in a tyre test session at mugello today! he tested the soft, medium and hard tyres for 2027, completed a total of 93 laps, and did a best time of 1:21.358. https://t.co/mCrfIOpfYm",
+          "summary_zh": "Oscar今天参加了在穆杰罗的轮胎测试！他测试了2027年的软胎、中性胎和硬胎，共完成93圈，最快圈速为1:21.358。",
+          "url": "https://x.com/laurogeitabat/status/2092684455739539781",
+          "published_at": "2026-08-26T18:43:49Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 6.6232,
+          "metrics": {
+            "likes": 1253,
+            "retweets": 76,
+            "replies": 1,
+            "quotes": 6,
+            "views": 24966,
+            "bookmarks": 38
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 35,
+      "heat": 35,
       "source_labels": [
         "粉"
       ],
