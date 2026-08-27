@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-27T07:05:37.657708Z",
+  "generated_at": "2026-08-27T08:25:30.475394Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -225,61 +225,6 @@
       "rank": 3
     },
     {
-      "event_id": "evt-2026-08-26-38f4f5f4ba4b",
-      "rule_id": null,
-      "hot_word_zh": "他丢下夹克时发出“啊”的声音，然后拿到考拉玩偶时说“给我的吗？” 🥹🤏🏻",
-      "hot_word_en": "he goes \"aahhh\" when he drops the jacket and then \"for me??\" when he's given the koala plushie…",
-      "first_seen_at": "2026-08-26T07:57:49Z",
-      "last_seen_at": "2026-08-26T07:57:49Z",
-      "anchor_item_id": "piasnews-social-d509e354e7743a87",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-d509e354e7743a87",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: he goes \"aahhh\" when he drops the jacket and then \"for me??\" when he's given the koala plushie…",
-          "title_zh": "X 发帖 @laurogeitabat：他丢下夹克时发出“啊”的声音，然后拿到考拉玩偶时说“给我的吗？” 🥹🤏🏻",
-          "summary": "he goes \"aahhh\" when he drops the jacket and then \"for me??\" when he's given the koala plushie 🥹🤏🏻 https://t.co/MW4W1TLFRU",
-          "summary_zh": "他丢下夹克时发出“啊”的声音，然后拿到考拉玩偶时说“给我的吗？” 🥹🤏🏻",
-          "url": "https://x.com/laurogeitabat/status/2092521887511302334",
-          "published_at": "2026-08-26T07:57:49Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 8.0672,
-          "metrics": {
-            "likes": 3315,
-            "retweets": 263,
-            "replies": 0,
-            "quotes": 22,
-            "views": 36452,
-            "bookmarks": 472
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 42,
-      "heat": 42,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 4
-    },
-    {
       "event_id": "evt-2026-08-26-670e0cef7ab4",
       "rule_id": null,
       "hot_word_zh": "小小的愿望 #f1art #oscarpiastri",
@@ -332,7 +277,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 5
+      "rank": 4
     },
     {
       "event_id": "evt-monaco-penalty-appeal",
@@ -387,164 +332,44 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 5
     },
     {
-      "event_id": "evt-dutch-gp-fan-reaction",
-      "rule_id": "dutch-gp-fan-reaction",
-      "hot_word_zh": "粉丝讨论 Oscar 荷兰站赛后状态",
-      "hot_word_en": "Fans discuss Oscar's mood after the Dutch Grand Prix",
-      "first_seen_at": "2026-08-23T16:22:54Z",
-      "last_seen_at": "2026-08-24T16:51:40Z",
-      "anchor_item_id": "piasnews-social-8496d5c43c42b6d1",
-      "image_url": "https://pbs.twimg.com/media/HQeJJawXMAAhj6H.jpg",
-      "video_url": "https://video.twimg.com/amplify_video/2091564872790159360/vid/avc1/1080x1080/KMd655fu2ZO0M0Mf.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/media/HQeJJawXMAAhj6H.jpg",
+      "event_id": "evt-2026-08-26-38f4f5f4ba4b",
+      "rule_id": null,
+      "hot_word_zh": "他丢下夹克时发出“啊”的声音，然后拿到考拉玩偶时说“给我的吗？” 🥹🤏🏻",
+      "hot_word_en": "he goes \"aahhh\" when he drops the jacket and then \"for me??\" when he's given the koala plushie…",
+      "first_seen_at": "2026-08-26T07:57:49Z",
+      "last_seen_at": "2026-08-26T07:57:49Z",
+      "anchor_item_id": "piasnews-social-d509e354e7743a87",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
         {
-          "item_id": "piasnews-social-8496d5c43c42b6d1",
+          "item_id": "piasnews-social-d509e354e7743a87",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar getting pats in the back ☹️",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar被拍背☹️",
-          "summary": "oscar getting pats in the back ☹️ https://t.co/RksDHw3nVl",
-          "summary_zh": "Oscar被拍背☹️",
-          "url": "https://x.com/laurogeitabat/status/2091931457979600968",
-          "published_at": "2026-08-24T16:51:40Z",
+          "title": "X post from @laurogeitabat: he goes \"aahhh\" when he drops the jacket and then \"for me??\" when he's given the koala plushie…",
+          "title_zh": "X 发帖 @laurogeitabat：他丢下夹克时发出“啊”的声音，然后拿到考拉玩偶时说“给我的吗？” 🥹🤏🏻",
+          "summary": "he goes \"aahhh\" when he drops the jacket and then \"for me??\" when he's given the koala plushie 🥹🤏🏻 https://t.co/MW4W1TLFRU",
+          "summary_zh": "他丢下夹克时发出“啊”的声音，然后拿到考拉玩偶时说“给我的吗？” 🥹🤏🏻",
+          "url": "https://x.com/laurogeitabat/status/2092521887511302334",
+          "published_at": "2026-08-26T07:57:49Z",
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 5.4555,
+          "heat_contribution": 7.5566,
           "metrics": {
-            "likes": 856,
-            "retweets": 51,
+            "likes": 3315,
+            "retweets": 263,
             "replies": 0,
-            "quotes": 17,
-            "views": 17317,
-            "bookmarks": 59
-          }
-        },
-        {
-          "item_id": "piasnews-social-578ef24e11af5c6a",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar after the race yesterday 🫶🏻 📸: estellevanoijen",
-          "title_zh": "X 发帖 @laurogeitabat：昨天比赛后的Oscar🫶🏻 📸: estellevanoijen",
-          "summary": "oscar after the race yesterday 🫶🏻 📸: estellevanoijen https://t.co/5Fcdk0WZgU",
-          "summary_zh": "昨天比赛后的Oscar🫶🏻 📸: estellevanoijen",
-          "url": "https://x.com/laurogeitabat/status/2091791356196687934",
-          "published_at": "2026-08-24T07:34:57Z",
-          "image_url": "https://pbs.twimg.com/media/HQeJJawXMAAhj6H.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HQeJJawXMAAhj6H.jpg",
-          "heat_contribution": 5.0716,
-          "metrics": {
-            "likes": 643,
-            "retweets": 36,
-            "replies": 0,
-            "quotes": 8,
-            "views": 6113,
-            "bookmarks": 24
-          }
-        },
-        {
-          "item_id": "piasnews-social-9528d4a4b99de2bf",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar leaving the track today! 🎥: barbarapotr",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar今天离开赛道！🎥: barbarapotr",
-          "summary": "oscar leaving the track today! 🎥: barbarapotr https://t.co/PaSE4vWMkT",
-          "summary_zh": "Oscar今天离开赛道！🎥: barbarapotr",
-          "url": "https://x.com/laurogeitabat/status/2091590536268255319",
-          "published_at": "2026-08-23T18:16:58Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 0.0,
-          "metrics": {
-            "likes": 725,
-            "retweets": 47,
-            "replies": 1,
-            "quotes": 10,
-            "views": 11787,
-            "bookmarks": 52
-          }
-        },
-        {
-          "item_id": "piasnews-social-7171e5c1ab381abc",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar arriving at the team celebration ☹️",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar到达车队庆祝活动 ☹️",
-          "summary": "oscar arriving at the team celebration ☹️ https://t.co/fdBSI30zMT",
-          "summary_zh": "Oscar到达车队庆祝活动 ☹️",
-          "url": "https://x.com/laurogeitabat/status/2091576238095609867",
-          "published_at": "2026-08-23T17:20:09Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 0.0,
-          "metrics": {
-            "likes": 1108,
-            "retweets": 72,
-            "replies": 6,
-            "quotes": 70,
-            "views": 76300,
-            "bookmarks": 94
-          }
-        },
-        {
-          "item_id": "piasnews-social-e681d2add7cc9540",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@oscarsspiastree",
-          "title": "X post from @oscarsspiastree: Q: How do you assess things after the race? \"Disappointing obviously. I think the first lap was…",
-          "title_zh": "X 发帖 @oscarsspiastree：问：赛后你如何评估？“显然令人失望。我觉得第一圈不错——红旗之后也不错。第一段感觉还行，之后我就什么都没有了。我不知道为什么，但……有很多需要调查的。”",
-          "summary": "Q: How do you assess things after the race? \"Disappointing obviously. I think the first lap was good- after the red flag was good. The first stint felt okay and then after that I just had nothing. I don't know why but... plenty to look in to.\" https://t.co/9imJM6XSF4",
-          "summary_zh": "问：赛后你如何评估？“显然令人失望。我觉得第一圈不错——红旗之后也不错。第一段感觉还行，之后我就什么都没有了。我不知道为什么，但……有很多需要调查的。”",
-          "url": "https://x.com/oscarsspiastree/status/2091564935172047180",
-          "published_at": "2026-08-23T16:35:14Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2091564872790159360/vid/avc1/1080x1080/KMd655fu2ZO0M0Mf.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2091564872790159360/img/b-IRphQXVJpg_RsG.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {
-            "likes": 480,
-            "retweets": 45,
-            "replies": 0,
-            "quotes": 5,
-            "views": 7706,
-            "bookmarks": 36
-          }
-        },
-        {
-          "item_id": "piasnews-social-5a5e5a55a5fc7bc4",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: as crushed as i feel right now i know oscar's gonna get back up and work as hard as he can to u…",
-          "title_zh": "X 发帖 @laurogeitabat：尽管我现在心碎，但我知道Oscar会重新站起来，尽他所能去理解和改进，所以今天我允许自己难过一天，然后明天我们回到欢呼模式。这个赛季很糟糕，但我们会和他一起度过 🫡",
-          "summary": "as crushed as i feel right now i know oscar's gonna get back up and work as hard as he can to understand and improve so i'm gonna allow myself a sad day today and then we get back on to cheering mode tomorrow. this season sucks but we're gonna get through it with him 🫡",
-          "summary_zh": "尽管我现在心碎，但我知道Oscar会重新站起来，尽他所能去理解和改进，所以今天我允许自己难过一天，然后明天我们回到欢呼模式。这个赛季很糟糕，但我们会和他一起度过 🫡",
-          "url": "https://x.com/laurogeitabat/status/2091561831336657401",
-          "published_at": "2026-08-23T16:22:54Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 0.0,
-          "metrics": {
-            "likes": 419,
-            "retweets": 65,
-            "replies": 3,
-            "quotes": 2,
-            "views": 8389,
-            "bookmarks": 7
+            "quotes": 22,
+            "views": 36452,
+            "bookmarks": 472
           }
         }
       ],
@@ -558,11 +383,11 @@
       "source_counts": {
         "official": 0,
         "media": 0,
-        "fan": 2
+        "fan": 1
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 6
     },
     {
       "event_id": "evt-2026-08-25-d79ed2790eb4",
@@ -617,7 +442,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 7
     },
     {
       "event_id": "evt-2026-08-26-40e4f193e282",
@@ -672,7 +497,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 9
+      "rank": 8
     },
     {
       "event_id": "evt-piastri-background-issue",
@@ -717,6 +542,61 @@
       "media_heat": 0,
       "fan_heat": 36,
       "heat": 36,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "event_id": "evt-2026-08-26-9eb07d637016",
+      "rule_id": null,
+      "hot_word_zh": "他太帅了（5秒以上的进站和颜值）",
+      "hot_word_en": "he's SERVING (5+ second pitstops and face)",
+      "first_seen_at": "2026-08-26T16:51:49Z",
+      "last_seen_at": "2026-08-26T16:51:49Z",
+      "anchor_item_id": "piasnews-social-5e55b37a231ee655",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-5e55b37a231ee655",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: he's SERVING (5+ second pitstops and face)",
+          "title_zh": "X 发帖 @laurogeitabat：他太帅了（5秒以上的进站和颜值）",
+          "summary": "he's SERVING (5+ second pitstops and face) https://t.co/DWxgK6q6dQ",
+          "summary_zh": "他太帅了（5秒以上的进站和颜值）",
+          "url": "https://x.com/laurogeitabat/status/2092656273737011603",
+          "published_at": "2026-08-26T16:51:49Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 6.6793,
+          "metrics": {
+            "likes": 802,
+            "retweets": 91,
+            "replies": 4,
+            "quotes": 2,
+            "views": 5965,
+            "bookmarks": 34
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 35,
+      "heat": 35,
       "source_labels": [
         "粉"
       ],
