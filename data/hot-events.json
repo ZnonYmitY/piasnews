@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-27T03:18:58.315824Z",
+  "generated_at": "2026-08-27T03:44:06.556867Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -457,61 +457,6 @@
       "rank": 7
     },
     {
-      "event_id": "evt-2026-08-25-8fe1681ebfaa",
-      "rule_id": null,
-      "hot_word_zh": "呼！我终于把这些东西做完了",
-      "hot_word_en": "whew! i’m finally done with these things",
-      "first_seen_at": "2026-08-25T04:34:16Z",
-      "last_seen_at": "2026-08-25T04:34:16Z",
-      "anchor_item_id": "piasnews-social-74934442c101ab78",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-74934442c101ab78",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X repost from @laurogeitabat: whew! i’m finally done with these things",
-          "title_zh": "X 转帖 @laurogeitabat：呼！我终于把这些东西做完了",
-          "summary": "whew! i’m finally done with these things https://t.co/CW6ca2tweE",
-          "summary_zh": "呼！我终于把这些东西做完了",
-          "url": "https://x.com/calverastri/status/2092108274489262163",
-          "published_at": "2026-08-25T04:34:16Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 7.7155,
-          "metrics": {
-            "likes": 3928,
-            "retweets": 256,
-            "replies": 27,
-            "quotes": 27,
-            "views": 40671,
-            "bookmarks": 334
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 40,
-      "heat": 40,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 8
-    },
-    {
       "event_id": "evt-2026-08-26-670e0cef7ab4",
       "rule_id": null,
       "hot_word_zh": "小小的愿望 #f1art #oscarpiastri",
@@ -564,7 +509,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 9
+      "rank": 8
     },
     {
       "event_id": "evt-dutch-gp-fan-reaction",
@@ -736,6 +681,61 @@
         "official": 0,
         "media": 0,
         "fan": 2
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "event_id": "evt-2026-08-25-d79ed2790eb4",
+      "rule_id": null,
+      "hot_word_zh": "他无缘无故把这件事搞得那么难😭",
+      "hot_word_en": "he made that so difficult for no reason 😭",
+      "first_seen_at": "2026-08-25T20:06:50Z",
+      "last_seen_at": "2026-08-25T20:06:50Z",
+      "anchor_item_id": "piasnews-social-8f20304f47d0c9c5",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-8f20304f47d0c9c5",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: he made that so difficult for no reason 😭",
+          "title_zh": "X 发帖 @laurogeitabat：他无缘无故把这件事搞得那么难😭",
+          "summary": "he made that so difficult for no reason 😭 https://t.co/acKwCV7zH2",
+          "summary_zh": "他无缘无故把这件事搞得那么难😭",
+          "url": "https://x.com/laurogeitabat/status/2092342959509270966",
+          "published_at": "2026-08-25T20:06:50Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 6.953,
+          "metrics": {
+            "likes": 1752,
+            "retweets": 108,
+            "replies": 2,
+            "quotes": 18,
+            "views": 31283,
+            "bookmarks": 197
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 37,
+      "heat": 37,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
       },
       "pinned_rank": null,
       "hidden": false,
