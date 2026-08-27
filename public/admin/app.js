@@ -864,13 +864,14 @@ function openSettings() {
   elements.settingsDialog.showModal();
 }
 
-function saveSettings() {
+async function saveSettings() {
   if (!elements.workerUrlInput.reportValidity() || !elements.adminKeyInput.reportValidity()) return;
   localStorage.setItem("piasnewsWorkerUrl", elements.workerUrlInput.value.trim().replace(/\/$/, ""));
   sessionStorage.setItem("piasnewsAdminKey", elements.adminKeyInput.value);
   elements.settingsDialog.close();
   updateConnectionState();
   showToast("审核接口设置已保存。");
+  await loadSession();
   if (state.activeView === "analytics") loadAnalytics();
   if (state.activeView === "hot") loadHotWorkbench();
 }
@@ -941,6 +942,7 @@ document.querySelectorAll("[data-analytics-days]").forEach((button) => {
 async function initializeWorkbench() {
   await loadRuntimeWorkerUrl();
   updateConnectionState();
+  await loadSession();
   loadCandidates({ preserveSelection: false });
 }
 
