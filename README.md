@@ -263,7 +263,7 @@ env PATH=/Users/bytedance/.agent-reach-venv/bin:$PATH \
   --update-social
 ```
 
-这会读取 `piasnews/references/x-sources.json` 中的 X 账号，默认调用本地 `twitter-cli user-posts` 拉取账号公开时间线，再按最近 3 天过滤，生成导入 JSON，并更新 `data/social.json`。如果 `agent-reach configure --from-browser chrome` 已经写入 `~/.agent-reach/config.yaml`，采集脚本会自动把其中的 Twitter/X cookies 传给 `twitter-cli`，不需要把 token 写进仓库。如果 `twitter-cli` 的网络层失败，脚本会复用同一组本机 cookies 自动降级到 X Web GraphQL 读取路径；导入 JSON 的 `source_status[].method` 会显示 `x-web`。`twitter search` 端点不稳定，仅在明确需要时用 `--method search`。
+这会读取 `piasnews/references/x-sources.json` 中的 X 账号，默认按 `OpenCLI → X Web GraphQL → twitter-cli` 的顺序读取账号公开时间线，再按最近 3 天过滤，生成导入 JSON，并更新 `data/social.json`。OpenCLI 返回的 `media_urls` / `media_posters` 会被归一化成图片、视频和封面字段；浏览器桥接不可用时，脚本会复用 `~/.agent-reach/config.yaml` 中的本机 cookies 走 X Web GraphQL，以免旧 `twitter-cli` 只返回正文却漏掉媒体。可用 `--backend opencli|x-web|twitter-cli` 固定后端；导入 JSON 的 `source_status[].method` 会记录实际路径。
 
 这个本地采集不是常驻服务。手动运行时只执行一次；如果希望粉丝源无人值守更新，需要额外用 macOS `launchd`、cron 或其他调度器定时运行上面的命令。脚本本身是普通 Python/CLI 流程，不调用大模型，不消耗 Codex token；只有让 Codex 代你执行、提交或排障时才会占用 Codex 会话额度。
 
@@ -765,7 +765,7 @@ env PATH=/Users/bytedance/.agent-reach-venv/bin:$PATH \
   --update-social
 ```
 
-The script reads X accounts from `piasnews/references/x-sources.json`, calls local `twitter-cli user-posts` by default, filters to the latest three days, writes the import JSON, and updates `data/social.json`. If `agent-reach configure --from-browser chrome` has written cookies to `~/.agent-reach/config.yaml`, the collector automatically passes them to `twitter-cli`; no token is committed to the repo. If the `twitter-cli` network layer fails, the collector reuses the same local cookies and automatically falls back to the X Web GraphQL read path; `source_status[].method` will show `x-web` in the import JSON. The `twitter search` endpoint is less stable and is available only via `--method search`.
+The script reads X accounts from `piasnews/references/x-sources.json` and tries `OpenCLI → X Web GraphQL → twitter-cli` by default before filtering to the latest three days, writing the import JSON, and updating `data/social.json`. OpenCLI's `media_urls` / `media_posters` are normalized into image, video, and poster fields. If its browser bridge is unavailable, the collector reuses local cookies from `~/.agent-reach/config.yaml` for X Web GraphQL so a text-only legacy `twitter-cli` response cannot silently remove current media. Use `--backend opencli|x-web|twitter-cli` to pin a backend; `source_status[].method` records the path actually used.
 
 This local collection is not a resident service. A manual run executes once; unattended fan-source updates require an external scheduler such as macOS `launchd`, cron, or another local runner. The script is plain Python/CLI work and does not call an LLM or consume Codex tokens; Codex quota is used only when Codex is asked to run, commit, or debug it.
 

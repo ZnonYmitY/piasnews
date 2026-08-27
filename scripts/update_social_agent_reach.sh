@@ -16,6 +16,7 @@ cd "$ROOT_DIR"
 export PATH="/Users/bytedance/.agent-reach-venv/bin:/opt/homebrew/bin:$PATH"
 
 DAYS="${PIASNEWS_DAYS:-3}"
+RETENTION_DAYS="${PIASNEWS_RETENTION_DAYS:-7}"
 PER_SOURCE="${PIASNEWS_PER_SOURCE:-30}"
 IMPORT_JSON="${PIASNEWS_SOCIAL_IMPORT:-/tmp/piasnews-agent-reach-social.json}"
 INSTAGRAM_JSON="${PIASNEWS_INSTAGRAM_IMPORT:-/tmp/piasnews-instagram-social.json}"
@@ -106,6 +107,7 @@ PY
 python3 scripts/fetch_social_sources.py \
   --input-json "$COMBINED_IMPORT_JSON" \
   --days "$DAYS" \
+  --retention-days "$RETENTION_DAYS" \
   --output "$SOCIAL_OUTPUT"
 
 python3 scripts/compact_social_input.py \

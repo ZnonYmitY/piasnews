@@ -69,6 +69,35 @@ class AgentReachCollectTest(unittest.TestCase):
 
         self.assertEqual(item["image_url"], "https://pbs.twimg.com/media/oscar.jpg")
 
+    def test_normalizes_opencli_media_arrays_and_metrics(self):
+        item = collector.normalize_raw_tweet(
+            {
+                "id": "opencli-123",
+                "author": "OscarPiastri",
+                "text": "Hard work continues ahead of Monza",
+                "created_at": "Wed Aug 26 08:00:00 +0000 2026",
+                "likes": 81,
+                "retweets": 12,
+                "replies": 4,
+                "views": 8100,
+                "media_urls": [
+                    "https://video.twimg.com/ext_tw_video/123/pu/vid/avc1/1280x720/clip.mp4",
+                    "https://pbs.twimg.com/media/oscar.jpg",
+                ],
+                "media_posters": [
+                    "https://pbs.twimg.com/ext_tw_video_thumb/123/pu/img/poster.jpg",
+                    "https://pbs.twimg.com/media/oscar.jpg",
+                ],
+            },
+            "OscarPiastri",
+        )
+
+        self.assertEqual(item["author_handle"], "OscarPiastri")
+        self.assertEqual(item["video_url"], "https://video.twimg.com/ext_tw_video/123/pu/vid/avc1/1280x720/clip.mp4")
+        self.assertEqual(item["video_poster_url"], "https://pbs.twimg.com/ext_tw_video_thumb/123/pu/img/poster.jpg")
+        self.assertEqual(item["image_url"], "https://pbs.twimg.com/media/oscar.jpg")
+        self.assertEqual(item["metrics"]["likes"], 81)
+
     def test_enriches_recent_video_poster_from_x_page(self):
         items = [{
             "url": "https://x.com/PiastriNews/status/123",
@@ -181,7 +210,16 @@ class AgentReachCollectTest(unittest.TestCase):
         self.assertIn("--output", command)
 
     def test_main_writes_import_payload_from_source_config(self):
-        def fake_search(_twitter_cmd, handle, _since_date, _per_source, _method="user-posts", _curl_cmd="curl"):
+        def fake_search(
+            _twitter_cmd,
+            handle,
+            _since_date,
+            _per_source,
+            _method="user-posts",
+            _curl_cmd="curl",
+            _backend="auto",
+            _opencli_cmd="opencli",
+        ):
             if handle != "PiastriNews":
                 return [], {"platform": "x", "handle": handle, "ok": True, "items": 0}
             return [
@@ -212,11 +250,14 @@ class AgentReachCollectTest(unittest.TestCase):
                 self.assertEqual(collector.main(), 0)
 
             payload = json.loads(output.read_text())
-            self.assertEqual(payload["source"], "agent-reach/twitter-cli")
+            self.assertEqual(payload["source"], "agent-reach/x")
             self.assertEqual(payload["total_items"], 1)
             self.assertEqual(payload["items"][0]["handle"], "PiastriNews")
 
     def test_run_twitter_search_falls_back_to_x_web(self):
+        def fake_opencli(_opencli_cmd, handle, _per_source):
+            return [], {"platform": "x", "handle": handle, "ok": False, "method": "opencli", "error": "bridge unavailable"}
+
         def fake_cli(_twitter_cmd, handle, _since_date, _per_source, _method="user-posts"):
             return [], {"platform": "x", "handle": handle, "ok": False, "error": "curl: (6) Could not resolve host: x.com"}
 
@@ -232,13 +273,36 @@ class AgentReachCollectTest(unittest.TestCase):
                 }
             ], {"platform": "x", "handle": handle, "ok": True, "method": "x-web", "items": 1}
 
-        with patch.object(collector, "run_twitter_cli_search", fake_cli), patch.object(collector, "run_x_web_search", fake_x_web):
+        with patch.object(collector, "run_opencli_tweets", fake_opencli), patch.object(collector, "run_twitter_cli_search", fake_cli), patch.object(collector, "run_x_web_search", fake_x_web):
             items, status = collector.run_twitter_search("twitter", "PiastriNews", "2026-06-24", 5)
 
         self.assertEqual(items[0]["id"], "222")
         self.assertTrue(status["ok"])
         self.assertEqual(status["method"], "x-web")
         self.assertIn("fallback_from", status)
+
+    def test_run_twitter_search_prefers_opencli(self):
+        opencli_item = {
+            "platform": "x",
+            "handle": "PiastriNews",
+            "id": "333",
+            "text": "OpenCLI Oscar Piastri update",
+            "created_at": "2026-06-27T10:00:00Z",
+            "kind": "post",
+            "image_url": "https://pbs.twimg.com/media/oscar.jpg",
+        }
+
+        with patch.object(
+            collector,
+            "run_opencli_tweets",
+            return_value=([opencli_item], {"platform": "x", "handle": "PiastriNews", "ok": True, "method": "opencli", "items": 1}),
+        ), patch.object(collector, "run_x_web_search") as x_web, patch.object(collector, "run_twitter_cli_search") as twitter_cli:
+            items, status = collector.run_twitter_search("twitter", "PiastriNews", "2026-06-24", 5)
+
+        self.assertEqual(items[0]["image_url"], "https://pbs.twimg.com/media/oscar.jpg")
+        self.assertEqual(status["method"], "opencli")
+        x_web.assert_not_called()
+        twitter_cli.assert_not_called()
 
     def test_loads_agent_reach_twitter_env(self):
         with tempfile.TemporaryDirectory() as tmpdir:

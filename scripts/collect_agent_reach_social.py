@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Collect X posts through Agent-Reach's active Twitter backend.
 
-This script is intentionally local-first. It calls the `twitter` command that
-Agent-Reach routes to, writes an import JSON file, and leaves normalization and
-3-day filtering to `fetch_social_sources.py`.
+This script is intentionally local-first. It prefers Agent-Reach's OpenCLI
+Twitter backend, falls back to the authenticated X Web endpoint when the
+browser bridge is unavailable, and keeps twitter-cli as the final fallback.
+It writes an import JSON file and leaves normalization and 3-day filtering to
+`fetch_social_sources.py`.
 """
 
 from __future__ import annotations
@@ -25,7 +27,9 @@ from typing import Any
 
 
 DEFAULT_IMPORT_OUTPUT = "/tmp/piasnews-agent-reach-social.json"
+DEFAULT_RETENTION_DAYS = 7
 DEFAULT_TWITTER_CMD = "twitter"
+DEFAULT_OPENCLI_CMD = "opencli"
 DEFAULT_CURL_CMD = "curl"
 AGENT_REACH_CONFIG = Path.home() / ".agent-reach" / "config.yaml"
 X_BEARER_TOKEN = (
@@ -75,12 +79,25 @@ X_USER_FEATURES = {
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Collect Piasnews X items through Agent-Reach/twitter-cli.")
+    parser = argparse.ArgumentParser(description="Collect Piasnews X items through Agent-Reach.")
     parser.add_argument("--sources", default="piasnews/references/x-sources.json", help="Piasnews X/IG source config.")
     parser.add_argument("--output", default=DEFAULT_IMPORT_OUTPUT, help="Import JSON output path.")
     parser.add_argument("--days", type=int, default=3, help="Recency window in days.")
+    parser.add_argument(
+        "--retention-days",
+        type=int,
+        default=DEFAULT_RETENTION_DAYS,
+        help="Days to retain when --update-social merges the existing output.",
+    )
     parser.add_argument("--per-source", type=int, default=30, help="Max posts to request per source.")
     parser.add_argument("--group", action="append", help="Optional source group to include, repeatable.")
+    parser.add_argument(
+        "--backend",
+        choices=("auto", "opencli", "x-web", "twitter-cli"),
+        default="auto",
+        help="X backend. auto tries OpenCLI, authenticated X Web, then twitter-cli.",
+    )
+    parser.add_argument("--opencli-cmd", default=os.environ.get("PIASNEWS_OPENCLI_CMD", DEFAULT_OPENCLI_CMD))
     parser.add_argument("--twitter-cmd", default=os.environ.get("PIASNEWS_TWITTER_CMD", DEFAULT_TWITTER_CMD))
     parser.add_argument("--curl-cmd", default=os.environ.get("PIASNEWS_CURL_CMD", DEFAULT_CURL_CMD))
     parser.add_argument(
@@ -235,6 +252,34 @@ def kind_from_tweet(tweet: dict[str, Any]) -> str:
     return "post"
 
 
+def string_list(value: Any) -> list[str]:
+    if isinstance(value, list):
+        return [str(row).strip() for row in value if str(row).strip()]
+    if isinstance(value, str):
+        text = value.strip()
+        if not text:
+            return []
+        if text.startswith("["):
+            try:
+                parsed = json.loads(text)
+            except json.JSONDecodeError:
+                parsed = None
+            if isinstance(parsed, list):
+                return [str(row).strip() for row in parsed if str(row).strip()]
+        return [part.strip() for part in text.split(",") if part.strip()]
+    return []
+
+
+def looks_like_video_url(value: str) -> bool:
+    lowered = value.lower().split("?", 1)[0]
+    return (
+        lowered.endswith((".mp4", ".m3u8", ".mov", ".webm"))
+        or "video.twimg.com" in lowered
+        or "/ext_tw_video/" in lowered
+        or "/amplify_video/" in lowered
+    )
+
+
 def media_from_tweet(tweet: dict[str, Any]) -> tuple[str | None, str | None, str | None]:
     containers: list[Any] = [
         tweet.get("media"),
@@ -249,6 +294,18 @@ def media_from_tweet(tweet: dict[str, Any]) -> tuple[str | None, str | None, str
         elif isinstance(value, list):
             media_rows.extend(row for row in value if isinstance(row, dict))
     image_url = video_url = video_poster_url = None
+
+    # OpenCLI exposes media as index-aligned URL/poster arrays instead of the
+    # original X entities. Preserve the first useful image and video preview.
+    media_urls = string_list(tweet.get("media_urls"))
+    media_posters = string_list(tweet.get("media_posters"))
+    for index, media_url in enumerate(media_urls):
+        poster = media_posters[index] if index < len(media_posters) else None
+        if looks_like_video_url(media_url):
+            video_url = video_url or media_url
+            video_poster_url = video_poster_url or poster
+        else:
+            image_url = image_url or media_url or poster
     for media in media_rows:
         media_type = str(media.get("type") or media.get("media_type") or "").lower()
         preview = str(
@@ -356,10 +413,24 @@ def normalize_raw_tweet(tweet: dict[str, Any], handle: str) -> dict[str, Any] | 
     )
     if not tweet_id or not text or not created_at:
         return None
-    author = tweet.get("author") if isinstance(tweet.get("author"), dict) else {}
-    author_handle = str(author.get("screenName") or author.get("username") or handle).lstrip("@")
+    author_value = tweet.get("author")
+    author = author_value if isinstance(author_value, dict) else {}
+    author_handle = str(
+        author.get("screenName")
+        or author.get("username")
+        or (author_value if isinstance(author_value, str) else "")
+        or handle
+    ).lstrip("@")
     url = str(tweet.get("url") or tweet.get("link") or f"https://x.com/{author_handle}/status/{tweet_id}")
-    metrics = tweet.get("metrics") or tweet.get("public_metrics") or {}
+    raw_metrics = tweet.get("metrics") or tweet.get("public_metrics") or {}
+    metrics = {
+        "likes": parse_int(raw_metrics.get("likes") or raw_metrics.get("like_count") or tweet.get("likes")),
+        "retweets": parse_int(raw_metrics.get("retweets") or raw_metrics.get("retweet_count") or tweet.get("retweets")),
+        "replies": parse_int(raw_metrics.get("replies") or raw_metrics.get("reply_count") or tweet.get("replies")),
+        "quotes": parse_int(raw_metrics.get("quotes") or raw_metrics.get("quote_count") or tweet.get("quotes")),
+        "views": parse_int(raw_metrics.get("views") or raw_metrics.get("view_count") or tweet.get("views")),
+        "bookmarks": parse_int(raw_metrics.get("bookmarks") or raw_metrics.get("bookmark_count") or tweet.get("bookmarks")),
+    }
     extracted_image, extracted_video, extracted_poster = media_from_tweet(tweet)
     image_url = str(tweet.get("image_url") or extracted_image or "").strip() or None
     video_url = str(tweet.get("video_url") or extracted_video or "").strip() or None
@@ -440,6 +511,43 @@ def run_twitter_cli_search(twitter_cmd: str, handle: str, since_date: str, per_s
             tmp_path.unlink(missing_ok=True)
         except OSError:
             pass
+
+
+def run_opencli_tweets(opencli_cmd: str, handle: str, per_source: int) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    if not shutil.which(opencli_cmd):
+        return [], {"platform": "x", "handle": handle, "ok": False, "method": "opencli", "error": f"{opencli_cmd} not found on PATH"}
+    cmd = [
+        opencli_cmd,
+        "twitter",
+        "tweets",
+        handle,
+        "--limit",
+        str(per_source),
+        "--page-delay",
+        "0",
+        "-f",
+        "json",
+        "--window",
+        "background",
+    ]
+    try:
+        result = subprocess.run(cmd, text=True, capture_output=True, check=False, timeout=75)
+        if result.returncode != 0:
+            error_parts = [part.strip() for part in (result.stderr, result.stdout) if part.strip()]
+            return [], {
+                "platform": "x",
+                "handle": handle,
+                "ok": False,
+                "method": "opencli",
+                "error": "\n".join(error_parts) or f"exit_{result.returncode}",
+            }
+        payload = json.loads(result.stdout)
+        items = [item for tweet in tweet_items(payload) if (item := normalize_raw_tweet(tweet, handle))]
+        return items, {"platform": "x", "handle": handle, "ok": True, "method": "opencli", "items": len(items)}
+    except json.JSONDecodeError as exc:
+        return [], {"platform": "x", "handle": handle, "ok": False, "method": "opencli", "error": f"invalid_json: {exc}"}
+    except subprocess.TimeoutExpired:
+        return [], {"platform": "x", "handle": handle, "ok": False, "method": "opencli", "error": "opencli command timed out"}
 
 
 def compact_json(value: dict[str, Any]) -> str:
@@ -694,20 +802,41 @@ def run_twitter_search(
     per_source: int,
     method: str = "user-posts",
     curl_cmd: str = DEFAULT_CURL_CMD,
+    backend: str = "auto",
+    opencli_cmd: str = DEFAULT_OPENCLI_CMD,
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    attempts: list[dict[str, Any]] = []
+    if backend in {"auto", "opencli"}:
+        items, status = run_opencli_tweets(opencli_cmd, handle, per_source)
+        if status.get("ok"):
+            return items, status
+        attempts.append(status)
+        if backend == "opencli":
+            return items, status
+
+    if backend in {"auto", "x-web"}:
+        items, status = run_x_web_search(handle, per_source, curl_cmd)
+        if status.get("ok"):
+            if attempts:
+                status["fallback_from"] = [
+                    {"method": row.get("method"), "error": str(row.get("error") or "")[:500]}
+                    for row in attempts
+                ]
+            return items, status
+        attempts.append(status)
+        if backend == "x-web":
+            return items, status
+
     items, status = run_twitter_cli_search(twitter_cmd, handle, since_date, per_source, method)
     if status.get("ok"):
+        if attempts:
+            status["fallback_from"] = [
+                {"method": row.get("method"), "error": str(row.get("error") or "")[:500]}
+                for row in attempts
+            ]
         return items, status
-
-    fallback_items, fallback_status = run_x_web_search(handle, per_source, curl_cmd)
-    if fallback_status.get("ok"):
-        fallback_status["fallback_from"] = {
-            "method": method,
-            "error": str(status.get("error") or "")[:500],
-        }
-        return fallback_items, fallback_status
-
-    status["fallback_status"] = fallback_status
+    attempts.append(status)
+    status["fallback_status"] = attempts[:-1]
     return items, status
 
 
@@ -716,7 +845,7 @@ def write_json(path: Path, payload: dict[str, Any]) -> None:
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
 
 
-def update_social(import_path: Path, social_output: Path, days: int, now: datetime) -> int:
+def update_social(import_path: Path, social_output: Path, days: int, retention_days: int, now: datetime) -> int:
     import fetch_social_sources
 
     return fetch_social_sources.main_with_args([
@@ -724,6 +853,8 @@ def update_social(import_path: Path, social_output: Path, days: int, now: dateti
         str(import_path),
         "--days",
         str(days),
+        "--retention-days",
+        str(max(days, retention_days)),
         "--output",
         str(social_output),
         "--now",
@@ -739,9 +870,21 @@ def main() -> int:
     sources = load_sources(Path(args.sources), groups)
     statuses: list[dict[str, Any]] = []
     items: list[dict[str, Any]] = []
+    selected_backend = args.backend
 
     for source in sources:
-        source_items, status = run_twitter_search(args.twitter_cmd, source["handle"], since_date, args.per_source, args.method, args.curl_cmd)
+        source_items, status = run_twitter_search(
+            args.twitter_cmd,
+            source["handle"],
+            since_date,
+            args.per_source,
+            args.method,
+            args.curl_cmd,
+            selected_backend,
+            args.opencli_cmd,
+        )
+        if args.backend == "auto" and status.get("ok") and status.get("method") in {"opencli", "x-web", "user-posts", "search"}:
+            selected_backend = "twitter-cli" if status.get("method") in {"user-posts", "search"} else status["method"]
         items.extend(source_items)
         statuses.append(status)
 
@@ -749,7 +892,7 @@ def main() -> int:
 
     payload = {
         "generated_at": isoformat(now),
-        "source": "agent-reach/twitter-cli",
+        "source": "agent-reach/x",
         "window_days": args.days,
         "total_items": len(items),
         "enriched_video_posters": enriched_video_posters,
@@ -760,7 +903,7 @@ def main() -> int:
     write_json(output_path, payload)
     print(f"Wrote {len(items)} Agent-Reach social items to {output_path}")
     if args.update_social:
-        return update_social(output_path, Path(args.social_output), args.days, now)
+        return update_social(output_path, Path(args.social_output), args.days, args.retention_days, now)
     return 0
 
 
