@@ -37,6 +37,8 @@ class HotEventPublishWorkflowTests(unittest.TestCase):
 
         self.assertIn("activeHotOverride", app)
         self.assertIn("前台隐藏", app)
+        self.assertIn("formatAnalyticsTime(override.updated_at)", app)
+        self.assertNotIn("formatDate(override.updated_at)", app)
         self.assertIn("从前台隐藏（后台仍保留）", html)
         self.assertIn("人工指定名次", html)
 

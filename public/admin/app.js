@@ -581,7 +581,7 @@ function selectHotEvent(eventId) {
     ? (override.status === "active" ? "已启用覆盖" : "覆盖草稿")
     : event.review_needed ? "待补媒体" : "算法结果";
   const editorMeta = override?.updated_by
-    ? ` · 最近由 ${override.updated_by} 于 ${formatDate(override.updated_at)} 修改`
+    ? ` · 最近由 ${override.updated_by} 于 ${formatAnalyticsTime(override.updated_at)} 修改`
     : "";
   elements.hotEventMeta.textContent = `算法热度 ${event.heat ?? 0} · ${state.editingHotItems.length} 条关联信息${event.review_needed ? " · 原始短文案缺少媒体证据，未进入前台" : ""}${editorMeta}`;
   const anchor = event.items?.find((item) => item.item_id === event.anchor_item_id) || event.items?.[0];
