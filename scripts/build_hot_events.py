@@ -401,6 +401,59 @@ def apply_override(event: dict[str, Any], override: dict[str, Any]) -> dict[str,
     return updated
 
 
+def rank_events(events: list[dict[str, Any]], maximum_events: int) -> list[dict[str, Any]]:
+    """Place editorial ranks first, then a session result, then heat-ranked events."""
+    slots: list[dict[str, Any] | None] = [None] * maximum_events
+    remaining = list(events)
+
+    def editorial_recency(event: dict[str, Any]) -> float:
+        updated = parse_time((event.get("override") or {}).get("updated_at"))
+        return updated.timestamp() if updated else 0.0
+
+    pinned = sorted(
+        (event for event in remaining if event.get("pinned_rank")),
+        key=lambda event: (
+            int(event["pinned_rank"]),
+            -editorial_recency(event),
+            -event["heat"],
+            event["event_id"],
+        ),
+    )
+    placed_ids: set[str] = set()
+    for event in pinned:
+        slot = int(event["pinned_rank"]) - 1
+        if 0 <= slot < maximum_events and slots[slot] is None:
+            slots[slot] = event
+            placed_ids.add(event["event_id"])
+
+    remaining = [event for event in remaining if event["event_id"] not in placed_ids]
+    hard_rules = sorted(
+        (event for event in remaining if (event.get("hard_rule") or {}).get("type") == "session_result"),
+        key=lambda event: (-event["heat"], event["event_id"]),
+    )
+    for event in hard_rules:
+        free_slot = next((index for index, value in enumerate(slots) if value is None), None)
+        if free_slot is None:
+            break
+        slots[free_slot] = event
+        placed_ids.add(event["event_id"])
+
+    remaining = sorted(
+        (event for event in remaining if event["event_id"] not in placed_ids),
+        key=lambda event: (-event["heat"], event["event_id"]),
+    )
+    for event in remaining:
+        free_slot = next((index for index, value in enumerate(slots) if value is None), None)
+        if free_slot is None:
+            break
+        slots[free_slot] = event
+
+    ranked = [event for event in slots if event is not None]
+    for index, event in enumerate(ranked, start=1):
+        event["rank"] = index
+    return ranked
+
+
 def build(args: argparse.Namespace) -> dict[str, Any]:
     now = now_time(args.now)
     config = read_json(Path(args.config), {})
@@ -560,16 +613,7 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
         clean(getattr(args, "refresh_reason", "")),
         now,
     )
-    events.sort(key=lambda event: (
-        0 if (event.get("hard_rule") or {}).get("type") == "session_result" else 1,
-        event.get("pinned_rank") is None,
-        event.get("pinned_rank") or 999,
-        -event["heat"],
-        event["event_id"],
-    ))
-    events = events[: int(config.get("maximum_events") or 15)]
-    for index, event in enumerate(events, start=1):
-        event["rank"] = index
+    events = rank_events(events, int(config.get("maximum_events") or 15))
 
     return {
         "schema_version": 1,

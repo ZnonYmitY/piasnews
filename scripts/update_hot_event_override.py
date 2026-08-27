@@ -24,6 +24,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--status", required=True, choices=("draft", "active"))
     parser.add_argument("--payload-b64", required=True)
     parser.add_argument("--reviewer", required=True)
+    parser.add_argument("--expected-updated-at", default=None)
     parser.add_argument("--overrides", default=str(ROOT / "data/hot-event-overrides.json"))
     parser.add_argument("--audit", default=str(ROOT / "data/hot-event-audit.json"))
     return parser.parse_args()
@@ -159,12 +160,27 @@ def merge_change(changes: list[dict[str, Any]], change: dict[str, Any]) -> list[
     return sorted(kept, key=lambda row: (row.get("event_id", ""), row.get("status") != "active"))
 
 
+def preferred_change(changes: list[dict[str, Any]], event_id: str) -> dict[str, Any] | None:
+    return next((row for row in changes if row.get("event_id") == event_id and row.get("status") == "draft"), None) \
+        or next((row for row in changes if row.get("event_id") == event_id and row.get("status") == "active"), None)
+
+
+def assert_expected_version(changes: list[dict[str, Any]], event_id: str, expected: str | None) -> None:
+    if expected is None:
+        return
+    current = preferred_change(changes, event_id)
+    current_version = str(current.get("updated_at") or "") if current else "__none__"
+    if current_version != expected:
+        raise ValueError("Hot event was changed by another administrator; refresh before saving")
+
+
 def main() -> int:
     args = parse_args()
     change = normalize_change(args.event_id, args.status, decode_payload(args.payload_b64), args.reviewer)
     overrides_path = Path(args.overrides)
     audit_path = Path(args.audit)
     overrides = read_json(overrides_path, {"schema_version": 1, "updated_at": None, "changes": []})
+    assert_expected_version(overrides.get("changes") or [], args.event_id, args.expected_updated_at)
     changes = merge_change(overrides.get("changes") or [], change)
     overrides.update({"schema_version": 1, "updated_at": change["updated_at"], "changes": changes})
     audit = read_json(audit_path, {"schema_version": 1, "changes": []})

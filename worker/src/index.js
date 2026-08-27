@@ -120,6 +120,9 @@ function validateHotEventChange(body) {
   if (!/^evt-[a-z0-9-]{4,120}$/.test(body.event_id || "")) return "Invalid event_id.";
   if (!["draft", "active"].includes(body.status)) return "Invalid override status.";
   if (!body.change || typeof body.change !== "object") return "Missing hot-event change.";
+  if (body.expected_updated_at != null && (
+    typeof body.expected_updated_at !== "string" || body.expected_updated_at.length > 40
+  )) return "Invalid expected_updated_at.";
   const change = body.change;
   if (typeof change.hot_word_zh !== "string" || !change.hot_word_zh.trim() || change.hot_word_zh.length > 80) {
     return "Chinese hot word is required and must be at most 80 characters.";
@@ -169,6 +172,13 @@ function validateHotEventChange(body) {
     !Number.isInteger(Number(pinnedRank)) || Number(pinnedRank) < 1 || Number(pinnedRank) > 15
   )) return "Pinned rank must be an integer from 1 to 15.";
   return null;
+}
+
+function preferredHotOverride(overrides, eventId) {
+  const changes = overrides?.changes || [];
+  return changes.find((row) => row.event_id === eventId && row.status === "draft")
+    || changes.find((row) => row.event_id === eventId && row.status === "active")
+    || null;
 }
 
 function validateAnalyticsView(body) {
@@ -348,6 +358,7 @@ async function dispatchHotEventChange(body, session, env) {
         override_status: body.status,
         override_payload_b64: base64Url(body.change),
         reviewer: session.user,
+        expected_updated_at: body.expected_updated_at || "__none__",
       },
     }),
   });
@@ -439,6 +450,11 @@ export default {
         return jsonResponse({ error: "Publisher role required to activate an override." }, 403, origin);
       }
       try {
+        const overrides = await repositoryJson("data/hot-event-overrides.json", env);
+        const current = preferredHotOverride(overrides, parsed.body.event_id);
+        if ((current?.updated_at || null) !== (parsed.body.expected_updated_at || null)) {
+          return jsonResponse({ error: "Hot event was changed by another administrator. Refresh and try again." }, 409, origin);
+        }
         await dispatchHotEventChange(parsed.body, session, env);
         return jsonResponse({ accepted: true, event_id: parsed.body.event_id, status: parsed.body.status }, 202, origin);
       } catch (error) {

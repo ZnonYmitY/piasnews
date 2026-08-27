@@ -63,6 +63,23 @@ class HotEventOverrideTest(unittest.TestCase):
         self.assertEqual(item["video_url"], "https://video.example.com/clip.mp4")
         self.assertEqual(item["video_poster_url"], "https://img.example.com/poster.jpg")
 
+    def test_rejects_stale_event_version(self):
+        changes = [{
+            "event_id": "evt-test-event",
+            "status": "active",
+            "updated_at": "2026-08-27T08:00:00Z",
+        }]
+        updater.assert_expected_version(changes, "evt-test-event", "2026-08-27T08:00:00Z")
+        with self.assertRaisesRegex(ValueError, "another administrator"):
+            updater.assert_expected_version(changes, "evt-test-event", "2026-08-27T07:00:00Z")
+
+    def test_new_event_version_requires_no_existing_override(self):
+        updater.assert_expected_version([], "evt-new-event", "__none__")
+        with self.assertRaisesRegex(ValueError, "another administrator"):
+            updater.assert_expected_version([
+                {"event_id": "evt-new-event", "status": "draft", "updated_at": "2026-08-27T08:00:00Z"},
+            ], "evt-new-event", "__none__")
+
 
 if __name__ == "__main__":
     unittest.main()

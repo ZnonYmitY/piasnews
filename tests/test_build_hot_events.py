@@ -146,6 +146,39 @@ class HotEventBuildTest(unittest.TestCase):
         self.assertEqual(event["heat"], 88)
         self.assertEqual(event["rank"], 1)
 
+    def test_manual_rank_one_overrides_session_result_hard_rule(self):
+        manual = {
+            "event_id": "evt-manual-editorial",
+            "heat": 20,
+            "pinned_rank": 1,
+            "override": {"updated_at": "2026-08-27T08:00:00Z"},
+        }
+        session = {
+            "event_id": "evt-session-result",
+            "heat": 100,
+            "pinned_rank": None,
+            "hard_rule": {"type": "session_result"},
+        }
+        ranked = builder.rank_events([session, manual], 15)
+        self.assertEqual([row["event_id"] for row in ranked], ["evt-manual-editorial", "evt-session-result"])
+
+    def test_manual_rank_uses_exact_available_position(self):
+        events = [
+            {"event_id": "evt-hot", "heat": 90, "pinned_rank": None},
+            {"event_id": "evt-second", "heat": 10, "pinned_rank": 2, "override": {"updated_at": "2026-08-27T08:00:00Z"}},
+            {"event_id": "evt-warm", "heat": 70, "pinned_rank": None},
+        ]
+        ranked = builder.rank_events(events, 15)
+        self.assertEqual([row["event_id"] for row in ranked], ["evt-hot", "evt-second", "evt-warm"])
+
+    def test_newest_override_wins_same_manual_rank(self):
+        events = [
+            {"event_id": "evt-old", "heat": 80, "pinned_rank": 1, "override": {"updated_at": "2026-08-27T07:00:00Z"}},
+            {"event_id": "evt-new", "heat": 70, "pinned_rank": 1, "override": {"updated_at": "2026-08-27T08:00:00Z"}},
+        ]
+        ranked = builder.rank_events(events, 15)
+        self.assertEqual([row["event_id"] for row in ranked], ["evt-new", "evt-old"])
+
     def test_draft_override_does_not_change_public_event(self):
         overrides = {"changes": [{
             "event_id": "evt-oscar-turtle-shark-gesture",

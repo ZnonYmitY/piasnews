@@ -23,6 +23,28 @@ class HotEventPublishWorkflowTests(unittest.TestCase):
         self.assertIn("热榜草稿，不发布线上", app)
         self.assertNotIn("已提交启用覆盖，未直接部署线上", app)
 
+    def test_workflow_serializes_writes_and_checks_event_version(self):
+        workflow = (ROOT / ".github/workflows/review-hot-events.yml").read_text(encoding="utf-8")
+
+        self.assertIn("group: piasnews-write", workflow)
+        self.assertIn("cancel-in-progress: false", workflow)
+        self.assertIn("expected_updated_at:", workflow)
+        self.assertIn('--expected-updated-at "$EXPECTED_UPDATED_AT"', workflow)
+
+    def test_workbench_keeps_hidden_events_manageable(self):
+        app = (ROOT / "public/admin/app.js").read_text(encoding="utf-8")
+        html = (ROOT / "public/admin/index.html").read_text(encoding="utf-8")
+
+        self.assertIn("activeHotOverride", app)
+        self.assertIn("前台隐藏", app)
+        self.assertIn("从前台隐藏（后台仍保留）", html)
+        self.assertIn("人工指定名次", html)
+
+    def test_pages_artifact_includes_override_catalog_for_read_only_admin(self):
+        for workflow_name in ("update-piasnews.yml", "review-history.yml"):
+            workflow = (ROOT / ".github/workflows" / workflow_name).read_text(encoding="utf-8")
+            self.assertIn("data/hot-event-overrides.json public/data/", workflow)
+
 
 if __name__ == "__main__":
     unittest.main()

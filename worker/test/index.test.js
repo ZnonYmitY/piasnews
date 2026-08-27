@@ -55,7 +55,7 @@ const env = {
 };
 
 
-function hotChangeRequest(apiKey, status = "draft", changeOverrides = {}) {
+function hotChangeRequest(apiKey, status = "draft", changeOverrides = {}, requestOverrides = {}) {
   return new Request("https://worker.example/hot-events/change", {
     method: "POST",
     headers: {
@@ -66,6 +66,8 @@ function hotChangeRequest(apiKey, status = "draft", changeOverrides = {}) {
     body: JSON.stringify({
       event_id: "evt-test-hot-event",
       status,
+      expected_updated_at: null,
+      ...requestOverrides,
       change: {
         hot_word_zh: "Oscar 分享测试花絮",
         hot_word_en: "Oscar shares a test clip",
@@ -76,6 +78,20 @@ function hotChangeRequest(apiKey, status = "draft", changeOverrides = {}) {
       },
     }),
   });
+}
+
+
+function hotEventFetchMock(overrides = { changes: [] }, onDispatch = () => {}) {
+  return async (url, options = {}) => {
+    if (String(url).includes("/contents/data/hot-event-overrides.json")) {
+      return new Response(JSON.stringify(overrides), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+    onDispatch(JSON.parse(options.body));
+    return new Response(null, { status: 204 });
+  };
 }
 
 
@@ -198,15 +214,13 @@ test("session endpoint returns role permissions without exposing the key", async
 test("editor may save a hot-event draft but may not activate it", async () => {
   const originalFetch = globalThis.fetch;
   let dispatchedBody;
-  globalThis.fetch = async (_url, options) => {
-    dispatchedBody = JSON.parse(options.body);
-    return new Response(null, { status: 204 });
-  };
+  globalThis.fetch = hotEventFetchMock({ changes: [] }, (body) => { dispatchedBody = body; });
   try {
     const draftResponse = await worker.fetch(hotChangeRequest("editor-key", "draft"), env);
     assert.equal(draftResponse.status, 202);
     assert.equal(dispatchedBody.inputs.override_status, "draft");
     assert.equal(dispatchedBody.inputs.reviewer, "editor@example.com");
+    assert.equal(dispatchedBody.inputs.expected_updated_at, "__none__");
 
     const activeResponse = await worker.fetch(hotChangeRequest("editor-key", "active"), env);
     assert.equal(activeResponse.status, 403);
@@ -219,10 +233,7 @@ test("editor may save a hot-event draft but may not activate it", async () => {
 test("publisher may activate a hot-event override", async () => {
   const originalFetch = globalThis.fetch;
   let dispatchedBody;
-  globalThis.fetch = async (_url, options) => {
-    dispatchedBody = JSON.parse(options.body);
-    return new Response(null, { status: 204 });
-  };
+  globalThis.fetch = hotEventFetchMock({ changes: [] }, (body) => { dispatchedBody = body; });
   try {
     const response = await worker.fetch(hotChangeRequest("publisher-key", "active"), env);
     assert.equal(response.status, 202);
@@ -236,7 +247,7 @@ test("publisher may activate a hot-event override", async () => {
 
 test("hot-event overrides accept per-content media and reject insecure URLs", async () => {
   const originalFetch = globalThis.fetch;
-  globalThis.fetch = async () => new Response(null, { status: 204 });
+  globalThis.fetch = hotEventFetchMock();
   const contentItems = [{
     item_id: "content-1",
     source_type: "fan",
@@ -262,6 +273,29 @@ test("hot-event overrides accept per-content media and reject insecure URLs", as
     );
     assert.equal(invalidResponse.status, 400);
     assert.match((await invalidResponse.json()).error, /HTTPS/);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+
+test("stale hot-event edits are rejected before workflow dispatch", async () => {
+  const originalFetch = globalThis.fetch;
+  let dispatchCount = 0;
+  globalThis.fetch = hotEventFetchMock({
+    changes: [{
+      event_id: "evt-test-hot-event",
+      status: "active",
+      updated_at: "2026-08-27T08:00:00Z",
+    }],
+  }, () => { dispatchCount += 1; });
+  try {
+    const response = await worker.fetch(
+      hotChangeRequest("publisher-key", "active", {}, { expected_updated_at: "2026-08-27T07:00:00Z" }),
+      env,
+    );
+    assert.equal(response.status, 409);
+    assert.equal(dispatchCount, 0);
   } finally {
     globalThis.fetch = originalFetch;
   }

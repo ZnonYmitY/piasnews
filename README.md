@@ -395,7 +395,7 @@ python3 scripts/validate_history.py
 python3 scripts/build_hot_events.py
 ```
 
-后台 `/admin/` 新增热榜工作台。角色由 Worker 的 `ADMIN_KEYS_JSON` 配置：`viewer` 可查看，`editor` 可保存草稿，`publisher` 和 `admin` 可提交生效覆盖。工作台支持查看事件下的当前内容列表，新增、删除或编辑单条内容及其原链接和媒体。覆盖数据与采集数据分开保存；草稿只写入配置，启用覆盖会在配置提交后自动触发正式站发布。
+后台 `/admin/` 新增热榜工作台。角色由 Worker 的 `ADMIN_KEYS_JSON` 配置：`viewer` 可查看，`editor` 可保存草稿，`publisher` 和 `admin` 可提交生效覆盖。工作台支持查看事件下的当前内容列表，新增、删除或编辑单条内容及其原链接和媒体。覆盖数据与采集数据分开保存；从前台隐藏的事件仍保留在后台并标记为“前台隐藏”。人工指定名次可把事件插入目标位置，填写 1 即强插第一；同一名次以最近发布的修改优先。草稿只写入配置，启用覆盖会在配置提交后自动触发正式站发布。热榜写入工作流串行执行；同一事件采用乐观版本校验，旧页面不会静默覆盖其他管理员的新修改，而会要求刷新后重新提交。
 
 本版本不启用评论，也不让大模型直接决定聚类或排名。内容逐步保留 7 天、热度按 72 小时衰减、翻译缓存保留 8 天；正文搜索匹配英文原文。
 
@@ -897,7 +897,7 @@ python3 scripts/validate_history.py
 
 The former Short tab is now a merged hot ranking with objective hot words, source labels, integer heat, and related items. Deterministic rules live in `config/hot-ranking.json`; generate the snapshot with `python3 scripts/build_hot_events.py`.
 
-The `/admin/` workbench uses Worker roles configured through `ADMIN_KEYS_JSON`: viewers can inspect, editors can save drafts, and publishers or admins can activate overrides. Editorial overlays remain separate from collected source data. Drafts only update configuration; activating an override automatically triggers a production-site deployment after the configuration commit.
+The `/admin/` workbench uses Worker roles configured through `ADMIN_KEYS_JSON`: viewers can inspect, editors can save drafts, and publishers or admins can activate overrides. Editorial overlays remain separate from collected source data. Events hidden from the public ranking remain visible and labeled in the workbench. An editorial position inserts an event into the requested slot; position 1 is a manual force-to-top override, and the newest publication wins a same-slot collision. Drafts only update configuration; activating an override automatically triggers a production-site deployment after the configuration commit. Writes are serialized, and optimistic per-event version checks reject stale edits instead of silently overwriting another administrator's work.
 
 Comments and direct model-based ranking are out of scope for this MVP. Content is gradually retained for seven days, heat uses a decayed 72-hour window, translations are cached for eight days, and body search matches original English text.
 

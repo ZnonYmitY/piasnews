@@ -14,6 +14,7 @@ const state = {
   hotEvents: [],
   hotOverrides: [],
   selectedHotId: null,
+  selectedHotVersion: null,
   manualHotEvent: false,
   editingHotItems: [],
   selectedHotItemId: null,
@@ -311,23 +312,32 @@ function hotOverride(eventId) {
     || null;
 }
 
+function activeHotOverride(eventId) {
+  return state.hotOverrides.find((row) => row.event_id === eventId && row.status === "active") || null;
+}
+
 function hotEvent(eventId) {
   return state.hotEvents.find((row) => row.event_id === eventId) || null;
 }
 
 function allHotEvents() {
   const rows = [...state.hotEvents];
-  for (const override of state.hotOverrides) {
-    if (!override.manual_event || rows.some((row) => row.event_id === override.event_id)) continue;
+  const overrideEventIds = [...new Set(state.hotOverrides.map((row) => row.event_id).filter(Boolean))];
+  for (const eventId of overrideEventIds) {
+    if (rows.some((row) => row.event_id === eventId)) continue;
+    const override = hotOverride(eventId);
+    const activeOverride = activeHotOverride(eventId);
+    if (!override) continue;
     rows.push({
-      event_id: override.event_id,
+      event_id: eventId,
       hot_word_zh: override.hot_word_zh,
       hot_word_en: override.hot_word_en,
       heat: override.heat || 0,
-      rank: override.pinned_rank || null,
+      rank: activeOverride?.pinned_rank || override.pinned_rank || null,
       source_labels: override.source_labels || [],
-      items: [],
-      manual_event: true,
+      items: override.content_items || [],
+      manual_event: Boolean(override.manual_event),
+      hidden: Boolean(activeOverride?.hidden),
     });
   }
   return rows;
@@ -503,12 +513,15 @@ function renderHotAdminList() {
   elements.hotAdminList.innerHTML = rows.map((event) => {
     const selected = event.event_id === state.selectedHotId ? " is-selected" : "";
     const override = hotOverride(event.event_id);
+    const activeOverride = activeHotOverride(event.event_id);
+    const hidden = Boolean(activeOverride?.hidden || event.hidden);
+    const shownRank = override?.pinned_rank || event.rank || "—";
     return `
       <button class="hot-admin-item${selected}" type="button" data-hot-event-id="${escapeHtml(event.event_id)}">
-        <span class="hot-admin-rank">${event.rank || "—"}</span>
+        <span class="hot-admin-rank">${shownRank}</span>
         <span class="hot-admin-item-main">
           <strong>${escapeHtml(override?.hot_word_zh || event.hot_word_zh)}</strong>
-          <small>${escapeHtml(`${(override?.source_labels || event.source_labels || []).join(" · ") || "无来源标签"}${event.review_needed && !override ? " · 待补媒体" : ""}`)}</small>
+          <small>${escapeHtml(`${hidden ? "前台隐藏 · " : ""}${override?.status === "draft" ? "有未发布草稿 · " : ""}${override?.pinned_rank ? `人工第 ${override.pinned_rank} 位 · ` : ""}${(override?.source_labels || event.source_labels || []).join(" · ") || "无来源标签"}${event.review_needed && !override ? " · 待补媒体" : ""}`)}</small>
         </span>
         <span class="hot-admin-heat">${override?.heat ?? event.heat ?? 0}</span>
       </button>`;
@@ -545,6 +558,7 @@ function selectHotEvent(eventId) {
   const event = hotEvent(eventId) || allHotEvents().find((row) => row.event_id === eventId);
   if (!event) return;
   const override = hotOverride(eventId);
+  state.selectedHotVersion = override?.updated_at || null;
   state.manualHotEvent = Boolean(event.manual_event || override?.manual_event);
   elements.hotEditorEmpty.hidden = true;
   elements.hotEventForm.hidden = false;
@@ -566,7 +580,10 @@ function selectHotEvent(eventId) {
   elements.hotOverrideStatus.textContent = override
     ? (override.status === "active" ? "已启用覆盖" : "覆盖草稿")
     : event.review_needed ? "待补媒体" : "算法结果";
-  elements.hotEventMeta.textContent = `算法热度 ${event.heat ?? 0} · ${state.editingHotItems.length} 条关联信息${event.review_needed ? " · 原始短文案缺少媒体证据，未进入前台" : ""}`;
+  const editorMeta = override?.updated_by
+    ? ` · 最近由 ${override.updated_by} 于 ${formatDate(override.updated_at)} 修改`
+    : "";
+  elements.hotEventMeta.textContent = `算法热度 ${event.heat ?? 0} · ${state.editingHotItems.length} 条关联信息${event.review_needed ? " · 原始短文案缺少媒体证据，未进入前台" : ""}${editorMeta}`;
   const anchor = event.items?.find((item) => item.item_id === event.anchor_item_id) || event.items?.[0];
   elements.hotSourceLink.hidden = !anchor?.url;
   if (anchor?.url) elements.hotSourceLink.href = anchor.url;
@@ -677,9 +694,18 @@ async function submitHotChange(status) {
         Authorization: `Bearer ${adminKey()}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ event_id: state.selectedHotId, status, change }),
+      body: JSON.stringify({
+        event_id: state.selectedHotId,
+        status,
+        expected_updated_at: state.selectedHotVersion,
+        change,
+      }),
     });
     const payload = await response.json().catch(() => ({}));
+    if (response.status === 409) {
+      await loadHotWorkbench();
+      throw new Error("这条热点已被其他管理员修改，已刷新为最新版，请核对后重新提交。");
+    }
     if (!response.ok) throw new Error(payload.error || `配置接口返回 ${response.status}`);
     showToast(status === "active" ? "已提交启用覆盖，正在自动发布线上。" : "已提交热榜草稿，不发布线上。");
   } catch (error) {

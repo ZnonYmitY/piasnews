@@ -22,6 +22,10 @@ on:
         description: Authenticated workbench identity
         required: true
         type: string
+      expected_updated_at:
+        description: Event configuration version seen by the editor
+        required: true
+        type: string
 
 permissions:
   actions: write
@@ -37,6 +41,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -49,12 +55,14 @@ jobs:
           OVERRIDE_STATUS: ${{ inputs.override_status }}
           OVERRIDE_PAYLOAD_B64: ${{ inputs.override_payload_b64 }}
           REVIEWER: ${{ inputs.reviewer }}
+          EXPECTED_UPDATED_AT: ${{ inputs.expected_updated_at }}
         run: |
           python scripts/update_hot_event_override.py \
             --event-id "$EVENT_ID" \
             --status "$OVERRIDE_STATUS" \
             --payload-b64 "$OVERRIDE_PAYLOAD_B64" \
-            --reviewer "$REVIEWER"
+            --reviewer "$REVIEWER" \
+            --expected-updated-at "$EXPECTED_UPDATED_AT"
 
       - name: Rebuild hot events
         run: python scripts/build_hot_events.py
