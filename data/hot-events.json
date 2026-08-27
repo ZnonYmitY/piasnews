@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-27T06:42:09.732061Z",
+  "generated_at": "2026-08-27T06:42:24.752381Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -9,7 +9,7 @@
     {
       "event_id": "evt-2026-08-26-9eb646a643a9",
       "rule_id": null,
-      "hot_word_zh": "Oscar·比斯特里 😭😭😭😭",
+      "hot_word_zh": "Oscar·bee斯特里 😭😭😭😭",
       "hot_word_en": "OSCAR BEEASTRI 😭😭😭😭",
       "first_seen_at": "2026-08-25T19:00:32Z",
       "last_seen_at": "2026-08-27T06:03:03Z",
@@ -30,19 +30,11 @@
           "summary": "OSCAR BEEASTRI 😭😭😭😭 https://t.co/bAG0l8tVib",
           "summary_zh": "Oscar·比斯特里 😭😭😭😭",
           "url": "https://x.com/laurogeitabat/status/2092848917075443930",
-          "published_at": "2026-08-27T05:37:19Z",
+          "published_at": "2026-08-27T05:37:00.000Z",
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 7.0813,
-          "metrics": {
-            "likes": 758,
-            "retweets": 166,
-            "replies": 1,
-            "quotes": 28,
-            "views": 3956,
-            "bookmarks": 59
-          }
+          "manual": false
         },
         {
           "item_id": "piasnews-social-8bed8ffef39b5887",
@@ -58,15 +50,7 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 5.0758,
-          "metrics": {
-            "likes": 267,
-            "retweets": 25,
-            "replies": 0,
-            "quotes": 1,
-            "views": 3454,
-            "bookmarks": 24
-          }
+          "manual": false
         },
         {
           "item_id": "piasnews-social-23c4bec90a1e5dae",
@@ -82,15 +66,7 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 4.9645,
-          "metrics": {
-            "likes": 98,
-            "retweets": 16,
-            "replies": 0,
-            "quotes": 3,
-            "views": 624,
-            "bookmarks": 1
-          }
+          "manual": false
         }
       ],
       "official_heat": 0,
@@ -107,6 +83,11 @@
       },
       "pinned_rank": null,
       "hidden": false,
+      "override": {
+        "updated_at": "2026-08-27T06:42:24.685743Z",
+        "updated_by": "admin",
+        "reason": "优化热点词"
+      },
       "rank": 1
     },
     {
