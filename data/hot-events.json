@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-27T06:49:38.716469Z",
+  "generated_at": "2026-08-27T07:03:22.228100Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -225,61 +225,6 @@
       "rank": 3
     },
     {
-      "event_id": "evt-2026-08-24-5357ad25b6fe",
-      "rule_id": null,
-      "hot_word_zh": "我永远不会离开这个应用",
-      "hot_word_en": "i'm never leaving this app",
-      "first_seen_at": "2026-08-24T07:28:08Z",
-      "last_seen_at": "2026-08-24T07:28:08Z",
-      "anchor_item_id": "piasnews-social-269cf43064c53e9d",
-      "image_url": "https://pbs.twimg.com/media/HQeHlaRXUAADJ3m.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HQeHlaRXUAADJ3m.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-269cf43064c53e9d",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: i'm never leaving this app",
-          "title_zh": "X 发帖 @laurogeitabat：我永远不会离开这个应用",
-          "summary": "i'm never leaving this app https://t.co/H3k6RntZwT",
-          "summary_zh": "我永远不会离开这个应用",
-          "url": "https://x.com/laurogeitabat/status/2091789640424464763",
-          "published_at": "2026-08-24T07:28:08Z",
-          "image_url": "https://pbs.twimg.com/media/HQeHlaRXUAADJ3m.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HQeHlaRXUAADJ3m.jpg",
-          "heat_contribution": 8.0263,
-          "metrics": {
-            "likes": 12980,
-            "retweets": 682,
-            "replies": 8,
-            "quotes": 18,
-            "views": 89340,
-            "bookmarks": 211
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 42,
-      "heat": 42,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 4
-    },
-    {
       "event_id": "evt-2026-08-26-38f4f5f4ba4b",
       "rule_id": null,
       "hot_word_zh": "他丢下夹克时发出“啊”的声音，然后拿到考拉玩偶时说“给我的吗？” 🥹🤏🏻",
@@ -332,7 +277,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 5
+      "rank": 4
     },
     {
       "event_id": "evt-2026-08-26-670e0cef7ab4",
@@ -387,7 +332,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 5
     },
     {
       "event_id": "evt-monaco-penalty-appeal",
@@ -442,7 +387,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 6
     },
     {
       "event_id": "evt-dutch-gp-fan-reaction",
@@ -617,7 +562,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 7
     },
     {
       "event_id": "evt-2026-08-25-d79ed2790eb4",
@@ -672,7 +617,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 9
+      "rank": 8
     },
     {
       "event_id": "evt-2026-08-26-40e4f193e282",
@@ -717,6 +662,61 @@
       "media_heat": 0,
       "fan_heat": 37,
       "heat": 37,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "event_id": "evt-piastri-background-issue",
+      "rule_id": "piastri-background-issue",
+      "hot_word_zh": "Kovalainen 和 Salo 猜测 Oscar 的赛车存在背景问题",
+      "hot_word_en": "Kovalainen and Salo suggest an underlying issue with Oscar's car",
+      "first_seen_at": "2026-08-24T21:13:06Z",
+      "last_seen_at": "2026-08-24T21:13:06Z",
+      "anchor_item_id": "piasnews-social-9efb66062e2cf8ef",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-9efb66062e2cf8ef",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: heikki kovalainen &amp; mika salo about oscar: H: \"oscar is a very quick driver. i don't believ…",
+          "title_zh": "X 发帖 @laurogeitabat：海基·科瓦莱宁和米卡·萨洛谈论Oscar：H：“Oscar是一位非常快的车手。我不相信他的速度就这么消失了。背后肯定有什么东西不对劲。也许米卡知道的比我多。”M：“是的，我不能说什么，但你的方向是对的。”",
+          "summary": "heikki kovalainen &amp; mika salo about oscar: H: \"oscar is a very quick driver. i don't believe his pace has just vanished. there is something in the background that isn't working. maybe mika knows more than i do.\" M: \"yes, i can't say anything, but you're on the right track.\" https://t.co/do6qHPkQJC",
+          "summary_zh": "海基·科瓦莱宁和米卡·萨洛谈论Oscar：H：“Oscar是一位非常快的车手。我不相信他的速度就这么消失了。背后肯定有什么东西不对劲。也许米卡知道的比我多。”M：“是的，我不能说什么，但你的方向是对的。”",
+          "url": "https://x.com/laurogeitabat/status/2091997250389979316",
+          "published_at": "2026-08-24T21:13:06Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 6.8659,
+          "metrics": {
+            "likes": 1681,
+            "retweets": 161,
+            "replies": 18,
+            "quotes": 231,
+            "views": 227090,
+            "bookmarks": 392
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 36,
+      "heat": 36,
       "source_labels": [
         "粉"
       ],
