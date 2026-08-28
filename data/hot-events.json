@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-28T07:18:52.258086Z",
+  "generated_at": "2026-08-28T07:21:22.597508Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -91,6 +91,109 @@
       "rank": 1
     },
     {
+      "event_id": "evt-2026-08-27-13bff02851a7",
+      "rule_id": null,
+      "hot_word_zh": "😭🦈🐝",
+      "hot_word_en": "😭🦈🐝",
+      "first_seen_at": "2026-08-27T05:42:07Z",
+      "last_seen_at": "2026-08-27T07:37:45Z",
+      "anchor_item_id": "piasnews-social-fa874de71e8a0ee8",
+      "image_url": "https://pbs.twimg.com/media/HQtfikfbsAAwhmd.jpg",
+      "video_url": "https://video.twimg.com/tweet_video/HQtIb8qaIAAE_QC.mp4",
+      "video_poster_url": "https://pbs.twimg.com/media/HQtfikfbsAAwhmd.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-fa874de71e8a0ee8",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: 😭🦈🐝",
+          "title_zh": "X 转帖 @laurogeitabat：😭🦈🐝",
+          "summary": "😭🦈🐝 https://t.co/YGIxXJFeaU",
+          "summary_zh": "😭🦈🐝",
+          "url": "https://x.com/lveluxp/status/2092871512726675743",
+          "published_at": "2026-08-27T07:07:06Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 7.7702,
+          "metrics": {
+            "likes": 3609,
+            "retweets": 678,
+            "replies": 3,
+            "quotes": 20,
+            "views": 24835,
+            "bookmarks": 195
+          }
+        },
+        {
+          "item_id": "piasnews-social-fdefaa29838a8474",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: RT @lveluxp: 😭🦈🐝",
+          "title_zh": "X 转帖 @laurogeitabat：转推 @lveluxp: 😭🦈🐝",
+          "summary": "RT @lveluxp: 😭🦈🐝 https://t.co/YGIxXJFeaU",
+          "summary_zh": "转推 @lveluxp: 😭🦈🐝",
+          "url": "https://x.com/laurogeitabat/status/2092879224755343561",
+          "published_at": "2026-08-27T07:37:45Z",
+          "image_url": "https://pbs.twimg.com/media/HQtfikfbsAAwhmd.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HQtfikfbsAAwhmd.jpg",
+          "heat_contribution": 6.9504,
+          "metrics": {
+            "likes": 0,
+            "retweets": 694,
+            "replies": 0,
+            "quotes": 0,
+            "views": 209,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-02018338b2251325",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: RT @QuadLockCase: Gwesped Piastrii",
+          "title_zh": "X 转帖 @laurogeitabat：转推 @QuadLockCase: Gwesped Piastrii",
+          "summary": "RT @QuadLockCase: Gwesped Piastrii https://t.co/LksHx4fzTK",
+          "summary_zh": "转推 @QuadLockCase: Gwesped Piastrii",
+          "url": "https://x.com/laurogeitabat/status/2092850123487261173",
+          "published_at": "2026-08-27T05:42:07Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/tweet_video/HQtIb8qaIAAE_QC.mp4",
+          "video_poster_url": "https://pbs.twimg.com/tweet_video_thumb/HQtIb8qaIAAE_QC.jpg",
+          "heat_contribution": 6.4372,
+          "metrics": {
+            "likes": 0,
+            "retweets": 692,
+            "replies": 0,
+            "quotes": 0,
+            "views": 194,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 67,
+      "heat": 67,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 2
+    },
+    {
       "event_id": "evt-2026-08-26-670e0cef7ab4",
       "rule_id": null,
       "hot_word_zh": "小小的愿望 #f1art #oscarpiastri",
@@ -167,7 +270,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 2
+      "rank": 3
     },
     {
       "event_id": "evt-2026-08-27-169284e65725",
@@ -246,7 +349,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 3
+      "rank": 4
     },
     {
       "event_id": "evt-2026-08-26-38f4f5f4ba4b",
@@ -301,7 +404,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 4
+      "rank": 5
     },
     {
       "event_id": "evt-monaco-penalty-appeal",
@@ -356,7 +459,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 5
+      "rank": 6
     },
     {
       "event_id": "evt-2026-08-27-9788e92307c9",
@@ -411,7 +514,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 7
     },
     {
       "event_id": "evt-2026-08-27-bfc6db02c50e",
@@ -479,7 +582,7 @@
         "updated_by": "admin",
         "reason": "合并热点词"
       },
-      "rank": 7
+      "rank": 8
     },
     {
       "event_id": "evt-2026-08-26-40e4f193e282",
@@ -534,7 +637,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 9
     },
     {
       "event_id": "evt-2026-08-27-20a9dd7e083e",
@@ -579,61 +682,6 @@
       "media_heat": 0,
       "fan_heat": 35,
       "heat": 35,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 9
-    },
-    {
-      "event_id": "evt-2026-08-26-9eb07d637016",
-      "rule_id": null,
-      "hot_word_zh": "他太帅了（5秒以上的进站和颜值）",
-      "hot_word_en": "he's SERVING (5+ second pitstops and face)",
-      "first_seen_at": "2026-08-26T16:51:49Z",
-      "last_seen_at": "2026-08-26T16:51:49Z",
-      "anchor_item_id": "piasnews-social-5e55b37a231ee655",
-      "image_url": "https://pbs.twimg.com/media/HQqbySMXYAAV8PE.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HQqbySMXYAAV8PE.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-5e55b37a231ee655",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: he's SERVING (5+ second pitstops and face)",
-          "title_zh": "X 发帖 @laurogeitabat：他太帅了（5秒以上的进站和颜值）",
-          "summary": "he's SERVING (5+ second pitstops and face) https://t.co/DWxgK6q6dQ",
-          "summary_zh": "他太帅了（5秒以上的进站和颜值）",
-          "url": "https://x.com/laurogeitabat/status/2092656273737011603",
-          "published_at": "2026-08-26T16:51:49Z",
-          "image_url": "https://pbs.twimg.com/media/HQqbySMXYAAV8PE.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HQqbySMXYAAV8PE.jpg",
-          "heat_contribution": 6.2999,
-          "metrics": {
-            "likes": 917,
-            "retweets": 104,
-            "replies": 4,
-            "quotes": 0,
-            "views": 7079,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 34,
-      "heat": 34,
       "source_labels": [
         "粉"
       ],
