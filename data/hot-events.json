@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-27T21:01:45.441075Z",
+  "generated_at": "2026-08-28T01:15:21.929324Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -71,8 +71,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 73,
-      "heat": 73,
+      "fan_heat": 75,
+      "heat": 75,
       "source_labels": [
         "粉"
       ],
@@ -118,14 +118,14 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 8.252,
+          "heat_contribution": 8.3336,
           "metrics": {
-            "likes": 3371,
-            "retweets": 624,
-            "replies": 10,
-            "quotes": 50,
-            "views": 36320,
-            "bookmarks": 299
+            "likes": 3655,
+            "retweets": 667,
+            "replies": 11,
+            "quotes": 52,
+            "views": 42141,
+            "bookmarks": 326
           }
         },
         {
@@ -142,21 +142,21 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 8.174,
+          "heat_contribution": 8.2497,
           "metrics": {
-            "likes": 3207,
-            "retweets": 627,
+            "likes": 3487,
+            "retweets": 664,
             "replies": 3,
             "quotes": 20,
-            "views": 21882,
-            "bookmarks": 168
+            "views": 23667,
+            "bookmarks": 185
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 59,
-      "heat": 59,
+      "fan_heat": 60,
+      "heat": 60,
       "source_labels": [
         "粉"
       ],
@@ -197,14 +197,14 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 6.1993,
+          "heat_contribution": 6.0594,
           "metrics": {
-            "likes": 399,
-            "retweets": 19,
+            "likes": 459,
+            "retweets": 25,
             "replies": 1,
             "quotes": 6,
-            "views": 3939,
-            "bookmarks": 16
+            "views": 4549,
+            "bookmarks": 19
           }
         },
         {
@@ -221,21 +221,21 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 5.9015,
+          "heat_contribution": 5.903,
           "metrics": {
-            "likes": 629,
+            "likes": 630,
             "retweets": 41,
             "replies": 2,
             "quotes": 11,
-            "views": 7122,
+            "views": 7145,
             "bookmarks": 22
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 45,
-      "heat": 45,
+      "fan_heat": 44,
+      "heat": 44,
       "source_labels": [
         "粉"
       ],
@@ -276,13 +276,13 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 7.6434,
+          "heat_contribution": 7.647,
           "metrics": {
-            "likes": 3611,
+            "likes": 3626,
             "retweets": 293,
             "replies": 0,
             "quotes": 22,
-            "views": 39397,
+            "views": 39581,
             "bookmarks": 511
           }
         }
@@ -302,61 +302,6 @@
       "pinned_rank": null,
       "hidden": false,
       "rank": 4
-    },
-    {
-      "event_id": "evt-2026-08-26-670e0cef7ab4",
-      "rule_id": null,
-      "hot_word_zh": "小小的愿望 #f1art #oscarpiastri",
-      "hot_word_en": "小小的愿望 #f1art #oscarpiastri",
-      "first_seen_at": "2026-08-26T13:41:00Z",
-      "last_seen_at": "2026-08-26T13:41:00Z",
-      "anchor_item_id": "piasnews-social-1109de43881806ee",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-1109de43881806ee",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@oscarpiastri81",
-          "title": "X repost from @oscarpiastri81: 小小的愿望 #f1art #oscarpiastri",
-          "title_zh": "X 转帖 @oscarpiastri81：小小的愿望 #f1art #oscarpiastri",
-          "summary": "小小的愿望 #f1art #oscarpiastri https://t.co/pgyQKBB7wk",
-          "summary_zh": "小小的愿望 #f1art #oscarpiastri",
-          "url": "https://x.com/hiroshi_x3/status/2092608251342807278",
-          "published_at": "2026-08-26T13:41:00Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 7.4972,
-          "metrics": {
-            "likes": 2910,
-            "retweets": 450,
-            "replies": 2,
-            "quotes": 9,
-            "views": 17035,
-            "bookmarks": 187
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 39,
-      "heat": 39,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 5
     },
     {
       "event_id": "evt-2026-08-27-eb6b2d84012d",
@@ -386,14 +331,14 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 7.4899,
+          "heat_contribution": 7.5102,
           "metrics": {
-            "likes": 1546,
-            "retweets": 273,
+            "likes": 1578,
+            "retweets": 278,
             "replies": 1,
-            "quotes": 48,
-            "views": 19421,
-            "bookmarks": 125
+            "quotes": 49,
+            "views": 19915,
+            "bookmarks": 127
           }
         }
       ],
@@ -411,7 +356,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 5
     },
     {
       "event_id": "evt-2026-08-27-bfc6db02c50e",
@@ -441,14 +386,14 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 7.2137,
+          "heat_contribution": 7.2497,
           "metrics": {
-            "likes": 1331,
-            "retweets": 170,
+            "likes": 1383,
+            "retweets": 175,
             "replies": 0,
             "quotes": 19,
-            "views": 10025,
-            "bookmarks": 38
+            "views": 10459,
+            "bookmarks": 41
           }
         }
       ],
@@ -466,7 +411,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 6
     },
     {
       "event_id": "evt-monaco-penalty-appeal",
@@ -521,62 +466,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
-    },
-    {
-      "event_id": "evt-piastri-background-issue",
-      "rule_id": "piastri-background-issue",
-      "hot_word_zh": "Kovalainen 和 Salo 猜测 Oscar 的赛车存在背景问题",
-      "hot_word_en": "Kovalainen and Salo suggest an underlying issue with Oscar's car",
-      "first_seen_at": "2026-08-24T21:13:06Z",
-      "last_seen_at": "2026-08-24T21:13:06Z",
-      "anchor_item_id": "piasnews-social-9efb66062e2cf8ef",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-9efb66062e2cf8ef",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: heikki kovalainen &amp; mika salo about oscar: H: \"oscar is a very quick driver. i don't believ…",
-          "title_zh": "X 发帖 @laurogeitabat：海基·科瓦莱宁和米卡·萨洛谈论Oscar：H：“Oscar是一位非常快的车手。我不相信他的速度就这么消失了。背后肯定有什么东西不对劲。也许米卡知道的比我多。”M：“是的，我不能说什么，但你的方向是对的。”",
-          "summary": "heikki kovalainen &amp; mika salo about oscar: H: \"oscar is a very quick driver. i don't believe his pace has just vanished. there is something in the background that isn't working. maybe mika knows more than i do.\" M: \"yes, i can't say anything, but you're on the right track.\" https://t.co/do6qHPkQJC",
-          "summary_zh": "海基·科瓦莱宁和米卡·萨洛谈论Oscar：H：“Oscar是一位非常快的车手。我不相信他的速度就这么消失了。背后肯定有什么东西不对劲。也许米卡知道的比我多。”M：“是的，我不能说什么，但你的方向是对的。”",
-          "url": "https://x.com/laurogeitabat/status/2091997250389979316",
-          "published_at": "2026-08-24T21:13:06Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 6.8664,
-          "metrics": {
-            "likes": 1681,
-            "retweets": 161,
-            "replies": 18,
-            "quotes": 231,
-            "views": 227322,
-            "bookmarks": 392
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 36,
-      "heat": 36,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 9
+      "rank": 7
     },
     {
       "event_id": "evt-2026-08-26-40e4f193e282",
@@ -606,13 +496,13 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 6.6232,
+          "heat_contribution": 6.6281,
           "metrics": {
-            "likes": 1253,
-            "retweets": 76,
+            "likes": 1258,
+            "retweets": 77,
             "replies": 1,
             "quotes": 6,
-            "views": 24966,
+            "views": 25089,
             "bookmarks": 38
           }
         }
@@ -621,6 +511,116 @@
       "media_heat": 0,
       "fan_heat": 35,
       "heat": 35,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 8
+    },
+    {
+      "event_id": "evt-2026-08-27-9788e92307c9",
+      "rule_id": null,
+      "hot_word_zh": "下周健身房奥斯卡视频，这不是演习！！",
+      "hot_word_en": "GYMSCAR VIDEO NEXT WEEK THIS IS NOT A DRILL !!",
+      "first_seen_at": "2026-08-27T18:51:40Z",
+      "last_seen_at": "2026-08-27T18:51:40Z",
+      "anchor_item_id": "piasnews-social-a499e5483ad13bed",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-a499e5483ad13bed",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: GYMSCAR VIDEO NEXT WEEK THIS IS NOT A DRILL !!",
+          "title_zh": "X 发帖 @laurogeitabat：下周健身房奥斯卡视频，这不是演习！！",
+          "summary": "GYMSCAR VIDEO NEXT WEEK THIS IS NOT A DRILL !! https://t.co/C7xbKcCvF5",
+          "summary_zh": "下周健身房奥斯卡视频，这不是演习！！",
+          "url": "https://x.com/laurogeitabat/status/2093048818811953330",
+          "published_at": "2026-08-27T18:51:40Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 6.6295,
+          "metrics": {
+            "likes": 692,
+            "retweets": 61,
+            "replies": 1,
+            "quotes": 22,
+            "views": 14712,
+            "bookmarks": 46
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 35,
+      "heat": 35,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "event_id": "evt-2026-08-26-9eb07d637016",
+      "rule_id": null,
+      "hot_word_zh": "他太帅了（5秒以上的进站和颜值）",
+      "hot_word_en": "he's SERVING (5+ second pitstops and face)",
+      "first_seen_at": "2026-08-26T16:51:49Z",
+      "last_seen_at": "2026-08-26T16:51:49Z",
+      "anchor_item_id": "piasnews-social-5e55b37a231ee655",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-5e55b37a231ee655",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: he's SERVING (5+ second pitstops and face)",
+          "title_zh": "X 发帖 @laurogeitabat：他太帅了（5秒以上的进站和颜值）",
+          "summary": "he's SERVING (5+ second pitstops and face) https://t.co/DWxgK6q6dQ",
+          "summary_zh": "他太帅了（5秒以上的进站和颜值）",
+          "url": "https://x.com/laurogeitabat/status/2092656273737011603",
+          "published_at": "2026-08-26T16:51:49Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 6.3011,
+          "metrics": {
+            "likes": 915,
+            "retweets": 104,
+            "replies": 4,
+            "quotes": 2,
+            "views": 7024,
+            "bookmarks": 37
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 34,
+      "heat": 34,
       "source_labels": [
         "粉"
       ],
