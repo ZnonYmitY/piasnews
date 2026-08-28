@@ -1,31 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-28T16:50:23.103602Z",
+  "generated_at": "2026-08-28T20:15:36.811867Z",
   "translations": {
-    "items:piasnews-7a53c82a923e2491:title:b214a3594f7bca0979d3d3b3": {
-      "dataset": "items",
-      "item_id": "piasnews-7a53c82a923e2491",
-      "field": "title",
-      "target_field": "title_zh",
-      "source_text": "Piastri praises layout and laments Zandvoort’s F1 departure: “We will miss it”",
-      "zh": "Piastri称赞赛道布局，并感叹赞德福特告别F1：“我们会想念它的”",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-08-20T19:00:02.395831Z"
-    },
-    "items:piasnews-7a53c82a923e2491:summary:73c687deab0b33e8260654ec": {
-      "dataset": "items",
-      "item_id": "piasnews-7a53c82a923e2491",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
-      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-08-20T19:00:02.395839Z"
-    },
     "items:piasnews-1505d6ebd95715f0:title:ab1f8111d937598a5f35eb73": {
       "dataset": "items",
       "item_id": "piasnews-1505d6ebd95715f0",
@@ -5485,6 +5461,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-28T16:24:39.511194Z"
+    },
+    "items:piasnews-2fe89567bc4ebf98:title:033cf45762de6a9d803f250f": {
+      "dataset": "items",
+      "item_id": "piasnews-2fe89567bc4ebf98",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "McLaren F1 2026: Stella Explains Piastri vs Norris Gap",
+      "zh": "McLarenF1 2026：斯特拉解释Piastri与Norris之间的差距",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-28T20:15:35.786128Z"
+    },
+    "items:piasnews-2fe89567bc4ebf98:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-2fe89567bc4ebf98",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-28T20:15:35.786137Z"
     }
   },
   "retention_days": 8
