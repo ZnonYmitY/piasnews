@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-28T06:02:46.143878Z",
+  "updated_at": "2026-08-28T06:16:23.881068Z",
   "changes": [
     {
       "event_id": "evt-2026-08-24-5357ad25b6fe",
@@ -140,6 +140,58 @@
       ],
       "reason": "优化热点词",
       "updated_at": "2026-08-27T06:42:24.685743Z",
+      "updated_by": "admin"
+    },
+    {
+      "event_id": "evt-2026-08-27-bfc6db02c50e",
+      "status": "active",
+      "manual_event": false,
+      "hot_word_zh": "鲨鱼和黄蜂 🦈🐝",
+      "hot_word_en": "THE SHARK AND THE WASP 🦈🐝",
+      "source_labels": [
+        "粉"
+      ],
+      "heat": null,
+      "pinned_rank": null,
+      "hidden": false,
+      "image_url": null,
+      "video_url": null,
+      "content_items": [
+        {
+          "item_id": "piasnews-social-23c4bec90a1e5dae",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: THE SHARK AND THE WASP 🦈🐝",
+          "title_zh": "X 发帖 @laurogeitabat：鲨鱼和黄蜂 🦈🐝",
+          "summary": "THE SHARK AND THE WASP 🦈🐝 https://t.co/LzCDhFcRV8",
+          "summary_zh": "鲨鱼和黄蜂 🦈🐝",
+          "url": "https://x.com/laurogeitabat/status/2092855393990942796",
+          "published_at": "2026-08-27T06:03:00.000Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "manual": false
+        },
+        {
+          "item_id": "manual-mtck5s15-ywcif",
+          "dataset": "manual",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "",
+          "title_zh": "X 发帖 @laurogeitabat：QUADLOCK让Oscar和佩德罗打扮成蜜蜂和鲨鱼，这太不可思议了",
+          "summary": "",
+          "summary_zh": "QUADLOCK让Oscar和佩德罗打扮成蜜蜂和鲨鱼，这太不可思议了",
+          "url": "https://x.com/laurogeitabat/status/2092848583905054995",
+          "published_at": null,
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "manual": true
+        }
+      ],
+      "reason": "合并热点词",
+      "updated_at": "2026-08-28T06:16:23.881068Z",
       "updated_by": "admin"
     },
     {

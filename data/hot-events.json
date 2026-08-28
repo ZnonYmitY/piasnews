@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-28T06:05:08.332822Z",
+  "generated_at": "2026-08-28T06:16:23.949912Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -536,19 +536,27 @@
           "summary": "THE SHARK AND THE WASP 🦈🐝 https://t.co/LzCDhFcRV8",
           "summary_zh": "鲨鱼和黄蜂 🦈🐝",
           "url": "https://x.com/laurogeitabat/status/2092855393990942796",
-          "published_at": "2026-08-27T06:03:03Z",
+          "published_at": "2026-08-27T06:03:00.000Z",
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 6.7524,
-          "metrics": {
-            "likes": 1400,
-            "retweets": 178,
-            "replies": 0,
-            "quotes": 19,
-            "views": 10626,
-            "bookmarks": 43
-          }
+          "manual": false
+        },
+        {
+          "item_id": "manual-mtck5s15-ywcif",
+          "dataset": "manual",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "",
+          "title_zh": "X 发帖 @laurogeitabat：QUADLOCK让Oscar和佩德罗打扮成蜜蜂和鲨鱼，这太不可思议了",
+          "summary": "",
+          "summary_zh": "QUADLOCK让Oscar和佩德罗打扮成蜜蜂和鲨鱼，这太不可思议了",
+          "url": "https://x.com/laurogeitabat/status/2092848583905054995",
+          "published_at": null,
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "manual": true
         }
       ],
       "official_heat": 0,
@@ -565,6 +573,11 @@
       },
       "pinned_rank": null,
       "hidden": false,
+      "override": {
+        "updated_at": "2026-08-28T06:16:23.881068Z",
+        "updated_by": "admin",
+        "reason": "合并热点词"
+      },
       "rank": 9
     },
     {
