@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-28T07:21:21.015878Z",
+  "generated_at": "2026-08-28T10:02:40.677894Z",
   "translations": {
     "items:piasnews-9ed37655a8d95cea:title:d148583f30eb129bcadf6e59": {
       "dataset": "items",
@@ -5449,6 +5449,54 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-28T06:57:04.679503Z"
+    },
+    "items:piasnews-56d50797738d371f:title:71082d17fe42934dc3a6e79c": {
+      "dataset": "items",
+      "item_id": "piasnews-56d50797738d371f",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Andrea Stella explains Oscar Piastri struggles in the 2026 Formula 1 season",
+      "zh": "Andrea Stella 解释 Oscar Piastri 在 2026 年 F1 赛季中的挣扎",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-28T10:02:39.655031Z"
+    },
+    "items:piasnews-56d50797738d371f:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-56d50797738d371f",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-28T10:02:39.655040Z"
+    },
+    "social:piasnews-social-1ff2d920ff94c728:summary:d6e9e22f708b75cb9ff91701": {
+      "dataset": "social",
+      "item_id": "piasnews-social-1ff2d920ff94c728",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "he looks SO good wow https://t.co/9vExVrMNXb",
+      "zh": "他看起来太棒了，哇",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-28T10:02:39.655046Z"
+    },
+    "social:piasnews-social-f7a726294498cd3e:summary:f3e3129fc965f8b7d46b4ead": {
+      "dataset": "social",
+      "item_id": "piasnews-social-f7a726294498cd3e",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "WHY IS IT ALMOST GIVING MULLET WAIT https://t.co/yPhqKd227W",
+      "zh": "为什么这几乎像鲻鱼头，等等",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-28T10:02:39.655050Z"
     }
   },
   "retention_days": 8
