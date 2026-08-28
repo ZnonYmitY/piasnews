@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-28T06:18:49.992310Z",
+  "generated_at": "2026-08-28T06:19:07.698863Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -348,61 +348,6 @@
       "rank": 5
     },
     {
-      "event_id": "evt-2026-08-27-eb6b2d84012d",
-      "rule_id": null,
-      "hot_word_zh": "QUADLOCK让Oscar和佩德罗打扮成蜜蜂和鲨鱼，这太不可思议了",
-      "hot_word_en": "QUADLOCK HAD OSCAR AND PEDRO DRESS UP AS A BEE AND A SHARK THIS IS INCREDIBLE",
-      "first_seen_at": "2026-08-27T05:36:00Z",
-      "last_seen_at": "2026-08-27T05:36:00Z",
-      "anchor_item_id": "piasnews-social-568dbeadda767c2a",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-568dbeadda767c2a",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: QUADLOCK HAD OSCAR AND PEDRO DRESS UP AS A BEE AND A SHARK THIS IS INCREDIBLE",
-          "title_zh": "X 发帖 @laurogeitabat：QUADLOCK让Oscar和佩德罗打扮成蜜蜂和鲨鱼，这太不可思议了",
-          "summary": "QUADLOCK HAD OSCAR AND PEDRO DRESS UP AS A BEE AND A SHARK THIS IS INCREDIBLE https://t.co/Xmmy8KdrfJ",
-          "summary_zh": "QUADLOCK让Oscar和佩德罗打扮成蜜蜂和鲨鱼，这太不可思议了",
-          "url": "https://x.com/laurogeitabat/status/2092848583905054995",
-          "published_at": "2026-08-27T05:36:00Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 7.0133,
-          "metrics": {
-            "likes": 1597,
-            "retweets": 283,
-            "replies": 1,
-            "quotes": 49,
-            "views": 20328,
-            "bookmarks": 126
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 37,
-      "heat": 37,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 6
-    },
-    {
       "event_id": "evt-monaco-penalty-appeal",
       "rule_id": "monaco-penalty-appeal",
       "hot_word_zh": "McLaren 和 Red Bull 的摩纳哥处罚申诉举行听证",
@@ -455,7 +400,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 6
     },
     {
       "event_id": "evt-2026-08-27-9788e92307c9",
@@ -510,7 +455,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 7
     },
     {
       "event_id": "evt-2026-08-27-bfc6db02c50e",
@@ -578,7 +523,7 @@
         "updated_by": "admin",
         "reason": "合并热点词"
       },
-      "rank": 9
+      "rank": 8
     },
     {
       "event_id": "evt-2026-08-26-40e4f193e282",
@@ -616,6 +561,61 @@
             "quotes": 6,
             "views": 25146,
             "bookmarks": 38
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 35,
+      "heat": 35,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "event_id": "evt-2026-08-27-20a9dd7e083e",
+      "rule_id": null,
+      "hot_word_zh": "当然，Oscar即使在皮雷利轮胎测试中也遇到问题，我已经什么都不惊讶了 😭😭",
+      "hot_word_en": "of course oscar is having issues even during pirelli tyre testing, nothing surprises me anymore…",
+      "first_seen_at": "2026-08-27T19:04:59Z",
+      "last_seen_at": "2026-08-27T19:04:59Z",
+      "anchor_item_id": "piasnews-social-859a95081bf21e32",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-859a95081bf21e32",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: of course oscar is having issues even during pirelli tyre testing, nothing surprises me anymore…",
+          "title_zh": "X 发帖 @laurogeitabat：当然，Oscar即使在皮雷利轮胎测试中也遇到问题，我已经什么都不惊讶了 😭😭",
+          "summary": "of course oscar is having issues even during pirelli tyre testing, nothing surprises me anymore 😭😭 https://t.co/0YrFqRdy32",
+          "summary_zh": "当然，Oscar即使在皮雷利轮胎测试中也遇到问题，我已经什么都不惊讶了 😭😭",
+          "url": "https://x.com/laurogeitabat/status/2093052171411411299",
+          "published_at": "2026-08-27T19:04:59Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 6.5955,
+          "metrics": {
+            "likes": 650,
+            "retweets": 42,
+            "replies": 6,
+            "quotes": 33,
+            "views": 15639,
+            "bookmarks": 25
           }
         }
       ],
