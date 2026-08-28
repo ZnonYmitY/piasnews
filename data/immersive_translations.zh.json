@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-28T06:21:33.929161Z",
+  "generated_at": "2026-08-28T06:57:05.704690Z",
   "translations": {
     "items:piasnews-9ed37655a8d95cea:title:d148583f30eb129bcadf6e59": {
       "dataset": "items",
@@ -5365,6 +5365,90 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-27T21:01:42.910739Z"
+    },
+    "items:piasnews-c8d7be3222e1add7:title:941863707ce314c8b3a66311": {
+      "dataset": "items",
+      "item_id": "piasnews-c8d7be3222e1add7",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "McLaren completes two-day Pirelli 2027 tyre test with Land Norris & Oscar Piastri at Mugello",
+      "zh": "McLaren在穆杰罗完成两天的倍耐力2027年轮胎测试，Lando Norris和Oscar Piastri参与",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-28T06:57:04.679472Z"
+    },
+    "items:piasnews-c8d7be3222e1add7:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-c8d7be3222e1add7",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-28T06:57:04.679480Z"
+    },
+    "social:piasnews-social-fdefaa29838a8474:summary:a2dc5cd503d5be31eae47b92": {
+      "dataset": "social",
+      "item_id": "piasnews-social-fdefaa29838a8474",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @lveluxp: 😭🦈🐝 https://t.co/YGIxXJFeaU",
+      "zh": "转推 @lveluxp: 😭🦈🐝",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-28T06:57:04.679485Z"
+    },
+    "social:piasnews-social-d7cb8449b5d8f5f7:summary:54a929c8f76ce7075e808be4": {
+      "dataset": "social",
+      "item_id": "piasnews-social-d7cb8449b5d8f5f7",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @laurogeitabat: QUADLOCK HAD OSCAR AND PEDRO DRESS UP AS A BEE AND A SHARK THIS IS INCREDIBLE https://t.co/Xmmy8KdrfJ",
+      "zh": "转推 @laurogeitabat: QUADLOCK 让Oscar和佩德罗打扮成蜜蜂和鲨鱼，这太不可思议了",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-28T06:57:04.679490Z"
+    },
+    "social:piasnews-social-02018338b2251325:summary:7e5187be666e91b2ceef229a": {
+      "dataset": "social",
+      "item_id": "piasnews-social-02018338b2251325",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @QuadLockCase: Gwesped Piastrii https://t.co/LksHx4fzTK",
+      "zh": "转推 @QuadLockCase: Gwesped Piastrii",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-28T06:57:04.679494Z"
+    },
+    "social:piasnews-social-843a55f7e7461ff5:summary:11d83c38fb8c4806b2bc3ee9": {
+      "dataset": "social",
+      "item_id": "piasnews-social-843a55f7e7461ff5",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @hiroshi_x3: 小小的愿望 #f1art #oscarpiastri https://t.co/pgyQKBB7wk",
+      "zh": "转推 @hiroshi_x3: 小小的愿望 #f1art #oscarpiastri",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-28T06:57:04.679498Z"
+    },
+    "social:piasnews-social-de46318df1aff6e4:summary:dded47d44bd2e0b784508cb0": {
+      "dataset": "social",
+      "item_id": "piasnews-social-de46318df1aff6e4",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @laurogeitabat: i cannot believe they had him act out dog commands in a room all by himself, you can tell he's fighting for his life 😭😭…",
+      "zh": "转推 @laurogeitabat: 我不敢相信他们让他独自在一个房间里表演狗的命令，你可以看出他在拼命挣扎 😭😭…",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-28T06:57:04.679503Z"
     }
   },
   "retention_days": 8
