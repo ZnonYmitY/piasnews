@@ -1,21 +1,23 @@
 {
-  "generated_at": "2026-08-28T10:00:22.054099Z",
+  "generated_at": "2026-08-28T16:21:45.127434Z",
   "window_days": 7,
-  "total_items": 66,
+  "total_items": 68,
   "latest_date": "2026-08-28",
   "days": [
     {
       "date": "2026-08-28",
-      "total_new_items": 2,
+      "total_new_items": 4,
       "official_new_items": 0,
-      "media_new_items": 2,
+      "media_new_items": 4,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
+        "MotorBiscuit": 1,
+        "autohebdof1.com": 1,
         "grandprix247": 2
       },
       "categories": {
-        "team": 2
+        "team": 4
       }
     },
     {
@@ -28,7 +30,7 @@
       "sources": {
         "F1 Oversteer": 1,
         "GPToday.net": 1,
-        "McLaren": 1,
+        "McLaren.com": 1,
         "Nine.com.au": 1,
         "PlanetF1": 1,
         "Sportscape Magazine": 1,
@@ -210,14 +212,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 2
+      "items": 4
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 14
+      "items": 13
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -230,12 +232,12 @@
       "stage": "publisher_date_verification",
       "ok": true,
       "checked": 32,
-      "kept": 27,
+      "kept": 26,
       "results": {
         "outside_window": 2,
         "publisher_date_missing": 1,
-        "publisher_unavailable": 2,
-        "verified": 27
+        "publisher_unavailable": 3,
+        "verified": 26
       }
     },
     {
@@ -243,8 +245,8 @@
       "ok": true,
       "discovery_days": 3,
       "retention_days": 7,
-      "previous_items": 65,
-      "kept": 66
+      "previous_items": 66,
+      "kept": 68
     }
   ]
 }
