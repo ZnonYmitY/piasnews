@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-28T06:02:46.203123Z",
+  "generated_at": "2026-08-28T06:05:08.332822Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -348,61 +348,6 @@
       "rank": 5
     },
     {
-      "event_id": "evt-2026-08-27-bfc6db02c50e",
-      "rule_id": null,
-      "hot_word_zh": "鲨鱼和黄蜂 🦈🐝",
-      "hot_word_en": "THE SHARK AND THE WASP 🦈🐝",
-      "first_seen_at": "2026-08-27T06:03:03Z",
-      "last_seen_at": "2026-08-27T06:03:03Z",
-      "anchor_item_id": "piasnews-social-23c4bec90a1e5dae",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-23c4bec90a1e5dae",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: THE SHARK AND THE WASP 🦈🐝",
-          "title_zh": "X 发帖 @laurogeitabat：鲨鱼和黄蜂 🦈🐝",
-          "summary": "THE SHARK AND THE WASP 🦈🐝 https://t.co/LzCDhFcRV8",
-          "summary_zh": "鲨鱼和黄蜂 🦈🐝",
-          "url": "https://x.com/laurogeitabat/status/2092855393990942796",
-          "published_at": "2026-08-27T06:03:03Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 7.2628,
-          "metrics": {
-            "likes": 1400,
-            "retweets": 178,
-            "replies": 0,
-            "quotes": 19,
-            "views": 10626,
-            "bookmarks": 43
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 38,
-      "heat": 38,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 6
-    },
-    {
       "event_id": "evt-2026-08-27-eb6b2d84012d",
       "rule_id": null,
       "hot_word_zh": "QUADLOCK让Oscar和佩德罗打扮成蜜蜂和鲨鱼，这太不可思议了",
@@ -455,7 +400,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 6
     },
     {
       "event_id": "evt-monaco-penalty-appeal",
@@ -510,7 +455,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 7
     },
     {
       "event_id": "evt-2026-08-27-9788e92307c9",
@@ -548,6 +493,61 @@
             "quotes": 24,
             "views": 17470,
             "bookmarks": 49
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 36,
+      "heat": 36,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 8
+    },
+    {
+      "event_id": "evt-2026-08-27-bfc6db02c50e",
+      "rule_id": null,
+      "hot_word_zh": "鲨鱼和黄蜂 🦈🐝",
+      "hot_word_en": "THE SHARK AND THE WASP 🦈🐝",
+      "first_seen_at": "2026-08-27T06:03:03Z",
+      "last_seen_at": "2026-08-27T06:03:03Z",
+      "anchor_item_id": "piasnews-social-23c4bec90a1e5dae",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-23c4bec90a1e5dae",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: THE SHARK AND THE WASP 🦈🐝",
+          "title_zh": "X 发帖 @laurogeitabat：鲨鱼和黄蜂 🦈🐝",
+          "summary": "THE SHARK AND THE WASP 🦈🐝 https://t.co/LzCDhFcRV8",
+          "summary_zh": "鲨鱼和黄蜂 🦈🐝",
+          "url": "https://x.com/laurogeitabat/status/2092855393990942796",
+          "published_at": "2026-08-27T06:03:03Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 6.7524,
+          "metrics": {
+            "likes": 1400,
+            "retweets": 178,
+            "replies": 0,
+            "quotes": 19,
+            "views": 10626,
+            "bookmarks": 43
           }
         }
       ],
