@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-27T07:03:22.161867Z",
+  "updated_at": "2026-08-28T06:02:46.143878Z",
   "changes": [
     {
       "event_id": "evt-2026-08-24-5357ad25b6fe",
@@ -140,6 +140,58 @@
       ],
       "reason": "优化热点词",
       "updated_at": "2026-08-27T06:42:24.685743Z",
+      "updated_by": "admin"
+    },
+    {
+      "event_id": "evt-2026-08-27-e498381a18be",
+      "status": "active",
+      "manual_event": false,
+      "hot_word_zh": "Gwesped·Piastri",
+      "hot_word_en": "Gwesped Piastrii",
+      "source_labels": [
+        "粉"
+      ],
+      "heat": null,
+      "pinned_rank": null,
+      "hidden": false,
+      "image_url": null,
+      "video_url": null,
+      "content_items": [
+        {
+          "item_id": "piasnews-social-ddded88ad78e56cd",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: Gwesped Piastrii",
+          "title_zh": "X 转帖 @laurogeitabat：格韦斯佩德·Piastri",
+          "summary": "Gwesped Piastrii https://t.co/LksHx4fzTK",
+          "summary_zh": "格韦斯佩德·Piastri",
+          "url": "https://x.com/QuadLockCase/status/2092846131634159887",
+          "published_at": "2026-08-27T05:26:00.000Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "manual": false
+        },
+        {
+          "item_id": "piasnews-social-fa874de71e8a0ee8",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: 😭🦈🐝",
+          "title_zh": "X 转帖 @laurogeitabat：😭🦈🐝",
+          "summary": "😭🦈🐝 https://t.co/YGIxXJFeaU",
+          "summary_zh": "😭🦈🐝",
+          "url": "https://x.com/lveluxp/status/2092871512726675743",
+          "published_at": "2026-08-27T07:07:06Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "manual": false
+        }
+      ],
+      "reason": "翻译",
+      "updated_at": "2026-08-28T06:02:46.143878Z",
       "updated_by": "admin"
     },
     {

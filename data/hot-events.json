@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-28T04:36:55.724786Z",
+  "generated_at": "2026-08-28T06:02:46.203123Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -71,8 +71,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 75,
-      "heat": 75,
+      "fan_heat": 72,
+      "heat": 72,
       "source_labels": [
         "粉"
       ],
@@ -93,11 +93,11 @@
     {
       "event_id": "evt-2026-08-27-e498381a18be",
       "rule_id": null,
-      "hot_word_zh": "格韦斯佩德·Piastri",
+      "hot_word_zh": "Gwesped·Piastri",
       "hot_word_en": "Gwesped Piastrii",
       "first_seen_at": "2026-08-27T05:26:15Z",
       "last_seen_at": "2026-08-27T07:07:06Z",
-      "anchor_item_id": "piasnews-social-ddded88ad78e56cd",
+      "anchor_item_id": "piasnews-social-fa874de71e8a0ee8",
       "image_url": null,
       "video_url": null,
       "video_poster_url": null,
@@ -114,19 +114,11 @@
           "summary": "Gwesped Piastrii https://t.co/LksHx4fzTK",
           "summary_zh": "格韦斯佩德·Piastri",
           "url": "https://x.com/QuadLockCase/status/2092846131634159887",
-          "published_at": "2026-08-27T05:26:15Z",
+          "published_at": "2026-08-27T05:26:00.000Z",
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 8.3645,
-          "metrics": {
-            "likes": 3771,
-            "retweets": 675,
-            "replies": 11,
-            "quotes": 54,
-            "views": 45948,
-            "bookmarks": 335
-          }
+          "manual": false
         },
         {
           "item_id": "piasnews-social-fa874de71e8a0ee8",
@@ -142,21 +134,13 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 8.2809,
-          "metrics": {
-            "likes": 3609,
-            "retweets": 678,
-            "replies": 3,
-            "quotes": 20,
-            "views": 24835,
-            "bookmarks": 195
-          }
+          "manual": false
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 60,
-      "heat": 60,
+      "fan_heat": 59,
+      "heat": 59,
       "source_labels": [
         "粉"
       ],
@@ -167,6 +151,11 @@
       },
       "pinned_rank": null,
       "hidden": false,
+      "override": {
+        "updated_at": "2026-08-28T06:02:46.143878Z",
+        "updated_by": "admin",
+        "reason": "翻译"
+      },
       "rank": 2
     },
     {
@@ -359,61 +348,6 @@
       "rank": 5
     },
     {
-      "event_id": "evt-2026-08-27-eb6b2d84012d",
-      "rule_id": null,
-      "hot_word_zh": "QUADLOCK让Oscar和佩德罗打扮成蜜蜂和鲨鱼，这太不可思议了",
-      "hot_word_en": "QUADLOCK HAD OSCAR AND PEDRO DRESS UP AS A BEE AND A SHARK THIS IS INCREDIBLE",
-      "first_seen_at": "2026-08-27T05:36:00Z",
-      "last_seen_at": "2026-08-27T05:36:00Z",
-      "anchor_item_id": "piasnews-social-568dbeadda767c2a",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-568dbeadda767c2a",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: QUADLOCK HAD OSCAR AND PEDRO DRESS UP AS A BEE AND A SHARK THIS IS INCREDIBLE",
-          "title_zh": "X 发帖 @laurogeitabat：QUADLOCK让Oscar和佩德罗打扮成蜜蜂和鲨鱼，这太不可思议了",
-          "summary": "QUADLOCK HAD OSCAR AND PEDRO DRESS UP AS A BEE AND A SHARK THIS IS INCREDIBLE https://t.co/Xmmy8KdrfJ",
-          "summary_zh": "QUADLOCK让Oscar和佩德罗打扮成蜜蜂和鲨鱼，这太不可思议了",
-          "url": "https://x.com/laurogeitabat/status/2092848583905054995",
-          "published_at": "2026-08-27T05:36:00Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 7.5237,
-          "metrics": {
-            "likes": 1597,
-            "retweets": 283,
-            "replies": 1,
-            "quotes": 49,
-            "views": 20328,
-            "bookmarks": 126
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 39,
-      "heat": 39,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 6
-    },
-    {
       "event_id": "evt-2026-08-27-bfc6db02c50e",
       "rule_id": null,
       "hot_word_zh": "鲨鱼和黄蜂 🦈🐝",
@@ -456,6 +390,61 @@
       "media_heat": 0,
       "fan_heat": 38,
       "heat": 38,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "event_id": "evt-2026-08-27-eb6b2d84012d",
+      "rule_id": null,
+      "hot_word_zh": "QUADLOCK让Oscar和佩德罗打扮成蜜蜂和鲨鱼，这太不可思议了",
+      "hot_word_en": "QUADLOCK HAD OSCAR AND PEDRO DRESS UP AS A BEE AND A SHARK THIS IS INCREDIBLE",
+      "first_seen_at": "2026-08-27T05:36:00Z",
+      "last_seen_at": "2026-08-27T05:36:00Z",
+      "anchor_item_id": "piasnews-social-568dbeadda767c2a",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-568dbeadda767c2a",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: QUADLOCK HAD OSCAR AND PEDRO DRESS UP AS A BEE AND A SHARK THIS IS INCREDIBLE",
+          "title_zh": "X 发帖 @laurogeitabat：QUADLOCK让Oscar和佩德罗打扮成蜜蜂和鲨鱼，这太不可思议了",
+          "summary": "QUADLOCK HAD OSCAR AND PEDRO DRESS UP AS A BEE AND A SHARK THIS IS INCREDIBLE https://t.co/Xmmy8KdrfJ",
+          "summary_zh": "QUADLOCK让Oscar和佩德罗打扮成蜜蜂和鲨鱼，这太不可思议了",
+          "url": "https://x.com/laurogeitabat/status/2092848583905054995",
+          "published_at": "2026-08-27T05:36:00Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 7.0133,
+          "metrics": {
+            "likes": 1597,
+            "retweets": 283,
+            "replies": 1,
+            "quotes": 49,
+            "views": 20328,
+            "bookmarks": 126
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 37,
+      "heat": 37,
       "source_labels": [
         "粉"
       ],
