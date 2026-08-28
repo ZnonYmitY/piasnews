@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-28T16:24:42.150281Z",
+  "generated_at": "2026-08-28T16:50:24.441759Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -245,7 +245,7 @@
           "image_url": "https://pbs.twimg.com/media/HQvkI2qWwAAJkb-.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HQvkI2qWwAAJkb-.jpg",
-          "heat_contribution": 6.1915,
+          "heat_contribution": 5.6821,
           "metrics": {
             "likes": 535,
             "retweets": 28,
@@ -282,8 +282,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 60,
-      "heat": 60,
+      "fan_heat": 59,
+      "heat": 59,
       "source_labels": [
         "粉"
       ],
