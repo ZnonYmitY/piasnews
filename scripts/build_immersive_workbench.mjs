@@ -11,8 +11,8 @@ const outputDir = process.env.PIASNEWS_IMMERSIVE_WORKBENCH_DIR || defaultOutputD
 const workbenchPath = path.join(outputDir, "translation-workbench.html");
 const manifestPath = path.join(outputDir, "translation-targets.json");
 const mappingPath = process.env.PIASNEWS_IMMERSIVE_MAPPING || path.join(dataDir, "immersive_translations.zh.json");
-const itemsPath = path.join(dataDir, "items.json");
-const socialPath = path.join(dataDir, "social.json");
+const itemsPath = process.env.PIASNEWS_IMMERSIVE_ITEMS || path.join(dataDir, "items.json");
+const socialPath = process.env.PIASNEWS_IMMERSIVE_SOCIAL || path.join(dataDir, "social.json");
 const IMMERSIVE_ENGINE = "immersive_translate_chrome";
 const URL_ONLY_RE = /^https?:\/\/\S+$/i;
 const targetMode = normalizeTargetMode(process.env.PIASNEWS_IMMERSIVE_TARGETS || "missing");
@@ -28,8 +28,18 @@ function parsePositiveInteger(value, fallback) {
   return Number.isFinite(parsed) && parsed > 0 ? Math.floor(parsed) : fallback;
 }
 
+function decodeHtmlEntities(value) {
+  const named = { amp: "&", quot: '"', apos: "'", lt: "<", gt: ">", nbsp: " " };
+  return String(value || "").replace(/&(#x[0-9a-f]+|#\d+|amp|quot|apos|lt|gt|nbsp);/gi, (match, entity) => {
+    const normalized = entity.toLowerCase();
+    if (normalized.startsWith("#x")) return String.fromCodePoint(Number.parseInt(normalized.slice(2), 16));
+    if (normalized.startsWith("#")) return String.fromCodePoint(Number.parseInt(normalized.slice(1), 10));
+    return named[normalized] ?? match;
+  });
+}
+
 function clean(value) {
-  return String(value || "").replace(/\s+/g, " ").trim();
+  return decodeHtmlEntities(value).replace(/\s+/g, " ").trim();
 }
 
 function sha256(value) {
@@ -92,8 +102,17 @@ function isUrlOnly(value) {
   return URL_ONLY_RE.test(clean(value));
 }
 
+function hasTranslatableText(value) {
+  return /[A-Za-z]{2,}/.test(clean(value).replace(/https?:\/\/\S+/gi, ""));
+}
+
 function pushTarget(targets, mapping, target) {
-  if (!target.source_text || isUrlOnly(target.source_text) || !shouldCollectTarget(mapping, target.key)) return;
+  if (
+    !target.source_text
+    || isUrlOnly(target.source_text)
+    || !hasTranslatableText(target.source_text)
+    || !shouldCollectTarget(mapping, target.key)
+  ) return;
   targets.push(target);
 }
 

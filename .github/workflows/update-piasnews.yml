@@ -106,6 +106,9 @@ jobs:
       - name: Prune inactive translation cache
         run: python scripts/prune_translation_cache.py --days 8
 
+      - name: Build manual translation fallback status
+        run: python scripts/build_translation_fallback_status.py
+
       - name: Audit translation badcases
         run: |
           python scripts/audit_translations.py \
@@ -142,7 +145,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/items.json data/daily.json data/rss.xml data/calendar.json data/next-race.ics data/next-weekend.ics data/full-season.ics data/social.json data/immersive_translations.zh.json data/history-candidates.json data/hot-events.json data/translation_candidates.csv
+          git add data/items.json data/daily.json data/rss.xml data/calendar.json data/next-race.ics data/next-weekend.ics data/full-season.ics data/social.json data/immersive_translations.zh.json data/translation-fallback.json data/history-candidates.json data/hot-events.json data/translation_candidates.csv
           if git diff --cached --quiet; then
             echo "No Piasnews data changes."
           else
@@ -158,12 +161,12 @@ jobs:
           PIASNEWS_WORKER_URL: ${{ vars.PIASNEWS_WORKER_URL }}
         run: |
           mkdir -p public/data
-          cp data/items.json data/daily.json data/rss.xml data/calendar.json data/next-race.ics data/next-weekend.ics data/full-season.ics data/social.json data/history.json data/history-candidates.json data/hot-events.json data/hot-event-overrides.json public/data/
+          cp data/items.json data/daily.json data/rss.xml data/calendar.json data/next-race.ics data/next-weekend.ics data/full-season.ics data/social.json data/history.json data/history-candidates.json data/hot-events.json data/translation-fallback.json data/hot-event-overrides.json public/data/
           cp data/translation_candidates.csv public/data/translation_candidates.csv
           cp data/translation_candidates_latest.csv public/data/translation_candidates_latest.csv
           cp data/translation_candidates_latest.xlsx public/data/translation_candidates_latest.xlsx
           cp piasnews/references/history-retrieval.json public/data/history-retrieval.json
-          PIASNEWS_IMMERSIVE_WORKBENCH_DIR=public/immersive PIASNEWS_IMMERSIVE_TARGETS=all PIASNEWS_IMMERSIVE_TABS=3 node scripts/build_immersive_workbench.mjs
+          PIASNEWS_IMMERSIVE_WORKBENCH_DIR=public/immersive PIASNEWS_IMMERSIVE_TARGETS=missing PIASNEWS_IMMERSIVE_TABS=1 node scripts/build_immersive_workbench.mjs
           python scripts/write_runtime_config.py --output public/data/runtime-config.json
           touch public/.nojekyll
 

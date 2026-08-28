@@ -18,6 +18,7 @@ const state = {
   manualHotEvent: false,
   editingHotItems: [],
   selectedHotItemId: null,
+  translationFallback: null,
   session: null,
 };
 
@@ -104,7 +105,15 @@ const elements = {
   topPaths: document.querySelector("#topPaths"),
   topReferrers: document.querySelector("#topReferrers"),
   toast: document.querySelector("#toast"),
+  translationFallbackItems: document.querySelector("#translationFallbackItems"),
+  translationPendingCount: document.querySelector("#translationPendingCount"),
+  translationStatusCard: document.querySelector("#translationStatusCard"),
+  translationStatusDescription: document.querySelector("#translationStatusDescription"),
+  translationStatusTitle: document.querySelector("#translationStatusTitle"),
+  translationUpdated: document.querySelector("#translationUpdated"),
+  translationView: document.querySelector("#translationView"),
   typeInput: document.querySelector("#typeInput"),
+  openFallbackWorkbenchButton: document.querySelector("#openFallbackWorkbenchButton"),
   workerUrlInput: document.querySelector("#workerUrlInput"),
 };
 
@@ -279,10 +288,11 @@ async function loadAnalytics() {
 }
 
 function setView(view) {
-  if (!["review", "hot", "analytics"].includes(view)) return;
+  if (!["review", "hot", "translation", "analytics"].includes(view)) return;
   state.activeView = view;
   elements.reviewView.hidden = view !== "review";
   elements.hotView.hidden = view !== "hot";
+  elements.translationView.hidden = view !== "translation";
   elements.analyticsView.hidden = view !== "analytics";
   document.querySelectorAll("[data-view]").forEach((button) => {
     button.classList.toggle("is-active", button.dataset.view === view);
@@ -290,6 +300,79 @@ function setView(view) {
   });
   if (view === "analytics") loadAnalytics();
   if (view === "hot") loadHotWorkbench();
+  if (view === "translation") loadTranslationFallback();
+}
+
+function renderTranslationFallback(payload) {
+  const items = Array.isArray(payload?.items) ? payload.items : [];
+  const pending = Number(payload?.pending_count || items.length || 0);
+  const ignored = Number(payload?.ignored_non_text_count || 0);
+  const requiresAction = payload?.status === "action_required" && pending > 0;
+  state.translationFallback = payload;
+  elements.translationPendingCount.textContent = `${pending} 条`;
+  elements.translationStatusCard.classList.toggle("needs-action", requiresAction);
+  elements.translationStatusCard.classList.toggle("is-healthy", !requiresAction);
+  elements.translationStatusTitle.textContent = requiresAction
+    ? `发现 ${pending} 条内容需要人工兜底`
+    : "大模型翻译正常，无需人工兜底";
+  elements.translationStatusDescription.textContent = requiresAction
+    ? "可由 publisher 或 admin 人工打开 Workbench；系统不会定时弹出页面。"
+    : `${ignored ? `已忽略 ${ignored} 条纯链接或纯表情内容。` : "当前没有缺失的大模型译文。"} 定时启动保持关闭。`;
+  elements.translationUpdated.textContent = payload?.generated_at
+    ? `状态更新于 ${formatAnalyticsTime(payload.generated_at)} 北京时间`
+    : "兜底状态缺少更新时间";
+  elements.openFallbackWorkbenchButton.disabled = !requiresAction || !can("publish");
+  elements.openFallbackWorkbenchButton.title = !requiresAction
+    ? "当前没有需要兜底的内容"
+    : can("publish")
+      ? "打开只包含真实缺口的 Workbench"
+      : "需要 publisher 或 admin 权限";
+  elements.translationFallbackItems.innerHTML = items.length
+    ? items.map((item) => `
+        <article class="translation-fallback-item">
+          <div>
+            <span>${escapeHtml(item.dataset === "social" ? "粉丝内容" : "新闻内容")}</span>
+            <strong>${escapeHtml(item.source_name || "未知来源")}</strong>
+          </div>
+          <p>${escapeHtml(item.source_text)}</p>
+          ${item.source_url ? `<a href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">查看原内容</a>` : ""}
+        </article>`).join("")
+    : '<p class="analytics-empty">当前没有需要人工兜底的内容。</p>';
+}
+
+async function loadTranslationFallback() {
+  elements.refreshButton.disabled = true;
+  try {
+    const payload = await fetchLocalJson([
+      "../data/translation-fallback.json",
+      "../../data/translation-fallback.json",
+    ]);
+    renderTranslationFallback(payload);
+  } catch (error) {
+    state.translationFallback = null;
+    elements.translationStatusCard.classList.remove("is-healthy", "needs-action");
+    elements.translationStatusTitle.textContent = "无法读取翻译兜底状态";
+    elements.translationStatusDescription.textContent = error.message;
+    elements.translationUpdated.textContent = "状态读取失败";
+    elements.openFallbackWorkbenchButton.disabled = true;
+  } finally {
+    elements.refreshButton.disabled = false;
+  }
+}
+
+function openFallbackWorkbench() {
+  const payload = state.translationFallback;
+  if (!payload || payload.status !== "action_required" || !payload.pending_count) {
+    showToast("当前没有需要人工兜底的内容。");
+    return;
+  }
+  if (!can("publish")) {
+    showToast("需要 publisher 或 admin 权限才能人工启动兜底。");
+    return;
+  }
+  const path = payload.workbench_path || "../immersive/translation-workbench.html";
+  window.open(new URL(path, window.location.href), "_blank", "noopener");
+  showToast("已打开兜底 Workbench；请人工确认后再启动沉浸式翻译。");
 }
 
 async function fetchLocalJson(paths) {
@@ -915,6 +998,7 @@ async function saveSettings() {
   await loadSession();
   if (state.activeView === "analytics") loadAnalytics();
   if (state.activeView === "hot") loadHotWorkbench();
+  if (state.activeView === "translation") loadTranslationFallback();
 }
 
 document.querySelectorAll("[data-filter]").forEach((button) => {
@@ -942,10 +1026,12 @@ elements.rejectButton.addEventListener("click", () => {
 elements.refreshButton.addEventListener("click", () => {
   if (state.activeView === "analytics") loadAnalytics();
   else if (state.activeView === "hot") loadHotWorkbench();
+  else if (state.activeView === "translation") loadTranslationFallback();
   else loadCandidates();
 });
 elements.settingsButton.addEventListener("click", openSettings);
 elements.saveSettingsButton.addEventListener("click", saveSettings);
+elements.openFallbackWorkbenchButton.addEventListener("click", openFallbackWorkbench);
 elements.newHotEventButton.addEventListener("click", newManualHotEvent);
 elements.addHotContentButton.addEventListener("click", addHotContent);
 elements.deleteHotContentButton.addEventListener("click", deleteHotContent);

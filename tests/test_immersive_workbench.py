@@ -96,6 +96,53 @@ class ImmersiveWorkbenchTest(unittest.TestCase):
             self.assertEqual(all_payload["target_mode"], "all")
             self.assertGreaterEqual(all_payload["targets_count"], default_payload["targets_count"])
 
+    def test_missing_mode_normalizes_html_entities_and_ignores_non_text(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            items = tmp / "items.json"
+            social = tmp / "social.json"
+            mapping = tmp / "mapping.json"
+            output_dir = tmp / "workbench"
+            items.write_text(json.dumps({"items": []}) + "\n")
+            social.write_text(json.dumps({
+                "items": [
+                    {
+                        "id": "social-text",
+                        "summary": "Oscar &amp; Lando prepare for the race https://example.com/1",
+                        "url": "https://example.com/1",
+                        "source": "Test",
+                    },
+                    {
+                        "id": "social-emoji",
+                        "summary": "😭🦈🐝 https://example.com/2",
+                        "url": "https://example.com/2",
+                        "source": "Test",
+                    },
+                ],
+            }) + "\n")
+            mapping.write_text(json.dumps({"schema_version": 1, "translations": {}}) + "\n")
+
+            result = subprocess.run(
+                ["node", str(ROOT / "scripts" / "build_immersive_workbench.mjs")],
+                cwd=ROOT,
+                env={
+                    **os.environ,
+                    "PIASNEWS_IMMERSIVE_WORKBENCH_DIR": str(output_dir),
+                    "PIASNEWS_IMMERSIVE_ITEMS": str(items),
+                    "PIASNEWS_IMMERSIVE_SOCIAL": str(social),
+                    "PIASNEWS_IMMERSIVE_MAPPING": str(mapping),
+                    "PIASNEWS_IMMERSIVE_TARGETS": "missing",
+                },
+                text=True,
+                capture_output=True,
+                check=True,
+            )
+
+            payload = json.loads(result.stdout)
+            manifest = json.loads(Path(payload["manifest_path"]).read_text())
+            self.assertEqual(payload["targets_count"], 1)
+            self.assertEqual(manifest["targets"][0]["source_text"], "Oscar & Lando prepare for the race https://example.com/1")
+
     def test_shortcut_timeout_records_cooldown(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             tmp = Path(tmpdir)

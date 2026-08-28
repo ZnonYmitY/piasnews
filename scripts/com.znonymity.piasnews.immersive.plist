@@ -18,10 +18,7 @@
     <key>PIASNEWS_IMMERSIVE_APPLY</key>
     <string>0</string>
   </dict>
-  <key>StartInterval</key>
-  <integer>1800</integer>
-  <key>RunAtLoad</key>
-  <true/>
+  <!-- Manual fallback only. Intentionally no StartInterval or RunAtLoad. -->
   <key>StandardOutPath</key>
   <string>/tmp/piasnews-immersive.log</string>
   <key>StandardErrorPath</key>

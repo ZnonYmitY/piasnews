@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light">
     <title>Piasnews 历史审核台</title>
-    <link rel="stylesheet" href="styles.css?v=20260827-3">
+    <link rel="stylesheet" href="styles.css?v=20260829-translation-fallback">
   </head>
   <body>
     <header class="app-bar">
@@ -17,6 +17,7 @@
         <nav class="view-switch" aria-label="后台功能">
           <button class="view-tab is-active" data-view="review" type="button">历史审核</button>
           <button class="view-tab" data-view="hot" type="button">热榜工作台</button>
+          <button class="view-tab" data-view="translation" type="button">翻译兜底</button>
           <button class="view-tab" data-view="analytics" type="button">访问看板</button>
         </nav>
       </div>
@@ -295,6 +296,42 @@
       </div>
     </main>
 
+    <section class="translation-page" id="translationView" aria-labelledby="translationTitle" hidden>
+      <header class="translation-heading">
+        <div>
+          <p class="section-label">TRANSLATION FALLBACK</p>
+          <h2 id="translationTitle">翻译兜底</h2>
+          <p id="translationUpdated">等待读取兜底状态</p>
+        </div>
+        <button class="button button-dark" id="openFallbackWorkbenchButton" type="button" disabled>
+          人工打开 Workbench
+        </button>
+      </header>
+
+      <article class="translation-status-card" id="translationStatusCard">
+        <span class="translation-status-dot" aria-hidden="true"></span>
+        <div>
+          <h3 id="translationStatusTitle">正在检查翻译状态</h3>
+          <p id="translationStatusDescription">大模型译文正常时不会启动沉浸式翻译。</p>
+        </div>
+      </article>
+
+      <section class="translation-fallback-list" aria-labelledby="translationFallbackListTitle">
+        <div class="translation-list-heading">
+          <div>
+            <h3 id="translationFallbackListTitle">待人工处理</h3>
+            <p>只显示大模型映射缺失且包含可翻译英文的内容；纯链接和纯表情不会告警。</p>
+          </div>
+          <strong id="translationPendingCount">0 条</strong>
+        </div>
+        <div id="translationFallbackItems">
+          <p class="analytics-empty">当前没有需要人工兜底的内容。</p>
+        </div>
+      </section>
+
+      <p class="privacy-note">自动定时启动已关闭。人工按钮只打开当前缺口 Workbench，不会自动发送快捷键或直接发布线上。</p>
+    </section>
+
     <section class="analytics-page" id="analyticsView" aria-labelledby="analyticsTitle" hidden>
       <header class="analytics-heading">
         <div>
@@ -384,6 +421,6 @@
     </dialog>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="app.js?v=20260827-3" defer></script>
+    <script src="app.js?v=20260829-translation-fallback" defer></script>
   </body>
 </html>

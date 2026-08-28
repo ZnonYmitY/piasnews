@@ -196,6 +196,121 @@ textarea {
   padding: 34px 0 42px;
 }
 
+.translation-page {
+  width: min(1040px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 34px 0 42px;
+}
+
+.translation-heading,
+.translation-list-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.translation-heading h2,
+.translation-heading p,
+.translation-list-heading h3,
+.translation-list-heading p {
+  margin: 0;
+}
+
+.translation-heading h2 {
+  margin-top: 4px;
+  font-size: 24px;
+}
+
+.translation-heading > div > p:last-child,
+.translation-list-heading p {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.translation-status-card {
+  margin-top: 22px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 22px;
+  background: var(--surface);
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.translation-status-card.is-healthy {
+  border-color: #a9d3bb;
+  background: var(--success-soft);
+}
+
+.translation-status-card.needs-action {
+  border-color: #e8b08a;
+  background: #fff5ed;
+}
+
+.translation-status-dot {
+  width: 10px;
+  height: 10px;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: var(--muted);
+  flex: 0 0 auto;
+}
+
+.translation-status-card.is-healthy .translation-status-dot {
+  background: var(--success);
+}
+
+.translation-status-card.needs-action .translation-status-dot {
+  background: var(--accent-dark);
+}
+
+.translation-status-card h3,
+.translation-status-card p {
+  margin: 0;
+}
+
+.translation-status-card p {
+  margin-top: 4px;
+  color: var(--muted);
+}
+
+.translation-fallback-list {
+  margin-top: 20px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 22px;
+  background: var(--surface);
+}
+
+.translation-fallback-item {
+  padding: 18px 0;
+  border-top: 1px solid var(--border);
+}
+
+.translation-fallback-item:first-child {
+  margin-top: 18px;
+}
+
+.translation-fallback-item div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.translation-fallback-item p {
+  margin: 8px 0;
+}
+
+.translation-fallback-item a {
+  color: var(--accent-dark);
+  font-weight: 700;
+}
+
 .hot-admin-page {
   width: min(1440px, 100%);
   margin: 0 auto;
@@ -1176,6 +1291,17 @@ dialog::backdrop {
   .analytics-page {
     width: min(100% - 28px, 1240px);
     padding-top: 24px;
+  }
+
+  .translation-page {
+    width: min(100% - 28px, 1040px);
+    padding-top: 24px;
+  }
+
+  .translation-heading,
+  .translation-list-heading {
+    align-items: stretch;
+    flex-direction: column;
   }
 
   .hot-admin-page {

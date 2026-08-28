@@ -65,6 +65,21 @@ class HotEventPublishWorkflowTests(unittest.TestCase):
         self.assertIn("escapeHtml(imageUrl || posterUrl)", app)
         self.assertIn("app.js?v=20260828-media-v2", html)
 
+    def test_admin_exposes_manual_translation_fallback_without_automatic_trigger(self):
+        app = (ROOT / "public" / "admin" / "app.js").read_text(encoding="utf-8")
+        html = (ROOT / "public" / "admin" / "index.html").read_text(encoding="utf-8")
+        workflow = (ROOT / ".github" / "workflows" / "update-piasnews.yml").read_text(encoding="utf-8")
+        plist = (ROOT / "scripts" / "com.znonymity.piasnews.immersive.plist").read_text(encoding="utf-8")
+
+        self.assertIn('data-view="translation"', html)
+        self.assertIn("人工打开 Workbench", html)
+        self.assertIn("loadTranslationFallback", app)
+        self.assertIn('can("publish")', app)
+        self.assertIn("build_translation_fallback_status.py", workflow)
+        self.assertIn("PIASNEWS_IMMERSIVE_TARGETS=missing", workflow)
+        self.assertNotIn("<key>StartInterval</key>", plist)
+        self.assertNotIn("<key>RunAtLoad</key>", plist)
+
 
 if __name__ == "__main__":
     unittest.main()
