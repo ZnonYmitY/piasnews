@@ -57,6 +57,14 @@ class HotEventPublishWorkflowTests(unittest.TestCase):
             workflow.index("Build merged hot-event ranking"),
         )
 
+    def test_hot_ranking_renders_poster_only_media_as_image(self):
+        app = (ROOT / "public" / "app.js").read_text(encoding="utf-8")
+        html = (ROOT / "public" / "index.html").read_text(encoding="utf-8")
+
+        self.assertIn(": imageUrl || posterUrl", app)
+        self.assertIn("escapeHtml(imageUrl || posterUrl)", app)
+        self.assertIn("app.js?v=20260828-media-v2", html)
+
 
 if __name__ == "__main__":
     unittest.main()

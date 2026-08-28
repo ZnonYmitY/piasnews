@@ -909,8 +909,8 @@ function renderHotEvent(event) {
   const imageUrl = safeMediaUrl(event.image_url);
   const media = videoUrl
     ? `<span class="hot-media hot-media-video" data-media-kind="video">${posterUrl ? `<img src="${escapeHtml(posterUrl)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">` : ""}<span>▶</span></span>`
-    : imageUrl
-      ? `<span class="hot-media" data-media-kind="image"><img src="${escapeHtml(imageUrl)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>`
+    : imageUrl || posterUrl
+      ? `<span class="hot-media" data-media-kind="image"><img src="${escapeHtml(imageUrl || posterUrl)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>`
       : "";
   return `
     <a class="hot-event" data-event-id="${escapeHtml(event.event_id)}" href="#hot/${encodeURIComponent(event.event_id)}">
