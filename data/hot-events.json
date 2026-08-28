@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-28T01:15:21.929324Z",
+  "generated_at": "2026-08-28T04:36:55.724786Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -118,14 +118,14 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 8.3336,
+          "heat_contribution": 8.3645,
           "metrics": {
-            "likes": 3655,
-            "retweets": 667,
+            "likes": 3771,
+            "retweets": 675,
             "replies": 11,
-            "quotes": 52,
-            "views": 42141,
-            "bookmarks": 326
+            "quotes": 54,
+            "views": 45948,
+            "bookmarks": 335
           }
         },
         {
@@ -142,14 +142,14 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 8.2497,
+          "heat_contribution": 8.2809,
           "metrics": {
-            "likes": 3487,
-            "retweets": 664,
+            "likes": 3609,
+            "retweets": 678,
             "replies": 3,
             "quotes": 20,
-            "views": 23667,
-            "bookmarks": 185
+            "views": 24835,
+            "bookmarks": 195
           }
         }
       ],
@@ -197,13 +197,13 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 6.0594,
+          "heat_contribution": 6.1023,
           "metrics": {
-            "likes": 459,
+            "likes": 481,
             "retweets": 25,
             "replies": 1,
             "quotes": 6,
-            "views": 4549,
+            "views": 4853,
             "bookmarks": 19
           }
         },
@@ -221,14 +221,14 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 5.903,
+          "heat_contribution": 5.9034,
           "metrics": {
             "likes": 630,
             "retweets": 41,
             "replies": 2,
             "quotes": 11,
-            "views": 7145,
-            "bookmarks": 22
+            "views": 7173,
+            "bookmarks": 21
           }
         }
       ],
@@ -276,14 +276,14 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 7.647,
+          "heat_contribution": 7.6491,
           "metrics": {
-            "likes": 3626,
+            "likes": 3633,
             "retweets": 293,
             "replies": 0,
-            "quotes": 22,
-            "views": 39581,
-            "bookmarks": 511
+            "quotes": 23,
+            "views": 39669,
+            "bookmarks": 509
           }
         }
       ],
@@ -302,6 +302,61 @@
       "pinned_rank": null,
       "hidden": false,
       "rank": 4
+    },
+    {
+      "event_id": "evt-2026-08-26-670e0cef7ab4",
+      "rule_id": null,
+      "hot_word_zh": "小小的愿望 #f1art #oscarpiastri",
+      "hot_word_en": "小小的愿望 #f1art #oscarpiastri",
+      "first_seen_at": "2026-08-26T13:41:00Z",
+      "last_seen_at": "2026-08-26T13:41:00Z",
+      "anchor_item_id": "piasnews-social-1109de43881806ee",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-1109de43881806ee",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@oscarpiastri81",
+          "title": "X repost from @oscarpiastri81: 小小的愿望 #f1art #oscarpiastri",
+          "title_zh": "X 转帖 @oscarpiastri81：小小的愿望 #f1art #oscarpiastri",
+          "summary": "小小的愿望 #f1art #oscarpiastri https://t.co/pgyQKBB7wk",
+          "summary_zh": "小小的愿望 #f1art #oscarpiastri",
+          "url": "https://x.com/hiroshi_x3/status/2092608251342807278",
+          "published_at": "2026-08-26T13:41:00Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 7.5111,
+          "metrics": {
+            "likes": 2951,
+            "retweets": 456,
+            "replies": 2,
+            "quotes": 9,
+            "views": 17345,
+            "bookmarks": 189
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 39,
+      "heat": 39,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 5
     },
     {
       "event_id": "evt-2026-08-27-eb6b2d84012d",
@@ -331,14 +386,14 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 7.5102,
+          "heat_contribution": 7.5237,
           "metrics": {
-            "likes": 1578,
-            "retweets": 278,
+            "likes": 1597,
+            "retweets": 283,
             "replies": 1,
             "quotes": 49,
-            "views": 19915,
-            "bookmarks": 127
+            "views": 20328,
+            "bookmarks": 126
           }
         }
       ],
@@ -356,7 +411,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 5
+      "rank": 6
     },
     {
       "event_id": "evt-2026-08-27-bfc6db02c50e",
@@ -386,14 +441,14 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 7.2497,
+          "heat_contribution": 7.2628,
           "metrics": {
-            "likes": 1383,
-            "retweets": 175,
+            "likes": 1400,
+            "retweets": 178,
             "replies": 0,
             "quotes": 19,
-            "views": 10459,
-            "bookmarks": 41
+            "views": 10626,
+            "bookmarks": 43
           }
         }
       ],
@@ -411,7 +466,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 7
     },
     {
       "event_id": "evt-monaco-penalty-appeal",
@@ -466,61 +521,6 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
-    },
-    {
-      "event_id": "evt-2026-08-26-40e4f193e282",
-      "rule_id": null,
-      "hot_word_zh": "Oscar今天参加了在穆杰罗的轮胎测试！他测试了2027年的软胎、中性胎和硬胎，共完成93…",
-      "hot_word_en": "oscar took part in a tyre test session at mugello today! he tested the soft, medium and hard ty…",
-      "first_seen_at": "2026-08-26T18:43:49Z",
-      "last_seen_at": "2026-08-26T18:43:49Z",
-      "anchor_item_id": "piasnews-social-3a9d34ee2931c5f6",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-3a9d34ee2931c5f6",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar took part in a tyre test session at mugello today! he tested the soft, medium and hard ty…",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar今天参加了在穆杰罗的轮胎测试！他测试了2027年的软胎、中性胎和硬胎，共完成93圈，最快圈速为1:21.358。",
-          "summary": "oscar took part in a tyre test session at mugello today! he tested the soft, medium and hard tyres for 2027, completed a total of 93 laps, and did a best time of 1:21.358. https://t.co/mCrfIOpfYm",
-          "summary_zh": "Oscar今天参加了在穆杰罗的轮胎测试！他测试了2027年的软胎、中性胎和硬胎，共完成93圈，最快圈速为1:21.358。",
-          "url": "https://x.com/laurogeitabat/status/2092684455739539781",
-          "published_at": "2026-08-26T18:43:49Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 6.6281,
-          "metrics": {
-            "likes": 1258,
-            "retweets": 77,
-            "replies": 1,
-            "quotes": 6,
-            "views": 25089,
-            "bookmarks": 38
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 35,
-      "heat": 35,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
       "rank": 8
     },
     {
@@ -551,21 +551,21 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 6.6295,
+          "heat_contribution": 6.7546,
           "metrics": {
-            "likes": 692,
-            "retweets": 61,
+            "likes": 779,
+            "retweets": 69,
             "replies": 1,
-            "quotes": 22,
-            "views": 14712,
-            "bookmarks": 46
+            "quotes": 24,
+            "views": 17470,
+            "bookmarks": 49
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 35,
-      "heat": 35,
+      "fan_heat": 36,
+      "heat": 36,
       "source_labels": [
         "粉"
       ],
@@ -579,13 +579,13 @@
       "rank": 9
     },
     {
-      "event_id": "evt-2026-08-26-9eb07d637016",
+      "event_id": "evt-2026-08-26-40e4f193e282",
       "rule_id": null,
-      "hot_word_zh": "他太帅了（5秒以上的进站和颜值）",
-      "hot_word_en": "he's SERVING (5+ second pitstops and face)",
-      "first_seen_at": "2026-08-26T16:51:49Z",
-      "last_seen_at": "2026-08-26T16:51:49Z",
-      "anchor_item_id": "piasnews-social-5e55b37a231ee655",
+      "hot_word_zh": "Oscar今天参加了在穆杰罗的轮胎测试！他测试了2027年的软胎、中性胎和硬胎，共完成93…",
+      "hot_word_en": "oscar took part in a tyre test session at mugello today! he tested the soft, medium and hard ty…",
+      "first_seen_at": "2026-08-26T18:43:49Z",
+      "last_seen_at": "2026-08-26T18:43:49Z",
+      "anchor_item_id": "piasnews-social-3a9d34ee2931c5f6",
       "image_url": null,
       "video_url": null,
       "video_poster_url": null,
@@ -593,34 +593,34 @@
       "review_needed_reason": null,
       "items": [
         {
-          "item_id": "piasnews-social-5e55b37a231ee655",
+          "item_id": "piasnews-social-3a9d34ee2931c5f6",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: he's SERVING (5+ second pitstops and face)",
-          "title_zh": "X 发帖 @laurogeitabat：他太帅了（5秒以上的进站和颜值）",
-          "summary": "he's SERVING (5+ second pitstops and face) https://t.co/DWxgK6q6dQ",
-          "summary_zh": "他太帅了（5秒以上的进站和颜值）",
-          "url": "https://x.com/laurogeitabat/status/2092656273737011603",
-          "published_at": "2026-08-26T16:51:49Z",
+          "title": "X post from @laurogeitabat: oscar took part in a tyre test session at mugello today! he tested the soft, medium and hard ty…",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar今天参加了在穆杰罗的轮胎测试！他测试了2027年的软胎、中性胎和硬胎，共完成93圈，最快圈速为1:21.358。",
+          "summary": "oscar took part in a tyre test session at mugello today! he tested the soft, medium and hard tyres for 2027, completed a total of 93 laps, and did a best time of 1:21.358. https://t.co/mCrfIOpfYm",
+          "summary_zh": "Oscar今天参加了在穆杰罗的轮胎测试！他测试了2027年的软胎、中性胎和硬胎，共完成93圈，最快圈速为1:21.358。",
+          "url": "https://x.com/laurogeitabat/status/2092684455739539781",
+          "published_at": "2026-08-26T18:43:49Z",
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 6.3011,
+          "heat_contribution": 6.6302,
           "metrics": {
-            "likes": 915,
-            "retweets": 104,
-            "replies": 4,
-            "quotes": 2,
-            "views": 7024,
-            "bookmarks": 37
+            "likes": 1261,
+            "retweets": 77,
+            "replies": 1,
+            "quotes": 6,
+            "views": 25146,
+            "bookmarks": 38
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 34,
-      "heat": 34,
+      "fan_heat": 35,
+      "heat": 35,
       "source_labels": [
         "粉"
       ],
