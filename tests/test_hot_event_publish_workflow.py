@@ -47,6 +47,16 @@ class HotEventPublishWorkflowTests(unittest.TestCase):
             workflow = (ROOT / ".github/workflows" / workflow_name).read_text(encoding="utf-8")
             self.assertIn("data/hot-event-overrides.json public/data/", workflow)
 
+    def test_data_refresh_rejects_retained_media_regressions(self):
+        workflow = (ROOT / ".github/workflows" / "update-piasnews.yml").read_text(encoding="utf-8")
+
+        self.assertIn("Validate retained social media", workflow)
+        self.assertIn("scripts/validate_social_media.py", workflow)
+        self.assertLess(
+            workflow.index("Validate retained social media"),
+            workflow.index("Build merged hot-event ranking"),
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

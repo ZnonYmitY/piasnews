@@ -147,6 +147,95 @@ class SocialSourcesTest(unittest.TestCase):
         self.assertEqual(items[0]["summary_zh"], "Oscar Piastri family-side McLaren race-week note.")
         self.assertEqual(items[0]["copyright_notice_zh"], "如有侵权请联系删除。")
 
+    def test_legacy_agent_reach_compact_is_ignored(self):
+        payload = {
+            "source": "agent-reach/compact-social",
+            "items": [{
+                "platform": "x",
+                "handle": "PiastriNews",
+                "id": "legacy",
+                "text": "Oscar Piastri legacy text-only snapshot.",
+                "created_at": "2026-06-26T09:00:00Z",
+            }],
+        }
+        sources = collector.load_sources(SOURCES_PATH)
+        now = collector.parse_now(NOW)
+
+        items, status = collector.normalize_import_payload(
+            payload,
+            "legacy-env",
+            sources,
+            now,
+            now - collector.timedelta(days=3),
+        )
+
+        self.assertEqual(items, [])
+        self.assertFalse(status["ok"])
+        self.assertEqual(status["reason"], "unsupported_compact_schema")
+        self.assertEqual(status["required_schema_version"], 2)
+
+    def test_current_agent_reach_compact_is_accepted(self):
+        payload = {
+            "schema_version": 2,
+            "collector_version": "media-preserving-v2",
+            "source": "agent-reach/compact-social",
+            "media_item_count": 1,
+            "items": [{
+                "platform": "x",
+                "handle": "PiastriNews",
+                "id": "current",
+                "text": "Oscar Piastri current media snapshot.",
+                "created_at": "2026-06-26T09:00:00Z",
+                "image_url": "https://img.example.com/current.jpg",
+            }],
+        }
+        sources = collector.load_sources(SOURCES_PATH)
+        now = collector.parse_now(NOW)
+
+        items, status = collector.normalize_import_payload(
+            payload,
+            "current-env",
+            sources,
+            now,
+            now - collector.timedelta(days=3),
+        )
+
+        self.assertTrue(status["ok"])
+        self.assertEqual(status["schema_version"], 2)
+        self.assertEqual(status["declared_media_items"], 1)
+        self.assertEqual(items[0]["image_url"], "https://img.example.com/current.jpg")
+
+    def test_current_compact_with_false_media_count_is_ignored(self):
+        payload = {
+            "schema_version": 2,
+            "collector_version": "media-preserving-v2",
+            "source": "agent-reach/compact-social",
+            "media_item_count": 1,
+            "items": [{
+                "platform": "x",
+                "handle": "PiastriNews",
+                "id": "text-only",
+                "text": "Oscar Piastri text-only item.",
+                "created_at": "2026-06-26T09:00:00Z",
+            }],
+        }
+        sources = collector.load_sources(SOURCES_PATH)
+        now = collector.parse_now(NOW)
+
+        items, status = collector.normalize_import_payload(
+            payload,
+            "invalid-v2",
+            sources,
+            now,
+            now - collector.timedelta(days=3),
+        )
+
+        self.assertEqual(items, [])
+        self.assertFalse(status["ok"])
+        self.assertEqual(status["reason"], "invalid_compact_metadata")
+        self.assertEqual(status["declared_media_items"], 1)
+        self.assertEqual(status["actual_media_items"], 0)
+
     def test_supabase_payload_envelope_is_unwrapped(self):
         payload = collector.unwrap_import_payload([
             {
@@ -247,6 +336,33 @@ class SocialSourcesTest(unittest.TestCase):
             "https://x.com/a/status/1",
             "https://x.com/a/status/3",
         ])
+
+    def test_dedupe_items_preserves_media_from_previous_duplicate(self):
+        url = "https://x.com/a/status/media"
+        incoming = {
+            "url": url,
+            "published_at": "2026-06-27T09:00:00Z",
+            "summary": "new metrics and text",
+            "metrics": {"likes": 100},
+        }
+        previous = {
+            "url": url,
+            "published_at": "2026-06-27T09:00:00Z",
+            "summary": "old text",
+            "metrics": {"likes": 50},
+            "video_url": "https://video.example.com/oscar.mp4",
+            "video_poster_url": "https://img.example.com/poster.jpg",
+        }
+        stats = {}
+
+        result = collector.dedupe_items([incoming, previous], 10, stats)
+
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0]["summary"], "new metrics and text")
+        self.assertEqual(result[0]["metrics"]["likes"], 100)
+        self.assertEqual(result[0]["video_url"], previous["video_url"])
+        self.assertEqual(result[0]["video_poster_url"], previous["video_poster_url"])
+        self.assertEqual(stats["media_fields_preserved"], 2)
 
 
 if __name__ == "__main__":

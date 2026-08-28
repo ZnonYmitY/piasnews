@@ -2,12 +2,14 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+AUTO_SYNC_REPO=0
 if [[ -n "${PIASNEWS_REPO_DIR:-}" ]]; then
   ROOT_DIR="$PIASNEWS_REPO_DIR"
 elif [[ -f "$SCRIPT_DIR/../scripts/collect_agent_reach_social.py" ]]; then
   ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 elif [[ -f "$HOME/Library/Application Support/piasnews/repo/scripts/collect_agent_reach_social.py" ]]; then
   ROOT_DIR="$HOME/Library/Application Support/piasnews/repo"
+  AUTO_SYNC_REPO=1
 else
   ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 fi
@@ -25,7 +27,13 @@ COMPACT_JSON="${PIASNEWS_SOCIAL_COMPACT:-/tmp/piasnews-social-input-compact.json
 COMPACT_CACHE="${PIASNEWS_SOCIAL_COMPACT_CACHE:-/tmp/piasnews-social-input-compact.last.json}"
 SUCCESS_MARKER="${PIASNEWS_SOCIAL_SUCCESS_MARKER:-/tmp/piasnews-social.last_success}"
 MIN_INTERVAL_SECONDS="${PIASNEWS_SOCIAL_MIN_INTERVAL_SECONDS:-0}"
-SOCIAL_OUTPUT="${PIASNEWS_SOCIAL_OUTPUT:-data/social.json}"
+if [[ "$AUTO_SYNC_REPO" == "1" ]]; then
+  DEFAULT_SOCIAL_OUTPUT="/tmp/piasnews-social-normalized.json"
+else
+  DEFAULT_SOCIAL_OUTPUT="data/social.json"
+fi
+SOCIAL_OUTPUT="${PIASNEWS_SOCIAL_OUTPUT:-$DEFAULT_SOCIAL_OUTPUT}"
+PREVIOUS_SOCIAL_SNAPSHOT="${PIASNEWS_PREVIOUS_SOCIAL_SNAPSHOT:-/tmp/piasnews-social-before-refresh.json}"
 REF="${PIASNEWS_WORKFLOW_REF:-main}"
 
 file_mtime_epoch() {
@@ -48,6 +56,21 @@ if [[ "$MIN_INTERVAL_SECONDS" =~ ^[0-9]+$ ]] && (( MIN_INTERVAL_SECONDS > 0 )) &
   else
     echo "No previous successful social collection marker found; running collection."
   fi
+fi
+
+if [[ "${PIASNEWS_SYNC_REPO:-$AUTO_SYNC_REPO}" == "1" ]]; then
+  if [[ -n "$(git status --porcelain --untracked-files=normal)" ]]; then
+    echo "Runtime repository is dirty or conflicted; stopped before social collection and publish." >&2
+    exit 3
+  fi
+  if ! git pull --ff-only origin "$REF"; then
+    echo "Runtime repository could not fast-forward; stopped before social collection and publish." >&2
+    exit 3
+  fi
+fi
+
+if [[ "$SOCIAL_OUTPUT" != "data/social.json" ]] && [[ -f data/social.json ]]; then
+  cp data/social.json "$SOCIAL_OUTPUT"
 fi
 
 GROUP_ARGS=()
@@ -104,14 +127,25 @@ if not any(status.get("ok") for status in statuses):
     sys.exit(2)
 PY
 
+if [[ -f "$SOCIAL_OUTPUT" ]]; then
+  cp "$SOCIAL_OUTPUT" "$PREVIOUS_SOCIAL_SNAPSHOT"
+fi
+
 python3 scripts/fetch_social_sources.py \
   --input-json "$COMBINED_IMPORT_JSON" \
   --days "$DAYS" \
   --retention-days "$RETENTION_DAYS" \
   --output "$SOCIAL_OUTPUT"
 
+if [[ -f "$PREVIOUS_SOCIAL_SNAPSHOT" ]]; then
+  python3 scripts/validate_social_media.py \
+    --before "$PREVIOUS_SOCIAL_SNAPSHOT" \
+    --after "$SOCIAL_OUTPUT"
+fi
+
 python3 scripts/compact_social_input.py \
   --input "$SOCIAL_OUTPUT" \
+  --days "$DAYS" \
   --output "$COMPACT_JSON"
 
 if [[ "${PIASNEWS_SKIP_GITHUB:-0}" == "1" ]]; then
@@ -119,7 +153,19 @@ if [[ "${PIASNEWS_SKIP_GITHUB:-0}" == "1" ]]; then
   exit 0
 fi
 
-if [[ "${PIASNEWS_FORCE_SOCIAL_PUBLISH:-0}" != "1" ]] && [[ -f "$COMPACT_CACHE" ]] && cmp -s "$COMPACT_JSON" "$COMPACT_CACHE"; then
+if [[ "${PIASNEWS_FORCE_SOCIAL_PUBLISH:-0}" != "1" ]] && [[ -f "$COMPACT_CACHE" ]] && python3 - "$COMPACT_JSON" "$COMPACT_CACHE" <<'PY'
+import json
+import sys
+from pathlib import Path
+
+def semantic_payload(path: str) -> dict:
+    payload = json.loads(Path(path).read_text())
+    payload.pop("generated_at", None)
+    return payload
+
+raise SystemExit(0 if semantic_payload(sys.argv[1]) == semantic_payload(sys.argv[2]) else 1)
+PY
+then
   touch "$SUCCESS_MARKER"
   echo "Social compact input unchanged; skipped GitHub variable update and workflow dispatch."
   exit 0

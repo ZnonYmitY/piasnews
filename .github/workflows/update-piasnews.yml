@@ -83,6 +83,10 @@ jobs:
           PIASNEWS_SOCIAL_INPUT_AUTH_BEARER: ${{ secrets.PIASNEWS_SOCIAL_INPUT_AUTH_BEARER }}
         run: python scripts/fetch_social_sources.py --days 3 --retention-days 7 --limit 300 --output data/social.json
 
+      - name: Validate retained social media
+        if: ${{ inputs.apply_only != true }}
+        run: python scripts/validate_social_media.py --before "$RUNNER_TEMP/piasnews-before-data/social.json" --after data/social.json
+
       - name: Install offline Chinese translation fallback
         run: python -m pip install argostranslate
 

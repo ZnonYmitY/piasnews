@@ -174,6 +174,10 @@ GitHub Pages 根路径提供面向所有粉丝的只读日报页；日报内容�
 - Agent-Reach 本地采集建议默认每 3 小时运行一次，每个账号默认请求最近 30 条公开动态；比赛日可临时提高频率。
 - 本地发布脚本在 compact import 内容未变化时应跳过 GitHub 变量更新和 workflow 触发，以支持更高频采集时降低无效部署。
 - 本地发布脚本还必须在没有任何 X 来源采集成功时停止发布，避免认证、DNS 或网络失败被显示成新的 X / IG 更新时间。
+- 相同 URL 的新社媒快照不得用空值覆盖已保存的 `image_url`、`video_url` 或 `video_poster_url`；compact import 只携带最近 3 天发现窗口，由 GitHub 合并保留 7 天，并记录采集器版本、生成时间、条目数、媒体条目数和最新内容时间。比较内容变化时忽略生成时间，避免纯时间戳触发部署。
+- `agent-reach/compact-social` 必须使用当前 v2 schema；缺少或低于 v2 的旧 compact 输入被视为不兼容并忽略，保留已有七天数据，不得让旧后台继续注入纯文本降级快照。
+- GitHub 数据刷新必须比较刷新前后的 `data/social.json`：仍在保留窗口内且 URL 相同的内容一旦丢失任何已知媒体字段，立即阻断本次发布。自然超过七天而离开数据集的内容不视为退化。
+- macOS 后台运行副本在真正采集前必须快进同步代码；版本过旧、工作区脏或存在冲突时停止发布。定时采集的规范化输出使用临时文件，不能持续修改运行仓库中的 `data/social.json`。
 - X 采集可以迁移到常在线小主机、VPS、Supabase Edge Function 或外部调度器：外部环境生成 compact social JSON，更新 GitHub 仓库变量 `PIASNEWS_SOCIAL_INPUT_JSON`、暴露 `PIASNEWS_SOCIAL_INPUT_URL`，或把外部 compact 输入推给 Supabase social collector，再通过 GitHub API 触发 `Update Piasnews Data`。由于 X 可能对数据中心 IP 风控更严格，低成本方案优先选择家宽/本地常在线环境，再考虑 VPS。
 - 粉丝源 Tab 顶部统一展示 `如有侵权请联系删除。`；每条卡片只展示 `引用自 @账号`，避免重复提示。
 - “往日回顾”只读取人工审核通过的事件；没有同日合格事件时省略。

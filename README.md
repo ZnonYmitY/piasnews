@@ -275,7 +275,7 @@ env PATH=/Users/bytedance/.agent-reach-venv/bin:$PATH \
 scripts/update_social_agent_reach.sh
 ```
 
-默认采集全部 X 分组，并额外尝试用本机已登录 Chrome 采集 Oscar Piastri Instagram 主页最近公开 posts/reels。如果 Chrome Apple Events 仍阻止 DOM 读取，Instagram 采集器会自动降级到 OpenCLI Browser Bridge；导入 JSON 的 `source_status[].method` 会显示 `opencli-browser`。如果 IG 已改由 Supabase 或外部后端导入，设置 `PIASNEWS_COLLECT_INSTAGRAM=0` 可让本机脚本只采 X，不再打开 Instagram 或 OpenCLI Browser。脚本随后更新 `data/social.json`，生成 compact import，写入 GitHub 变量 `PIASNEWS_SOCIAL_INPUT_JSON`，并触发 `Update Piasnews Data` workflow。compact import 不写入每次变化的生成时间；如果内容和上次发布完全一致，脚本会跳过 GitHub 变量更新和 workflow 触发。脚本会先确认至少一个社交来源采集成功；如果认证、DNS、网络或 Chrome DOM 权限失败且没有任何来源成功，它会停止在发布前，避免把失败采集伪装成新的 X / IG 更新时间。需要强制发布时设置 `PIASNEWS_FORCE_SOCIAL_PUBLISH=1`。只更新本地、不触发 GitHub：
+默认采集全部 X 分组，并额外尝试用本机已登录 Chrome 采集 Oscar Piastri Instagram 主页最近公开 posts/reels。如果 Chrome Apple Events 仍阻止 DOM 读取，Instagram 采集器会自动降级到 OpenCLI Browser Bridge；导入 JSON 的 `source_status[].method` 会显示 `opencli-browser`。如果 IG 已改由 Supabase 或外部后端导入，设置 `PIASNEWS_COLLECT_INSTAGRAM=0` 可让本机脚本只采 X，不再打开 Instagram 或 OpenCLI Browser。脚本随后更新社媒快照，生成只包含最近 3 天增量的 v2 compact import，写入 GitHub 变量 `PIASNEWS_SOCIAL_INPUT_JSON`，再由 GitHub 与已有数据合并保留 7 天并触发 `Update Piasnews Data` workflow。缺少 v2 标识的旧 `agent-reach/compact-social` 快照会被忽略，不能继续覆盖线上数据。compact import 带采集版本、生成时间、条目数和媒体条目数；比较是否变化时会忽略生成时间，所以内容未变化仍会跳过 GitHub 变量更新和 workflow 触发。相同 URL 的新快照缺少附件时会保留旧图片、视频和封面；发布前还会阻断任何“保留内容的媒体字段被清空”的退化刷新。脚本会先确认至少一个社交来源采集成功；如果认证、DNS、网络或 Chrome DOM 权限失败且没有任何来源成功，它会停止在发布前，避免把失败采集伪装成新的 X / IG 更新时间。需要强制发布时设置 `PIASNEWS_FORCE_SOCIAL_PUBLISH=1`。只更新本地、不触发 GitHub：
 
 ```bash
 PIASNEWS_SKIP_GITHUB=1 scripts/update_social_agent_reach.sh
@@ -287,7 +287,7 @@ PIASNEWS_SKIP_GITHUB=1 scripts/update_social_agent_reach.sh
 PIASNEWS_SOCIAL_GROUPS=fan_watch scripts/update_social_agent_reach.sh
 ```
 
-macOS 无人值守运行可以使用 `launchd`。当前模板每 10 分钟轻量检查一次，但通过 `PIASNEWS_SOCIAL_MIN_INTERVAL_SECONDS=10800` 限制为距离上次成功采集超过 3 小时才真正访问 X / IG；如果电脑睡眠错过周期，醒来后的下一次检查会补跑。安装模板：
+macOS 无人值守运行可以使用 `launchd`。当前模板每 10 分钟轻量检查一次，但通过 `PIASNEWS_SOCIAL_MIN_INTERVAL_SECONDS=10800` 限制为距离上次成功采集超过 3 小时才真正访问 X / IG；如果电脑睡眠错过周期，醒来后的下一次检查会补跑。安装到 Application Support 的运行副本会在真正采集前执行 `git pull --ff-only`，版本过旧、工作区脏或存在冲突时直接停止发布；社媒输出写入临时文件，不再把运行仓库的 `data/social.json` 留成脏文件。安装模板：
 
 ```bash
 mkdir -p "$HOME/Library/Application Support/piasnews"
@@ -777,7 +777,7 @@ Full local publish script:
 scripts/update_social_agent_reach.sh
 ```
 
-By default it collects all X groups and also tries to collect Oscar Piastri's latest public Instagram posts/reels through the logged-in local Chrome profile. If Chrome Apple Events still blocks DOM reads, the Instagram collector automatically falls back to OpenCLI Browser Bridge; `source_status[].method` will show `opencli-browser` in the import JSON. If IG has moved to Supabase or another backend import, set `PIASNEWS_COLLECT_INSTAGRAM=0` so the local script collects X only and does not open Instagram or OpenCLI Browser. It then updates `data/social.json`, builds the compact import JSON, writes `PIASNEWS_SOCIAL_INPUT_JSON`, and triggers the `Update Piasnews Data` workflow. The compact import omits per-run generated timestamps; when the compact content is unchanged from the previous publish, the script skips the GitHub variable update and workflow dispatch. The public page displays both the social feed generation time and the newest retained post time, because a fresh generation can still contain no newer qualifying posts after the Piastri relevance filter runs. The script verifies that at least one social source collected successfully before publishing; authentication, DNS, network, or Chrome DOM permission failures stop before updating GitHub when no source succeeded, so a failed collection is not presented as a fresh X / IG update. Set `PIASNEWS_FORCE_SOCIAL_PUBLISH=1` to force a publish. To update local files only:
+By default it collects all X groups and also tries to collect Oscar Piastri's latest public Instagram posts/reels through the logged-in local Chrome profile. If Chrome Apple Events still blocks DOM reads, the Instagram collector automatically falls back to OpenCLI Browser Bridge; `source_status[].method` will show `opencli-browser` in the import JSON. If IG has moved to Supabase or another backend import, set `PIASNEWS_COLLECT_INSTAGRAM=0` so the local script collects X only and does not open Instagram or OpenCLI Browser. It then updates the social snapshot, builds a v2 compact import containing only the latest three-day discovery window, writes `PIASNEWS_SOCIAL_INPUT_JSON`, and lets GitHub merge that increment into the retained seven-day dataset before triggering the `Update Piasnews Data` workflow. Legacy `agent-reach/compact-social` snapshots without the v2 marker are ignored and cannot keep overwriting live data. The compact import records the collector version, generated time, item count, and media-item count; generated time is ignored when comparing snapshots, so unchanged content still skips the GitHub variable update and workflow dispatch. If a fresh record for the same URL omits attachments, the merge preserves the prior image, video, and poster. A pre-publish validation also rejects any refresh that strips media fields from retained posts. The public page displays both the social feed generation time and the newest retained post time, because a fresh generation can still contain no newer qualifying posts after the Piastri relevance filter runs. The script verifies that at least one social source collected successfully before publishing; authentication, DNS, network, or Chrome DOM permission failures stop before updating GitHub when no source succeeded, so a failed collection is not presented as a fresh X / IG update. Set `PIASNEWS_FORCE_SOCIAL_PUBLISH=1` to force a publish. To update local files only:
 
 ```bash
 PIASNEWS_SKIP_GITHUB=1 scripts/update_social_agent_reach.sh
@@ -789,7 +789,7 @@ To collect only fan sources:
 PIASNEWS_SOCIAL_GROUPS=fan_watch scripts/update_social_agent_reach.sh
 ```
 
-For unattended macOS operation, use `launchd`. The included template runs a lightweight check every 10 minutes, but `PIASNEWS_SOCIAL_MIN_INTERVAL_SECONDS=10800` makes the script collect only when the last successful collection is more than three hours old. If the Mac sleeps through the interval, the next check after wake catches up.
+For unattended macOS operation, use `launchd`. The included template runs a lightweight check every 10 minutes, but `PIASNEWS_SOCIAL_MIN_INTERVAL_SECONDS=10800` makes the script collect only when the last successful collection is more than three hours old. If the Mac sleeps through the interval, the next check after wake catches up. The Application Support runtime performs `git pull --ff-only` immediately before a real collection and fails closed when its repository is stale, dirty, or conflicted. Its normalized social output is written to a temporary file so scheduled runs no longer dirty the runtime repository's `data/social.json`.
 
 ```bash
 mkdir -p "$HOME/Library/Application Support/piasnews"

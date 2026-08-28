@@ -26,6 +26,8 @@ DEFAULT_DAYS = 3
 DEFAULT_LIMIT = 80
 HTTP_TIMEOUT_SECONDS = 20
 X_API_BASES = ("https://api.x.com/2", "https://api.twitter.com/2")
+MEDIA_FIELDS = ("image_url", "video_url", "video_poster_url")
+MIN_COMPACT_SCHEMA_VERSION = 2
 DIRECT_PIASTRI_RE = re.compile(r"\b(piastri|oscar|op81)\b", re.IGNORECASE)
 URL_RE = re.compile(r"https?://\S+")
 
@@ -318,7 +320,44 @@ def fetch_x_source(source: dict[str, Any], bearer_token: str, now: datetime, cut
 
 
 def normalize_import_payload(payload: Any, source_label: str, sources: dict[str, Any], now: datetime, cutoff: datetime) -> tuple[list[dict[str, Any]], dict[str, Any]]:
-    raw_items = payload.get("items", payload if isinstance(payload, list) else [])
+    if isinstance(payload, dict) and payload.get("source") == "agent-reach/compact-social":
+        try:
+            schema_version = int(payload.get("schema_version") or 0)
+        except (TypeError, ValueError):
+            schema_version = 0
+        if schema_version < MIN_COMPACT_SCHEMA_VERSION:
+            return [], {
+                "source": source_label,
+                "ok": False,
+                "items": 0,
+                "skipped": len(payload.get("items") or []),
+                "reason": "unsupported_compact_schema",
+                "schema_version": schema_version,
+                "required_schema_version": MIN_COMPACT_SCHEMA_VERSION,
+            }
+        collector_version = clean_text(payload.get("collector_version"))
+        try:
+            declared_media_items = int(payload.get("media_item_count"))
+        except (TypeError, ValueError):
+            declared_media_items = -1
+        raw_compact_items = payload.get("items") or []
+        actual_media_items = sum(
+            1 for item in raw_compact_items
+            if isinstance(item, dict) and any(clean_text(item.get(field)) for field in MEDIA_FIELDS)
+        )
+        if not collector_version or declared_media_items != actual_media_items:
+            return [], {
+                "source": source_label,
+                "ok": False,
+                "items": 0,
+                "skipped": len(raw_compact_items),
+                "reason": "invalid_compact_metadata",
+                "schema_version": schema_version,
+                "collector_version": collector_version or None,
+                "declared_media_items": declared_media_items,
+                "actual_media_items": actual_media_items,
+            }
+    raw_items = payload if isinstance(payload, list) else payload.get("items", [])
     source_map = source_by_handle(sources)
     items = []
     skipped = 0
@@ -334,7 +373,12 @@ def normalize_import_payload(payload: Any, source_label: str, sources: dict[str,
             items.append(normalized)
         else:
             skipped += 1
-    return items, {"source": source_label, "ok": True, "items": len(items), "skipped": skipped}
+    status = {"source": source_label, "ok": True, "items": len(items), "skipped": skipped}
+    if isinstance(payload, dict) and payload.get("source") == "agent-reach/compact-social":
+        status["schema_version"] = int(payload.get("schema_version") or 0)
+        status["collector_version"] = payload.get("collector_version")
+        status["declared_media_items"] = payload.get("media_item_count")
+    return items, status
 
 
 def normalize_import(path: Path, sources: dict[str, Any], now: datetime, cutoff: datetime) -> tuple[list[dict[str, Any]], dict[str, Any]]:
@@ -373,11 +417,35 @@ def read_import_url(url: str, bearer_token: str | None = None) -> Any:
         return unwrap_import_payload(json.loads(response.read().decode("utf-8")))
 
 
-def dedupe_items(items: list[dict[str, Any]], limit: int) -> list[dict[str, Any]]:
-    result = {}
+def dedupe_items(
+    items: list[dict[str, Any]],
+    limit: int,
+    stats: dict[str, int] | None = None,
+) -> list[dict[str, Any]]:
+    """Deduplicate by URL without downgrading previously known media.
+
+    A fresh platform response can omit attachments even when an earlier
+    response for the same post included them. The newest item remains the
+    canonical record, while non-empty media fields are filled from duplicate
+    records before the result is written.
+    """
+    result: dict[str, dict[str, Any]] = {}
     for item in sorted(items, key=lambda entry: entry["published_at"], reverse=True):
-        result.setdefault(item["url"], item)
+        url = item["url"]
+        if url not in result:
+            result[url] = dict(item)
+            continue
+        preferred = result[url]
+        for field in MEDIA_FIELDS:
+            if not preferred.get(field) and item.get(field):
+                preferred[field] = item[field]
+                if stats is not None:
+                    stats["media_fields_preserved"] = stats.get("media_fields_preserved", 0) + 1
     return list(result.values())[:limit]
+
+
+def has_media(item: dict[str, Any]) -> bool:
+    return any(item.get(field) for field in MEDIA_FIELDS)
 
 
 def retained_items(path: Path, now: datetime, retention_days: int) -> list[dict[str, Any]]:
@@ -473,14 +541,19 @@ def main_with_args(argv: list[str] | None = None) -> int:
     if instagram_sources:
         statuses.append({"stage": "instagram", "ok": False, "reason": "Instagram public collection not configured; use PIASNEWS_SOCIAL_INPUT import", "sources": len(instagram_sources)})
 
-    final_items = dedupe_items([*items, *previous_items], args.limit)
+    merge_stats: dict[str, int] = {}
+    final_items = dedupe_items([*items, *previous_items], args.limit, merge_stats)
     statuses.append({
         "stage": "retention_merge",
         "ok": True,
         "discovery_days": args.days,
         "retention_days": retention_days,
+        "incoming_items": len(items),
+        "incoming_media_items": sum(1 for item in items if has_media(item)),
         "previous_items": len(previous_items),
         "kept": len(final_items),
+        "media_items": sum(1 for item in final_items if has_media(item)),
+        "media_fields_preserved": merge_stats.get("media_fields_preserved", 0),
     })
     payload = build_empty_output(now, retention_days, statuses)
     payload["items"] = final_items
