@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-29T04:15:44.446138Z",
+  "generated_at": "2026-08-29T11:22:00.245651Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -71,8 +71,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 73,
-      "heat": 73,
+      "fan_heat": 68,
+      "heat": 68,
       "source_labels": [
         "粉"
       ],
@@ -118,7 +118,7 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 7.7702,
+          "heat_contribution": 6.9598,
           "metrics": {
             "likes": 3609,
             "retweets": 678,
@@ -142,10 +142,10 @@
           "image_url": "https://pbs.twimg.com/media/HQtfikfbsAAwhmd.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HQtfikfbsAAwhmd.jpg",
-          "heat_contribution": 6.5216,
+          "heat_contribution": 5.7204,
           "metrics": {
             "likes": 0,
-            "retweets": 753,
+            "retweets": 759,
             "replies": 0,
             "quotes": 0,
             "views": 215,
@@ -166,10 +166,10 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/tweet_video/HQtIb8qaIAAE_QC.mp4",
           "video_poster_url": "https://pbs.twimg.com/tweet_video_thumb/HQtIb8qaIAAE_QC.jpg",
-          "heat_contribution": 6.4933,
+          "heat_contribution": 5.687,
           "metrics": {
             "likes": 0,
-            "retweets": 732,
+            "retweets": 734,
             "replies": 0,
             "quotes": 0,
             "views": 198,
@@ -179,8 +179,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 67,
-      "heat": 67,
+      "fan_heat": 60,
+      "heat": 60,
       "source_labels": [
         "粉"
       ],
@@ -221,13 +221,13 @@
           "image_url": "https://pbs.twimg.com/media/HQz6nveWIAAkNlK.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HQz6nveWIAAkNlK.jpg",
-          "heat_contribution": 7.1928,
+          "heat_contribution": 7.2729,
           "metrics": {
-            "likes": 1415,
-            "retweets": 113,
+            "likes": 1524,
+            "retweets": 126,
             "replies": 0,
             "quotes": 0,
-            "views": 13077,
+            "views": 14369,
             "bookmarks": 0
           }
         },
@@ -245,13 +245,13 @@
           "image_url": "https://pbs.twimg.com/media/HQvkI2qWwAAJkb-.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HQvkI2qWwAAJkb-.jpg",
-          "heat_contribution": 5.6866,
+          "heat_contribution": 5.6934,
           "metrics": {
-            "likes": 537,
+            "likes": 541,
             "retweets": 28,
             "replies": 1,
             "quotes": 0,
-            "views": 5711,
+            "views": 5756,
             "bookmarks": 0
           }
         },
@@ -282,8 +282,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 59,
-      "heat": 59,
+      "fan_heat": 60,
+      "heat": 60,
       "source_labels": [
         "粉"
       ],
@@ -324,13 +324,13 @@
           "image_url": "https://pbs.twimg.com/media/HQ0INlIXMAALV6H.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HQ0INlIXMAALV6H.jpg",
-          "heat_contribution": 6.7624,
+          "heat_contribution": 6.8922,
           "metrics": {
-            "likes": 808,
-            "retweets": 52,
+            "likes": 859,
+            "retweets": 53,
             "replies": 0,
             "quotes": 0,
-            "views": 23963,
+            "views": 34645,
             "bookmarks": 0
           }
         },
@@ -348,13 +348,13 @@
           "image_url": "https://pbs.twimg.com/media/HQwLnP0XEAAZRbC.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HQwLnP0XEAAZRbC.jpg",
-          "heat_contribution": 5.9033,
+          "heat_contribution": 5.9139,
           "metrics": {
-            "likes": 614,
-            "retweets": 68,
+            "likes": 620,
+            "retweets": 69,
             "replies": 0,
             "quotes": 0,
-            "views": 6164,
+            "views": 6231,
             "bookmarks": 0
           }
         }
@@ -482,13 +482,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2093356179116183552/vid/avc1/320x568/D8muGpni0YEHYFhA.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093356179116183552/img/opIFD6SXaJiQXy9d.jpg",
-          "heat_contribution": 7.7598,
+          "heat_contribution": 7.8162,
           "metrics": {
-            "likes": 2204,
-            "retweets": 225,
+            "likes": 2308,
+            "retweets": 235,
             "replies": 4,
             "quotes": 0,
-            "views": 45847,
+            "views": 51597,
             "bookmarks": 0
           }
         }
@@ -508,6 +508,116 @@
       "pinned_rank": null,
       "hidden": false,
       "rank": 6
+    },
+    {
+      "event_id": "evt-2026-08-28-6ee8ee4de730",
+      "rule_id": null,
+      "hot_word_zh": "当他听到“或者你是大家想象中的那个冷酷的 oscar”时，他开始摇头表示否定 ☹️",
+      "hot_word_en": "he started shaking his head no when he heard \"or are you the ice cold oscar everyone is thinkin…",
+      "first_seen_at": "2026-08-28T14:57:55Z",
+      "last_seen_at": "2026-08-28T14:57:55Z",
+      "anchor_item_id": "piasnews-social-f42bb6fac3776c4f",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2093352371011174402/vid/avc1/282x270/T6HCGOFlbFKScIxw.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093352371011174402/img/wZyCOPBVXYiwYG98.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-f42bb6fac3776c4f",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: he started shaking his head no when he heard \"or are you the ice cold oscar everyone is thinkin…",
+          "title_zh": "X 发帖 @laurogeitabat：当他听到“或者你是大家想象中的那个冷酷的 oscar”时，他开始摇头表示否定 ☹️",
+          "summary": "he started shaking his head no when he heard \"or are you the ice cold oscar everyone is thinking of\" ☹️ https://t.co/fzQBGPnKhP",
+          "summary_zh": "当他听到“或者你是大家想象中的那个冷酷的 oscar”时，他开始摇头表示否定 ☹️",
+          "url": "https://x.com/laurogeitabat/status/2093352383958876311",
+          "published_at": "2026-08-28T14:57:55Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2093352371011174402/vid/avc1/282x270/T6HCGOFlbFKScIxw.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093352371011174402/img/wZyCOPBVXYiwYG98.jpg",
+          "heat_contribution": 7.2091,
+          "metrics": {
+            "likes": 1008,
+            "retweets": 72,
+            "replies": 5,
+            "quotes": 0,
+            "views": 63398,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 38,
+      "heat": 38,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "event_id": "evt-2026-08-28-a608c29fb900",
+      "rule_id": null,
+      "hot_word_zh": "为什么这几乎像鲻鱼头，等等",
+      "hot_word_en": "WHY IS IT ALMOST GIVING MULLET WAIT",
+      "first_seen_at": "2026-08-28T09:54:48Z",
+      "last_seen_at": "2026-08-28T09:54:48Z",
+      "anchor_item_id": "piasnews-social-f7a726294498cd3e",
+      "image_url": "https://pbs.twimg.com/media/HQzPgqPXAAAbPxy.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HQzPgqPXAAAbPxy.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-f7a726294498cd3e",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: WHY IS IT ALMOST GIVING MULLET WAIT",
+          "title_zh": "X 发帖 @laurogeitabat：为什么这几乎像鲻鱼头，等等",
+          "summary": "WHY IS IT ALMOST GIVING MULLET WAIT https://t.co/yPhqKd227W",
+          "summary_zh": "为什么这几乎像鲻鱼头，等等",
+          "url": "https://x.com/laurogeitabat/status/2093276102575722688",
+          "published_at": "2026-08-28T09:54:48Z",
+          "image_url": "https://pbs.twimg.com/media/HQzPgqPXAAAbPxy.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HQzPgqPXAAAbPxy.jpg",
+          "heat_contribution": 7.0822,
+          "metrics": {
+            "likes": 2148,
+            "retweets": 150,
+            "replies": 5,
+            "quotes": 0,
+            "views": 18057,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 37,
+      "heat": 37,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 8
     },
     {
       "event_id": "evt-2026-08-28-80cc61c666da",
@@ -554,7 +664,7 @@
           "image_url": "https://www.motorbiscuit.com/wp-content/uploads/2026/08/2291426273.jpg",
           "video_url": null,
           "video_poster_url": "https://www.motorbiscuit.com/wp-content/uploads/2026/08/2291426273.jpg",
-          "heat_contribution": 0.75,
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -571,7 +681,7 @@
           "image_url": "https://www.autohebdo.fr/wp-content/uploads/2026/08/TCC_Mugello_Lando_7.jpg",
           "video_url": null,
           "video_poster_url": "https://www.autohebdo.fr/wp-content/uploads/2026/08/TCC_Mugello_Lando_7.jpg",
-          "heat_contribution": 0.75,
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -588,7 +698,7 @@
           "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgrandprix247.com%2Fimages%2F2026-08%2Fpiastri-hungary-2026-6a913d80ca172.jpg",
           "video_url": null,
           "video_poster_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgrandprix247.com%2Fimages%2F2026-08%2Fpiastri-hungary-2026-6a913d80ca172.jpg",
-          "heat_contribution": 0.75,
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -746,9 +856,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 40,
+      "media_heat": 36,
       "fan_heat": 0,
-      "heat": 40,
+      "heat": 36,
       "source_labels": [
         "媒"
       ],
@@ -759,161 +869,51 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
-    },
-    {
-      "event_id": "evt-2026-08-28-a608c29fb900",
-      "rule_id": null,
-      "hot_word_zh": "为什么这几乎像鲻鱼头，等等",
-      "hot_word_en": "WHY IS IT ALMOST GIVING MULLET WAIT",
-      "first_seen_at": "2026-08-28T09:54:48Z",
-      "last_seen_at": "2026-08-28T09:54:48Z",
-      "anchor_item_id": "piasnews-social-f7a726294498cd3e",
-      "image_url": "https://pbs.twimg.com/media/HQzPgqPXAAAbPxy.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HQzPgqPXAAAbPxy.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-f7a726294498cd3e",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: WHY IS IT ALMOST GIVING MULLET WAIT",
-          "title_zh": "X 发帖 @laurogeitabat：为什么这几乎像鲻鱼头，等等",
-          "summary": "WHY IS IT ALMOST GIVING MULLET WAIT https://t.co/yPhqKd227W",
-          "summary_zh": "为什么这几乎像鲻鱼头，等等",
-          "url": "https://x.com/laurogeitabat/status/2093276102575722688",
-          "published_at": "2026-08-28T09:54:48Z",
-          "image_url": "https://pbs.twimg.com/media/HQzPgqPXAAAbPxy.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HQzPgqPXAAAbPxy.jpg",
-          "heat_contribution": 7.5261,
-          "metrics": {
-            "likes": 2017,
-            "retweets": 135,
-            "replies": 5,
-            "quotes": 0,
-            "views": 17123,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 39,
-      "heat": 39,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 8
-    },
-    {
-      "event_id": "evt-2026-08-28-6ee8ee4de730",
-      "rule_id": null,
-      "hot_word_zh": "当他听到“或者你是大家想象中的那个冷酷的 oscar”时，他开始摇头表示否定 ☹️",
-      "hot_word_en": "he started shaking his head no when he heard \"or are you the ice cold oscar everyone is thinkin…",
-      "first_seen_at": "2026-08-28T14:57:55Z",
-      "last_seen_at": "2026-08-28T14:57:55Z",
-      "anchor_item_id": "piasnews-social-f42bb6fac3776c4f",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2093352371011174402/vid/avc1/282x270/T6HCGOFlbFKScIxw.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093352371011174402/img/wZyCOPBVXYiwYG98.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-f42bb6fac3776c4f",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: he started shaking his head no when he heard \"or are you the ice cold oscar everyone is thinkin…",
-          "title_zh": "X 发帖 @laurogeitabat：当他听到“或者你是大家想象中的那个冷酷的 oscar”时，他开始摇头表示否定 ☹️",
-          "summary": "he started shaking his head no when he heard \"or are you the ice cold oscar everyone is thinking of\" ☹️ https://t.co/fzQBGPnKhP",
-          "summary_zh": "当他听到“或者你是大家想象中的那个冷酷的 oscar”时，他开始摇头表示否定 ☹️",
-          "url": "https://x.com/laurogeitabat/status/2093352383958876311",
-          "published_at": "2026-08-28T14:57:55Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2093352371011174402/vid/avc1/282x270/T6HCGOFlbFKScIxw.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093352371011174402/img/wZyCOPBVXYiwYG98.jpg",
-          "heat_contribution": 7.0259,
-          "metrics": {
-            "likes": 890,
-            "retweets": 61,
-            "replies": 5,
-            "quotes": 0,
-            "views": 47228,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 37,
-      "heat": 37,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
       "rank": 9
     },
     {
-      "event_id": "evt-2026-08-26-38f4f5f4ba4b",
+      "event_id": "evt-2026-08-27-9788e92307c9",
       "rule_id": null,
-      "hot_word_zh": "他丢下夹克时发出“啊”的声音，然后拿到考拉玩偶时说“给我的吗？” 🥹🤏🏻",
-      "hot_word_en": "he goes \"aahhh\" when he drops the jacket and then \"for me??\" when he's given the koala plushie…",
-      "first_seen_at": "2026-08-26T07:57:49Z",
-      "last_seen_at": "2026-08-26T07:57:49Z",
-      "anchor_item_id": "piasnews-social-d509e354e7743a87",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2092521866896257024/vid/avc1/320x568/mPc4Lrv7Ca2KF8lw.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2092521866896257024/img/Xwxjb-xweDA8d2NY.jpg",
+      "hot_word_zh": "下周健身房奥斯卡视频，这不是演习！！",
+      "hot_word_en": "GYMSCAR VIDEO NEXT WEEK THIS IS NOT A DRILL !!",
+      "first_seen_at": "2026-08-27T18:51:40Z",
+      "last_seen_at": "2026-08-27T18:51:40Z",
+      "anchor_item_id": "piasnews-social-a499e5483ad13bed",
+      "image_url": "https://pbs.twimg.com/media/HQwAxtjWAAA4uxE.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HQwAxtjWAAA4uxE.jpg",
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
         {
-          "item_id": "piasnews-social-d509e354e7743a87",
+          "item_id": "piasnews-social-a499e5483ad13bed",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: he goes \"aahhh\" when he drops the jacket and then \"for me??\" when he's given the koala plushie…",
-          "title_zh": "X 发帖 @laurogeitabat：他丢下夹克时发出“啊”的声音，然后拿到考拉玩偶时说“给我的吗？” 🥹🤏🏻",
-          "summary": "he goes \"aahhh\" when he drops the jacket and then \"for me??\" when he's given the koala plushie 🥹🤏🏻 https://t.co/MW4W1TLFRU",
-          "summary_zh": "他丢下夹克时发出“啊”的声音，然后拿到考拉玩偶时说“给我的吗？” 🥹🤏🏻",
-          "url": "https://x.com/laurogeitabat/status/2092521887511302334",
-          "published_at": "2026-08-26T07:57:49Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2092521866896257024/vid/avc1/320x568/mPc4Lrv7Ca2KF8lw.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2092521866896257024/img/Xwxjb-xweDA8d2NY.jpg",
-          "heat_contribution": 6.8307,
+          "title": "X post from @laurogeitabat: GYMSCAR VIDEO NEXT WEEK THIS IS NOT A DRILL !!",
+          "title_zh": "X 发帖 @laurogeitabat：下周健身房奥斯卡视频，这不是演习！！",
+          "summary": "GYMSCAR VIDEO NEXT WEEK THIS IS NOT A DRILL !! https://t.co/C7xbKcCvF5",
+          "summary_zh": "下周健身房奥斯卡视频，这不是演习！！",
+          "url": "https://x.com/laurogeitabat/status/2093048818811953330",
+          "published_at": "2026-08-27T18:51:40Z",
+          "image_url": "https://pbs.twimg.com/media/HQwAxtjWAAA4uxE.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HQwAxtjWAAA4uxE.jpg",
+          "heat_contribution": 6.4162,
           "metrics": {
-            "likes": 3638,
-            "retweets": 294,
-            "replies": 0,
+            "likes": 922,
+            "retweets": 82,
+            "replies": 1,
             "quotes": 0,
-            "views": 39812,
+            "views": 26799,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 36,
-      "heat": 36,
+      "fan_heat": 34,
+      "heat": 34,
       "source_labels": [
         "粉"
       ],
