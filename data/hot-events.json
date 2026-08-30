@@ -1,78 +1,126 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-30T02:40:03.889106Z",
+  "generated_at": "2026-08-30T06:09:26.246166Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
   "event_count": 10,
   "events": [
     {
-      "event_id": "evt-2026-08-26-9eb646a643a9",
+      "event_id": "evt-2026-08-27-169284e65725",
       "rule_id": null,
-      "hot_word_zh": "Oscar·bee斯特里 😭😭😭😭",
-      "hot_word_en": "OSCAR BEEASTRI 😭😭😭😭",
-      "first_seen_at": "2026-08-25T19:00:32Z",
-      "last_seen_at": "2026-08-27T18:56:49Z",
-      "anchor_item_id": "piasnews-social-cdbe745fa0969f8d",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2092848899408924672/img/svkfIQcqWFC1lEIV.jpg",
+      "hot_word_zh": "MTC的人群为Oscar欢呼 🫶🏻",
+      "hot_word_en": "the crowd at the mtc cheering for oscar 🫶🏻",
+      "first_seen_at": "2026-08-26T15:34:33Z",
+      "last_seen_at": "2026-08-29T19:28:19Z",
+      "anchor_item_id": "piasnews-social-19a869b8f268633e",
+      "image_url": "https://pbs.twimg.com/media/HQ5lzegXgAA2MCD.jpg",
+      "video_url": "https://video.twimg.com/amplify_video/2093782792429551616/vid/avc1/576x1024/M5nAZAqwbv4fk9CT.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093782792429551616/img/XaUWMLvbg811qS60.jpg",
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
         {
-          "item_id": "piasnews-social-cdbe745fa0969f8d",
+          "item_id": "piasnews-social-19a869b8f268633e",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: OSCAR BEEASTRI 😭😭😭😭",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar·比斯特里 😭😭😭😭",
-          "summary": "OSCAR BEEASTRI 😭😭😭😭 https://t.co/bAG0l8tVib",
-          "summary_zh": "Oscar·比斯特里 😭😭😭😭",
-          "url": "https://x.com/laurogeitabat/status/2092848917075443930",
-          "published_at": "2026-08-27T05:37:00.000Z",
+          "title": "X post from @laurogeitabat: the crowd at the mtc cheering for oscar 🫶🏻",
+          "title_zh": "X 发帖 @laurogeitabat：MTC的人群为Oscar欢呼 🫶🏻",
+          "summary": "the crowd at the mtc cheering for oscar 🫶🏻 https://t.co/D3AhUtnBNh",
+          "summary_zh": "MTC的人群为Oscar欢呼 🫶🏻",
+          "url": "https://x.com/laurogeitabat/status/2093782820212633956",
+          "published_at": "2026-08-29T19:28:19Z",
           "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "manual": false
+          "video_url": "https://video.twimg.com/amplify_video/2093782792429551616/vid/avc1/576x1024/M5nAZAqwbv4fk9CT.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093782792429551616/img/XaUWMLvbg811qS60.jpg",
+          "heat_contribution": 6.5048,
+          "metrics": {
+            "likes": 724,
+            "retweets": 33,
+            "replies": 5,
+            "quotes": 6,
+            "views": 7277,
+            "bookmarks": 83
+          }
         },
         {
-          "item_id": "piasnews-social-8bed8ffef39b5887",
+          "item_id": "piasnews-social-0d16ed575632aab0",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: cut cut cut",
-          "title_zh": "X 发帖 @laurogeitabat：剪剪剪",
-          "summary": "cut cut cut https://t.co/ELxvoqgywY",
-          "summary_zh": "剪剪剪",
-          "url": "https://x.com/laurogeitabat/status/2092326276958990824",
-          "published_at": "2026-08-25T19:00:32Z",
-          "image_url": null,
+          "title": "X post from @laurogeitabat: oscar and lando at the mtc today!",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar和Lando今天在MTC！",
+          "summary": "oscar and lando at the mtc today! https://t.co/nRSQMM3DZu",
+          "summary_zh": "Oscar和Lando今天在MTC！",
+          "url": "https://x.com/laurogeitabat/status/2093722819221664069",
+          "published_at": "2026-08-29T15:29:54Z",
+          "image_url": "https://pbs.twimg.com/media/HQ5lzegXgAA2MCD.jpg",
           "video_url": null,
-          "video_poster_url": null,
-          "manual": false
+          "video_poster_url": "https://pbs.twimg.com/media/HQ5lzegXgAA2MCD.jpg",
+          "heat_contribution": 6.2488,
+          "metrics": {
+            "likes": 552,
+            "retweets": 46,
+            "replies": 0,
+            "quotes": 1,
+            "views": 4255,
+            "bookmarks": 16
+          }
         },
         {
-          "item_id": "piasnews-social-23c4bec90a1e5dae",
+          "item_id": "piasnews-social-d161cf513dd4f429",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: THE SHARK AND THE WASP 🦈🐝",
-          "title_zh": "X 发帖 @laurogeitabat：鲨鱼和黄蜂 🦈🐝",
-          "summary": "THE SHARK AND THE WASP 🦈🐝 https://t.co/LzCDhFcRV8",
-          "summary_zh": "鲨鱼和黄蜂 🦈🐝",
-          "url": "https://x.com/laurogeitabat/status/2092855393990942796",
-          "published_at": "2026-08-27T06:03:03Z",
-          "image_url": null,
+          "title": "X post from @laurogeitabat: more pics of oscar at the mtc ☺️",
+          "title_zh": "X 发帖 @laurogeitabat：更多Oscar在MTC的照片 ☺️",
+          "summary": "more pics of oscar at the mtc ☺️ https://t.co/vUvqxkhjna",
+          "summary_zh": "更多Oscar在MTC的照片 ☺️",
+          "url": "https://x.com/laurogeitabat/status/2093017310676029748",
+          "published_at": "2026-08-27T16:46:27Z",
+          "image_url": "https://pbs.twimg.com/media/HQvkI2qWwAAJkb-.jpg",
           "video_url": null,
-          "video_poster_url": null,
-          "manual": false
+          "video_poster_url": "https://pbs.twimg.com/media/HQvkI2qWwAAJkb-.jpg",
+          "heat_contribution": 4.8867,
+          "metrics": {
+            "likes": 541,
+            "retweets": 28,
+            "replies": 1,
+            "quotes": 0,
+            "views": 5756,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-9f7039277f72e2d4",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar is back at the mtc!",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar回到了McLaren技术中心！",
+          "summary": "oscar is back at the mtc! https://t.co/ZQKiDkzar3",
+          "summary_zh": "Oscar回到了McLaren技术中心！",
+          "url": "https://x.com/laurogeitabat/status/2092636825760289159",
+          "published_at": "2026-08-26T15:34:33Z",
+          "image_url": "https://pbs.twimg.com/media/HQqKGYCXIAA0fHP.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HQqKGYCXIAA0fHP.jpg",
+          "heat_contribution": 0.0,
+          "metrics": {
+            "likes": 633,
+            "retweets": 41,
+            "replies": 2,
+            "quotes": 0,
+            "views": 7246,
+            "bookmarks": 0
+          }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 66,
-      "heat": 66,
+      "fan_heat": 57,
+      "heat": 57,
       "source_labels": [
         "粉"
       ],
@@ -83,12 +131,110 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "override": {
-        "updated_at": "2026-08-27T06:42:24.685743Z",
-        "updated_by": "admin",
-        "reason": "优化热点词"
-      },
       "rank": 1
+    },
+    {
+      "event_id": "evt-2026-08-29-4ab1670729db",
+      "rule_id": null,
+      "hot_word_zh": "Oscar今天在McLaren家庭与朋友日 🫶🏻",
+      "hot_word_en": "OSCAR AT THE MCLAREN FAMILY &amp; FRIENDS DAY TODAY 🫶🏻",
+      "first_seen_at": "2026-08-29T13:23:43Z",
+      "last_seen_at": "2026-08-29T17:08:21Z",
+      "anchor_item_id": "piasnews-social-8594b8e51b049fa2",
+      "image_url": "https://pbs.twimg.com/media/HQ58RrAXgAATwPo.jpg",
+      "video_url": "https://video.twimg.com/amplify_video/2093706532579905536/vid/avc1/576x1024/ziug_f9k_4V-OEr7.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/media/HQ58RrAXgAATwPo.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-8594b8e51b049fa2",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: OSCAR AT THE MCLAREN FAMILY &amp; FRIENDS DAY TODAY 🫶🏻",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar今天在McLaren家庭与朋友日 🫶🏻",
+          "summary": "OSCAR AT THE MCLAREN FAMILY &amp; FRIENDS DAY TODAY 🫶🏻 https://t.co/Jb5U6c5NHJ",
+          "summary_zh": "Oscar今天在McLaren家庭与朋友日 🫶🏻",
+          "url": "https://x.com/laurogeitabat/status/2093747594178535497",
+          "published_at": "2026-08-29T17:08:21Z",
+          "image_url": "https://pbs.twimg.com/media/HQ58RrAXgAATwPo.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HQ58RrAXgAATwPo.jpg",
+          "heat_contribution": 6.2566,
+          "metrics": {
+            "likes": 557,
+            "retweets": 48,
+            "replies": 0,
+            "quotes": 1,
+            "views": 3892,
+            "bookmarks": 15
+          }
+        },
+        {
+          "item_id": "piasnews-social-87a3dc0f3e892089",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar arriving to meet everyone's family &amp; friends this morning 😊 🎥: advertisingcigarettes",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar今早到达，与大家的家人和朋友见面 😊 🎥: advertisingcigarettes",
+          "summary": "oscar arriving to meet everyone's family &amp; friends this morning 😊 🎥: advertisingcigarettes https://t.co/7wA9TCulBH",
+          "summary_zh": "Oscar今早到达，与大家的家人和朋友见面 😊 🎥: advertisingcigarettes",
+          "url": "https://x.com/laurogeitabat/status/2093706581279981785",
+          "published_at": "2026-08-29T14:25:22Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2093706532579905536/vid/avc1/576x1024/ziug_f9k_4V-OEr7.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093706532579905536/img/ghB84qcqw3PKnvkJ.jpg",
+          "heat_contribution": 6.0313,
+          "metrics": {
+            "likes": 419,
+            "retweets": 25,
+            "replies": 0,
+            "quotes": 3,
+            "views": 7866,
+            "bookmarks": 19
+          }
+        },
+        {
+          "item_id": "piasnews-social-a296c408ced1280a",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar and lando celebrating mclaren's family &amp; friends day 🫶🏻",
+          "title_zh": "X 发帖 @laurogeitabat：oscar和lando庆祝McLaren的家庭与朋友日 🫶🏻",
+          "summary": "oscar and lando celebrating mclaren's family &amp; friends day 🫶🏻 https://t.co/JWjFR3ppUV",
+          "summary_zh": "oscar和lando庆祝McLaren的家庭与朋友日 🫶🏻",
+          "url": "https://x.com/laurogeitabat/status/2093691066201297181",
+          "published_at": "2026-08-29T13:23:43Z",
+          "image_url": "https://pbs.twimg.com/media/HQ5I7GmWgAA04NN.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HQ5I7GmWgAA04NN.jpg",
+          "heat_contribution": 5.6998,
+          "metrics": {
+            "likes": 319,
+            "retweets": 15,
+            "replies": 0,
+            "quotes": 2,
+            "views": 4406,
+            "bookmarks": 9
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 57,
+      "heat": 57,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 2
     },
     {
       "event_id": "evt-2026-08-27-13bff02851a7",
@@ -166,7 +312,7 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/tweet_video/HQtIb8qaIAAE_QC.mp4",
           "video_poster_url": "https://pbs.twimg.com/tweet_video_thumb/HQtIb8qaIAAE_QC.jpg",
-          "heat_contribution": 5.687,
+          "heat_contribution": 0.0,
           "metrics": {
             "likes": 0,
             "retweets": 734,
@@ -179,135 +325,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 60,
-      "heat": 60,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 2
-    },
-    {
-      "event_id": "evt-2026-08-27-169284e65725",
-      "rule_id": null,
-      "hot_word_zh": "MTC的人群为Oscar欢呼 🫶🏻",
-      "hot_word_en": "the crowd at the mtc cheering for oscar 🫶🏻",
-      "first_seen_at": "2026-08-26T15:34:33Z",
-      "last_seen_at": "2026-08-29T19:28:19Z",
-      "anchor_item_id": "piasnews-social-19a869b8f268633e",
-      "image_url": "https://pbs.twimg.com/media/HQ5lzegXgAA2MCD.jpg",
-      "video_url": "https://video.twimg.com/amplify_video/2093782792429551616/vid/avc1/320x568/yIWN5_q5kLb4M3R6.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093782792429551616/img/XaUWMLvbg811qS60.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-19a869b8f268633e",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: the crowd at the mtc cheering for oscar 🫶🏻",
-          "title_zh": "X 发帖 @laurogeitabat：MTC的人群为Oscar欢呼 🫶🏻",
-          "summary": "the crowd at the mtc cheering for oscar 🫶🏻 https://t.co/D3AhUtnBNh",
-          "summary_zh": "MTC的人群为Oscar欢呼 🫶🏻",
-          "url": "https://x.com/laurogeitabat/status/2093782820212633956",
-          "published_at": "2026-08-29T19:28:19Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2093782792429551616/vid/avc1/320x568/yIWN5_q5kLb4M3R6.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093782792429551616/img/XaUWMLvbg811qS60.jpg",
-          "heat_contribution": 6.331,
-          "metrics": {
-            "likes": 622,
-            "retweets": 28,
-            "replies": 3,
-            "quotes": 0,
-            "views": 6062,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-0d16ed575632aab0",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar and lando at the mtc today!",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar和Lando今天在MTC！",
-          "summary": "oscar and lando at the mtc today! https://t.co/nRSQMM3DZu",
-          "summary_zh": "Oscar和Lando今天在MTC！",
-          "url": "https://x.com/laurogeitabat/status/2093722819221664069",
-          "published_at": "2026-08-29T15:29:54Z",
-          "image_url": "https://pbs.twimg.com/media/HQ5lzegXgAA2MCD.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HQ5lzegXgAA2MCD.jpg",
-          "heat_contribution": 6.2136,
-          "metrics": {
-            "likes": 532,
-            "retweets": 46,
-            "replies": 0,
-            "quotes": 0,
-            "views": 4065,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-d161cf513dd4f429",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: more pics of oscar at the mtc ☺️",
-          "title_zh": "X 发帖 @laurogeitabat：更多Oscar在MTC的照片 ☺️",
-          "summary": "more pics of oscar at the mtc ☺️ https://t.co/vUvqxkhjna",
-          "summary_zh": "更多Oscar在MTC的照片 ☺️",
-          "url": "https://x.com/laurogeitabat/status/2093017310676029748",
-          "published_at": "2026-08-27T16:46:27Z",
-          "image_url": "https://pbs.twimg.com/media/HQvkI2qWwAAJkb-.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HQvkI2qWwAAJkb-.jpg",
-          "heat_contribution": 4.8867,
-          "metrics": {
-            "likes": 541,
-            "retweets": 28,
-            "replies": 1,
-            "quotes": 0,
-            "views": 5756,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-9f7039277f72e2d4",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar is back at the mtc!",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar回到了McLaren技术中心！",
-          "summary": "oscar is back at the mtc! https://t.co/ZQKiDkzar3",
-          "summary_zh": "Oscar回到了McLaren技术中心！",
-          "url": "https://x.com/laurogeitabat/status/2092636825760289159",
-          "published_at": "2026-08-26T15:34:33Z",
-          "image_url": "https://pbs.twimg.com/media/HQqKGYCXIAA0fHP.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HQqKGYCXIAA0fHP.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {
-            "likes": 633,
-            "retweets": 41,
-            "replies": 2,
-            "quotes": 0,
-            "views": 7246,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 56,
-      "heat": 56,
+      "fan_heat": 48,
+      "heat": 48,
       "source_labels": [
         "粉"
       ],
@@ -321,109 +340,6 @@
       "rank": 3
     },
     {
-      "event_id": "evt-2026-08-29-4ab1670729db",
-      "rule_id": null,
-      "hot_word_zh": "Oscar今天在McLaren家庭与朋友日 🫶🏻",
-      "hot_word_en": "OSCAR AT THE MCLAREN FAMILY &amp; FRIENDS DAY TODAY 🫶🏻",
-      "first_seen_at": "2026-08-29T13:23:43Z",
-      "last_seen_at": "2026-08-29T17:08:21Z",
-      "anchor_item_id": "piasnews-social-8594b8e51b049fa2",
-      "image_url": "https://pbs.twimg.com/media/HQ58RrAXgAATwPo.jpg",
-      "video_url": "https://video.twimg.com/amplify_video/2093706532579905536/vid/avc1/320x568/0QV5efdtTA0c1d8o.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/media/HQ58RrAXgAATwPo.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-8594b8e51b049fa2",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: OSCAR AT THE MCLAREN FAMILY &amp; FRIENDS DAY TODAY 🫶🏻",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar今天在McLaren家庭与朋友日 🫶🏻",
-          "summary": "OSCAR AT THE MCLAREN FAMILY &amp; FRIENDS DAY TODAY 🫶🏻 https://t.co/Jb5U6c5NHJ",
-          "summary_zh": "Oscar今天在McLaren家庭与朋友日 🫶🏻",
-          "url": "https://x.com/laurogeitabat/status/2093747594178535497",
-          "published_at": "2026-08-29T17:08:21Z",
-          "image_url": "https://pbs.twimg.com/media/HQ58RrAXgAATwPo.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HQ58RrAXgAATwPo.jpg",
-          "heat_contribution": 6.1497,
-          "metrics": {
-            "likes": 502,
-            "retweets": 43,
-            "replies": 0,
-            "quotes": 0,
-            "views": 3543,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-87a3dc0f3e892089",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar arriving to meet everyone's family &amp; friends this morning 😊 🎥: advertisingcigarettes",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar今早到达，与大家的家人和朋友见面 😊 🎥: advertisingcigarettes",
-          "summary": "oscar arriving to meet everyone's family &amp; friends this morning 😊 🎥: advertisingcigarettes https://t.co/7wA9TCulBH",
-          "summary_zh": "Oscar今早到达，与大家的家人和朋友见面 😊 🎥: advertisingcigarettes",
-          "url": "https://x.com/laurogeitabat/status/2093706581279981785",
-          "published_at": "2026-08-29T14:25:22Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2093706532579905536/vid/avc1/320x568/0QV5efdtTA0c1d8o.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093706532579905536/img/ghB84qcqw3PKnvkJ.jpg",
-          "heat_contribution": 5.9791,
-          "metrics": {
-            "likes": 403,
-            "retweets": 24,
-            "replies": 0,
-            "quotes": 0,
-            "views": 7444,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-a296c408ced1280a",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar and lando celebrating mclaren's family &amp; friends day 🫶🏻",
-          "title_zh": "X 发帖 @laurogeitabat：oscar和lando庆祝McLaren的家庭与朋友日 🫶🏻",
-          "summary": "oscar and lando celebrating mclaren's family &amp; friends day 🫶🏻 https://t.co/JWjFR3ppUV",
-          "summary_zh": "oscar和lando庆祝McLaren的家庭与朋友日 🫶🏻",
-          "url": "https://x.com/laurogeitabat/status/2093691066201297181",
-          "published_at": "2026-08-29T13:23:43Z",
-          "image_url": "https://pbs.twimg.com/media/HQ5I7GmWgAA04NN.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HQ5I7GmWgAA04NN.jpg",
-          "heat_contribution": 5.6746,
-          "metrics": {
-            "likes": 314,
-            "retweets": 15,
-            "replies": 0,
-            "quotes": 0,
-            "views": 4315,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 56,
-      "heat": 56,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 4
-    },
-    {
       "event_id": "evt-2026-08-29-763dba9d8161",
       "rule_id": null,
       "hot_word_zh": "Oscar今天驾驶M19C绕MTC湖行驶的视频！🔥",
@@ -432,7 +348,7 @@
       "last_seen_at": "2026-08-29T17:06:46Z",
       "anchor_item_id": "piasnews-social-542da94890d2d115",
       "image_url": "https://pbs.twimg.com/media/HQ52W9RW0AEWV5F.jpg",
-      "video_url": "https://video.twimg.com/amplify_video/2093747167684956160/vid/avc1/320x334/eCXCCLA56d9rTxrL.mp4?tag=29",
+      "video_url": "https://video.twimg.com/amplify_video/2093747167684956160/vid/avc1/720x752/LwpBQ-2SpbOq3u6b.mp4?tag=29",
       "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093747167684956160/img/uEbzuuyn_KIcJgxw.jpg",
       "review_needed": false,
       "review_needed_reason": null,
@@ -449,16 +365,16 @@
           "url": "https://x.com/laurogeitabat/status/2093747195946143857",
           "published_at": "2026-08-29T17:06:46Z",
           "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2093747167684956160/vid/avc1/320x334/eCXCCLA56d9rTxrL.mp4?tag=29",
+          "video_url": "https://video.twimg.com/amplify_video/2093747167684956160/vid/avc1/720x752/LwpBQ-2SpbOq3u6b.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093747167684956160/img/uEbzuuyn_KIcJgxw.jpg",
-          "heat_contribution": 6.3735,
+          "heat_contribution": 6.5635,
           "metrics": {
-            "likes": 590,
-            "retweets": 72,
+            "likes": 715,
+            "retweets": 86,
             "replies": 0,
-            "quotes": 0,
-            "views": 4616,
-            "bookmarks": 0
+            "quotes": 1,
+            "views": 5468,
+            "bookmarks": 38
           }
         },
         {
@@ -475,21 +391,21 @@
           "image_url": "https://pbs.twimg.com/media/HQ52W9RW0AEWV5F.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HQ52W9RW0AEWV5F.jpg",
-          "heat_contribution": 5.9106,
+          "heat_contribution": 6.0466,
           "metrics": {
-            "likes": 386,
-            "retweets": 37,
+            "likes": 437,
+            "retweets": 44,
             "replies": 0,
-            "quotes": 0,
-            "views": 3059,
-            "bookmarks": 0
+            "quotes": 2,
+            "views": 3321,
+            "bookmarks": 10
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 46,
-      "heat": 46,
+      "fan_heat": 47,
+      "heat": 47,
       "source_labels": [
         "粉"
       ],
@@ -500,7 +416,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 5
+      "rank": 4
     },
     {
       "event_id": "evt-2026-08-28-34b1da538308",
@@ -579,7 +495,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 5
     },
     {
       "event_id": "evt-2026-08-29-7dec1b09bfed",
@@ -590,7 +506,7 @@
       "last_seen_at": "2026-08-29T16:20:26Z",
       "anchor_item_id": "piasnews-social-fdeb612228e28ada",
       "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2093735517112197120/vid/avc1/320x496/GlPN6yOr7F91Puny.mp4?tag=29",
+      "video_url": "https://video.twimg.com/amplify_video/2093735517112197120/vid/avc1/720x1120/hGdNdRoI4KNibFtK.mp4?tag=29",
       "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093735517112197120/img/7OLdZwYkd7iqOZhI.jpg",
       "review_needed": false,
       "review_needed_reason": null,
@@ -607,23 +523,23 @@
           "url": "https://x.com/laurogeitabat/status/2093735537693581343",
           "published_at": "2026-08-29T16:20:26Z",
           "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2093735517112197120/vid/avc1/320x496/GlPN6yOr7F91Puny.mp4?tag=29",
+          "video_url": "https://video.twimg.com/amplify_video/2093735517112197120/vid/avc1/720x1120/hGdNdRoI4KNibFtK.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093735517112197120/img/7OLdZwYkd7iqOZhI.jpg",
-          "heat_contribution": 8.0035,
+          "heat_contribution": 8.171,
           "metrics": {
-            "likes": 3119,
-            "retweets": 206,
-            "replies": 6,
-            "quotes": 0,
-            "views": 43823,
-            "bookmarks": 0
+            "likes": 3547,
+            "retweets": 254,
+            "replies": 8,
+            "quotes": 59,
+            "views": 51737,
+            "bookmarks": 691
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 42,
-      "heat": 42,
+      "fan_heat": 43,
+      "heat": 43,
       "source_labels": [
         "粉"
       ],
@@ -634,7 +550,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 6
     },
     {
       "event_id": "evt-2026-08-28-811207026fd5",
@@ -645,7 +561,7 @@
       "last_seen_at": "2026-08-28T15:13:14Z",
       "anchor_item_id": "piasnews-social-a1cedc0ea87a8885",
       "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2093356179116183552/vid/avc1/320x568/D8muGpni0YEHYFhA.mp4?tag=29",
+      "video_url": "https://video.twimg.com/amplify_video/2093356179116183552/vid/avc1/720x1280/tTctpAlOWOalXKW-.mp4?tag=29",
       "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093356179116183552/img/opIFD6SXaJiQXy9d.jpg",
       "review_needed": false,
       "review_needed_reason": null,
@@ -662,16 +578,71 @@
           "url": "https://x.com/laurogeitabat/status/2093356237253484705",
           "published_at": "2026-08-28T15:13:14Z",
           "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2093356179116183552/vid/avc1/320x568/D8muGpni0YEHYFhA.mp4?tag=29",
+          "video_url": "https://video.twimg.com/amplify_video/2093356179116183552/vid/avc1/720x1280/tTctpAlOWOalXKW-.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093356179116183552/img/opIFD6SXaJiQXy9d.jpg",
-          "heat_contribution": 7.3499,
+          "heat_contribution": 7.3836,
           "metrics": {
-            "likes": 2369,
+            "likes": 2373,
             "retweets": 244,
             "replies": 4,
-            "quotes": 0,
-            "views": 58659,
-            "bookmarks": 0
+            "quotes": 56,
+            "views": 58912,
+            "bookmarks": 289
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 39,
+      "heat": 39,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "event_id": "evt-2026-08-29-2a70690b6f15",
+      "rule_id": null,
+      "hot_word_zh": "“我短期内不会加入WRC，但很有趣，我也搬了公寓，所以这是忙碌的一周” oscar今天在M…",
+      "hot_word_en": "\"i won't be joining the wrc anytime soon but it was fun, i moved apartments as well, so it was…",
+      "first_seen_at": "2026-08-29T12:40:32Z",
+      "last_seen_at": "2026-08-29T12:40:32Z",
+      "anchor_item_id": "piasnews-social-638c70f6e4c4b539",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2093672095855132672/vid/avc1/1320x2064/mKxd_qZPywrrpbsl.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093672095855132672/img/71N_p-nv-szfXjKu.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-638c70f6e4c4b539",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: \"i won't be joining the wrc anytime soon but it was fun, i moved apartments as well, so it was…",
+          "title_zh": "X 发帖 @laurogeitabat：“我短期内不会加入WRC，但很有趣，我也搬了公寓，所以这是忙碌的一周” oscar今天在MTC！",
+          "summary": "\"i won't be joining the wrc anytime soon but it was fun, i moved apartments as well, so it was a busy week\" oscar at the mtc today! https://t.co/YFFzxTwr8v",
+          "summary_zh": "“我短期内不会加入WRC，但很有趣，我也搬了公寓，所以这是忙碌的一周” oscar今天在MTC！",
+          "url": "https://x.com/laurogeitabat/status/2093680198851936728",
+          "published_at": "2026-08-29T12:40:32Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2093672095855132672/vid/avc1/1320x2064/mKxd_qZPywrrpbsl.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093672095855132672/img/71N_p-nv-szfXjKu.jpg",
+          "heat_contribution": 7.5325,
+          "metrics": {
+            "likes": 1988,
+            "retweets": 95,
+            "replies": 2,
+            "quotes": 6,
+            "views": 29294,
+            "bookmarks": 219
           }
         }
       ],
@@ -692,48 +663,48 @@
       "rank": 8
     },
     {
-      "event_id": "evt-2026-08-29-2a70690b6f15",
+      "event_id": "evt-2026-08-28-6ee8ee4de730",
       "rule_id": null,
-      "hot_word_zh": "“我短期内不会加入WRC，但很有趣，我也搬了公寓，所以这是忙碌的一周” oscar今天在M…",
-      "hot_word_en": "\"i won't be joining the wrc anytime soon but it was fun, i moved apartments as well, so it was…",
-      "first_seen_at": "2026-08-29T12:40:32Z",
-      "last_seen_at": "2026-08-29T12:40:32Z",
-      "anchor_item_id": "piasnews-social-638c70f6e4c4b539",
+      "hot_word_zh": "当他听到“或者你是大家想象中的那个冷酷的 oscar”时，他开始摇头表示否定 ☹️",
+      "hot_word_en": "he started shaking his head no when he heard \"or are you the ice cold oscar everyone is thinkin…",
+      "first_seen_at": "2026-08-28T14:57:55Z",
+      "last_seen_at": "2026-08-28T14:57:55Z",
+      "anchor_item_id": "piasnews-social-f42bb6fac3776c4f",
       "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2093672095855132672/vid/avc1/320x500/gZv_YMm1jc9nS2OK.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093672095855132672/img/71N_p-nv-szfXjKu.jpg",
+      "video_url": "https://video.twimg.com/amplify_video/2093352371011174402/vid/avc1/336x320/dHfoW2rxQXZ6XDy7.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093352371011174402/img/wZyCOPBVXYiwYG98.jpg",
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
         {
-          "item_id": "piasnews-social-638c70f6e4c4b539",
+          "item_id": "piasnews-social-f42bb6fac3776c4f",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: \"i won't be joining the wrc anytime soon but it was fun, i moved apartments as well, so it was…",
-          "title_zh": "X 发帖 @laurogeitabat：“我短期内不会加入WRC，但很有趣，我也搬了公寓，所以这是忙碌的一周” oscar今天在MTC！",
-          "summary": "\"i won't be joining the wrc anytime soon but it was fun, i moved apartments as well, so it was a busy week\" oscar at the mtc today! https://t.co/YFFzxTwr8v",
-          "summary_zh": "“我短期内不会加入WRC，但很有趣，我也搬了公寓，所以这是忙碌的一周” oscar今天在MTC！",
-          "url": "https://x.com/laurogeitabat/status/2093680198851936728",
-          "published_at": "2026-08-29T12:40:32Z",
+          "title": "X post from @laurogeitabat: he started shaking his head no when he heard \"or are you the ice cold oscar everyone is thinkin…",
+          "title_zh": "X 发帖 @laurogeitabat：当他听到“或者你是大家想象中的那个冷酷的 oscar”时，他开始摇头表示否定 ☹️",
+          "summary": "he started shaking his head no when he heard \"or are you the ice cold oscar everyone is thinking of\" ☹️ https://t.co/fzQBGPnKhP",
+          "summary_zh": "当他听到“或者你是大家想象中的那个冷酷的 oscar”时，他开始摇头表示否定 ☹️",
+          "url": "https://x.com/laurogeitabat/status/2093352383958876311",
+          "published_at": "2026-08-28T14:57:55Z",
           "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2093672095855132672/vid/avc1/320x500/gZv_YMm1jc9nS2OK.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093672095855132672/img/71N_p-nv-szfXjKu.jpg",
-          "heat_contribution": 7.4838,
+          "video_url": "https://video.twimg.com/amplify_video/2093352371011174402/vid/avc1/336x320/dHfoW2rxQXZ6XDy7.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093352371011174402/img/wZyCOPBVXYiwYG98.jpg",
+          "heat_contribution": 6.9159,
           "metrics": {
-            "likes": 1902,
-            "retweets": 91,
-            "replies": 2,
-            "quotes": 0,
-            "views": 28072,
-            "bookmarks": 0
+            "likes": 1115,
+            "retweets": 83,
+            "replies": 5,
+            "quotes": 69,
+            "views": 80412,
+            "bookmarks": 155
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 39,
-      "heat": 39,
+      "fan_heat": 37,
+      "heat": 37,
       "source_labels": [
         "粉"
       ],
