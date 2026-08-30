@@ -913,13 +913,13 @@ function renderHotEvent(event) {
       ? `<span class="hot-media" data-media-kind="image"><img src="${escapeHtml(imageUrl || posterUrl)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>`
       : "";
   return `
-    <a class="hot-event" data-event-id="${escapeHtml(event.event_id)}" href="#hot/${encodeURIComponent(event.event_id)}">
+    <a class="hot-event${media ? " has-media" : ""}" data-event-id="${escapeHtml(event.event_id)}" href="#hot/${encodeURIComponent(event.event_id)}">
       <div class="hot-rank">${escapeHtml(event.rank)}</div>
       <div class="hot-event-main">
         <h3>${escapeHtml(title)}</h3>
         <span class="hot-related-link">${escapeHtml(t().hotRelated((event.items || []).length))} →</span>
       </div>
-      <span class="hot-media-slot">${media}</span>
+      ${media ? `<span class="hot-media-slot">${media}</span>` : ""}
       <div class="hot-source-list" aria-label="来源">${labels}</div>
       <strong class="hot-score"><span>${escapeHtml(t().hotHeat)}</span>${escapeHtml(event.heat)}</strong>
     </a>`;

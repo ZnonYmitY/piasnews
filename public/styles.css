@@ -1611,6 +1611,13 @@ body.hot-detail-mode .tab-panel {
     gap: 9px;
   }
 
+  .hot-event.has-media {
+    grid-template-areas:
+      "rank main media"
+      ". source score";
+    grid-template-columns: 30px minmax(0, 1fr) 72px;
+  }
+
   .hot-rank {
     grid-area: rank;
     font-size: 16px;
@@ -1634,7 +1641,16 @@ body.hot-detail-mode .tab-panel {
   }
 
   .hot-media-slot {
-    display: none;
+    grid-area: media;
+    width: 72px;
+    min-height: 46px;
+    align-self: center;
+    display: block;
+  }
+
+  .hot-media {
+    width: 72px;
+    height: 46px;
   }
 
   .hot-related li {
