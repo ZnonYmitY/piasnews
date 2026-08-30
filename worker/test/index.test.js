@@ -46,6 +46,9 @@ const env = {
     "editor-key": { user: "editor@example.com", role: "editor" },
     "publisher-key": { user: "publisher@example.com", role: "publisher" },
   }),
+  ADMIN_ADDITIONAL_KEYS_JSON: JSON.stringify({
+    "coala-key": { user: "coala", email: "janniezhenqi@163.com", role: "admin" },
+  }),
   ANALYTICS_DB: createAnalyticsDb(),
   GITHUB_OWNER: "ZnonYmitY",
   GITHUB_REPOSITORY: "piasnews",
@@ -208,6 +211,23 @@ test("session endpoint returns role permissions without exposing the key", async
   assert.equal(payload.permissions.edit, true);
   assert.equal(payload.permissions.publish, false);
   assert.equal(JSON.stringify(payload).includes("editor-key"), false);
+});
+
+
+test("additional admin keys preserve identity metadata and full permissions", async () => {
+  const response = await worker.fetch(
+    new Request("https://worker.example/session", {
+      headers: { Authorization: "Bearer coala-key", Origin: "https://znonymity.github.io" },
+    }),
+    env,
+  );
+  const payload = await response.json();
+  assert.equal(response.status, 200);
+  assert.equal(payload.user, "coala");
+  assert.equal(payload.email, "janniezhenqi@163.com");
+  assert.equal(payload.role, "admin");
+  assert.deepEqual(payload.permissions, { view: true, edit: true, publish: true, administer: true });
+  assert.equal(JSON.stringify(payload).includes("coala-key"), false);
 });
 
 

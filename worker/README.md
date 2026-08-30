@@ -11,11 +11,12 @@ Review candidates and decisions remain in GitHub JSON. D1 stores analytics only:
 ## Secrets
 
 - `ADMIN_API_KEY`: legacy single-admin key. It remains supported as the `admin` role.
-- `ADMIN_KEYS_JSON`: recommended JSON role map stored as a Worker secret, for example
+- `ADMIN_KEYS_JSON`: recommended primary JSON role map stored as a Worker secret, for example
   `{"viewer-key":{"user":"alice","role":"viewer"},"editor-key":{"user":"bob","role":"editor"},"publisher-key":{"user":"carol","role":"publisher"}}`.
+- `ADMIN_ADDITIONAL_KEYS_JSON`: optional additive JSON role map. It is merged with the primary map so a new identity can be added without replacing existing administrators. Entries may include `user`, `email`, and `role`.
 - `GITHUB_TOKEN`: a fine-grained GitHub token restricted to this repository with Actions write permission.
 
-Keep both values in Worker secrets. Never put them in static admin files, repository variables, or committed configuration.
+Keep all secret values in Worker secrets. Never put them in static admin files, repository variables, or committed configuration.
 
 ## Create D1 and Deploy
 
@@ -31,6 +32,7 @@ Copy the returned database ID into `wrangler.toml`, keep the binding name as `AN
 npx wrangler@latest d1 execute piasnews-analytics --remote --file=./migrations/0001_analytics.sql
 npx wrangler secret put ADMIN_API_KEY
 npx wrangler secret put ADMIN_KEYS_JSON
+npx wrangler secret put ADMIN_ADDITIONAL_KEYS_JSON
 npx wrangler secret put GITHUB_TOKEN
 npx wrangler deploy
 ```

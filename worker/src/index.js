@@ -50,27 +50,38 @@ function suppliedAdminKey(request) {
   return authorization.startsWith("Bearer ") ? authorization.slice(7) : "";
 }
 
+function appendConfiguredSessions(sessions, configuredJson) {
+  if (!configuredJson) return;
+  try {
+    const configured = JSON.parse(configuredJson);
+    for (const [key, value] of Object.entries(configured || {})) {
+      if (!key || !value || !ROLE_LEVEL[value.role]) continue;
+      sessions.push({
+        key,
+        user: String(value.user || value.nickname || "workbench-user"),
+        email: value.email ? String(value.email) : null,
+        role: value.role,
+      });
+    }
+  } catch {
+    // A malformed optional role map must not disable the other authentication paths.
+  }
+}
+
 function configuredSessions(env) {
   const sessions = [];
-  if (env.ADMIN_KEYS_JSON) {
-    try {
-      const configured = JSON.parse(env.ADMIN_KEYS_JSON);
-      for (const [key, value] of Object.entries(configured || {})) {
-        if (!key || !value || !ROLE_LEVEL[value.role]) continue;
-        sessions.push({ key, user: String(value.user || "workbench-user"), role: value.role });
-      }
-    } catch {
-      // A malformed optional role map must not disable the legacy admin key.
-    }
+  appendConfiguredSessions(sessions, env.ADMIN_KEYS_JSON);
+  appendConfiguredSessions(sessions, env.ADMIN_ADDITIONAL_KEYS_JSON);
+  if (env.ADMIN_API_KEY) {
+    sessions.push({ key: env.ADMIN_API_KEY, user: "legacy-admin", email: null, role: "admin" });
   }
-  if (env.ADMIN_API_KEY) sessions.push({ key: env.ADMIN_API_KEY, user: "legacy-admin", role: "admin" });
   return sessions;
 }
 
 async function authenticatedSession(request, env) {
   const supplied = suppliedAdminKey(request);
   for (const session of configuredSessions(env)) {
-    if (await safeEqual(supplied, session.key)) return { user: session.user, role: session.role };
+    if (await safeEqual(supplied, session.key)) return { user: session.user, email: session.email, role: session.role };
   }
   return null;
 }
@@ -83,6 +94,7 @@ function sessionPayload(session) {
   return {
     authenticated: true,
     user: session.user,
+    email: session.email || null,
     role: session.role,
     permissions: {
       view: hasRole(session, "viewer"),

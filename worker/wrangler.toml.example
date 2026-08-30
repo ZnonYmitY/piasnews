@@ -18,4 +18,5 @@ database_id = "replace-with-your-d1-database-id"
 # Set secrets with Wrangler; never commit their values:
 # npx wrangler secret put ADMIN_API_KEY
 # npx wrangler secret put ADMIN_KEYS_JSON
+# npx wrangler secret put ADMIN_ADDITIONAL_KEYS_JSON
 # npx wrangler secret put GITHUB_TOKEN
