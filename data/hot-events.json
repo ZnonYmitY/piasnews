@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-30T15:21:37.258535Z",
+  "generated_at": "2026-08-30T15:57:29.369525Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -65,30 +65,6 @@
             "replies": 0,
             "quotes": 0,
             "views": 4096,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-0d16ed575632aab0",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar and lando at the mtc today!",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar和Lando今天在MTC！",
-          "summary": "oscar and lando at the mtc today! https://t.co/nRSQMM3DZu",
-          "summary_zh": "Oscar和Lando今天在MTC！",
-          "url": "https://x.com/laurogeitabat/status/2093722819221664069",
-          "published_at": "2026-08-29T15:29:54Z",
-          "image_url": "https://pbs.twimg.com/media/HQ5lzegXgAA2MCD.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HQ5lzegXgAA2MCD.jpg",
-          "heat_contribution": 6.3087,
-          "metrics": {
-            "likes": 587,
-            "retweets": 49,
-            "replies": 0,
-            "quotes": 0,
-            "views": 4610,
             "bookmarks": 0
           }
         },
@@ -209,6 +185,30 @@
             "replies": 0,
             "quotes": 0,
             "views": 2238,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-0d16ed575632aab0",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar and lando at the mtc today!",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar和Lando今天在MTC！",
+          "summary": "oscar and lando at the mtc today! https://t.co/nRSQMM3DZu",
+          "summary_zh": "Oscar和Lando今天在MTC！",
+          "url": "https://x.com/laurogeitabat/status/2093722819221664069",
+          "published_at": "2026-08-29T15:29:54Z",
+          "image_url": "https://pbs.twimg.com/media/HQ5lzegXgAA2MCD.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HQ5lzegXgAA2MCD.jpg",
+          "heat_contribution": 5.7991,
+          "metrics": {
+            "likes": 587,
+            "retweets": 49,
+            "replies": 0,
+            "quotes": 0,
+            "views": 4610,
             "bookmarks": 0
           }
         },
