@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-30T09:12:32.307149Z",
+  "generated_at": "2026-08-30T11:41:04.769484Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -560,61 +560,6 @@
       "rank": 7
     },
     {
-      "event_id": "evt-2026-08-28-a608c29fb900",
-      "rule_id": null,
-      "hot_word_zh": "为什么这几乎像鲻鱼头，等等",
-      "hot_word_en": "WHY IS IT ALMOST GIVING MULLET WAIT",
-      "first_seen_at": "2026-08-28T09:54:48Z",
-      "last_seen_at": "2026-08-28T09:54:48Z",
-      "anchor_item_id": "piasnews-social-f7a726294498cd3e",
-      "image_url": "https://pbs.twimg.com/media/HQzPgqPXAAAbPxy.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HQzPgqPXAAAbPxy.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-f7a726294498cd3e",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: WHY IS IT ALMOST GIVING MULLET WAIT",
-          "title_zh": "X 发帖 @laurogeitabat：为什么这几乎像鲻鱼头，等等",
-          "summary": "WHY IS IT ALMOST GIVING MULLET WAIT https://t.co/yPhqKd227W",
-          "summary_zh": "为什么这几乎像鲻鱼头，等等",
-          "url": "https://x.com/laurogeitabat/status/2093276102575722688",
-          "published_at": "2026-08-28T09:54:48Z",
-          "image_url": "https://pbs.twimg.com/media/HQzPgqPXAAAbPxy.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HQzPgqPXAAAbPxy.jpg",
-          "heat_contribution": 7.1232,
-          "metrics": {
-            "likes": 2232,
-            "retweets": 159,
-            "replies": 5,
-            "quotes": 0,
-            "views": 18927,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 38,
-      "heat": 38,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 8
-    },
-    {
       "event_id": "evt-2026-08-28-6ee8ee4de730",
       "rule_id": null,
       "hot_word_zh": "当他听到“或者你是大家想象中的那个冷酷的 oscar”时，他开始摇头表示否定 ☹️",
@@ -667,7 +612,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 9
+      "rank": 8
     },
     {
       "event_id": "evt-2026-08-28-ddd22e96f8b4",
@@ -704,6 +649,61 @@
             "replies": 0,
             "quotes": 0,
             "views": 15650,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 36,
+      "heat": 36,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "event_id": "evt-2026-08-29-9d0b2a1e07e2",
+      "rule_id": null,
+      "hot_word_zh": "oscar驾驶McLarenM19！",
+      "hot_word_en": "oscar behind the wheel of the mclaren m19!",
+      "first_seen_at": "2026-08-29T13:32:24Z",
+      "last_seen_at": "2026-08-29T13:32:24Z",
+      "anchor_item_id": "piasnews-social-59a5c0bcc8053a5e",
+      "image_url": "https://pbs.twimg.com/media/HQ5K6XxXsAAa8Q5.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HQ5K6XxXsAAa8Q5.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-59a5c0bcc8053a5e",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar behind the wheel of the mclaren m19!",
+          "title_zh": "X 发帖 @laurogeitabat：oscar驾驶McLarenM19！",
+          "summary": "oscar behind the wheel of the mclaren m19! https://t.co/jnBH2IZjVq",
+          "summary_zh": "oscar驾驶McLarenM19！",
+          "url": "https://x.com/laurogeitabat/status/2093693252012589363",
+          "published_at": "2026-08-29T13:32:24Z",
+          "image_url": "https://pbs.twimg.com/media/HQ5K6XxXsAAa8Q5.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HQ5K6XxXsAAa8Q5.jpg",
+          "heat_contribution": 6.8779,
+          "metrics": {
+            "likes": 995,
+            "retweets": 113,
+            "replies": 1,
+            "quotes": 0,
+            "views": 6884,
             "bookmarks": 0
           }
         }
