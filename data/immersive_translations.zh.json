@@ -1,31 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-30T16:25:21.916644Z",
+  "generated_at": "2026-08-30T18:55:03.822911Z",
   "translations": {
-    "items:piasnews-8feb8ca92a177788:title:af7017580d450f72c995715a": {
-      "dataset": "items",
-      "item_id": "piasnews-8feb8ca92a177788",
-      "field": "title",
-      "target_field": "title_zh",
-      "source_text": "F1 news: Oscar Piastri ‘surprised’ by Dutch GP grid spot",
-      "zh": "F1新闻：Oscar Piastri对荷兰大奖赛发车位置感到“惊讶”",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-08-22T18:50:09.915291Z"
-    },
-    "items:piasnews-8feb8ca92a177788:summary:7f7c735e99427ccf70333fad": {
-      "dataset": "items",
-      "item_id": "piasnews-8feb8ca92a177788",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "Race-week or performance-related item discovered from public news metadata.",
-      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的条目。",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-08-22T18:50:09.915333Z"
-    },
     "items:piasnews-14c65a203713f501:title:a3ce24706e1ce0df9148d4ce": {
       "dataset": "items",
       "item_id": "piasnews-14c65a203713f501",
@@ -3889,6 +3865,66 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-30T12:15:19.895736Z"
+    },
+    "items:piasnews-59a0f5c45baecacf:title:768f9dad06e28aa2c023ab70": {
+      "dataset": "items",
+      "item_id": "piasnews-59a0f5c45baecacf",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Once “the new Verstappen”: how things went so wrong for Piastri",
+      "zh": "曾被称为“新Verstappen”：Piastri是如何走到这一步的",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-30T18:55:03.054969Z"
+    },
+    "items:piasnews-59a0f5c45baecacf:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-59a0f5c45baecacf",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-30T18:55:03.054976Z"
+    },
+    "items:piasnews-cb9d5899f5593ec4:title:89721560257ff393ddf13db9": {
+      "dataset": "items",
+      "item_id": "piasnews-cb9d5899f5593ec4",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Stella explains why Piastri has lost ground to Norris",
+      "zh": "斯特拉解释Piastri为何落后于Norris",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-30T18:55:03.054980Z"
+    },
+    "items:piasnews-cb9d5899f5593ec4:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-cb9d5899f5593ec4",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-30T18:55:03.054984Z"
+    },
+    "social:piasnews-social-bf1e6ce58b1f1b51:summary:5016928381b20bf2b2d0f19f": {
+      "dataset": "social",
+      "item_id": "piasnews-social-bf1e6ce58b1f1b51",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "i am looking respectfully https://t.co/eR9eBCZelH",
+      "zh": "我正恭敬地看着",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-30T18:55:03.054989Z"
     }
   },
   "retention_days": 8
