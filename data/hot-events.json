@@ -1,11 +1,95 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-30T15:57:29.369525Z",
+  "generated_at": "2026-08-30T16:22:52.609079Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
   "event_count": 10,
   "events": [
+    {
+      "event_id": "evt-2026-08-29-4ab1670729db",
+      "rule_id": null,
+      "hot_word_zh": "Oscar今天在McLaren家庭与朋友日 🫶🏻",
+      "hot_word_en": "OSCAR AT THE MCLAREN FAMILY &amp; FRIENDS DAY TODAY 🫶🏻",
+      "first_seen_at": "2026-08-29T13:23:43Z",
+      "last_seen_at": "2026-08-29T17:08:21Z",
+      "anchor_item_id": "piasnews-social-8594b8e51b049fa2",
+      "image_url": "https://pbs.twimg.com/media/HQ58RrAXgAATwPo.jpg",
+      "video_url": "https://video.twimg.com/amplify_video/2093706532579905536/vid/avc1/320x568/0QV5efdtTA0c1d8o.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/media/HQ58RrAXgAATwPo.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-8594b8e51b049fa2",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: OSCAR AT THE MCLAREN FAMILY &amp; FRIENDS DAY TODAY 🫶🏻",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar今天在McLaren家庭与朋友日 🫶🏻",
+          "summary": "OSCAR AT THE MCLAREN FAMILY &amp; FRIENDS DAY TODAY 🫶🏻 https://t.co/Jb5U6c5NHJ",
+          "summary_zh": "Oscar今天在McLaren家庭与朋友日 🫶🏻",
+          "url": "https://x.com/laurogeitabat/status/2093747594178535497",
+          "published_at": "2026-08-29T17:08:00.000Z",
+          "image_url": "https://pbs.twimg.com/media/HQ58RrAXgAATwPo.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HQ58RrAXgAATwPo.jpg",
+          "manual": false
+        },
+        {
+          "item_id": "piasnews-social-87a3dc0f3e892089",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar arriving to meet everyone's family &amp; friends this morning 😊 🎥: advertisingcigarettes",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar今早到达，与大家的家人和朋友见面 😊 🎥: advertisingcigarettes",
+          "summary": "oscar arriving to meet everyone's family &amp; friends this morning 😊 🎥: advertisingcigarettes https://t.co/7wA9TCulBH",
+          "summary_zh": "Oscar今早到达，与大家的家人和朋友见面 😊 🎥: advertisingcigarettes",
+          "url": "https://x.com/laurogeitabat/status/2093706581279981785",
+          "published_at": "2026-08-29T14:25:22Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2093706532579905536/vid/avc1/320x568/0QV5efdtTA0c1d8o.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093706532579905536/img/ghB84qcqw3PKnvkJ.jpg",
+          "manual": false
+        },
+        {
+          "item_id": "piasnews-social-a296c408ced1280a",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar and lando celebrating mclaren's family &amp; friends day 🫶🏻",
+          "title_zh": "X 发帖 @laurogeitabat：oscar和lando庆祝McLaren的家庭与朋友日 🫶🏻",
+          "summary": "oscar and lando celebrating mclaren's family &amp; friends day 🫶🏻 https://t.co/JWjFR3ppUV",
+          "summary_zh": "oscar和lando庆祝McLaren的家庭与朋友日 🫶🏻",
+          "url": "https://x.com/laurogeitabat/status/2093691066201297181",
+          "published_at": "2026-08-29T13:23:43Z",
+          "image_url": "https://pbs.twimg.com/media/HQ5I7GmWgAA04NN.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HQ5I7GmWgAA04NN.jpg",
+          "manual": false
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 56,
+      "heat": 56,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": 1,
+      "hidden": false,
+      "override": {
+        "updated_at": "2026-08-30T16:22:52.545071Z",
+        "updated_by": "coala",
+        "reason": "提升优先级"
+      },
+      "rank": 1
+    },
     {
       "event_id": "evt-2026-08-28-ddd22e96f8b4",
       "rule_id": null,
@@ -539,109 +623,6 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 1
-    },
-    {
-      "event_id": "evt-2026-08-29-4ab1670729db",
-      "rule_id": null,
-      "hot_word_zh": "Oscar今天在McLaren家庭与朋友日 🫶🏻",
-      "hot_word_en": "OSCAR AT THE MCLAREN FAMILY &amp; FRIENDS DAY TODAY 🫶🏻",
-      "first_seen_at": "2026-08-29T13:23:43Z",
-      "last_seen_at": "2026-08-29T17:08:21Z",
-      "anchor_item_id": "piasnews-social-8594b8e51b049fa2",
-      "image_url": "https://pbs.twimg.com/media/HQ58RrAXgAATwPo.jpg",
-      "video_url": "https://video.twimg.com/amplify_video/2093706532579905536/vid/avc1/320x568/0QV5efdtTA0c1d8o.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/media/HQ58RrAXgAATwPo.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-8594b8e51b049fa2",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: OSCAR AT THE MCLAREN FAMILY &amp; FRIENDS DAY TODAY 🫶🏻",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar今天在McLaren家庭与朋友日 🫶🏻",
-          "summary": "OSCAR AT THE MCLAREN FAMILY &amp; FRIENDS DAY TODAY 🫶🏻 https://t.co/Jb5U6c5NHJ",
-          "summary_zh": "Oscar今天在McLaren家庭与朋友日 🫶🏻",
-          "url": "https://x.com/laurogeitabat/status/2093747594178535497",
-          "published_at": "2026-08-29T17:08:21Z",
-          "image_url": "https://pbs.twimg.com/media/HQ58RrAXgAATwPo.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HQ58RrAXgAATwPo.jpg",
-          "heat_contribution": 6.3848,
-          "metrics": {
-            "likes": 636,
-            "retweets": 53,
-            "replies": 0,
-            "quotes": 0,
-            "views": 4704,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-87a3dc0f3e892089",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar arriving to meet everyone's family &amp; friends this morning 😊 🎥: advertisingcigarettes",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar今早到达，与大家的家人和朋友见面 😊 🎥: advertisingcigarettes",
-          "summary": "oscar arriving to meet everyone's family &amp; friends this morning 😊 🎥: advertisingcigarettes https://t.co/7wA9TCulBH",
-          "summary_zh": "Oscar今早到达，与大家的家人和朋友见面 😊 🎥: advertisingcigarettes",
-          "url": "https://x.com/laurogeitabat/status/2093706581279981785",
-          "published_at": "2026-08-29T14:25:22Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2093706532579905536/vid/avc1/320x568/0QV5efdtTA0c1d8o.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093706532579905536/img/ghB84qcqw3PKnvkJ.jpg",
-          "heat_contribution": 5.5633,
-          "metrics": {
-            "likes": 437,
-            "retweets": 27,
-            "replies": 0,
-            "quotes": 0,
-            "views": 8607,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-a296c408ced1280a",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar and lando celebrating mclaren's family &amp; friends day 🫶🏻",
-          "title_zh": "X 发帖 @laurogeitabat：oscar和lando庆祝McLaren的家庭与朋友日 🫶🏻",
-          "summary": "oscar and lando celebrating mclaren's family &amp; friends day 🫶🏻 https://t.co/JWjFR3ppUV",
-          "summary_zh": "oscar和lando庆祝McLaren的家庭与朋友日 🫶🏻",
-          "url": "https://x.com/laurogeitabat/status/2093691066201297181",
-          "published_at": "2026-08-29T13:23:43Z",
-          "image_url": "https://pbs.twimg.com/media/HQ5I7GmWgAA04NN.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HQ5I7GmWgAA04NN.jpg",
-          "heat_contribution": 5.2188,
-          "metrics": {
-            "likes": 330,
-            "retweets": 16,
-            "replies": 0,
-            "quotes": 0,
-            "views": 4627,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 56,
-      "heat": 56,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
       "rank": 2
     },
     {
@@ -751,7 +732,7 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2093735517112197120/vid/avc1/320x496/GlPN6yOr7F91Puny.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093735517112197120/img/7OLdZwYkd7iqOZhI.jpg",
-          "heat_contribution": 8.2873,
+          "heat_contribution": 7.7766,
           "metrics": {
             "likes": 4058,
             "retweets": 285,
@@ -764,8 +745,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 43,
-      "heat": 43,
+      "fan_heat": 41,
+      "heat": 41,
       "source_labels": [
         "粉"
       ],
