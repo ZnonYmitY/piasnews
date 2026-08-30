@@ -20,6 +20,7 @@ const state = {
   selectedHotItemId: null,
   translationFallback: null,
   session: null,
+  sessionValidation: null,
 };
 
 const elements = {
@@ -162,35 +163,66 @@ function can(permission) {
   return Boolean(state.session?.permissions?.[permission]);
 }
 
-async function loadSession() {
-  state.session = null;
+function renderAuthenticatedSession(session) {
+  elements.roleBadge.textContent = `${session.user} · ${session.role}`;
+  elements.connectionState.textContent = "管理接口已连接";
+  elements.connectionState.style.color = "var(--success)";
+}
+
+async function loadSession({ force = false } = {}) {
   if (!workerUrl()) {
+    state.session = null;
     elements.roleBadge.textContent = "本地只读";
     return null;
   }
   if (!adminKey()) {
+    state.session = null;
     elements.roleBadge.textContent = "未登录";
     return null;
   }
-  try {
-    const response = await fetch(`${workerUrl()}/session`, {
-      headers: { Authorization: `Bearer ${adminKey()}` },
-      cache: "no-store",
-    });
-    const payload = await response.json().catch(() => ({}));
-    if (!response.ok) throw new Error(payload.error || `权限接口返回 ${response.status}`);
-    state.session = payload;
-    elements.roleBadge.textContent = `${payload.user} · ${payload.role}`;
-    elements.connectionState.textContent = "管理接口已连接";
-    elements.connectionState.style.color = "var(--success)";
-    return payload;
-  } catch (error) {
-    elements.roleBadge.textContent = "认证失败";
-    elements.connectionState.textContent = "管理接口认证失败";
-    elements.connectionState.style.color = "var(--danger)";
-    showToast(error.message);
-    return null;
+  if (!force && state.session) {
+    renderAuthenticatedSession(state.session);
+    return state.session;
   }
+  if (state.sessionValidation) return state.sessionValidation;
+
+  const previousSession = state.session;
+  state.sessionValidation = (async () => {
+    try {
+      const response = await fetch(`${workerUrl()}/session`, {
+        headers: { Authorization: `Bearer ${adminKey()}` },
+        cache: "no-store",
+      });
+      const payload = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        const error = new Error(payload.error || `权限接口返回 ${response.status}`);
+        error.status = response.status;
+        throw error;
+      }
+      state.session = payload;
+      renderAuthenticatedSession(payload);
+      return payload;
+    } catch (error) {
+      if (error.status === 401 || error.status === 403) {
+        state.session = null;
+        elements.roleBadge.textContent = "认证失败";
+        elements.connectionState.textContent = "管理员密钥无效或权限不足";
+        elements.connectionState.style.color = "var(--danger)";
+      } else if (previousSession) {
+        state.session = previousSession;
+        renderAuthenticatedSession(previousSession);
+      } else {
+        elements.roleBadge.textContent = "连接异常";
+        elements.connectionState.textContent = "管理接口暂时无法连接";
+        elements.connectionState.style.color = "var(--danger)";
+      }
+      showToast(error.message);
+      return state.session;
+    } finally {
+      state.sessionValidation = null;
+    }
+  })();
+  return state.sessionValidation;
 }
 
 function formatAnalyticsTime(value) {
@@ -992,10 +1024,11 @@ async function saveSettings() {
   if (!elements.workerUrlInput.reportValidity() || !elements.adminKeyInput.reportValidity()) return;
   localStorage.setItem("piasnewsWorkerUrl", elements.workerUrlInput.value.trim().replace(/\/$/, ""));
   sessionStorage.setItem("piasnewsAdminKey", elements.adminKeyInput.value);
+  state.session = null;
   elements.settingsDialog.close();
   updateConnectionState();
   showToast("审核接口设置已保存。");
-  await loadSession();
+  await loadSession({ force: true });
   if (state.activeView === "analytics") loadAnalytics();
   if (state.activeView === "hot") loadHotWorkbench();
   if (state.activeView === "translation") loadTranslationFallback();

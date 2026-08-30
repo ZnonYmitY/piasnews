@@ -23,6 +23,16 @@ class HotEventPublishWorkflowTests(unittest.TestCase):
         self.assertIn("热榜草稿，不发布线上", app)
         self.assertNotIn("已提交启用覆盖，未直接部署线上", app)
 
+    def test_hot_workbench_reuses_authenticated_admin_session(self):
+        app = (ROOT / "public/admin/app.js").read_text(encoding="utf-8")
+        html = (ROOT / "public/admin/index.html").read_text(encoding="utf-8")
+
+        self.assertIn("if (!force && state.session)", app)
+        self.assertIn("if (state.sessionValidation) return state.sessionValidation", app)
+        self.assertIn("state.session = null;\n  elements.settingsDialog.close()", app)
+        self.assertIn("await loadSession({ force: true })", app)
+        self.assertIn("app.js?v=20260830-admin-session", html)
+
     def test_workflow_serializes_writes_and_checks_event_version(self):
         workflow = (ROOT / ".github/workflows/review-hot-events.yml").read_text(encoding="utf-8")
 
