@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light">
     <title>Piasnews 历史审核台</title>
-    <link rel="stylesheet" href="styles.css?v=20260829-translation-fallback">
+    <link rel="stylesheet" href="styles.css?v=20260831-analytics-v2">
   </head>
   <body>
     <header class="app-bar">
@@ -339,60 +339,85 @@
           <h2 id="analyticsTitle">页面访问看板</h2>
           <p id="analyticsUpdated">等待读取统计数据</p>
         </div>
-        <div class="range-switch" aria-label="统计时间范围">
-          <button class="range-button is-active" data-analytics-days="7" type="button">近 7 天</button>
-          <button class="range-button" data-analytics-days="30" type="button">近 30 天</button>
+        <div class="analytics-controls">
+          <div class="range-switch" aria-label="统计时间范围">
+            <button class="range-button is-active" data-analytics-days="7" type="button">7 天</button>
+            <button class="range-button" data-analytics-days="30" type="button">30 天</button>
+            <button class="range-button" data-analytics-days="90" type="button">90 天</button>
+          </div>
+          <div class="period-navigation" aria-label="查看历史周期">
+            <button class="period-button" id="analyticsPrevious" type="button">← 上一周期</button>
+            <span id="analyticsRange">--</span>
+            <button class="period-button" id="analyticsNext" type="button" disabled>下一周期 →</button>
+          </div>
         </div>
       </header>
 
       <div class="analytics-message" id="analyticsMessage">请先在连接设置中配置 Worker URL 和管理员密钥。</div>
 
       <div id="analyticsContent" hidden>
-        <div class="metric-grid" aria-label="访问概览">
+        <div class="metric-grid" aria-label="PV 概览">
           <article class="analytics-metric">
-            <span>今日访问</span>
+            <span>今日 PV <abbr title="Page Views，页面加载次数">?</abbr></span>
             <strong id="metricToday">0</strong>
           </article>
           <article class="analytics-metric">
-            <span id="metricPeriodLabel">近 7 天</span>
+            <span id="metricPeriodLabel">本周期 PV</span>
             <strong id="metricPeriod">0</strong>
           </article>
           <article class="analytics-metric">
-            <span>日均访问</span>
+            <span>日均 PV</span>
             <strong id="metricAverage">0</strong>
           </article>
           <article class="analytics-metric">
             <span>较上一周期</span>
             <strong id="metricChange">--</strong>
           </article>
+          <article class="analytics-metric">
+            <span>活跃天数</span>
+            <strong id="metricActiveDays">0 / 0</strong>
+          </article>
+          <article class="analytics-metric">
+            <span>直接 / 未知来源</span>
+            <strong id="metricDirect">0%</strong>
+          </article>
         </div>
 
         <section class="analytics-section" aria-labelledby="trendTitle">
           <div class="analytics-section-heading">
-            <h3 id="trendTitle">访问趋势</h3>
-            <p>按北京时间统计页面浏览次数</p>
+            <div>
+              <h3 id="trendTitle">日 PV 折线趋势</h3>
+              <p>按北京时间统计；圆点悬浮可查看单日读数</p>
+            </div>
+            <p class="trend-peak" id="analyticsPeak">峰值 --</p>
           </div>
-          <div class="bar-chart" id="analyticsChart" role="img" aria-label="每日页面访问趋势"></div>
+          <div class="line-chart" id="analyticsChart" role="img" aria-label="每日页面 PV 折线趋势"></div>
         </section>
 
         <div class="analytics-tables">
           <section class="analytics-section" aria-labelledby="pathsTitle">
             <div class="analytics-section-heading">
-              <h3 id="pathsTitle">热门页面</h3>
+              <h3 id="pathsTitle">热门页面（PV）</h3>
             </div>
             <div id="topPaths"></div>
           </section>
           <section class="analytics-section" aria-labelledby="referrersTitle">
             <div class="analytics-section-heading">
-              <h3 id="referrersTitle">来源站点</h3>
-              <p>不含直接访问</p>
+              <h3 id="referrersTitle">可识别来源（PV）</h3>
+              <p>不含直接 / 隐私隐藏来源</p>
             </div>
             <div id="topReferrers"></div>
           </section>
         </div>
       </div>
 
-      <p class="privacy-note">只统计页面浏览次数、页面路径和来源站点域名；不保存 IP、Cookie 或访客标识，原始记录保留 90 天。</p>
+      <section class="metric-definition" aria-labelledby="metricDefinitionTitle">
+        <h3 id="metricDefinitionTitle">指标口径</h3>
+        <p><strong>PV 已统计：</strong>页面每成功加载并上报一次记 1 PV。</p>
+        <p><strong>UV / VV 未统计：</strong>当前不保存 Cookie、设备 ID 或访客标识，无法去重计算 UV；本站不是视频播放场景，不使用 VV 口径。</p>
+        <p><strong>下一步建议：</strong>优先补文章点击率、有效阅读（停留与滚动深度）和新老访客；设备与地域可后置。</p>
+      </section>
+      <p class="privacy-note">仅保存上报时间、页面路径和来源站点域名；不保存 IP、Cookie 或访客标识，原始记录保留 90 天，因此看板最多回看近 90 天。</p>
     </section>
 
     <dialog id="settingsDialog">
@@ -421,6 +446,6 @@
     </dialog>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="app.js?v=20260830-admin-session" defer></script>
+    <script src="app.js?v=20260831-analytics-v2" defer></script>
   </body>
 </html>

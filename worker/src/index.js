@@ -221,7 +221,23 @@ function shiftDay(value, amount) {
 
 function queryDays(url) {
   const parsed = Number.parseInt(url.searchParams.get("days") || "7", 10);
-  return [7, 30].includes(parsed) ? parsed : 7;
+  return [7, 30, 90].includes(parsed) ? parsed : 7;
+}
+
+function isValidDay(value) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value || "")) return false;
+  const [year, month, day] = value.split("-").map(Number);
+  return new Date(Date.UTC(year, month - 1, day)).toISOString().slice(0, 10) === value;
+}
+
+function queryRangeEnd(url, today, days) {
+  const retentionStart = shiftDay(today, -(ANALYTICS_RETENTION_DAYS - 1));
+  const earliestFullWindowEnd = shiftDay(retentionStart, days - 1);
+  const requested = url.searchParams.get("end");
+  if (!isValidDay(requested)) return today;
+  if (requested > today) return today;
+  if (requested < earliestFullWindowEnd) return earliestFullWindowEnd;
+  return requested;
 }
 
 async function recordAnalyticsView(body, env, context) {
@@ -242,47 +258,71 @@ async function recordAnalyticsView(body, env, context) {
 async function analyticsSummary(url, env) {
   const days = queryDays(url);
   const today = dayKey();
-  const start = shiftDay(today, -(days - 1));
+  const retentionStart = shiftDay(today, -(ANALYTICS_RETENTION_DAYS - 1));
+  const end = queryRangeEnd(url, today, days);
+  const start = shiftDay(end, -(days - 1));
   const previousEnd = shiftDay(start, -1);
   const previousStart = shiftDay(previousEnd, -(days - 1));
+  const comparisonAvailable = previousStart >= retentionStart;
 
-  const [todayRow, periodRow, previousRow, dailyRows, pathRows, referrerRows] = await Promise.all([
+  const [todayRow, periodRow, previousRow, dailyRows, pathRows, referrerRows, directRow] = await Promise.all([
     env.ANALYTICS_DB.prepare("SELECT COUNT(*) AS total FROM page_views WHERE day = ?").bind(today).first(),
     env.ANALYTICS_DB.prepare("SELECT COUNT(*) AS total FROM page_views WHERE day BETWEEN ? AND ?")
-      .bind(start, today).first(),
-    env.ANALYTICS_DB.prepare("SELECT COUNT(*) AS total FROM page_views WHERE day BETWEEN ? AND ?")
-      .bind(previousStart, previousEnd).first(),
+      .bind(start, end).first(),
+    comparisonAvailable
+      ? env.ANALYTICS_DB.prepare("SELECT COUNT(*) AS total FROM page_views WHERE day BETWEEN ? AND ?")
+        .bind(previousStart, previousEnd).first()
+      : Promise.resolve({ total: 0 }),
     env.ANALYTICS_DB.prepare(
       "SELECT day, COUNT(*) AS views FROM page_views WHERE day BETWEEN ? AND ? GROUP BY day ORDER BY day",
-    ).bind(start, today).all(),
+    ).bind(start, end).all(),
     env.ANALYTICS_DB.prepare(
       "SELECT path, COUNT(*) AS views FROM page_views WHERE day BETWEEN ? AND ? GROUP BY path ORDER BY views DESC, path LIMIT 8",
-    ).bind(start, today).all(),
+    ).bind(start, end).all(),
     env.ANALYTICS_DB.prepare(
       "SELECT referrer_host, COUNT(*) AS views FROM page_views WHERE day BETWEEN ? AND ? AND referrer_host IS NOT NULL GROUP BY referrer_host ORDER BY views DESC, referrer_host LIMIT 8",
-    ).bind(start, today).all(),
+    ).bind(start, end).all(),
+    env.ANALYTICS_DB.prepare(
+      "SELECT COUNT(*) AS total FROM page_views WHERE day BETWEEN ? AND ? AND referrer_host IS NULL",
+    ).bind(start, end).first(),
   ]);
 
   const todayViews = Number(todayRow?.total || 0);
   const periodViews = Number(periodRow?.total || 0);
   const previousViews = Number(previousRow?.total || 0);
+  const directViews = Number(directRow?.total || 0);
   const dailyMap = new Map((dailyRows.results || []).map((row) => [row.day, Number(row.views)]));
   const daily = Array.from({ length: days }, (_, index) => {
     const day = shiftDay(start, index);
     return { day, views: dailyMap.get(day) || 0 };
   });
+  const peak = daily.reduce(
+    (current, entry) => entry.views > current.views ? entry : current,
+    { day: start, views: 0 },
+  );
 
   return {
     generated_at: new Date().toISOString(),
     timezone: "Asia/Shanghai",
     days,
-    range: { start, end: today },
+    range: { start, end },
+    retention: { start: retentionStart, end: today, days: ANALYTICS_RETENTION_DAYS },
+    comparison: comparisonAvailable
+      ? { available: true, start: previousStart, end: previousEnd }
+      : { available: false, reason: "outside_retention" },
     metrics: {
       today: todayViews,
       period: periodViews,
       previous_period: previousViews,
-      change_percent: previousViews ? Math.round(((periodViews - previousViews) / previousViews) * 1000) / 10 : null,
+      change_percent: comparisonAvailable && previousViews
+        ? Math.round(((periodViews - previousViews) / previousViews) * 1000) / 10
+        : null,
       average_per_day: Math.round((periodViews / days) * 10) / 10,
+      active_days: daily.filter((entry) => entry.views > 0).length,
+      peak_day: peak.day,
+      peak_views: peak.views,
+      direct_views: directViews,
+      direct_percent: periodViews ? Math.round((directViews / periodViews) * 1000) / 10 : 0,
     },
     daily,
     top_paths: (pathRows.results || []).map((row) => ({ path: row.path, views: Number(row.views) })),

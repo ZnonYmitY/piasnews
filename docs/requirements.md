@@ -196,7 +196,7 @@ Page analytics reuses the Cloudflare Worker and uses D1 for frequent counter wri
 - The fan daily reports at most once per page load. Tab changes and manual data refreshes do not add another view.
 - The payload contains only page path and referrer hostname; the Worker adds the timestamp. No IP, cookie, fingerprint, or visitor ID is stored, so V1.3 reports page views rather than claiming unique visitors.
 - `POST /analytics/view` is public but enforces allowed-origin and field-whitelist validation.
-- `GET /analytics/summary?days=7|30` requires the admin key and returns only today/period/previous-period metrics, averages, daily trend, top paths, and referrer-site aggregates.
+- `GET /analytics/summary?days=7|30|90&end=YYYY-MM-DD` requires the admin key and returns only PV aggregates, comparisons, averages, active/peak days, direct-source share, daily trend, top paths, and referrer sites. Complete periods can be paged within the 90-day retention window.
 - The D1 binding is `ANALYTICS_DB`, the schema is `worker/migrations/0001_analytics.sql`, and raw rows have a 90-day retention window.
 - The admin console adds an Analytics tab. Missing Worker configuration is shown explicitly and does not affect history review.
 - GitHub Actions writes public `runtime-config.json` from the repository variable `PIASNEWS_WORKER_URL`. The URL is not a secret; the admin key remains in `sessionStorage` only.

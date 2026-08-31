@@ -673,6 +673,36 @@ textarea {
   margin-bottom: 22px;
 }
 
+.analytics-controls {
+  display: grid;
+  justify-items: end;
+  gap: 8px;
+}
+
+.period-navigation {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--muted);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.period-button {
+  border: 0;
+  padding: 3px 0;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+}
+
+.period-button:disabled {
+  color: #b9b9b2;
+  cursor: default;
+}
+
 .analytics-heading h2,
 .analytics-heading p,
 .analytics-section-heading h3,
@@ -703,7 +733,7 @@ textarea {
 
 .metric-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -720,6 +750,19 @@ textarea {
   color: var(--muted);
   font-size: 12px;
   font-weight: 700;
+}
+
+.analytics-metric abbr {
+  display: inline-grid;
+  width: 15px;
+  height: 15px;
+  margin-left: 4px;
+  place-items: center;
+  border: 1px solid #bdbdb5;
+  border-radius: 50%;
+  text-decoration: none;
+  cursor: help;
+  font-size: 9px;
 }
 
 .analytics-metric strong {
@@ -756,38 +799,50 @@ textarea {
   font-size: 15px;
 }
 
-.bar-chart {
-  height: 260px;
-  padding: 8px 2px 0;
-  display: flex;
-  align-items: stretch;
-  gap: 6px;
+.line-chart {
+  width: 100%;
   overflow-x: auto;
 }
 
-.bar-column {
-  flex: 1 0 24px;
-  min-width: 24px;
-  height: 100%;
-  display: grid;
-  grid-template-rows: 22px minmax(0, 1fr) 26px;
-  align-items: end;
-  justify-items: center;
+.line-chart svg {
+  display: block;
+  width: 100%;
+  min-width: 680px;
+  height: 280px;
 }
 
-.bar-value,
-.bar-label {
-  color: var(--muted);
+.chart-grid-line {
+  stroke: #e7e7e1;
+  stroke-width: 1;
+}
+
+.chart-axis-label {
+  fill: var(--muted);
   font-size: 10px;
-  white-space: nowrap;
 }
 
-.bar {
-  width: min(20px, 72%);
-  min-height: 2px;
-  align-self: end;
-  border-radius: 3px 3px 0 0;
-  background: var(--accent);
+.chart-line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+.chart-point {
+  fill: var(--surface);
+  stroke: var(--accent);
+  stroke-width: 3;
+  cursor: crosshair;
+}
+
+.chart-point:hover {
+  fill: var(--accent);
+}
+
+.trend-peak {
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
 }
 
 .analytics-tables {
@@ -830,6 +885,30 @@ textarea {
 
 .privacy-note {
   margin: 16px 2px 0;
+}
+
+.metric-definition {
+  margin-top: 16px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 16px 18px;
+  background: var(--surface-muted);
+}
+
+.metric-definition h3,
+.metric-definition p {
+  margin: 0;
+}
+
+.metric-definition h3 {
+  margin-bottom: 9px;
+  font-size: 13px;
+}
+
+.metric-definition p {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.65;
 }
 
 .queue-panel {
@@ -1330,6 +1409,14 @@ dialog::backdrop {
   .analytics-heading {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .analytics-controls {
+    justify-items: start;
+  }
+
+  .period-navigation {
+    flex-wrap: wrap;
   }
 
   .range-switch {

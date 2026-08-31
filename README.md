@@ -21,7 +21,7 @@ Piasnews 是一个面向 Oscar Piastri 粉丝的 Agent Skill，用来抓取、�
 - 默认中文输出，英文提问时输出英文。
 - 明确标注非官方来源、传闻和未验证信息。
 - 提供历史候选自动筛选、人工评分、批准/拒绝和即时 Pages 发布流程。
-- 提供匿名页面浏览统计，并在审核后台展示 7/30 天访问趋势、热门页面和来源站点。
+- 提供匿名 PV 统计，并在审核后台展示 7/30/90 天折线趋势、历史周期、峰值、热门页面和来源站点。
 - 为后续每日新增信息统计、静态 JSON/RSS、API 和 X 来源接入预留数据结构。
 
 ## 安装
@@ -524,7 +524,7 @@ The current release combines **V1 static data, a public fan daily, and a history
 - Replies in Chinese by default for Chinese prompts, and in English for English prompts.
 - Clearly marks unofficial sources, rumors, and unverified information.
 - Supports deterministic history nomination, human scoring, approval/rejection, and immediate Pages publication.
-- Adds anonymous page-view analytics with 7/30-day trends, top pages, and referrer sites in the admin console.
+- Adds anonymous PV analytics with 7/30/90-day trends, historical periods, peak days, top pages, and referrer sites in the admin console.
 - Keeps a forward-compatible data shape for future daily counts, static JSON/RSS, API, and X-source integration.
 
 ## Installation

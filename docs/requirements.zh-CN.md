@@ -194,7 +194,7 @@ GitHub Pages 根路径提供面向所有粉丝的只读日报页；日报内容�
 - 公开日报每次页面加载最多上报一次，Tab 切换和手动刷新不重复计数。
 - 上报字段仅包含页面路径、来源站点域名和服务端写入时间；不采集 IP、Cookie、指纹或访客 ID，因此 V1.3 只提供浏览次数，不声称提供独立访客数。
 - `POST /analytics/view` 无需管理员密钥，但必须通过允许来源校验和字段白名单校验。
-- `GET /analytics/summary?days=7|30` 必须使用管理员密钥，只返回今日访问、周期访问、上一周期变化、日均值、每日趋势、热门页面和来源站点聚合。
+- `GET /analytics/summary?days=7|30|90&end=YYYY-MM-DD` 必须使用管理员密钥，只返回今日 PV、周期 PV、上一周期变化、日均值、每日趋势、活跃天数、峰值、直接来源占比、热门页面和来源站点聚合；可在 90 天保留期内按完整周期回看。
 - D1 binding 固定为 `ANALYTICS_DB`，schema 位于 `worker/migrations/0001_analytics.sql`，原始记录保留 90 天。
 - 审核后台增加“访问看板”Tab；未配置 Worker 或密钥时显示明确连接状态，不影响历史审核功能。
 - GitHub Actions 从仓库变量 `PIASNEWS_WORKER_URL` 生成公开的 `runtime-config.json`。该 URL 不是密钥；管理员密钥仍只保存在 `sessionStorage`。

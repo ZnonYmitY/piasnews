@@ -19,6 +19,7 @@ function createAnalyticsDb() {
             },
             async first() {
               if (sql.includes("day = ?")) return { total: 3 };
+              if (sql.includes("referrer_host IS NULL")) return { total: 7 };
               periodCount += 1;
               return { total: periodCount === 1 ? 12 : 8 };
             },
@@ -128,6 +129,24 @@ function analyticsViewRequest(body = { path: "/piasnews/", referrer_host: "githu
     },
     body: JSON.stringify(body),
   });
+}
+
+
+function currentAnalyticsDay() {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Asia/Shanghai",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(new Date());
+  const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+  return `${values.year}-${values.month}-${values.day}`;
+}
+
+
+function shiftAnalyticsDay(value, amount) {
+  const [year, month, day] = value.split("-").map(Number);
+  return new Date(Date.UTC(year, month - 1, day + amount)).toISOString().slice(0, 10);
 }
 
 
@@ -338,9 +357,50 @@ test("analytics summary returns aggregate data without raw records", async () =>
   assert.equal(payload.metrics.today, 3);
   assert.equal(payload.metrics.period, 12);
   assert.equal(payload.metrics.change_percent, 50);
+  assert.equal(payload.metrics.active_days, 1);
+  assert.equal(payload.metrics.peak_views, 3);
+  assert.equal(payload.metrics.direct_percent, 58.3);
   assert.equal(payload.daily.length, 30);
   assert.deepEqual(payload.top_paths[0], { path: "/piasnews/", views: 12 });
   assert.equal("records" in payload, false);
+});
+
+
+test("analytics summary supports historical 7-day windows inside retention", async () => {
+  const end = shiftAnalyticsDay(currentAnalyticsDay(), -11);
+  const response = await worker.fetch(
+    new Request(`https://worker.example/analytics/summary?days=7&end=${end}`, {
+      headers: {
+        Authorization: `Bearer ${env.ADMIN_API_KEY}`,
+        Origin: "https://znonymity.github.io",
+      },
+    }),
+    { ...env, ANALYTICS_DB: createAnalyticsDb() },
+  );
+  const payload = await response.json();
+  assert.equal(response.status, 200);
+  assert.equal(payload.days, 7);
+  assert.deepEqual(payload.range, { start: shiftAnalyticsDay(end, -6), end });
+  assert.equal(payload.comparison.available, true);
+});
+
+
+test("analytics summary keeps 90-day windows inside retention", async () => {
+  const response = await worker.fetch(
+    new Request("https://worker.example/analytics/summary?days=90&end=2026-02-99", {
+      headers: {
+        Authorization: `Bearer ${env.ADMIN_API_KEY}`,
+        Origin: "https://znonymity.github.io",
+      },
+    }),
+    { ...env, ANALYTICS_DB: createAnalyticsDb() },
+  );
+  const payload = await response.json();
+  assert.equal(response.status, 200);
+  assert.equal(payload.days, 90);
+  assert.equal(payload.daily.length, 90);
+  assert.deepEqual(payload.range, { start: payload.retention.start, end: payload.retention.end });
+  assert.equal(payload.comparison.available, false);
 });
 
 

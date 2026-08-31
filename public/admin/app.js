@@ -11,6 +11,8 @@ const state = {
   queuedIds: new Set(),
   activeView: "review",
   analyticsDays: 7,
+  analyticsEnd: null,
+  analyticsRange: null,
   hotEvents: [],
   hotOverrides: [],
   selectedHotId: null,
@@ -29,6 +31,10 @@ const elements = {
   analyticsChart: document.querySelector("#analyticsChart"),
   analyticsContent: document.querySelector("#analyticsContent"),
   analyticsMessage: document.querySelector("#analyticsMessage"),
+  analyticsNext: document.querySelector("#analyticsNext"),
+  analyticsPeak: document.querySelector("#analyticsPeak"),
+  analyticsPrevious: document.querySelector("#analyticsPrevious"),
+  analyticsRange: document.querySelector("#analyticsRange"),
   analyticsUpdated: document.querySelector("#analyticsUpdated"),
   analyticsView: document.querySelector("#analyticsView"),
   activateHotOverrideButton: document.querySelector("#activateHotOverrideButton"),
@@ -98,7 +104,9 @@ const elements = {
   statusBadge: document.querySelector("#statusBadge"),
   summaryZhInput: document.querySelector("#summaryZhInput"),
   metricAverage: document.querySelector("#metricAverage"),
+  metricActiveDays: document.querySelector("#metricActiveDays"),
   metricChange: document.querySelector("#metricChange"),
+  metricDirect: document.querySelector("#metricDirect"),
   metricPeriod: document.querySelector("#metricPeriod"),
   metricPeriodLabel: document.querySelector("#metricPeriodLabel"),
   metricToday: document.querySelector("#metricToday"),
@@ -241,21 +249,74 @@ function renderRankTable(rows, key, emptyText) {
   if (!rows.length) return `<p class="analytics-empty">${escapeHtml(emptyText)}</p>`;
   return `
     <table class="rank-table">
-      <thead><tr><th>名称</th><th>访问</th></tr></thead>
+      <thead><tr><th>名称</th><th>PV</th></tr></thead>
       <tbody>${rows.map((row) => `
         <tr><td>${escapeHtml(row[key])}</td><td>${Number(row.views).toLocaleString("zh-CN")}</td></tr>
       `).join("")}</tbody>
     </table>`;
 }
 
+function shiftAnalyticsDay(value, amount) {
+  const [year, month, day] = value.split("-").map(Number);
+  const date = new Date(Date.UTC(year, month - 1, day + amount));
+  return date.toISOString().slice(0, 10);
+}
+
+function formatAnalyticsDay(value, withYear = false) {
+  const [year, month, day] = value.split("-");
+  return withYear ? `${year}/${month}/${day}` : `${month}/${day}`;
+}
+
+function niceChartMaximum(value) {
+  if (value <= 4) return 4;
+  if (value < 20) return Math.ceil(value / 4) * 4;
+  return Math.ceil(value / 10) * 10;
+}
+
+function renderLineChart(daily) {
+  const width = 1000;
+  const height = 280;
+  const margin = { top: 22, right: 18, bottom: 42, left: 50 };
+  const plotWidth = width - margin.left - margin.right;
+  const plotHeight = height - margin.top - margin.bottom;
+  const maximum = niceChartMaximum(Math.max(1, ...daily.map((entry) => Number(entry.views))));
+  const x = (index) => margin.left + (daily.length === 1 ? plotWidth / 2 : (index / (daily.length - 1)) * plotWidth);
+  const y = (views) => margin.top + plotHeight - (Number(views) / maximum) * plotHeight;
+  const points = daily.map((entry, index) => `${x(index).toFixed(1)},${y(entry.views).toFixed(1)}`).join(" ");
+  const labelStep = daily.length <= 7 ? 1 : daily.length <= 30 ? 5 : 15;
+  const yTicks = Array.from({ length: 5 }, (_, index) => Math.round((maximum / 4) * index));
+  const xLabels = daily.map((entry, index) => {
+    if (index % labelStep !== 0 && index !== daily.length - 1) return "";
+    return `<text class="chart-axis-label" x="${x(index)}" y="${height - 12}" text-anchor="middle">${formatAnalyticsDay(entry.day)}</text>`;
+  }).join("");
+  const grid = yTicks.map((tick) => {
+    const tickY = y(tick);
+    return `<g><line class="chart-grid-line" x1="${margin.left}" y1="${tickY}" x2="${width - margin.right}" y2="${tickY}"></line><text class="chart-axis-label" x="${margin.left - 10}" y="${tickY + 4}" text-anchor="end">${tick}</text></g>`;
+  }).join("");
+  const pointsMarkup = daily.map((entry, index) => `
+    <circle class="chart-point" cx="${x(index)}" cy="${y(entry.views)}" r="${daily.length <= 30 ? 4 : 2.5}">
+      <title>${entry.day}：${entry.views} PV</title>
+    </circle>`).join("");
+
+  return `<svg viewBox="0 0 ${width} ${height}" aria-hidden="true" focusable="false">
+    ${grid}
+    <polyline class="chart-line" points="${points}"></polyline>
+    ${pointsMarkup}
+    ${xLabels}
+  </svg>`;
+}
+
 function renderAnalytics(payload) {
   const metrics = payload.metrics;
+  state.analyticsRange = payload.range;
   elements.metricToday.textContent = Number(metrics.today).toLocaleString("zh-CN");
   elements.metricPeriod.textContent = Number(metrics.period).toLocaleString("zh-CN");
-  elements.metricPeriodLabel.textContent = `近 ${payload.days} 天`;
+  elements.metricPeriodLabel.textContent = `${payload.days} 天 PV`;
   elements.metricAverage.textContent = Number(metrics.average_per_day).toLocaleString("zh-CN");
+  elements.metricActiveDays.textContent = `${metrics.active_days} / ${payload.days}`;
+  elements.metricDirect.textContent = `${metrics.direct_percent}%`;
   elements.metricChange.textContent = metrics.change_percent == null
-    ? "无可比基数"
+    ? payload.comparison?.available ? "无可比基数" : "超出保留期"
     : `${metrics.change_percent > 0 ? "+" : ""}${metrics.change_percent}%`;
   elements.metricChange.className = metrics.change_percent > 0
     ? "metric-up"
@@ -263,22 +324,15 @@ function renderAnalytics(payload) {
       ? "metric-down"
       : "";
 
-  const maximum = Math.max(1, ...payload.daily.map((entry) => Number(entry.views)));
-  elements.analyticsChart.innerHTML = payload.daily.map((entry) => {
-    const views = Number(entry.views);
-    const height = views ? Math.max(8, Math.round((views / maximum) * 100)) : 2;
-    const label = entry.day.slice(5).replace("-", "/");
-    return `
-      <div class="bar-column" title="${escapeHtml(entry.day)}：${views} 次">
-        <span class="bar-value">${views || ""}</span>
-        <span class="bar" style="height: ${height}%"></span>
-        <span class="bar-label">${escapeHtml(label)}</span>
-      </div>`;
-  }).join("");
+  elements.analyticsChart.innerHTML = renderLineChart(payload.daily);
   elements.analyticsChart.setAttribute(
     "aria-label",
-    `${payload.range.start} 至 ${payload.range.end}，共 ${metrics.period} 次页面访问`,
+    `${payload.range.start} 至 ${payload.range.end}，共 ${metrics.period} PV，峰值 ${metrics.peak_day} ${metrics.peak_views} PV`,
   );
+  elements.analyticsPeak.textContent = `峰值 ${formatAnalyticsDay(metrics.peak_day, true)} · ${metrics.peak_views} PV`;
+  elements.analyticsRange.textContent = `${formatAnalyticsDay(payload.range.start, true)} — ${formatAnalyticsDay(payload.range.end, true)}`;
+  elements.analyticsPrevious.disabled = payload.range.start <= payload.retention.start;
+  elements.analyticsNext.disabled = payload.range.end >= payload.retention.end;
 
   elements.topPaths.innerHTML = renderRankTable(payload.top_paths || [], "path", "当前周期没有页面访问。");
   elements.topReferrers.innerHTML = renderRankTable(
@@ -304,7 +358,9 @@ async function loadAnalytics() {
 
   elements.analyticsMessage.textContent = "正在读取访问统计...";
   try {
-    const response = await fetch(`${workerUrl()}/analytics/summary?days=${state.analyticsDays}`, {
+    const query = new URLSearchParams({ days: String(state.analyticsDays) });
+    if (state.analyticsEnd) query.set("end", state.analyticsEnd);
+    const response = await fetch(`${workerUrl()}/analytics/summary?${query}`, {
       headers: { Authorization: `Bearer ${adminKey()}` },
       cache: "no-store",
     });
@@ -1092,11 +1148,24 @@ document.querySelectorAll("[data-view]").forEach((button) => {
 document.querySelectorAll("[data-analytics-days]").forEach((button) => {
   button.addEventListener("click", () => {
     state.analyticsDays = Number(button.dataset.analyticsDays);
+    state.analyticsEnd = null;
     document.querySelectorAll("[data-analytics-days]").forEach((item) => {
       item.classList.toggle("is-active", item === button);
     });
     loadAnalytics();
   });
+});
+
+elements.analyticsPrevious.addEventListener("click", () => {
+  if (!state.analyticsRange) return;
+  state.analyticsEnd = shiftAnalyticsDay(state.analyticsRange.start, -1);
+  loadAnalytics();
+});
+
+elements.analyticsNext.addEventListener("click", () => {
+  if (!state.analyticsRange) return;
+  state.analyticsEnd = shiftAnalyticsDay(state.analyticsRange.end, state.analyticsDays);
+  loadAnalytics();
 });
 
 async function initializeWorkbench() {

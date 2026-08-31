@@ -46,7 +46,7 @@ Enter the same Worker URL and `ADMIN_API_KEY` in the admin console connection se
 - `GET /health`: public health response.
 - `GET /session`: returns the authenticated user, role, and permissions.
 - `POST /analytics/view`: public anonymous page-view ingestion from allowed origins.
-- `GET /analytics/summary?days=7|30`: admin-key protected aggregate metrics.
+- `GET /analytics/summary?days=7|30|90&end=YYYY-MM-DD`: admin-key protected aggregate metrics. `end` supports paging through complete historical periods inside the 90-day retention window.
 - `POST /review`: admin-key protected history-review workflow dispatch.
 - `GET /hot-events/config`: authenticated override-layer read; requires `viewer` or above.
 - `POST /hot-events/change`: saves a draft with `editor`; activating an override requires `publisher` or `admin`.
