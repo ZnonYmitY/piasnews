@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-30T18:55:05.008775Z",
+  "generated_at": "2026-08-31T00:29:17.732574Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -118,13 +118,13 @@
           "image_url": "https://pbs.twimg.com/media/HQ97SmcWAAAKBZq.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HQ97SmcWAAAKBZq.jpg",
-          "heat_contribution": 6.3956,
+          "heat_contribution": 6.5005,
           "metrics": {
-            "likes": 641,
-            "retweets": 53,
+            "likes": 713,
+            "retweets": 59,
             "replies": 0,
             "quotes": 0,
-            "views": 5058,
+            "views": 5499,
             "bookmarks": 0
           }
         },
@@ -142,13 +142,13 @@
           "image_url": "https://pbs.twimg.com/media/HQ95V3KWMAAiQfN.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HQ95V3KWMAAiQfN.jpg",
-          "heat_contribution": 6.0212,
+          "heat_contribution": 6.1963,
           "metrics": {
-            "likes": 400,
-            "retweets": 60,
+            "likes": 481,
+            "retweets": 70,
             "replies": 0,
             "quotes": 0,
-            "views": 2812,
+            "views": 3223,
             "bookmarks": 0
           }
         },
@@ -166,13 +166,37 @@
           "image_url": "https://pbs.twimg.com/media/HQ93ki0WAAAPqtT.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HQ93ki0WAAAPqtT.jpg",
-          "heat_contribution": 5.6465,
+          "heat_contribution": 5.7394,
           "metrics": {
-            "likes": 321,
-            "retweets": 14,
+            "likes": 351,
+            "retweets": 16,
             "replies": 0,
             "quotes": 0,
-            "views": 2740,
+            "views": 3019,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-6ea4848e4a277c2a",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: egg",
+          "title_zh": "X 发帖 @laurogeitabat：蛋",
+          "summary": "egg https://t.co/3Tw0spTTMx",
+          "summary_zh": "蛋",
+          "url": "https://x.com/laurogeitabat/status/2094031367457702159",
+          "published_at": "2026-08-30T11:55:57Z",
+          "image_url": "https://pbs.twimg.com/media/HQ9-bSmWIAAnXFB.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HQ9-bSmWIAAnXFB.jpg",
+          "heat_contribution": 3.5088,
+          "metrics": {
+            "likes": 26,
+            "retweets": 3,
+            "replies": 0,
+            "quotes": 0,
+            "views": 1121,
             "bookmarks": 0
           }
         },
@@ -190,7 +214,7 @@
           "image_url": "https://pbs.twimg.com/media/HQwLnP0XEAAZRbC.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HQwLnP0XEAAZRbC.jpg",
-          "heat_contribution": 5.1114,
+          "heat_contribution": 0.0,
           "metrics": {
             "likes": 623,
             "retweets": 69,
@@ -214,37 +238,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2093050100163477504/vid/avc1/320x568/336LaHplluaBWhMC.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093050100163477504/img/7_x9_8c90AmhZiPY.jpg",
-          "heat_contribution": 4.6511,
+          "heat_contribution": 0.0,
           "metrics": {
             "likes": 404,
             "retweets": 36,
             "replies": 0,
             "quotes": 0,
             "views": 4249,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-6ea4848e4a277c2a",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: egg",
-          "title_zh": "X 发帖 @laurogeitabat：蛋",
-          "summary": "egg https://t.co/3Tw0spTTMx",
-          "summary_zh": "蛋",
-          "url": "https://x.com/laurogeitabat/status/2094031367457702159",
-          "published_at": "2026-08-30T11:55:57Z",
-          "image_url": "https://pbs.twimg.com/media/HQ9-bSmWIAAnXFB.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HQ9-bSmWIAAnXFB.jpg",
-          "heat_contribution": 3.4861,
-          "metrics": {
-            "likes": 26,
-            "retweets": 3,
-            "replies": 0,
-            "quotes": 0,
-            "views": 1021,
             "bookmarks": 0
           }
         },
@@ -347,8 +347,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 57,
-      "heat": 57,
+      "fan_heat": 58,
+      "heat": 58,
       "source_labels": [
         "粉"
       ],
@@ -360,6 +360,85 @@
       "pinned_rank": null,
       "hidden": false,
       "rank": 2
+    },
+    {
+      "event_id": "evt-2026-08-28-ddd22e96f8b4",
+      "rule_id": null,
+      "hot_word_zh": "这是载入史册的一刻",
+      "hot_word_en": "this is one for the history books",
+      "first_seen_at": "2026-08-30T12:34:56Z",
+      "last_seen_at": "2026-08-30T19:23:03Z",
+      "anchor_item_id": "piasnews-social-ae453979f948bd17",
+      "image_url": "https://pbs.twimg.com/media/HQ_kwQ0XIAA925s.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HQ_kwQ0XIAA925s.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-ae453979f948bd17",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: this is one for the history books",
+          "title_zh": "X 发帖 @laurogeitabat：这是载入史册的一刻",
+          "summary": "this is one for the history books https://t.co/IYEdcorpje",
+          "summary_zh": "这是载入史册的一刻",
+          "url": "https://x.com/laurogeitabat/status/2094143880211877906",
+          "published_at": "2026-08-30T19:23:03Z",
+          "image_url": "https://pbs.twimg.com/media/HQ_kwQ0XIAA925s.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HQ_kwQ0XIAA925s.jpg",
+          "heat_contribution": 6.7171,
+          "metrics": {
+            "likes": 658,
+            "retweets": 63,
+            "replies": 0,
+            "quotes": 0,
+            "views": 4142,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-00e22a6654437f6f",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: 🔥🔥🔥",
+          "title_zh": "X 发帖 @laurogeitabat：🔥🔥🔥",
+          "summary": "🔥🔥🔥 https://t.co/flhu7etyyv",
+          "summary_zh": "🔥🔥🔥",
+          "url": "https://x.com/laurogeitabat/status/2094041176563159343",
+          "published_at": "2026-08-30T12:34:56Z",
+          "image_url": "https://pbs.twimg.com/media/HQ-HVBKWYAA5-ll.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HQ-HVBKWYAA5-ll.jpg",
+          "heat_contribution": 6.2184,
+          "metrics": {
+            "likes": 467,
+            "retweets": 81,
+            "replies": 0,
+            "quotes": 0,
+            "views": 3885,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 48,
+      "heat": 48,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 3
     },
     {
       "event_id": "evt-2026-08-29-763dba9d8161",
@@ -389,13 +468,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2093782792429551616/vid/avc1/320x568/yIWN5_q5kLb4M3R6.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093782792429551616/img/XaUWMLvbg811qS60.jpg",
-          "heat_contribution": 6.7308,
+          "heat_contribution": 6.2337,
           "metrics": {
-            "likes": 911,
+            "likes": 924,
             "retweets": 45,
             "replies": 5,
             "quotes": 0,
-            "views": 9971,
+            "views": 10128,
             "bookmarks": 0
           }
         },
@@ -413,13 +492,13 @@
           "image_url": "https://pbs.twimg.com/media/HQ5lzegXgAA2MCD.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HQ5lzegXgAA2MCD.jpg",
-          "heat_contribution": 5.8095,
+          "heat_contribution": 5.8113,
           "metrics": {
-            "likes": 594,
+            "likes": 595,
             "retweets": 49,
             "replies": 0,
             "quotes": 0,
-            "views": 4678,
+            "views": 4715,
             "bookmarks": 0
           }
         },
@@ -450,8 +529,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 47,
-      "heat": 47,
+      "fan_heat": 45,
+      "heat": 45,
       "source_labels": [
         "粉"
       ],
@@ -462,7 +541,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 3
+      "rank": 4
     },
     {
       "event_id": "evt-2026-08-29-763dba9d8161",
@@ -492,13 +571,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2093747167684956160/vid/avc1/320x334/eCXCCLA56d9rTxrL.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093747167684956160/img/uEbzuuyn_KIcJgxw.jpg",
-          "heat_contribution": 6.2948,
+          "heat_contribution": 6.3055,
           "metrics": {
-            "likes": 920,
-            "retweets": 105,
+            "likes": 930,
+            "retweets": 106,
             "replies": 0,
             "quotes": 0,
-            "views": 7165,
+            "views": 7256,
             "bookmarks": 0
           }
         },
@@ -516,13 +595,13 @@
           "image_url": "https://pbs.twimg.com/media/HQ52W9RW0AEWV5F.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HQ52W9RW0AEWV5F.jpg",
-          "heat_contribution": 5.6925,
+          "heat_contribution": 5.7007,
           "metrics": {
-            "likes": 512,
+            "likes": 517,
             "retweets": 53,
             "replies": 0,
             "quotes": 0,
-            "views": 3896,
+            "views": 3936,
             "bookmarks": 0
           }
         }
@@ -531,85 +610,6 @@
       "media_heat": 0,
       "fan_heat": 45,
       "heat": 45,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 4
-    },
-    {
-      "event_id": "evt-2026-08-28-ddd22e96f8b4",
-      "rule_id": null,
-      "hot_word_zh": "🔥🔥🔥",
-      "hot_word_en": "🔥🔥🔥",
-      "first_seen_at": "2026-08-30T12:34:56Z",
-      "last_seen_at": "2026-08-30T17:09:26Z",
-      "anchor_item_id": "piasnews-social-00e22a6654437f6f",
-      "image_url": "https://pbs.twimg.com/media/HQ-HVBKWYAA5-ll.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HQ-HVBKWYAA5-ll.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-00e22a6654437f6f",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: 🔥🔥🔥",
-          "title_zh": "X 发帖 @laurogeitabat：🔥🔥🔥",
-          "summary": "🔥🔥🔥 https://t.co/flhu7etyyv",
-          "summary_zh": "🔥🔥🔥",
-          "url": "https://x.com/laurogeitabat/status/2094041176563159343",
-          "published_at": "2026-08-30T12:34:56Z",
-          "image_url": "https://pbs.twimg.com/media/HQ-HVBKWYAA5-ll.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HQ-HVBKWYAA5-ll.jpg",
-          "heat_contribution": 6.0482,
-          "metrics": {
-            "likes": 388,
-            "retweets": 71,
-            "replies": 0,
-            "quotes": 0,
-            "views": 3313,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-bf1e6ce58b1f1b51",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: i am looking respectfully",
-          "title_zh": "X 发帖 @laurogeitabat：我正恭敬地看着",
-          "summary": "i am looking respectfully https://t.co/eR9eBCZelH",
-          "summary_zh": "我正恭敬地看着",
-          "url": "https://x.com/laurogeitabat/status/2094110254879399967",
-          "published_at": "2026-08-30T17:09:26Z",
-          "image_url": "https://pbs.twimg.com/media/HQ_GFtAXIAAL5w6.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HQ_GFtAXIAAL5w6.jpg",
-          "heat_contribution": 5.9007,
-          "metrics": {
-            "likes": 282,
-            "retweets": 28,
-            "replies": 2,
-            "quotes": 0,
-            "views": 2031,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 44,
-      "heat": 44,
       "source_labels": [
         "粉"
       ],
@@ -650,13 +650,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2093735517112197120/vid/avc1/320x496/GlPN6yOr7F91Puny.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093735517112197120/img/7OLdZwYkd7iqOZhI.jpg",
-          "heat_contribution": 7.8076,
+          "heat_contribution": 7.8255,
           "metrics": {
-            "likes": 4173,
-            "retweets": 297,
+            "likes": 4247,
+            "retweets": 301,
             "replies": 11,
             "quotes": 0,
-            "views": 66287,
+            "views": 67939,
             "bookmarks": 0
           }
         }
@@ -705,13 +705,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2093672095855132672/vid/avc1/320x500/gZv_YMm1jc9nS2OK.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093672095855132672/img/71N_p-nv-szfXjKu.jpg",
-          "heat_contribution": 7.0847,
+          "heat_contribution": 7.0886,
           "metrics": {
-            "likes": 2126,
+            "likes": 2135,
             "retweets": 103,
             "replies": 2,
             "quotes": 0,
-            "views": 31214,
+            "views": 31341,
             "bookmarks": 0
           }
         }
@@ -760,21 +760,21 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2094018544266547201/vid/avc1/320x560/GIiDeGu5rGekIYKI.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2094018544266547201/img/WIAw_HE_4UeP98ap.jpg",
-          "heat_contribution": 6.8135,
+          "heat_contribution": 6.9387,
           "metrics": {
-            "likes": 955,
-            "retweets": 78,
+            "likes": 1089,
+            "retweets": 85,
             "replies": 0,
             "quotes": 0,
-            "views": 10105,
+            "views": 11491,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 36,
-      "heat": 36,
+      "fan_heat": 37,
+      "heat": 37,
       "source_labels": [
         "粉"
       ],
@@ -788,7 +788,7 @@
       "rank": 8
     },
     {
-      "event_id": "evt-2026-08-30-829d7c4b46bb",
+      "event_id": "evt-2026-08-28-811207026fd5",
       "rule_id": null,
       "hot_word_zh": "oscar和lando在比赛时为一个小朋友加油🥹🫶🏻",
       "hot_word_en": "oscar and lando cheering a little fan on while they raced 🥹🫶🏻",
@@ -815,13 +815,13 @@
           "image_url": "https://pbs.twimg.com/media/HQ-BT83WkAEcHh5.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HQ-BT83WkAEcHh5.jpg",
-          "heat_contribution": 6.7473,
+          "heat_contribution": 6.8744,
           "metrics": {
-            "likes": 912,
-            "retweets": 63,
+            "likes": 1036,
+            "retweets": 71,
             "replies": 0,
             "quotes": 0,
-            "views": 9631,
+            "views": 11027,
             "bookmarks": 0
           }
         }
@@ -870,13 +870,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2093356179116183552/vid/avc1/320x568/D8muGpni0YEHYFhA.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093356179116183552/img/opIFD6SXaJiQXy9d.jpg",
-          "heat_contribution": 6.5489,
+          "heat_contribution": 6.5488,
           "metrics": {
-            "likes": 2387,
+            "likes": 2385,
             "retweets": 245,
             "replies": 4,
             "quotes": 0,
-            "views": 59836,
+            "views": 59988,
             "bookmarks": 0
           }
         }
