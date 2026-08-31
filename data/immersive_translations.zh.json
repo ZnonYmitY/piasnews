@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-31T03:36:22.282053Z",
+  "generated_at": "2026-08-31T06:42:50.426150Z",
   "translations": {
     "items:piasnews-bf1468abb5b43120:title:76c00cdb1afa87c8d93586f5": {
       "dataset": "items",
@@ -3601,6 +3601,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-08-31T03:36:21.554292Z"
+    },
+    "items:piasnews-fa09c3d2a594fef2:title:95714a38152ed8210d0c99f8": {
+      "dataset": "items",
+      "item_id": "piasnews-fa09c3d2a594fef2",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "On this Day in Formula 1: Piquet wins at Zandvoort as Spa disappears and Piastri strikes",
+      "zh": "今日F1：皮奎特在赞德福特夺冠，斯帕消失，Piastri出击",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-31T06:42:49.882369Z"
+    },
+    "items:piasnews-fa09c3d2a594fef2:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-fa09c3d2a594fef2",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公共新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-08-31T06:42:49.882376Z"
     }
   },
   "retention_days": 8
