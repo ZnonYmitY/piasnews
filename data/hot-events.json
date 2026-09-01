@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-31T12:58:21.654384Z",
+  "generated_at": "2026-09-01T03:26:52.859540Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -71,8 +71,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 53,
-      "heat": 53,
+      "fan_heat": 46,
+      "heat": 46,
       "source_labels": [
         "粉"
       ],
@@ -118,13 +118,13 @@
           "image_url": "https://pbs.twimg.com/media/HQ97SmcWAAAKBZq.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HQ97SmcWAAAKBZq.jpg",
-          "heat_contribution": 6.056,
+          "heat_contribution": 6.0702,
           "metrics": {
-            "likes": 763,
+            "likes": 775,
             "retweets": 62,
             "replies": 0,
             "quotes": 0,
-            "views": 5888,
+            "views": 6050,
             "bookmarks": 0
           }
         },
@@ -142,13 +142,13 @@
           "image_url": "https://pbs.twimg.com/media/HQ95V3KWMAAiQfN.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HQ95V3KWMAAiQfN.jpg",
-          "heat_contribution": 5.7843,
+          "heat_contribution": 5.795,
           "metrics": {
-            "likes": 535,
+            "likes": 542,
             "retweets": 75,
             "replies": 0,
             "quotes": 0,
-            "views": 3537,
+            "views": 3613,
             "bookmarks": 0
           }
         },
@@ -166,13 +166,13 @@
           "image_url": "https://pbs.twimg.com/media/HQ93ki0WAAAPqtT.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HQ93ki0WAAAPqtT.jpg",
-          "heat_contribution": 5.2831,
+          "heat_contribution": 5.3011,
           "metrics": {
-            "likes": 371,
+            "likes": 378,
             "retweets": 16,
             "replies": 0,
             "quotes": 0,
-            "views": 3250,
+            "views": 3345,
             "bookmarks": 0
           }
         },
@@ -190,13 +190,13 @@
           "image_url": "https://pbs.twimg.com/media/HQ9-bSmWIAAnXFB.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HQ9-bSmWIAAnXFB.jpg",
-          "heat_contribution": 3.1396,
+          "heat_contribution": 3.1509,
           "metrics": {
             "likes": 31,
             "retweets": 3,
             "replies": 0,
             "quotes": 0,
-            "views": 1210,
+            "views": 1268,
             "bookmarks": 0
           }
         },
@@ -389,13 +389,13 @@
           "image_url": "https://pbs.twimg.com/media/HQ_kwQ0XIAA925s.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HQ_kwQ0XIAA925s.jpg",
-          "heat_contribution": 6.8161,
+          "heat_contribution": 6.3569,
           "metrics": {
-            "likes": 949,
-            "retweets": 101,
+            "likes": 999,
+            "retweets": 104,
             "replies": 0,
             "quotes": 0,
-            "views": 6427,
+            "views": 7176,
             "bookmarks": 0
           }
         },
@@ -413,21 +413,21 @@
           "image_url": "https://pbs.twimg.com/media/HQ-HVBKWYAA5-ll.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HQ-HVBKWYAA5-ll.jpg",
-          "heat_contribution": 5.9051,
+          "heat_contribution": 5.9389,
           "metrics": {
-            "likes": 577,
-            "retweets": 95,
+            "likes": 599,
+            "retweets": 97,
             "replies": 0,
             "quotes": 0,
-            "views": 4610,
+            "views": 4819,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 48,
-      "heat": 48,
+      "fan_heat": 46,
+      "heat": 46,
       "source_labels": [
         "粉"
       ],
@@ -439,6 +439,85 @@
       "pinned_rank": null,
       "hidden": false,
       "rank": 3
+    },
+    {
+      "event_id": "evt-2026-08-29-763dba9d8161",
+      "rule_id": null,
+      "hot_word_zh": "Oscar今天驾驶M19C绕MTC湖行驶的视频！🔥",
+      "hot_word_en": "a video of oscar driving the M19C around the mtc lake today! 🔥",
+      "first_seen_at": "2026-08-29T16:42:14Z",
+      "last_seen_at": "2026-08-29T17:06:46Z",
+      "anchor_item_id": "piasnews-social-542da94890d2d115",
+      "image_url": "https://pbs.twimg.com/media/HQ52W9RW0AEWV5F.jpg",
+      "video_url": "https://video.twimg.com/amplify_video/2093747167684956160/vid/avc1/320x334/eCXCCLA56d9rTxrL.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093747167684956160/img/uEbzuuyn_KIcJgxw.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-542da94890d2d115",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: a video of oscar driving the M19C around the mtc lake today! 🔥",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar今天驾驶M19C绕MTC湖行驶的视频！🔥",
+          "summary": "a video of oscar driving the M19C around the mtc lake today! 🔥 https://t.co/l2XARIjjc0",
+          "summary_zh": "Oscar今天驾驶M19C绕MTC湖行驶的视频！🔥",
+          "url": "https://x.com/laurogeitabat/status/2093747195946143857",
+          "published_at": "2026-08-29T17:06:46Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2093747167684956160/vid/avc1/320x334/eCXCCLA56d9rTxrL.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093747167684956160/img/uEbzuuyn_KIcJgxw.jpg",
+          "heat_contribution": 5.5237,
+          "metrics": {
+            "likes": 959,
+            "retweets": 107,
+            "replies": 0,
+            "quotes": 0,
+            "views": 7483,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-657018e31a3e6046",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar driving the M19C around the mtc lake ✨",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar驾驶M19C绕MTC湖 ✨",
+          "summary": "oscar driving the M19C around the mtc lake ✨ https://t.co/L6QezWoTvJ",
+          "summary_zh": "Oscar驾驶M19C绕MTC湖 ✨",
+          "url": "https://x.com/laurogeitabat/status/2093741024656961568",
+          "published_at": "2026-08-29T16:42:14Z",
+          "image_url": "https://pbs.twimg.com/media/HQ52W9RW0AEWV5F.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HQ52W9RW0AEWV5F.jpg",
+          "heat_contribution": 4.9014,
+          "metrics": {
+            "likes": 521,
+            "retweets": 53,
+            "replies": 0,
+            "quotes": 0,
+            "views": 4039,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 40,
+      "heat": 40,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 4
     },
     {
       "event_id": "evt-2026-08-29-763dba9d8161",
@@ -468,13 +547,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2093782792429551616/vid/avc1/320x568/yIWN5_q5kLb4M3R6.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093782792429551616/img/XaUWMLvbg811qS60.jpg",
-          "heat_contribution": 6.2438,
+          "heat_contribution": 5.4385,
           "metrics": {
-            "likes": 934,
+            "likes": 937,
             "retweets": 45,
             "replies": 5,
             "quotes": 0,
-            "views": 10277,
+            "views": 10348,
             "bookmarks": 0
           }
         },
@@ -492,13 +571,13 @@
           "image_url": "https://pbs.twimg.com/media/HQ5lzegXgAA2MCD.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HQ5lzegXgAA2MCD.jpg",
-          "heat_contribution": 5.8162,
+          "heat_contribution": 5.0107,
           "metrics": {
-            "likes": 598,
+            "likes": 599,
             "retweets": 49,
             "replies": 0,
             "quotes": 0,
-            "views": 4777,
+            "views": 4804,
             "bookmarks": 0
           }
         },
@@ -529,87 +608,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 45,
-      "heat": 45,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 4
-    },
-    {
-      "event_id": "evt-2026-08-29-763dba9d8161",
-      "rule_id": null,
-      "hot_word_zh": "Oscar今天驾驶M19C绕MTC湖行驶的视频！🔥",
-      "hot_word_en": "a video of oscar driving the M19C around the mtc lake today! 🔥",
-      "first_seen_at": "2026-08-29T16:42:14Z",
-      "last_seen_at": "2026-08-29T17:06:46Z",
-      "anchor_item_id": "piasnews-social-542da94890d2d115",
-      "image_url": "https://pbs.twimg.com/media/HQ52W9RW0AEWV5F.jpg",
-      "video_url": "https://video.twimg.com/amplify_video/2093747167684956160/vid/avc1/320x334/eCXCCLA56d9rTxrL.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093747167684956160/img/uEbzuuyn_KIcJgxw.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-542da94890d2d115",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: a video of oscar driving the M19C around the mtc lake today! 🔥",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar今天驾驶M19C绕MTC湖行驶的视频！🔥",
-          "summary": "a video of oscar driving the M19C around the mtc lake today! 🔥 https://t.co/l2XARIjjc0",
-          "summary_zh": "Oscar今天驾驶M19C绕MTC湖行驶的视频！🔥",
-          "url": "https://x.com/laurogeitabat/status/2093747195946143857",
-          "published_at": "2026-08-29T17:06:46Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2093747167684956160/vid/avc1/320x334/eCXCCLA56d9rTxrL.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093747167684956160/img/uEbzuuyn_KIcJgxw.jpg",
-          "heat_contribution": 6.3254,
-          "metrics": {
-            "likes": 951,
-            "retweets": 107,
-            "replies": 0,
-            "quotes": 0,
-            "views": 7408,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-657018e31a3e6046",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar driving the M19C around the mtc lake ✨",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar驾驶M19C绕MTC湖 ✨",
-          "summary": "oscar driving the M19C around the mtc lake ✨ https://t.co/L6QezWoTvJ",
-          "summary_zh": "Oscar驾驶M19C绕MTC湖 ✨",
-          "url": "https://x.com/laurogeitabat/status/2093741024656961568",
-          "published_at": "2026-08-29T16:42:14Z",
-          "image_url": "https://pbs.twimg.com/media/HQ52W9RW0AEWV5F.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HQ52W9RW0AEWV5F.jpg",
-          "heat_contribution": 5.7078,
-          "metrics": {
-            "likes": 521,
-            "retweets": 53,
-            "replies": 0,
-            "quotes": 0,
-            "views": 4010,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 45,
-      "heat": 45,
+      "fan_heat": 39,
+      "heat": 39,
       "source_labels": [
         "粉"
       ],
@@ -621,116 +621,6 @@
       "pinned_rank": null,
       "hidden": false,
       "rank": 5
-    },
-    {
-      "event_id": "evt-2026-08-29-7dec1b09bfed",
-      "rule_id": null,
-      "hot_word_zh": "我们拿到了日本大奖赛后Oscar和莉莉时刻的视频 🥹",
-      "hot_word_en": "we got a video of the oscar and lily moment after the japanese gp 🥹",
-      "first_seen_at": "2026-08-29T16:20:26Z",
-      "last_seen_at": "2026-08-29T16:20:26Z",
-      "anchor_item_id": "piasnews-social-fdeb612228e28ada",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2093735517112197120/vid/avc1/320x496/GlPN6yOr7F91Puny.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093735517112197120/img/7OLdZwYkd7iqOZhI.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-fdeb612228e28ada",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: we got a video of the oscar and lily moment after the japanese gp 🥹",
-          "title_zh": "X 发帖 @laurogeitabat：我们拿到了日本大奖赛后Oscar和莉莉时刻的视频 🥹",
-          "summary": "we got a video of the oscar and lily moment after the japanese gp 🥹 https://t.co/qqHrya5DMT",
-          "summary_zh": "我们拿到了日本大奖赛后Oscar和莉莉时刻的视频 🥹",
-          "url": "https://x.com/laurogeitabat/status/2093735537693581343",
-          "published_at": "2026-08-29T16:20:26Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2093735517112197120/vid/avc1/320x496/GlPN6yOr7F91Puny.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093735517112197120/img/7OLdZwYkd7iqOZhI.jpg",
-          "heat_contribution": 7.8411,
-          "metrics": {
-            "likes": 4307,
-            "retweets": 306,
-            "replies": 11,
-            "quotes": 0,
-            "views": 69687,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 41,
-      "heat": 41,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 6
-    },
-    {
-      "event_id": "evt-2026-08-30-caa9d6797f1b",
-      "rule_id": null,
-      "hot_word_zh": "我正恭敬地看着",
-      "hot_word_en": "i am looking respectfully",
-      "first_seen_at": "2026-08-30T17:09:26Z",
-      "last_seen_at": "2026-08-30T17:09:26Z",
-      "anchor_item_id": "piasnews-social-bf1e6ce58b1f1b51",
-      "image_url": "https://pbs.twimg.com/media/HQ_GFtAXIAAL5w6.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HQ_GFtAXIAAL5w6.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-bf1e6ce58b1f1b51",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: i am looking respectfully",
-          "title_zh": "X 发帖 @laurogeitabat：我正恭敬地看着",
-          "summary": "i am looking respectfully https://t.co/eR9eBCZelH",
-          "summary_zh": "我正恭敬地看着",
-          "url": "https://x.com/laurogeitabat/status/2094110254879399967",
-          "published_at": "2026-08-30T17:09:26Z",
-          "image_url": "https://pbs.twimg.com/media/HQ_GFtAXIAAL5w6.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HQ_GFtAXIAAL5w6.jpg",
-          "heat_contribution": 6.754,
-          "metrics": {
-            "likes": 854,
-            "retweets": 110,
-            "replies": 2,
-            "quotes": 0,
-            "views": 6199,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 36,
-      "heat": 36,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 7
     },
     {
       "event_id": "evt-2026-08-31-b1158edfac31",
@@ -760,21 +650,21 @@
           "image_url": "https://pbs.twimg.com/media/HRCAksbWwAA_Heg.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRCAksbWwAA_Heg.jpg",
-          "heat_contribution": 6.7796,
+          "heat_contribution": 7.3345,
           "metrics": {
-            "likes": 817,
-            "retweets": 148,
+            "likes": 1460,
+            "retweets": 235,
             "replies": 1,
             "quotes": 0,
-            "views": 5567,
+            "views": 10859,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 36,
-      "heat": 36,
+      "fan_heat": 39,
+      "heat": 39,
       "source_labels": [
         "粉"
       ],
@@ -785,51 +675,51 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 6
     },
     {
-      "event_id": "evt-2026-08-28-811207026fd5",
+      "event_id": "evt-2026-08-29-7dec1b09bfed",
       "rule_id": null,
-      "hot_word_zh": "oscar 通过 lando 的 Instagram 快拍：“oscar 喜欢圣诞拍摄”…",
-      "hot_word_en": "oscar via lando's instagram stories: \"oscar loves xmas filming\" HE LOOKS SO OVER IT 😭😭",
-      "first_seen_at": "2026-08-28T15:13:14Z",
-      "last_seen_at": "2026-08-28T15:13:14Z",
-      "anchor_item_id": "piasnews-social-a1cedc0ea87a8885",
+      "hot_word_zh": "我们拿到了日本大奖赛后Oscar和莉莉时刻的视频 🥹",
+      "hot_word_en": "we got a video of the oscar and lily moment after the japanese gp 🥹",
+      "first_seen_at": "2026-08-29T16:20:26Z",
+      "last_seen_at": "2026-08-29T16:20:26Z",
+      "anchor_item_id": "piasnews-social-fdeb612228e28ada",
       "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2093356179116183552/vid/avc1/320x568/D8muGpni0YEHYFhA.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093356179116183552/img/opIFD6SXaJiQXy9d.jpg",
+      "video_url": "https://video.twimg.com/amplify_video/2093735517112197120/vid/avc1/320x496/GlPN6yOr7F91Puny.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093735517112197120/img/7OLdZwYkd7iqOZhI.jpg",
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
         {
-          "item_id": "piasnews-social-a1cedc0ea87a8885",
+          "item_id": "piasnews-social-fdeb612228e28ada",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar via lando's instagram stories: \"oscar loves xmas filming\" HE LOOKS SO OVER IT 😭😭",
-          "title_zh": "X 发帖 @laurogeitabat：oscar 通过 lando 的 Instagram 快拍：“oscar 喜欢圣诞拍摄” 他看起来受够了 😭😭",
-          "summary": "oscar via lando's instagram stories: \"oscar loves xmas filming\" HE LOOKS SO OVER IT 😭😭 https://t.co/MlPp2bKtXx",
-          "summary_zh": "oscar 通过 lando 的 Instagram 快拍：“oscar 喜欢圣诞拍摄” 他看起来受够了 😭😭",
-          "url": "https://x.com/laurogeitabat/status/2093356237253484705",
-          "published_at": "2026-08-28T15:13:14Z",
+          "title": "X post from @laurogeitabat: we got a video of the oscar and lily moment after the japanese gp 🥹",
+          "title_zh": "X 发帖 @laurogeitabat：我们拿到了日本大奖赛后Oscar和莉莉时刻的视频 🥹",
+          "summary": "we got a video of the oscar and lily moment after the japanese gp 🥹 https://t.co/qqHrya5DMT",
+          "summary_zh": "我们拿到了日本大奖赛后Oscar和莉莉时刻的视频 🥹",
+          "url": "https://x.com/laurogeitabat/status/2093735537693581343",
+          "published_at": "2026-08-29T16:20:26Z",
           "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2093356179116183552/vid/avc1/320x568/D8muGpni0YEHYFhA.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093356179116183552/img/opIFD6SXaJiQXy9d.jpg",
-          "heat_contribution": 6.5511,
+          "video_url": "https://video.twimg.com/amplify_video/2093735517112197120/vid/avc1/320x496/GlPN6yOr7F91Puny.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2093735517112197120/img/7OLdZwYkd7iqOZhI.jpg",
+          "heat_contribution": 7.0335,
           "metrics": {
-            "likes": 2390,
-            "retweets": 245,
-            "replies": 4,
+            "likes": 4312,
+            "retweets": 306,
+            "replies": 11,
             "quotes": 0,
-            "views": 60318,
+            "views": 70772,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 35,
-      "heat": 35,
+      "fan_heat": 37,
+      "heat": 37,
       "source_labels": [
         "粉"
       ],
@@ -840,7 +730,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 9
+      "rank": 7
     },
     {
       "event_id": "evt-2026-08-30-80658a9573ef",
@@ -870,13 +760,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2094018544266547201/vid/avc1/320x560/GIiDeGu5rGekIYKI.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2094018544266547201/img/WIAw_HE_4UeP98ap.jpg",
-          "heat_contribution": 6.5366,
+          "heat_contribution": 6.5503,
           "metrics": {
-            "likes": 1215,
+            "likes": 1233,
             "retweets": 95,
             "replies": 0,
             "quotes": 0,
-            "views": 12599,
+            "views": 12909,
             "bookmarks": 0
           }
         }
@@ -885,6 +775,116 @@
       "media_heat": 0,
       "fan_heat": 35,
       "heat": 35,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 8
+    },
+    {
+      "event_id": "evt-2026-08-31-9928782b249b",
+      "rule_id": null,
+      "hot_word_zh": "转推 @vernonnika: #op81 🐝",
+      "hot_word_en": "RT @vernonnika: #op81 🐝",
+      "first_seen_at": "2026-08-31T13:05:52Z",
+      "last_seen_at": "2026-08-31T13:05:52Z",
+      "anchor_item_id": "piasnews-social-6ce611d7fd83d620",
+      "image_url": "https://pbs.twimg.com/media/HQ-nmSkWgAAD93o.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HQ-nmSkWgAAD93o.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-6ce611d7fd83d620",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@oscarpiastri81",
+          "title": "X repost from @oscarpiastri81: RT @vernonnika: #op81 🐝",
+          "title_zh": "X 转帖 @oscarpiastri81：转推 @vernonnika: #op81 🐝",
+          "summary": "RT @vernonnika: #op81 🐝 https://t.co/HimjNjHWim",
+          "summary_zh": "转推 @vernonnika: #op81 🐝",
+          "url": "https://x.com/oscarpiastri81/status/2094411349803569378",
+          "published_at": "2026-08-31T13:05:52Z",
+          "image_url": "https://pbs.twimg.com/media/HQ-nmSkWgAAD93o.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HQ-nmSkWgAAD93o.jpg",
+          "heat_contribution": 6.6042,
+          "metrics": {
+            "likes": 0,
+            "retweets": 489,
+            "replies": 0,
+            "quotes": 0,
+            "views": 493,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 35,
+      "heat": 35,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "event_id": "evt-2026-08-30-829d7c4b46bb",
+      "rule_id": null,
+      "hot_word_zh": "oscar和lando在比赛时为一个小朋友加油🥹🫶🏻",
+      "hot_word_en": "oscar and lando cheering a little fan on while they raced 🥹🫶🏻",
+      "first_seen_at": "2026-08-30T12:08:37Z",
+      "last_seen_at": "2026-08-30T12:08:37Z",
+      "anchor_item_id": "piasnews-social-028f2996064fbe90",
+      "image_url": "https://pbs.twimg.com/media/HQ-BT83WkAEcHh5.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HQ-BT83WkAEcHh5.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-028f2996064fbe90",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar and lando cheering a little fan on while they raced 🥹🫶🏻",
+          "title_zh": "X 发帖 @laurogeitabat：oscar和lando在比赛时为一个小朋友加油🥹🫶🏻",
+          "summary": "oscar and lando cheering a little fan on while they raced 🥹🫶🏻 https://t.co/Mg088U6ny3",
+          "summary_zh": "oscar和lando在比赛时为一个小朋友加油🥹🫶🏻",
+          "url": "https://x.com/laurogeitabat/status/2094034552842813781",
+          "published_at": "2026-08-30T12:08:37Z",
+          "image_url": "https://pbs.twimg.com/media/HQ-BT83WkAEcHh5.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HQ-BT83WkAEcHh5.jpg",
+          "heat_contribution": 6.4931,
+          "metrics": {
+            "likes": 1184,
+            "retweets": 76,
+            "replies": 0,
+            "quotes": 0,
+            "views": 12969,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 34,
+      "heat": 34,
       "source_labels": [
         "粉"
       ],
