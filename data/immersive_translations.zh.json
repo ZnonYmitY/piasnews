@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-01T03:26:51.742538Z",
+  "generated_at": "2026-09-01T06:29:33.298160Z",
   "translations": {
     "items:piasnews-cd7727e78340dffe:title:03fe580374dc692e32249e05": {
       "dataset": "items",
@@ -2893,6 +2893,42 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-01T03:26:51.012252Z"
+    },
+    "items:piasnews-2490fb2b59241366:title:68fe2d80ba256f0fe05620fa": {
+      "dataset": "items",
+      "item_id": "piasnews-2490fb2b59241366",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri warns McLaren ahead of crucial Monza test",
+      "zh": "Oscar Piastri在关键的Monza测试前向McLaren发出警告",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-01T06:29:32.701123Z"
+    },
+    "items:piasnews-2490fb2b59241366:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-2490fb2b59241366",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-01T06:29:32.701130Z"
+    },
+    "social:piasnews-social-cece0f94587a0b98:summary:219a9bcf20d2f89ffe96f920": {
+      "dataset": "social",
+      "item_id": "piasnews-social-cece0f94587a0b98",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar congratulated hunter lawrence on his motocross championship! looks like australians get the premium congratulations message 🤭 https://t.co/fP6dk1kQKc",
+      "zh": "oscar祝贺hunter lawrence赢得摩托车越野锦标赛！看来澳大利亚人得到了特别的祝贺消息 🤭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-01T06:29:32.701136Z"
     }
   },
   "retention_days": 8
