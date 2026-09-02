@@ -1,55 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-02T18:31:57.908453Z",
+  "generated_at": "2026-09-02T23:37:11.780500Z",
   "translations": {
-    "items:piasnews-68a76ca97d792acc:title:5776c5ef2479790b35b9db4d": {
-      "dataset": "items",
-      "item_id": "piasnews-68a76ca97d792acc",
-      "field": "title",
-      "target_field": "title_zh",
-      "source_text": "Norris gathers momentum as Piastri searches for answers",
-      "zh": "Norris势头正盛，Piastri寻求答案",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-08-25T18:58:03.743562Z"
-    },
-    "items:piasnews-68a76ca97d792acc:summary:73c687deab0b33e8260654ec": {
-      "dataset": "items",
-      "item_id": "piasnews-68a76ca97d792acc",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
-      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-08-25T18:58:03.743571Z"
-    },
-    "items:piasnews-7b005f1b2212fde5:title:6a987ec443a9f861170376c5": {
-      "dataset": "items",
-      "item_id": "piasnews-7b005f1b2212fde5",
-      "field": "title",
-      "target_field": "title_zh",
-      "source_text": "Piastri's Title Charge Stalls as Norris Pulls 55 Points Clear",
-      "zh": "Piastri争冠受阻，Norris领先55分",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-08-25T18:58:03.743576Z"
-    },
-    "items:piasnews-7b005f1b2212fde5:summary:73c687deab0b33e8260654ec": {
-      "dataset": "items",
-      "item_id": "piasnews-7b005f1b2212fde5",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
-      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-08-25T18:58:03.743581Z"
-    },
     "items:piasnews-f6143ad7d5fd36f4:title:b22205bf8626f3196c4cb298": {
       "dataset": "items",
       "item_id": "piasnews-f6143ad7d5fd36f4",
@@ -2749,6 +2701,18 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-02T18:31:57.339880Z"
+    },
+    "social:piasnews-social-10068858fc661b8d:summary:74ce590360d73b200ddecf9f": {
+      "dataset": "social",
+      "item_id": "piasnews-social-10068858fc661b8d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Since today’s been all about Oscar’s kindness, he was kind enough to stop the streak so I wouldn’t have to retire the account. He didn’t have to. But now that we all get it, I think we can go back to this. https://t.co/zAxh9xnBrD",
+      "zh": "既然今天都在讲Oscar的善良，他好心停止了连胜，这样我就不用退役这个账号了。他本不必这么做。但现在我们都明白了，我觉得我们可以回到这个话题。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-02T23:37:11.210398Z"
     }
   },
   "retention_days": 8
