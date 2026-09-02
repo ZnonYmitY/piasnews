@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-02T09:33:03.250410Z",
+  "generated_at": "2026-09-02T13:46:23.068680Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -118,13 +118,13 @@
           "image_url": "https://pbs.twimg.com/media/HRM1OseWYAMwHfG.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRM1OseWYAMwHfG.jpg",
-          "heat_contribution": 7.7707,
+          "heat_contribution": 9.9907,
           "metrics": {
-            "likes": 1479,
-            "retweets": 285,
-            "replies": 56,
+            "likes": 16158,
+            "retweets": 1759,
+            "replies": 137,
             "quotes": 0,
-            "views": 15211,
+            "views": 173460,
             "bookmarks": 0
           }
         },
@@ -142,21 +142,21 @@
           "image_url": "https://pbs.twimg.com/media/HRM1OseWYAMwHfG.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRM1OseWYAMwHfG.jpg",
-          "heat_contribution": 6.5894,
+          "heat_contribution": 8.1678,
           "metrics": {
             "likes": 0,
-            "retweets": 363,
+            "retweets": 1762,
             "replies": 0,
             "quotes": 0,
-            "views": 38,
+            "views": 59,
             "bookmarks": 0
           }
         }
       ],
-      "official_heat": 51,
+      "official_heat": 64,
       "media_heat": 0,
-      "fan_heat": 35,
-      "heat": 60,
+      "fan_heat": 43,
+      "heat": 75,
       "source_labels": [
         "官",
         "粉"
@@ -177,13 +177,37 @@
       "hot_word_en": "Oscar begins preparations for Monza",
       "first_seen_at": "2026-08-31T19:42:02Z",
       "last_seen_at": "2026-09-02T09:12:08Z",
-      "anchor_item_id": "piasnews-social-c3bec72aae21d30b",
-      "image_url": "https://pbs.twimg.com/media/HRKDdSMXIAAuxZq.jpg",
-      "video_url": "https://video.twimg.com/ext_tw_video/1964362268553945088/pu/vid/avc1/288x270/wHqFAlfM_YhnoS1m.mp4?tag=12",
-      "video_poster_url": "https://pbs.twimg.com/ext_tw_video_thumb/1964362268553945088/pu/img/vw3J4ne-BFKxdOSE.jpg",
+      "anchor_item_id": "piasnews-social-71576618f876386d",
+      "image_url": "https://pbs.twimg.com/media/HRM1sElWgAMMIgF.jpg",
+      "video_url": "https://video.twimg.com/amplify_video/2095077262857048065/vid/avc1/320x426/FRgH8AwsUpioro-F.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2095077262857048065/img/ZHvE0Xhsz2lEMvXJ.jpg",
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
+        {
+          "item_id": "piasnews-social-71576618f876386d",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar is on his way to monza! always doing the most random stuff on the plane 😭😭",
+          "title_zh": "X 发帖 @laurogeitabat：oscar正在前往Monza的路上！总是在飞机上做最奇怪的事 😭😭",
+          "summary": "oscar is on his way to monza! always doing the most random stuff on the plane 😭😭 https://t.co/SC0glhvvCE",
+          "summary_zh": "oscar正在前往Monza的路上！总是在飞机上做最奇怪的事 😭😭",
+          "url": "https://x.com/laurogeitabat/status/2095077301717172551",
+          "published_at": "2026-09-02T09:12:08Z",
+          "image_url": "https://pbs.twimg.com/media/HRM1sElWgAMMIgF.jpg",
+          "video_url": "https://video.twimg.com/amplify_video/2095077262857048065/vid/avc1/320x426/FRgH8AwsUpioro-F.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2095077262857048065/img/ZHvE0Xhsz2lEMvXJ.jpg",
+          "heat_contribution": 6.9229,
+          "metrics": {
+            "likes": 759,
+            "retweets": 96,
+            "replies": 0,
+            "quotes": 0,
+            "views": 6326,
+            "bookmarks": 0
+          }
+        },
         {
           "item_id": "piasnews-social-c3bec72aae21d30b",
           "dataset": "social",
@@ -198,13 +222,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/ext_tw_video/1964362268553945088/pu/vid/avc1/288x270/wHqFAlfM_YhnoS1m.mp4?tag=12",
           "video_poster_url": "https://pbs.twimg.com/ext_tw_video_thumb/1964362268553945088/pu/img/vw3J4ne-BFKxdOSE.jpg",
-          "heat_contribution": 6.3633,
+          "heat_contribution": 6.378,
           "metrics": {
-            "likes": 1025,
-            "retweets": 93,
+            "likes": 1039,
+            "retweets": 95,
             "replies": 0,
             "quotes": 0,
-            "views": 7597,
+            "views": 7712,
             "bookmarks": 0
           }
         },
@@ -222,37 +246,13 @@
           "image_url": "https://pbs.twimg.com/media/HRKDdSMXIAAuxZq.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRKDdSMXIAAuxZq.jpg",
-          "heat_contribution": 5.5494,
+          "heat_contribution": 5.6509,
           "metrics": {
-            "likes": 264,
-            "retweets": 16,
+            "likes": 287,
+            "retweets": 20,
             "replies": 0,
             "quotes": 0,
-            "views": 4544,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-71576618f876386d",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar is on his way to monza! always doing the most random stuff on the plane 😭😭",
-          "title_zh": "X 发帖 @laurogeitabat：oscar正在前往Monza的路上！总是在飞机上做最奇怪的事 😭😭",
-          "summary": "oscar is on his way to monza! always doing the most random stuff on the plane 😭😭 https://t.co/SC0glhvvCE",
-          "summary_zh": "oscar正在前往Monza的路上！总是在飞机上做最奇怪的事 😭😭",
-          "url": "https://x.com/laurogeitabat/status/2095077301717172551",
-          "published_at": "2026-09-02T09:12:08Z",
-          "image_url": "https://pbs.twimg.com/media/HRM1sElWgAMMIgF.jpg",
-          "video_url": "https://video.twimg.com/amplify_video/2095077262857048065/vid/avc1/320x426/FRgH8AwsUpioro-F.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2095077262857048065/img/ZHvE0Xhsz2lEMvXJ.jpg",
-          "heat_contribution": 5.0132,
-          "metrics": {
-            "likes": 105,
-            "retweets": 18,
-            "replies": 0,
-            "quotes": 0,
-            "views": 838,
+            "views": 5106,
             "bookmarks": 0
           }
         },
@@ -264,7 +264,7 @@
           "title": "Oscar Piastri warns McLaren ahead of crucial Monza test",
           "title_zh": "Oscar Piastri在关键的Monza测试前向McLaren发出警告",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能项目。",
           "url": "https://www.paddocknews24.com/en/news-f1/oscar-piastri-warns-mclaren-ahead-of-crucial-monza-test/",
           "published_at": "2026-08-31T19:42:02Z",
           "image_url": "https://www.paddocknews24.com/en/wp-content/uploads/2026/08/89mkRfv4_risultato.webp",
@@ -276,8 +276,8 @@
       ],
       "official_heat": 0,
       "media_heat": 10,
-      "fan_heat": 55,
-      "heat": 58,
+      "fan_heat": 61,
+      "heat": 64,
       "source_labels": [
         "媒",
         "粉"
@@ -290,6 +290,85 @@
       "pinned_rank": null,
       "hidden": false,
       "rank": 3
+    },
+    {
+      "event_id": "evt-2026-09-01-b567b423faea",
+      "rule_id": null,
+      "hot_word_zh": "在 McLaren 工作的 Morgan 谈及与 Oscar 共事的感受：“他绝对是最可爱…",
+      "hot_word_en": "Morgan, who works at McLaren, on what it’s like working with Oscar: “He is the absolute sweetes…",
+      "first_seen_at": "2026-09-01T22:29:18Z",
+      "last_seen_at": "2026-09-01T22:47:02Z",
+      "anchor_item_id": "piasnews-social-77c7e21b204c0530",
+      "image_url": "https://pbs.twimg.com/media/HRKigRtW4AAM4gj.jpg",
+      "video_url": "https://video.twimg.com/amplify_video/2094915452103176192/vid/avc1/320x488/83FfWWmLTjc9K5XO.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2094915452103176192/img/DqWOa7-kFXQQ2nK4.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-77c7e21b204c0530",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@oscarpiastri81",
+          "title": "X post from @oscarpiastri81: Morgan, who works at McLaren, on what it’s like working with Oscar: “He is the absolute sweetes…",
+          "title_zh": "X 发帖 @oscarpiastri81：在 McLaren 工作的 Morgan 谈及与 Oscar 共事的感受：“他绝对是最可爱的人，会和你聊很久。” 🥹 [via @/morganbowx4 on tt]",
+          "summary": "Morgan, who works at McLaren, on what it’s like working with Oscar: “He is the absolute sweetest and will talk to you for ages.” 🥹 [via @/morganbowx4 on tt] https://t.co/NsY12osxg6",
+          "summary_zh": "在 McLaren 工作的 Morgan 谈及与 Oscar 共事的感受：“他绝对是最可爱的人，会和你聊很久。” 🥹 [via @/morganbowx4 on tt]",
+          "url": "https://x.com/oscarpiastri81/status/2094915527508451589",
+          "published_at": "2026-09-01T22:29:18Z",
+          "image_url": "https://pbs.twimg.com/media/HRKigRtW4AAM4gj.jpg",
+          "video_url": "https://video.twimg.com/amplify_video/2094915452103176192/vid/avc1/320x488/83FfWWmLTjc9K5XO.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2094915452103176192/img/DqWOa7-kFXQQ2nK4.jpg",
+          "heat_contribution": 8.1699,
+          "metrics": {
+            "likes": 3667,
+            "retweets": 257,
+            "replies": 4,
+            "quotes": 0,
+            "views": 51635,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-4ddeb9bb09ac3ce8",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: RT @oscarpiastri81: Morgan, who works at McLaren, on what it’s like working with Oscar: “He is…",
+          "title_zh": "X 转帖 @laurogeitabat：RT @oscarpiastri81: 在 McLaren 工作的 Morgan 谈及与 Oscar 共事的感受：“他绝对是最可爱的人，会和你聊很久……”",
+          "summary": "RT @oscarpiastri81: Morgan, who works at McLaren, on what it’s like working with Oscar: “He is the absolute sweetest and will talk to you…",
+          "summary_zh": "RT @oscarpiastri81: 在 McLaren 工作的 Morgan 谈及与 Oscar 共事的感受：“他绝对是最可爱的人，会和你聊很久……”",
+          "url": "https://x.com/laurogeitabat/status/2094919992768708920",
+          "published_at": "2026-09-01T22:47:02Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 5.9597,
+          "metrics": {
+            "likes": 0,
+            "retweets": 257,
+            "replies": 0,
+            "quotes": 0,
+            "views": 132,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 56,
+      "heat": 56,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 2
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 4
     },
     {
       "event_id": "evt-2026-09-01-acc3ee65b940",
@@ -319,13 +398,13 @@
           "image_url": "https://pbs.twimg.com/media/HRJsuJ6XkAA3IzX.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRJsuJ6XkAA3IzX.jpg",
-          "heat_contribution": 6.2648,
+          "heat_contribution": 6.359,
           "metrics": {
-            "likes": 542,
-            "retweets": 61,
+            "likes": 594,
+            "retweets": 68,
             "replies": 0,
             "quotes": 0,
-            "views": 3564,
+            "views": 3890,
             "bookmarks": 0
           }
         },
@@ -343,37 +422,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2094825673294540800/vid/avc1/320x568/wWIelIn7F2uUBSc3.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2094825673294540800/img/LhICvXFwqUbG17XU.jpg",
-          "heat_contribution": 5.772,
+          "heat_contribution": 5.8615,
           "metrics": {
-            "likes": 345,
-            "retweets": 25,
+            "likes": 374,
+            "retweets": 29,
             "replies": 0,
             "quotes": 0,
-            "views": 3189,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-3ff4aed8c6c3826f",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: OSCAR IN THE M19C ✨",
-          "title_zh": "X 发帖 @laurogeitabat：OSCAR在M19C里✨",
-          "summary": "OSCAR IN THE M19C ✨ https://t.co/MglXp5gcS7",
-          "summary_zh": "OSCAR在M19C里✨",
-          "url": "https://x.com/laurogeitabat/status/2094025778463703474",
-          "published_at": "2026-08-30T11:33:45Z",
-          "image_url": "https://pbs.twimg.com/media/HQ95V3KWMAAiQfN.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HQ95V3KWMAAiQfN.jpg",
-          "heat_contribution": 4.99,
-          "metrics": {
-            "likes": 543,
-            "retweets": 75,
-            "replies": 0,
-            "quotes": 0,
-            "views": 3670,
+            "views": 3502,
             "bookmarks": 0
           }
         },
@@ -391,13 +446,37 @@
           "image_url": "https://pbs.twimg.com/media/HQ9-bSmWIAAnXFB.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HQ9-bSmWIAAnXFB.jpg",
-          "heat_contribution": 2.4033,
+          "heat_contribution": 0.0,
           "metrics": {
             "likes": 31,
             "retweets": 3,
             "replies": 0,
             "quotes": 0,
             "views": 1330,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-3ff4aed8c6c3826f",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: OSCAR IN THE M19C ✨",
+          "title_zh": "X 发帖 @laurogeitabat：OSCAR在M19C里✨",
+          "summary": "OSCAR IN THE M19C ✨ https://t.co/MglXp5gcS7",
+          "summary_zh": "OSCAR在M19C里✨",
+          "url": "https://x.com/laurogeitabat/status/2094025778463703474",
+          "published_at": "2026-08-30T11:33:45Z",
+          "image_url": "https://pbs.twimg.com/media/HQ95V3KWMAAiQfN.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HQ95V3KWMAAiQfN.jpg",
+          "heat_contribution": 0.0,
+          "metrics": {
+            "likes": 543,
+            "retweets": 75,
+            "replies": 0,
+            "quotes": 0,
+            "views": 3670,
             "bookmarks": 0
           }
         },
@@ -452,8 +531,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 55,
-      "heat": 55,
+      "fan_heat": 46,
+      "heat": 46,
       "source_labels": [
         "粉"
       ],
@@ -464,86 +543,86 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 4
+      "rank": 5
     },
     {
-      "event_id": "evt-2026-09-01-b567b423faea",
+      "event_id": "evt-2026-09-02-70a30439465a",
       "rule_id": null,
-      "hot_word_zh": "在 McLaren 工作的 Morgan 谈及与 Oscar 共事的感受：“他绝对是最可爱…",
-      "hot_word_en": "Morgan, who works at McLaren, on what it’s like working with Oscar: “He is the absolute sweetes…",
-      "first_seen_at": "2026-09-01T22:29:18Z",
-      "last_seen_at": "2026-09-01T22:47:02Z",
-      "anchor_item_id": "piasnews-social-77c7e21b204c0530",
-      "image_url": "https://pbs.twimg.com/media/HRKigRtW4AAM4gj.jpg",
-      "video_url": "https://video.twimg.com/amplify_video/2094915452103176192/vid/avc1/320x488/83FfWWmLTjc9K5XO.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2094915452103176192/img/DqWOa7-kFXQQ2nK4.jpg",
+      "hot_word_zh": "……好吧哇",
+      "hot_word_en": "… okay wow",
+      "first_seen_at": "2026-09-01T22:30:04Z",
+      "last_seen_at": "2026-09-02T09:19:24Z",
+      "anchor_item_id": "piasnews-social-ee4ac5dfaad60ba3",
+      "image_url": "https://pbs.twimg.com/media/HRM3XZlWcAQU0My.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HRM3XZlWcAQU0My.jpg",
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
         {
-          "item_id": "piasnews-social-77c7e21b204c0530",
+          "item_id": "piasnews-social-ee4ac5dfaad60ba3",
           "dataset": "social",
           "source_type": "fan",
           "source": "@oscarpiastri81",
-          "title": "X post from @oscarpiastri81: Morgan, who works at McLaren, on what it’s like working with Oscar: “He is the absolute sweetes…",
-          "title_zh": "X 发帖 @oscarpiastri81：在 McLaren 工作的 Morgan 谈及与 Oscar 共事的感受：“他绝对是最可爱的人，会和你聊很久。” 🥹 [via @/morganbowx4 on tt]",
-          "summary": "Morgan, who works at McLaren, on what it’s like working with Oscar: “He is the absolute sweetest and will talk to you for ages.” 🥹 [via @/morganbowx4 on tt] https://t.co/NsY12osxg6",
-          "summary_zh": "在 McLaren 工作的 Morgan 谈及与 Oscar 共事的感受：“他绝对是最可爱的人，会和你聊很久。” 🥹 [via @/morganbowx4 on tt]",
-          "url": "https://x.com/oscarpiastri81/status/2094915527508451589",
-          "published_at": "2026-09-01T22:29:18Z",
-          "image_url": "https://pbs.twimg.com/media/HRKigRtW4AAM4gj.jpg",
-          "video_url": "https://video.twimg.com/amplify_video/2094915452103176192/vid/avc1/320x488/83FfWWmLTjc9K5XO.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2094915452103176192/img/DqWOa7-kFXQQ2nK4.jpg",
-          "heat_contribution": 7.8496,
+          "title": "X post from @oscarpiastri81: … okay wow",
+          "title_zh": "X 发帖 @oscarpiastri81：……好吧哇",
+          "summary": "… okay wow https://t.co/VeThGvqPKT",
+          "summary_zh": "……好吧哇",
+          "url": "https://x.com/oscarpiastri81/status/2095079131692044328",
+          "published_at": "2026-09-02T09:19:24Z",
+          "image_url": "https://pbs.twimg.com/media/HRM3XZlWcAQU0My.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HRM3XZlWcAQU0My.jpg",
+          "heat_contribution": 7.065,
           "metrics": {
-            "likes": 2694,
-            "retweets": 199,
-            "replies": 3,
+            "likes": 955,
+            "retweets": 67,
+            "replies": 4,
             "quotes": 0,
-            "views": 31722,
+            "views": 6824,
             "bookmarks": 0
           }
         },
         {
-          "item_id": "piasnews-social-4ddeb9bb09ac3ce8",
+          "item_id": "piasnews-social-064f832f7b4f3114",
           "dataset": "social",
           "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X repost from @laurogeitabat: RT @oscarpiastri81: Morgan, who works at McLaren, on what it’s like working with Oscar: “He is…",
-          "title_zh": "X 转帖 @laurogeitabat：RT @oscarpiastri81: 在 McLaren 工作的 Morgan 谈及与 Oscar 共事的感受：“他绝对是最可爱的人，会和你聊很久……”",
-          "summary": "RT @oscarpiastri81: Morgan, who works at McLaren, on what it’s like working with Oscar: “He is the absolute sweetest and will talk to you…",
-          "summary_zh": "RT @oscarpiastri81: 在 McLaren 工作的 Morgan 谈及与 Oscar 共事的感受：“他绝对是最可爱的人，会和你聊很久……”",
-          "url": "https://x.com/laurogeitabat/status/2094919992768708920",
-          "published_at": "2026-09-01T22:47:02Z",
+          "source": "@oscarpiastri81",
+          "title": "X post from @oscarpiastri81: @oscarpiastri81",
+          "title_zh": "X 发帖：@oscarpiastri81",
+          "summary": "https://t.co/7ykzELhsWa",
+          "summary_zh": "https://t.co/7ykzELhsWa",
+          "url": "https://x.com/oscarpiastri81/status/2094915724028322165",
+          "published_at": "2026-09-01T22:30:04Z",
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 5.8273,
+          "heat_contribution": 3.6172,
           "metrics": {
-            "likes": 0,
-            "retweets": 225,
+            "likes": 9,
+            "retweets": 0,
             "replies": 0,
             "quotes": 0,
-            "views": 127,
+            "views": 3931,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 55,
-      "heat": 55,
+      "fan_heat": 44,
+      "heat": 44,
       "source_labels": [
         "粉"
       ],
       "source_counts": {
         "official": 0,
         "media": 0,
-        "fan": 2
+        "fan": 1
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 5
+      "rank": 6
     },
     {
       "event_id": "evt-2026-09-01-796a67259411",
@@ -573,13 +652,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2094868356100673536/vid/avc1/320x560/hqA76T9KIydKpSuY.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2094868356100673536/img/0HRniXNBnu1f4cZv.jpg",
-          "heat_contribution": 8.1463,
+          "heat_contribution": 8.2424,
           "metrics": {
-            "likes": 3289,
-            "retweets": 388,
-            "replies": 4,
+            "likes": 3599,
+            "retweets": 416,
+            "replies": 5,
             "quotes": 0,
-            "views": 52259,
+            "views": 61738,
             "bookmarks": 0
           }
         },
@@ -597,116 +676,13 @@
           "image_url": "https://pbs.twimg.com/media/HQ97SmcWAAAKBZq.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HQ97SmcWAAAKBZq.jpg",
-          "heat_contribution": 5.2686,
+          "heat_contribution": 0.0,
           "metrics": {
             "likes": 778,
             "retweets": 63,
             "replies": 0,
             "quotes": 0,
             "views": 6175,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 53,
-      "heat": 53,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 6
-    },
-    {
-      "event_id": "evt-2026-08-28-ddd22e96f8b4",
-      "rule_id": null,
-      "hot_word_zh": "🔥🔥🔥",
-      "hot_word_en": "🔥🔥🔥",
-      "first_seen_at": "2026-08-30T12:34:56Z",
-      "last_seen_at": "2026-09-01T22:30:04Z",
-      "anchor_item_id": "piasnews-social-00e22a6654437f6f",
-      "image_url": "https://pbs.twimg.com/media/HQ-HVBKWYAA5-ll.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HQ-HVBKWYAA5-ll.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-00e22a6654437f6f",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: 🔥🔥🔥",
-          "title_zh": "X 发帖 @laurogeitabat：🔥🔥🔥",
-          "summary": "🔥🔥🔥 https://t.co/flhu7etyyv",
-          "summary_zh": "🔥🔥🔥",
-          "url": "https://x.com/laurogeitabat/status/2094041176563159343",
-          "published_at": "2026-08-30T12:34:56Z",
-          "image_url": "https://pbs.twimg.com/media/HQ-HVBKWYAA5-ll.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HQ-HVBKWYAA5-ll.jpg",
-          "heat_contribution": 5.1437,
-          "metrics": {
-            "likes": 606,
-            "retweets": 98,
-            "replies": 0,
-            "quotes": 0,
-            "views": 4978,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-064f832f7b4f3114",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@oscarpiastri81",
-          "title": "X post from @oscarpiastri81: @oscarpiastri81",
-          "title_zh": "X 发帖：@oscarpiastri81",
-          "summary": "https://t.co/7ykzELhsWa",
-          "summary_zh": "https://t.co/7ykzELhsWa",
-          "url": "https://x.com/oscarpiastri81/status/2094915724028322165",
-          "published_at": "2026-09-01T22:30:04Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 3.3059,
-          "metrics": {
-            "likes": 7,
-            "retweets": 0,
-            "replies": 0,
-            "quotes": 0,
-            "views": 2803,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-90db81d3c1709966",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: @laurogeitabat",
-          "title_zh": "X 发帖：@laurogeitabat",
-          "summary": "https://t.co/MFwMrTv8BL",
-          "summary_zh": "https://t.co/MFwMrTv8BL",
-          "url": "https://x.com/laurogeitabat/status/2094860278970057025",
-          "published_at": "2026-09-01T18:49:45Z",
-          "image_url": "https://pbs.twimg.com/media/HRJwS6tXcAAHb_o.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HRJwS6tXcAAHb_o.jpg",
-          "heat_contribution": 3.1719,
-          "metrics": {
-            "likes": 20,
-            "retweets": 1,
-            "replies": 0,
-            "quotes": 0,
-            "views": 847,
             "bookmarks": 0
           }
         }
@@ -721,11 +697,66 @@
       "source_counts": {
         "official": 0,
         "media": 0,
-        "fan": 2
+        "fan": 1
       },
       "pinned_rank": null,
       "hidden": false,
       "rank": 7
+    },
+    {
+      "event_id": "evt-2026-09-02-158441e4c9dd",
+      "rule_id": null,
+      "hot_word_zh": "Oscar在签署McLaren续约时提到的一件事是，在与车队共事一年后，他知道了每个人的名…",
+      "hot_word_en": "One thing Oscar mentioned when he signed his McLaren extension was that, after a year with the…",
+      "first_seen_at": "2026-09-02T12:21:52Z",
+      "last_seen_at": "2026-09-02T12:21:52Z",
+      "anchor_item_id": "piasnews-social-31422efba3cc9f7a",
+      "image_url": "https://pbs.twimg.com/media/HRNhIESWEAklxOh.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HRNhIESWEAklxOh.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-31422efba3cc9f7a",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@oscarpiastri81",
+          "title": "X post from @oscarpiastri81: One thing Oscar mentioned when he signed his McLaren extension was that, after a year with the…",
+          "title_zh": "X 发帖 @oscarpiastri81：Oscar在签署McLaren续约时提到的一件事是，在与车队共事一年后，他知道了每个人的名字（并在多次采访中将此列为与菜鸟赛季相比最大的变化之一，显然他觉得这很重要）。不久后，Tom谈到他如何记住关于人的小细节，以及他如何与车队建立了如此个人化的关系，这让人“竭尽全力支持他”。现在，Morgan说他最可爱，会和你聊很久，Baz之前也以几乎相同的方式描述他。在他保留的McLaren之外的所有关系中，你也可以看到同样的情况。他仍然和以前的Prema的人足够亲近，可以和他们坐下来共进晚餐，仍然和前Alpine同事玩游戏，他的母校多年后仍在庆祝他拥有“非凡的人类价值观”。即使他长大了，在职业生涯中达到了新的高度，有一件事始终如一，那就是Oscar总是抽出时间与人相处，无论走到哪里都建立真诚的关系。他的前经纪人曾说，小时候他“总以为每个人都是他的朋友”，很明显那个小Oscar还在那里。所以，不管有些人怎么试图描绘他，重要的是那些真正和他一起工作过的人（更重要的是，那些在停止合作后很久仍继续认识他的人）以及他们如何谈论他……他们的说法完全一样：一个极其善良、友好、脚踏实地的人。🧡",
+          "summary": "One thing Oscar mentioned when he signed his McLaren extension was that, after a year with the team, he knew everyone’s name (and cited this as one of the biggest changes compared to his rookie year in multiple interviews, which he clearly found important). Shortly after, Tom spoke about how he remembers little details about people and how he’s built such a personal relationship with the team, something that makes people move “heaven and earth to support him.” And now, you have Morgan saying that he’s the sweetest and will talk to you for ages, with Baz describing him in much the same way a while back. And you can see the same thing in all the relationships he’s kept outside of McLaren too. He’s still close enough with his old Prema people to sit down for dinner with them, still plays games with his former Alpine coworkers, and his old school is still celebrating him years later for possessing “exceptional human values.” Even as he grew older and reached new heights in his career, one thing that stayed consistent and that is Oscar’s pattern of always making time for people and forming genuine relationships wherever he goes. His former manager once said that, as a kid, he “always thought everyone was his mate,” and it’s clear that little Oscar is still there. So, no matter how some people try to paint him, what matters are the people who have actually worked with him (and, more importantly, continued to know him long after they stopped working together) and how they speak about him… which is exactly the same way: as someone who is extraordinarily kind, friendly, and down to earth. 🧡",
+          "summary_zh": "Oscar在签署McLaren续约时提到的一件事是，在与车队共事一年后，他知道了每个人的名字（并在多次采访中将此列为与菜鸟赛季相比最大的变化之一，显然他觉得这很重要）。不久后，Tom谈到他如何记住关于人的小细节，以及他如何与车队建立了如此个人化的关系，这让人“竭尽全力支持他”。现在，Morgan说他最可爱，会和你聊很久，Baz之前也以几乎相同的方式描述他。在他保留的McLaren之外的所有关系中，你也可以看到同样的情况。他仍然和以前的Prema的人足够亲近，可以和他们坐下来共进晚餐，仍然和前Alpine同事玩游戏，他的母校多年后仍在庆祝他拥有“非凡的人类价值观”。即使他长大了，在职业生涯中达到了新的高度，有一件事始终如一，那就是Oscar总是抽出时间与人相处，无论走到哪里都建立真诚的关系。他的前经纪人曾说，小时候他“总以为每个人都是他的朋友”，很明显那个小Oscar还在那里。所以，不管有些人怎么试图描绘他，重要的是那些真正和他一起工作过的人（更重要的是，那些在停止合作后很久仍继续认识他的人）以及他们如何谈论他……他们的说法完全一样：一个极其善良、友好、脚踏实地的人。🧡",
+          "url": "https://x.com/oscarpiastri81/status/2095125050517078205",
+          "published_at": "2026-09-02T12:21:52Z",
+          "image_url": "https://pbs.twimg.com/media/HRNhIESWEAklxOh.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HRNhIESWEAklxOh.jpg",
+          "heat_contribution": 7.3337,
+          "metrics": {
+            "likes": 938,
+            "retweets": 199,
+            "replies": 6,
+            "quotes": 0,
+            "views": 17596,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 39,
+      "heat": 39,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 8
     },
     {
       "event_id": "evt-2026-09-01-5337cb47a08a",
@@ -755,13 +786,13 @@
           "image_url": "https://pbs.twimg.com/media/HRJJsmSWcAAb10h.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRJJsmSWcAAb10h.jpg",
-          "heat_contribution": 7.2014,
+          "heat_contribution": 7.2983,
           "metrics": {
             "likes": 0,
-            "retweets": 893,
+            "retweets": 984,
             "replies": 0,
             "quotes": 0,
-            "views": 103,
+            "views": 107,
             "bookmarks": 0
           }
         }
@@ -780,7 +811,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 9
     },
     {
       "event_id": "evt-2026-09-01-0a560ceb7600",
@@ -810,76 +841,21 @@
           "image_url": "https://pbs.twimg.com/media/HRJyRxCW8AA3vxl.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRJyRxCW8AA3vxl.jpg",
-          "heat_contribution": 6.8535,
+          "heat_contribution": 6.9953,
           "metrics": {
-            "likes": 978,
-            "retweets": 67,
+            "likes": 1125,
+            "retweets": 78,
             "replies": 0,
             "quotes": 0,
-            "views": 14965,
+            "views": 17302,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 36,
-      "heat": 36,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 9
-    },
-    {
-      "event_id": "evt-2026-09-01-78b266351985",
-      "rule_id": null,
-      "hot_word_zh": "“三样值得花钱的东西？”oscar：“一张舒适的床，好吃的食物，还有一辆吵闹又有趣的车！”",
-      "hot_word_en": "\"3 things worth the money?\" oscar: \"a comfy bed, good food, and a noisy/fun car!\"",
-      "first_seen_at": "2026-09-01T18:31:24Z",
-      "last_seen_at": "2026-09-01T18:31:24Z",
-      "anchor_item_id": "piasnews-social-5e6406464566e17d",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2094855636320227328/vid/avc1/320x568/kBoXuaal8PQ8aBkp.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2094855636320227328/img/iy80bLVIs6b99sV3.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-5e6406464566e17d",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: \"3 things worth the money?\" oscar: \"a comfy bed, good food, and a noisy/fun car!\"",
-          "title_zh": "X 发帖 @laurogeitabat：“三样值得花钱的东西？”oscar：“一张舒适的床，好吃的食物，还有一辆吵闹又有趣的车！”",
-          "summary": "\"3 things worth the money?\" oscar: \"a comfy bed, good food, and a noisy/fun car!\" https://t.co/ZRgDNqVWLJ",
-          "summary_zh": "“三样值得花钱的东西？”oscar：“一张舒适的床，好吃的食物，还有一辆吵闹又有趣的车！”",
-          "url": "https://x.com/laurogeitabat/status/2094855659661426898",
-          "published_at": "2026-09-01T18:31:24Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2094855636320227328/vid/avc1/320x568/kBoXuaal8PQ8aBkp.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2094855636320227328/img/iy80bLVIs6b99sV3.jpg",
-          "heat_contribution": 6.4988,
-          "metrics": {
-            "likes": 715,
-            "retweets": 55,
-            "replies": 0,
-            "quotes": 0,
-            "views": 5944,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 35,
-      "heat": 35,
+      "fan_heat": 37,
+      "heat": 37,
       "source_labels": [
         "粉"
       ],
