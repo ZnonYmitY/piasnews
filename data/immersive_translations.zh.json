@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-02T03:24:57.205268Z",
+  "generated_at": "2026-09-02T06:26:42.476463Z",
   "translations": {
     "items:piasnews-f21f7b6279c7f8ec:title:cfcf8e5b3dc206f4de8b4012": {
       "dataset": "items",
@@ -2593,6 +2593,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-02T03:24:56.620413Z"
+    },
+    "items:piasnews-38fed6cf4fe96921:title:f7c3ec6d16413b1237e640fd": {
+      "dataset": "items",
+      "item_id": "piasnews-38fed6cf4fe96921",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "A year without a win – The ugly statistics of Oscar Piastri's 2026 F1 season",
+      "zh": "一年无胜——Oscar Piastri 2026 F1赛季的惨淡数据",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-02T06:26:41.920303Z"
+    },
+    "items:piasnews-38fed6cf4fe96921:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-38fed6cf4fe96921",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-02T06:26:41.920312Z"
     }
   },
   "retention_days": 8
