@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-02T13:46:21.954594Z",
+  "generated_at": "2026-09-02T18:31:57.908453Z",
   "translations": {
     "items:piasnews-68a76ca97d792acc:title:5776c5ef2479790b35b9db4d": {
       "dataset": "items",
@@ -2665,6 +2665,90 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-02T13:46:21.348859Z"
+    },
+    "items:piasnews-252fb2b8a5b432d9:title:979814d4c6780327eb3799dd": {
+      "dataset": "items",
+      "item_id": "piasnews-252fb2b8a5b432d9",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "George Russell has already shown 'struggling' Oscar Piastri exactly what he needs to do at McLaren",
+      "zh": "乔治·拉塞尔已经向“挣扎中的”Oscar Piastri展示了他在McLaren需要做什么",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-02T18:31:57.339848Z"
+    },
+    "items:piasnews-252fb2b8a5b432d9:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-252fb2b8a5b432d9",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-02T18:31:57.339857Z"
+    },
+    "social:piasnews-social-62037be10b2300e4:summary:0ea3a78d567d815976b12e90": {
+      "dataset": "social",
+      "item_id": "piasnews-social-62037be10b2300e4",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @laurogeitabat: OSCAR IS IN MILAN !!! 📸: 5ive.chefbuffo https://t.co/axKhWIvWLO",
+      "zh": "RT @laurogeitabat: Oscar在米兰！！！📸: 5ive.chefbuffo",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-02T18:31:57.339863Z"
+    },
+    "social:piasnews-social-c840e2798a420bac:summary:99d290a7de4affd672055965": {
+      "dataset": "social",
+      "item_id": "piasnews-social-c840e2798a420bac",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @piashtray: While we are talking abt how everyone who meets/works with/speaks to Oscar sings high praise abt him I’m bringing this back…",
+      "zh": "RT @piashtray: 当我们谈论每个见到/与Oscar共事/交谈的人都对他赞不绝口时，我要把这个翻出来……",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-02T18:31:57.339867Z"
+    },
+    "social:piasnews-social-ac37e0038be8853f:summary:d4f2c80b9d5f1be1e224c018": {
+      "dataset": "social",
+      "item_id": "piasnews-social-ac37e0038be8853f",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar and lando making a happy birthday card for mclaren! \"we hope you have a great day\" PLEASE 😭😭😭 https://t.co/fHe7HYmUDD",
+      "zh": "oscar和lando为McLaren制作生日贺卡！“希望你度过美好的一天”拜托 😭😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-02T18:31:57.339871Z"
+    },
+    "social:piasnews-social-ea8459258014d518:summary:6c902643af2be17ea2d557ca": {
+      "dataset": "social",
+      "item_id": "piasnews-social-ea8459258014d518",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "4 years ago today!!! the hashtags are so precious 🥹🥹",
+      "zh": "四年前的今天！！！这些标签太珍贵了 🥹🥹",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-02T18:31:57.339875Z"
+    },
+    "social:piasnews-social-f2bf28fd1c757540:summary:17d323f9a6bb75728b53af2d": {
+      "dataset": "social",
+      "item_id": "piasnews-social-f2bf28fd1c757540",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar's top5 memories in his 4 years with mclaren 🫶🏻 - first qatar sprint win - first podium - first win - baku win - first constructors' championship https://t.co/AhRJKrgpBz",
+      "zh": "oscar在McLaren四年中的前五回忆 🫶🏻 - 首个卡塔尔冲刺赛胜利 - 首个领奖台 - 首胜 - Baku胜利 - 首个车队总冠军",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-02T18:31:57.339880Z"
     }
   },
   "retention_days": 8
