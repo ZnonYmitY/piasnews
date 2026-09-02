@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-02T06:26:43.705552Z",
+  "generated_at": "2026-09-02T09:33:03.250410Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -91,6 +91,207 @@
       "rank": 1
     },
     {
+      "event_id": "evt-2026-09-02-eb4c0cc1ccde",
+      "rule_id": null,
+      "hot_word_zh": "搞定了 👍",
+      "hot_word_en": "Nailed it 👍",
+      "first_seen_at": "2026-09-02T09:10:04Z",
+      "last_seen_at": "2026-09-02T09:11:28Z",
+      "anchor_item_id": "piasnews-social-67129b2e1472304c",
+      "image_url": "https://pbs.twimg.com/media/HRM1OseWYAMwHfG.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HRM1OseWYAMwHfG.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-67129b2e1472304c",
+          "dataset": "social",
+          "source_type": "official",
+          "source": "@OscarPiastri",
+          "title": "X post from @OscarPiastri: Nailed it 👍",
+          "title_zh": "X 发帖 @OscarPiastri：搞定了 👍",
+          "summary": "Nailed it 👍 https://t.co/Bu83wI6Olz",
+          "summary_zh": "搞定了 👍",
+          "url": "https://x.com/OscarPiastri/status/2095076784588849633",
+          "published_at": "2026-09-02T09:10:04Z",
+          "image_url": "https://pbs.twimg.com/media/HRM1OseWYAMwHfG.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HRM1OseWYAMwHfG.jpg",
+          "heat_contribution": 7.7707,
+          "metrics": {
+            "likes": 1479,
+            "retweets": 285,
+            "replies": 56,
+            "quotes": 0,
+            "views": 15211,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-46063cafe4f7d5f4",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@oscarsspiastree",
+          "title": "X repost from @oscarsspiastree: RT @OscarPiastri: Nailed it 👍",
+          "title_zh": "X 转帖 @oscarsspiastree：RT @OscarPiastri: 搞定了 👍",
+          "summary": "RT @OscarPiastri: Nailed it 👍 https://t.co/Bu83wI6Olz",
+          "summary_zh": "RT @OscarPiastri: 搞定了 👍",
+          "url": "https://x.com/oscarsspiastree/status/2095077137682251796",
+          "published_at": "2026-09-02T09:11:28Z",
+          "image_url": "https://pbs.twimg.com/media/HRM1OseWYAMwHfG.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HRM1OseWYAMwHfG.jpg",
+          "heat_contribution": 6.5894,
+          "metrics": {
+            "likes": 0,
+            "retweets": 363,
+            "replies": 0,
+            "quotes": 0,
+            "views": 38,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 51,
+      "media_heat": 0,
+      "fan_heat": 35,
+      "heat": 60,
+      "source_labels": [
+        "官",
+        "粉"
+      ],
+      "source_counts": {
+        "official": 1,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "event_id": "evt-oscar-monza-preparation",
+      "rule_id": "oscar-monza-preparation",
+      "hot_word_zh": "Oscar 开始为蒙扎站进行准备",
+      "hot_word_en": "Oscar begins preparations for Monza",
+      "first_seen_at": "2026-08-31T19:42:02Z",
+      "last_seen_at": "2026-09-02T09:12:08Z",
+      "anchor_item_id": "piasnews-social-c3bec72aae21d30b",
+      "image_url": "https://pbs.twimg.com/media/HRKDdSMXIAAuxZq.jpg",
+      "video_url": "https://video.twimg.com/ext_tw_video/1964362268553945088/pu/vid/avc1/288x270/wHqFAlfM_YhnoS1m.mp4?tag=12",
+      "video_poster_url": "https://pbs.twimg.com/ext_tw_video_thumb/1964362268553945088/pu/img/vw3J4ne-BFKxdOSE.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-c3bec72aae21d30b",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: throwback to a journalist telling oscar his first lap in monza 2024 was magic and oscar going 😊😌",
+          "title_zh": "X 发帖 @laurogeitabat：回顾一位记者告诉Oscar他在2024年Monza的第一圈很神奇，Oscar的反应是😊😌",
+          "summary": "throwback to a journalist telling oscar his first lap in monza 2024 was magic and oscar going 😊😌 https://t.co/0jKFE3pwGA",
+          "summary_zh": "回顾一位记者告诉Oscar他在2024年Monza的第一圈很神奇，Oscar的反应是😊😌",
+          "url": "https://x.com/laurogeitabat/status/2094698842788688054",
+          "published_at": "2026-09-01T08:08:16Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/ext_tw_video/1964362268553945088/pu/vid/avc1/288x270/wHqFAlfM_YhnoS1m.mp4?tag=12",
+          "video_poster_url": "https://pbs.twimg.com/ext_tw_video_thumb/1964362268553945088/pu/img/vw3J4ne-BFKxdOSE.jpg",
+          "heat_contribution": 6.3633,
+          "metrics": {
+            "likes": 1025,
+            "retweets": 93,
+            "replies": 0,
+            "quotes": 0,
+            "views": 7597,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-f1c9ae1f6e7acfb0",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: mclaren has confirmed they will start using their macarena wing permanently starting in monza,…",
+          "title_zh": "X 发帖 @laurogeitabat：mclaren 已确认将从 monza 开始使用他们的 macarena 尾翼，届时 oscar 和 lando 的 mcl40 都将配备！一些其他小型空气动力学升级也将在 monza 进行测试，并为接下来的比赛计划了更多升级。",
+          "summary": "mclaren has confirmed they will start using their macarena wing permanently starting in monza, where both oscar and lando will have it in their mcl40s! some other small aerodynamic upgrades will also be tested in monza, and additional upgrades are planned for upcoming races. https://t.co/yM9rXOk1Bp",
+          "summary_zh": "mclaren 已确认将从 monza 开始使用他们的 macarena 尾翼，届时 oscar 和 lando 的 mcl40 都将配备！一些其他小型空气动力学升级也将在 monza 进行测试，并为接下来的比赛计划了更多升级。",
+          "url": "https://x.com/laurogeitabat/status/2094881355561844743",
+          "published_at": "2026-09-01T20:13:30Z",
+          "image_url": "https://pbs.twimg.com/media/HRKDdSMXIAAuxZq.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HRKDdSMXIAAuxZq.jpg",
+          "heat_contribution": 5.5494,
+          "metrics": {
+            "likes": 264,
+            "retweets": 16,
+            "replies": 0,
+            "quotes": 0,
+            "views": 4544,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-71576618f876386d",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar is on his way to monza! always doing the most random stuff on the plane 😭😭",
+          "title_zh": "X 发帖 @laurogeitabat：oscar正在前往Monza的路上！总是在飞机上做最奇怪的事 😭😭",
+          "summary": "oscar is on his way to monza! always doing the most random stuff on the plane 😭😭 https://t.co/SC0glhvvCE",
+          "summary_zh": "oscar正在前往Monza的路上！总是在飞机上做最奇怪的事 😭😭",
+          "url": "https://x.com/laurogeitabat/status/2095077301717172551",
+          "published_at": "2026-09-02T09:12:08Z",
+          "image_url": "https://pbs.twimg.com/media/HRM1sElWgAMMIgF.jpg",
+          "video_url": "https://video.twimg.com/amplify_video/2095077262857048065/vid/avc1/320x426/FRgH8AwsUpioro-F.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2095077262857048065/img/ZHvE0Xhsz2lEMvXJ.jpg",
+          "heat_contribution": 5.0132,
+          "metrics": {
+            "likes": 105,
+            "retweets": 18,
+            "replies": 0,
+            "quotes": 0,
+            "views": 838,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-2490fb2b59241366",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Paddock News 24",
+          "title": "Oscar Piastri warns McLaren ahead of crucial Monza test",
+          "title_zh": "Oscar Piastri在关键的Monza测试前向McLaren发出警告",
+          "summary": "Team or car-performance item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+          "url": "https://www.paddocknews24.com/en/news-f1/oscar-piastri-warns-mclaren-ahead-of-crucial-monza-test/",
+          "published_at": "2026-08-31T19:42:02Z",
+          "image_url": "https://www.paddocknews24.com/en/wp-content/uploads/2026/08/89mkRfv4_risultato.webp",
+          "video_url": null,
+          "video_poster_url": "https://www.paddocknews24.com/en/wp-content/uploads/2026/08/89mkRfv4_risultato.webp",
+          "heat_contribution": 0.45,
+          "metrics": {}
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 10,
+      "fan_heat": 55,
+      "heat": 58,
+      "source_labels": [
+        "媒",
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 1,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 3
+    },
+    {
       "event_id": "evt-2026-09-01-acc3ee65b940",
       "rule_id": null,
       "hot_word_zh": "这个表情 😮‍💨🤌🏻",
@@ -118,13 +319,13 @@
           "image_url": "https://pbs.twimg.com/media/HRJsuJ6XkAA3IzX.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRJsuJ6XkAA3IzX.jpg",
-          "heat_contribution": 6.1297,
+          "heat_contribution": 6.2648,
           "metrics": {
-            "likes": 467,
-            "retweets": 56,
+            "likes": 542,
+            "retweets": 61,
             "replies": 0,
             "quotes": 0,
-            "views": 3206,
+            "views": 3564,
             "bookmarks": 0
           }
         },
@@ -142,13 +343,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2094825673294540800/vid/avc1/320x568/wWIelIn7F2uUBSc3.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2094825673294540800/img/LhICvXFwqUbG17XU.jpg",
-          "heat_contribution": 5.7231,
+          "heat_contribution": 5.772,
           "metrics": {
-            "likes": 329,
-            "retweets": 24,
+            "likes": 345,
+            "retweets": 25,
             "replies": 0,
             "quotes": 0,
-            "views": 2946,
+            "views": 3189,
             "bookmarks": 0
           }
         },
@@ -172,7 +373,7 @@
             "retweets": 75,
             "replies": 0,
             "quotes": 0,
-            "views": 3669,
+            "views": 3670,
             "bookmarks": 0
           }
         },
@@ -251,8 +452,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 54,
-      "heat": 54,
+      "fan_heat": 55,
+      "heat": 55,
       "source_labels": [
         "粉"
       ],
@@ -263,7 +464,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 2
+      "rank": 4
     },
     {
       "event_id": "evt-2026-09-01-b567b423faea",
@@ -317,21 +518,21 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 5.7051,
+          "heat_contribution": 5.8273,
           "metrics": {
             "likes": 0,
-            "retweets": 199,
+            "retweets": 225,
             "replies": 0,
             "quotes": 0,
-            "views": 120,
+            "views": 127,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 54,
-      "heat": 54,
+      "fan_heat": 55,
+      "heat": 55,
       "source_labels": [
         "粉"
       ],
@@ -342,7 +543,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 3
+      "rank": 5
     },
     {
       "event_id": "evt-2026-09-01-796a67259411",
@@ -372,13 +573,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2094868356100673536/vid/avc1/320x560/hqA76T9KIydKpSuY.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2094868356100673536/img/0HRniXNBnu1f4cZv.jpg",
-          "heat_contribution": 8.0402,
+          "heat_contribution": 8.1463,
           "metrics": {
-            "likes": 2995,
-            "retweets": 350,
+            "likes": 3289,
+            "retweets": 388,
             "replies": 4,
             "quotes": 0,
-            "views": 42927,
+            "views": 52259,
             "bookmarks": 0
           }
         },
@@ -402,15 +603,15 @@
             "retweets": 63,
             "replies": 0,
             "quotes": 0,
-            "views": 6169,
+            "views": 6175,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 52,
-      "heat": 52,
+      "fan_heat": 53,
+      "heat": 53,
       "source_labels": [
         "粉"
       ],
@@ -421,104 +622,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 4
-    },
-    {
-      "event_id": "evt-oscar-monza-preparation",
-      "rule_id": "oscar-monza-preparation",
-      "hot_word_zh": "Oscar 开始为蒙扎站进行准备",
-      "hot_word_en": "Oscar begins preparations for Monza",
-      "first_seen_at": "2026-08-31T19:42:02Z",
-      "last_seen_at": "2026-09-01T20:13:30Z",
-      "anchor_item_id": "piasnews-social-c3bec72aae21d30b",
-      "image_url": "https://pbs.twimg.com/media/HRKDdSMXIAAuxZq.jpg",
-      "video_url": "https://video.twimg.com/ext_tw_video/1964362268553945088/pu/vid/avc1/288x270/wHqFAlfM_YhnoS1m.mp4?tag=12",
-      "video_poster_url": "https://pbs.twimg.com/ext_tw_video_thumb/1964362268553945088/pu/img/vw3J4ne-BFKxdOSE.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-c3bec72aae21d30b",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: throwback to a journalist telling oscar his first lap in monza 2024 was magic and oscar going 😊😌",
-          "title_zh": "X 发帖 @laurogeitabat：回顾一位记者告诉Oscar他在2024年Monza的第一圈很神奇，Oscar的反应是😊😌",
-          "summary": "throwback to a journalist telling oscar his first lap in monza 2024 was magic and oscar going 😊😌 https://t.co/0jKFE3pwGA",
-          "summary_zh": "回顾一位记者告诉Oscar他在2024年Monza的第一圈很神奇，Oscar的反应是😊😌",
-          "url": "https://x.com/laurogeitabat/status/2094698842788688054",
-          "published_at": "2026-09-01T08:08:16Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/ext_tw_video/1964362268553945088/pu/vid/avc1/288x270/wHqFAlfM_YhnoS1m.mp4?tag=12",
-          "video_poster_url": "https://pbs.twimg.com/ext_tw_video_thumb/1964362268553945088/pu/img/vw3J4ne-BFKxdOSE.jpg",
-          "heat_contribution": 6.8387,
-          "metrics": {
-            "likes": 989,
-            "retweets": 90,
-            "replies": 0,
-            "quotes": 0,
-            "views": 7402,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-f1c9ae1f6e7acfb0",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: mclaren has confirmed they will start using their macarena wing permanently starting in monza,…",
-          "title_zh": "X 发帖 @laurogeitabat：mclaren 已确认将从 monza 开始使用他们的 macarena 尾翼，届时 oscar 和 lando 的 mcl40 都将配备！一些其他小型空气动力学升级也将在 monza 进行测试，并为接下来的比赛计划了更多升级。",
-          "summary": "mclaren has confirmed they will start using their macarena wing permanently starting in monza, where both oscar and lando will have it in their mcl40s! some other small aerodynamic upgrades will also be tested in monza, and additional upgrades are planned for upcoming races. https://t.co/yM9rXOk1Bp",
-          "summary_zh": "mclaren 已确认将从 monza 开始使用他们的 macarena 尾翼，届时 oscar 和 lando 的 mcl40 都将配备！一些其他小型空气动力学升级也将在 monza 进行测试，并为接下来的比赛计划了更多升级。",
-          "url": "https://x.com/laurogeitabat/status/2094881355561844743",
-          "published_at": "2026-09-01T20:13:30Z",
-          "image_url": "https://pbs.twimg.com/media/HRKDdSMXIAAuxZq.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HRKDdSMXIAAuxZq.jpg",
-          "heat_contribution": 5.4661,
-          "metrics": {
-            "likes": 245,
-            "retweets": 14,
-            "replies": 0,
-            "quotes": 0,
-            "views": 4104,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-2490fb2b59241366",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Paddock News 24",
-          "title": "Oscar Piastri warns McLaren ahead of crucial Monza test",
-          "title_zh": "Oscar Piastri在关键的Monza测试前向McLaren发出警告",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
-          "url": "https://www.paddocknews24.com/en/news-f1/oscar-piastri-warns-mclaren-ahead-of-crucial-monza-test/",
-          "published_at": "2026-08-31T19:42:02Z",
-          "image_url": "https://www.paddocknews24.com/en/wp-content/uploads/2026/08/89mkRfv4_risultato.webp",
-          "video_url": null,
-          "video_poster_url": "https://www.paddocknews24.com/en/wp-content/uploads/2026/08/89mkRfv4_risultato.webp",
-          "heat_contribution": 0.45,
-          "metrics": {}
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 10,
-      "fan_heat": 47,
-      "heat": 50,
-      "source_labels": [
-        "媒",
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 1,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 5
+      "rank": 6
     },
     {
       "event_id": "evt-2026-08-28-ddd22e96f8b4",
@@ -554,7 +658,7 @@
             "retweets": 98,
             "replies": 0,
             "quotes": 0,
-            "views": 4973,
+            "views": 4978,
             "bookmarks": 0
           }
         },
@@ -596,13 +700,13 @@
           "image_url": "https://pbs.twimg.com/media/HRJwS6tXcAAHb_o.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRJwS6tXcAAHb_o.jpg",
-          "heat_contribution": 3.1256,
+          "heat_contribution": 3.1719,
           "metrics": {
-            "likes": 19,
+            "likes": 20,
             "retweets": 1,
             "replies": 0,
             "quotes": 0,
-            "views": 803,
+            "views": 847,
             "bookmarks": 0
           }
         }
@@ -621,7 +725,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 7
     },
     {
       "event_id": "evt-2026-09-01-5337cb47a08a",
@@ -651,76 +755,21 @@
           "image_url": "https://pbs.twimg.com/media/HRJJsmSWcAAb10h.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRJJsmSWcAAb10h.jpg",
-          "heat_contribution": 7.099,
+          "heat_contribution": 7.2014,
           "metrics": {
             "likes": 0,
-            "retweets": 806,
+            "retweets": 893,
             "replies": 0,
             "quotes": 0,
-            "views": 101,
+            "views": 103,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 37,
-      "heat": 37,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 7
-    },
-    {
-      "event_id": "evt-2026-08-31-b1158edfac31",
-      "rule_id": null,
-      "hot_word_zh": "Oscar首次大满贯一周年快乐 🥳🙏🏻",
-      "hot_word_en": "HAPPY ONE YEAR SINCE OSCAR'S FIRST GRAND CHELEM 🥳🙏🏻",
-      "first_seen_at": "2026-08-31T06:43:48Z",
-      "last_seen_at": "2026-08-31T06:43:48Z",
-      "anchor_item_id": "piasnews-social-62a1666a02c97104",
-      "image_url": "https://pbs.twimg.com/media/HRCAksbWwAA_Heg.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HRCAksbWwAA_Heg.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-62a1666a02c97104",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: HAPPY ONE YEAR SINCE OSCAR'S FIRST GRAND CHELEM 🥳🙏🏻",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar首次大满贯一周年快乐 🥳🙏🏻",
-          "summary": "HAPPY ONE YEAR SINCE OSCAR'S FIRST GRAND CHELEM 🥳🙏🏻 https://t.co/nIG702zgKZ",
-          "summary_zh": "Oscar首次大满贯一周年快乐 🥳🙏🏻",
-          "url": "https://x.com/laurogeitabat/status/2094315200140788082",
-          "published_at": "2026-08-31T06:43:48Z",
-          "image_url": "https://pbs.twimg.com/media/HRCAksbWwAA_Heg.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HRCAksbWwAA_Heg.jpg",
-          "heat_contribution": 6.8964,
-          "metrics": {
-            "likes": 1562,
-            "retweets": 252,
-            "replies": 1,
-            "quotes": 0,
-            "views": 12598,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 36,
-      "heat": 36,
+      "fan_heat": 38,
+      "heat": 38,
       "source_labels": [
         "粉"
       ],
@@ -761,21 +810,21 @@
           "image_url": "https://pbs.twimg.com/media/HRJyRxCW8AA3vxl.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRJyRxCW8AA3vxl.jpg",
-          "heat_contribution": 6.6851,
+          "heat_contribution": 6.8535,
           "metrics": {
-            "likes": 838,
-            "retweets": 51,
+            "likes": 978,
+            "retweets": 67,
             "replies": 0,
             "quotes": 0,
-            "views": 12589,
+            "views": 14965,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 35,
-      "heat": 35,
+      "fan_heat": 36,
+      "heat": 36,
       "source_labels": [
         "粉"
       ],
@@ -789,48 +838,48 @@
       "rank": 9
     },
     {
-      "event_id": "evt-2026-09-01-325da3e0d52d",
+      "event_id": "evt-2026-09-01-78b266351985",
       "rule_id": null,
-      "hot_word_zh": "如此异想天开，如此欢乐，如此傻气",
-      "hot_word_en": "SO WHIMSY SO JOYFUL SO SILLY",
-      "first_seen_at": "2026-09-01T19:23:57Z",
-      "last_seen_at": "2026-09-01T19:23:57Z",
-      "anchor_item_id": "piasnews-social-81825b850d40d451",
+      "hot_word_zh": "“三样值得花钱的东西？”oscar：“一张舒适的床，好吃的食物，还有一辆吵闹又有趣的车！”",
+      "hot_word_en": "\"3 things worth the money?\" oscar: \"a comfy bed, good food, and a noisy/fun car!\"",
+      "first_seen_at": "2026-09-01T18:31:24Z",
+      "last_seen_at": "2026-09-01T18:31:24Z",
+      "anchor_item_id": "piasnews-social-5e6406464566e17d",
       "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2094868797811306496/vid/avc1/320x560/yBCL-P6Gn__yU_p6.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2094868797811306496/img/mxDIvcPhO3Xnrj3t.jpg",
+      "video_url": "https://video.twimg.com/amplify_video/2094855636320227328/vid/avc1/320x568/kBoXuaal8PQ8aBkp.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2094855636320227328/img/iy80bLVIs6b99sV3.jpg",
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
         {
-          "item_id": "piasnews-social-81825b850d40d451",
+          "item_id": "piasnews-social-5e6406464566e17d",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: SO WHIMSY SO JOYFUL SO SILLY",
-          "title_zh": "X 发帖 @laurogeitabat：如此异想天开，如此欢乐，如此傻气",
-          "summary": "SO WHIMSY SO JOYFUL SO SILLY https://t.co/vtOIPNuaJW",
-          "summary_zh": "如此异想天开，如此欢乐，如此傻气",
-          "url": "https://x.com/laurogeitabat/status/2094868883966484730",
-          "published_at": "2026-09-01T19:23:57Z",
+          "title": "X post from @laurogeitabat: \"3 things worth the money?\" oscar: \"a comfy bed, good food, and a noisy/fun car!\"",
+          "title_zh": "X 发帖 @laurogeitabat：“三样值得花钱的东西？”oscar：“一张舒适的床，好吃的食物，还有一辆吵闹又有趣的车！”",
+          "summary": "\"3 things worth the money?\" oscar: \"a comfy bed, good food, and a noisy/fun car!\" https://t.co/ZRgDNqVWLJ",
+          "summary_zh": "“三样值得花钱的东西？”oscar：“一张舒适的床，好吃的食物，还有一辆吵闹又有趣的车！”",
+          "url": "https://x.com/laurogeitabat/status/2094855659661426898",
+          "published_at": "2026-09-01T18:31:24Z",
           "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2094868797811306496/vid/avc1/320x560/yBCL-P6Gn__yU_p6.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2094868797811306496/img/mxDIvcPhO3Xnrj3t.jpg",
-          "heat_contribution": 6.3544,
+          "video_url": "https://video.twimg.com/amplify_video/2094855636320227328/vid/avc1/320x568/kBoXuaal8PQ8aBkp.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2094855636320227328/img/iy80bLVIs6b99sV3.jpg",
+          "heat_contribution": 6.4988,
           "metrics": {
-            "likes": 581,
-            "retweets": 68,
+            "likes": 715,
+            "retweets": 55,
             "replies": 0,
             "quotes": 0,
-            "views": 4838,
+            "views": 5944,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 34,
-      "heat": 34,
+      "fan_heat": 35,
+      "heat": 35,
       "source_labels": [
         "粉"
       ],
