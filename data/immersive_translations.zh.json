@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-03T12:42:22.944453Z",
+  "generated_at": "2026-09-03T15:59:15.610305Z",
   "translations": {
     "items:piasnews-fb1c2437698679bd:title:10bc9b53026f317412f26345": {
       "dataset": "items",
@@ -2641,6 +2641,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-03T12:42:22.412609Z"
+    },
+    "social:piasnews-social-5135b733067aa8c7:summary:f946712c8243a42d976d174c": {
+      "dataset": "social",
+      "item_id": "piasnews-social-5135b733067aa8c7",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar 🤝🏻 max their hatred for the new cars https://t.co/r73jhDk4NT",
+      "zh": "Oscar 🤝🏻 Max 他们对新车的厌恶",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-03T15:59:15.100446Z"
+    },
+    "social:piasnews-social-b66b0ce6a0e75ce5:summary:fbe21cb1994f733212284fd4": {
+      "dataset": "social",
+      "item_id": "piasnews-social-b66b0ce6a0e75ce5",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @teamopeightyone: Ciao @oscarpiastri 👋 https://t.co/RVKcNcPOrT",
+      "zh": "转发 @teamopeightyone: 再见 @oscarpiastri 👋",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-03T15:59:15.100453Z"
     }
   },
   "retention_days": 8
