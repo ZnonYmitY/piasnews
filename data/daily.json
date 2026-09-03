@@ -1,20 +1,22 @@
 {
-  "generated_at": "2026-09-02T23:35:05.978102Z",
+  "generated_at": "2026-09-03T03:23:09.140217Z",
   "window_days": 7,
-  "total_items": 35,
+  "total_items": 36,
   "latest_date": "2026-09-02",
   "days": [
     {
       "date": "2026-09-02",
-      "total_new_items": 1,
-      "official_new_items": 0,
+      "total_new_items": 2,
+      "official_new_items": 1,
       "media_new_items": 1,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
-        "F1 Oversteer": 1
+        "F1 Oversteer": 1,
+        "mclaren.com": 1
       },
       "categories": {
+        "race": 1,
         "team": 1
       }
     },
@@ -49,10 +51,10 @@
         "F1 Oversteer": 2,
         "Fox Sports": 1,
         "Paddock News 24": 1,
+        "TheJudge13": 1,
         "Yahoo Sports": 1,
         "grandprix247": 1,
-        "racingnews365.com": 1,
-        "thejudge13.com": 1
+        "racingnews365.com": 1
       },
       "categories": {
         "other": 2,
@@ -168,7 +170,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 12
+      "items": 13
     },
     {
       "query": "\"OP81\" when:3d",
@@ -189,7 +191,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 7
+      "items": 4
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -202,11 +204,10 @@
       "stage": "publisher_date_verification",
       "ok": true,
       "checked": 12,
-      "kept": 8,
+      "kept": 9,
       "results": {
-        "outside_window": 1,
         "publisher_unavailable": 3,
-        "verified": 8
+        "verified": 9
       }
     },
     {
@@ -214,8 +215,8 @@
       "ok": true,
       "discovery_days": 3,
       "retention_days": 7,
-      "previous_items": 38,
-      "kept": 35
+      "previous_items": 35,
+      "kept": 36
     }
   ]
 }
