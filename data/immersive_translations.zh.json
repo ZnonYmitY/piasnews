@@ -1,31 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-03T03:25:36.438540Z",
+  "generated_at": "2026-09-03T06:26:59.545985Z",
   "translations": {
-    "items:piasnews-c83bfe437ffd59a4:title:e27bc4e61a83dd61c0c87c08": {
-      "dataset": "items",
-      "item_id": "piasnews-c83bfe437ffd59a4",
-      "field": "title",
-      "target_field": "title_zh",
-      "source_text": "McLaren offer fascinating technical insight into ongoing Oscar Piastri woes",
-      "zh": "McLaren对Oscar Piastri持续困境提供引人入胜的技术见解",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-08-26T06:26:13.933484Z"
-    },
-    "items:piasnews-c83bfe437ffd59a4:summary:26b5911fbd1b8158d42ac2a8": {
-      "dataset": "items",
-      "item_id": "piasnews-c83bfe437ffd59a4",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "Team or car-performance item discovered from public news metadata.",
-      "zh": "从公开新闻元数据中发现的车队或赛车性能项目。",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-08-26T06:26:13.933491Z"
-    },
     "items:piasnews-3c2b07a8d8003e0b:title:5b17dd6c315cf66471b5f125": {
       "dataset": "items",
       "item_id": "piasnews-3c2b07a8d8003e0b",
@@ -2581,6 +2557,18 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-03T03:25:35.999053Z"
+    },
+    "social:piasnews-social-62e09d8b60c35ad7:summary:0a3f7eb49d409e291789c8d3": {
+      "dataset": "social",
+      "item_id": "piasnews-social-62e09d8b60c35ad7",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar with fans last night 🫶🏻 https://t.co/6QgnMRCVfB",
+      "zh": "oscar昨晚和车迷在一起🫶🏻",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-03T06:26:59.007222Z"
     }
   },
   "retention_days": 8
