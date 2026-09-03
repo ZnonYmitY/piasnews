@@ -1,91 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-03T06:26:59.545985Z",
+  "generated_at": "2026-09-03T09:30:51.418074Z",
   "translations": {
-    "items:piasnews-3c2b07a8d8003e0b:title:5b17dd6c315cf66471b5f125": {
-      "dataset": "items",
-      "item_id": "piasnews-3c2b07a8d8003e0b",
-      "field": "title",
-      "target_field": "title_zh",
-      "source_text": "Stella says Piastri struggle ’not psychological’",
-      "zh": "斯特拉称Piastri的挣扎“并非心理问题”",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-08-26T09:27:09.212121Z"
-    },
-    "items:piasnews-3c2b07a8d8003e0b:summary:0d864a8260f8519601fd9ae1": {
-      "dataset": "items",
-      "item_id": "piasnews-3c2b07a8d8003e0b",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "Quote or interview-related item discovered from public news metadata.",
-      "zh": "从公开新闻元数据中发现的引述或采访相关项目。",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-08-26T09:27:09.212130Z"
-    },
-    "items:piasnews-f11a76ed309eee8a:title:19ae2648033a8e2ba4520271": {
-      "dataset": "items",
-      "item_id": "piasnews-f11a76ed309eee8a",
-      "field": "title",
-      "target_field": "title_zh",
-      "source_text": "Andrea Stella issues ‘brutal’ claim as he admits Oscar Piastri’s ‘mental effort’ costs lap time",
-      "zh": "安德烈亚·斯特拉发表“残酷”言论，承认Oscar Piastri的“心理消耗”导致圈速损失",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-08-26T09:27:09.212135Z"
-    },
-    "items:piasnews-f11a76ed309eee8a:summary:0d864a8260f8519601fd9ae1": {
-      "dataset": "items",
-      "item_id": "piasnews-f11a76ed309eee8a",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "Quote or interview-related item discovered from public news metadata.",
-      "zh": "从公开新闻元数据中发现的引述或采访相关项目。",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-08-26T09:27:09.212139Z"
-    },
-    "social:piasnews-social-6afb6bbdf32fb9c2:summary:86babefd2e0a20ccda3e139b": {
-      "dataset": "social",
-      "item_id": "piasnews-social-6afb6bbdf32fb9c2",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "oscar's favourites with grill'd: a white tshirt, his burger, a tiger plushie, chicken bites, a cricket ball, another burger, and a king chess piece! https://t.co/s73Dzm9QUc",
-      "zh": "Oscar在Grill'd的最爱：一件白T恤、他的汉堡、一只老虎玩偶、鸡块、一个板球、另一个汉堡，还有一个国王棋子！",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-08-26T09:27:09.212143Z"
-    },
-    "social:piasnews-social-789e10a2461a2a1d:summary:e3936c1b9e7a1d509483b6af": {
-      "dataset": "social",
-      "item_id": "piasnews-social-789e10a2461a2a1d",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "oscar devouring a burger in the new oscpost with grill'd 😭 https://t.co/p5WLb0WWQM",
-      "zh": "Oscar在Grill'd的新帖子里大口吃汉堡 😭",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-08-26T09:27:09.212147Z"
-    },
-    "social:piasnews-social-d509e354e7743a87:summary:0b7d32403e3e74df95ae1721": {
-      "dataset": "social",
-      "item_id": "piasnews-social-d509e354e7743a87",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "he goes \"aahhh\" when he drops the jacket and then \"for me??\" when he's given the koala plushie 🥹🤏🏻 https://t.co/MW4W1TLFRU",
-      "zh": "他丢下夹克时发出“啊”的声音，然后拿到考拉玩偶时说“给我的吗？” 🥹🤏🏻",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-08-26T09:27:09.212154Z"
-    },
     "items:piasnews-1b7cad634c2b70c6:title:6a1d2a08d7ff15f918825d44": {
       "dataset": "items",
       "item_id": "piasnews-1b7cad634c2b70c6",
@@ -2569,6 +2485,78 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-03T06:26:59.007222Z"
+    },
+    "items:piasnews-97c85bf458cca3ce:title:e1012196cae084b2a007b9d6": {
+      "dataset": "items",
+      "item_id": "piasnews-97c85bf458cca3ce",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri’s 2026 season: bad luck, bad strategy or a genuine pace deficit?",
+      "zh": "Oscar Piastri的2026赛季：坏运气、糟糕策略还是真正的速度差距？",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-03T09:30:50.836715Z"
+    },
+    "items:piasnews-97c85bf458cca3ce:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-97c85bf458cca3ce",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-03T09:30:50.836723Z"
+    },
+    "social:piasnews-social-cab5d0fbd701d99f:summary:504bc6c561ec4adc821df1c1": {
+      "dataset": "social",
+      "item_id": "piasnews-social-cab5d0fbd701d99f",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "we have unlocked a new shirt !!! https://t.co/oxrtvuquEM",
+      "zh": "我们解锁了一件新衬衫！！！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-03T09:30:50.836775Z"
+    },
+    "social:piasnews-social-08b3b5faea1436c2:summary:a095a8add20ffbaf8d7fad6d": {
+      "dataset": "social",
+      "item_id": "piasnews-social-08b3b5faea1436c2",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar and lily have arrived for media day in monza! https://t.co/ooVEoCZWsV",
+      "zh": "oscar和lily已经抵达Monza的媒体日！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-03T09:30:50.836781Z"
+    },
+    "social:piasnews-social-2cb978c416e2b0e6:summary:ba52288d0c4118fa3435a226": {
+      "dataset": "social",
+      "item_id": "piasnews-social-2cb978c416e2b0e6",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "another pic of oscar yesterday, his hair is getting so long 🤭 https://t.co/gsyOaoYhR0",
+      "zh": "昨天oscar的另一张照片，他的头发越来越长了🤭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-03T09:30:50.836786Z"
+    },
+    "social:piasnews-social-5e486efbf4e5d621:summary:2dc6ccb729956d6097bf7481": {
+      "dataset": "social",
+      "item_id": "piasnews-social-5e486efbf4e5d621",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "lightning mcqueen is driving around the track and the safety car says \"ka-ciao' what the hell sure 😭😭 https://t.co/UJCaipxRaC",
+      "zh": "闪电麦昆在赛道上行驶，安全车说“ka-ciao”，什么鬼😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-03T09:30:50.836789Z"
     }
   },
   "retention_days": 8

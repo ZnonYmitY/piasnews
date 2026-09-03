@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-03T06:27:00.780607Z",
+  "generated_at": "2026-09-03T09:30:53.103755Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -118,13 +118,13 @@
           "image_url": "https://pbs.twimg.com/media/HRM1OseWYAMwHfG.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRM1OseWYAMwHfG.jpg",
-          "heat_contribution": 10.1625,
+          "heat_contribution": 9.6758,
           "metrics": {
-            "likes": 26116,
-            "retweets": 2457,
-            "replies": 171,
+            "likes": 26748,
+            "retweets": 2495,
+            "replies": 173,
             "quotes": 0,
-            "views": 300550,
+            "views": 313428,
             "bookmarks": 0
           }
         },
@@ -142,10 +142,10 @@
           "image_url": "https://pbs.twimg.com/media/HRM1OseWYAMwHfG.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRM1OseWYAMwHfG.jpg",
-          "heat_contribution": 8.213,
+          "heat_contribution": 7.7177,
           "metrics": {
             "likes": 0,
-            "retweets": 2458,
+            "retweets": 2496,
             "replies": 0,
             "quotes": 0,
             "views": 68,
@@ -153,10 +153,10 @@
           }
         }
       ],
-      "official_heat": 65,
+      "official_heat": 62,
       "media_heat": 0,
-      "fan_heat": 43,
-      "heat": 76,
+      "fan_heat": 40,
+      "heat": 72,
       "source_labels": [
         "官",
         "粉"
@@ -176,7 +176,7 @@
       "hot_word_zh": "Oscar 开始为蒙扎站进行准备",
       "hot_word_en": "Oscar begins preparations for Monza",
       "first_seen_at": "2026-08-31T19:42:02Z",
-      "last_seen_at": "2026-09-02T09:12:08Z",
+      "last_seen_at": "2026-09-03T09:27:02Z",
       "anchor_item_id": "piasnews-social-71576618f876386d",
       "image_url": "https://pbs.twimg.com/media/HRM1sElWgAMMIgF.jpg",
       "video_url": "https://video.twimg.com/amplify_video/2095077262857048065/vid/avc1/320x426/FRgH8AwsUpioro-F.mp4?tag=29",
@@ -198,13 +198,13 @@
           "image_url": "https://pbs.twimg.com/media/HRM1sElWgAMMIgF.jpg",
           "video_url": "https://video.twimg.com/amplify_video/2095077262857048065/vid/avc1/320x426/FRgH8AwsUpioro-F.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2095077262857048065/img/ZHvE0Xhsz2lEMvXJ.jpg",
-          "heat_contribution": 6.8711,
+          "heat_contribution": 6.3719,
           "metrics": {
-            "likes": 964,
-            "retweets": 117,
+            "likes": 975,
+            "retweets": 118,
             "replies": 0,
             "quotes": 0,
-            "views": 8599,
+            "views": 8712,
             "bookmarks": 0
           }
         },
@@ -222,13 +222,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/ext_tw_video/1964362268553945088/pu/vid/avc1/288x270/wHqFAlfM_YhnoS1m.mp4?tag=12",
           "video_poster_url": "https://pbs.twimg.com/ext_tw_video_thumb/1964362268553945088/pu/img/vw3J4ne-BFKxdOSE.jpg",
-          "heat_contribution": 6.3981,
+          "heat_contribution": 5.5895,
           "metrics": {
             "likes": 1057,
             "retweets": 98,
             "replies": 0,
             "quotes": 0,
-            "views": 7972,
+            "views": 7999,
             "bookmarks": 0
           }
         },
@@ -246,13 +246,37 @@
           "image_url": "https://pbs.twimg.com/media/HRKDdSMXIAAuxZq.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRKDdSMXIAAuxZq.jpg",
-          "heat_contribution": 5.2184,
+          "heat_contribution": 5.2214,
           "metrics": {
-            "likes": 309,
+            "likes": 310,
             "retweets": 21,
             "replies": 0,
             "quotes": 0,
-            "views": 5709,
+            "views": 5732,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-08b3b5faea1436c2",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar and lily have arrived for media day in monza!",
+          "title_zh": "X 发帖 @laurogeitabat：oscar和lily已经抵达Monza的媒体日！",
+          "summary": "oscar and lily have arrived for media day in monza! https://t.co/ooVEoCZWsV",
+          "summary_zh": "oscar和lily已经抵达Monza的媒体日！",
+          "url": "https://x.com/laurogeitabat/status/2095443440725086683",
+          "published_at": "2026-09-03T09:27:02Z",
+          "image_url": "https://pbs.twimg.com/media/HRSCsomaoAAPo62.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HRSCsomaoAAPo62.jpg",
+          "heat_contribution": 2.72,
+          "metrics": {
+            "likes": 9,
+            "retweets": 2,
+            "replies": 0,
+            "quotes": 0,
+            "views": 118,
             "bookmarks": 0
           }
         },
@@ -264,7 +288,7 @@
           "title": "Oscar Piastri warns McLaren ahead of crucial Monza test",
           "title_zh": "Oscar Piastri在关键的Monza测试前向McLaren发出警告",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能项目。",
+          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能项目。",
           "url": "https://www.paddocknews24.com/en/news-f1/oscar-piastri-warns-mclaren-ahead-of-crucial-monza-test/",
           "published_at": "2026-08-31T19:42:02Z",
           "image_url": "https://www.paddocknews24.com/en/wp-content/uploads/2026/08/89mkRfv4_risultato.webp",
@@ -276,8 +300,8 @@
       ],
       "official_heat": 0,
       "media_heat": 8,
-      "fan_heat": 60,
-      "heat": 62,
+      "fan_heat": 56,
+      "heat": 58,
       "source_labels": [
         "媒",
         "粉"
@@ -319,13 +343,13 @@
           "image_url": "https://pbs.twimg.com/media/HRKigRtW4AAM4gj.jpg",
           "video_url": "https://video.twimg.com/amplify_video/2094915452103176192/vid/avc1/320x488/83FfWWmLTjc9K5XO.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2094915452103176192/img/DqWOa7-kFXQQ2nK4.jpg",
-          "heat_contribution": 7.8742,
+          "heat_contribution": 7.8875,
           "metrics": {
-            "likes": 4464,
-            "retweets": 317,
+            "likes": 4527,
+            "retweets": 319,
             "replies": 4,
             "quotes": 0,
-            "views": 72922,
+            "views": 74004,
             "bookmarks": 0
           }
         },
@@ -343,13 +367,13 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 5.6592,
+          "heat_contribution": 5.6655,
           "metrics": {
             "likes": 0,
-            "retweets": 317,
+            "retweets": 319,
             "replies": 0,
             "quotes": 0,
-            "views": 139,
+            "views": 140,
             "bookmarks": 0
           }
         }
@@ -398,13 +422,13 @@
           "image_url": "https://pbs.twimg.com/media/HRNxpEVWYAIevwC.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRNxpEVWYAIevwC.jpg",
-          "heat_contribution": 7.722,
+          "heat_contribution": 7.75,
           "metrics": {
-            "likes": 2146,
-            "retweets": 151,
+            "likes": 2200,
+            "retweets": 153,
             "replies": 0,
             "quotes": 0,
-            "views": 56064,
+            "views": 58811,
             "bookmarks": 0
           }
         },
@@ -422,13 +446,13 @@
           "image_url": "https://pbs.twimg.com/media/HRNxpEVWYAIevwC.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRNxpEVWYAIevwC.jpg",
-          "heat_contribution": 5.4401,
+          "heat_contribution": 5.4534,
           "metrics": {
             "likes": 0,
-            "retweets": 151,
+            "retweets": 153,
             "replies": 0,
             "quotes": 0,
-            "views": 394,
+            "views": 406,
             "bookmarks": 0
           }
         }
@@ -448,85 +472,6 @@
       "pinned_rank": null,
       "hidden": false,
       "rank": 5
-    },
-    {
-      "event_id": "evt-2026-09-02-70a30439465a",
-      "rule_id": null,
-      "hot_word_zh": "……好吧哇",
-      "hot_word_en": "… okay wow",
-      "first_seen_at": "2026-09-01T22:30:04Z",
-      "last_seen_at": "2026-09-02T09:19:24Z",
-      "anchor_item_id": "piasnews-social-ee4ac5dfaad60ba3",
-      "image_url": "https://pbs.twimg.com/media/HRM3XZlWcAQU0My.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HRM3XZlWcAQU0My.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-ee4ac5dfaad60ba3",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@oscarpiastri81",
-          "title": "X post from @oscarpiastri81: … okay wow",
-          "title_zh": "X 发帖 @oscarpiastri81：……好吧哇",
-          "summary": "… okay wow https://t.co/VeThGvqPKT",
-          "summary_zh": "……好吧哇",
-          "url": "https://x.com/oscarpiastri81/status/2095079131692044328",
-          "published_at": "2026-09-02T09:19:24Z",
-          "image_url": "https://pbs.twimg.com/media/HRM3XZlWcAQU0My.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HRM3XZlWcAQU0My.jpg",
-          "heat_contribution": 7.2127,
-          "metrics": {
-            "likes": 1488,
-            "retweets": 102,
-            "replies": 4,
-            "quotes": 0,
-            "views": 10343,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-064f832f7b4f3114",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@oscarpiastri81",
-          "title": "X post from @oscarpiastri81: @oscarpiastri81",
-          "title_zh": "X 发帖：@oscarpiastri81",
-          "summary": "https://t.co/7ykzELhsWa",
-          "summary_zh": "https://t.co/7ykzELhsWa",
-          "url": "https://x.com/oscarpiastri81/status/2094915724028322165",
-          "published_at": "2026-09-01T22:30:04Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 3.2764,
-          "metrics": {
-            "likes": 10,
-            "retweets": 0,
-            "replies": 0,
-            "quotes": 0,
-            "views": 4662,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 45,
-      "heat": 45,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 6
     },
     {
       "event_id": "evt-2026-09-01-acc3ee65b940",
@@ -556,13 +501,13 @@
           "image_url": "https://pbs.twimg.com/media/HRJsuJ6XkAA3IzX.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRJsuJ6XkAA3IzX.jpg",
-          "heat_contribution": 5.9325,
+          "heat_contribution": 5.9327,
           "metrics": {
             "likes": 647,
             "retweets": 73,
             "replies": 0,
             "quotes": 0,
-            "views": 4278,
+            "views": 4292,
             "bookmarks": 0
           }
         },
@@ -580,13 +525,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2094825673294540800/vid/avc1/320x568/wWIelIn7F2uUBSc3.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2094825673294540800/img/LhICvXFwqUbG17XU.jpg",
-          "heat_contribution": 5.4185,
+          "heat_contribution": 5.4211,
           "metrics": {
-            "likes": 396,
+            "likes": 397,
             "retweets": 32,
             "replies": 0,
             "quotes": 0,
-            "views": 3899,
+            "views": 3927,
             "bookmarks": 0
           }
         },
@@ -677,7 +622,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 6
     },
     {
       "event_id": "evt-2026-09-02-f5f09375744a",
@@ -707,13 +652,13 @@
           "image_url": "https://pbs.twimg.com/media/HRNoYjgWcAMYU8w.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRNoYjgWcAMYU8w.jpg",
-          "heat_contribution": 8.1872,
+          "heat_contribution": 8.2512,
           "metrics": {
-            "likes": 4239,
-            "retweets": 151,
+            "likes": 4514,
+            "retweets": 161,
             "replies": 3,
             "quotes": 0,
-            "views": 24136,
+            "views": 26330,
             "bookmarks": 0
           }
         }
@@ -732,7 +677,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 7
     },
     {
       "event_id": "evt-2026-09-02-158441e4c9dd",
@@ -762,13 +707,92 @@
           "image_url": "https://pbs.twimg.com/media/HRNhIESWEAklxOh.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRNhIESWEAklxOh.jpg",
-          "heat_contribution": 8.006,
+          "heat_contribution": 8.0665,
           "metrics": {
-            "likes": 2450,
-            "retweets": 440,
+            "likes": 2606,
+            "retweets": 465,
             "replies": 12,
             "quotes": 0,
-            "views": 63129,
+            "views": 67452,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 42,
+      "heat": 42,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 8
+    },
+    {
+      "event_id": "evt-2026-09-02-70a30439465a",
+      "rule_id": null,
+      "hot_word_zh": "……好吧哇",
+      "hot_word_en": "… okay wow",
+      "first_seen_at": "2026-09-01T22:30:04Z",
+      "last_seen_at": "2026-09-02T09:19:24Z",
+      "anchor_item_id": "piasnews-social-ee4ac5dfaad60ba3",
+      "image_url": "https://pbs.twimg.com/media/HRM3XZlWcAQU0My.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HRM3XZlWcAQU0My.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-ee4ac5dfaad60ba3",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@oscarpiastri81",
+          "title": "X post from @oscarpiastri81: … okay wow",
+          "title_zh": "X 发帖 @oscarpiastri81：……好吧哇",
+          "summary": "… okay wow https://t.co/VeThGvqPKT",
+          "summary_zh": "……好吧哇",
+          "url": "https://x.com/oscarpiastri81/status/2095079131692044328",
+          "published_at": "2026-09-02T09:19:24Z",
+          "image_url": "https://pbs.twimg.com/media/HRM3XZlWcAQU0My.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HRM3XZlWcAQU0My.jpg",
+          "heat_contribution": 6.7107,
+          "metrics": {
+            "likes": 1502,
+            "retweets": 102,
+            "replies": 4,
+            "quotes": 0,
+            "views": 10449,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-064f832f7b4f3114",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@oscarpiastri81",
+          "title": "X post from @oscarpiastri81: @oscarpiastri81",
+          "title_zh": "X 发帖：@oscarpiastri81",
+          "summary": "https://t.co/7ykzELhsWa",
+          "summary_zh": "https://t.co/7ykzELhsWa",
+          "url": "https://x.com/oscarpiastri81/status/2094915724028322165",
+          "published_at": "2026-09-01T22:30:04Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 3.2992,
+          "metrics": {
+            "likes": 11,
+            "retweets": 0,
+            "replies": 0,
+            "quotes": 0,
+            "views": 4698,
             "bookmarks": 0
           }
         }
@@ -817,13 +841,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2094868356100673536/vid/avc1/320x560/hqA76T9KIydKpSuY.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2094868356100673536/img/0HRniXNBnu1f4cZv.jpg",
-          "heat_contribution": 7.8187,
+          "heat_contribution": 7.8202,
           "metrics": {
-            "likes": 3899,
+            "likes": 3904,
             "retweets": 453,
             "replies": 7,
             "quotes": 0,
-            "views": 69796,
+            "views": 70118,
             "bookmarks": 0
           }
         },
