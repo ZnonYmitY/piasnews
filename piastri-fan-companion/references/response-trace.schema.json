@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Piastri Fan Companion Response Trace",
+  "type": "object",
+  "required": [
+    "trace_id",
+    "timestamp",
+    "input_language",
+    "route",
+    "fact_source_ids",
+    "judgment_rule_ids",
+    "style_card_id",
+    "package_version",
+    "output_mode"
+  ],
+  "properties": {
+    "trace_id": {"type": "string"},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "input_language": {"enum": ["en", "zh", "mixed", "unknown"]},
+    "route": {
+      "enum": [
+        "f1_grounded",
+        "fan_light",
+        "public_adjacent",
+        "unrelated_general",
+        "private_or_inner_state_unverified",
+        "team_secret_or_live_engineering",
+        "medical_legal_financial",
+        "gambling",
+        "illegal_hate_harm",
+        "identity_or_impersonation",
+        "insufficient_current_fact"
+      ]
+    },
+    "fact_source_ids": {"type": "array", "items": {"type": "string"}},
+    "judgment_rule_ids": {"type": "array", "items": {"type": "string"}},
+    "style_card_id": {"type": "string"},
+    "fallback_id": {"type": ["string", "null"]},
+    "package_version": {"type": "string"},
+    "output_mode": {"enum": ["english_only", "english_then_chinese"]},
+    "candidate_mode": {"type": "boolean"},
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": false
+}
