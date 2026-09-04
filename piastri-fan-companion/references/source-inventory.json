@@ -21,7 +21,7 @@
     "account": "@OscarPiastri",
     "account_url": "https://x.com/OscarPiastri",
     "account_created_at": "2016-05-09T19:03:12Z",
-    "retrieval_status": "partial_rate_limited",
+    "retrieval_status": "partial_rate_limited_and_opencli_error",
     "retrieval_methods": [
       "OpenCLI UserTweets cursor pagination",
       "OpenCLI SearchTimeline with yearly windows",
@@ -132,12 +132,13 @@
     ],
     "known_gaps": [
       "2024-01-01 through 2026-04-07 were not completed after X returned HTTP 429 on the 2024 SearchTimeline window.",
+      "Two later retries on 2026-09-04 stopped before retrieval with OpenCLI BROWSER_CONNECT / daemon-start errors; the 2017-2023 checkpoint remained unchanged at 1333 unique items.",
       "Replies may require an additional replies-inclusive route; the profile timeline and search index do not guarantee complete deleted, withheld, or de-indexed content.",
       "A tool returning fewer than its requested limit is necessary but not sufficient proof of account-lifetime completeness."
     ],
     "last_attempt": {
       "date": "2026-09-04",
-      "result": "The resumed run completed 2022 and 2023. The checkpoint now contains 1333 unique items across 2017-2023; combined with 20 non-overlapping posts from the latest 2026 timeline response, cross-response observed public expressions total 1353. The 2024 window returned HTTP 429 and the collector exited with a resumable checkpoint.",
+      "result": "The resumed run completed 2022 and 2023. The checkpoint contains 1333 unique items across 2017-2023; combined with 20 non-overlapping posts from the latest 2026 timeline response, cross-response observed public expressions total 1353. The 2024 window first returned HTTP 429; two later retries stopped on OpenCLI BROWSER_CONNECT before retrieving data. The checkpoint is still resumable and unchanged.",
       "checkpoint_policy": "Raw post text remains under /tmp and is not included in the public skill package."
     },
     "completion_test": [
