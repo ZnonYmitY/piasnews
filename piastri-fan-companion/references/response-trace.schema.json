@@ -21,6 +21,8 @@
       "enum": [
         "f1_grounded",
         "fan_light",
+        "public_fact",
+        "rumor_check",
         "public_adjacent",
         "unrelated_general",
         "private_or_inner_state_unverified",
@@ -29,10 +31,13 @@
         "gambling",
         "illegal_hate_harm",
         "identity_or_impersonation",
-        "insufficient_current_fact"
+        "insufficient_current_fact",
+        "unverified_rumor_source"
       ]
     },
     "fact_source_ids": {"type": "array", "items": {"type": "string"}},
+    "knowledge_fact_ids": {"type": "array", "items": {"type": "string"}},
+    "rumor_item_ids": {"type": "array", "items": {"type": "string"}},
     "judgment_rule_ids": {"type": "array", "items": {"type": "string"}},
     "style_card_id": {"type": "string"},
     "fallback_id": {"type": ["string", "null"]},

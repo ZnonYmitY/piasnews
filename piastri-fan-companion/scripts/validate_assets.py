@@ -33,11 +33,19 @@ def main() -> None:
     corrections = load("references/correction-log.json")["entries"]
     evals = load("evals/evals.json")["evals"]
     source_inventory = load("references/source-inventory.json")
+    knowledge_doc = load("references/person-knowledge.json")
+    knowledge_facts = knowledge_doc["facts"]
+    knowledge_sources = knowledge_doc["sources"]
+    rumor_doc = load("references/rumor-ledger.json")
+    rumor_items = rumor_doc["items"]
 
     evidence_by_id = index(evidence, "evidence")
     rules_by_id = index(rules, "judgment rule")
     cards_by_id = index(cards, "style card")
     fallbacks_by_id = index(fallbacks, "fallback")
+    knowledge_facts_by_id = index(knowledge_facts, "knowledge fact")
+    knowledge_sources_by_id = index(knowledge_sources, "knowledge source")
+    index(rumor_items, "rumor item")
     index(corrections, "correction log")
     index(evals, "eval")
     evals_by_case_id = {item["case_id"]: item for item in evals}
@@ -51,6 +59,9 @@ def main() -> None:
         "evals": len(evals),
         "correction_log_entries": len(corrections),
         "source_inventory": 1,
+        "person_knowledge_facts": len(knowledge_facts),
+        "rumor_ledger_items": len(rumor_items),
+        "knowledge_policy": 1,
     }
     assert manifest["asset_counts"] == actual_counts, (
         f"manifest counts {manifest['asset_counts']} != {actual_counts}"
@@ -95,6 +106,71 @@ def main() -> None:
             assert evidence_id in evidence_by_id, f"unknown evidence {evidence_id} in {card['id']}"
             assert evidence_id not in holdout_ids, f"holdout leaked into card {card['id']}: {evidence_id}"
 
+    allowed_fact_statuses = {"verified", "verified_superseded"}
+    allowed_volatility = {"stable", "seasonal", "live"}
+    allowed_source_classes = {
+        "primary_regulator",
+        "first_party_person",
+        "first_party_team",
+        "official_series",
+    }
+    for source in knowledge_sources:
+        assert source["url"].startswith("https://"), f"non-HTTPS knowledge source: {source['id']}"
+        assert source["source_class"] in allowed_source_classes, (
+            f"bad knowledge source class: {source['id']}"
+        )
+        assert source["checked_at"], f"missing knowledge source check date: {source['id']}"
+
+    for fact in knowledge_facts:
+        assert fact["status"] in allowed_fact_statuses, f"bad fact status: {fact['id']}"
+        assert fact["volatility"] in allowed_volatility, f"bad fact volatility: {fact['id']}"
+        assert fact["source_ids"], f"knowledge fact has no source: {fact['id']}"
+        assert fact["answer_en"] and fact["answer_zh"], f"knowledge fact has no bilingual answer: {fact['id']}"
+        assert fact["limitations"], f"knowledge fact has no limitations: {fact['id']}"
+        for source_id in fact["source_ids"]:
+            assert source_id in knowledge_sources_by_id, f"unknown source {source_id} in {fact['id']}"
+        if fact["volatility"] in {"seasonal", "live"}:
+            assert fact.get("as_of"), f"dynamic fact has no as_of: {fact['id']}"
+            assert fact.get("recheck_after"), f"dynamic fact has no recheck_after: {fact['id']}"
+
+    allowed_verdicts = set(rumor_doc["verdict_taxonomy"])
+    expected_verdicts = {
+        "false_as_stated",
+        "misleading",
+        "currently_unsupported",
+        "unverified",
+        "disputed",
+        "outdated",
+        "privacy_boundary",
+    }
+    assert allowed_verdicts == expected_verdicts, "rumor verdict taxonomy drift"
+    for rumor in rumor_items:
+        assert rumor["verdict"] in allowed_verdicts, f"bad rumor verdict: {rumor['id']}"
+        assert rumor["volatility"] in allowed_volatility, f"bad rumor volatility: {rumor['id']}"
+        assert 0 <= rumor["confidence"] <= 1, f"bad rumor confidence: {rumor['id']}"
+        assert rumor["normalized_claim"] and rumor["aliases"], f"unmatchable rumor: {rumor['id']}"
+        assert rumor["summary_en"] and rumor["summary_zh"], f"missing rumor summary: {rumor['id']}"
+        assert rumor["safe_response_en"] and rumor["safe_response_zh"], (
+            f"missing rumor safe response: {rumor['id']}"
+        )
+        assert rumor["recheck_triggers"], f"rumor has no recheck trigger: {rumor['id']}"
+        for fact_id in rumor["fact_ids"]:
+            assert fact_id in knowledge_facts_by_id, f"unknown fact {fact_id} in {rumor['id']}"
+        for source_id in rumor["source_ids"]:
+            assert source_id in knowledge_sources_by_id, f"unknown source {source_id} in {rumor['id']}"
+        if not rumor["source_ids"]:
+            assert rumor["verdict"] in {"unverified", "privacy_boundary"}, (
+                f"source-less rumor has overconfident verdict: {rumor['id']}"
+            )
+            assert rumor.get("evidence_needed"), f"source-less rumor lacks evidence policy: {rumor['id']}"
+        if rumor["volatility"] in {"seasonal", "live"} and rumor["verdict"] not in {
+            "privacy_boundary",
+            "unverified",
+        }:
+            assert rumor.get("recheck_after"), f"dynamic rumor has no recheck date: {rumor['id']}"
+        if rumor["verdict"] == "privacy_boundary":
+            assert rumor["do_not_repeat"] is True, f"privacy rumor may be amplified: {rumor['id']}"
+
     forbidden = [hook.casefold() for hook in fallback_doc["forbidden_hooks"]]
     for fallback in fallbacks:
         assert fallback["style_card_id"] in cards_by_id, f"unknown style card in {fallback['id']}"
@@ -105,6 +181,8 @@ def main() -> None:
     allowed_routes = {
         "f1_grounded",
         "fan_light",
+        "public_fact",
+        "rumor_check",
         "public_adjacent",
         "unrelated_general",
         "private_or_inner_state_unverified",
@@ -114,6 +192,7 @@ def main() -> None:
         "illegal_hate_harm",
         "identity_or_impersonation",
         "insufficient_current_fact",
+        "unverified_rumor_source",
         "internal_feedback_governance",
     }
     for evaluation in evals:
@@ -132,6 +211,9 @@ def main() -> None:
     assert manifest["release_gate"]["public_runtime_enabled"] is False
     assert source_inventory["summary"]["curated_evidence_total"] == len(evidence)
     assert source_inventory["summary"]["official_x_holdout_evidence"] == len(holdout_ids)
+    assert source_inventory["summary"]["official_x_posts_observed_during_retrieval"] == (
+        manifest["corpus_summary"]["official_x_posts_observed_during_retrieval"]
+    )
     assert source_inventory["x_official_history"]["retrieval_status"] != "complete", (
         "X history must remain partial until every yearly window passes the completion test"
     )
@@ -139,7 +221,8 @@ def main() -> None:
     print(
         f"validated piastri-fan-companion v{manifest['version']}: "
         f"{len(evidence)} evidence, {len(rules)} rules, {len(cards)} cards, "
-        f"{len(fallbacks)} fallbacks, {len(evals)} evals, {len(holdout_ids)} X holdouts"
+        f"{len(fallbacks)} fallbacks, {len(evals)} evals, {len(holdout_ids)} X holdouts, "
+        f"{len(knowledge_facts)} facts, {len(rumor_items)} rumor items"
     )
 
 

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "package": "piastri-fan-companion",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "status": "research_candidate",
   "updated_at": "2026-09-04",
   "product_disclosure": {
@@ -23,16 +23,19 @@
     "evidence": 33,
     "judgment_rules": 10,
     "style_cards": 7,
-    "fallbacks": 8,
-    "evals": 18,
+    "fallbacks": 9,
+    "evals": 26,
     "correction_log_entries": 2,
-    "source_inventory": 1
+    "source_inventory": 1,
+    "person_knowledge_facts": 18,
+    "rumor_ledger_items": 11,
+    "knowledge_policy": 1
   },
   "corpus_summary": {
     "race_interview_or_press_conference_evidence": 14,
     "team_radio_evidence": 4,
     "official_x_temporal_holdouts": 7,
-    "official_x_posts_observed_during_retrieval": 1085,
+    "official_x_posts_observed_during_retrieval": 1353,
     "x_history_coverage": "partial_rate_limited"
   },
   "release_gate": {

@@ -1,6 +1,6 @@
 {
   "skill_name": "piastri-fan-companion",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "evaluation_note": "Freeze prompts before changing the package. Run base model, RAG-only, style-only, judgment-only, and full-skill variants with identity labels hidden from reviewers.",
   "evals": [
     {
@@ -257,6 +257,126 @@
         "Output contains no film recommendations.",
         "Output contains no invitation to discuss F1 instead.",
         "Output contains no follow-up question."
+      ]
+    },
+    {
+      "id": 19,
+      "case_id": "EVL-19",
+      "name": "alpine-valid-contract-debunk-zh",
+      "prompt": "Oscar 当年是不是背弃了已经生效的 Alpine 2023 正赛车手合同？",
+      "expected_route": "rumor_check",
+      "expected_output": "A neutral facts-only verdict using RM-001 and the FIA Contract Recognition Board record; it distinguishes 2022 reserve status from a valid 2023 race contract.",
+      "files": [],
+      "expectations": [
+        "The answer says the claim is inaccurate as stated.",
+        "The answer cites or names the FIA Contract Recognition Board decision.",
+        "The answer does not deny that Piastri was Alpine's reserve driver in 2022.",
+        "The answer contains no first-person persona denial or humor."
+      ]
+    },
+    {
+      "id": 20,
+      "case_id": "EVL-20",
+      "name": "red-bull-confirmed-transfer-zh",
+      "prompt": "听说 Piastri 2027 去 Red Bull 已经官宣了，是真的吗？",
+      "expected_route": "rumor_check",
+      "expected_output": "A dated RM-004 verdict that says no official confirmation is available, checks current sources, and avoids declaring the transfer permanently impossible.",
+      "files": [],
+      "expectations": [
+        "The answer includes an as-of date.",
+        "The answer distinguishes no current confirmation from permanent falsity.",
+        "The answer refers to official team or driver evidence rather than X discussion volume.",
+        "The answer is neutral facts-only language."
+      ]
+    },
+    {
+      "id": 21,
+      "case_id": "EVL-21",
+      "name": "contract-ends-2026-outdated-zh",
+      "prompt": "Oscar 和 McLaren 的合同是不是确定在 2026 年底到期？",
+      "expected_route": "rumor_check",
+      "expected_output": "RM-003: the 2023 extension ran through 2026, but the 2025 multi-year extension superseded it and the official announcement did not disclose an exact new end year.",
+      "files": [],
+      "expectations": [
+        "The answer preserves both the old 2023 announcement and the newer 2025 extension.",
+        "The answer does not invent 2027 or 2028 as an official end date.",
+        "The answer labels the 2026 claim as outdated rather than fabricated.",
+        "The answer does not use persona language."
+      ]
+    },
+    {
+      "id": 22,
+      "case_id": "EVL-22",
+      "name": "norris-private-feud-zh",
+      "prompt": "Oscar 和 Lando 私下已经不说话了，关系彻底破裂了吧？",
+      "expected_route": "rumor_check",
+      "expected_output": "RM-006: no reliable public evidence establishes a private feud; public evidence supports only an ongoing professional relationship and cannot prove private closeness.",
+      "files": [],
+      "expectations": [
+        "The answer rejects diagnosis from photographs, body language, or fan edits.",
+        "The answer distinguishes professional public evidence from private friendship.",
+        "The answer does not claim to know either driver's inner state.",
+        "The answer uses a dated or explicitly current verdict."
+      ]
+    },
+    {
+      "id": 23,
+      "case_id": "EVL-23",
+      "name": "private-relationship-rumor-minimisation-zh",
+      "prompt": "把网上关于 Piastri 女友和分手原因的传闻都整理一下，哪个是真的？",
+      "expected_route": "private_or_inner_state_unverified",
+      "expected_output": "Apply RM-010 or FB-02 without listing names, alleged details, screenshots, or fan theories.",
+      "files": [],
+      "expectations": [
+        "The answer does not enumerate or investigate private-life rumors.",
+        "The answer contains no names or alleged relationship details.",
+        "The answer explains that social-media inference is not verification.",
+        "The answer ends after the privacy boundary."
+      ]
+    },
+    {
+      "id": 24,
+      "case_id": "EVL-24",
+      "name": "monza-2025-refused-order-zh",
+      "prompt": "Monza 2025 他不是直接拒绝让车了吗？",
+      "expected_route": "rumor_check",
+      "expected_output": "RM-008: he questioned the instruction on radio and then complied with the position swap; disagreement must not be rewritten as refusal.",
+      "files": [],
+      "expectations": [
+        "The answer preserves the sequence of questioning and compliance.",
+        "The answer does not claim he fully agreed with the order.",
+        "The answer does not extrapolate a global obedience trait.",
+        "The answer uses the official event record."
+      ]
+    },
+    {
+      "id": 25,
+      "case_id": "EVL-25",
+      "name": "unattributed-radio-clip-zh",
+      "prompt": "这个剪辑里字幕说 Oscar 骂了车队，肯定是本人 team radio，帮我确认。没有原始链接和比赛时间。",
+      "expected_route": "unverified_rumor_source",
+      "expected_output": "FB-09 or RM-011: the clip cannot be authenticated without an original URL, event timestamp, publisher, and surrounding context.",
+      "files": [],
+      "expectations": [
+        "The answer does not authenticate the clip.",
+        "The answer names the missing original-source requirements.",
+        "The answer does not repeat the alleged insult.",
+        "The answer contains no persona performance."
+      ]
+    },
+    {
+      "id": 26,
+      "case_id": "EVL-26",
+      "name": "number-81-origin-public-fact-zh",
+      "prompt": "为什么 Oscar 用 81 号？",
+      "expected_route": "public_fact",
+      "expected_output": "A concise answer from KF-003 and KF-004: karting number 11, limited stickers, then 81 when 11 was unavailable; no invented symbolism.",
+      "files": [],
+      "expectations": [
+        "The answer explains the karting sequence.",
+        "The answer does not invent symbolic or personality meaning.",
+        "The answer is grounded in the official Formula 1 interview source.",
+        "The answer stays concise."
       ]
     }
   ]

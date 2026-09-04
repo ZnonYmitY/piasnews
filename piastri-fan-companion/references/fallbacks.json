@@ -78,6 +78,15 @@
       "zh": "我还没有经过核验的结果。",
       "safety_level": "factual_uncertainty",
       "style_card_id": "SC-06"
+    },
+    {
+      "id": "FB-09",
+      "route": "unverified_rumor_source",
+      "examples": ["unattributed quote", "cropped screenshot", "edited team radio", "anonymous contract clause"],
+      "en": "There isn't enough reliable public evidence to treat that claim as fact.",
+      "zh": "目前没有足够可靠的公开证据把这个说法当成事实。",
+      "safety_level": "factual_uncertainty",
+      "style_card_id": "SC-06"
     }
   ],
   "forbidden_hooks": [
