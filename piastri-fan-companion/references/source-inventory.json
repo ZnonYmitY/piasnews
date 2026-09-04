@@ -14,7 +14,7 @@
     "race_interview_or_press_conference_evidence": 14,
     "team_radio_evidence": 4,
     "official_x_holdout_evidence": 7,
-    "official_x_posts_observed_during_retrieval": 553,
+    "official_x_posts_observed_during_retrieval": 1085,
     "official_x_posts_fully_materialized_in_latest_timeline_response": 20
   },
   "x_official_history": {
@@ -71,6 +71,30 @@
         "coverage_note": "All returned created_at values were verified inside the requested year and the count stayed below the 1000-result split threshold."
       },
       {
+        "window": "2020-01-01/2020-12-31",
+        "method": "yearly SearchTimeline",
+        "observed_count": 318,
+        "original_posts": 241,
+        "replies": 77,
+        "reposts": 0,
+        "posts_with_media": 95,
+        "newest_at": "2020-12-31T03:24:08Z",
+        "oldest_at": "2020-01-02T10:00:13Z",
+        "coverage_note": "All returned created_at values were verified inside the requested year and the count stayed below the 1000-result split threshold."
+      },
+      {
+        "window": "2021-01-01/2021-12-31",
+        "method": "yearly SearchTimeline",
+        "observed_count": 214,
+        "original_posts": 116,
+        "replies": 98,
+        "reposts": 0,
+        "posts_with_media": 73,
+        "newest_at": "2021-12-24T20:47:13Z",
+        "oldest_at": "2021-01-02T04:26:14Z",
+        "coverage_note": "All returned created_at values were verified inside the requested year and the count stayed below the 1000-result split threshold."
+      },
+      {
         "window": "latest visible timeline response",
         "method": "UserTweets",
         "observed_count": 20,
@@ -83,13 +107,13 @@
       }
     ],
     "known_gaps": [
-      "2020-01-01 through 2026-04-07 were not completed after X returned HTTP 429 on the 2020 SearchTimeline window.",
+      "2022-01-01 through 2026-04-07 were not completed after X returned HTTP 429 on the 2022 SearchTimeline window.",
       "Replies may require an additional replies-inclusive route; the profile timeline and search index do not guarantee complete deleted, withheld, or de-indexed content.",
       "A tool returning fewer than its requested limit is necessary but not sufficient proof of account-lifetime completeness."
     ],
     "last_attempt": {
       "date": "2026-09-04",
-      "result": "The resumed run completed 2018 and 2019, bringing cross-response observed public expressions to 553; the 2020 window returned HTTP 429 and the collector exited with a resumable checkpoint.",
+      "result": "The resumed run completed 2020 and 2021, bringing cross-response observed public expressions to 1085; the 2022 window returned HTTP 429 and the collector exited with a resumable checkpoint.",
       "checkpoint_policy": "Raw post text remains under /tmp and is not included in the public skill package."
     },
     "completion_test": [
