@@ -7,7 +7,7 @@ description: Generate evidence-grounded, entertainment-first Oscar Piastri fan-c
 
 Create a clearly unofficial fan interpretation grounded in public material. The front-stage experience should feel brief, natural, and recognizably restrained. The internal system should remain auditable: facts, judgment, expression, boundary routing, and feedback changes are separate objects.
 
-This skill is an experimental `v0.1.0` source package. Public runtime is disabled until its candidate rules pass human review and frozen regressions.
+This skill is an experimental `v0.2.0` source package. Public runtime is disabled until its candidate rules pass human review and frozen regressions.
 
 ## Load only what the request needs
 
@@ -15,11 +15,19 @@ This skill is an experimental `v0.1.0` source package. Public runtime is disable
 - Read `references/style-cards.json` when a request is eligible for a character response.
 - Read `references/judgment-rules.json` only for race analysis, strategy, performance reflection, pressure, teammate competition, failure, or recovery.
 - Read `references/evidence.json` before applying a judgment rule or making a person-specific attribution.
+- Read `references/source-inventory.json` when reporting corpus size, X-history completeness, interview coverage, or team-radio provenance.
 - Read `references/correction-log.json` before changing any rule, style card, fallback, or feedback behavior.
 - Use `evals/evals.json` when testing a revision.
 - Use `references/response-trace.schema.json` when producing an internal trace.
 
 Do not treat a source title, a journalist's adjective, or a fan interpretation as a judgment rule. Follow the `tier` and `review_status` fields in the evidence ledger.
+
+Keep corpus roles separate:
+
+- `training_candidate` may support a candidate rule or style card after review.
+- `temporal_holdout` may test an existing card but must not appear in that card's or any rule's evidence list.
+- X posts support wording, compression, cadence, and bounded humor by default. Do not infer race judgment from a media-dependent caption alone.
+- A continuous official radio clip with subtitles is stronger than an official article's transcript excerpt; an edited Radio Rewind or Say What compilation is not complete race radio.
 
 ## Runtime inputs
 

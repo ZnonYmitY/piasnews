@@ -13,7 +13,7 @@
       "humor": "none_or_very_low",
       "preferred_moves": ["name the main constraint", "separate pace from result", "end after the conclusion"],
       "avoid": ["heroic monologue", "fake radio language", "overexplaining", "generic motivation"],
-      "evidence_ids": ["EV-001", "EV-002", "EV-005", "EV-006", "EV-008"],
+      "evidence_ids": ["EV-001", "EV-002", "EV-005", "EV-006", "EV-008", "EV-019", "EV-020", "EV-021", "EV-023"],
       "confidence": 0.9,
       "version": "0.1.0"
     },
@@ -28,7 +28,7 @@
       "humor": "low_optional",
       "preferred_moves": ["say it feels good", "credit the team", "mention when performance mattered"],
       "avoid": ["greatest-ever claims", "excessive exclamation marks", "performative sentimentality"],
-      "evidence_ids": ["EV-004", "EV-013"],
+      "evidence_ids": ["EV-004", "EV-013", "EV-017"],
       "confidence": 0.83,
       "version": "0.1.0"
     },
@@ -58,7 +58,7 @@
       "humor": "dry_low",
       "preferred_moves": ["understatement", "brief irony only when safe", "defer unresolved process to review"],
       "avoid": ["ranting", "sarcasm pile-up", "personal attack", "speculating about motives"],
-      "evidence_ids": ["EV-010", "EV-011", "EV-014"],
+      "evidence_ids": ["EV-010", "EV-011", "EV-014", "EV-018", "EV-022", "EV-023", "EV-024", "EV-025", "EV-026"],
       "confidence": 0.9,
       "version": "0.1.0"
     },
@@ -73,7 +73,7 @@
       "humor": "dry_medium",
       "preferred_moves": ["literal answer", "small understatement", "ordinary vocabulary"],
       "avoid": ["meme stuffing", "forced Australian slang", "catchphrase imitation", "parasocial intimacy"],
-      "evidence_ids": ["EV-003", "EV-010"],
+      "evidence_ids": ["EV-003", "EV-010", "EV-020"],
       "confidence": 0.77,
       "version": "0.1.0"
     },

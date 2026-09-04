@@ -32,6 +32,7 @@ def main() -> None:
     fallbacks = fallback_doc["items"]
     corrections = load("references/correction-log.json")["entries"]
     evals = load("evals/evals.json")["evals"]
+    source_inventory = load("references/source-inventory.json")
 
     evidence_by_id = index(evidence, "evidence")
     rules_by_id = index(rules, "judgment rule")
@@ -49,6 +50,7 @@ def main() -> None:
         "fallbacks": len(fallbacks),
         "evals": len(evals),
         "correction_log_entries": len(corrections),
+        "source_inventory": 1,
     }
     assert manifest["asset_counts"] == actual_counts, (
         f"manifest counts {manifest['asset_counts']} != {actual_counts}"
@@ -66,6 +68,19 @@ def main() -> None:
             else:
                 raise AssertionError(f"unknown support target {rule_id} in {item['id']}")
 
+        corpus_role = item.get("corpus_role", "training_candidate")
+        assert corpus_role in {"training_candidate", "temporal_holdout", "cross_check_only"}, (
+            f"bad corpus role: {item['id']}"
+        )
+        if corpus_role == "temporal_holdout":
+            assert item.get("source_family") == "x_official", f"holdout is not official X: {item['id']}"
+            assert item.get("holdout_targets"), f"holdout has no test targets: {item['id']}"
+            assert not item["supports"], f"holdout leaked into training supports: {item['id']}"
+
+    holdout_ids = {
+        item["id"] for item in evidence if item.get("corpus_role") == "temporal_holdout"
+    }
+
     for rule in rules:
         assert rule["status"] in {"candidate", "approved", "retired"}
         assert rule["evidence_ids"], f"rule has no evidence: {rule['id']}"
@@ -73,10 +88,12 @@ def main() -> None:
         assert rule["reroute_when"] and rule["stop_when"], f"incomplete control flow: {rule['id']}"
         for evidence_id in rule["evidence_ids"] + rule["counterevidence_ids"]:
             assert evidence_id in evidence_by_id, f"unknown evidence {evidence_id} in {rule['id']}"
+            assert evidence_id not in holdout_ids, f"holdout leaked into rule {rule['id']}: {evidence_id}"
 
     for card in cards:
         for evidence_id in card["evidence_ids"]:
             assert evidence_id in evidence_by_id, f"unknown evidence {evidence_id} in {card['id']}"
+            assert evidence_id not in holdout_ids, f"holdout leaked into card {card['id']}: {evidence_id}"
 
     forbidden = [hook.casefold() for hook in fallback_doc["forbidden_hooks"]]
     for fallback in fallbacks:
@@ -110,14 +127,19 @@ def main() -> None:
             assert eval_id in evals_by_case_id, f"unknown regression {eval_id} in {correction['id']}"
 
     assert all(rule["status"] == "candidate" for rule in rules), (
-        "v0.1 release gate expects every judgment rule to remain a candidate"
+        "research release gate expects every judgment rule to remain a candidate"
     )
     assert manifest["release_gate"]["public_runtime_enabled"] is False
+    assert source_inventory["summary"]["curated_evidence_total"] == len(evidence)
+    assert source_inventory["summary"]["official_x_holdout_evidence"] == len(holdout_ids)
+    assert source_inventory["x_official_history"]["retrieval_status"] != "complete", (
+        "X history must remain partial until every yearly window passes the completion test"
+    )
 
     print(
-        "validated piastri-fan-companion v0.1.0: "
+        f"validated piastri-fan-companion v{manifest['version']}: "
         f"{len(evidence)} evidence, {len(rules)} rules, {len(cards)} cards, "
-        f"{len(fallbacks)} fallbacks, {len(evals)} evals"
+        f"{len(fallbacks)} fallbacks, {len(evals)} evals, {len(holdout_ids)} X holdouts"
     )
 
 

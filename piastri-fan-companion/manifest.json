@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
   "package": "piastri-fan-companion",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "research_candidate",
-  "updated_at": "2026-09-03",
+  "updated_at": "2026-09-04",
   "product_disclosure": {
     "en": "Unofficial fan-created experience. Not Oscar Piastri, McLaren, or Formula 1.",
     "zh": "非官方粉丝创作体验；不代表 Oscar Piastri、McLaren 或 F1。"
@@ -20,17 +20,25 @@
     "mixed_input": "dominant_language_or_english"
   },
   "asset_counts": {
-    "evidence": 16,
+    "evidence": 33,
     "judgment_rules": 10,
     "style_cards": 7,
     "fallbacks": 8,
     "evals": 18,
-    "correction_log_entries": 2
+    "correction_log_entries": 2,
+    "source_inventory": 1
+  },
+  "corpus_summary": {
+    "race_interview_or_press_conference_evidence": 14,
+    "team_radio_evidence": 4,
+    "official_x_temporal_holdouts": 7,
+    "official_x_posts_observed_during_retrieval": 31,
+    "x_history_coverage": "partial_rate_limited"
   },
   "release_gate": {
     "public_runtime_enabled": false,
-    "reason": "All judgment rules remain candidates until two-person review and frozen regression testing.",
+    "reason": "The numerical material threshold is met, but X account-lifetime coverage is incomplete and all judgment rules still require two-person review plus frozen regression testing.",
     "minimum_first_party_materials": 30,
-    "current_first_party_or_direct_public_expression_materials": 14
+    "current_first_party_or_direct_public_expression_materials": 31
   }
 }

@@ -1,0 +1,153 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-09-04",
+  "purpose": "Separate material discovery coverage from the smaller set of evidence allowed to influence judgment and language cards.",
+  "counting_policy": {
+    "material": "A unique public source item or post located during retrieval.",
+    "curated_evidence": "A material with a stable URL, bounded context, short fragment or verified description, and a written observation in evidence.json.",
+    "training_candidate": "Curated evidence that may support a candidate rule or style card after review.",
+    "temporal_holdout": "Curated evidence reserved for testing and prohibited from supporting the rules or cards it tests."
+  },
+  "summary": {
+    "curated_evidence_total": 33,
+    "curated_evidence_added_this_pass": 17,
+    "race_interview_or_press_conference_evidence": 14,
+    "team_radio_evidence": 4,
+    "official_x_holdout_evidence": 7,
+    "official_x_posts_observed_during_retrieval": 31,
+    "official_x_posts_fully_materialized_in_latest_timeline_response": 20
+  },
+  "x_official_history": {
+    "account": "@OscarPiastri",
+    "account_url": "https://x.com/OscarPiastri",
+    "account_created_at": "2016-05-09T19:03:12Z",
+    "retrieval_status": "partial_rate_limited",
+    "retrieval_methods": [
+      "OpenCLI UserTweets cursor pagination",
+      "OpenCLI SearchTimeline with yearly windows",
+      "twitter-cli UserTweets fallback"
+    ],
+    "verified_windows": [
+      {
+        "window": "2016-05-09/2016-12-31",
+        "method": "yearly SearchTimeline",
+        "observed_count": 0,
+        "coverage_note": "No indexed posts returned; this is an observed empty result, not proof that no deleted or de-indexed posts existed."
+      },
+      {
+        "window": "2017-01-01/2017-12-31",
+        "method": "yearly SearchTimeline",
+        "observed_count": 11,
+        "original_posts": 5,
+        "replies": 6,
+        "reposts": 0,
+        "posts_with_media": 2,
+        "newest_at": "2017-12-22T09:16:31Z",
+        "oldest_at": "2017-03-07T20:18:03Z",
+        "coverage_note": "The window returned below the requested limit. The exact response is retained only in a temporary checkpoint and is intentionally excluded from the public repository."
+      },
+      {
+        "window": "latest visible timeline response",
+        "method": "UserTweets",
+        "observed_count": 20,
+        "newest_at": "2026-09-02T09:10:04Z",
+        "oldest_at": "2026-04-08T19:18:06Z",
+        "original_posts": 20,
+        "reposts": 0,
+        "posts_with_media": 18,
+        "coverage_note": "All 20 rows were returned with post ID, URL, timestamp, text, and engagement metadata. Seven are reserved as temporal holdouts in evidence.json."
+      }
+    ],
+    "known_gaps": [
+      "2018-01-01 through 2026-04-07 were not completed after X returned HTTP 429 for both UserTweets and SearchTimeline.",
+      "Replies may require an additional replies-inclusive route; the profile timeline and search index do not guarantee complete deleted, withheld, or de-indexed content.",
+      "A tool returning fewer than its requested limit is necessary but not sufficient proof of account-lifetime completeness."
+    ],
+    "last_attempt": {
+      "date": "2026-09-04",
+      "result": "2016 and 2017 windows completed; the first 2018 window returned HTTP 429 and the collector exited with a resumable checkpoint.",
+      "checkpoint_policy": "Raw post text remains under /tmp and is not included in the public skill package."
+    },
+    "completion_test": [
+      "Run every yearly window from account creation through the present with no API error and with count below the per-window limit.",
+      "Split any window that reaches the limit into smaller date ranges until every child window is below the limit.",
+      "Deduplicate on post ID, retain original posts and replies as separate kinds, and record reposts separately.",
+      "Report unavailable or deleted URLs as coverage gaps; never silently count them as retrieved."
+    ],
+    "use_policy": "X posts support wording, compression, humor, and cadence. They do not establish race judgment unless the post itself contains enough context and is corroborated by an interview, radio, or race record."
+  },
+  "race_interviews": {
+    "curated_evidence_total": 14,
+    "coverage": "2023-2025 official Formula 1 or team interviews, including wins, losses, penalties, teammate battles, team orders, mistakes, and physical limits.",
+    "new_evidence_ids": ["EV-017", "EV-018", "EV-019", "EV-020", "EV-021", "EV-022", "EV-023"],
+    "priority_rule": "Prefer full FIA or Formula 1 transcripts. Use short mixed-zone clips only when the full answer is unavailable, and label the excerpt boundary."
+  },
+  "team_radio": {
+    "curated_evidence_total": 4,
+    "curated_evidence_ids": ["EV-010", "EV-024", "EV-025", "EV-026"],
+    "direct_subtitle_verified_count": 1,
+    "official_transcript_excerpt_count": 2,
+    "official_third_party_context_count": 1,
+    "candidate_clips": [
+      {
+        "id": "RC-001",
+        "event": "2023 Belgian Grand Prix",
+        "url": "https://www.formula1.com/en/video/say-what-belgian-grand-prix-the-best-team-radio.1772955983109107076",
+        "duration": "11:32",
+        "status": "official_audio_manual_review_pending",
+        "note": "Official description confirms Piastri banter with his engineer; the player exposes no subtitle track."
+      },
+      {
+        "id": "RC-002",
+        "event": "2023 Qatar Grand Prix",
+        "url": "https://www.formula1.com/en/latest/article/say-what-alonso-in-the-hot-seat-piastri-in-p1-and-celebrations-for.2tA7TlO6DIGYCC9XTyfEuf",
+        "status": "official_audio_manual_review_pending",
+        "note": "Official radio compilation explicitly includes Piastri after Sprint Shootout pole and his first F1 win."
+      },
+      {
+        "id": "RC-003",
+        "event": "2024 Hungarian Grand Prix",
+        "url": "https://www.formula1.com/en/latest/article/say-what-verstappens-frustrations-and-mclarens-team-orders-drama-in-the-best.53ujeCqLuU5nnYpXFJV0Ae",
+        "status": "official_audio_manual_review_pending",
+        "note": "Official compilation covers McLaren's team-order sequence; no excerpt is promoted to evidence until Oscar's exact segments are reviewed."
+      },
+      {
+        "id": "RC-004",
+        "event": "2025 Italian Grand Prix",
+        "url": "https://www.formula1.com/en/video/radio-rewind-2025-italian-grand-prix.1842702720453228900",
+        "duration": "15:14",
+        "status": "official_audio_no_subtitles",
+        "note": "Use with EV-025, whose official article records the radio question and the post-race explanation."
+      },
+      {
+        "id": "RC-005",
+        "event": "2025 Austrian Grand Prix",
+        "url": "https://www.formula1.com/en/video/radio-rewind-2025-austrian-grand-prix.1836367823033543643",
+        "duration": "18:03",
+        "status": "official_audio_no_subtitles"
+      },
+      {
+        "id": "RC-006",
+        "event": "2025 Emilia Romagna Grand Prix",
+        "url": "https://www.formula1.com/en/video/radio-rewind-2025-emilia-romagna-grand-prix.1832558276180297101",
+        "duration": "15:15",
+        "status": "official_audio_no_subtitles"
+      },
+      {
+        "id": "RC-007",
+        "event": "2025 United States Grand Prix",
+        "url": "https://www.formula1.com/en/video/radio-rewind-2025-united-states-grand-prix.1846531258946389841",
+        "duration": "17:41",
+        "status": "official_audio_no_subtitles"
+      },
+      {
+        "id": "RC-008",
+        "event": "2025 Sao Paulo Grand Prix",
+        "url": "https://www.formula1.com/en/video/radio-rewind-2025-sao-paulo-grand-prix.1848421200495598268",
+        "duration": "18:13",
+        "status": "official_audio_no_subtitles"
+      }
+    ],
+    "use_policy": "Prefer a continuous official clip with subtitles. When only an official article quotes the radio, label it as an editorial transcript excerpt. Radio Rewind and Say What compilations are edited selections, not complete race radio."
+  }
+}
