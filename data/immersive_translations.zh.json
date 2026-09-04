@@ -1,43 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-04T08:17:20.140084Z",
+  "generated_at": "2026-09-04T15:11:01.942637Z",
   "translations": {
-    "items:piasnews-5e55c30b2db48949:title:39fbffbede144c0af96c4595": {
-      "dataset": "items",
-      "item_id": "piasnews-5e55c30b2db48949",
-      "field": "title",
-      "target_field": "title_zh",
-      "source_text": "Pirelli 2027 F1 Tyre Test Continues At Mugello With Piastri And Lawson",
-      "zh": "倍耐力2027年F1轮胎测试在穆杰罗继续进行，Piastri和Lawson参与",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-08-27T09:22:19.381782Z"
-    },
-    "items:piasnews-5e55c30b2db48949:summary:73c687deab0b33e8260654ec": {
-      "dataset": "items",
-      "item_id": "piasnews-5e55c30b2db48949",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
-      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-08-27T09:22:19.381787Z"
-    },
-    "social:piasnews-social-1c08c8e53c88ca58:summary:53595e6fd8f677f7d3543bfe": {
-      "dataset": "social",
-      "item_id": "piasnews-social-1c08c8e53c88ca58",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "apparently the wednesday before zandvoort some fans spotted oscar at a restaurant and asked him for selfies but they were very respectful 😊 https://t.co/ndKJ7DDBU7",
-      "zh": "显然，在Zandvoort之前的那个周三，一些粉丝在一家餐厅看到了Oscar，并请求与他自拍，但他们非常尊重他😊",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-08-27T12:24:52.024008Z"
-    },
     "items:piasnews-b16256c75004ccfd:title:07d3ddb9d4b9681fabc409ca": {
       "dataset": "items",
       "item_id": "piasnews-b16256c75004ccfd",
@@ -2653,6 +2617,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-04T08:17:19.666772Z"
+    },
+    "items:piasnews-d09636fb895600fa:title:177ecbcf8b155a380eba5277": {
+      "dataset": "items",
+      "item_id": "piasnews-d09636fb895600fa",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri admits Lando Norris has now exposed his biggest problem at McLaren this season",
+      "zh": "Oscar Piastri承认Lando Norris本赛季暴露了他在McLaren最大的问题",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-04T15:11:01.355611Z"
+    },
+    "items:piasnews-d09636fb895600fa:summary:0d864a8260f8519601fd9ae1": {
+      "dataset": "items",
+      "item_id": "piasnews-d09636fb895600fa",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Quote or interview-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的引述或采访相关项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-04T15:11:01.355670Z"
     }
   },
   "retention_days": 8
