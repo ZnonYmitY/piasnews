@@ -23,6 +23,7 @@ from typing import Any
 DEFAULT_HANDLE = "OscarPiastri"
 DEFAULT_START = date(2016, 5, 9)
 DEFAULT_OUTPUT = Path("/tmp/piastri-x-history-raw.json")
+TWITTER_DATETIME_FORMAT = "%a %b %d %H:%M:%S %z %Y"
 
 
 def parse_args() -> argparse.Namespace:
@@ -111,6 +112,49 @@ def normalize(row: dict[str, Any], handle: str) -> dict[str, Any] | None:
     }
 
 
+def parse_created_at(value: Any) -> datetime | None:
+    if not isinstance(value, str) or not value.strip():
+        return None
+    try:
+        return datetime.strptime(value.strip(), TWITTER_DATETIME_FORMAT)
+    except ValueError:
+        return None
+
+
+def chronological_key(row: dict[str, Any]) -> tuple[int, float | int]:
+    """Sort by timestamp first and numeric tweet ID only as a fallback.
+
+    Tweet IDs crossed from 18 to 19 digits in this account's history, so
+    lexicographic ID ordering produces incorrect newest/oldest summaries.
+    """
+    created_at = parse_created_at(row.get("created_at"))
+    if created_at is not None:
+        return (1, created_at.timestamp())
+    try:
+        return (0, int(str(row.get("id") or "0")))
+    except ValueError:
+        return (0, 0)
+
+
+def validate_window_rows(rows: list[dict[str, Any]], start: date, end: date) -> str | None:
+    invalid_dates: list[str] = []
+    outside_window: list[str] = []
+    for row in rows:
+        item_id = str(row.get("id") or "missing-id")
+        created_at = parse_created_at(row.get("created_at"))
+        if created_at is None:
+            invalid_dates.append(item_id)
+            continue
+        if not start <= created_at.date() < end:
+            outside_window.append(item_id)
+    if invalid_dates or outside_window:
+        return (
+            "SearchTimeline result failed date validation: "
+            f"invalid_created_at={len(invalid_dates)}, outside_window={len(outside_window)}"
+        )
+    return None
+
+
 def load_checkpoint(path: Path, restart: bool) -> tuple[list[dict[str, Any]], dict[str, dict[str, Any]]]:
     if restart or not path.exists():
         return [], {}
@@ -129,7 +173,7 @@ def summarize(items: dict[str, dict[str, Any]]) -> dict[str, Any]:
     kinds = {"post": 0, "reply": 0, "repost": 0}
     for row in values:
         kinds[row.get("kind", "post")] = kinds.get(row.get("kind", "post"), 0) + 1
-    ordered = sorted(values, key=lambda row: str(row.get("id", "")), reverse=True)
+    ordered = sorted(values, key=chronological_key, reverse=True)
     return {
         "unique_items": len(values),
         "kinds": kinds,
@@ -237,6 +281,14 @@ def main() -> int:
             print(json.dumps({"window": key, "status": status}, ensure_ascii=False), flush=True)
             return 75 if rate_limited else 1
 
+        validation_error = validate_window_rows(rows, window_start, window_end)
+        if validation_error:
+            status = "partial_validation_error"
+            coverage.append({"window": key, "status": status, "error": validation_error})
+            save(args.output, args.handle, start, end, args.limit_per_window, coverage, items, status)
+            print(json.dumps({"window": key, "status": status}, ensure_ascii=False), flush=True)
+            return 1
+
         for raw in rows:
             item = normalize(raw, args.handle)
             if item:
@@ -252,12 +304,13 @@ def main() -> int:
             })
             queue = [split[0], split[1], *queue]
         else:
+            ordered_rows = sorted(rows, key=chronological_key, reverse=True)
             coverage.append({
                 "window": key,
                 "status": "complete",
                 "count": len(rows),
-                "newest": rows[0].get("created_at") if rows else None,
-                "oldest": rows[-1].get("created_at") if rows else None,
+                "newest": ordered_rows[0].get("created_at") if ordered_rows else None,
+                "oldest": ordered_rows[-1].get("created_at") if ordered_rows else None,
             })
             completed.add(key)
 

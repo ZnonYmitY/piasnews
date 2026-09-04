@@ -7,7 +7,7 @@ description: Generate evidence-grounded, entertainment-first Oscar Piastri fan-c
 
 Create a clearly unofficial fan interpretation grounded in public material. The front-stage experience should feel brief, natural, and recognizably restrained. The internal system should remain auditable: facts, judgment, expression, boundary routing, and feedback changes are separate objects.
 
-This skill is an experimental `v0.2.0` source package. Public runtime is disabled until its candidate rules pass human review and frozen regressions.
+This skill is an experimental `v0.2.1` source package. Public runtime is disabled until its candidate rules pass human review and frozen regressions.
 
 ## Load only what the request needs
 
