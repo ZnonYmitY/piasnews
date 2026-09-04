@@ -1,9 +1,31 @@
 {
   "schema_version": 1,
-  "generated_at": null,
+  "generated_at": "2026-09-04T16:31:26.921946Z",
   "driver_number": 81,
   "source": "OpenF1 session_result",
-  "attempted_session_ref": null,
-  "result_available": false,
-  "latest": null
+  "attempted_session_ref": "2026-round-13:practice_2",
+  "result_available": true,
+  "latest": {
+    "session_ref": "2026-round-13:practice_2",
+    "race_id": "2026-round-13",
+    "race_name": "Italian Grand Prix",
+    "race_name_zh": "意大利大奖赛",
+    "session": "practice_2",
+    "session_name": "Practice 2",
+    "session_key": 11355,
+    "session_start": "2026-09-04T14:00:00Z",
+    "session_end": "2026-09-04T15:00:00+00:00",
+    "driver_number": 81,
+    "position": 6,
+    "status": "classified",
+    "dnf": false,
+    "dns": false,
+    "dsq": false,
+    "number_of_laps": 26,
+    "gap_to_leader": 0.469,
+    "duration": 83.028,
+    "source": "OpenF1",
+    "source_url": "https://api.openf1.org/v1/session_result?session_key=11355&driver_number=81",
+    "fetched_at": "2026-09-04T16:31:26.921946Z"
+  }
 }
