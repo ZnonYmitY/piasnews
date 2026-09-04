@@ -35,7 +35,16 @@ def social_item(item_id, text, *, official=False, source="@fan", likes=1000, ima
 
 
 class HotEventBuildTest(unittest.TestCase):
-    def build(self, items, social, overrides=None, previous=None, calendar=None, refresh_reason=""):
+    def build(
+        self,
+        items,
+        social,
+        overrides=None,
+        previous=None,
+        calendar=None,
+        session_results=None,
+        refresh_reason="",
+    ):
         with tempfile.TemporaryDirectory() as tmpdir:
             temp = Path(tmpdir)
             paths = {
@@ -44,6 +53,7 @@ class HotEventBuildTest(unittest.TestCase):
                 "overrides": temp / "overrides.json",
                 "previous": temp / "previous.json",
                 "calendar": temp / "calendar.json",
+                "session_results": temp / "session-results.json",
                 "output": temp / "hot.json",
             }
             paths["items"].write_text(json.dumps({"items": items}))
@@ -51,10 +61,12 @@ class HotEventBuildTest(unittest.TestCase):
             paths["overrides"].write_text(json.dumps(overrides or {"changes": []}))
             paths["previous"].write_text(json.dumps(previous or {"events": []}))
             paths["calendar"].write_text(json.dumps(calendar or {"races": []}))
+            paths["session_results"].write_text(json.dumps(session_results or {"result_available": False, "latest": None}))
             args = argparse.Namespace(
                 items=str(paths["items"]),
                 social=str(paths["social"]),
                 calendar=str(paths["calendar"]),
+                session_results=str(paths["session_results"]),
                 config=str(ROOT / "config" / "hot-ranking.json"),
                 overrides=str(paths["overrides"]),
                 previous=str(paths["previous"]),
@@ -146,7 +158,7 @@ class HotEventBuildTest(unittest.TestCase):
         self.assertEqual(event["heat"], 88)
         self.assertEqual(event["rank"], 1)
 
-    def test_manual_rank_one_overrides_session_result_hard_rule(self):
+    def test_session_result_hard_rule_overrides_manual_rank_one(self):
         manual = {
             "event_id": "evt-manual-editorial",
             "heat": 20,
@@ -160,7 +172,23 @@ class HotEventBuildTest(unittest.TestCase):
             "hard_rule": {"type": "session_result"},
         }
         ranked = builder.rank_events([session, manual], 15)
-        self.assertEqual([row["event_id"] for row in ranked], ["evt-manual-editorial", "evt-session-result"])
+        self.assertEqual([row["event_id"] for row in ranked], ["evt-session-result", "evt-manual-editorial"])
+
+    def test_zero_heat_manual_pin_drops_below_the_normal_threshold(self):
+        old = social_item("old-pin", "An old manually pinned Oscar post", likes=9000)
+        old["published_at"] = "2026-08-22T10:00:00Z"
+        initial = self.build([], [old])
+        event_id = initial["events"][0]["event_id"] if initial["events"] else builder.event_id_for(None, old)
+        overrides = {"changes": [{
+            "event_id": event_id,
+            "status": "active",
+            "pinned_rank": 1,
+            "hidden": False,
+        }]}
+
+        payload = self.build([], [old], overrides=overrides)
+
+        self.assertEqual(payload["events"], [])
 
     def test_manual_rank_uses_exact_available_position(self):
         events = [
@@ -214,6 +242,76 @@ class HotEventBuildTest(unittest.TestCase):
         self.assertEqual(event["hot_word_zh"], "Oscar 在荷兰站正赛获得第6名")
         self.assertEqual(event["hard_rule"]["type"], "session_result")
         self.assertEqual(event["rank"], 1)
+
+    def test_structured_session_result_is_independent_of_news_and_beats_manual_pin(self):
+        calendar = {"races": [{
+            "id": "2026-round-13",
+            "season": 2026,
+            "name": "Italian Grand Prix",
+            "name_zh": "意大利大奖赛",
+            "sessions": {"practice_1": "2026-08-25T10:30:00Z"},
+        }]}
+        session_results = {
+            "result_available": True,
+            "latest": {
+                "session_ref": "2026-round-13:practice_1",
+                "race_id": "2026-round-13",
+                "race_name": "Italian Grand Prix",
+                "race_name_zh": "意大利大奖赛",
+                "session": "practice_1",
+                "position": 11,
+                "status": "classified",
+                "session_end": "2026-08-25T11:30:00Z",
+                "source": "OpenF1",
+                "source_url": "https://api.openf1.org/v1/session_result?session_key=11354&driver_number=81",
+            },
+        }
+        manual_source = social_item("manual-pin", "Oscar arrives at Monza", likes=2000)
+        initial = self.build([], [manual_source])
+        manual_event_id = initial["events"][0]["event_id"]
+        overrides = {"changes": [{
+            "event_id": manual_event_id,
+            "status": "active",
+            "pinned_rank": 1,
+            "hidden": False,
+        }]}
+
+        payload = self.build(
+            [],
+            [manual_source],
+            overrides=overrides,
+            calendar=calendar,
+            session_results=session_results,
+            refresh_reason="session_completed:2026-round-13:practice_1",
+        )
+
+        self.assertEqual(payload["events"][0]["hot_word_zh"], "Oscar 在意大利站一练获得第11名")
+        self.assertEqual(payload["events"][0]["hard_rule"]["source"], "OpenF1")
+        self.assertEqual(payload["events"][0]["rank"], 1)
+        self.assertEqual(payload["events"][1]["event_id"], manual_event_id)
+
+    def test_structured_session_result_supports_dnf(self):
+        event = builder.structured_session_result_event(
+            {
+                "result_available": True,
+                "latest": {
+                    "session_ref": "race-1:race",
+                    "race_id": "race-1",
+                    "race_name": "Italian Grand Prix",
+                    "race_name_zh": "意大利大奖赛",
+                    "session": "race",
+                    "status": "DNF",
+                    "position": None,
+                    "source": "OpenF1",
+                    "source_url": "https://api.openf1.org/v1/session_result?session_key=1&driver_number=81",
+                },
+            },
+            {"races": []},
+            "session_completed:race-1:race",
+            builder.now_time(NOW),
+        )
+
+        self.assertEqual(event["hot_word_zh"], "Oscar 在意大利站正赛未能完赛（DNF）")
 
 
 if __name__ == "__main__":

@@ -26,6 +26,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Gate scheduled Piasnews refreshes.")
     parser.add_argument("--calendar", default="data/calendar.json")
     parser.add_argument("--daily", default="data/daily.json")
+    parser.add_argument("--session-results", default="data/session-results.json")
     parser.add_argument("--now", help="Override current UTC time.")
     parser.add_argument("--daily-hours", type=int, default=24)
     parser.add_argument("--confirmation-minutes", type=int, default=15)
@@ -74,14 +75,15 @@ def decision(
     daily_hours: int,
     confirmation_minutes: int,
     force: bool,
+    handled_session_ref: str | None = None,
 ) -> tuple[bool, str]:
+    completed = [row for row in session_ready_times(calendar, confirmation_minutes) if row[0] <= now]
+    if completed and completed[-1][1] != handled_session_ref:
+        return True, f"session_completed:{completed[-1][1]}"
     if force:
         return True, "manual_dispatch"
     if last_generated is None:
         return True, "missing_previous_generation"
-    completed = [row for row in session_ready_times(calendar, confirmation_minutes) if last_generated < row[0] <= now]
-    if completed:
-        return True, f"session_completed:{completed[-1][1]}"
     if now - last_generated >= timedelta(hours=daily_hours):
         return True, "daily_refresh_due"
     return False, "waiting_for_daily_or_session_trigger"
@@ -92,6 +94,8 @@ def main() -> int:
     now = parse_time(args.now) or datetime.now(timezone.utc)
     daily = read_json(Path(args.daily), {})
     calendar = read_json(Path(args.calendar), {"races": []})
+    session_results = read_json(Path(args.session_results), {"latest": None})
+    latest_result = session_results.get("latest") or {}
     force = args.force or os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch"
     should_run, reason = decision(
         now=now,
@@ -100,6 +104,7 @@ def main() -> int:
         daily_hours=max(1, args.daily_hours),
         confirmation_minutes=max(0, args.confirmation_minutes),
         force=force,
+        handled_session_ref=latest_result.get("session_ref"),
     )
     print(f"should_run={'true' if should_run else 'false'} reason={reason}")
     output = os.environ.get("GITHUB_OUTPUT")

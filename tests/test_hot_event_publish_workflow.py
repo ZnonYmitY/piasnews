@@ -31,7 +31,7 @@ class HotEventPublishWorkflowTests(unittest.TestCase):
         self.assertIn("if (state.sessionValidation) return state.sessionValidation", app)
         self.assertIn("state.session = null;\n  elements.settingsDialog.close()", app)
         self.assertIn("await loadSession({ force: true })", app)
-        self.assertIn("app.js?v=20260830-admin-session", html)
+        self.assertRegex(html, r'app\.js\?v=\d{8}-')
 
     def test_workflow_serializes_writes_and_checks_event_version(self):
         workflow = (ROOT / ".github/workflows/review-hot-events.yml").read_text(encoding="utf-8")
@@ -51,11 +51,22 @@ class HotEventPublishWorkflowTests(unittest.TestCase):
         self.assertNotIn("formatDate(override.updated_at)", app)
         self.assertIn("从前台隐藏（后台仍保留）", html)
         self.assertIn("人工指定名次", html)
+        self.assertIn("置顶只改变排序，不绕过热度门槛", html)
+        self.assertIn("赛后成绩硬规则优先", html)
 
     def test_pages_artifact_includes_override_catalog_for_read_only_admin(self):
         for workflow_name in ("update-piasnews.yml", "review-history.yml"):
             workflow = (ROOT / ".github/workflows" / workflow_name).read_text(encoding="utf-8")
             self.assertIn("data/hot-event-overrides.json public/data/", workflow)
+
+    def test_refresh_fetches_and_publishes_structured_session_results(self):
+        workflow = (ROOT / ".github/workflows" / "update-piasnews.yml").read_text(encoding="utf-8")
+        review_workflow = (ROOT / ".github/workflows" / "review-history.yml").read_text(encoding="utf-8")
+
+        self.assertIn("Fetch latest Oscar session result", workflow)
+        self.assertIn("scripts/fetch_f1_session_results.py", workflow)
+        self.assertIn("data/session-results.json", workflow)
+        self.assertIn("data/session-results.json", review_workflow)
 
     def test_data_refresh_rejects_retained_media_regressions(self):
         workflow = (ROOT / ".github/workflows" / "update-piasnews.yml").read_text(encoding="utf-8")

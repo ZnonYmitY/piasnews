@@ -24,6 +24,7 @@ class RefreshGateTest(unittest.TestCase):
             daily_hours=24,
             confirmation_minutes=15,
             force=False,
+            handled_session_ref=None,
         )
         self.assertTrue(run)
         self.assertIn("practice_1", reason)
@@ -37,9 +38,53 @@ class RefreshGateTest(unittest.TestCase):
             daily_hours=24,
             confirmation_minutes=15,
             force=False,
+            handled_session_ref=None,
         )
         self.assertFalse(run)
         self.assertEqual(reason, "waiting_for_daily_or_session_trigger")
+
+    def test_retries_session_until_result_is_recorded(self):
+        now = datetime(2026, 9, 4, 12, 20, tzinfo=timezone.utc)
+        calendar = {"races": [{
+            "id": "2026-round-13",
+            "sessions": {"practice_1": "2026-09-04T10:30:00Z"},
+        }]}
+        common = {
+            "now": now,
+            "last_generated": now - timedelta(minutes=5),
+            "calendar": calendar,
+            "daily_hours": 24,
+            "confirmation_minutes": 15,
+            "force": False,
+        }
+
+        run, reason = should_refresh.decision(**common, handled_session_ref=None)
+        self.assertTrue(run)
+        self.assertEqual(reason, "session_completed:2026-round-13:practice_1")
+
+        run, reason = should_refresh.decision(
+            **common,
+            handled_session_ref="2026-round-13:practice_1",
+        )
+        self.assertFalse(run)
+        self.assertEqual(reason, "waiting_for_daily_or_session_trigger")
+
+    def test_unhandled_session_takes_priority_over_manual_dispatch(self):
+        run, reason = should_refresh.decision(
+            now=datetime(2026, 9, 4, 12, 20, tzinfo=timezone.utc),
+            last_generated=datetime(2026, 9, 4, 10, 0, tzinfo=timezone.utc),
+            calendar={"races": [{
+                "id": "2026-round-13",
+                "sessions": {"practice_1": "2026-09-04T10:30:00Z"},
+            }]},
+            daily_hours=24,
+            confirmation_minutes=15,
+            force=True,
+            handled_session_ref=None,
+        )
+
+        self.assertTrue(run)
+        self.assertEqual(reason, "session_completed:2026-round-13:practice_1")
 
 
 if __name__ == "__main__":

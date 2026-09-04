@@ -53,6 +53,8 @@ Enter the same Worker URL and `ADMIN_API_KEY` in the admin console connection se
 
 Hot-event changes may include a `content_items` snapshot with at most 50 entries. Every entry has a stable `item_id`, source type, source name, title, HTTPS original URL, and optional per-item image, video, and video-poster URLs. Draft snapshots coexist with the active version until a publisher activates them.
 
+An editorial position changes order only while the event still meets the ranking's normal `minimum_heat` threshold. It does not keep a zero-heat event on the public ranking, and it cannot displace the structured post-session result hard rule from rank 1. The override remains visible in the workbench after the public event exits, so an editor can inspect or revise it later.
+
 The workbench sends the selected event's `updated_at` as `expected_updated_at`. The Worker checks it against the repository before dispatch, and the serialized workflow checks it again before writing. A stale edit receives HTTP 409 and must refresh; edits to different events continue through the same queue without overwriting each other.
 
 Roles are ordered `viewer < editor < publisher < admin`. Keys are never committed or returned by the API. For a larger team, replace keyed sessions with Cloudflare Access or GitHub App/OAuth while keeping the same role checks.

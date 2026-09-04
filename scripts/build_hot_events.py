@@ -48,6 +48,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--items", default=str(ROOT / "data/items.json"))
     parser.add_argument("--social", default=str(ROOT / "data/social.json"))
     parser.add_argument("--calendar", default=str(ROOT / "data/calendar.json"))
+    parser.add_argument("--session-results", default=str(ROOT / "data/session-results.json"))
     parser.add_argument("--config", default=str(ROOT / "config/hot-ranking.json"))
     parser.add_argument("--overrides", default=str(ROOT / "data/hot-event-overrides.json"))
     parser.add_argument("--previous", default=str(ROOT / "data/hot-events.json"))
@@ -304,6 +305,102 @@ def apply_session_result_hard_rule(
     }
 
 
+def structured_session_result_event(
+    session_results: dict[str, Any], calendar: dict[str, Any], refresh_reason: str, now: datetime
+) -> dict[str, Any] | None:
+    prefix = "session_completed:"
+    if not refresh_reason.startswith(prefix) or not session_results.get("result_available"):
+        return None
+    expected_ref = refresh_reason[len(prefix):]
+    result = session_results.get("latest") or {}
+    if clean(result.get("session_ref")) != expected_ref:
+        return None
+
+    race_id = clean(result.get("race_id"))
+    race = next((row for row in calendar.get("races") or [] if clean(row.get("id")) == race_id), {})
+    session = clean(result.get("session"))
+    if session not in SESSION_LABELS:
+        return None
+    session_zh, session_en = SESSION_LABELS[session]
+    race_zh = clean(result.get("race_name_zh") or race.get("name_zh") or result.get("race_name") or "最近一站")
+    race_zh = race_zh.replace("大奖赛", "站")
+    race_en = clean(result.get("race_name") or race.get("name") or "the latest Grand Prix")
+    status = clean(result.get("status")) or "classified"
+    position = result.get("position")
+    if status == "DSQ":
+        hot_word_zh = f"Oscar 在{race_zh}{session_zh}被取消成绩（DSQ）"
+        hot_word_en = f"Oscar is disqualified from {race_en} {session_en}"
+    elif status == "DNS":
+        hot_word_zh = f"Oscar 未能参加{race_zh}{session_zh}（DNS）"
+        hot_word_en = f"Oscar does not start {race_en} {session_en}"
+    elif status == "DNF":
+        hot_word_zh = f"Oscar 在{race_zh}{session_zh}未能完赛（DNF）"
+        hot_word_en = f"Oscar does not finish {race_en} {session_en}"
+    elif isinstance(position, int) and 1 <= position <= 99:
+        hot_word_zh = f"Oscar 在{race_zh}{session_zh}获得第{position}名"
+        if session == "race":
+            hot_word_en = f"Oscar finishes P{position} in the {race_en}"
+        elif session == "qualifying":
+            hot_word_en = f"Oscar qualifies P{position} for the {race_en}"
+        else:
+            hot_word_en = f"Oscar finishes P{position} in {race_en} {session_en}"
+    else:
+        return None
+
+    source_url = clean(result.get("source_url"))
+    published_at = clean(result.get("session_end") or result.get("fetched_at")) or isoformat(now)
+    item_id = f"session-result-{race_id or 'race'}-{session}"
+    hard_rule = {
+        "type": "session_result",
+        "race_id": race_id,
+        "session": session,
+        "position": position,
+        "status": status,
+        "source_item_id": item_id,
+        "source": clean(result.get("source")) or "OpenF1",
+    }
+    return {
+        "event_id": f"evt-session-result-{race_id or 'race'}-{session}",
+        "rule_id": None,
+        "hot_word_zh": hot_word_zh,
+        "hot_word_en": hot_word_en,
+        "first_seen_at": published_at,
+        "last_seen_at": published_at,
+        "anchor_item_id": item_id,
+        "image_url": None,
+        "video_url": None,
+        "video_poster_url": None,
+        "review_needed": False,
+        "review_needed_reason": None,
+        "official_heat": 0,
+        "media_heat": 100,
+        "fan_heat": 0,
+        "heat": 100,
+        "source_labels": [SOURCE_LABELS["media"]],
+        "source_counts": {"official": 0, "media": 1, "fan": 0},
+        "pinned_rank": 1,
+        "hidden": False,
+        "hard_rule": hard_rule,
+        "items": [{
+            "item_id": item_id,
+            "dataset": "session_result",
+            "source_type": "media",
+            "source": clean(result.get("source")) or "OpenF1",
+            "title": hot_word_en,
+            "title_zh": hot_word_zh,
+            "summary": "Structured session result for Oscar Piastri.",
+            "summary_zh": "Oscar Piastri 的结构化场次成绩。",
+            "url": source_url,
+            "published_at": published_at,
+            "image_url": None,
+            "video_url": None,
+            "video_poster_url": None,
+            "heat_contribution": 100,
+            "metrics": {},
+        }],
+    }
+
+
 def media_fields(item: dict[str, Any]) -> tuple[str | None, str | None, str | None]:
     image = clean(item.get("image_url") or item.get("thumbnail_url") or item.get("og_image")) or None
     video = clean(item.get("video_url")) or None
@@ -402,16 +499,28 @@ def apply_override(event: dict[str, Any], override: dict[str, Any]) -> dict[str,
 
 
 def rank_events(events: list[dict[str, Any]], maximum_events: int) -> list[dict[str, Any]]:
-    """Place editorial ranks first, then a session result, then heat-ranked events."""
+    """Place the latest session result first, then editorial and heat-ranked events."""
     slots: list[dict[str, Any] | None] = [None] * maximum_events
     remaining = list(events)
+    placed_ids: set[str] = set()
 
     def editorial_recency(event: dict[str, Any]) -> float:
         updated = parse_time((event.get("override") or {}).get("updated_at"))
         return updated.timestamp() if updated else 0.0
 
+    hard_rules = sorted(
+        (event for event in remaining if (event.get("hard_rule") or {}).get("type") == "session_result"),
+        key=lambda event: (-event["heat"], event["event_id"]),
+    )
+    if hard_rules and slots:
+        slots[0] = hard_rules[0]
+        placed_ids.add(hard_rules[0]["event_id"])
+
     pinned = sorted(
-        (event for event in remaining if event.get("pinned_rank")),
+        (
+            event for event in remaining
+            if event.get("pinned_rank") and (event.get("hard_rule") or {}).get("type") != "session_result"
+        ),
         key=lambda event: (
             int(event["pinned_rank"]),
             -editorial_recency(event),
@@ -419,7 +528,6 @@ def rank_events(events: list[dict[str, Any]], maximum_events: int) -> list[dict[
             event["event_id"],
         ),
     )
-    placed_ids: set[str] = set()
     for event in pinned:
         slot = int(event["pinned_rank"]) - 1
         if 0 <= slot < maximum_events and slots[slot] is None:
@@ -427,17 +535,6 @@ def rank_events(events: list[dict[str, Any]], maximum_events: int) -> list[dict[
             placed_ids.add(event["event_id"])
 
     remaining = [event for event in remaining if event["event_id"] not in placed_ids]
-    hard_rules = sorted(
-        (event for event in remaining if (event.get("hard_rule") or {}).get("type") == "session_result"),
-        key=lambda event: (-event["heat"], event["event_id"]),
-    )
-    for event in hard_rules:
-        free_slot = next((index for index, value in enumerate(slots) if value is None), None)
-        if free_slot is None:
-            break
-        slots[free_slot] = event
-        placed_ids.add(event["event_id"])
-
     remaining = sorted(
         (event for event in remaining if event["event_id"] not in placed_ids),
         key=lambda event: (-event["heat"], event["event_id"]),
@@ -460,6 +557,10 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
     items_payload = read_json(Path(args.items), {"items": []})
     social_payload = read_json(Path(args.social), {"items": []})
     calendar = read_json(Path(getattr(args, "calendar", ROOT / "data/calendar.json")), {"races": []})
+    session_results = read_json(
+        Path(getattr(args, "session_results", ROOT / "data/session-results.json")),
+        {"result_available": False, "latest": None},
+    )
     previous = read_json(Path(args.previous), {"events": []})
     overrides_payload = read_json(Path(args.overrides), {"changes": []})
     cutoff = now - timedelta(days=int(config.get("display_window_days") or 7))
@@ -573,7 +674,7 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
         if event.get("review_needed") and event["event_id"] not in active_overrides:
             review_needed_events.append(event)
             continue
-        if not event.get("hidden") and (event["heat"] >= int(config.get("minimum_heat") or 0) or event.get("pinned_rank")):
+        if not event.get("hidden") and event["heat"] >= int(config.get("minimum_heat") or 0):
             events.append(event)
 
     known_event_ids = {event["event_id"] for event in draft_events}
@@ -603,16 +704,16 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
             "review_needed": False,
             "review_needed_reason": None,
         }, override)
-        if not manual_event.get("hidden") and (manual_event["heat"] >= int(config.get("minimum_heat") or 0) or manual_event.get("pinned_rank")):
+        if not manual_event.get("hidden") and manual_event["heat"] >= int(config.get("minimum_heat") or 0):
             events.append(manual_event)
 
-    apply_session_result_hard_rule(
-        events,
-        records,
-        calendar,
-        clean(getattr(args, "refresh_reason", "")),
-        now,
-    )
+    refresh_reason = clean(getattr(args, "refresh_reason", ""))
+    structured_result = structured_session_result_event(session_results, calendar, refresh_reason, now)
+    if structured_result:
+        events = [event for event in events if event["event_id"] != structured_result["event_id"]]
+        events.append(structured_result)
+    else:
+        apply_session_result_hard_rule(events, records, calendar, refresh_reason, now)
     events = rank_events(events, int(config.get("maximum_events") or 15))
 
     return {

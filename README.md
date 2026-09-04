@@ -306,6 +306,7 @@ GitHub Pages：
 - 每日统计：https://znonymity.github.io/piasnews/data/daily.json
 - RSS Feed：https://znonymity.github.io/piasnews/data/rss.xml
 - F1 赛历：https://znonymity.github.io/piasnews/data/calendar.json
+- 最近场次成绩：https://znonymity.github.io/piasnews/data/session-results.json
 - 添加下一场正赛：https://znonymity.github.io/piasnews/data/next-race.ics
 - 添加下一场比赛周末：https://znonymity.github.io/piasnews/data/next-weekend.ics
 - 添加全年赛历：https://znonymity.github.io/piasnews/data/full-season.ics
@@ -320,6 +321,7 @@ GitHub raw fallback：
 - 每日统计：[data/daily.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/daily.json)
 - RSS Feed：[data/rss.xml](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/rss.xml)
 - F1 赛历：[data/calendar.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/calendar.json)
+- 最近场次成绩：[data/session-results.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/session-results.json)
 - 添加下一场正赛：[data/next-race.ics](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/next-race.ics)
 - 添加下一场比赛周末：[data/next-weekend.ics](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/next-weekend.ics)
 - 添加全年赛历：[data/full-season.ics](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/full-season.ics)
@@ -382,6 +384,7 @@ launchctl print gui/$(id -u)/com.znonymity.piasnews.immersive
 ```bash
 python3 scripts/fetch_piasnews.py --days 3 --output-dir data
 python3 scripts/fetch_f1_calendar.py --output data/calendar.json
+python3 scripts/fetch_f1_session_results.py --calendar data/calendar.json --output data/session-results.json
 scripts/update_social_agent_reach.sh
 python3 scripts/fetch_social_sources.py --days 3 --output data/social.json
 python3 scripts/build_history_candidates.py
@@ -396,7 +399,9 @@ python3 scripts/validate_history.py
 python3 scripts/build_hot_events.py
 ```
 
-后台 `/admin/` 新增热榜工作台。角色由 Worker 的 `ADMIN_KEYS_JSON` 配置：`viewer` 可查看，`editor` 可保存草稿，`publisher` 和 `admin` 可提交生效覆盖。工作台支持查看事件下的当前内容列表，新增、删除或编辑单条内容及其原链接和媒体。覆盖数据与采集数据分开保存；从前台隐藏的事件仍保留在后台并标记为“前台隐藏”。人工指定名次可把事件插入目标位置，填写 1 即强插第一；同一名次以最近发布的修改优先。草稿只写入配置，启用覆盖会在配置提交后自动触发正式站发布。热榜写入工作流串行执行；同一事件采用乐观版本校验，旧页面不会静默覆盖其他管理员的新修改，而会要求刷新后重新提交。
+比赛周赛段结束并经过 15 分钟确认缓冲后，工作流从 OpenF1 `session_result` 获取 Oscar 的结构化成绩，不依赖新闻标题是否及时收录。结果可用时生成“人物＋场次＋名次/状态”热点并硬置顶第一，支持正常名次以及 DNF、DNS、DSQ；如果结果暂未返回，gate 会在后续检查中重试。成绩热点保持到下一次成功重建热榜。
+
+后台 `/admin/` 新增热榜工作台。角色由 Worker 的 `ADMIN_KEYS_JSON` 配置：`viewer` 可查看，`editor` 可保存草稿，`publisher` 和 `admin` 可提交生效覆盖。工作台支持查看事件下的当前内容列表，新增、删除或编辑单条内容及其原链接和媒体。覆盖数据与采集数据分开保存；从前台隐藏的事件仍保留在后台并标记为“前台隐藏”。人工指定名次只调整仍满足普通热度门槛的事件顺序，不能阻挡赛后成绩硬置顶，也不能让低于 `minimum_heat`（当前为 8，含热度 0）的事件继续留榜；相同人工名次以最近发布的修改优先。草稿只写入配置，启用覆盖会在配置提交后自动触发正式站发布。热榜写入工作流串行执行；同一事件采用乐观版本校验，旧页面不会静默覆盖其他管理员的新修改，而会要求刷新后重新提交。
 
 本版本不启用评论，也不让大模型直接决定聚类或排名。内容逐步保留 7 天、热度按 72 小时衰减、翻译缓存保留 8 天；正文搜索匹配英文原文。
 
@@ -432,6 +437,7 @@ python3 scripts/build_hot_events.py
 ├── data/
 │   ├── daily.json
 │   ├── calendar.json
+│   ├── session-results.json
 │   ├── history-candidates.json
 │   ├── history.json
 │   ├── items.json
@@ -808,6 +814,7 @@ GitHub Pages:
 - Daily stats: https://znonymity.github.io/piasnews/data/daily.json
 - RSS feed: https://znonymity.github.io/piasnews/data/rss.xml
 - F1 calendar: https://znonymity.github.io/piasnews/data/calendar.json
+- Latest session result: https://znonymity.github.io/piasnews/data/session-results.json
 - Add next race: https://znonymity.github.io/piasnews/data/next-race.ics
 - Add next race weekend: https://znonymity.github.io/piasnews/data/next-weekend.ics
 - Add full season: https://znonymity.github.io/piasnews/data/full-season.ics
@@ -822,6 +829,7 @@ GitHub raw fallback:
 - Daily stats: [data/daily.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/daily.json)
 - RSS feed: [data/rss.xml](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/rss.xml)
 - F1 calendar: [data/calendar.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/calendar.json)
+- Latest session result: [data/session-results.json](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/session-results.json)
 - Add next race: [data/next-race.ics](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/next-race.ics)
 - Add next race weekend: [data/next-weekend.ics](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/next-weekend.ics)
 - Add full season: [data/full-season.ics](https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/full-season.ics)
@@ -888,6 +896,7 @@ Update locally:
 ```bash
 python3 scripts/fetch_piasnews.py --days 3 --output-dir data
 python3 scripts/fetch_f1_calendar.py --output data/calendar.json
+python3 scripts/fetch_f1_session_results.py --calendar data/calendar.json --output data/session-results.json
 scripts/update_social_agent_reach.sh
 python3 scripts/fetch_social_sources.py --days 3 --output data/social.json
 python3 scripts/build_history_candidates.py
@@ -898,7 +907,9 @@ python3 scripts/validate_history.py
 
 The former Short tab is now a merged hot ranking with objective hot words, source labels, integer heat, and related items. Deterministic rules live in `config/hot-ranking.json`; generate the snapshot with `python3 scripts/build_hot_events.py`.
 
-The `/admin/` workbench uses Worker roles configured through `ADMIN_KEYS_JSON`: viewers can inspect, editors can save drafts, and publishers or admins can activate overrides. Editorial overlays remain separate from collected source data. Events hidden from the public ranking remain visible and labeled in the workbench. An editorial position inserts an event into the requested slot; position 1 is a manual force-to-top override, and the newest publication wins a same-slot collision. Drafts only update configuration; activating an override automatically triggers a production-site deployment after the configuration commit. Writes are serialized, and optimistic per-event version checks reject stale edits instead of silently overwriting another administrator's work.
+After a race-weekend session and its 15-minute confirmation buffer, the workflow reads Oscar's structured result from OpenF1 `session_result`. A normal position or DNF/DNS/DSQ status becomes the hard-ranked first event until the next successful hot-ranking rebuild. Missing results remain unhandled so the 15-minute gate retries instead of silently accepting a result-less refresh.
+
+The `/admin/` workbench uses Worker roles configured through `ADMIN_KEYS_JSON`: viewers can inspect, editors can save drafts, and publishers or admins can activate overrides. Editorial overlays remain separate from collected source data. Events hidden from the public ranking remain visible and labeled in the workbench. An editorial position only reorders an event that still meets the normal `minimum_heat` threshold; it cannot displace the session-result hard rule or keep a zero-heat event on the ranking. The newest publication wins a same-slot editorial collision. Drafts only update configuration; activating an override automatically triggers a production-site deployment after the configuration commit. Writes are serialized, and optimistic per-event version checks reject stale edits instead of silently overwriting another administrator's work.
 
 Comments and direct model-based ranking are out of scope for this MVP. Content is gradually retained for seven days, heat uses a decayed 72-hour window, translations are cached for eight days, and body search matches original English text.
 
@@ -934,6 +945,7 @@ Comments and direct model-based ranking are out of scope for this MVP. Content i
 ├── data/
 │   ├── daily.json
 │   ├── calendar.json
+│   ├── session-results.json
 │   ├── history-candidates.json
 │   ├── history.json
 │   ├── items.json

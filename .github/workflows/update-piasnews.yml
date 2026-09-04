@@ -60,7 +60,7 @@ jobs:
       - name: Snapshot current public data
         run: |
           mkdir -p "$RUNNER_TEMP/piasnews-before-data"
-          cp data/items.json data/daily.json data/social.json data/calendar.json data/immersive_translations.zh.json data/history-candidates.json "$RUNNER_TEMP/piasnews-before-data/" 2>/dev/null || true
+          cp data/items.json data/daily.json data/social.json data/calendar.json data/session-results.json data/immersive_translations.zh.json data/history-candidates.json "$RUNNER_TEMP/piasnews-before-data/" 2>/dev/null || true
 
       - name: Fetch latest Piasnews data
         if: ${{ inputs.apply_only != true }}
@@ -69,6 +69,10 @@ jobs:
       - name: Fetch Formula 1 calendar
         if: ${{ inputs.apply_only != true }}
         run: python scripts/fetch_f1_calendar.py --output data/calendar.json
+
+      - name: Fetch latest Oscar session result
+        if: ${{ inputs.apply_only != true }}
+        run: python scripts/fetch_f1_session_results.py --calendar data/calendar.json --output data/session-results.json
 
       - name: Build Formula 1 calendar files
         if: ${{ inputs.apply_only != true }}
@@ -145,7 +149,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/items.json data/daily.json data/rss.xml data/calendar.json data/next-race.ics data/next-weekend.ics data/full-season.ics data/social.json data/immersive_translations.zh.json data/translation-fallback.json data/history-candidates.json data/hot-events.json data/translation_candidates.csv
+          git add data/items.json data/daily.json data/rss.xml data/calendar.json data/session-results.json data/next-race.ics data/next-weekend.ics data/full-season.ics data/social.json data/immersive_translations.zh.json data/translation-fallback.json data/history-candidates.json data/hot-events.json data/translation_candidates.csv
           if git diff --cached --quiet; then
             echo "No Piasnews data changes."
           else
@@ -161,7 +165,7 @@ jobs:
           PIASNEWS_WORKER_URL: ${{ vars.PIASNEWS_WORKER_URL }}
         run: |
           mkdir -p public/data
-          cp data/items.json data/daily.json data/rss.xml data/calendar.json data/next-race.ics data/next-weekend.ics data/full-season.ics data/social.json data/history.json data/history-candidates.json data/hot-events.json data/translation-fallback.json data/hot-event-overrides.json public/data/
+          cp data/items.json data/daily.json data/rss.xml data/calendar.json data/session-results.json data/next-race.ics data/next-weekend.ics data/full-season.ics data/social.json data/history.json data/history-candidates.json data/hot-events.json data/translation-fallback.json data/hot-event-overrides.json public/data/
           cp data/translation_candidates.csv public/data/translation_candidates.csv
           cp data/translation_candidates_latest.csv public/data/translation_candidates_latest.csv
           cp data/translation_candidates_latest.xlsx public/data/translation_candidates_latest.xlsx

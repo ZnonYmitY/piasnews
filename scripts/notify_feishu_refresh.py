@@ -21,10 +21,11 @@ TRACKED_FILES = {
     "daily": ("daily.json", "日报统计"),
     "social": ("social.json", "粉丝源"),
     "calendar": ("calendar.json", "F1 赛历"),
+    "session_results": ("session-results.json", "最近场次成绩"),
     "translations": ("immersive_translations.zh.json", "中文映射"),
     "history_candidates": ("history-candidates.json", "历史候选"),
 }
-VOLATILE_KEYS = {"generated_at", "discovered_at", "source_status"}
+VOLATILE_KEYS = {"generated_at", "discovered_at", "fetched_at", "source_status"}
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:

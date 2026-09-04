@@ -101,6 +101,8 @@ class FeishuRefreshNotificationTest(unittest.TestCase):
             write_json(current / "social.json", {"items": [{"id": "s1", "title": "Social", "published_at": "2026-07-13T01:00:00Z"}]})
             write_json(before / "calendar.json", {"races": [{"name": "A"}]})
             write_json(current / "calendar.json", {"races": [{"name": "B"}]})
+            write_json(before / "session-results.json", {"latest": {"session_ref": "race:practice_1", "position": 11}})
+            write_json(current / "session-results.json", {"latest": {"session_ref": "race:practice_2", "position": 6}})
 
             summary = notify.build_summary(before, current, page_url="https://example.com/", repo="owner/repo", run_id="123")
 
@@ -112,6 +114,7 @@ class FeishuRefreshNotificationTest(unittest.TestCase):
         self.assertNotIn("日报统计", labels)
         self.assertIn("粉丝源", labels)
         self.assertIn("F1 赛历", labels)
+        self.assertIn("最近场次成绩", labels)
         self.assertEqual(summary["run_url"], "https://github.com/owner/repo/actions/runs/123")
 
     def test_build_summary_tracks_daily_only_when_news_items_are_unchanged(self):

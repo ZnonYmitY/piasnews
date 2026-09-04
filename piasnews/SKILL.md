@@ -59,6 +59,8 @@ Use `data/items.json` for item-level reports. Use `data/daily.json` for counts a
 
 Use `data/calendar.json` for the current F1 season schedule, the next race, and race-week session times. Calendar data is schedule metadata and is not limited by the latest-3-days news window, but it must not be presented as news or used to fill an empty daily report. Prefer the linked official Formula 1 calendar when schedule verification matters.
 
+Use `data/session-results.json` for the latest structured Oscar session result. A session-triggered result event is absolute rank 1 until the next successful hot-ranking rebuild; editorial positions cannot displace it, and an editorial position does not keep an event below the normal heat threshold on the public ranking.
+
 Use `data/social.json` for optional X/Instagram posts and reposts. This file is generated from maintained source configuration plus user/project-provided access. It is separate from normal news data so the fan-source tab can show social updates without exposing the backend account list.
 
 If the static data is stale, unavailable, or does not cover the user's requested narrower window, fall back to the V0.5 live workflow while keeping the latest-3-days limit.

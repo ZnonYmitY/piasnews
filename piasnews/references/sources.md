@@ -73,6 +73,7 @@ The V1 collector writes these files:
 | `data/daily.json` | Daily item counts plus source/category breakdowns. |
 | `data/rss.xml` | RSS feed generated from normalized items. |
 | `data/calendar.json` | Current F1 season calendar, normalized session times, and next-race metadata. |
+| `data/session-results.json` | Latest structured Oscar session result and the handled session reference used by the refresh gate. |
 | `data/history.json` | Reviewed historical-event knowledge base for optional `Looking Back` context. |
 | `data/history-candidates.json` | Pending and completed history-review queue; never use it as fan-daily evidence. |
 
@@ -85,6 +86,7 @@ Public static endpoints:
 | Pages daily stats | https://znonymity.github.io/piasnews/data/daily.json |
 | Pages RSS | https://znonymity.github.io/piasnews/data/rss.xml |
 | Pages F1 calendar | https://znonymity.github.io/piasnews/data/calendar.json |
+| Pages session result | https://znonymity.github.io/piasnews/data/session-results.json |
 | Pages history | https://znonymity.github.io/piasnews/data/history.json |
 | Pages history candidates | https://znonymity.github.io/piasnews/data/history-candidates.json |
 | Pages history retrieval config | https://znonymity.github.io/piasnews/data/history-retrieval.json |
@@ -92,6 +94,7 @@ Public static endpoints:
 | Raw daily fallback | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/daily.json |
 | Raw RSS fallback | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/rss.xml |
 | Raw F1 calendar | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/calendar.json |
+| Raw session result fallback | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/session-results.json |
 | Raw history fallback | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/history.json |
 | Raw history candidates | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/history-candidates.json |
 | Raw history retrieval config | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/piasnews/references/history-retrieval.json |
@@ -101,6 +104,7 @@ Generate them locally with:
 ```bash
 python3 scripts/fetch_piasnews.py --days 3 --output-dir data
 python3 scripts/fetch_f1_calendar.py --output data/calendar.json
+python3 scripts/fetch_f1_session_results.py --calendar data/calendar.json --output data/session-results.json
 ```
 
 ## Formula 1 calendar source
@@ -110,6 +114,14 @@ python3 scripts/fetch_f1_calendar.py --output data/calendar.json
 - `scripts/fetch_f1_calendar.py` refreshes `data/calendar.json` in the same GitHub Actions run as the news collector.
 - If the schedule API is temporarily unavailable, the script keeps the last valid committed calendar instead of deleting the countdown data.
 - Calendar dates are not news and do not relax the latest-3-days news rule.
+
+## Formula 1 session-result source
+
+- Structured session and result API: https://openf1.org/docs/
+- `scripts/fetch_f1_session_results.py` matches the latest completed calendar session to OpenF1 and reads driver `81` from `session_result`.
+- The result source is labeled as media rather than official Formula 1 content.
+- A session is considered handled only after its structured result is saved. If OpenF1 has not published the result or is temporarily unavailable, the previous valid result is retained and the 15-minute workflow gate retries the new session.
+- On a session-triggered rebuild, the matched result is the absolute first hot event until the next successful hot-ranking rebuild; editorial positions cannot displace it.
 
 ## Historical context sources
 
