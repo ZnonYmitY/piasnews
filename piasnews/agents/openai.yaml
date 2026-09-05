@@ -1,7 +1,7 @@
 interface:
   display_name: "Piasnews"
-  short_description: "Oscar Piastri news briefs for F1 fans"
-  default_prompt: "Use $piasnews to summarize the latest Oscar Piastri news."
+  short_description: "Piastri 热榜、日报、官方动态与粉丝消息"
+  default_prompt: "Use $piasnews to return today's published hot ranking as a concise text list."
 
 policy:
   allow_implicit_invocation: true

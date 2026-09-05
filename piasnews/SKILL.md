@@ -1,220 +1,69 @@
 ---
 name: piasnews
-description: Fetch and summarize Oscar Piastri news from the latest 3 days for F1 fans. Use this skill whenever the user asks for Oscar Piastri, Piastri, OP81, McLaren driver news, race-week updates, official-only Piastri updates, Piastri interviews, rumors, social/X updates, or daily counts of new Piastri information. The skill works without a hosted backend by default, can use future PIASNEWS_API_URL/static JSON when configured, treats X as optional user-provided access only, and must not search beyond the latest 3 days.
+description: Read published Piasnews data for Oscar Piastri fan requests, including 今日热榜, 日报, 最近官方动态, 粉丝消息/X/Instagram, 下场比赛, 七天全量新闻, and driver basics. Use whenever the user asks about Piasnews, Oscar Piastri, Piastri, OP81, or a Piastri fan update. Routine feed answers should be concise text from the matching published JSON; do not create charts or visualizations unless the user explicitly asks for one.
 ---
 
 # Piasnews
 
-Use this skill to collect, deduplicate, classify, and summarize recent Oscar Piastri news.
+Answer from the live Piasnews webpage data with the shortest path that matches the request. This is a readback skill, not a report-generation pipeline.
 
-## Core behavior
+Default to concise Chinese for Chinese requests and Beijing time unless the user chooses another language or timezone.
 
-Default to a concise Chinese report when the user asks in Chinese. Use English when the user asks in English. Keep original article titles when helpful, but summarize in the user's language.
+## Route one request to one source
 
-Search only the latest 3 days. If the user asks for "latest", "today", "recent", "this week", "race weekend", or gives no time window, still use the latest 3 days as the maximum window. If no matching item exists in the latest 3 days, return "no new information found in the latest 3 days" rather than expanding to older sources.
+| Request | Source | Response |
+| --- | --- | --- |
+| 今日热榜、热点、大家在讨论什么 | `hot-events.json` | Current ranked list |
+| 日报、今日新闻、Piastri 最新 | `items.json` | Concise daily news digest |
+| 最近官方动态、只看官方 | `items.json`, filtered to `official: true` | Official items only |
+| 粉丝消息、粉丝源、X、Instagram | `social.json` | Recent fan/social posts |
+| 全量新闻、最近全部报道 | `items.json` | Every matching published row |
+| 下场比赛、周末赛程、几点比赛 | `calendar.json` | Next future session and weekend schedule |
+| 基础信息、81 号是谁 | Current official Oscar/F1/McLaren pages | Short verified profile |
 
-Do not invent missing news. If live fetching, web access, or an optional source is unavailable, say which source was unavailable and continue with the sources that work.
+Read [references/sources.md](references/sources.md) for the endpoint and field map. Do not load unrelated datasets “for completeness.” Only combine modes when the user explicitly asks for a combined answer.
 
-Respect source limitations. Do not copy full articles or long excerpts. Use metadata, short snippets, and source links. Mark rumors and unverified reports clearly.
+## Fast path for published feeds
 
-## Source priority
+1. Fetch the matching public Pages JSON, adding a cache-busting query for requests such as “今日” or “现在”.
+2. Read its `generated_at` and use the data as published. Do not run collectors, rebuild data, re-rank entries, or search the wider web for a normal feed request.
+3. Return the result directly in the conversation as a short Markdown list. Do not create a chart, image, dashboard, interactive visualization, HTML page, or output file unless the user explicitly requests that format.
+4. Link each listed item to a URL already present in the selected JSON. Do not invent missing text, links, counts, or freshness.
 
-Use this order:
+## Output contracts
 
-1. If `PIASNEWS_API_URL` is configured, query it first.
-2. If Piasnews static data is available, read local `data/items.json`, `data/daily.json`, or `data/rss.xml` next; otherwise use the public static endpoints documented in `references/sources.md`.
-3. Use official public sources.
-4. Use public news RSS/search for discovery, then resolve the original publisher URL and verify `datePublished` before treating an item as recent. RSS `pubDate` alone is not sufficient.
-5. Use optional X/social sources only when the user provides access or a maintained source list is available.
+### 今日热榜
 
-Read `references/sources.md` before doing source-specific work, source expansion, official-only reports, X integration, historical context, or daily count work. Read `references/x-sources.json` before using or changing X/Instagram source lists. Read `references/history.md` before retrieving, reviewing, adding, or changing historical events.
+Use only `hot-events.json`. Sort visible `events` by published `rank`, exclude `hidden: true`, and return every visible event unless the user sets a limit. For each event show:
 
-## V0.5 workflow
+- `rank` and `hot_word_zh` (fall back to `hot_word_en`);
+- `source_labels`, `heat`, and `items.length` when present;
+- the anchor item's URL, falling back to the first related item URL.
 
-1. Understand the user's scope:
-   - Time window: latest 3 days only. Narrower windows such as today or last 24 hours are allowed. Broader windows must be clipped to the latest 3 days.
-   - Source mode: all sources, official-only, media-only, X/social, or rumors.
-   - Output language and report mode: short or daily. Treat legacy standard/deep requests as daily unless the user explicitly asks for statistics.
-2. Collect candidate items from available sources, limited to the latest 3 days.
-3. Keep only items clearly related to Oscar Piastri:
-   - Direct mentions: Oscar Piastri, Piastri, OP81.
-   - Strong contextual mentions: McLaren article about both drivers, race result involving car 81, Piastri interview, Piastri penalty/strategy/contract/team order.
-4. Deduplicate by canonical URL first, then by highly similar title plus source/date.
-5. Classify each item:
-   - `race`: race, qualifying, sprint, practice, result, points, penalty, strategy.
-   - `team`: McLaren car, team operations, upgrades, team statements.
-   - `interview`: driver quotes, press conferences, podcasts, video interviews.
-   - `contract`: contract, management, sponsorship, commercial partnership.
-   - `fan`: fan event, merch, campaign, social/community item.
-   - `rumor`: unconfirmed transfer, dispute, penalty, strategy, or paddock rumor.
-   - `other`: relevant but not covered above.
-6. Prefer official sources for facts. Use media coverage for context and breadth.
-7. Return a structured report with links.
+“今日热榜” means the current webpage snapshot, not events first published today. Do not calculate a new score, cluster the events again, add other feeds, or turn the ranking into a visualization.
 
-## Static data workflow
+### 日报
 
-When `data/items.json` and `data/daily.json` are available locally or through the public static endpoints, prefer them over live searching for normal news briefs and daily counts. These files are generated by `scripts/fetch_piasnews.py`, refreshed by GitHub Actions, and published through GitHub Pages.
+Use only `items.json`. Select rows published today in the output timezone; if there are none, use the latest published date and label it clearly. Summarize the important official and verified media items with source, local time, and link. Do not add fan posts, statistics, a hot list, or historical content unless requested.
 
-Use `data/items.json` for item-level reports. Use `data/daily.json` for counts and source/category breakdowns. Use `data/rss.xml` when the user asks for a feed link or RSS-compatible output.
+### 最近官方动态
 
-Use `data/calendar.json` for the current F1 season schedule, the next race, and race-week session times. Calendar data is schedule metadata and is not limited by the latest-3-days news window, but it must not be presented as news or used to fill an empty daily report. Prefer the linked official Formula 1 calendar when schedule verification matters.
+Use only `items.json`, keep `official: true`, order by `published_at` newest first, and default to the latest five items unless the user asks for all. Do not include media rewrites or fan reposts. If there are no matching rows in the published snapshot, say so without expanding the search.
 
-Use `data/session-results.json` for the latest structured Oscar session result. A valid result is absolute rank 1 across daily, translation, and editorial rebuilds until a newer valid result replaces it or it has been ranked for 24 hours; refetching the same result must preserve its first-ranked timestamp. Editorial positions cannot displace it, and an editorial position does not keep an event below the normal heat threshold on the public ranking.
+### 粉丝消息
 
-Use `data/social.json` for optional X/Instagram posts and reposts. This file is generated from maintained source configuration plus user/project-provided access. It is separate from normal news data so the fan-source tab can show social updates without exposing the backend account list.
+Use only `social.json`, keep `source_group: fan_watch` rows (or ungrouped legacy fan rows), exclude known official-driver rows, order by `published_at` newest first, and default to the latest five items unless the user asks for all. Show the handle/source, platform, local time, short paraphrase, and original link. State once that fan content may be unverified; do not mix it into official news.
 
-If the static data is stale, unavailable, or does not cover the user's requested narrower window, fall back to the V0.5 live workflow while keeping the latest-3-days limit.
+### 全量新闻、赛程和基础信息
 
-Use approved events from `data/history.json` and bundled `references/history-retrieval.json` for the optional historical module. Never use pending or rejected records from `data/history-candidates.json` in a fan report. Historical data is a separate curated knowledge base and does not relax the latest-3-days rule for live news.
+- “全量” means every matching row in the published `items.json`, not a top-N list or topic cluster.
+- For schedules, select the next future session from `calendar.json` rather than trusting a stale `next_race` blindly, and state the timezone.
+- For a driver profile, use current official sources because Piasnews has no profile JSON. Keep current standings, points, and contracts out unless requested and verified live.
 
-## Optional X/social handling
+## Freshness and fallback
 
-X is not a required dependency.
+Prefer the public Piasnews Pages JSON because it matches the webpage. Use local `data/*.json` only when the user asks about unpublished/local state or the public endpoint is unavailable, and label local data as such. Use official web sources only for profile facts, stale schedule verification, or when the requested Piasnews endpoint fails; say when fallback data no longer matches the webpage snapshot.
 
-Use X only when at least one of these is true:
+Piasnews currently does not expose a “往日回顾” answer mode. Do not read `history.json`, search for a replacement history item, or add historical filler. If asked, say that the current skill supports 热榜、日报、官方动态、粉丝消息、全量新闻、赛程和基础信息 instead.
 
-- The user provides their own X bearer token, local browser session, MCP, or other access mechanism.
-- The user provides a maintained X account/source list.
-- The user explicitly asks the agent to inspect X in their own environment.
-
-Never use our shared/private X token as a default source. If X is unavailable, omit social-derived items or state that X was not checked.
-
-When X data is available, store public post text, metadata, counts, and links. Do not store private content, login state, or expanded long threads.
-
-The maintained source list is `references/x-sources.json`. It is backend collection configuration and should not be exposed as public fan-page content. Current groups:
-
-- `daily_core`: Oscar Piastri X, Oscar Piastri Instagram, `@NFFormula`, `@F1`.
-- `fan_watch`: `@PiastriNews`, `@NicolePiastri`, `@oscarpiastri81`, `@laurogeitabat`, `@oscarsspiastree`.
-
-Use `daily_core` to enrich the main daily report when access is configured. Use `fan_watch` to populate `data/social.json` for the fan-source tab or fan/community requests. For every X/Instagram-derived item, include clear attribution such as `引用自 @PiastriNews`, keep public post text plus metadata/link, and remove content promptly on rights request.
-
-When Agent-Reach is installed locally, prefer `scripts/collect_agent_reach_social.py` for user-owned X collection. It reads `references/x-sources.json`, calls the local `twitter user-posts` command selected by Agent-Reach, writes `/tmp/piasnews-agent-reach-social.json`, and can update `data/social.json` with `--update-social`. If `agent-reach configure --from-browser chrome` has saved cookies in `~/.agent-reach/config.yaml`, the collector bridges them into `twitter-cli` automatically. If authentication is unavailable, ask the user to sign in to X in their browser or configure `TWITTER_AUTH_TOKEN` and `TWITTER_CT0`; do not fabricate social items.
-
-## Data shape
-
-When normalizing items, use this conceptual shape even if V0.5 only produces it in prose:
-
-```json
-{
-  "id": "stable-source-url-or-hash",
-  "title": "Article or post title",
-  "title_zh": "Chinese article title",
-  "url": "https://example.com/item",
-  "source": "McLaren",
-  "source_type": "official | media | x | rss | api",
-  "source_group": "official_direct | rss_discovery | x | api",
-  "published_at": "2026-06-12T10:00:00Z",
-  "rss_published_at": "2026-06-12T10:05:00Z",
-  "published_at_source": "publisher_metadata",
-  "date_verified": true,
-  "discovered_at": "2026-06-12T10:05:00Z",
-  "category": "race | team | interview | contract | fan | rumor | other",
-  "summary": "Short summary from metadata or a short excerpt",
-  "summary_zh": "Chinese short summary",
-  "attribution": "Referenced from @account",
-  "copyright_notice": "Remove on rights request.",
-  "official": true,
-  "verified": true,
-  "tags": ["Oscar Piastri", "McLaren", "F1"],
-  "language": "en",
-  "daily_key": "2026-06-12"
-}
-```
-
-## Daily counts
-
-When the user asks for daily counts, read `data/daily.json` first. If static data is unavailable, count newly discovered items in the requested day or date range, clipped to the latest 3 days, and make the limitation clear:
-
-- "Based on live sources checked in this run..."
-- "Static daily history is not available yet..."
-
-Use this shape when reporting daily stats:
-
-```json
-{
-  "date": "2026-06-12",
-  "total_new_items": 12,
-  "official_new_items": 3,
-  "media_new_items": 7,
-  "x_new_items": 2,
-  "rumor_new_items": 1,
-  "sources": {
-    "McLaren": 1,
-    "Formula1": 2,
-    "X": 2
-  }
-}
-```
-
-## Fan daily report modes
-
-When the user asks for "粉丝日报", "daily", "日报", "brief", or a general Oscar Piastri update, choose one of these modes:
-
-- `short`: Use when the user asks for "速读", "简短", "5 行", "short", or "quick".
-- `daily`: Default mode for "粉丝日报", normal daily reports, "standard", "深读", "详细", "长版", "deep", or "analysis". Only add a data panel when the user explicitly asks for statistics.
-
-Keep the daily readable. Do not let metrics overwhelm the news.
-
-For Chinese output, prefer `title_zh` and `summary_zh`. It is acceptable for the visible article link text to be Chinese; keep the original English title as traceability metadata when useful. For English output, use the original title and English summary.
-
-### Short mode
-
-Use no more than 5 bullets:
-
-```markdown
-# Piasnews 速读
-
-- 最值得看：...
-- 官方动态：...
-- 媒体主线：...
-- 传闻提醒：...
-```
-
-Omit `传闻提醒` when there are no rumor or unverified items. Do not include a data panel in short mode.
-
-### Daily mode
-
-Use this structure unless the user requests another format:
-
-```markdown
-# Piasnews 粉丝日报
-
-## 今日重点
-- 2-3 high-signal points, official and reliable sources first.
-
-## 话题合并
-Group duplicate/similar coverage into category or topic cards instead of listing every article repeatedly.
-
-## 官方动态
-1. [Title](url) - Source, time
-   Short summary.
-
-## 媒体报道
-1. [Title](url) - Source, time
-   Short summary.
-
-## 传闻雷达
-Only include when rumors or unverified items exist.
-
-## 往日回顾
-Use at most one approved event from `data/history.json`. Prefer `title_zh` and `summary_zh` for Chinese output. It may be an exact same-month/day anniversary or a strongly related historical event. Follow `references/history.md` and `references/history-retrieval.json`; broad similarities such as Formula 1, McLaren, race, or street circuit are not enough for a contextual match. Do not expose internal historical-value scores. Do not search beyond the latest 3 days just to fill this section. Omit it when no event qualifies.
-```
-
-Do not include source-confidence notes, next-watch points, or a data panel by default. Add statistics only when the user explicitly asks for counts or metrics.
-
-For Chinese output, translate headings naturally:
-
-- `Summary` -> `概览`
-- `Official Updates` -> `官方动态`
-- `Media Coverage` -> `媒体报道`
-Prefer the Chinese headings shown in the daily template for Chinese fan daily reports.
-
-## Quality rules
-
-- Only search and report items from the latest 3 days. Do not include older items as filler.
-- Treat publisher metadata as the authoritative publication date. Do not report an item whose only recency evidence is Google News RSS `pubDate`.
-- For race-week requests, include practice, qualifying, sprint, race, strategy, penalties, and official quotes only when they fall within the latest 3 days.
-- For official-only requests, use only Oscar Piastri, McLaren, Formula 1/FIA/F1 official channels, and clearly say that media coverage was excluded.
-- Treat Wikipedia, fan reposts, and unsourced social claims as context only, not primary news sources.
-- If dates or standings matter, verify them with current sources before stating them.
-- Cite or link every listed item.
+Normal answering is read-only. Never refresh data, edit source lists, trigger workflows, or publish the site unless the user explicitly asks for that mutation.

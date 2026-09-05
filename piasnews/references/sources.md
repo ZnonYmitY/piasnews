@@ -1,221 +1,64 @@
-# Piasnews Sources
+# Piasnews Published Data
 
-Use this file when collecting Oscar Piastri news, adding sources, building daily counts, or wiring future X/social integration.
+Use this map to answer normal fan requests from the same data shown on the public webpage. Read only the endpoint selected by `SKILL.md`.
 
-## Recency rule
+## Public endpoints
 
-Search only the latest 3 days. Do not expand to older results when the latest 3 days are empty.
-
-Source strategy update:
-
-- Keep official news endpoints as direct sources.
-- Treat media outlets as RSS-discovered sources rather than direct crawl targets.
-- Do not remove a media outlet just because it has no item on one audit day; keep it eligible through Google News RSS discovery.
-- Treat RSS `pubDate` as discovery metadata only. Resolve the publisher URL, read publisher `datePublished` or `article:published_time`, and exclude items whose original date is outside the latest 3 days or cannot be verified.
-- If static `data/*.json` files are available, prefer them for normal summaries and daily counts.
-
-## Direct official sources
-
-Official sources have the highest priority for facts, quotes, schedule, team statements, partnerships, and race-week framing.
-
-| Source | URL | Notes |
+| Data | Pages URL | Use |
 | --- | --- | --- |
-| Oscar Piastri official news | https://www.oscarpiastri.com/news | Official Oscar news, partnerships, events, and campaigns. Use only items published in the latest 3 days. |
-| McLaren Formula 1 articles | https://www.mclaren.com/racing/formula-1/articles/ | McLaren F1 team articles. Use only Oscar/Piastri-relevant items published in the latest 3 days. |
-| Formula 1 latest news | https://www.formula1.com/en/latest | Official F1 news feed. Use only Oscar/Piastri/OP81 items published in the latest 3 days. |
+| 热榜 | https://znonymity.github.io/piasnews/data/hot-events.json | Current published ranking |
+| 日报 / 官方 / 全量新闻 | https://znonymity.github.io/piasnews/data/items.json | News rows and article links |
+| 日报统计 | https://znonymity.github.io/piasnews/data/daily.json | Counts only, when explicitly requested |
+| 粉丝消息 | https://znonymity.github.io/piasnews/data/social.json | X / Instagram feed |
+| 赛程 | https://znonymity.github.io/piasnews/data/calendar.json | Race and session times |
+| RSS | https://znonymity.github.io/piasnews/data/rss.xml | Feed subscription |
 
-## RSS discovery sources
+For “今日” or “现在”, append a harmless cache-busting query such as `?v=<current timestamp>`. The webpage itself uses a cache-busted, `no-store` read.
 
-Use public news search/RSS for broad coverage and media discovery. Decode Google News article links to their canonical publisher URLs before publication. The collector must verify the original page date; `when:3d` and RSS `pubDate` are hints, not proof that the article itself is new.
+## Fields to use
 
-Suggested Google News RSS queries. Keep `when:3d` in every query:
+### `hot-events.json`
 
-```text
-https://news.google.com/rss/search?q=%22Oscar%20Piastri%22%20when%3A3d&hl=en-US&gl=US&ceid=US:en
-https://news.google.com/rss/search?q=%22Piastri%22%20%22McLaren%22%20when%3A3d&hl=en-US&gl=US&ceid=US:en
-https://news.google.com/rss/search?q=%22OP81%22%20when%3A3d&hl=en-US&gl=US&ceid=US:en
-https://news.google.com/rss/search?q=%22Oscar%20Piastri%22%20%22qualifying%22%20when%3A3d&hl=en-US&gl=US&ceid=US:en
-https://news.google.com/rss/search?q=%22Oscar%20Piastri%22%20%22race%22%20when%3A3d&hl=en-US&gl=US&ceid=US:en
-https://news.google.com/rss/search?q=%22Oscar%20Piastri%22%20%22interview%22%20when%3A3d&hl=en-US&gl=US&ceid=US:en
-```
+- Snapshot: `generated_at`, `window_days`, `active_heat_hours`.
+- Rows: `events[]`.
+- Visible fields: `rank`, `hot_word_zh`, `hot_word_en`, `source_labels`, `heat`, `items`, `anchor_item_id`, `hidden`.
+- Link: find the nested `items[]` row whose `item_id` equals `anchor_item_id`; otherwise use the first nested item with a `url`.
+- Ignore internal review and override fields.
 
-For Chinese summaries, keep the source title if useful and translate the summary. Do not translate names of outlets unless the Chinese name is well established.
+### `items.json`
 
-## Discovered media sources
+- Snapshot: `generated_at`.
+- Rows: `items[]`.
+- Use: `title_zh` or `title`, `summary_zh` or `summary`, `url`, `source`, `source_type`, `published_at`, `daily_key`, `category`, `official`, and `verified`.
+- Do not display `article_search_text`, discovery queries, or collector metadata.
 
-These are not direct crawl targets in V1. Keep them eligible through RSS discovery and classify them based on item metadata:
+### `daily.json`
 
-- Motorsport.
-- Autosport.
-- The Race.
-- RacingNews365.
-- PlanetF1.
-- ESPN F1.
-- Sky Sports F1.
-- BBC.
-- Motorsport Week.
-- GPblog.
-- Crash.net.
-- RACER.
-- Speedcafe.
-- The Race.
-- Other reputable outlets discovered by Google News RSS.
+- This file contains counts, not news copy.
+- Use only when the user asks for totals or statistics: `generated_at`, `window_days`, `latest_date`, `total_items`, and `days[]`.
+- Do not expose `feed_status`; it is collection diagnostics.
 
-Low-confidence aggregators may appear in RSS. Mark them as unverified or filter them out when they produce noisy, duplicated, or synthetic-looking items.
+### `social.json`
 
-## Static generated sources
+- Snapshot: `generated_at`, `window_days`, `total_items`.
+- Rows: `items[]`; for “粉丝消息”, prefer `source_group: fan_watch` and exclude known official-driver rows.
+- Use: `source`, `source_handle`, `platform`, `post_kind`, `published_at`, `title_zh` or `title`, `summary_zh` or `summary`, `url`, and optional media fields.
+- Do not expose `source_status` or compare cross-platform engagement as one ranking.
 
-The V1 collector writes these files:
+### `calendar.json`
 
-| File | Purpose |
-| --- | --- |
-| `data/items.json` | Normalized item list from the latest 3-day window. |
-| `data/daily.json` | Daily item counts plus source/category breakdowns. |
-| `data/rss.xml` | RSS feed generated from normalized items. |
-| `data/calendar.json` | Current F1 season calendar, normalized session times, and next-race metadata. |
-| `data/session-results.json` | Latest structured Oscar session result and the handled session reference used by the refresh gate. |
-| `data/history.json` | Reviewed historical-event knowledge base for optional `Looking Back` context. |
-| `data/history-candidates.json` | Pending and completed history-review queue; never use it as fan-daily evidence. |
+- Use `generated_at`, `season`, `races[]`, and each race's `name_zh`, `round`, `circuit`, `locality`, `sessions`, and `official_url`.
+- Compare session timestamps with the current time and select the next future session. `next_race` can be used only when it is still upcoming.
 
-Public static endpoints:
+## Freshness and fallback
 
-| Endpoint | URL |
-| --- | --- |
-| Pages index | https://znonymity.github.io/piasnews/ |
-| Pages items | https://znonymity.github.io/piasnews/data/items.json |
-| Pages daily stats | https://znonymity.github.io/piasnews/data/daily.json |
-| Pages RSS | https://znonymity.github.io/piasnews/data/rss.xml |
-| Pages F1 calendar | https://znonymity.github.io/piasnews/data/calendar.json |
-| Pages session result | https://znonymity.github.io/piasnews/data/session-results.json |
-| Pages history | https://znonymity.github.io/piasnews/data/history.json |
-| Pages history candidates | https://znonymity.github.io/piasnews/data/history-candidates.json |
-| Pages history retrieval config | https://znonymity.github.io/piasnews/data/history-retrieval.json |
-| Raw items fallback | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/items.json |
-| Raw daily fallback | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/daily.json |
-| Raw RSS fallback | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/rss.xml |
-| Raw F1 calendar | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/calendar.json |
-| Raw session result fallback | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/session-results.json |
-| Raw history fallback | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/history.json |
-| Raw history candidates | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/data/history-candidates.json |
-| Raw history retrieval config | https://raw.githubusercontent.com/ZnonYmitY/piasnews/main/piasnews/references/history-retrieval.json |
+Treat each `generated_at` as the snapshot time; a file refresh time is not the same as the newest item's `published_at`. Do not silently combine different snapshots when that could alter ranks or totals.
 
-Generate them locally with:
+If Pages is unavailable, try the equivalent local `data/<name>` file and label it as local/unpublished. For profile facts or a stale/missing schedule only, verify against:
 
-```bash
-python3 scripts/fetch_piasnews.py --days 3 --output-dir data
-python3 scripts/fetch_f1_calendar.py --output data/calendar.json
-python3 scripts/fetch_f1_session_results.py --calendar data/calendar.json --output data/session-results.json
-```
+- Oscar Piastri: https://www.oscarpiastri.com/
+- Formula 1 driver profile: https://www.formula1.com/en/drivers/oscar-piastri
+- McLaren Formula 1: https://www.mclaren.com/racing/formula-1/
+- Official 2026 calendar: https://www.formula1.com/en/racing/2026
 
-## Formula 1 calendar source
-
-- Machine-readable schedule: https://api.jolpi.ca/ergast/f1/2026.json
-- Official verification page: https://www.formula1.com/en/racing/2026
-- `scripts/fetch_f1_calendar.py` refreshes `data/calendar.json` in the same GitHub Actions run as the news collector.
-- If the schedule API is temporarily unavailable, the script keeps the last valid committed calendar instead of deleting the countdown data.
-- Calendar dates are not news and do not relax the latest-3-days news rule.
-
-## Formula 1 session-result source
-
-- Structured session and result API: https://openf1.org/docs/
-- `scripts/fetch_f1_session_results.py` matches the latest completed calendar session to OpenF1 and reads driver `81` from `session_result`.
-- The result source is labeled as media rather than official Formula 1 content.
-- A session is considered handled only after its structured result is saved. If OpenF1 has not published the result or is temporarily unavailable, the previous valid result is retained and the 15-minute workflow gate retries the new session.
-- The latest valid result is the absolute first hot event across daily, translation, and editorial rebuilds until a newer valid result replaces it or it has been ranked for 24 hours. `first_ranked_at` is preserved when the same result is fetched again, and editorial positions cannot displace it.
-
-## Historical context sources
-
-The merged `Looking Back` / `往日回顾` module is optional and must not expand the live news search window beyond the latest 3 days.
-
-Read `references/history.md` before retrieving, reviewing, adding, or changing historical events. Only include the module when the maintained knowledge base contains an approved event selected by either an exact same-month/day anniversary route or a strongly gated contextual route:
-
-- The maintained `data/history.json` file.
-- User-provided historical context.
-- A current official item that explicitly references the historical event.
-
-If no meaningful event exists, omit the section. Do not fill it with trivia, pending labels, weak search results, or broad semantic similarities.
-
-## X/social sources
-
-X is optional. Do not require it for normal operation.
-
-Only use X when the user provides one of these:
-
-- Their own X API bearer token.
-- A local browser session where they explicitly ask the agent to browse X.
-- An MCP/tool integration available in their environment.
-- The maintained account/source list at `references/x-sources.json`.
-
-Maintained source groups:
-
-- Official Oscar Piastri account.
-- Official McLaren F1 account.
-- Official Formula 1 account.
-- McLaren team personnel and Oscar management accounts, if approved.
-- Trusted F1 journalists and media accounts.
-- Fan accounts only after manual approval.
-
-The maintained source list lives in `references/x-sources.json`. It is backend collection configuration and review context only; do not publish it as public page content. The public fan-source tab reads collected items from `data/social.json`.
-
-The initial approved groups are:
-
-| Group | Accounts | Intended use |
-| --- | --- | --- |
-| Daily core | Oscar Piastri X, Oscar Piastri Instagram, `@NFFormula`, `@F1` | Enrich the main daily when X/IG access is configured. |
-| Fan watch | `@PiastriNews`, `@NicolePiastri`, `@oscarpiastri81`, `@laurogeitabat`, `@oscarsspiastree` | Populate `data/social.json` for the fan-source tab and observe fan/community activity. |
-
-Collect posts and reposts for X accounts when access is available. For Instagram, collect public posts/reels only when access is available or user-provided exports are imported. Do not scrape private, login-restricted, or paywalled content.
-
-For local Agent-Reach collection, use:
-
-```bash
-env PATH=/Users/bytedance/.agent-reach-venv/bin:$PATH \
-  python3 scripts/collect_agent_reach_social.py \
-  --group fan_watch \
-  --days 3 \
-  --output /tmp/piasnews-agent-reach-social.json \
-  --update-social
-```
-
-This route depends on the user's local X authentication. If `twitter status` is not authenticated, stop and ask the user to sign in or configure Twitter cookies/tokens through Agent-Reach.
-
-When `agent-reach configure --from-browser chrome` has already saved `twitter_auth_token` and `twitter_ct0` in `~/.agent-reach/config.yaml`, `scripts/collect_agent_reach_social.py` automatically bridges those values into `TWITTER_AUTH_TOKEN` and `TWITTER_CT0` for its `twitter-cli` subprocess. Do not commit local cookie files or tokens.
-
-Use the default `user-posts` method for collection because it is more stable than X search endpoints. Use `--method search` only for troubleshooting or explicit query-style collection.
-
-For X-derived items:
-
-- Keep post URL, account handle, timestamp, engagement count when available, and a short paraphrase.
-- Track them with `source_type: "x"`.
-- Count them separately in daily stats as `x_new_items`.
-- Do not store long threads or large verbatim post text.
-- Store attribution on every item, such as `引用自 @PiastriNews` or `Referenced from @PiastriNews`.
-- Remove an item promptly if a rights holder or account owner requests removal.
-
-## Deduplication rules
-
-1. Normalize URLs by removing common tracking parameters such as `utm_*`, `fbclid`, and `gclid`.
-2. Treat identical canonical URLs as the same item.
-3. Build stable IDs from the canonical publisher URL and normalized title, not RSS timestamps.
-4. Treat near-identical titles as duplicates unless they add clearly new facts.
-5. Prefer the earliest official source over later media rewrites.
-6. Keep analysis pieces separate from straight news if they add original interpretation.
-
-## Verification rules
-
-- Official announcement: `verified: true`, `official: true`.
-- Reputable media with named sourcing: `verified: true`, `official: false`.
-- Rumor, anonymous sourcing, fan repost, or speculative commentary: `verified: false`, category `rumor` when relevant.
-- Race result, standings, penalties, or schedule claims must be checked against official F1/FIA/team sources when possible.
-
-## Category guide
-
-| Category | Use for |
-| --- | --- |
-| `race` | Practice, qualifying, sprint, race, result, points, penalties, strategy. |
-| `team` | McLaren car, upgrades, operations, team comments, garage issues. |
-| `interview` | Driver quotes, press conferences, podcasts, video interviews. |
-| `contract` | Driver contract, management, sponsorship, commercial partnership. |
-| `fan` | Fan events, merch, pop-ups, campaigns, community moments. |
-| `rumor` | Unconfirmed transfer, dispute, penalty, strategy, paddock rumor. |
-| `other` | Relevant items that do not fit the above. |
+Do not broaden a normal heat, daily, official, fan, or all-news request into general web research merely to add material.

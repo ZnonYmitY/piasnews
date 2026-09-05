@@ -1,0 +1,60 @@
+{
+  "skill_name": "piasnews",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "给我看下 Piasnews 今日热榜。",
+      "expected_output": "直接读取已发布的 hot-events.json，并在对话中返回当前可见热榜的简洁文字列表。",
+      "files": [],
+      "expectations": [
+        "Only the published hot-events.json is used as the content dataset.",
+        "Visible events preserve published rank order and hidden events are excluded.",
+        "The answer is a normal Markdown list with source links, not a chart, image, dashboard, visualization, HTML page, or generated file.",
+        "No new ranking, clustering, or wider web expansion is performed."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "给我一份今天的 Piasnews 日报，简洁点。",
+      "expected_output": "从已发布的 items.json 整理当天新闻；若当天没有条目，则明确使用最新有数据的日期。",
+      "files": [],
+      "expectations": [
+        "News facts and links come from items.json.",
+        "The output does not automatically add hot events, social posts, statistics, schedule data, or historical content.",
+        "The answer is concise text in the conversation and does not create a visualization or artifact."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "最近有什么官方动态？只看官方。",
+      "expected_output": "从 items.json 筛选 official: true 的条目并按发布时间倒序输出。",
+      "files": [],
+      "expectations": [
+        "Only items.json rows with official: true are listed.",
+        "Media rewrites and fan reposts are excluded.",
+        "If the snapshot has no official rows, the answer says so without expanding the search."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "最近粉丝都在发什么？",
+      "expected_output": "从 social.json 返回最近的 fan_watch 粉丝消息，并明确其可能未经核实。",
+      "files": [],
+      "expectations": [
+        "The content dataset is social.json and fan_watch rows are preferred.",
+        "Official and media news from items.json are not mixed into the answer.",
+        "The result is ordered by published_at and includes original links plus an unverified-content note."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "给我来个 Piasnews 往日回顾。",
+      "expected_output": "说明当前 Piasnews skill 不提供往日回顾，并提示可用的现有能力。",
+      "files": [],
+      "expectations": [
+        "The answer does not read history.json, search for a substitute event, or invent historical content.",
+        "The response redirects briefly to current supported modes such as 热榜、日报、官方动态或粉丝消息."
+      ]
+    }
+  ]
+}
