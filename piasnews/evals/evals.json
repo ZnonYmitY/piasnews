@@ -4,56 +4,129 @@
     {
       "id": 1,
       "prompt": "给我看下 Piasnews 今日热榜。",
-      "expected_output": "直接读取已发布的 hot-events.json，并在对话中返回当前可见热榜的简洁文字列表。",
+      "expected_output": "直接读取已发布的 hot-events.json，在对话中按发布排名返回所有当前可见热榜，不混入未上榜内容。",
       "files": [],
       "expectations": [
-        "Only the published hot-events.json is used as the content dataset.",
-        "Visible events preserve published rank order and hidden events are excluded.",
-        "The answer is a normal Markdown list with source links, not a chart, image, dashboard, visualization, HTML page, or generated file.",
-        "No new ranking, clustering, or wider web expansion is performed."
+        "Only hot-events.json is used as the ranking dataset when the endpoint is available.",
+        "The output count equals the number of events whose hidden field is not true; no minimum-five padding is applied.",
+        "Published rank, event wording, and an existing anchor link are preserved without re-ranking or re-clustering.",
+        "No chart, image, dashboard, HTML page, or generated file is created."
       ]
     },
     {
       "id": 2,
-      "prompt": "给我一份今天的 Piasnews 日报，简洁点。",
-      "expected_output": "从已发布的 items.json 整理当天新闻；若当天没有条目，则明确使用最新有数据的日期。",
+      "prompt": "Oscar 最近一场三练成绩怎么样？",
+      "expected_output": "先检查 session-results.json 与 calendar.json；若最近已完成的三练缺失、过期或仍指向更早场次，则自动联网核验并给出大奖赛、日期、Piastri 名次/状态及来源。",
       "files": [],
       "expectations": [
-        "News facts and links come from items.json.",
-        "The output does not automatically add hot events, social posts, statistics, schedule data, or historical content.",
-        "The answer is concise text in the conversation and does not create a visualization or artifact."
+        "The answer does not treat absence from hot-events.json or a stale session-results.json as proof that no FP3 result exists.",
+        "When the requested completed FP3 is missing from the snapshot, an external search or source-page open is performed before answering.",
+        "The response identifies the most recent completed Grand Prix FP3 and date, and reports Piastri's verified position or status with a source link.",
+        "Facts not present in the opened sources are not invented, and no visualization is generated."
       ]
     },
     {
       "id": 3,
-      "prompt": "最近有什么官方动态？只看官方。",
-      "expected_output": "从 items.json 筛选 official: true 的条目并按发布时间倒序输出。",
+      "prompt": "今天 Piastri 有什么新鲜事？给我整理一下。",
+      "expected_output": "按用户时区扫描今天的全部新闻，去重后整理至少五个可核实的信息点；快照不足时联网补足，并对每条做信息增量和意义层面的加工。",
       "files": [],
       "expectations": [
-        "Only items.json rows with official: true are listed.",
-        "Media rewrites and fan reposts are excluded.",
-        "If the snapshot has no official rows, the answer says so without expanding the search."
+        "All published_at timestamps are converted into the user's timezone before applying the today filter.",
+        "When at least five credible same-day developments can be verified, the answer contains 5–8 distinct news points rather than only the first two rows.",
+        "If the snapshot contains fewer than five distinct same-day points or misses a completed race-week event, current web sources are searched automatically.",
+        "Duplicate coverage is merged, and each item explains what changed or why it matters instead of merely translating a headline or generic summary.",
+        "Older items are not silently presented as today's news; if fewer than five genuine items exist after searching, the real count is stated."
       ]
     },
     {
       "id": 4,
-      "prompt": "最近粉丝都在发什么？",
-      "expected_output": "从 social.json 返回最近的 fan_watch 粉丝消息，并明确其可能未经核实。",
+      "prompt": "最近 Piastri 有什么新鲜事？",
+      "expected_output": "从最近 72 小时开始跨日期整合动态，内容不足时扩大到已发布的七天窗口并标注范围；必要时联网补齐。",
       "files": [],
       "expectations": [
-        "The content dataset is social.json and fan_watch rows are preferred.",
-        "Official and media news from items.json are not mixed into the answer.",
-        "The result is ordered by published_at and includes original links plus an unverified-content note."
+        "The response states or makes clear the actual recent time range and does not silently collapse recent into today.",
+        "When data permits, the selection covers more than one calendar date and contains 5–8 deduplicated developments.",
+        "If the 72-hour window is thin, the current seven-day published window is considered before or alongside a targeted web search.",
+        "Items are organized by importance or theme and include source links plus a short editorial synthesis, not a chronological headline dump."
       ]
     },
     {
       "id": 5,
-      "prompt": "给我来个 Piasnews 往日回顾。",
-      "expected_output": "说明当前 Piasnews skill 不提供往日回顾，并提示可用的现有能力。",
+      "prompt": "最近有什么和 Piastri 有意思的事情？你帮我挑一挑。",
+      "expected_output": "从已有新闻、热榜、场次结果、官方和必要的粉丝信息中后置筛选 3–5 个不同主题，说明每个主题为什么值得关注；信息不足时再联网。",
       "files": [],
       "expectations": [
-        "The answer does not read history.json, search for a substitute event, or invent historical content.",
-        "The response redirects briefly to current supported modes such as 热榜、日报、官方动态或粉丝消息."
+        "The candidate pool uses items.json and relevant context such as hot-events.json, session-results.json, or social.json rather than equating interesting with one feed.",
+        "The answer selects 3–5 deduplicated themes and explicitly explains why each is interesting or consequential.",
+        "The selection spans at least two useful dimensions when available, such as sporting performance, team context, official news, or fan discussion.",
+        "Facts, analysis, and unverified fan reaction are clearly distinguished.",
+        "The model does not search mechanically when the snapshot is sufficient, but does search when it cannot support a useful current selection."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "给我看今日热榜。为什么榜里没有刚结束的三练？顺便告诉我 Oscar 的成绩。",
+      "expected_output": "热榜部分保持 hot-events.json 的原始排名；将三练视为单独事实缺口，联网核验后补充成绩，不把未上榜事件擅自插入榜单。",
+      "files": [],
+      "expectations": [
+        "The published hot ranking remains unchanged and the missing FP3 is not assigned a synthetic rank.",
+        "The response explicitly separates the published ranking from the current web supplement.",
+        "A targeted search is performed for the completed FP3 when Piasnews does not contain a fresh matching result.",
+        "Piastri's reported result is supported by an opened source link."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "最近有什么官方动态？只看官方。",
+      "expected_output": "先整理 items.json 中 official: true 的动态；若快照不足或过期，只从 Oscar、McLaren、Formula 1 或 FIA 官方页面补充。",
+      "files": [],
+      "expectations": [
+        "The Piasnews official rows are checked first, but an empty or stale snapshot is not the automatic endpoint.",
+        "Any web supplements remain on official Oscar, McLaren, Formula 1, or FIA sources.",
+        "Media rewrites and fan reposts are excluded, and every listed item has a date and source link."
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "最近粉丝都在发什么？",
+      "expected_output": "从 social.json 的 fan_watch 信息中合并重复转帖、整理近期粉丝讨论主题，并明确粉丝内容可能未经核实。",
+      "files": [],
+      "expectations": [
+        "fan_watch rows in social.json are the primary content source and known official-driver rows are excluded.",
+        "Repeated reposts about the same topic are grouped rather than counted as separate insights.",
+        "The output includes original links and a single clear unverified-content note; official fact is not inferred from fan discussion."
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "列出 Piasnews 最近七天全量新闻，不要只给摘要。",
+      "expected_output": "返回 items.json 中日期范围匹配的全部已发布行，不用 Top-N 或主题精选代替；仅当用户明确要求全网覆盖时才扩大到网页搜索。",
+      "files": [],
+      "expectations": [
+        "Every matching published item is returned and no arbitrary top-N limit is applied.",
+        "The answer distinguishes the complete Piasnews published set from all possible web coverage.",
+        "Each row retains a source link and date; no visualization or output file is created unless requested."
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "给我来个 Piasnews 往日回顾。",
+      "expected_output": "说明 Piasnews 当前没有“往日回顾”预设模式并提示现有能力，不读取 history.json 或制造历史填充。",
+      "files": [],
+      "expectations": [
+        "The answer does not read history.json or generate a generic historical filler item.",
+        "The response briefly redirects to current supported modes or asks for a specific race/date if the user wants a factual historical query."
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "2024 年匈牙利站 Piastri 的成绩和关键转折是什么？",
+      "expected_output": "把它作为具体历史事实问题联网核验并回答，而不是因“往日回顾”模式已删除而拒绝。",
+      "files": [],
+      "expectations": [
+        "The retired Looking Back mode does not block a concrete historical fact question.",
+        "The answer uses verifiable Formula 1, FIA, McLaren, or reputable contemporary sources and includes links.",
+        "Race result and key turning points are separated from later interpretation or opinion."
       ]
     }
   ]

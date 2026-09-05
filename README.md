@@ -11,7 +11,7 @@ Piasnews 是一个面向 Oscar Piastri 粉丝的 Agent Skill，用来抓取、�
 - 汇总 Oscar Piastri / Piastri / OP81 相关新闻。
 - 优先使用官方来源：Oscar 官网、McLaren F1、Formula 1 官网。
 - 使用公开新闻 RSS / 搜索作为补充来源。
-- 采集器每轮发现最近 3 天的信息并合并进网页保留窗口；Skill 按用户意图直接读取已发布快照。
+- 采集器每轮发现最近 3 天的信息并合并进网页保留窗口；Skill 从意图相关快照开始，先判断新鲜度和信息充分性，再按需联网补齐并做去重、关联和改写。
 - 提供静态数据文件：`data/items.json`、`data/daily.json`、`data/rss.xml`、`data/calendar.json`、`data/social.json`、`data/history.json`、`data/history-candidates.json`。
 - GitHub Actions 每 6 小时自动更新一次数据，也支持手动触发。
 - 通过 GitHub Pages 发布公开粉丝日报和数据端点。
@@ -64,7 +64,23 @@ npx skills add https://github.com/ZnonYmitY/piasnews --skill piasnews --full-dep
 ## 使用示例
 
 ```text
-今天 Oscar Piastri 有什么新闻？
+给我看下 Piasnews 今日热榜。
+```
+
+```text
+输出今日热榜，并说明每条来自官方、媒体还是粉丝源。
+```
+
+```text
+下场比赛是什么时候？列出所有赛段的北京时间。
+```
+
+```text
+介绍一下 Oscar Piastri 的基础信息。
+```
+
+```text
+列出最近 7 天全量新闻，不要只给摘要。
 ```
 
 ```text
@@ -72,34 +88,33 @@ npx skills add https://github.com/ZnonYmitY/piasnews --skill piasnews --full-dep
 ```
 
 ```text
-Summarize the latest Oscar Piastri news in English.
+今天 Piastri 有什么新鲜事？至少整理 5 个不重复的信息点。
 ```
 
 ```text
-统计今天 Piastri 相关新增信息数量。
+Oscar 最近一场三练成绩怎么样？
 ```
 
 ```text
-粉丝日报速读版。
-```
-
-```text
-粉丝日报，合并同题报道。
+最近有什么和 Piastri 有意思的事情？你帮我挑一挑。
 ```
 
 ## Skill 能力
 
-| 用户问题 | 数据入口 | 默认输出 |
+| 用户问题 | 起始信息源 | 默认处理 |
 | --- | --- | --- |
-| 今日热榜、大家在讨论什么 | `hot-events.json` | 按已发布排名返回当前可见榜单 |
-| 日报、今日新闻、Piastri 最新 | `items.json` | 当日简洁新闻摘要 |
-| 最近官方动态、只看官方 | `items.json` 中 `official: true` | 最新官方条目 |
-| 粉丝消息、X / IG、粉丝源 | `social.json` 中 `fan_watch` | 最新粉丝帖子 |
+| 今日热榜、明确要榜单/排名 | `hot-events.json` | 按已发布排名忠实返回，不补榜 |
+| 今天有什么新鲜事、日报 | 当天 `items.json` | 去重并整理 5–8 个信息点；不足时联网补齐 |
+| 最近有什么新鲜事 | 最近 72 小时 `items.json` | 跨日期整合；不足时扩大到 7 天并联网 |
+| 最近有什么有意思的事 | 新闻、热榜、场次及必要的粉丝信息 | 后置筛选主题并解释“为什么值得看” |
+| 三练/排位/正赛成绩等明确事实 | `session-results.json`、`calendar.json` | 缺失或过期时立即联网核验 |
+| 最近官方动态、只看官方 | `items.json` 中 `official: true` | 不足时仅补充官方网页 |
+| 粉丝消息、X / IG、粉丝源 | `social.json` 中 `fan_watch` | 合并重复讨论并标注可能未经核实 |
 | 最近全部报道 | `items.json` | 当前窗口内全量列表 |
 | 下场比赛、周末赛程 | `calendar.json` | 下一未来赛段与周末时间 |
 | Oscar 基础信息、81 号是谁 | Oscar / F1 / McLaren 官方资料 | 简短已核实资料 |
 
-Skill 一次只读取与问题匹配的数据入口，默认在对话中输出简洁 Markdown。今日热榜不重排、不扩写，也不生成图表、图片或可视化；只有用户明确要求时才改变格式。“往日回顾”不再作为 Skill 能力。完整约定见 [Skill 主文件](piasnews/SKILL.md) 与 [公开数据说明](piasnews/references/sources.md)。
+只有明确的“热榜 / 榜单 / 排名”请求走精确快照直出；事实问答、今天/最近简报和开放式问题走“Piasnews 快照 → 新鲜度与充足性判断 → 必要时联网 → 去重、关联和改写”。热榜不重排，也不生成图表、图片或可视化；只有用户明确要求时才改变格式。“往日回顾”不再作为预设 Skill 能力，但具体历史赛事问题仍可正常联网核验。完整约定见 [Skill 主文件](piasnews/SKILL.md) 与 [公开数据说明](piasnews/references/sources.md)。
 
 ## Piastri Fan Companion
 
@@ -201,7 +216,7 @@ Piastri Fan Companion 的页面、API、实时 Piasnews 上下文和部署保留
 RSS 只用于发现，不再直接采用其 `pubDate`。采集器会解析 Google News 跳转、读取原站 `datePublished`，只保留原文发布日期确实位于最近 3 天的条目；无法核验日期的条目不进入静态数据。
 5. 可选 X / 社交来源。
 
-采集器每轮只发现最近 3 天的信息并核验原站日期，再将有效条目合并进网页保留窗口。Skill 默认读取线上快照：“今天”按用户时区筛选，“全量新闻”使用当前已发布窗口，不为补数量自动扩大搜索。
+采集器每轮只发现最近 3 天的信息并核验原站日期，再将有效条目合并进 7 天网页保留窗口。Skill 优先读取与意图相关的线上快照，再判断信息是否新鲜、完整且足够。“全量新闻”使用网页的 7 天窗口；“今天”按用户时区筛选并以 5–8 个独立信息点为目标；“最近”先覆盖 72 小时，内容不足时扩大到 7 天。明确热榜请求保持发布排名不补榜，其余问题在快照缺失、过期或过少时自动搜索官方与可靠网页来源。
 
 X 不是必需依赖。只有当用户提供自己的 X 访问方式，或项目配置了自有 X API token 时，Skill 才会尝试使用 X。默认不会使用我们的共享 X token 或付费额度。
 
@@ -527,7 +542,7 @@ The current release combines **V1 static data, a public fan daily, and a history
 - Summarizes news about Oscar Piastri / Piastri / OP81.
 - Prioritizes official sources: Oscar's official site, McLaren F1, and Formula 1.
 - Uses public news RSS/search as fallback coverage.
-- Each collection run discovers the latest three days and merges verified items into the webpage retention window; the Skill reads the published snapshot by user intent.
+- Each collection run discovers the latest three days and merges verified items into the webpage retention window; the Skill starts from the intent-relevant snapshot, checks freshness and sufficiency, then searches and synthesizes when needed.
 - Provides static data files: `data/items.json`, `data/daily.json`, `data/rss.xml`, `data/calendar.json`, `data/social.json`, `data/history.json`, and `data/history-candidates.json`.
 - GitHub Actions refreshes data every 6 hours and can also be triggered manually.
 - Publishes a public fan daily and data endpoints through GitHub Pages.
@@ -579,42 +594,57 @@ After updating, start a new conversation or restart your agent so the latest Ski
 ## Example Prompts
 
 ```text
-今天 Oscar Piastri 有什么新闻？
+Show me today's Piasnews hot ranking.
 ```
 
 ```text
-只看官方来源，整理 Piastri 最近动态。
+Show today's hot ranking and label official, media, and fan sources.
 ```
 
 ```text
-Summarize the latest Oscar Piastri news in English.
+When is the next race? List every session in China Standard Time.
 ```
 
 ```text
-Count today's new Oscar Piastri items.
+Give me Oscar Piastri's basic profile.
 ```
 
 ```text
-Give me a short Piasnews fan daily.
+List every news item from the latest seven days, not only a summary.
 ```
 
 ```text
-Give me a fan daily and merge duplicate topics.
+Show official-only Piastri updates.
+```
+
+```text
+What is new with Piastri today? Give me at least five distinct developments.
+```
+
+```text
+How did Oscar do in the most recent FP3 session?
+```
+
+```text
+Pick the most interesting recent Piastri stories and explain why they matter.
 ```
 
 ## Skill Capabilities
 
-| User intent | Data source | Default response |
+| User intent | Starting source | Default handling |
 | --- | --- | --- |
-| Today's hot ranking, what fans discuss | `hot-events.json` | Current visible list in published rank order |
-| Daily, today's news, latest Piastri update | `items.json` | Concise digest for the target date |
-| Recent official updates, official only | `official: true` rows in `items.json` | Latest official items |
-| Fan posts, X / IG, Fan Sources | `fan_watch` rows in `social.json` | Latest fan posts |
+| Explicit hot ranking / published order | `hot-events.json` | Faithful published ranking with no inserted stories |
+| What's new today / daily brief | Today's `items.json` rows | Deduplicate and synthesize 5–8 points; search when short |
+| What's new recently | Last 72 hours in `items.json` | Cross-date brief; widen to seven days and search when needed |
+| Interesting recent stories | News, hot, session, and relevant fan context | Editorial selection with a reason each story matters |
+| FP3 / qualifying / race results and exact facts | `session-results.json`, `calendar.json` | Verify on the current web when missing or stale |
+| Recent official updates, official only | `official: true` rows in `items.json` | Supplement only from official pages when needed |
+| Fan posts, X / IG, Fan Sources | `fan_watch` rows in `social.json` | Group repeated discussion and label it unverified |
 | Every recent article | `items.json` | Complete current-window list |
 | Next race and weekend sessions | `calendar.json` | Next future session and weekend schedule |
 | Oscar basics, who drives car 81 | official Oscar / F1 / McLaren pages | Short verified profile |
 
-The Skill reads only the data source that matches the request and returns concise Markdown in the conversation. Today's hot ranking is not re-ranked or expanded and does not generate charts, images, or visualizations unless the user explicitly requests another format. Looking Back is no longer a Skill capability. See [SKILL.md](piasnews/SKILL.md) and the [published-data guide](piasnews/references/sources.md).
+Only an explicit hot-ranking/list/order request uses exact snapshot readback. Factual questions, today/recent briefs, and open discovery follow “Piasnews snapshot → freshness and sufficiency check → targeted web enrichment when needed → deduplication and editorial synthesis.” The hot ranking is not re-ranked and no chart, image, or visualization is created unless requested. Looking Back is no longer a preset Skill capability, but concrete historical race questions can still be researched normally. See [SKILL.md](piasnews/SKILL.md) and the [published-data guide](piasnews/references/sources.md).
 
 ## Public Fan Daily
 
@@ -709,7 +739,7 @@ Default priority:
 4. Public news RSS/search.
 5. Optional X/social sources.
 
-Each collector run discovers only the latest three days and verifies the publisher date before merging valid items into the webpage retention window. The Skill reads the public snapshot by default: “today” is filtered in the user's timezone, and “all news” uses the current published window without expanding searches merely to add volume.
+Each collector run discovers only the latest three days, verifies the publisher date, and merges valid items into the seven-day public serving window. The Skill starts from the intent-relevant snapshot and then checks freshness and sufficiency. All-news requests use the seven-day window; “today” is filtered in the user's timezone and targets 5–8 distinct developments; “recent” starts at 72 hours and widens when needed. Explicit hot-ranking requests preserve the published order, while other questions search official and reliable web sources automatically when the snapshot is missing, stale, or too sparse. Looking Back is not a preset mode, but concrete historical facts remain answerable through normal research.
 
 RSS is discovery-only. The collector decodes Google News links, reads the publisher's `datePublished`, and keeps an item only when the original publication date is verifiably inside the latest three-day window. RSS `pubDate` is retained as discovery metadata and never used as authoritative recency evidence.
 

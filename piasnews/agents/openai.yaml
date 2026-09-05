@@ -1,7 +1,7 @@
 interface:
   display_name: "Piasnews"
-  short_description: "Piastri 热榜、日报、官方动态与粉丝消息"
-  default_prompt: "Use $piasnews to return today's published hot ranking as a concise text list."
+  short_description: "Piastri 信息整合、热榜与联网补全"
+  default_prompt: "Use $piasnews to integrate the published Piasnews snapshot, search current web sources when coverage is missing or sparse, and return a concise fan-focused brief."
 
 policy:
   allow_implicit_invocation: true
