@@ -65,6 +65,8 @@ class HotEventPublishWorkflowTests(unittest.TestCase):
 
         self.assertIn("Fetch latest Oscar session result", workflow)
         self.assertIn("scripts/fetch_f1_session_results.py", workflow)
+        self.assertIn("PIASNEWS_OPENF1_USERNAME: ${{ secrets.PIASNEWS_OPENF1_USERNAME }}", workflow)
+        self.assertIn("PIASNEWS_OPENF1_PASSWORD: ${{ secrets.PIASNEWS_OPENF1_PASSWORD }}", workflow)
         self.assertIn("data/session-results.json", workflow)
         self.assertIn("data/session-results.json", review_workflow)
 

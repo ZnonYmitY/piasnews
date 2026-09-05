@@ -72,6 +72,9 @@ jobs:
 
       - name: Fetch latest Oscar session result
         if: ${{ inputs.apply_only != true }}
+        env:
+          PIASNEWS_OPENF1_USERNAME: ${{ secrets.PIASNEWS_OPENF1_USERNAME }}
+          PIASNEWS_OPENF1_PASSWORD: ${{ secrets.PIASNEWS_OPENF1_PASSWORD }}
         run: python scripts/fetch_f1_session_results.py --calendar data/calendar.json --output data/session-results.json
 
       - name: Build Formula 1 calendar files

@@ -313,7 +313,13 @@ def structured_session_result_event(
     max_age_hours: int = 24,
 ) -> dict[str, Any] | None:
     result = session_results.get("latest") or {}
-    if not clean(result.get("session_ref")):
+    latest_ref = clean(result.get("session_ref"))
+    if not latest_ref:
+        return None
+    attempted_ref = clean(session_results.get("attempted_session_ref"))
+    completed_prefix = "session_completed:"
+    completed_ref = refresh_reason[len(completed_prefix):] if refresh_reason.startswith(completed_prefix) else ""
+    if (attempted_ref and attempted_ref != latest_ref) or (completed_ref and completed_ref != latest_ref):
         return None
 
     race_id = clean(result.get("race_id"))

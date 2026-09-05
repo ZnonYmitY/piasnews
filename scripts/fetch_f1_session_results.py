@@ -5,6 +5,8 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
+import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import datetime, timedelta, timezone
@@ -19,6 +21,8 @@ except ModuleNotFoundError:  # Imported as scripts.fetch_f1_session_results in t
 
 ROOT = Path(__file__).resolve().parents[1]
 OPENF1_BASE_URL = "https://api.openf1.org/v1"
+OPENF1_TOKEN_URL = "https://api.openf1.org/token"
+USER_AGENT = "piasnews/0.8 (+https://github.com/ZnonYmitY/piasnews)"
 DRIVER_NUMBER = 81
 SESSION_NAMES = {
     "practice_1": "Practice 1",
@@ -29,6 +33,116 @@ SESSION_NAMES = {
     "qualifying": "Qualifying",
     "race": "Race",
 }
+
+
+class OpenF1RequestError(RuntimeError):
+    """A safe, credential-free OpenF1 error suitable for persisted diagnostics."""
+
+    def __init__(self, code: str, *, status: int | None = None) -> None:
+        super().__init__(code)
+        self.code = code
+        self.status = status
+
+
+def safe_http_error(error: urllib.error.HTTPError, *, prefix: str = "openf1") -> OpenF1RequestError:
+    detail = ""
+    try:
+        body = error.read(4096).decode("utf-8", errors="replace")
+        parsed = json.loads(body)
+        if isinstance(parsed, dict):
+            detail = str(parsed.get("detail") or "")
+    except (OSError, ValueError, TypeError):
+        pass
+    status = int(error.code)
+    if status == 401 and "live f1 session" in detail.lower():
+        code = f"{prefix}_http_401_live_access_requires_auth"
+    else:
+        code = f"{prefix}_http_{status}"
+    return OpenF1RequestError(code, status=status)
+
+
+class OpenF1Client:
+    """Fetch JSON anonymously, upgrading once to OAuth when live access requires it."""
+
+    def __init__(
+        self,
+        username: str | None = None,
+        password: str | None = None,
+        *,
+        opener: Callable[..., Any] = urllib.request.urlopen,
+    ) -> None:
+        self.username = (username or "").strip()
+        self.password = password or ""
+        self.opener = opener
+        self.access_token: str | None = None
+        self.authentication = "anonymous"
+
+    @classmethod
+    def from_environment(cls) -> "OpenF1Client":
+        username = os.environ.get("PIASNEWS_OPENF1_USERNAME") or os.environ.get("OPENF1_USERNAME")
+        password = os.environ.get("PIASNEWS_OPENF1_PASSWORD") or os.environ.get("OPENF1_PASSWORD")
+        return cls(username, password)
+
+    def _request_json(
+        self,
+        url: str,
+        *,
+        data: bytes | None = None,
+        access_token: str | None = None,
+        error_prefix: str = "openf1",
+    ) -> Any:
+        headers = {
+            "Accept": "application/json",
+            "User-Agent": USER_AGENT,
+        }
+        if data is not None:
+            headers["Content-Type"] = "application/x-www-form-urlencoded"
+        request = urllib.request.Request(url, data=data, headers=headers)
+        if access_token:
+            parsed_url = urllib.parse.urlsplit(url)
+            if parsed_url.scheme != "https" or parsed_url.hostname != "api.openf1.org":
+                raise OpenF1RequestError("openf1_auth_target_rejected")
+            request.add_unredirected_header("Authorization", f"Bearer {access_token}")
+        try:
+            with self.opener(request, timeout=20) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except urllib.error.HTTPError as error:
+            raise safe_http_error(error, prefix=error_prefix) from None
+        except (urllib.error.URLError, TimeoutError, OSError):
+            raise OpenF1RequestError(f"{error_prefix}_network_unavailable") from None
+        except (UnicodeDecodeError, json.JSONDecodeError, TypeError):
+            raise OpenF1RequestError(f"{error_prefix}_invalid_json") from None
+
+    def _obtain_access_token(self) -> str:
+        if bool(self.username) != bool(self.password):
+            raise OpenF1RequestError("openf1_auth_config_incomplete")
+        if not self.username:
+            raise OpenF1RequestError("openf1_auth_not_configured")
+        data = urllib.parse.urlencode({"username": self.username, "password": self.password}).encode("utf-8")
+        payload = self._request_json(OPENF1_TOKEN_URL, data=data, error_prefix="openf1_auth")
+        token = payload.get("access_token") if isinstance(payload, dict) else None
+        if not isinstance(token, str) or not token.strip():
+            raise OpenF1RequestError("openf1_auth_token_missing")
+        return token.strip()
+
+    def fetch_json(self, url: str) -> Any:
+        try:
+            return self._request_json(url, access_token=self.access_token)
+        except OpenF1RequestError as error:
+            if error.status != 401:
+                raise
+            if self.access_token:
+                raise OpenF1RequestError("openf1_auth_rejected", status=401) from None
+            if not self.username and not self.password:
+                raise
+            self.access_token = self._obtain_access_token()
+            self.authentication = "oauth"
+            try:
+                return self._request_json(url, access_token=self.access_token)
+            except OpenF1RequestError as retry_error:
+                if retry_error.status == 401:
+                    raise OpenF1RequestError("openf1_auth_rejected", status=401) from None
+                raise
 
 
 def parse_args() -> argparse.Namespace:
@@ -55,12 +169,7 @@ def read_json(path: Path, fallback: dict[str, Any]) -> dict[str, Any]:
 
 
 def fetch_json(url: str) -> Any:
-    request = urllib.request.Request(
-        url,
-        headers={"User-Agent": "piasnews/0.8 (+https://github.com/ZnonYmitY/piasnews)"},
-    )
-    with urllib.request.urlopen(request, timeout=20) as response:
-        return json.loads(response.read().decode("utf-8"))
+    return OpenF1Client().fetch_json(url)
 
 
 def latest_completed_session(
@@ -163,8 +272,8 @@ def fetch_latest_result(
         result = (result_rows or [None])[0] if isinstance(result_rows, list) else None
         if not isinstance(result, dict):
             return ref, None, "openf1_result_pending"
-    except Exception as exc:  # noqa: BLE001 - keep the previous valid result and retry at the next gate
-        return ref, None, f"openf1_unavailable:{type(exc).__name__}"
+    except OpenF1RequestError as exc:
+        return ref, None, exc.code
 
     position = result_position(result)
     status = result_status(result)
@@ -238,11 +347,13 @@ def main() -> int:
     args = parse_args()
     output = Path(args.output)
     previous = read_json(output, {"schema_version": 1, "latest": None})
+    client = OpenF1Client.from_environment()
     payload = build_payload(
         read_json(Path(args.calendar), {"races": []}),
         previous,
         now=utc_now(args.now),
         confirmation_minutes=args.confirmation_minutes,
+        fetcher=client.fetch_json,
     )
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -250,7 +361,17 @@ def main() -> int:
         latest = payload["latest"]
         print(f"Fetched session result {latest['session_ref']}: {latest['status']} position={latest.get('position')}")
     else:
-        print(f"Session result pending for {payload.get('attempted_session_ref')}: {payload.get('last_error') or 'none'}")
+        error = payload.get("last_error") or "none"
+        print(f"Session result pending for {payload.get('attempted_session_ref')}: {error}")
+        if os.environ.get("GITHUB_ACTIONS") == "true" and error != "none":
+            print(f"::warning title=OpenF1 session result unavailable::{error}")
+            summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
+            if summary_path:
+                with Path(summary_path).open("a", encoding="utf-8") as summary:
+                    summary.write("## OpenF1 session result pending\n\n")
+                    summary.write(f"- Session: `{payload.get('attempted_session_ref') or 'unknown'}`\n")
+                    summary.write(f"- Safe error code: `{error}`\n")
+                    summary.write("- The session remains unhandled and will be retried.\n")
     return 0
 
 

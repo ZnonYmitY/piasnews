@@ -315,7 +315,7 @@ class HotEventBuildTest(unittest.TestCase):
 
         self.assertIsNone(event)
 
-    def test_previous_valid_result_stays_visible_while_new_result_is_pending(self):
+    def test_previous_valid_result_is_not_ranked_as_latest_while_new_result_is_pending(self):
         event = builder.structured_session_result_event(
             {
                 "result_available": False,
@@ -335,6 +335,58 @@ class HotEventBuildTest(unittest.TestCase):
             },
             {"races": []},
             "session_completed:race-1:practice_3",
+            builder.now_time(NOW),
+            24,
+        )
+
+        self.assertIsNone(event)
+
+    def test_new_session_refresh_reason_suppresses_old_result_before_fetch_runs(self):
+        event = builder.structured_session_result_event(
+            {
+                "result_available": True,
+                "attempted_session_ref": "race-1:practice_2",
+                "latest": {
+                    "session_ref": "race-1:practice_2",
+                    "race_id": "race-1",
+                    "race_name": "Italian Grand Prix",
+                    "race_name_zh": "意大利大奖赛",
+                    "session": "practice_2",
+                    "status": "classified",
+                    "position": 6,
+                    "session_end": "2026-08-25T11:30:00Z",
+                    "first_ranked_at": "2026-08-25T11:45:00Z",
+                    "source": "OpenF1",
+                },
+            },
+            {"races": []},
+            "session_completed:race-1:practice_3",
+            builder.now_time(NOW),
+            24,
+        )
+
+        self.assertIsNone(event)
+
+    def test_previous_valid_result_stays_visible_when_same_session_retry_is_pending(self):
+        event = builder.structured_session_result_event(
+            {
+                "result_available": False,
+                "attempted_session_ref": "race-1:practice_2",
+                "latest": {
+                    "session_ref": "race-1:practice_2",
+                    "race_id": "race-1",
+                    "race_name": "Italian Grand Prix",
+                    "race_name_zh": "意大利大奖赛",
+                    "session": "practice_2",
+                    "status": "classified",
+                    "position": 6,
+                    "session_end": "2026-08-25T11:30:00Z",
+                    "first_ranked_at": "2026-08-25T11:45:00Z",
+                    "source": "OpenF1",
+                },
+            },
+            {"races": []},
+            "session_completed:race-1:practice_2",
             builder.now_time(NOW),
             24,
         )

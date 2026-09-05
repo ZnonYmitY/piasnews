@@ -4,7 +4,7 @@
 
 Piasnews 是一个面向 Oscar Piastri 粉丝的 Agent Skill，用来抓取、去重、分类并总结 Oscar Piastri 相关新闻。
 
-当前版本是 **V1 静态数据 + 公开粉丝日报 + 历史审核台**：粉丝使用 Skill 或直接打开网页都不依赖托管后端、不要求 X API，也不使用我们的私有 token 或第三方付费额度。仓库通过 GitHub Actions 定时生成最近 3 天的新闻数据和重大事件候选；网页随每次采集自动更新，维护者可以在静态审核台确认候选后写入正式历史库。
+当前版本是 **V1 静态数据 + 公开粉丝日报 + 历史审核台**：粉丝使用 Skill 或直接打开网页都不需要提供私有 token。仓库通过 GitHub Actions 定时生成最近 3 天的新闻数据和重大事件候选；网页随每次采集自动更新，维护者可以在静态审核台确认候选后写入正式历史库。比赛直播窗口内的 OpenF1 成绩读取可由维护者在后端配置可选认证，凭据不会下发到网页。
 
 ## 当前能力
 
@@ -404,7 +404,7 @@ python3 scripts/validate_history.py
 python3 scripts/build_hot_events.py
 ```
 
-比赛周赛段结束并经过 15 分钟确认缓冲后，工作流从 OpenF1 `session_result` 获取 Oscar 的结构化成绩，不依赖新闻标题是否及时收录。结果可用时生成“人物＋场次＋名次/状态”热点并硬置顶第一，支持正常名次以及 DNF、DNS、DSQ；如果结果暂未返回，gate 会在后续检查中重试。最近一次有效成绩会跨日更、翻译发布和后台配置发布保留，直到产生更新的有效赛段成绩，或实际在榜满 24 小时后自动退出；同一成绩重复采集不会重置计时。
+比赛周赛段结束并经过 15 分钟确认缓冲后，工作流从 OpenF1 `session_result` 获取 Oscar 的结构化成绩，不依赖新闻标题是否及时收录。OpenF1 会在 F1 官网发布正式结果后的几分钟提供该数据；匿名请求只适合非直播窗口，配置 GitHub Actions Secrets `PIASNEWS_OPENF1_USERNAME` 和 `PIASNEWS_OPENF1_PASSWORD` 后，采集器会在匿名请求遇到直播访问 401 时通过 OAuth2 换取一小时临时 token，并仅在当前后端进程内使用。结果可用时生成“人物＋场次＋名次/状态”热点并硬置顶第一，支持正常名次以及 DNF、DNS、DSQ；如果结果暂未返回，gate 会在后续检查中重试。最近一次有效成绩会保留在成绩文件中供追溯和重试；一旦检测到更新场次仍待处理，旧场次不再作为“最新成绩”硬置顶。同一场次的临时重抓失败仍可保留其原有展示，且重复采集不会重置 24 小时计时。
 
 后台 `/admin/` 新增热榜工作台。角色由 Worker 的 `ADMIN_KEYS_JSON` 配置：`viewer` 可查看，`editor` 可保存草稿，`publisher` 和 `admin` 可提交生效覆盖。工作台支持查看事件下的当前内容列表，新增、删除或编辑单条内容及其原链接和媒体。覆盖数据与采集数据分开保存；从前台隐藏的事件仍保留在后台并标记为“前台隐藏”。人工指定名次只调整仍满足普通热度门槛的事件顺序，不能阻挡赛后成绩硬置顶，也不能让低于 `minimum_heat`（当前为 8，含热度 0）的事件继续留榜；相同人工名次以最近发布的修改优先。草稿只写入配置，启用覆盖会在配置提交后自动触发正式站发布。热榜写入工作流串行执行；同一事件采用乐观版本校验，旧页面不会静默覆盖其他管理员的新修改，而会要求刷新后重新提交。
 
@@ -520,7 +520,7 @@ python3 scripts/build_hot_events.py
 
 Piasnews is an Agent Skill for Oscar Piastri fans. It helps agents fetch, deduplicate, classify, and summarize Oscar Piastri related news.
 
-The current release combines **V1 static data, a public fan daily, and a history review console**. Fans can use the Skill or open the website without a hosted backend, X API access, private token, or paid third-party quota. GitHub Actions refreshes recent news and major-event candidates, redeploys the public daily, and lets the maintainer approve candidates into the formal history library.
+The current release combines **V1 static data, a public fan daily, and a history review console**. Fans can use the Skill or open the website without supplying a private token. GitHub Actions refreshes recent news and major-event candidates, redeploys the public daily, and lets the maintainer approve candidates into the formal history library. Maintainers may optionally configure backend-only OpenF1 authentication for result reads during live-session windows; those credentials are never shipped to the webpage.
 
 ## Current Capabilities
 
@@ -914,7 +914,7 @@ python3 scripts/validate_history.py
 
 The former Short tab is now a merged hot ranking with objective hot words, source labels, integer heat, and related items. Deterministic rules live in `config/hot-ranking.json`; generate the snapshot with `python3 scripts/build_hot_events.py`.
 
-After a race-weekend session and its 15-minute confirmation buffer, the workflow reads Oscar's structured result from OpenF1 `session_result`. A normal position or DNF/DNS/DSQ status becomes the hard-ranked first event. It survives daily, translation, and editorial rebuilds until a newer valid session result replaces it or it has been ranked for 24 hours; refetching the same result does not reset that timer. Missing results remain unhandled so the 15-minute gate retries instead of silently accepting a result-less refresh.
+After a race-weekend session and its 15-minute confirmation buffer, the workflow reads Oscar's structured result from OpenF1 `session_result`, which OpenF1 says becomes available a few minutes after Formula 1 publishes the official classification. Anonymous reads are suitable only outside live windows. When the GitHub Actions secrets `PIASNEWS_OPENF1_USERNAME` and `PIASNEWS_OPENF1_PASSWORD` are configured, an anonymous live-access 401 triggers a backend OAuth2 token exchange; the one-hour token stays in the current process and is never published. A normal position or DNF/DNS/DSQ status becomes the hard-ranked first event. The last valid result remains stored for traceability and retries, but once a newer session is pending the older session is no longer presented as the latest hard-ranked event. A temporary retry of the same session can retain its current display, and refetching it does not reset the 24-hour timer. Missing results remain unhandled so the gate retries instead of silently accepting a result-less refresh.
 
 The `/admin/` workbench uses Worker roles configured through `ADMIN_KEYS_JSON`: viewers can inspect, editors can save drafts, and publishers or admins can activate overrides. Editorial overlays remain separate from collected source data. Events hidden from the public ranking remain visible and labeled in the workbench. An editorial position only reorders an event that still meets the normal `minimum_heat` threshold; it cannot displace the session-result hard rule or keep a zero-heat event on the ranking. The newest publication wins a same-slot editorial collision. Drafts only update configuration; activating an override automatically triggers a production-site deployment after the configuration commit. Writes are serialized, and optimistic per-event version checks reject stale edits instead of silently overwriting another administrator's work.
 
