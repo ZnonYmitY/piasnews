@@ -161,6 +161,7 @@ button:focus-visible, a:focus-visible, textarea:focus-visible {
   margin: 16px auto;
   display: grid;
   grid-template-columns: 276px minmax(520px, 1fr) 318px;
+  grid-template-rows: minmax(0, 1fr);
   border: 1px solid var(--line);
   border-radius: 24px;
   overflow: hidden;
@@ -297,8 +298,11 @@ button:focus-visible, a:focus-visible, textarea:focus-visible {
 
 .conversation-panel {
   min-width: 0;
+  min-height: 0;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   background:
     radial-gradient(circle at 50% 10%, rgba(255,107,0,.045), transparent 32%),
     rgba(13,13,14,.75);
@@ -369,6 +373,7 @@ button:focus-visible, a:focus-visible, textarea:focus-visible {
   min-height: 0;
   padding: 30px max(28px, 7%);
   overflow-y: auto;
+  overscroll-behavior: contain;
   scroll-behavior: smooth;
   scrollbar-width: thin;
   scrollbar-color: #343437 transparent;
@@ -407,7 +412,7 @@ button:focus-visible, a:focus-visible, textarea:focus-visible {
 .typing-indicator span:nth-child(2) { animation-delay: .12s; }
 .typing-indicator span:nth-child(3) { animation-delay: .24s; }
 
-.composer-shell { padding: 0 max(28px, 7%) 23px; }
+.composer-shell { flex: 0 0 auto; padding: 0 max(28px, 7%) 23px; }
 .composer-context { width: min(680px, 100%); min-height: 27px; margin: 0 auto 7px; display: flex; align-items: center; gap: 6px; }
 .context-pill { padding: 5px 8px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 999px; color: #8f8d92; font-size: 8px; letter-spacing: .04em; }
 .context-pill i { width: 5px; height: 5px; border-radius: 50%; background: var(--papaya); }
@@ -504,7 +509,7 @@ kbd { min-width: 15px; height: 15px; padding: 0 3px; display: inline-grid; place
   .disclosure { margin: 10px 14px 0; }
   .messages { padding: 24px 15px; }
   .message { gap: 9px; }
-  .composer-shell { padding: 0 14px 13px; }
+  .composer-shell { padding: 0 14px calc(13px + env(safe-area-inset-bottom)); }
   .typing-indicator { width: calc(100% - 28px); }
   .insight-panel { width: calc(100% - 28px); right: 14px; top: 76px; bottom: 14px; }
 }

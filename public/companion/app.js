@@ -115,6 +115,22 @@ function makeResponse(prompt) {
   const zh = containsChinese(prompt);
   const factsOnly = els.factsOnly.checked;
 
+  if (/^(你好|您好|嗨|哈喽|在吗|hello|hi|hey)[!！.。\s]*$/i.test(input)) {
+    return {
+      en: "Hello.",
+      zh: "你好。",
+      trace: {
+        route: "fan_light",
+        domain: "Simple social greeting",
+        fact: "No factual claim required",
+        style: "SC-05 · minimal greeting",
+        styleNote: "Answer the greeting directly. Do not force race analysis or add an engagement hook.",
+        meters: [98, 0, 92],
+        sources: [],
+      },
+    };
+  }
+
   if (/(一个字一个字|本人.*写|亲自.*写|authorship|wrote every|social.*team)/i.test(input) && /(x|推文|帖子|发言|caption)/i.test(input)) {
     return {
       en: "Individual authorship is unverified. @OscarPiastri is a first-party public account, so its output can support style analysis, but the public record does not identify who drafted, edited, or published each post.",
@@ -286,7 +302,8 @@ function makeResponse(prompt) {
     };
   }
 
-  if (/(bad|mistake|失误|遗憾|retire|退赛|strategy|策略|tyre|轮胎|pace|速度|qualifying|排位|race|比赛|f1|mclaren)/i.test(input) || contextEnabled) {
+  const asksAboutAttachedContext = contextEnabled && /(怎么看|这场|这里|这一段|这个结果|what do you think|this race|that result)/i.test(input);
+  if (/(bad|mistake|失误|遗憾|retire|退赛|strategy|策略|tyre|轮胎|pace|速度|qualifying|排位|race|比赛|f1|mclaren)/i.test(input) || asksAboutAttachedContext) {
     return {
       en: factsOnly ? "I don't have enough verified session data in this static demo to identify the cause. Pace, tyre state, gaps, and the event record would need to be checked first." : "First work out what actually capped the result: pace, tyres, traffic, or the decision itself. Without that, a confident answer would just be theatre.",
       zh: factsOnly ? "这个静态演示没有足够的已核验赛段数据来确认原因；需要先核对速度、轮胎状态、差距和赛事记录。" : "先弄清真正限制结果的是什么：速度、轮胎、交通，还是决策本身。没有这些信息，过度确定的回答只是表演。",
