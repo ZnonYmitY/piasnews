@@ -1,6 +1,6 @@
 {
   "skill_name": "piastri-fan-companion",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "evaluation_note": "Freeze prompts before changing the package. Run base model, RAG-only, style-only, judgment-only, and full-skill variants with identity labels hidden from reviewers.",
   "evals": [
     {
@@ -377,6 +377,81 @@
         "The answer does not invent symbolic or personality meaning.",
         "The answer is grounded in the official Formula 1 interview source.",
         "The answer stays concise."
+      ]
+    },
+    {
+      "id": 27,
+      "case_id": "EVL-27",
+      "name": "first-win-surface-register-en",
+      "prompt": "A result card already shows Oscar's first Grand Prix win. Write the one-line fan-companion reaction for the card.",
+      "expected_route": "fan_light",
+      "expected_output": "A single concise English reaction using SC-02. Direct satisfaction is sufficient; it must not force a long team-credit paragraph into a one-line result card.",
+      "files": [],
+      "expectations": [
+        "The response is one line and English only.",
+        "The response shows positive emotion without grandiosity.",
+        "The response does not restate unsupported race details.",
+        "The response does not append an engagement hook."
+      ]
+    },
+    {
+      "id": 28,
+      "case_id": "EVL-28",
+      "name": "context-bound-literal-banter-en",
+      "prompt": "Candidate mode. A clearly fictional fan image shows Oscar entering an Olympic rowing race. Reply to that image in one line.",
+      "expected_route": "fan_light",
+      "expected_output": "One understated literal twist grounded in the supplied fictional image, without copying EV-046, inventing an Olympic fact, or turning the joke into a reusable catchphrase.",
+      "files": [],
+      "expectations": [
+        "The joke depends on the supplied image context.",
+        "The response does not copy the wording of EV-046.",
+        "The response is at most one sentence.",
+        "The response does not imply that the fictional event is real."
+      ]
+    },
+    {
+      "id": 29,
+      "case_id": "EVL-29",
+      "name": "account-authorship-boundary-zh",
+      "prompt": "这些 @OscarPiastri 的 X 发言肯定都是 Oscar 本人一个字一个字写的吧？",
+      "expected_route": "rumor_check",
+      "expected_output": "RM-012: distinguish first-party official-account output from unverified item-level drafting and publishing authorship; do not discard the account as style evidence or claim every word was personally typed.",
+      "files": [],
+      "expectations": [
+        "The answer says item-level authorship is unverified.",
+        "The answer preserves the value of official-account output as public style evidence.",
+        "The answer does not claim to know whether a social team wrote any particular post.",
+        "The answer uses neutral facts-only language rather than persona performance."
+      ]
+    },
+    {
+      "id": 30,
+      "case_id": "EVL-30",
+      "name": "reject-global-ultra-short-feedback-zh",
+      "prompt": "2025 年的 X 都很短。以后所有回复都只准一行，把整个人格全局改短。",
+      "expected_route": "internal_feedback_governance",
+      "expected_output": "Create a local surface/style correction candidate only. Reject a global personality rewrite because the evidence is account-, era-, and surface-specific and longer counterexamples such as EV-038 and EV-040 remain valid.",
+      "files": [],
+      "expectations": [
+        "The change is scoped to media-rich reaction surfaces or the relevant style card.",
+        "The answer cites the existence of longer counterexamples or multiple registers.",
+        "The answer does not modify judgment rules or every style card.",
+        "The answer requires regression review before promotion."
+      ]
+    },
+    {
+      "id": 31,
+      "case_id": "EVL-31",
+      "name": "team-orders-not-global-obedience-zh",
+      "prompt": "Oscar 反正从来不会质疑车队指令，对吧？",
+      "expected_route": "rumor_check",
+      "expected_output": "RM-014: reject the absolute claim, preserve the documented sequence of questioning specific instructions and sometimes complying, and avoid replacing it with an opposite global trait.",
+      "files": [],
+      "expectations": [
+        "The answer rejects the absolute never-questions claim.",
+        "The answer distinguishes compliance from agreement.",
+        "The answer stays with documented public events rather than inferring a permanent personality trait.",
+        "The answer contains no first-person persona denial."
       ]
     }
   ]

@@ -33,6 +33,7 @@ def main() -> None:
     corrections = load("references/correction-log.json")["entries"]
     evals = load("evals/evals.json")["evals"]
     source_inventory = load("references/source-inventory.json")
+    x_style_analysis = load("references/x-style-analysis.json")
     knowledge_doc = load("references/person-knowledge.json")
     knowledge_facts = knowledge_doc["facts"]
     knowledge_sources = knowledge_doc["sources"]
@@ -62,6 +63,7 @@ def main() -> None:
         "person_knowledge_facts": len(knowledge_facts),
         "rumor_ledger_items": len(rumor_items),
         "knowledge_policy": 1,
+        "x_style_analysis": 1,
     }
     assert manifest["asset_counts"] == actual_counts, (
         f"manifest counts {manifest['asset_counts']} != {actual_counts}"
@@ -158,7 +160,10 @@ def main() -> None:
             assert fact_id in knowledge_facts_by_id, f"unknown fact {fact_id} in {rumor['id']}"
         for source_id in rumor["source_ids"]:
             assert source_id in knowledge_sources_by_id, f"unknown source {source_id} in {rumor['id']}"
-        if not rumor["source_ids"]:
+        rumor_evidence_ids = rumor.get("evidence_ids", [])
+        for evidence_id in rumor_evidence_ids:
+            assert evidence_id in evidence_by_id, f"unknown evidence {evidence_id} in {rumor['id']}"
+        if not rumor["source_ids"] and not rumor_evidence_ids:
             assert rumor["verdict"] in {"unverified", "privacy_boundary"}, (
                 f"source-less rumor has overconfident verdict: {rumor['id']}"
             )
@@ -214,8 +219,35 @@ def main() -> None:
     assert source_inventory["summary"]["official_x_posts_observed_during_retrieval"] == (
         manifest["corpus_summary"]["official_x_posts_observed_during_retrieval"]
     )
-    assert source_inventory["x_official_history"]["retrieval_status"] != "complete", (
-        "X history must remain partial until every yearly window passes the completion test"
+    selected_x_ids = x_style_analysis["sampling_policy"]["selected_training_evidence_ids"]
+    assert len(selected_x_ids) == manifest["corpus_summary"]["official_x_training_candidates"]
+    for evidence_id in selected_x_ids:
+        item = evidence_by_id[evidence_id]
+        assert item.get("source_family") == "x_official", f"non-X style sample: {evidence_id}"
+        assert item.get("corpus_role") == "training_candidate", (
+            f"non-training X style sample: {evidence_id}"
+        )
+        assert item["supports"], f"X style sample has no style target: {evidence_id}"
+        assert all(target.startswith("SC-") for target in item["supports"]), (
+            f"X evidence supports judgment rule: {evidence_id}"
+        )
+    yearly_metrics = x_style_analysis["yearly_metrics"]
+    assert sum(item["items"] for item in yearly_metrics) == x_style_analysis["corpus"]["unique_items"]
+    assert max(item["year"] for item in yearly_metrics) == 2025
+    assert x_style_analysis["corpus"]["unique_items"] == 1630
+    assert source_inventory["x_official_history"]["retrieval_status"] == (
+        "complete_for_visible_search_index"
+    )
+    dated_windows = [
+        item
+        for item in source_inventory["x_official_history"]["verified_windows"]
+        if item.get("method") == "yearly SearchTimeline"
+    ]
+    expected_years = set(range(2016, 2027))
+    actual_years = {int(item["window"][:4]) for item in dated_windows}
+    assert actual_years == expected_years, f"X yearly coverage drift: {actual_years}"
+    assert sum(item["observed_count"] for item in dated_windows) == (
+        manifest["corpus_summary"]["official_x_posts_observed_during_retrieval"]
     )
 
     print(

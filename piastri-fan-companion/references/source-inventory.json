@@ -9,19 +9,20 @@
     "temporal_holdout": "Curated evidence reserved for testing and prohibited from supporting the rules or cards it tests."
   },
   "summary": {
-    "curated_evidence_total": 33,
-    "curated_evidence_added_this_pass": 17,
+    "curated_evidence_total": 46,
+    "curated_evidence_added_this_pass": 13,
     "race_interview_or_press_conference_evidence": 14,
     "team_radio_evidence": 4,
     "official_x_holdout_evidence": 7,
-    "official_x_posts_observed_during_retrieval": 1353,
+    "official_x_training_candidate_evidence": 13,
+    "official_x_posts_observed_during_retrieval": 1661,
     "official_x_posts_fully_materialized_in_latest_timeline_response": 20
   },
   "x_official_history": {
     "account": "@OscarPiastri",
     "account_url": "https://x.com/OscarPiastri",
     "account_created_at": "2016-05-09T19:03:12Z",
-    "retrieval_status": "partial_rate_limited_and_opencli_error",
+    "retrieval_status": "complete_for_visible_search_index",
     "retrieval_methods": [
       "OpenCLI UserTweets cursor pagination",
       "OpenCLI SearchTimeline with yearly windows",
@@ -119,6 +120,42 @@
         "coverage_note": "All returned created_at values were verified inside the requested year and the count stayed below the 1000-result split threshold."
       },
       {
+        "window": "2024-01-01/2024-12-31",
+        "method": "yearly SearchTimeline",
+        "observed_count": 199,
+        "original_posts": 171,
+        "replies": 28,
+        "reposts": 0,
+        "posts_with_media": 133,
+        "newest_at": "2024-12-28T11:38:59Z",
+        "oldest_at": "2024-01-11T19:19:45Z",
+        "coverage_note": "The resumed window completed after the local browser bridge was restarted outside the sandbox; all returned timestamps were verified inside 2024."
+      },
+      {
+        "window": "2025-01-01/2025-12-31",
+        "method": "yearly SearchTimeline",
+        "observed_count": 98,
+        "original_posts": 96,
+        "replies": 2,
+        "reposts": 0,
+        "posts_with_media": 87,
+        "newest_at": "2025-12-27T14:44:41Z",
+        "oldest_at": "2025-01-13T20:37:05Z",
+        "coverage_note": "All returned timestamps were verified inside 2025; the count stayed below the split threshold."
+      },
+      {
+        "window": "2026-01-01/2026-09-05",
+        "method": "yearly SearchTimeline",
+        "observed_count": 31,
+        "original_posts": 31,
+        "replies": 0,
+        "reposts": 0,
+        "posts_with_media": 29,
+        "newest_at": "2026-09-02T09:10:04Z",
+        "oldest_at": "2026-01-16T15:43:34Z",
+        "coverage_note": "The post-cooldown retry completed the current-year window below the split threshold. Seven selected items remain temporal holdouts."
+      },
+      {
         "window": "latest visible timeline response",
         "method": "UserTweets",
         "observed_count": 20,
@@ -127,18 +164,18 @@
         "original_posts": 20,
         "reposts": 0,
         "posts_with_media": 18,
-        "coverage_note": "All 20 rows were returned with post ID, URL, timestamp, text, and engagement metadata. Seven are reserved as temporal holdouts in evidence.json."
+        "coverage_note": "All 20 rows were returned with post ID, URL, timestamp, text, and engagement metadata. They are a subset of the completed 2026 annual window; seven are reserved as temporal holdouts in evidence.json and are not counted twice."
       }
     ],
     "known_gaps": [
-      "2024-01-01 through 2026-04-07 were not completed after X returned HTTP 429 on the 2024 SearchTimeline window.",
-      "Two later retries on 2026-09-04 stopped before retrieval with OpenCLI BROWSER_CONNECT / daemon-start errors; the 2017-2023 checkpoint remained unchanged at 1333 unique items.",
+      "No dated window remains open in the visible search index. The retrieval cannot reconstruct posts deleted before collection, withheld from the account, or absent from X search indexing.",
+      "The earlier HTTP 429 and OpenCLI BROWSER_CONNECT failures were cleared by cooldown and restarting the browser bridge outside the sandbox; neither remains an active date-coverage blocker.",
       "Replies may require an additional replies-inclusive route; the profile timeline and search index do not guarantee complete deleted, withheld, or de-indexed content.",
       "A tool returning fewer than its requested limit is necessary but not sufficient proof of account-lifetime completeness."
     ],
     "last_attempt": {
       "date": "2026-09-04",
-      "result": "The resumed run completed 2022 and 2023. The checkpoint contains 1333 unique items across 2017-2023; combined with 20 non-overlapping posts from the latest 2026 timeline response, cross-response observed public expressions total 1353. The 2024 window first returned HTTP 429; two later retries stopped on OpenCLI BROWSER_CONNECT before retrieving data. The checkpoint is still resumable and unchanged.",
+      "result": "After cooldown, the resumed run completed the 2026 window with 31 items. The checkpoint now contains 1661 unique visible-index items across every yearly window from account creation through 2026-09-05: 1245 posts, 416 replies, no observed reposts, and 719 items with media. The latest-timeline response is a subset and is not counted twice.",
       "checkpoint_policy": "Raw post text remains under /tmp and is not included in the public skill package."
     },
     "completion_test": [
@@ -147,7 +184,14 @@
       "Deduplicate on post ID, retain original posts and replies as separate kinds, and record reposts separately.",
       "Report unavailable or deleted URLs as coverage gaps; never silently count them as retrieved."
     ],
-    "use_policy": "X posts support wording, compression, humor, and cadence. They do not establish race judgment unless the post itself contains enough context and is corroborated by an interview, radio, or race record."
+    "use_policy": "X posts support wording, compression, humor, and cadence. They do not establish race judgment unless the post itself contains enough context and is corroborated by an interview, radio, or race record. Official-account output does not prove who drafted or published each individual post."
+  },
+  "x_style_analysis": {
+    "curated_training_candidate_total": 13,
+    "curated_training_candidate_ids": ["EV-034", "EV-035", "EV-036", "EV-037", "EV-038", "EV-039", "EV-040", "EV-041", "EV-042", "EV-043", "EV-044", "EV-045", "EV-046"],
+    "metrics_file": "x-style-analysis.json",
+    "key_finding": "Public account output became shorter and more media-dependent from 2023 through 2025, but surface context determines whether the response should be a fragment, one sentence, or a short acknowledgement.",
+    "authorship_boundary": "Describe this as account-output evidence. Public materials do not disclose item-level drafting, editing, or publishing authorship."
   },
   "race_interviews": {
     "curated_evidence_total": 14,

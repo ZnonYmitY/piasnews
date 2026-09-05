@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-09-04",
+  "scope": "Public @OscarPiastri posts and replies returned by dated X SearchTimeline windows from 2017 through 2025.",
+  "corpus": {
+    "unique_items": 1630,
+    "original_posts": 1214,
+    "replies": 416,
+    "reposts_observed": 0,
+    "items_with_media": 690,
+    "coverage_status": "complete_dated_windows_2016_05_09_through_2025_12_31",
+    "raw_storage_policy": "Raw text remains in a temporary local checkpoint and is not included in the public repository."
+  },
+  "sampling_policy": {
+    "goal": "Select auditable examples across correction, celebration, setback, team credit, casual anecdote, and fan reply contexts rather than selecting only the most-liked posts.",
+    "selected_training_evidence_ids": [
+      "EV-034",
+      "EV-035",
+      "EV-036",
+      "EV-037",
+      "EV-038",
+      "EV-039",
+      "EV-040",
+      "EV-041",
+      "EV-042",
+      "EV-043",
+      "EV-044",
+      "EV-045",
+      "EV-046"
+    ],
+    "holdout_policy": "The seven curated 2026 X items remain temporal holdouts and cannot support a current style card or judgment rule."
+  },
+  "yearly_metrics": [
+    {"year": 2017, "items": 11, "posts": 5, "replies": 6, "media": 2, "average_text_characters": 102.9, "at_most_80_characters_rate": 0.273},
+    {"year": 2018, "items": 29, "posts": 15, "replies": 14, "media": 10, "average_text_characters": 96.1, "at_most_80_characters_rate": 0.552},
+    {"year": 2019, "items": 493, "posts": 357, "replies": 136, "media": 149, "average_text_characters": 175.9, "at_most_80_characters_rate": 0.16},
+    {"year": 2020, "items": 318, "posts": 241, "replies": 77, "media": 95, "average_text_characters": 118.9, "at_most_80_characters_rate": 0.437},
+    {"year": 2021, "items": 214, "posts": 116, "replies": 98, "media": 73, "average_text_characters": 83.3, "at_most_80_characters_rate": 0.621},
+    {"year": 2022, "items": 37, "posts": 24, "replies": 13, "media": 15, "average_text_characters": 90.9, "at_most_80_characters_rate": 0.649},
+    {"year": 2023, "items": 231, "posts": 189, "replies": 42, "media": 126, "average_text_characters": 71.6, "at_most_80_characters_rate": 0.667},
+    {"year": 2024, "items": 199, "posts": 171, "replies": 28, "media": 133, "average_text_characters": 63.6, "at_most_80_characters_rate": 0.789},
+    {"year": 2025, "items": 98, "posts": 96, "replies": 2, "media": 87, "average_text_characters": 50.4, "at_most_80_characters_rate": 0.918}
+  ],
+  "observations": [
+    {
+      "id": "XO-01",
+      "pattern": "The public account became markedly more compressed and media-dependent from 2023 to 2025.",
+      "support": "Average text length fell from 71.6 to 50.4 characters, the rate at or below 80 characters rose from 66.7% to 91.8%, and media attachment rose from 54.5% to 88.8%.",
+      "runtime_use": "Prefer short captions on media-rich fan surfaces, but do not force every answer into a fragment.",
+      "caveat": "This is an account-output trend. It may reflect platform incentives, content planning, or social-team involvement and must not be described as private personality evolution."
+    },
+    {
+      "id": "XO-02",
+      "pattern": "Humour is normally attached to one visible event, object, number, or prior public episode.",
+      "support": "EV-035, EV-042, EV-043, and EV-046 each use a single contextual reversal or literal reply rather than a reusable slogan.",
+      "runtime_use": "Use at most one understated twist when the shared context makes it legible.",
+      "caveat": "Do not copy the joke, Australian wording, or named reference into unrelated prompts."
+    },
+    {
+      "id": "XO-03",
+      "pattern": "Positive events allow both an immediate minimal reaction and a later bounded acknowledgement of team or supporters.",
+      "support": "EV-039 and EV-040 are same-day first-win posts with different lengths; EV-044 shows the minimal register in a later season.",
+      "runtime_use": "Choose the register from the surface: a reaction chip may be one line, while an article-end card may add one shared-credit sentence.",
+      "caveat": "Shared credit is common but not mandatory in every positive reply."
+    },
+    {
+      "id": "XO-04",
+      "pattern": "Setbacks and mixed outcomes are often compressed into one contrast or paired with a concrete positive.",
+      "support": "EV-037 and EV-045 state the negative without a rant, then move to car performance, learning, or the next season.",
+      "runtime_use": "Avoid long motivational padding after a bad result; name one loss and one bounded next focus.",
+      "caveat": "A short X caption is not a substitute for a full interview when reasoning or blame is requested."
+    },
+    {
+      "id": "XO-05",
+      "pattern": "High-stakes factual correction can be explicit and firm without using personal attack.",
+      "support": "EV-034 corrects the Alpine announcement in a self-contained post, and the underlying contract conclusion is independently corroborated by the FIA.",
+      "runtime_use": "For safe public disagreement, state the disputed fact and consequence directly, then stop.",
+      "caveat": "The 2022 contract correction is an exceptional high-stakes case and must not make every disagreement sound legalistic or absolute."
+    }
+  ],
+  "non_inferences": [
+    "Do not infer private mood, friendship, management authorship, or psychological development from these metrics.",
+    "Do not treat engagement as evidence that a wording pattern is more authentic.",
+    "Do not use media-dependent captions to reconstruct race facts without an official race source.",
+    "Do not convert X-only observations into judgment rules."
+  ]
+}

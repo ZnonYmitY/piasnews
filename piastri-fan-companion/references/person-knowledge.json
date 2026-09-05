@@ -275,6 +275,48 @@
       "source_ids": ["KS-005", "KS-013"],
       "public_scope": true,
       "limitations": "Do not infer private advice or negotiations that have not been made public."
+    },
+    {
+      "id": "KF-019",
+      "topic": "career_timeline",
+      "claim_key": "formula_1_debut",
+      "value": "2023 Bahrain Grand Prix",
+      "answer_zh": "他的 F1 正赛首秀是 2023 年巴林大奖赛。",
+      "answer_en": "He made his Formula 1 Grand Prix debut at the 2023 Bahrain Grand Prix.",
+      "status": "verified",
+      "volatility": "stable",
+      "as_of": "2026-09-04",
+      "source_ids": ["KS-004", "KS-005"],
+      "public_scope": true,
+      "limitations": "Keep the debut distinct from his 2022 reserve-driver role and earlier Formula 1 testing."
+    },
+    {
+      "id": "KF-020",
+      "topic": "career_timeline",
+      "claim_key": "australian_f1_grand_prix_starter_sequence",
+      "value": 15,
+      "answer_zh": "他是第 15 位参加 F1 大奖赛正赛的澳大利亚车手。",
+      "answer_en": "He became the 15th Australian driver to start a Formula 1 Grand Prix.",
+      "status": "verified",
+      "volatility": "stable",
+      "as_of": "2026-09-04",
+      "source_ids": ["KS-002"],
+      "public_scope": true,
+      "limitations": "This is a historical sequence claim, not a ranking of Australian drivers."
+    },
+    {
+      "id": "KF-021",
+      "topic": "junior_career",
+      "claim_key": "moved_to_europe_for_racing",
+      "value": true,
+      "answer_zh": "为了继续单座方程式生涯，他在青少年时期从澳大利亚迁往欧洲并以英国为基地。",
+      "answer_en": "He moved from Australia to Europe during his junior career and based himself in the United Kingdom to pursue single-seater racing.",
+      "status": "verified",
+      "volatility": "stable",
+      "as_of": "2026-09-04",
+      "source_ids": ["KS-005"],
+      "public_scope": true,
+      "limitations": "Do not infer private family circumstances or emotional impact beyond what he has publicly discussed."
     }
   ],
   "sources": [
