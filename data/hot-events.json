@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-05T05:56:31.108566Z",
+  "generated_at": "2026-09-05T13:33:17.665976Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -91,37 +91,13 @@
           "image_url": "https://pbs.twimg.com/media/HRSCsomaoAAPo62.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRSCsomaoAAPo62.jpg",
-          "heat_contribution": 7.454,
+          "heat_contribution": 6.6438,
           "metrics": {
             "likes": 2969,
             "retweets": 258,
             "replies": 2,
             "quotes": 0,
             "views": 34414,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-71576618f876386d",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar is on his way to monza! always doing the most random stuff on the plane 😭😭",
-          "title_zh": "X 发帖 @laurogeitabat：oscar正在前往Monza的路上！总是在飞机上做最奇怪的事 😭😭",
-          "summary": "oscar is on his way to monza! always doing the most random stuff on the plane 😭😭 https://t.co/SC0glhvvCE",
-          "summary_zh": "oscar正在前往Monza的路上！总是在飞机上做最奇怪的事 😭😭",
-          "url": "https://x.com/laurogeitabat/status/2095077301717172551",
-          "published_at": "2026-09-02T09:12:08Z",
-          "image_url": "https://pbs.twimg.com/media/HRM1sElWgAMMIgF.jpg",
-          "video_url": "https://video.twimg.com/amplify_video/2095077262857048065/vid/avc1/320x426/FRgH8AwsUpioro-F.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2095077262857048065/img/ZHvE0Xhsz2lEMvXJ.jpg",
-          "heat_contribution": 5.5666,
-          "metrics": {
-            "likes": 978,
-            "retweets": 118,
-            "replies": 0,
-            "quotes": 0,
-            "views": 8867,
             "bookmarks": 0
           }
         },
@@ -139,7 +115,7 @@
           "image_url": "https://pbs.twimg.com/media/HRSCsomaoAAPo62.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRSCsomaoAAPo62.jpg",
-          "heat_contribution": 5.4534,
+          "heat_contribution": 4.6478,
           "metrics": {
             "likes": 0,
             "retweets": 258,
@@ -157,7 +133,7 @@
           "title": "Why Piastri wants answers to a ‘bigger question’ in Monza",
           "title_zh": "为何Piastri想在Monza找到“更大问题”的答案",
           "summary": "Oscar Piastri-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+          "summary_zh": "从公共新闻元数据中发现的与Oscar Piastri相关的条目。",
           "url": "https://www.formula1.com/en/latest/article/why-piastri-is-chasing-answers-to-a-bigger-question-heading-into-the-monza-weekend.3gtaFnKz8VUzdu87FxACI7",
           "published_at": "2026-09-03T17:48:29.256000Z",
           "image_url": "https://media.formula1.com/image/upload/t_16by9Centre/c_lfill,w_2048/q_auto/v1740000001/trackside-images/2026/F1_Grand_Prix_of_Italy___Previews/2293355805.webp",
@@ -174,7 +150,7 @@
           "title": "F1 news: Oscar Piastri concerned by McLaren pace deficit at Monza",
           "title_zh": "F1新闻：Oscar Piastri担忧McLaren在Monza的速度差距",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+          "summary_zh": "从公共新闻元数据中发现的车队或赛车性能条目。",
           "url": "https://speedcafe.com/f1-news-2026-italian-grand-prix-monza-oscar-piastri-reaction-practice-friday-mclaren-update-latest-lando-norris/",
           "published_at": "2026-09-04T17:28:09Z",
           "image_url": "https://speedcafe.com/wp-content/uploads/2026/09/XPB_1432366_HiRes.jpg",
@@ -191,7 +167,7 @@
           "title": "F1 news: Oscar Piastri reveals bizarre Monza speed anomaly",
           "title_zh": "F1新闻：Oscar Piastri揭示Monza怪异速度异常",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+          "summary_zh": "从公共新闻元数据中发现的车队或赛车性能条目。",
           "url": "https://speedcafe.com/f1-news-2026-italian-grand-prix-monza-oscar-piastri-speed-differences-simulations-mclaren-update-performance-expectations-lando-norris/",
           "published_at": "2026-09-03T22:29:01Z",
           "image_url": "https://speedcafe.com/wp-content/uploads/2026/09/XPB_1427949_HiRes.jpg",
@@ -225,12 +201,29 @@
           "title": "Why Piastri Seek Solutions to Performance Struggles at Monza",
           "title_zh": "为何Piastri在Monza寻求解决表现困境的方案",
           "summary": "Oscar Piastri-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+          "summary_zh": "从公共新闻元数据中发现的与Oscar Piastri相关的条目。",
           "url": "https://bvmsports.com/2026/09/03/why-piastri-seek-solutions-to-performance-struggles-at-monza/",
           "published_at": "2026-09-03T18:39:29Z",
           "image_url": "https://media.formula1.com/image/upload/t_16by9Centre/c_lfill,w_2048/q_auto/v1740000001/trackside-images/2026/F1_Grand_Prix_of_Italy___Previews/2293355805.webp",
           "video_url": null,
           "video_poster_url": "https://media.formula1.com/image/upload/t_16by9Centre/c_lfill,w_2048/q_auto/v1740000001/trackside-images/2026/F1_Grand_Prix_of_Italy___Previews/2293355805.webp",
+          "heat_contribution": 0.45,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-5dee3e33557cab82",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Yahoo Sports",
+          "title": "McLaren's top speed higher in Hungary than at Monza – Oscar Piastri",
+          "title_zh": "McLaren在匈牙利的速度比Monza更高——Oscar Piastri",
+          "summary": "Team or car-performance item discovered from public news metadata.",
+          "summary_zh": "从公共新闻元数据中发现的车队或赛车性能条目。",
+          "url": "https://sports.yahoo.com/articles/mclarens-top-speed-higher-hungary-163241261.html",
+          "published_at": "2026-09-03T16:32:41Z",
+          "image_url": "https://s.yimg.com/lo/mysterio/api/3a4b06c14696f3586943d97028ad1ed03df6acd7b24e95ee7cbc965cf48785b9/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fmotorsport_articles_445%2F56d4add2d849a4f7d8155fd3ac8ff3d8.jpg",
+          "video_url": null,
+          "video_poster_url": "https://s.yimg.com/lo/mysterio/api/3a4b06c14696f3586943d97028ad1ed03df6acd7b24e95ee7cbc965cf48785b9/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fmotorsport_articles_445%2F56d4add2d849a4f7d8155fd3ac8ff3d8.jpg",
           "heat_contribution": 0.45,
           "metrics": {}
         },
@@ -242,7 +235,7 @@
           "title": "Oscar Piastri warns McLaren ahead of crucial Monza test",
           "title_zh": "Oscar Piastri在关键的Monza测试前向McLaren发出警告",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+          "summary_zh": "从公共新闻元数据中发现的车队或赛车性能条目。",
           "url": "https://www.paddocknews24.com/en/news-f1/oscar-piastri-warns-mclaren-ahead-of-crucial-monza-test/",
           "published_at": "2026-08-31T19:42:02Z",
           "image_url": "https://www.paddocknews24.com/en/wp-content/uploads/2026/08/89mkRfv4_risultato.webp",
@@ -250,6 +243,30 @@
           "video_poster_url": "https://www.paddocknews24.com/en/wp-content/uploads/2026/08/89mkRfv4_risultato.webp",
           "heat_contribution": 0.0,
           "metrics": {}
+        },
+        {
+          "item_id": "piasnews-social-71576618f876386d",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar is on his way to monza! always doing the most random stuff on the plane 😭😭",
+          "title_zh": "X 发帖 @laurogeitabat：oscar正在前往Monza的路上！总是在飞机上做最奇怪的事 😭😭",
+          "summary": "oscar is on his way to monza! always doing the most random stuff on the plane 😭😭 https://t.co/SC0glhvvCE",
+          "summary_zh": "oscar正在前往Monza的路上！总是在飞机上做最奇怪的事 😭😭",
+          "url": "https://x.com/laurogeitabat/status/2095077301717172551",
+          "published_at": "2026-09-02T09:12:08Z",
+          "image_url": "https://pbs.twimg.com/media/HRM1sElWgAMMIgF.jpg",
+          "video_url": "https://video.twimg.com/amplify_video/2095077262857048065/vid/avc1/320x426/FRgH8AwsUpioro-F.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2095077262857048065/img/ZHvE0Xhsz2lEMvXJ.jpg",
+          "heat_contribution": 0.0,
+          "metrics": {
+            "likes": 978,
+            "retweets": 118,
+            "replies": 0,
+            "quotes": 0,
+            "views": 8867,
+            "bookmarks": 0
+          }
         },
         {
           "item_id": "piasnews-social-f1c9ae1f6e7acfb0",
@@ -301,9 +318,9 @@
         }
       ],
       "official_heat": 12,
-      "media_heat": 24,
-      "fan_heat": 63,
-      "heat": 70,
+      "media_heat": 28,
+      "fan_heat": 46,
+      "heat": 54,
       "source_labels": [
         "官",
         "媒",
@@ -311,92 +328,12 @@
       ],
       "source_counts": {
         "official": 1,
-        "media": 4,
+        "media": 5,
         "fan": 2
       },
       "pinned_rank": null,
       "hidden": false,
       "rank": 2
-    },
-    {
-      "event_id": "evt-2026-09-02-eb4c0cc1ccde",
-      "rule_id": null,
-      "hot_word_zh": "搞定了 👍",
-      "hot_word_en": "Nailed it 👍",
-      "first_seen_at": "2026-09-02T09:10:04Z",
-      "last_seen_at": "2026-09-02T09:11:28Z",
-      "anchor_item_id": "piasnews-social-67129b2e1472304c",
-      "image_url": "https://pbs.twimg.com/media/HRM1OseWYAMwHfG.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HRM1OseWYAMwHfG.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-67129b2e1472304c",
-          "dataset": "social",
-          "source_type": "official",
-          "source": "@OscarPiastri",
-          "title": "X post from @OscarPiastri: Nailed it 👍",
-          "title_zh": "X 发帖 @OscarPiastri：搞定了 👍",
-          "summary": "Nailed it 👍 https://t.co/Bu83wI6Olz",
-          "summary_zh": "搞定了 👍",
-          "url": "https://x.com/OscarPiastri/status/2095076784588849633",
-          "published_at": "2026-09-02T09:10:04Z",
-          "image_url": "https://pbs.twimg.com/media/HRM1OseWYAMwHfG.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HRM1OseWYAMwHfG.jpg",
-          "heat_contribution": 8.9505,
-          "metrics": {
-            "likes": 29205,
-            "retweets": 2670,
-            "replies": 176,
-            "quotes": 0,
-            "views": 348127,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-46063cafe4f7d5f4",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@oscarsspiastree",
-          "title": "X repost from @oscarsspiastree: RT @OscarPiastri: Nailed it 👍",
-          "title_zh": "X 转帖 @oscarsspiastree：RT @OscarPiastri: 搞定了 👍",
-          "summary": "RT @OscarPiastri: Nailed it 👍 https://t.co/Bu83wI6Olz",
-          "summary_zh": "RT @OscarPiastri: 搞定了 👍",
-          "url": "https://x.com/oscarsspiastree/status/2095077137682251796",
-          "published_at": "2026-09-02T09:11:28Z",
-          "image_url": "https://pbs.twimg.com/media/HRM1OseWYAMwHfG.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HRM1OseWYAMwHfG.jpg",
-          "heat_contribution": 6.9369,
-          "metrics": {
-            "likes": 0,
-            "retweets": 2571,
-            "replies": 0,
-            "quotes": 0,
-            "views": 68,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 58,
-      "media_heat": 0,
-      "fan_heat": 37,
-      "heat": 67,
-      "source_labels": [
-        "官",
-        "粉"
-      ],
-      "source_counts": {
-        "official": 1,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 3
     },
     {
       "event_id": "evt-2026-09-02-1b2efe779e10",
@@ -475,62 +412,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 4
-    },
-    {
-      "event_id": "evt-2026-09-02-f5f09375744a",
-      "rule_id": null,
-      "hot_word_zh": "整整四年前，我跑出教室宣布Oscar终于有了F1席位（重要的是，只有一个）。很高兴报告他此…",
-      "hot_word_en": "Exactly four years ago, I ran out of class to announce that Oscar finally had an F1 seat (impor…",
-      "first_seen_at": "2026-09-02T12:53:33Z",
-      "last_seen_at": "2026-09-02T12:53:33Z",
-      "anchor_item_id": "piasnews-social-4f049a7b253f33d0",
-      "image_url": "https://pbs.twimg.com/media/HRNoYjgWcAMYU8w.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HRNoYjgWcAMYU8w.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-4f049a7b253f33d0",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@oscarpiastri81",
-          "title": "X post from @oscarpiastri81: Exactly four years ago, I ran out of class to announce that Oscar finally had an F1 seat (impor…",
-          "title_zh": "X 发帖 @oscarpiastri81：整整四年前，我跑出教室宣布Oscar终于有了F1席位（重要的是，只有一个）。很高兴报告他此后甚至拿了几分。",
-          "summary": "Exactly four years ago, I ran out of class to announce that Oscar finally had an F1 seat (importantly, only one). Happy to report he’s even scored a few points since. https://t.co/Nq3ENTkaNc",
-          "summary_zh": "整整四年前，我跑出教室宣布Oscar终于有了F1席位（重要的是，只有一个）。很高兴报告他此后甚至拿了几分。",
-          "url": "https://x.com/oscarpiastri81/status/2095133026615218462",
-          "published_at": "2026-09-02T12:53:33Z",
-          "image_url": "https://pbs.twimg.com/media/HRNoYjgWcAMYU8w.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HRNoYjgWcAMYU8w.jpg",
-          "heat_contribution": 7.0137,
-          "metrics": {
-            "likes": 4889,
-            "retweets": 178,
-            "replies": 3,
-            "quotes": 0,
-            "views": 29988,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 37,
-      "heat": 37,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 5
+      "rank": 3
     },
     {
       "event_id": "evt-2026-09-03-e9879631966d",
@@ -560,7 +442,7 @@
           "image_url": "https://pbs.twimg.com/media/HRSC7Rfa8AAMUx5.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRSC7Rfa8AAMUx5.jpg",
-          "heat_contribution": 7.0006,
+          "heat_contribution": 6.1908,
           "metrics": {
             "likes": 1829,
             "retweets": 199,
@@ -573,8 +455,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 37,
-      "heat": 37,
+      "fan_heat": 33,
+      "heat": 33,
       "source_labels": [
         "粉"
       ],
@@ -585,62 +467,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
-    },
-    {
-      "event_id": "evt-2026-09-02-158441e4c9dd",
-      "rule_id": null,
-      "hot_word_zh": "Oscar在签署McLaren续约时提到的一件事是，在与车队共事一年后，他知道了每个人的名…",
-      "hot_word_en": "One thing Oscar mentioned when he signed his McLaren extension was that, after a year with the…",
-      "first_seen_at": "2026-09-02T12:21:52Z",
-      "last_seen_at": "2026-09-02T12:21:52Z",
-      "anchor_item_id": "piasnews-social-31422efba3cc9f7a",
-      "image_url": "https://pbs.twimg.com/media/HRNhIESWEAklxOh.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HRNhIESWEAklxOh.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-31422efba3cc9f7a",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@oscarpiastri81",
-          "title": "X post from @oscarpiastri81: One thing Oscar mentioned when he signed his McLaren extension was that, after a year with the…",
-          "title_zh": "X 发帖 @oscarpiastri81：Oscar在签署McLaren续约时提到的一件事是，在与车队共事一年后，他知道了每个人的名字（并在多次采访中将此列为与菜鸟赛季相比最大的变化之一，显然他觉得这很重要）。不久后，Tom谈到他如何记住关于人的小细节，以及他如何与车队建立了如此个人化的关系，这让人“竭尽全力支持他”。现在，Morgan说他最可爱，会和你聊很久，Baz之前也以几乎相同的方式描述他。在他保留的McLaren之外的所有关系中，你也可以看到同样的情况。他仍然和以前的Prema的人足够亲近，可以和他们坐下来共进晚餐，仍然和前Alpine同事玩游戏，他的母校多年后仍在庆祝他拥有“非凡的人类价值观”。即使他长大了，在职业生涯中达到了新的高度，有一件事始终如一，那就是Oscar总是抽出时间与人相处，无论走到哪里都建立真诚的关系。他的前经纪人曾说，小时候他“总以为每个人都是他的朋友”，很明显那个小Oscar还在那里。所以，不管有些人怎么试图描绘他，重要的是那些真正和他一起工作过的人（更重要的是，那些在停止合作后很久仍继续认识他的人）以及他们如何谈论他……他们的说法完全一样：一个极其善良、友好、脚踏实地的人。🧡",
-          "summary": "One thing Oscar mentioned when he signed his McLaren extension was that, after a year with the team, he knew everyone’s name (and cited this as one of the biggest changes compared to his rookie year in multiple interviews, which he clearly found important). Shortly after, Tom spoke about how he remembers little details about people and how he’s built such a personal relationship with the team, something that makes people move “heaven and earth to support him.” And now, you have Morgan saying that he’s the sweetest and will talk to you for ages, with Baz describing him in much the same way a while back. And you can see the same thing in all the relationships he’s kept outside of McLaren too. He’s still close enough with his old Prema people to sit down for dinner with them, still plays games with his former Alpine coworkers, and his old school is still celebrating him years later for possessing “exceptional human values.” Even as he grew older and reached new heights in his career, one thing that stayed consistent and that is Oscar’s pattern of always making time for people and forming genuine relationships wherever he goes. His former manager once said that, as a kid, he “always thought everyone was his mate,” and it’s clear that little Oscar is still there. So, no matter how some people try to paint him, what matters are the people who have actually worked with him (and, more importantly, continued to know him long after they stopped working together) and how they speak about him… which is exactly the same way: as someone who is extraordinarily kind, friendly, and down to earth. 🧡",
-          "summary_zh": "Oscar在签署McLaren续约时提到的一件事是，在与车队共事一年后，他知道了每个人的名字（并在多次采访中将此列为与菜鸟赛季相比最大的变化之一，显然他觉得这很重要）。不久后，Tom谈到他如何记住关于人的小细节，以及他如何与车队建立了如此个人化的关系，这让人“竭尽全力支持他”。现在，Morgan说他最可爱，会和你聊很久，Baz之前也以几乎相同的方式描述他。在他保留的McLaren之外的所有关系中，你也可以看到同样的情况。他仍然和以前的Prema的人足够亲近，可以和他们坐下来共进晚餐，仍然和前Alpine同事玩游戏，他的母校多年后仍在庆祝他拥有“非凡的人类价值观”。即使他长大了，在职业生涯中达到了新的高度，有一件事始终如一，那就是Oscar总是抽出时间与人相处，无论走到哪里都建立真诚的关系。他的前经纪人曾说，小时候他“总以为每个人都是他的朋友”，很明显那个小Oscar还在那里。所以，不管有些人怎么试图描绘他，重要的是那些真正和他一起工作过的人（更重要的是，那些在停止合作后很久仍继续认识他的人）以及他们如何谈论他……他们的说法完全一样：一个极其善良、友好、脚踏实地的人。🧡",
-          "url": "https://x.com/oscarpiastri81/status/2095125050517078205",
-          "published_at": "2026-09-02T12:21:52Z",
-          "image_url": "https://pbs.twimg.com/media/HRNhIESWEAklxOh.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HRNhIESWEAklxOh.jpg",
-          "heat_contribution": 6.8186,
-          "metrics": {
-            "likes": 2791,
-            "retweets": 493,
-            "replies": 12,
-            "quotes": 0,
-            "views": 75538,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 36,
-      "heat": 36,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 7
+      "rank": 4
     },
     {
       "event_id": "evt-2026-09-03-2714772fcd39",
@@ -670,7 +497,7 @@
           "image_url": "https://pbs.twimg.com/media/HRSso2yXsAEMVj4.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRSso2yXsAEMVj4.jpg",
-          "heat_contribution": 6.5191,
+          "heat_contribution": 5.71,
           "metrics": {
             "likes": 1154,
             "retweets": 112,
@@ -683,8 +510,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 35,
-      "heat": 35,
+      "fan_heat": 31,
+      "heat": 31,
       "source_labels": [
         "粉"
       ],
@@ -695,7 +522,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 5
     },
     {
       "event_id": "evt-2026-09-03-7ad64ca3a6e5",
@@ -725,7 +552,7 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2095467699568611328/vid/avc1/320x568/1Cmdk6fjDmjshvnq.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2095467699568611328/img/d9GMdHDZn1ateSaL.jpg",
-          "heat_contribution": 6.5619,
+          "heat_contribution": 5.7527,
           "metrics": {
             "likes": 1199,
             "retweets": 124,
@@ -738,8 +565,173 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 35,
-      "heat": 35,
+      "fan_heat": 31,
+      "heat": 31,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "event_id": "evt-2026-09-03-231480c13ed4",
+      "rule_id": null,
+      "hot_word_zh": "Oscar和Lily抵达围场参加🇮🇹媒体日 [📸 摄影：Clive Mason、Bryn…",
+      "hot_word_en": "Oscar and Lily arriving at the paddock for media day in 🇮🇹 [📸 via Clive Mason, Bryn Lennon, and…",
+      "first_seen_at": "2026-09-03T10:41:33Z",
+      "last_seen_at": "2026-09-03T10:41:33Z",
+      "anchor_item_id": "piasnews-social-636bfcac152ddbb0",
+      "image_url": "https://pbs.twimg.com/media/HRSTwZ9WYAELgot.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HRSTwZ9WYAELgot.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-636bfcac152ddbb0",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@oscarpiastri81",
+          "title": "X post from @oscarpiastri81: Oscar and Lily arriving at the paddock for media day in 🇮🇹 [📸 via Clive Mason, Bryn Lennon, and…",
+          "title_zh": "X 发帖 @oscarpiastri81：Oscar和Lily抵达围场参加🇮🇹媒体日 [📸 摄影：Clive Mason、Bryn Lennon和Bradley Collyer/Getty Images]",
+          "summary": "Oscar and Lily arriving at the paddock for media day in 🇮🇹 [📸 via Clive Mason, Bryn Lennon, and Bradley Collyer/Getty Images] https://t.co/j5YKc4Ktpa",
+          "summary_zh": "Oscar和Lily抵达围场参加🇮🇹媒体日 [📸 摄影：Clive Mason、Bryn Lennon和Bradley Collyer/Getty Images]",
+          "url": "https://x.com/oscarpiastri81/status/2095462193466679609",
+          "published_at": "2026-09-03T10:41:33Z",
+          "image_url": "https://pbs.twimg.com/media/HRSTwZ9WYAELgot.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HRSTwZ9WYAELgot.jpg",
+          "heat_contribution": 5.4414,
+          "metrics": {
+            "likes": 986,
+            "retweets": 38,
+            "replies": 1,
+            "quotes": 0,
+            "views": 8379,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 29,
+      "heat": 29,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "event_id": "evt-2026-09-02-5e6115b0cdc9",
+      "rule_id": null,
+      "hot_word_zh": "四年前的今天！！！这些标签太珍贵了 🥹🥹",
+      "hot_word_en": "4 years ago today!!! the hashtags are so precious 🥹🥹",
+      "first_seen_at": "2026-09-02T14:57:48Z",
+      "last_seen_at": "2026-09-02T14:57:48Z",
+      "anchor_item_id": "piasnews-social-ea8459258014d518",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-ea8459258014d518",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: 4 years ago today!!! the hashtags are so precious 🥹🥹",
+          "title_zh": "X 发帖 @laurogeitabat：四年前的今天！！！这些标签太珍贵了 🥹🥹",
+          "summary": "4 years ago today!!! the hashtags are so precious 🥹🥹",
+          "summary_zh": "四年前的今天！！！这些标签太珍贵了 🥹🥹",
+          "url": "https://x.com/laurogeitabat/status/2095164293507432537",
+          "published_at": "2026-09-02T14:57:48Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 5.2285,
+          "metrics": {
+            "likes": 676,
+            "retweets": 70,
+            "replies": 1,
+            "quotes": 0,
+            "views": 10856,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 28,
+      "heat": 28,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 8
+    },
+    {
+      "event_id": "evt-2026-09-03-3bfcf8243ceb",
+      "rule_id": null,
+      "hot_word_zh": "差不多四年后，我想感谢Sophie一直努力让Oscar保持公众可见度😭",
+      "hot_word_en": "Almost four years later, I’d like to thank Sophie for her continued efforts to keep Oscar visib…",
+      "first_seen_at": "2026-09-03T12:19:20Z",
+      "last_seen_at": "2026-09-03T12:19:20Z",
+      "anchor_item_id": "piasnews-social-9d9fa4a11cab0cbd",
+      "image_url": "https://pbs.twimg.com/media/HRSqIyFW8AEmlc3.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HRSqIyFW8AEmlc3.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-9d9fa4a11cab0cbd",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@oscarpiastri81",
+          "title": "X post from @oscarpiastri81: Almost four years later, I’d like to thank Sophie for her continued efforts to keep Oscar visib…",
+          "title_zh": "X 发帖 @oscarpiastri81：差不多四年后，我想感谢Sophie一直努力让Oscar保持公众可见度😭",
+          "summary": "Almost four years later, I’d like to thank Sophie for her continued efforts to keep Oscar visible to the public 😭 https://t.co/37TcMDlUeb",
+          "summary_zh": "差不多四年后，我想感谢Sophie一直努力让Oscar保持公众可见度😭",
+          "url": "https://x.com/oscarpiastri81/status/2095486801796362593",
+          "published_at": "2026-09-03T12:19:20Z",
+          "image_url": "https://pbs.twimg.com/media/HRSqIyFW8AEmlc3.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HRSqIyFW8AEmlc3.jpg",
+          "heat_contribution": 5.1887,
+          "metrics": {
+            "likes": 707,
+            "retweets": 29,
+            "replies": 0,
+            "quotes": 0,
+            "views": 12615,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 28,
+      "heat": 28,
       "source_labels": [
         "粉"
       ],
@@ -753,48 +745,48 @@
       "rank": 9
     },
     {
-      "event_id": "evt-2026-09-02-f956af3139c4",
+      "event_id": "evt-2026-09-02-03cf7e193374",
       "rule_id": null,
-      "hot_word_zh": "转发 @McLarenF1：OP和Papaya Fam的4年👊 #McLarenF1",
-      "hot_word_en": "RT @McLarenF1: 4 years of OP and the Papaya Fam 👊 #McLarenF1",
-      "first_seen_at": "2026-09-02T12:50:49Z",
-      "last_seen_at": "2026-09-02T12:50:49Z",
-      "anchor_item_id": "piasnews-social-bd655a6957dea9e8",
-      "image_url": "https://pbs.twimg.com/media/HRNkiDeWYAQKIX3.jpg",
+      "hot_word_zh": "Oscar的理想比赛日菜单：早餐吃吐司配鸡蛋和培根，再加一杯冰沙；午餐吃番茄酱或肉酱意面配…",
+      "hot_word_en": "oscar's ideal race day menu: eggs on toast with bacon + a smoothie for breakfast, and pasta wit…",
+      "first_seen_at": "2026-09-02T18:54:49Z",
+      "last_seen_at": "2026-09-02T18:54:49Z",
+      "anchor_item_id": "piasnews-social-23be500c4299e07d",
+      "image_url": "https://pbs.twimg.com/media/HRO7EHpaAAAaVOl.jpg",
       "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HRNkiDeWYAQKIX3.jpg",
+      "video_poster_url": "https://pbs.twimg.com/media/HRO7EHpaAAAaVOl.jpg",
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
         {
-          "item_id": "piasnews-social-bd655a6957dea9e8",
+          "item_id": "piasnews-social-23be500c4299e07d",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X repost from @laurogeitabat: RT @McLarenF1: 4 years of OP and the Papaya Fam 👊 #McLarenF1",
-          "title_zh": "X 转帖 @laurogeitabat：转发 @McLarenF1：OP和Papaya Fam的4年👊 #McLarenF1",
-          "summary": "RT @McLarenF1: 4 years of OP and the Papaya Fam 👊 #McLarenF1 https://t.co/BKgNul9BA4",
-          "summary_zh": "转发 @McLarenF1：OP和Papaya Fam的4年👊 #McLarenF1",
-          "url": "https://x.com/laurogeitabat/status/2095132335960117434",
-          "published_at": "2026-09-02T12:50:49Z",
-          "image_url": "https://pbs.twimg.com/media/HRNkiDeWYAQKIX3.jpg",
+          "title": "X post from @laurogeitabat: oscar's ideal race day menu: eggs on toast with bacon + a smoothie for breakfast, and pasta wit…",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar的理想比赛日菜单：早餐吃吐司配鸡蛋和培根，再加一杯冰沙；午餐吃番茄酱或肉酱意面配鸡肉！",
+          "summary": "oscar's ideal race day menu: eggs on toast with bacon + a smoothie for breakfast, and pasta with tomato sauce/bolognese and chicken for lunch! https://t.co/Ml3GrNSSL2",
+          "summary_zh": "Oscar的理想比赛日菜单：早餐吃吐司配鸡蛋和培根，再加一杯冰沙；午餐吃番茄酱或肉酱意面配鸡肉！",
+          "url": "https://x.com/laurogeitabat/status/2095223941862478072",
+          "published_at": "2026-09-02T18:54:49Z",
+          "image_url": "https://pbs.twimg.com/media/HRO7EHpaAAAaVOl.jpg",
           "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HRNkiDeWYAQKIX3.jpg",
-          "heat_contribution": 6.2759,
+          "video_poster_url": "https://pbs.twimg.com/media/HRO7EHpaAAAaVOl.jpg",
+          "heat_contribution": 4.861,
           "metrics": {
-            "likes": 0,
-            "retweets": 1326,
-            "replies": 0,
+            "likes": 405,
+            "retweets": 10,
+            "replies": 1,
             "quotes": 0,
-            "views": 110,
+            "views": 21278,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 33,
-      "heat": 33,
+      "fan_heat": 27,
+      "heat": 27,
       "source_labels": [
         "粉"
       ],
