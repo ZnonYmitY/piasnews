@@ -1,33 +1,40 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-05T13:31:00.489241Z",
+  "generated_at": "2026-09-05T15:40:16.331979Z",
   "driver_number": 81,
   "source": "OpenF1 session_result",
-  "attempted_session_ref": "2026-round-13:practice_3",
-  "result_available": false,
+  "attempted_session_ref": "2026-round-13:qualifying",
+  "result_available": true,
   "latest": {
-    "session_ref": "2026-round-13:practice_2",
+    "session_ref": "2026-round-13:qualifying",
     "race_id": "2026-round-13",
     "race_name": "Italian Grand Prix",
     "race_name_zh": "意大利大奖赛",
-    "session": "practice_2",
-    "session_name": "Practice 2",
-    "session_key": 11355,
-    "session_start": "2026-09-04T14:00:00Z",
-    "session_end": "2026-09-04T15:00:00+00:00",
+    "session": "qualifying",
+    "session_name": "Qualifying",
+    "session_key": 11357,
+    "session_start": "2026-09-05T14:00:00Z",
+    "session_end": "2026-09-05T15:00:00+00:00",
     "driver_number": 81,
-    "position": 6,
+    "position": 3,
     "status": "classified",
     "dnf": false,
     "dns": false,
     "dsq": false,
-    "number_of_laps": 26,
-    "gap_to_leader": 0.469,
-    "duration": 83.028,
+    "number_of_laps": 18,
+    "gap_to_leader": [
+      0.312,
+      0.135,
+      0.18
+    ],
+    "duration": [
+      82.924,
+      82.017,
+      81.966
+    ],
     "source": "OpenF1",
-    "source_url": "https://api.openf1.org/v1/session_result?session_key=11355&driver_number=81",
-    "fetched_at": "2026-09-05T05:31:55.712422Z",
-    "first_ranked_at": "2026-09-04T16:31:26.921946Z"
-  },
-  "last_error": "openf1_unavailable:HTTPError"
+    "source_url": "https://api.openf1.org/v1/session_result?session_key=11357&driver_number=81",
+    "fetched_at": "2026-09-05T15:40:16.331979Z",
+    "first_ranked_at": "2026-09-05T15:40:16.331979Z"
+  }
 }

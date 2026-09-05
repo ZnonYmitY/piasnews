@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-05T13:33:16.167628Z",
+  "generated_at": "2026-09-05T15:42:39.271255Z",
   "translations": {
     "items:piasnews-d16acb78af905cbb:title:8bc75bd8e2e8c571eebdcf0b": {
       "dataset": "items",
@@ -2461,6 +2461,126 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-05T13:33:15.114142Z"
+    },
+    "items:piasnews-27005e9c28d054fc:title:8f3035f8794a587a68ecc006": {
+      "dataset": "items",
+      "item_id": "piasnews-27005e9c28d054fc",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Gasly takes surprise Monza pole ahead of Russell, Piastri and the Ferraris",
+      "zh": "Gasly在Monza出人意料地夺得杆位，领先拉塞尔、Piastri和Ferrari车队",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-05T15:42:38.854462Z"
+    },
+    "items:piasnews-27005e9c28d054fc:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-27005e9c28d054fc",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-05T15:42:38.854470Z"
+    },
+    "items:piasnews-1cef241ec6a16394:title:34d7205af302f4c5fc91b095": {
+      "dataset": "items",
+      "item_id": "piasnews-1cef241ec6a16394",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Gasly charges to sensational maiden F1 pole at Monza over Russell and Piastri",
+      "zh": "Gasly在Monza力压拉塞尔和Piastri，惊人夺得F1生涯首个杆位",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-05T15:42:38.854473Z"
+    },
+    "items:piasnews-1cef241ec6a16394:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-1cef241ec6a16394",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-05T15:42:38.854476Z"
+    },
+    "items:piasnews-93c890301be64cf5:title:948944fd4cfe443b59f737d2": {
+      "dataset": "items",
+      "item_id": "piasnews-93c890301be64cf5",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri faces Monza grid penalty risk following impeding incident with furious Lawson",
+      "zh": "Piastri因阻挡愤怒的Lawson面临Monza罚退风险",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-05T15:42:38.854479Z"
+    },
+    "items:piasnews-93c890301be64cf5:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-93c890301be64cf5",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-05T15:42:38.854481Z"
+    },
+    "items:piasnews-fe3085f774cf842d:title:1af12961abe35e7c3c2f043f": {
+      "dataset": "items",
+      "item_id": "piasnews-fe3085f774cf842d",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri reveals reasons behind 2026 pace struggles",
+      "zh": "Oscar Piastri透露2026年速度挣扎的原因",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-05T15:42:38.854485Z"
+    },
+    "items:piasnews-fe3085f774cf842d:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-fe3085f774cf842d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-05T15:42:38.854514Z"
+    },
+    "items:piasnews-36a171d392fbdc54:title:e5aa7c1281daedec3c221df4": {
+      "dataset": "items",
+      "item_id": "piasnews-36a171d392fbdc54",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Jolyon Palmer saw exactly where Lewis Hamilton is ‘mullering’ Oscar Piastri at Monza",
+      "zh": "乔利恩·帕尔默看出Lewis Hamilton在Monza究竟在哪里‘碾压’Oscar Piastri",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-05T15:42:38.854519Z"
+    },
+    "items:piasnews-36a171d392fbdc54:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-36a171d392fbdc54",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-05T15:42:38.854521Z"
     }
   },
   "retention_days": 8
