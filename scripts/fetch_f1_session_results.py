@@ -210,6 +210,16 @@ def build_payload(
         confirmation_minutes=confirmation_minutes,
         fetcher=fetcher,
     )
+    if latest is not None:
+        previous_latest = previous.get("latest") or {}
+        if previous_latest.get("session_ref") == latest.get("session_ref"):
+            latest["first_ranked_at"] = (
+                previous_latest.get("first_ranked_at")
+                or previous_latest.get("fetched_at")
+                or latest["fetched_at"]
+            )
+        else:
+            latest["first_ranked_at"] = latest["fetched_at"]
     payload = {
         "schema_version": 1,
         "generated_at": isoformat(now),

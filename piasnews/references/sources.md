@@ -121,7 +121,7 @@ python3 scripts/fetch_f1_session_results.py --calendar data/calendar.json --outp
 - `scripts/fetch_f1_session_results.py` matches the latest completed calendar session to OpenF1 and reads driver `81` from `session_result`.
 - The result source is labeled as media rather than official Formula 1 content.
 - A session is considered handled only after its structured result is saved. If OpenF1 has not published the result or is temporarily unavailable, the previous valid result is retained and the 15-minute workflow gate retries the new session.
-- On a session-triggered rebuild, the matched result is the absolute first hot event until the next successful hot-ranking rebuild; editorial positions cannot displace it.
+- The latest valid result is the absolute first hot event across daily, translation, and editorial rebuilds until a newer valid result replaces it or it has been ranked for 24 hours. `first_ranked_at` is preserved when the same result is fetched again, and editorial positions cannot displace it.
 
 ## Historical context sources
 

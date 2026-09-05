@@ -399,7 +399,7 @@ python3 scripts/validate_history.py
 python3 scripts/build_hot_events.py
 ```
 
-比赛周赛段结束并经过 15 分钟确认缓冲后，工作流从 OpenF1 `session_result` 获取 Oscar 的结构化成绩，不依赖新闻标题是否及时收录。结果可用时生成“人物＋场次＋名次/状态”热点并硬置顶第一，支持正常名次以及 DNF、DNS、DSQ；如果结果暂未返回，gate 会在后续检查中重试。成绩热点保持到下一次成功重建热榜。
+比赛周赛段结束并经过 15 分钟确认缓冲后，工作流从 OpenF1 `session_result` 获取 Oscar 的结构化成绩，不依赖新闻标题是否及时收录。结果可用时生成“人物＋场次＋名次/状态”热点并硬置顶第一，支持正常名次以及 DNF、DNS、DSQ；如果结果暂未返回，gate 会在后续检查中重试。最近一次有效成绩会跨日更、翻译发布和后台配置发布保留，直到产生更新的有效赛段成绩，或实际在榜满 24 小时后自动退出；同一成绩重复采集不会重置计时。
 
 后台 `/admin/` 新增热榜工作台。角色由 Worker 的 `ADMIN_KEYS_JSON` 配置：`viewer` 可查看，`editor` 可保存草稿，`publisher` 和 `admin` 可提交生效覆盖。工作台支持查看事件下的当前内容列表，新增、删除或编辑单条内容及其原链接和媒体。覆盖数据与采集数据分开保存；从前台隐藏的事件仍保留在后台并标记为“前台隐藏”。人工指定名次只调整仍满足普通热度门槛的事件顺序，不能阻挡赛后成绩硬置顶，也不能让低于 `minimum_heat`（当前为 8，含热度 0）的事件继续留榜；相同人工名次以最近发布的修改优先。草稿只写入配置，启用覆盖会在配置提交后自动触发正式站发布。热榜写入工作流串行执行；同一事件采用乐观版本校验，旧页面不会静默覆盖其他管理员的新修改，而会要求刷新后重新提交。
 
@@ -907,7 +907,7 @@ python3 scripts/validate_history.py
 
 The former Short tab is now a merged hot ranking with objective hot words, source labels, integer heat, and related items. Deterministic rules live in `config/hot-ranking.json`; generate the snapshot with `python3 scripts/build_hot_events.py`.
 
-After a race-weekend session and its 15-minute confirmation buffer, the workflow reads Oscar's structured result from OpenF1 `session_result`. A normal position or DNF/DNS/DSQ status becomes the hard-ranked first event until the next successful hot-ranking rebuild. Missing results remain unhandled so the 15-minute gate retries instead of silently accepting a result-less refresh.
+After a race-weekend session and its 15-minute confirmation buffer, the workflow reads Oscar's structured result from OpenF1 `session_result`. A normal position or DNF/DNS/DSQ status becomes the hard-ranked first event. It survives daily, translation, and editorial rebuilds until a newer valid session result replaces it or it has been ranked for 24 hours; refetching the same result does not reset that timer. Missing results remain unhandled so the 15-minute gate retries instead of silently accepting a result-less refresh.
 
 The `/admin/` workbench uses Worker roles configured through `ADMIN_KEYS_JSON`: viewers can inspect, editors can save drafts, and publishers or admins can activate overrides. Editorial overlays remain separate from collected source data. Events hidden from the public ranking remain visible and labeled in the workbench. An editorial position only reorders an event that still meets the normal `minimum_heat` threshold; it cannot displace the session-result hard rule or keep a zero-heat event on the ranking. The newest publication wins a same-slot editorial collision. Drafts only update configuration; activating an override automatically triggers a production-site deployment after the configuration commit. Writes are serialized, and optimistic per-event version checks reject stale edits instead of silently overwriting another administrator's work.
 

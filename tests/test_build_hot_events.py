@@ -282,13 +282,64 @@ class HotEventBuildTest(unittest.TestCase):
             overrides=overrides,
             calendar=calendar,
             session_results=session_results,
-            refresh_reason="session_completed:2026-round-13:practice_1",
+            refresh_reason="manual_dispatch",
         )
 
         self.assertEqual(payload["events"][0]["hot_word_zh"], "Oscar 在意大利站一练获得第11名")
         self.assertEqual(payload["events"][0]["hard_rule"]["source"], "OpenF1")
         self.assertEqual(payload["events"][0]["rank"], 1)
         self.assertEqual(payload["events"][1]["event_id"], manual_event_id)
+
+    def test_structured_session_result_expires_after_24_hours(self):
+        event = builder.structured_session_result_event(
+            {
+                "result_available": True,
+                "latest": {
+                    "session_ref": "race-1:practice_2",
+                    "race_id": "race-1",
+                    "race_name": "Italian Grand Prix",
+                    "race_name_zh": "意大利大奖赛",
+                    "session": "practice_2",
+                    "status": "classified",
+                    "position": 6,
+                    "session_end": "2026-08-24T12:00:00Z",
+                    "first_ranked_at": "2026-08-24T12:00:00Z",
+                    "source": "OpenF1",
+                },
+            },
+            {"races": []},
+            "manual_dispatch",
+            builder.now_time(NOW),
+            24,
+        )
+
+        self.assertIsNone(event)
+
+    def test_previous_valid_result_stays_visible_while_new_result_is_pending(self):
+        event = builder.structured_session_result_event(
+            {
+                "result_available": False,
+                "attempted_session_ref": "race-1:practice_3",
+                "latest": {
+                    "session_ref": "race-1:practice_2",
+                    "race_id": "race-1",
+                    "race_name": "Italian Grand Prix",
+                    "race_name_zh": "意大利大奖赛",
+                    "session": "practice_2",
+                    "status": "classified",
+                    "position": 6,
+                    "session_end": "2026-08-25T11:30:00Z",
+                    "first_ranked_at": "2026-08-25T11:45:00Z",
+                    "source": "OpenF1",
+                },
+            },
+            {"races": []},
+            "session_completed:race-1:practice_3",
+            builder.now_time(NOW),
+            24,
+        )
+
+        self.assertEqual(event["hot_word_zh"], "Oscar 在意大利站二练获得第6名")
 
     def test_structured_session_result_supports_dnf(self):
         event = builder.structured_session_result_event(
@@ -302,6 +353,7 @@ class HotEventBuildTest(unittest.TestCase):
                     "session": "race",
                     "status": "DNF",
                     "position": None,
+                    "session_end": "2026-08-25T11:30:00Z",
                     "source": "OpenF1",
                     "source_url": "https://api.openf1.org/v1/session_result?session_key=1&driver_number=81",
                 },

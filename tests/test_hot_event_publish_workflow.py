@@ -52,7 +52,7 @@ class HotEventPublishWorkflowTests(unittest.TestCase):
         self.assertIn("从前台隐藏（后台仍保留）", html)
         self.assertIn("人工指定名次", html)
         self.assertIn("置顶只改变排序，不绕过热度门槛", html)
-        self.assertIn("赛后成绩硬规则优先", html)
+        self.assertIn("最新赛段成绩在 24 小时内硬规则优先", html)
 
     def test_pages_artifact_includes_override_catalog_for_read_only_admin(self):
         for workflow_name in ("update-piasnews.yml", "review-history.yml"):
@@ -84,7 +84,16 @@ class HotEventPublishWorkflowTests(unittest.TestCase):
 
         self.assertIn(": imageUrl || posterUrl", app)
         self.assertIn("escapeHtml(imageUrl || posterUrl)", app)
-        self.assertIn("app.js?v=20260828-media-v2", html)
+        self.assertIn("app.js?v=20260905-hot-layout", html)
+        self.assertIn("styles.css?v=20260905-hot-layout", html)
+
+    def test_hot_ranking_reserves_a_desktop_media_column(self):
+        app = (ROOT / "public" / "app.js").read_text(encoding="utf-8")
+        styles = (ROOT / "public" / "styles.css").read_text(encoding="utf-8")
+
+        self.assertIn('hot-media-slot${media ? "" : " is-empty"}', app)
+        self.assertIn(".hot-media-slot.is-empty", styles)
+        self.assertIn(".hot-event:not(.has-media) > .hot-media-slot", styles)
 
     def test_admin_exposes_manual_translation_fallback_without_automatic_trigger(self):
         app = (ROOT / "public" / "admin" / "app.js").read_text(encoding="utf-8")

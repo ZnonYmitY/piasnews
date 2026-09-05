@@ -46,6 +46,7 @@ class SessionResultFetchTests(unittest.TestCase):
         self.assertTrue(payload["result_available"])
         self.assertEqual(payload["latest"]["session_ref"], "2026-round-13:practice_1")
         self.assertEqual(payload["latest"]["position"], 11)
+        self.assertEqual(payload["latest"]["first_ranked_at"], "2026-09-04T12:00:00Z")
         self.assertIn("session_name=Practice+1", seen[0])
         self.assertIn("driver_number=81", seen[1])
 
@@ -67,6 +68,23 @@ class SessionResultFetchTests(unittest.TestCase):
     def test_numeric_string_position_is_normalized(self):
         self.assertEqual(fetcher.result_position({"position": "11"}), 11)
         self.assertIsNone(fetcher.result_position({"position": "P11"}))
+
+    def test_refetching_the_same_result_does_not_reset_ranked_time(self):
+        previous = {
+            "latest": {
+                "session_ref": "2026-round-13:practice_1",
+                "fetched_at": "2026-09-04T11:45:00Z",
+            },
+        }
+
+        def fake_fetch(url):
+            if "/sessions?" in url:
+                return [{"session_key": 11354, "date_start": "2026-09-04T10:30:00Z"}]
+            return [{"position": 11, "driver_number": 81}]
+
+        payload = fetcher.build_payload(CALENDAR, previous, now=NOW, fetcher=fake_fetch)
+
+        self.assertEqual(payload["latest"]["first_ranked_at"], "2026-09-04T11:45:00Z")
 
 
 if __name__ == "__main__":

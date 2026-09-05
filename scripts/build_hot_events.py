@@ -306,20 +306,34 @@ def apply_session_result_hard_rule(
 
 
 def structured_session_result_event(
-    session_results: dict[str, Any], calendar: dict[str, Any], refresh_reason: str, now: datetime
+    session_results: dict[str, Any],
+    calendar: dict[str, Any],
+    refresh_reason: str,
+    now: datetime,
+    max_age_hours: int = 24,
 ) -> dict[str, Any] | None:
-    prefix = "session_completed:"
-    if not refresh_reason.startswith(prefix) or not session_results.get("result_available"):
-        return None
-    expected_ref = refresh_reason[len(prefix):]
     result = session_results.get("latest") or {}
-    if clean(result.get("session_ref")) != expected_ref:
+    if not clean(result.get("session_ref")):
         return None
 
     race_id = clean(result.get("race_id"))
     race = next((row for row in calendar.get("races") or [] if clean(row.get("id")) == race_id), {})
     session = clean(result.get("session"))
     if session not in SESSION_LABELS:
+        return None
+    ranked_at = parse_time(clean(result.get("first_ranked_at") or result.get("fetched_at")))
+    result_time = parse_time(clean(result.get("session_end")))
+    if not result_time:
+        session_start = parse_time(clean(result.get("session_start")))
+        if session_start:
+            result_time = session_start + timedelta(minutes=SESSION_DURATIONS.get(session, 60))
+    if not result_time:
+        result_time = ranked_at
+    if not ranked_at:
+        ranked_at = result_time
+    if not result_time or not ranked_at or ranked_at > now + timedelta(hours=2):
+        return None
+    if now - ranked_at >= timedelta(hours=max(1, max_age_hours)):
         return None
     session_zh, session_en = SESSION_LABELS[session]
     race_zh = clean(result.get("race_name_zh") or race.get("name_zh") or result.get("race_name") or "最近一站")
@@ -348,7 +362,7 @@ def structured_session_result_event(
         return None
 
     source_url = clean(result.get("source_url"))
-    published_at = clean(result.get("session_end") or result.get("fetched_at")) or isoformat(now)
+    published_at = isoformat(ranked_at)
     item_id = f"session-result-{race_id or 'race'}-{session}"
     hard_rule = {
         "type": "session_result",
@@ -708,7 +722,13 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
             events.append(manual_event)
 
     refresh_reason = clean(getattr(args, "refresh_reason", ""))
-    structured_result = structured_session_result_event(session_results, calendar, refresh_reason, now)
+    structured_result = structured_session_result_event(
+        session_results,
+        calendar,
+        refresh_reason,
+        now,
+        int(config.get("session_result_max_age_hours") or 24),
+    )
     if structured_result:
         events = [event for event in events if event["event_id"] != structured_result["event_id"]]
         events.append(structured_result)

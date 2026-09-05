@@ -919,7 +919,7 @@ function renderHotEvent(event) {
         <h3>${escapeHtml(title)}</h3>
         <span class="hot-related-link">${escapeHtml(t().hotRelated((event.items || []).length))} →</span>
       </div>
-      ${media ? `<span class="hot-media-slot">${media}</span>` : ""}
+      <span class="hot-media-slot${media ? "" : " is-empty"}" aria-hidden="${media ? "false" : "true"}">${media}</span>
       <div class="hot-source-list" aria-label="来源">${labels}</div>
       <strong class="hot-score"><span>${escapeHtml(t().hotHeat)}</span>${escapeHtml(event.heat)}</strong>
     </a>`;

@@ -555,7 +555,7 @@ a {
   border-bottom: 1px solid var(--line);
   padding: 16px 0;
   display: grid;
-  grid-template-columns: 44px minmax(0, 1fr) 92px max-content 60px;
+  grid-template-columns: 44px minmax(0, 1fr) 92px 77px 60px;
   align-items: center;
   gap: 14px;
   color: var(--ink);
@@ -613,6 +613,10 @@ a {
   gap: 4px;
 }
 
+.hot-event > .hot-source-list {
+  justify-self: end;
+}
+
 .hot-source {
   width: 23px;
   height: 23px;
@@ -656,6 +660,10 @@ a {
   width: 92px;
   min-height: 58px;
   display: block;
+}
+
+.hot-media-slot.is-empty {
+  visibility: hidden;
 }
 
 .hot-score span {
@@ -1616,6 +1624,10 @@ body.hot-detail-mode .tab-panel {
       "rank main media"
       ". source score";
     grid-template-columns: 30px minmax(0, 1fr) 72px;
+  }
+
+  .hot-event:not(.has-media) > .hot-media-slot {
+    display: none;
   }
 
   .hot-rank {
