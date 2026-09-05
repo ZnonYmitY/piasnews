@@ -9,6 +9,26 @@ GITHUB_REPOSITORY = "piasnews"
 GITHUB_WORKFLOW = "review-history.yml"
 HOT_EVENTS_WORKFLOW = "review-hot-events.yml"
 GITHUB_REF = "main"
+DEEPSEEK_BASE_URL = "https://api.deepseek.com"
+DEEPSEEK_MODEL = "deepseek-v4-flash"
+PUBLIC_DATA_BASE_URL = "https://znonymity.github.io/piasnews/data"
+COMPANION_ALLOW_CANDIDATE_MODE = "true"
+
+[[ratelimits]]
+name = "COMPANION_RATE_LIMITER"
+namespace_id = "replace-with-a-unique-integer"
+
+  [ratelimits.simple]
+  limit = 8
+  period = 60
+
+[[ratelimits]]
+name = "COMPANION_GLOBAL_LIMITER"
+namespace_id = "replace-with-another-unique-integer"
+
+  [ratelimits.simple]
+  limit = 60
+  period = 60
 
 [[d1_databases]]
 binding = "ANALYTICS_DB"
@@ -20,3 +40,4 @@ database_id = "replace-with-your-d1-database-id"
 # npx wrangler secret put ADMIN_KEYS_JSON
 # npx wrangler secret put ADMIN_ADDITIONAL_KEYS_JSON
 # npx wrangler secret put GITHUB_TOKEN
+# npx wrangler secret put DEEPSEEK_API_KEY

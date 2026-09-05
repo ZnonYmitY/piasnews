@@ -56,7 +56,67 @@ const env = {
   GITHUB_WORKFLOW: "review-history.yml",
   GITHUB_REF: "main",
   GITHUB_TOKEN: "test-github-token",
+  DEEPSEEK_API_KEY: "test-deepseek-key",
+  DEEPSEEK_BASE_URL: "https://api.deepseek.com",
+  DEEPSEEK_MODEL: "deepseek-v4-flash",
+  COMPANION_ALLOW_CANDIDATE_MODE: "true",
+  COMPANION_DISABLE_PUBLIC_DATA: "true",
 };
+
+
+function companionRequest(message = "你好", overrides = {}) {
+  return new Request("https://worker.example/companion/chat", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Origin: "https://znonymity.github.io",
+      "CF-Connecting-IP": "203.0.113.81",
+    },
+    body: JSON.stringify({
+      message,
+      history: [],
+      facts_only: false,
+      candidate_mode: true,
+      disclosure_shown: true,
+      ...overrides,
+    }),
+  });
+}
+
+
+function deepseekFetchMock(modelResult, { status = 200 } = {}) {
+  return async (url, options = {}) => {
+    assert.equal(String(url), "https://api.deepseek.com/chat/completions");
+    const request = JSON.parse(options.body);
+    assert.equal(options.headers.Authorization, "Bearer test-deepseek-key");
+    assert.equal(request.model, "deepseek-v4-flash");
+    assert.deepEqual(request.response_format, { type: "json_object" });
+    assert.match(request.messages[0].content, /piastri-fan-companion Skill v0\.4\.0/);
+    if (status !== 200) return new Response("upstream error", { status });
+    return new Response(JSON.stringify({
+      model: "deepseek-v4-flash",
+      choices: [{ message: { content: JSON.stringify(modelResult) } }],
+      usage: { prompt_tokens: 100, completion_tokens: 20, total_tokens: 120 },
+    }), { status: 200, headers: { "Content-Type": "application/json" } });
+  };
+}
+
+
+function modelResult(overrides = {}) {
+  return {
+    answer_en: "Hey. Good to see you.",
+    answer_zh: "嗨。很高兴见到你。",
+    route: "fan_light",
+    knowledge_fact_ids: [],
+    rumor_item_ids: [],
+    judgment_rule_ids: [],
+    style_card_id: "SC-05",
+    fallback_id: null,
+    evidence_ids: ["EV-046"],
+    notes: "Simple greeting with no factual claim.",
+    ...overrides,
+  };
+}
 
 
 function hotChangeRequest(apiKey, status = "draft", changeOverrides = {}, requestOverrides = {}) {
@@ -159,6 +219,128 @@ test("health endpoint is public for an allowed origin", async () => {
   );
   assert.equal(response.status, 200);
   assert.equal((await response.json()).ok, true);
+});
+
+
+test("companion status reports the DeepSeek-backed distilled package", async () => {
+  const response = await worker.fetch(
+    new Request("https://worker.example/companion/status", {
+      headers: { Origin: "https://znonymity.github.io" },
+    }),
+    env,
+  );
+  const payload = await response.json();
+  assert.equal(response.status, 200);
+  assert.equal(payload.online, true);
+  assert.equal(payload.provider, "deepseek");
+  assert.equal(payload.model, "deepseek-v4-flash");
+  assert.equal(payload.package_version, "0.4.0");
+  assert.equal(payload.candidate_mode, true);
+  assert.match(payload.source_hash, /^[a-f0-9]{16}$/);
+});
+
+
+test("companion sends the distilled Skill to DeepSeek and returns a trace", async () => {
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = deepseekFetchMock(modelResult());
+  try {
+    const response = await worker.fetch(companionRequest(), env);
+    const payload = await response.json();
+    assert.equal(response.status, 200);
+    assert.equal(payload.engine, "deepseek");
+    assert.equal(payload.answer_zh, "嗨。很高兴见到你。");
+    assert.equal(payload.route, "fan_light");
+    assert.equal(payload.style_card_id, "SC-05");
+    assert.equal(payload.sources[0].id, "EV-046");
+    assert.equal(payload.usage.total_tokens, 120);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+
+test("companion hard-stops an unrelated answer even if the model tries to answer", async () => {
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = deepseekFetchMock(modelResult({
+    answer_en: "Here is Python code.",
+    answer_zh: "这是 Python 代码。",
+    route: "unrelated_general",
+    style_card_id: "SC-05",
+  }));
+  try {
+    const response = await worker.fetch(companionRequest("帮我写 Python 爬虫"), env);
+    const payload = await response.json();
+    assert.equal(response.status, 200);
+    assert.equal(payload.answer_en, "Not really my field.");
+    assert.equal(payload.answer_zh, "这不是我的领域。");
+    assert.equal(payload.fallback_id, "FB-01");
+    assert.equal(payload.style_card_id, "SC-06");
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+
+test("companion replaces rumor prose with the reviewed rumor-ledger response", async () => {
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = deepseekFetchMock(modelResult({
+    answer_en: "The model improvised this.",
+    answer_zh: "模型临场发挥。",
+    route: "rumor_check",
+    rumor_item_ids: ["RM-001"],
+    judgment_rule_ids: ["JR-01"],
+    evidence_ids: [],
+  }));
+  try {
+    const response = await worker.fetch(companionRequest("他是不是背弃了 Alpine 合同？"), env);
+    const payload = await response.json();
+    assert.equal(response.status, 200);
+    assert.match(payload.answer_en, /^Verdict: false as stated\./);
+    assert.match(payload.answer_zh, /^结论：这句话不准确。/);
+    assert.deepEqual(payload.judgment_rule_ids, []);
+    assert.equal(payload.sources.some((source) => source.id === "KS-010"), true);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+
+test("companion accepts candidate judgment rules only when server mode is enabled", async () => {
+  const originalFetch = globalThis.fetch;
+  const result = modelResult({
+    route: "f1_grounded",
+    judgment_rule_ids: ["JR-01"],
+    style_card_id: "SC-01",
+  });
+  try {
+    globalThis.fetch = deepseekFetchMock(result);
+    const enabledResponse = await worker.fetch(companionRequest("怎么看这场轮胎策略？"), env);
+    assert.deepEqual((await enabledResponse.json()).judgment_rule_ids, ["JR-01"]);
+
+    globalThis.fetch = deepseekFetchMock(result);
+    const disabledResponse = await worker.fetch(
+      companionRequest("怎么看这场轮胎策略？"),
+      { ...env, COMPANION_ALLOW_CANDIDATE_MODE: "false" },
+    );
+    assert.deepEqual((await disabledResponse.json()).judgment_rule_ids, []);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+
+test("companion validates disclosure, model configuration, and rate limits", async () => {
+  const missingDisclosure = await worker.fetch(companionRequest("你好", { disclosure_shown: false }), env);
+  assert.equal(missingDisclosure.status, 400);
+
+  const missingModel = await worker.fetch(companionRequest(), { ...env, DEEPSEEK_API_KEY: "" });
+  assert.equal(missingModel.status, 503);
+
+  const limited = await worker.fetch(companionRequest(), {
+    ...env,
+    COMPANION_RATE_LIMITER: { async limit() { return { success: false }; } },
+  });
+  assert.equal(limited.status, 429);
 });
 
 

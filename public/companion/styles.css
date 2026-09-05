@@ -367,6 +367,17 @@ button:focus-visible, a:focus-visible, textarea:focus-visible {
 .disclosure svg { width: 15px; flex: 0 0 auto; fill: none; stroke: var(--papaya-bright); stroke-width: 1.6; }
 .disclosure p { margin: 0; font-size: 9px; line-height: 1.55; }
 .disclosure strong { color: #c9c7ca; }
+.disclosure[data-state="online"] {
+  border-color: rgba(112,214,159,.18);
+  background: rgba(112,214,159,.055);
+}
+.disclosure[data-state="online"] svg { stroke: var(--green); }
+.disclosure[data-state="online"] strong { color: #bce8cf; }
+.disclosure[data-state="fallback"] {
+  border-color: rgba(255,159,67,.22);
+  background: rgba(255,159,67,.07);
+}
+.disclosure[data-state="fallback"] strong { color: #f0c38f; }
 
 .messages {
   flex: 1;

@@ -11,6 +11,26 @@ GITHUB_REPOSITORY = "piasnews"
 GITHUB_WORKFLOW = "review-history.yml"
 HOT_EVENTS_WORKFLOW = "review-hot-events.yml"
 GITHUB_REF = "main"
+DEEPSEEK_BASE_URL = "https://api.deepseek.com"
+DEEPSEEK_MODEL = "deepseek-v4-flash"
+PUBLIC_DATA_BASE_URL = "https://znonymity.github.io/piasnews/data"
+COMPANION_ALLOW_CANDIDATE_MODE = "true"
+
+[[ratelimits]]
+name = "COMPANION_RATE_LIMITER"
+namespace_id = "81081"
+
+  [ratelimits.simple]
+  limit = 8
+  period = 60
+
+[[ratelimits]]
+name = "COMPANION_GLOBAL_LIMITER"
+namespace_id = "81082"
+
+  [ratelimits.simple]
+  limit = 60
+  period = 60
 
 [[d1_databases]]
 binding = "ANALYTICS_DB"

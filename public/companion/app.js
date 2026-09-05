@@ -61,6 +61,25 @@ const SOURCE_LIBRARY = {
   },
 };
 
+const DEFAULT_WORKER_URL = "https://piasnews-review.znonymity-piasnews.workers.dev";
+const MAX_HISTORY_ITEMS = 8;
+const ROUTE_LABELS = {
+  f1_grounded: "F1 / race analysis",
+  fan_light: "F1 / fan conversation",
+  public_fact: "Verified public biography",
+  rumor_check: "Public claim verification",
+  public_adjacent: "Verified public adjacent topic",
+  unrelated_general: "Outside Piastri / F1 scope",
+  private_or_inner_state_unverified: "Private or unverified personal claim",
+  team_secret_or_live_engineering: "Non-public team information",
+  medical_legal_financial: "Professional-advice boundary",
+  gambling: "Gambling boundary",
+  illegal_hate_harm: "Safety boundary",
+  identity_or_impersonation: "Identity boundary",
+  insufficient_current_fact: "Current evidence unavailable",
+  unverified_rumor_source: "Source authenticity unavailable",
+};
+
 const DEFAULT_TRACE = {
   route: "fan_light",
   domain: "F1 / fan context",
@@ -96,11 +115,18 @@ const els = {
   raceRound: document.querySelector("#raceRound"),
   sessionLabel: document.querySelector("#sessionLabel"),
   sessionTime: document.querySelector("#sessionTime"),
+  modelDisclosure: document.querySelector("#modelDisclosure"),
+  modelStatusTitle: document.querySelector("#modelStatusTitle"),
+  modelStatusDetail: document.querySelector("#modelStatusDetail"),
+  runtimeNote: document.querySelector("#runtimeNote"),
 };
 
 let currentTrace = DEFAULT_TRACE;
 let contextEnabled = true;
 let messageCounter = 0;
+let companionApiUrl = DEFAULT_WORKER_URL;
+let companionStatus = null;
+let conversationHistory = [];
 
 function containsChinese(value) {
   return /[\u3400-\u9fff]/.test(value);
@@ -117,15 +143,15 @@ function makeResponse(prompt) {
 
   if (/^(你好|您好|嗨|哈喽|在吗|hello|hi|hey)[!！.。\s]*$/i.test(input)) {
     return {
-      en: "Hey. What are we talking about — Oscar, McLaren, or the next race?",
-      zh: "嗨。想聊 Oscar、McLaren，还是下一场比赛？",
+      en: "Hey. Good to see you.",
+      zh: "嗨，很高兴见到你。",
       singleLanguage: true,
       trace: {
         route: "fan_light",
         domain: "Simple social greeting",
         fact: "No factual claim required",
         style: "SC-05 · minimal greeting",
-        styleNote: "Answer naturally, then offer only in-scope conversation choices.",
+        styleNote: "Natural greeting only. No forced topic menu or closing question.",
         meters: [98, 0, 92],
         sources: [],
       },
@@ -452,6 +478,120 @@ function syncViewportHeight() {
   document.documentElement.style.setProperty("--companion-viewport-height", `${Math.round(height)}px`);
 }
 
+function setModelState(state, status = companionStatus) {
+  els.modelDisclosure.dataset.state = state;
+  if (state === "online") {
+    const model = status?.model || "DeepSeek";
+    els.modelStatusTitle.textContent = "大模型已接入 · Skill v0.4.0。";
+    els.modelStatusDetail.textContent = "DeepSeek 在蒸馏边界、知识账本和风格卡内生成；本体验不代表 Oscar Piastri、McLaren 或 F1。";
+    els.runtimeNote.replaceChildren(
+      document.createTextNode(`Skill v0.4.0 · ${model}`),
+      document.createElement("br"),
+      document.createTextNode("46 evidence items · 31 evals"),
+    );
+    return;
+  }
+  if (state === "fallback") {
+    els.modelStatusTitle.textContent = "模型暂不可用 · 已切换规则兜底。";
+    els.modelStatusDetail.textContent = "当前这条回答不是模型生成；人物边界仍然生效。";
+    els.runtimeNote.replaceChildren(
+      document.createTextNode("Skill v0.4.0 · fallback active"),
+      document.createElement("br"),
+      document.createTextNode("46 evidence items · 31 evals"),
+    );
+    return;
+  }
+  els.modelStatusTitle.textContent = "正在连接 DeepSeek…";
+  els.modelStatusDetail.textContent = "回答由蒸馏 Skill 约束；人物化表达仅学习公开风格，不代表 Oscar Piastri、McLaren 或 F1。";
+}
+
+async function loadCompanionConfig() {
+  try {
+    const configResponse = await fetch("../data/runtime-config.json", { cache: "no-store" });
+    if (configResponse.ok) {
+      const config = await configResponse.json();
+      if (typeof config.analytics_url === "string" && config.analytics_url.startsWith("https://")) {
+        companionApiUrl = config.analytics_url.replace(/\/+$/, "");
+      }
+    }
+  } catch (_) {
+    // The public Worker URL remains the default.
+  }
+
+  try {
+    const statusResponse = await fetch(`${companionApiUrl}/companion/status`, { cache: "no-store" });
+    if (!statusResponse.ok) throw new Error(String(statusResponse.status));
+    companionStatus = await statusResponse.json();
+    if (!companionStatus.online) throw new Error("model offline");
+    setModelState("online", companionStatus);
+  } catch (_) {
+    setModelState("fallback");
+  }
+}
+
+function traceMeters(route, styleId) {
+  if (["rumor_check", "unverified_rumor_source"].includes(route)) return [78, 0, 96];
+  if (["unrelated_general", "private_or_inner_state_unverified", "identity_or_impersonation"].includes(route)) {
+    return [96, 0, 98];
+  }
+  if (["medical_legal_financial", "gambling", "illegal_hate_harm"].includes(route)) return [98, 0, 99];
+  if (styleId === "SC-02") return [87, 12, 76];
+  if (styleId === "SC-03") return [82, 4, 74];
+  if (styleId === "SC-01") return [66, 0, 72];
+  return [84, 22, 76];
+}
+
+function modelTrace(payload) {
+  const facts = [...(payload.knowledge_fact_ids || []), ...(payload.rumor_item_ids || [])];
+  const styleId = payload.style_card_id || "SC-06";
+  return {
+    route: payload.route || "unrelated_general",
+    domain: ROUTE_LABELS[payload.route] || "Distilled domain route",
+    fact: facts.length ? facts.join(" · ") : "No stored fact selected",
+    style: `${styleId} · DeepSeek constrained generation`,
+    styleNote: payload.notes || "Validated against the distilled runtime package.",
+    meters: traceMeters(payload.route, styleId),
+    sources: (payload.sources || []).map((source) => ({
+      mark: source.publisher === "@OscarPiastri" ? "X" : String(source.publisher || "SRC").slice(0, 4).toUpperCase(),
+      id: source.id,
+      label: source.label,
+      url: source.url,
+    })),
+  };
+}
+
+async function requestModelResponse(prompt, factsOnly) {
+  const response = await fetch(`${companionApiUrl}/companion/chat`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      message: prompt,
+      history: conversationHistory.slice(-MAX_HISTORY_ITEMS),
+      facts_only: factsOnly,
+      candidate_mode: true,
+      disclosure_shown: true,
+      surface_context: contextEnabled ? {
+        race: els.raceName.textContent,
+        session: els.sessionLabel.textContent,
+        local_time: els.sessionTime.textContent,
+      } : null,
+    }),
+  });
+  if (!response.ok) throw new Error(`Companion API ${response.status}`);
+  const payload = await response.json();
+  if (payload.engine !== "deepseek" || typeof payload.answer_en !== "string") {
+    throw new Error("Unexpected Companion response");
+  }
+  companionStatus = { ...(companionStatus || {}), online: true, model: payload.model };
+  setModelState("online", companionStatus);
+  return {
+    en: payload.answer_en,
+    zh: payload.answer_zh || "",
+    singleLanguage: false,
+    trace: modelTrace(payload),
+  };
+}
+
 async function submitPrompt(rawPrompt) {
   const prompt = rawPrompt.trim();
   if (!prompt || els.typing.hidden === false) return;
@@ -461,24 +601,44 @@ async function submitPrompt(rawPrompt) {
   els.typing.hidden = false;
   els.messages.scrollTop = els.messages.scrollHeight;
 
-  const response = makeResponse(prompt);
-  await new Promise((resolve) => setTimeout(resolve, 430));
+  const factsOnly = els.factsOnly.checked;
+  let response;
+  let usedModel = false;
+  try {
+    response = await requestModelResponse(prompt, factsOnly);
+    usedModel = true;
+  } catch (_) {
+    response = makeResponse(prompt);
+    response.trace = {
+      ...response.trace,
+      styleNote: `${response.trace.styleNote} Model unavailable; deterministic fallback used.`,
+    };
+    setModelState("fallback");
+    await new Promise((resolve) => setTimeout(resolve, 260));
+  }
   els.typing.hidden = true;
   const useZh = containsChinese(prompt);
   const text = response.singleLanguage && useZh
     ? response.zh
-    : (els.factsOnly.checked && response.factsEn ? response.factsEn : response.en);
+    : (factsOnly && response.factsEn ? response.factsEn : response.en);
   const translation = response.singleLanguage
     ? ""
-    : (useZh ? (els.factsOnly.checked && response.factsZh ? response.factsZh : response.zh) : "");
+    : (useZh ? (factsOnly && response.factsZh ? response.factsZh : response.zh) : "");
   addMessage("assistant", text, translation);
   renderTrace(response.trace);
+  conversationHistory.push(
+    { role: "user", content: prompt },
+    { role: "assistant", content: [response.en, response.zh && `中文：${response.zh}`].filter(Boolean).join("\n") },
+  );
+  conversationHistory = conversationHistory.slice(-MAX_HISTORY_ITEMS);
+  if (!usedModel) companionStatus = { ...(companionStatus || {}), online: false };
 }
 
 function resetConversation() {
   const seeded = els.messages.querySelector(".assistant-message");
   els.messages.replaceChildren(seeded);
   messageCounter = 0;
+  conversationHistory = [];
   renderTrace(DEFAULT_TRACE);
   els.input.focus();
 }
@@ -561,5 +721,6 @@ window.addEventListener("resize", syncViewportHeight);
 window.visualViewport?.addEventListener("resize", syncViewportHeight);
 
 syncViewportHeight();
+loadCompanionConfig();
 loadRaceContext();
 renderTrace(DEFAULT_TRACE);

@@ -1,10 +1,13 @@
 # Piasnews Worker
 
-This Cloudflare Worker provides three narrowly scoped services:
+This Cloudflare Worker provides four narrowly scoped services:
 
 - authenticated GitHub workflow dispatch for the history review console;
-- anonymous page-view collection and authenticated aggregate analytics for the admin dashboard.
-- role-aware hot-event workbench reads and workflow dispatches.
+- anonymous page-view collection and authenticated aggregate analytics for the admin dashboard;
+- role-aware hot-event workbench reads and workflow dispatches;
+- a rate-limited DeepSeek gateway for the public Piastri Companion.
+
+The Companion runtime is generated from `piastri-fan-companion/SKILL.md` and its reviewed fact, rumor, judgment, style, evidence, and correction ledgers. The generated module carries a source hash and package version. DeepSeek supplies natural-language generation, while the Worker validates returned IDs and forcibly replaces out-of-domain and reviewed-rumor routes with the package's exact safe response. Current race context is fetched from the published Piasnews data files and reduced to an allow-listed shape before it reaches the model.
 
 Review candidates and decisions remain in GitHub JSON. D1 stores analytics only: timestamp, China Standard Time day, page path, and referrer hostname. It stores no IP address, cookie, visitor ID, or review content. Raw analytics rows are retained for 90 days.
 
@@ -15,6 +18,7 @@ Review candidates and decisions remain in GitHub JSON. D1 stores analytics only:
   `{"viewer-key":{"user":"alice","role":"viewer"},"editor-key":{"user":"bob","role":"editor"},"publisher-key":{"user":"carol","role":"publisher"}}`.
 - `ADMIN_ADDITIONAL_KEYS_JSON`: optional additive JSON role map. It is merged with the primary map so a new identity can be added without replacing existing administrators. Entries may include `user`, `email`, and `role`.
 - `GITHUB_TOKEN`: a fine-grained GitHub token restricted to this repository with Actions write permission.
+- `DEEPSEEK_API_KEY`: the DeepSeek API key used only by the Worker-side Companion endpoint.
 
 Keep all secret values in Worker secrets. Never put them in static admin files, repository variables, or committed configuration.
 
@@ -34,8 +38,11 @@ npx wrangler secret put ADMIN_API_KEY
 npx wrangler secret put ADMIN_KEYS_JSON
 npx wrangler secret put ADMIN_ADDITIONAL_KEYS_JSON
 npx wrangler secret put GITHUB_TOKEN
+npx wrangler secret put DEEPSEEK_API_KEY
 npx wrangler deploy
 ```
+
+The default Companion model is `deepseek-v4-flash`; override `DEEPSEEK_MODEL` in `wrangler.toml` if needed. Companion requests are capped per client and globally with Cloudflare rate-limit bindings. DeepSeek usage is billed to the configured API account, so keep the global limit conservative and monitor usage in the DeepSeek console.
 
 In the GitHub repository, add an Actions variable named `PIASNEWS_WORKER_URL` containing the deployed Worker base URL, without a trailing slash. The Pages workflows write that public URL to `data/runtime-config.json`; it is not a secret. Trigger **Update Piasnews Data** once so the fan page starts reporting views.
 
@@ -44,6 +51,8 @@ Enter the same Worker URL and `ADMIN_API_KEY` in the admin console connection se
 ## Endpoints
 
 - `GET /health`: public health response.
+- `GET /companion/status`: reports model availability, provider/model, Skill package version, source hash, and candidate-mode state; never returns a key.
+- `POST /companion/chat`: allowed-origin, rate-limited DeepSeek generation through the distilled Skill runtime. Requires `disclosure_shown: true`; accepts up to 500 characters and eight history items.
 - `GET /session`: returns the authenticated user, role, and permissions.
 - `POST /analytics/view`: public anonymous page-view ingestion from allowed origins.
 - `GET /analytics/summary?days=7|30|90&end=YYYY-MM-DD`: admin-key protected aggregate metrics. `end` supports paging through complete historical periods inside the 90-day retention window.
