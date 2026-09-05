@@ -4,7 +4,7 @@ import {
   COMPANION_SOURCE_CATALOG,
   COMPANION_SOURCE_HASH,
   COMPANION_SYSTEM_PROMPT,
-} from "./companion-runtime.generated.js";
+} from "./companion-runtime.js";
 
 const DEFAULT_ORIGIN = "https://znonymity.github.io";
 const MAX_BODY_BYTES = 64 * 1024;

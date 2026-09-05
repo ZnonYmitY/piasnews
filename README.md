@@ -22,6 +22,7 @@ Piasnews 是一个面向 Oscar Piastri 粉丝的 Agent Skill，用来抓取、�
 - 明确标注非官方来源、传闻和未验证信息。
 - 提供历史候选自动筛选、人工评分、批准/拒绝和即时 Pages 发布流程。
 - 提供匿名 PV 统计，并在审核后台展示 7/30/90 天折线趋势、历史周期、峰值、热门页面和来源站点。
+- 提供 Piastri Fan Companion 页面与 Worker API；人物蒸馏源码位于独立仓库，本仓库只消费固定版本的运行时快照。
 - 为后续每日新增信息统计、静态 JSON/RSS、API 和 X 来源接入预留数据结构。
 
 ## 安装
@@ -99,6 +100,10 @@ Summarize the latest Oscar Piastri news in English.
 历史价值由候选规则自动判断为“值得保留 / 重要节点 / 标志事件”三档。它只用于未来准入、排序和训练监督，不进入审核表单，也不在粉丝日报中展示。
 
 历史库当前采用结构化标签检索。`piasnews/references/history-retrieval.json` 已预留向量模型配置，但默认关闭；启用时会在 GitHub 记录模型 ID、固定版本、维度、许可证和校验值，小型向量索引可以随仓库发布，模型权重本身放在 Release 或模型仓库中。
+
+## Piastri Fan Companion
+
+Piastri Fan Companion 的页面、API、实时 Piasnews 上下文和部署保留在本仓库；证据、人物知识、谣言台账、判断规则、风格卡、边界、Correction Log 与评测已迁移到独立的 [piastri-persona-distillation](https://github.com/ZnonYmitY/piastri-persona-distillation) 仓库。产品通过带来源哈希和校验和的固定运行时快照消费蒸馏包，具体边界见 [产品边界文档](docs/piastri-fan-companion.zh-CN.md)。
 
 ## 公开粉丝日报
 

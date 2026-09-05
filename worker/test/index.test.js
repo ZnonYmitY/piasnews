@@ -91,7 +91,7 @@ function deepseekFetchMock(modelResult, { status = 200 } = {}) {
     assert.equal(options.headers.Authorization, "Bearer test-deepseek-key");
     assert.equal(request.model, "deepseek-v4-flash");
     assert.deepEqual(request.response_format, { type: "json_object" });
-    assert.match(request.messages[0].content, /piastri-fan-companion Skill v0\.4\.0/);
+    assert.match(request.messages[0].content, /piastri-persona-distillation Skill v0\.4\.0/);
     if (status !== 200) return new Response("upstream error", { status });
     return new Response(JSON.stringify({
       model: "deepseek-v4-flash",

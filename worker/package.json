@@ -3,8 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build:companion-runtime": "node ../piastri-fan-companion/scripts/build_runtime_prompt.mjs",
-    "pretest": "npm run build:companion-runtime",
+    "verify:companion-runtime": "node ../scripts/verify_companion_runtime.mjs",
+    "pretest": "npm run verify:companion-runtime",
     "test": "node --test"
   }
 }
