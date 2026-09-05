@@ -117,14 +117,15 @@ function makeResponse(prompt) {
 
   if (/^(你好|您好|嗨|哈喽|在吗|hello|hi|hey)[!！.。\s]*$/i.test(input)) {
     return {
-      en: "Hello.",
-      zh: "你好。",
+      en: "Hey. What are we talking about — Oscar, McLaren, or the next race?",
+      zh: "嗨。想聊 Oscar、McLaren，还是下一场比赛？",
+      singleLanguage: true,
       trace: {
         route: "fan_light",
         domain: "Simple social greeting",
         fact: "No factual claim required",
         style: "SC-05 · minimal greeting",
-        styleNote: "Answer the greeting directly. Do not force race analysis or add an engagement hook.",
+        styleNote: "Answer naturally, then offer only in-scope conversation choices.",
         meters: [98, 0, 92],
         sources: [],
       },
@@ -442,6 +443,11 @@ function resizeInput() {
   els.input.style.height = `${Math.min(els.input.scrollHeight, 110)}px`;
 }
 
+function syncViewportHeight() {
+  const height = window.visualViewport?.height || window.innerHeight;
+  document.documentElement.style.setProperty("--companion-viewport-height", `${Math.round(height)}px`);
+}
+
 async function submitPrompt(rawPrompt) {
   const prompt = rawPrompt.trim();
   if (!prompt || els.typing.hidden === false) return;
@@ -455,8 +461,12 @@ async function submitPrompt(rawPrompt) {
   await new Promise((resolve) => setTimeout(resolve, 430));
   els.typing.hidden = true;
   const useZh = containsChinese(prompt);
-  const text = els.factsOnly.checked && response.factsEn ? response.factsEn : response.en;
-  const translation = useZh ? (els.factsOnly.checked && response.factsZh ? response.factsZh : response.zh) : "";
+  const text = response.singleLanguage && useZh
+    ? response.zh
+    : (els.factsOnly.checked && response.factsEn ? response.factsEn : response.en);
+  const translation = response.singleLanguage
+    ? ""
+    : (useZh ? (els.factsOnly.checked && response.factsZh ? response.factsZh : response.zh) : "");
   addMessage("assistant", text, translation);
   renderTrace(response.trace);
 }
@@ -508,6 +518,12 @@ els.form.addEventListener("submit", (event) => {
 });
 
 els.input.addEventListener("input", resizeInput);
+els.input.addEventListener("focus", () => {
+  window.setTimeout(() => {
+    syncViewportHeight();
+    els.messages.scrollTop = els.messages.scrollHeight;
+  }, 120);
+});
 els.input.addEventListener("keydown", (event) => {
   if ((event.metaKey || event.ctrlKey) && event.key === "Enter") {
     event.preventDefault();
@@ -537,5 +553,9 @@ els.factsOnly.addEventListener("change", () => {
   renderTrace({ ...currentTrace, style: els.factsOnly.checked ? "Facts only · persona suppressed" : currentTrace.style });
 });
 
+window.addEventListener("resize", syncViewportHeight);
+window.visualViewport?.addEventListener("resize", syncViewportHeight);
+
+syncViewportHeight();
 loadRaceContext();
 renderTrace(DEFAULT_TRACE);
