@@ -1,18 +1,75 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-05T04:32:16.520981Z",
+  "generated_at": "2026-09-05T05:34:32.495695Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
   "event_count": 10,
   "events": [
     {
+      "event_id": "evt-session-result-2026-round-13-practice_2",
+      "rule_id": null,
+      "hot_word_zh": "Oscar 在意大利站二练获得第6名",
+      "hot_word_en": "Oscar finishes P6 in Italian Grand Prix Practice 2",
+      "first_seen_at": "2026-09-04T16:31:26.921946Z",
+      "last_seen_at": "2026-09-04T16:31:26.921946Z",
+      "anchor_item_id": "session-result-2026-round-13-practice_2",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "official_heat": 0,
+      "media_heat": 100,
+      "fan_heat": 0,
+      "heat": 100,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 1,
+        "fan": 0
+      },
+      "pinned_rank": 1,
+      "hidden": false,
+      "hard_rule": {
+        "type": "session_result",
+        "race_id": "2026-round-13",
+        "session": "practice_2",
+        "position": 6,
+        "status": "classified",
+        "source_item_id": "session-result-2026-round-13-practice_2",
+        "source": "OpenF1"
+      },
+      "items": [
+        {
+          "item_id": "session-result-2026-round-13-practice_2",
+          "dataset": "session_result",
+          "source_type": "media",
+          "source": "OpenF1",
+          "title": "Oscar finishes P6 in Italian Grand Prix Practice 2",
+          "title_zh": "Oscar 在意大利站二练获得第6名",
+          "summary": "Structured session result for Oscar Piastri.",
+          "summary_zh": "Oscar Piastri 的结构化场次成绩。",
+          "url": "https://api.openf1.org/v1/session_result?session_key=11355&driver_number=81",
+          "published_at": "2026-09-04T16:31:26.921946Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 100,
+          "metrics": {}
+        }
+      ],
+      "rank": 1
+    },
+    {
       "event_id": "evt-oscar-monza-preparation",
       "rule_id": "oscar-monza-preparation",
       "hot_word_zh": "Oscar 开始为蒙扎站进行准备",
       "hot_word_en": "Oscar begins preparations for Monza",
       "first_seen_at": "2026-08-31T19:42:02Z",
-      "last_seen_at": "2026-09-03T22:29:01Z",
+      "last_seen_at": "2026-09-04T17:28:09Z",
       "anchor_item_id": "piasnews-social-08b3b5faea1436c2",
       "image_url": "https://pbs.twimg.com/media/HRSCsomaoAAPo62.jpg",
       "video_url": "https://video.twimg.com/amplify_video/2095077262857048065/vid/avc1/320x426/FRgH8AwsUpioro-F.mp4?tag=29",
@@ -110,6 +167,23 @@
           "metrics": {}
         },
         {
+          "item_id": "piasnews-02671a2e91191226",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Speedcafe.com",
+          "title": "F1 news: Oscar Piastri concerned by McLaren pace deficit at Monza",
+          "title_zh": "F1新闻：Oscar Piastri担忧McLaren在Monza的速度差距",
+          "summary": "Team or car-performance item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+          "url": "https://speedcafe.com/f1-news-2026-italian-grand-prix-monza-oscar-piastri-reaction-practice-friday-mclaren-update-latest-lando-norris/",
+          "published_at": "2026-09-04T17:28:09Z",
+          "image_url": "https://speedcafe.com/wp-content/uploads/2026/09/XPB_1432366_HiRes.jpg",
+          "video_url": null,
+          "video_poster_url": "https://speedcafe.com/wp-content/uploads/2026/09/XPB_1432366_HiRes.jpg",
+          "heat_contribution": 0.75,
+          "metrics": {}
+        },
+        {
           "item_id": "piasnews-b177679a3696c40f",
           "dataset": "items",
           "source_type": "media",
@@ -117,7 +191,7 @@
           "title": "F1 news: Oscar Piastri reveals bizarre Monza speed anomaly",
           "title_zh": "F1新闻：Oscar Piastri揭示Monza怪异速度异常",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与车队或赛车性能相关的条目。",
+          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
           "url": "https://speedcafe.com/f1-news-2026-italian-grand-prix-monza-oscar-piastri-speed-differences-simulations-mclaren-update-performance-expectations-lando-norris/",
           "published_at": "2026-09-03T22:29:01Z",
           "image_url": "https://speedcafe.com/wp-content/uploads/2026/09/XPB_1427949_HiRes.jpg",
@@ -134,7 +208,7 @@
           "title": "F1-Oscar Piastri-2026-Italian GP-Monza-GettyImages-2293306857",
           "title_zh": "F1-Oscar Piastri-2026年意大利大奖赛-Monza-GettyImages-2293306857",
           "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与比赛周或表现相关的条目。",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或性能相关条目。",
           "url": "https://autoaction.com.au/2026/09/04/oscar-piastri-driving-style-mclaren-monza-f1/f1-oscar-piastri-2026-italian-gp-monza-gettyimages-2293306857",
           "published_at": "2026-09-03T20:23:13Z",
           "image_url": "https://autoaction.com.au/2026/09/04/oscar-piastri-driving-style-mclaren-monza-f1/f1-oscar-piastri-2026-italian-gp-monza-gettyimages-2293306857",
@@ -147,7 +221,7 @@
           "item_id": "piasnews-d00e2d563e7f3cee",
           "dataset": "items",
           "source_type": "media",
-          "source": "bvmsports.com",
+          "source": "BVM Sports",
           "title": "Why Piastri Seek Solutions to Performance Struggles at Monza",
           "title_zh": "为何Piastri在Monza寻求解决表现困境的方案",
           "summary": "Oscar Piastri-related item discovered from public news metadata.",
@@ -168,7 +242,7 @@
           "title": "Oscar Piastri warns McLaren ahead of crucial Monza test",
           "title_zh": "Oscar Piastri在关键的Monza测试前向McLaren发出警告",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与车队或赛车性能相关的条目。",
+          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
           "url": "https://www.paddocknews24.com/en/news-f1/oscar-piastri-warns-mclaren-ahead-of-crucial-monza-test/",
           "published_at": "2026-08-31T19:42:02Z",
           "image_url": "https://www.paddocknews24.com/en/wp-content/uploads/2026/08/89mkRfv4_risultato.webp",
@@ -227,9 +301,9 @@
         }
       ],
       "official_heat": 12,
-      "media_heat": 20,
+      "media_heat": 24,
       "fan_heat": 63,
-      "heat": 69,
+      "heat": 70,
       "source_labels": [
         "官",
         "媒",
@@ -242,7 +316,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 1
+      "rank": 2
     },
     {
       "event_id": "evt-2026-09-02-eb4c0cc1ccde",
@@ -322,7 +396,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 2
+      "rank": 3
     },
     {
       "event_id": "evt-2026-09-02-1b2efe779e10",
@@ -401,7 +475,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 3
+      "rank": 4
     },
     {
       "event_id": "evt-2026-09-02-f5f09375744a",
@@ -456,7 +530,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 4
+      "rank": 5
     },
     {
       "event_id": "evt-2026-09-03-e9879631966d",
@@ -511,7 +585,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 5
+      "rank": 6
     },
     {
       "event_id": "evt-2026-09-02-158441e4c9dd",
@@ -566,7 +640,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 7
     },
     {
       "event_id": "evt-2026-09-03-2714772fcd39",
@@ -621,7 +695,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 8
     },
     {
       "event_id": "evt-2026-09-03-7ad64ca3a6e5",
@@ -676,7 +750,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 9
     },
     {
       "event_id": "evt-2026-09-02-f956af3139c4",
@@ -713,61 +787,6 @@
             "replies": 0,
             "quotes": 0,
             "views": 110,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 33,
-      "heat": 33,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 9
-    },
-    {
-      "event_id": "evt-2026-09-03-231480c13ed4",
-      "rule_id": null,
-      "hot_word_zh": "Oscar和Lily抵达围场参加🇮🇹媒体日 [📸 摄影：Clive Mason、Bryn…",
-      "hot_word_en": "Oscar and Lily arriving at the paddock for media day in 🇮🇹 [📸 via Clive Mason, Bryn Lennon, and…",
-      "first_seen_at": "2026-09-03T10:41:33Z",
-      "last_seen_at": "2026-09-03T10:41:33Z",
-      "anchor_item_id": "piasnews-social-636bfcac152ddbb0",
-      "image_url": "https://pbs.twimg.com/media/HRSTwZ9WYAELgot.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HRSTwZ9WYAELgot.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-636bfcac152ddbb0",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@oscarpiastri81",
-          "title": "X post from @oscarpiastri81: Oscar and Lily arriving at the paddock for media day in 🇮🇹 [📸 via Clive Mason, Bryn Lennon, and…",
-          "title_zh": "X 发帖 @oscarpiastri81：Oscar和Lily抵达围场参加🇮🇹媒体日 [📸 摄影：Clive Mason、Bryn Lennon和Bradley Collyer/Getty Images]",
-          "summary": "Oscar and Lily arriving at the paddock for media day in 🇮🇹 [📸 via Clive Mason, Bryn Lennon, and Bradley Collyer/Getty Images] https://t.co/j5YKc4Ktpa",
-          "summary_zh": "Oscar和Lily抵达围场参加🇮🇹媒体日 [📸 摄影：Clive Mason、Bryn Lennon和Bradley Collyer/Getty Images]",
-          "url": "https://x.com/oscarpiastri81/status/2095462193466679609",
-          "published_at": "2026-09-03T10:41:33Z",
-          "image_url": "https://pbs.twimg.com/media/HRSTwZ9WYAELgot.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HRSTwZ9WYAELgot.jpg",
-          "heat_contribution": 6.2499,
-          "metrics": {
-            "likes": 986,
-            "retweets": 38,
-            "replies": 1,
-            "quotes": 0,
-            "views": 8379,
             "bookmarks": 0
           }
         }

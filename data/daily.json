@@ -1,35 +1,55 @@
 {
-  "generated_at": "2026-09-04T16:31:16.653525Z",
+  "generated_at": "2026-09-05T05:31:45.785374Z",
   "window_days": 7,
-  "total_items": 38,
-  "latest_date": "2026-09-04",
+  "total_items": 46,
+  "latest_date": "2026-09-05",
   "days": [
     {
-      "date": "2026-09-04",
-      "total_new_items": 3,
+      "date": "2026-09-05",
+      "total_new_items": 1,
       "official_new_items": 0,
-      "media_new_items": 3,
+      "media_new_items": 1,
+      "x_new_items": 0,
+      "rumor_new_items": 0,
+      "sources": {
+        "racingnews365.com": 1
+      },
+      "categories": {
+        "team": 1
+      }
+    },
+    {
+      "date": "2026-09-04",
+      "total_new_items": 8,
+      "official_new_items": 1,
+      "media_new_items": 7,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "F1 Oversteer": 1,
-        "Fox Sports": 1,
+        "Fox Sports": 2,
+        "McLaren": 1,
+        "PlanetF1": 1,
+        "Speedcafe.com": 1,
+        "grandepremio.com": 1,
         "racingnews365.com": 1
       },
       "categories": {
-        "interview": 1,
-        "race": 2
+        "interview": 3,
+        "race": 4,
+        "team": 1
       }
     },
     {
       "date": "2026-09-03",
-      "total_new_items": 12,
+      "total_new_items": 14,
       "official_new_items": 1,
-      "media_new_items": 11,
+      "media_new_items": 13,
       "x_new_items": 0,
       "rumor_new_items": 1,
       "sources": {
         "Auto Action": 2,
+        "BVM Sports": 2,
         "Crash.net": 1,
         "DIVEBOMB Motorsport": 1,
         "F1i.com": 1,
@@ -37,13 +57,13 @@
         "Formula1News.co.uk": 1,
         "GPblog": 1,
         "Speedcafe.com": 2,
-        "bvmsports.com": 1,
+        "Yahoo Sports": 1,
         "gpfans.com": 1
       },
       "categories": {
         "contract": 1,
         "interview": 2,
-        "other": 3,
+        "other": 5,
         "race": 1,
         "rumor": 1,
         "team": 4
@@ -168,35 +188,35 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 22
+      "items": 28
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 21
+      "items": 25
     },
     {
       "query": "\"OP81\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22OP81%22+when%3A3d",
       "ok": true,
-      "items": 0
+      "items": 1
     },
     {
       "query": "\"Oscar Piastri\" \"qualifying\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 10
+      "items": 11
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 12
+      "items": 14
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -208,12 +228,12 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 22,
-      "kept": 18,
+      "checked": 29,
+      "kept": 23,
       "results": {
         "publisher_date_missing": 3,
-        "publisher_unavailable": 1,
-        "verified": 18
+        "publisher_unavailable": 3,
+        "verified": 23
       }
     },
     {
@@ -222,7 +242,7 @@
       "discovery_days": 3,
       "retention_days": 7,
       "previous_items": 38,
-      "kept": 38
+      "kept": 46
     }
   ]
 }
