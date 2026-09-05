@@ -439,6 +439,10 @@ function setPanel(open) {
 }
 
 function resizeInput() {
+  if (!els.input.value) {
+    els.input.style.height = "";
+    return;
+  }
   els.input.style.height = "auto";
   els.input.style.height = `${Math.min(els.input.scrollHeight, 110)}px`;
 }
