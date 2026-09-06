@@ -1,9 +1,60 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-03T09:30:51.523092Z",
-  "status": "healthy",
-  "pending_count": 0,
-  "ignored_non_text_count": 1,
+  "generated_at": "2026-09-06T16:11:33.581843Z",
+  "status": "action_required",
+  "pending_count": 5,
+  "ignored_non_text_count": 0,
   "workbench_path": "../immersive/translation-workbench.html",
-  "items": []
+  "items": [
+    {
+      "key": "items:piasnews-625d6fc0a9300e1d:title:4241c279aaab320f30d11c28",
+      "dataset": "items",
+      "item_id": "piasnews-625d6fc0a9300e1d",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri, McLaren, Monza, 2026",
+      "source_url": "https://www.racefans.net/2026/09/05/gasly-takes-surprise-monza-pole-ahead-of-russell-piastri-and-the-ferraris/f1-grand-prix-of-italy-final-practice-49/",
+      "source_name": "RaceFans",
+      "reason": "llm_mapping_missing"
+    },
+    {
+      "key": "items:piasnews-1c95a1a190ea0294:title:324b61efb7b1ef07e2f55a07",
+      "dataset": "items",
+      "item_id": "piasnews-1c95a1a190ea0294",
+      "target_field": "title_zh",
+      "source_text": "Pierre Gasly Takes Shock Pole At Monza, Beating George Russell And Oscar Piastri: 46 outlets compared",
+      "source_url": "https://newscord.org/article/pierre-gasly-takes-pole-for-2026-italian-grand-prix-at-monza-beating-george-russ--Story_20260905_AlpinesGaslybeatsRus6e47900c",
+      "source_name": "newscord.org",
+      "reason": "llm_mapping_missing"
+    },
+    {
+      "key": "items:piasnews-1c95a1a190ea0294:summary:26b5911fbd1b8158d42ac2a8",
+      "dataset": "items",
+      "item_id": "piasnews-1c95a1a190ea0294",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "source_url": "https://newscord.org/article/pierre-gasly-takes-pole-for-2026-italian-grand-prix-at-monza-beating-george-russ--Story_20260905_AlpinesGaslybeatsRus6e47900c",
+      "source_name": "newscord.org",
+      "reason": "llm_mapping_missing"
+    },
+    {
+      "key": "items:piasnews-1e4f12da24030d3b:title:c93d31aaf9dc161dc8d8ea80",
+      "dataset": "items",
+      "item_id": "piasnews-1e4f12da24030d3b",
+      "target_field": "title_zh",
+      "source_text": "Piastri opens up on Verstappen and Norris' bombshell new contracts",
+      "source_url": "https://www.gpblog.com/en/news/piastri-id-be-amazed-if-verstappens-deal-has-no-wiggle-room",
+      "source_name": "GPblog",
+      "reason": "llm_mapping_missing"
+    },
+    {
+      "key": "items:piasnews-1e4f12da24030d3b:summary:73c687deab0b33e8260654ec",
+      "dataset": "items",
+      "item_id": "piasnews-1e4f12da24030d3b",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "source_url": "https://www.gpblog.com/en/news/piastri-id-be-amazed-if-verstappens-deal-has-no-wiggle-room",
+      "source_name": "GPblog",
+      "reason": "llm_mapping_missing"
+    }
+  ]
 }
