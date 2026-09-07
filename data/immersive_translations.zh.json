@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-07T06:28:10.425755Z",
+  "generated_at": "2026-09-07T10:27:13.609932Z",
   "translations": {
     "social:piasnews-social-028f2996064fbe90:summary:903cfeec2c0882224cf6bbc7": {
       "dataset": "social",
@@ -4417,6 +4417,78 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-07T06:28:09.646741Z"
+    },
+    "items:piasnews-b1e281e2b15bb8f6:title:d476a994ee54e46c4bce9ae8": {
+      "dataset": "items",
+      "item_id": "piasnews-b1e281e2b15bb8f6",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Lando Norris called Oscar Piastri’s defence ‘dangerous’ — then changed his verdict",
+      "zh": "Lando Norris称Oscar Piastri的防守‘危险’——随后改变了看法",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-07T10:27:13.031522Z"
+    },
+    "items:piasnews-b1e281e2b15bb8f6:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-b1e281e2b15bb8f6",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-07T10:27:13.031528Z"
+    },
+    "social:piasnews-social-9eea399a60b9fb91:summary:fa760887e2685ac8af59f152": {
+      "dataset": "social",
+      "item_id": "piasnews-social-9eea399a60b9fb91",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "and all of them were clean af #btw",
+      "zh": "而且它们全都干干净净 #顺便说一句",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-07T10:27:13.031531Z"
+    },
+    "social:piasnews-social-a933bff91319f419:summary:d5546907374d06646bf3d53d": {
+      "dataset": "social",
+      "item_id": "piasnews-social-a933bff91319f419",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "according to the f1 fantasy game oscar overtook SIXTEEN times yesterday during the italian gp 😭 second driver with most overtakes just after antonelli 🙂‍↕️👏🏻 https://t.co/EIqOLCNXE1",
+      "zh": "根据F1梦幻游戏，Oscar昨天在意大利大奖赛期间超车了十六次😭 超车次数第二多的车手，仅次于Antonelli 🙂‍↕️👏🏻",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-07T10:27:13.031535Z"
+    },
+    "social:piasnews-social-3fb884b1b47df156:summary:5efc29e7a505e5f03086da90": {
+      "dataset": "social",
+      "item_id": "piasnews-social-3fb884b1b47df156",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar got asked to sign an alpine water bottle \"for the meme\" 😭😭 🎥: _gaiaaa_05 https://t.co/FLxY3znBrz",
+      "zh": "Oscar被要求签一个Alpine水瓶“为了梗” 😭😭 🎥：_gaiaaa_05",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-07T10:27:13.031537Z"
+    },
+    "social:piasnews-social-6f9077f33b90aa91:summary:0c735ad4d05fd33ba1f9e9b2": {
+      "dataset": "social",
+      "item_id": "piasnews-social-6f9077f33b90aa91",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar on being overtaken on the last lap: \"on the last lap you never know what to do with the energy. we went for different strategies, he got past, i thought I'd have a chance to get back past again, but ultimately i didn't. i definitely know what i'd do differently next time.\" https://t.co/HN9lF1x0xI",
+      "zh": "Oscar谈到在最后一圈被超车：“在最后一圈你永远不知道该如何处理能量。我们采用了不同的策略，他超了过去，我以为我还有机会再超回来，但最终没有。我绝对知道下次我会怎么做不同。”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-07T10:27:13.031540Z"
     }
   },
   "retention_days": 8
