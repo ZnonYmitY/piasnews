@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-08T14:39:13.136072Z",
+  "generated_at": "2026-09-08T17:53:03.988078Z",
   "translations": {
     "items:piasnews-192f8b34f42ff66f:title:89bbc9acd430b9a5f588ad3e": {
       "dataset": "items",
@@ -4585,6 +4585,150 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-08T14:39:12.246617Z"
+    },
+    "items:piasnews-057421479f58a069:title:f1f4687e99ea449e3a11fc2e": {
+      "dataset": "items",
+      "item_id": "piasnews-057421479f58a069",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "F1 grid: Starting positions for Italian Grand Prix after shock Gasly pole and Piastri penalty",
+      "zh": "F1发车格：Gasly惊人夺杆及Piastri受罚后意大利大奖赛起步位置",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-08T17:53:03.155609Z"
+    },
+    "items:piasnews-057421479f58a069:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-057421479f58a069",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-08T17:53:03.155621Z"
+    },
+    "items:piasnews-8309bc22093bafd3:title:9f096a75970d9b8af3d7b93c": {
+      "dataset": "items",
+      "item_id": "piasnews-8309bc22093bafd3",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "How Oscar Piastri's Q3 mistake denied Lando Norris \"half a second\" in Italian GP qualifying",
+      "zh": "Oscar Piastri在Q3的失误如何让Lando Norris在意大利大奖赛排位赛中损失了“半秒”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-08T17:53:03.155632Z"
+    },
+    "items:piasnews-8309bc22093bafd3:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-8309bc22093bafd3",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-08T17:53:03.155637Z"
+    },
+    "social:piasnews-social-cd59cab0345126e1:summary:0b8c8c0ef7d11a081acebb52": {
+      "dataset": "social",
+      "item_id": "piasnews-social-cd59cab0345126e1",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "I ended up crying while reading the replies, so thank you for making this day even more special. ♥️ Next time I get a celebratory cake, you're ALL invited! Except feeding this many people might be a little beyond my budget, so it might look more like that cake Oscar made once. https://t.co/wW29M0CAK1",
+      "zh": "我读着回复时哭了，所以感谢你们让这一天更加特别。♥️ 下次我拿到庆祝蛋糕时，你们都被邀请了！不过喂饱这么多人可能有点超出我的预算，所以它可能看起来更像Oscar曾经做过的那个蛋糕。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-08T17:53:03.155641Z"
+    },
+    "social:piasnews-social-ec5899470fd8a005:summary:835b21737362f55036befedb": {
+      "dataset": "social",
+      "item_id": "piasnews-social-ec5899470fd8a005",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Max 🆚 Oscar... 2.0 👀 Verstappen's move around the outside of Piastri at Monza reminds us of something we've seen before at Imola 💨 #F1 #ItalianGP https://t.co/jgTbhWDX66",
+      "zh": "Max 🆚 Oscar... 2.0 👀 Verstappen在Monza从外线超越Piastri的动作让我们想起了在Imola见过的场景 💨 #F1 #ItalianGP",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-08T17:53:03.155646Z"
+    },
+    "social:piasnews-social-af3013d84bce6015:summary:dace5437a782ff4d4842b222": {
+      "dataset": "social",
+      "item_id": "piasnews-social-af3013d84bce6015",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "81st Grand Prix under the belt ✔️ https://t.co/tE2Ta2LPOp",
+      "zh": "第81场大奖赛完成 ✔️",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-08T17:53:03.155652Z"
+    },
+    "social:piasnews-social-e0f5ed995f7729dc:summary:9290f4a26c1cda95b28bc337": {
+      "dataset": "social",
+      "item_id": "piasnews-social-e0f5ed995f7729dc",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "(It’s a chocolate cake, I’m very happy lol)",
+      "zh": "（这是巧克力蛋糕，我很开心哈哈）",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-08T17:53:03.155659Z"
+    },
+    "social:piasnews-social-13f79ce2bae73736:summary:2e9e44dcdfa95edf633e5bbd": {
+      "dataset": "social",
+      "item_id": "piasnews-social-13f79ce2bae73736",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "No, Oscar did not score any points today. But I did have something worth celebrating, so naturally, I got a cake. https://t.co/9973oIiX28",
+      "zh": "不，Oscar今天没有得分。但我确实有值得庆祝的事，所以自然，我买了个蛋糕。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-08T17:53:03.155663Z"
+    },
+    "social:piasnews-social-20019cd4a3be8d38:summary:39bd4cf890c78009c16ab951": {
+      "dataset": "social",
+      "item_id": "piasnews-social-20019cd4a3be8d38",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Back around the outside of Oscar Piastri 💨 Max Verstappen mastered this signature second-chicane move at Monza! ✍️ #F1 #ItalianGP https://t.co/DmZDLGr0fw",
+      "zh": "再次从外线超越Oscar Piastri 💨 Max Verstappen在Monza掌握了这个标志性的第二弯动作！✍️ #F1 #ItalianGP",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-08T17:53:03.155667Z"
+    },
+    "social:piasnews-social-4a3ed648675e9fcf:summary:6ab96a3d3adf7dd234fcfcb6": {
+      "dataset": "social",
+      "item_id": "piasnews-social-4a3ed648675e9fcf",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Reviewing Sunday in Monza with OP 🇮🇹 #McLarenF1 | #ItalianGP 🇮🇹 https://t.co/g4zYFPwkqt",
+      "zh": "与OP一起回顾Monza的周日 🇮🇹 #McLarenF1 | #ItalianGP 🇮🇹",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-08T17:53:03.155670Z"
+    },
+    "social:piasnews-social-4208f160c39df69a:summary:d3ad106e029619bc37cfc595": {
+      "dataset": "social",
+      "item_id": "piasnews-social-4208f160c39df69a",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "OP81 takes his place on the grid for Grand Prix number 81. 💙 81 on the car. 81 on the race tally. 🤝 Behind you all the way today in Monza 💪🇮🇹 #QuadLock https://t.co/N5alf90E67",
+      "zh": "OP81就位，准备参加第81场大奖赛。💙 车上是81，比赛场次也是81。🤝 今天在Monza全程支持你 💪🇮🇹 #QuadLock",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-08T17:53:03.155674Z"
     }
   },
   "retention_days": 8
