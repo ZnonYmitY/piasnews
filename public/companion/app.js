@@ -65,6 +65,15 @@ const DEFAULT_WORKER_URL = "https://piasnews-review.znonymity-piasnews.workers.d
 const MAX_HISTORY_ITEMS = 8;
 const MAX_HISTORY_CHARS = 900;
 const MAX_PROMPT_CHARS = 500;
+const APP_VERSION = "20260908-feedback-1";
+const FEEDBACK_CATEGORIES = [
+  ["off_persona", "不像 Oscar"], ["unnatural", "太机械 / 不自然"],
+  ["fact_error", "事实不对"], ["irrelevant", "答非所问"],
+  ["over_refusal", "不该拒绝却拒绝"], ["context_loss", "没接住上下文"],
+  ["boundary_miss", "该收住却越界"], ["invented_private", "编造私事 / 想法"],
+  ["rumor_handling", "辟谣不清 / 没依据"], ["translation", "中英不一致"],
+  ["too_long", "太啰嗦 / 重复"], ["technical", "生成 / 显示异常"], ["other", "其他"],
+];
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const ROUTE_LABELS = {
   f1_grounded: "F1 / race analysis",
@@ -127,6 +136,25 @@ const els = {
   backdrop: document.querySelector("#drawerBackdrop"),
   page: document.querySelector("#pageShell"),
   hero: document.querySelector("#hero"),
+  feedbackPanel: document.querySelector("#feedbackPanel"),
+  feedbackForm: document.querySelector("#feedbackForm"),
+  feedbackFields: document.querySelector("#feedbackFields"),
+  closeFeedback: document.querySelector("#closeFeedbackButton"),
+  feedbackIssues: document.querySelector("#feedbackIssues"),
+  feedbackCommon: document.querySelector("#feedbackCommonCategories"),
+  feedbackMore: document.querySelector("#feedbackMoreCategories"),
+  feedbackCategoryCount: document.querySelector("#feedbackCategoryCount"),
+  feedbackComment: document.querySelector("#feedbackComment"),
+  feedbackExpected: document.querySelector("#feedbackExpected"),
+  feedbackConsent: document.querySelector("#feedbackConsent"),
+  feedbackContextConsent: document.querySelector("#feedbackContextConsent"),
+  feedbackContextPreview: document.querySelector("#feedbackContextPreview"),
+  feedbackPromptPreview: document.querySelector("#feedbackPromptPreview"),
+  feedbackAnswerPreview: document.querySelector("#feedbackAnswerPreview"),
+  feedbackMetadataPreview: document.querySelector("#feedbackMetadataPreview"),
+  feedbackStatus: document.querySelector("#feedbackStatus"),
+  feedbackSubmit: document.querySelector("#feedbackSubmit"),
+  feedbackSubmitNote: document.querySelector("#feedbackSubmitNote"),
 };
 
 let currentTrace = DEFAULT_TRACE;
@@ -142,6 +170,8 @@ let isGenerating = false;
 let followLatest = true;
 let drawerTrigger = null;
 let drawerCloseTimer = null;
+let activeDialog = null;
+let activeFeedback = null;
 const welcomeMessage = els.messages.querySelector(".welcome-message");
 
 function containsChinese(value) {
@@ -377,7 +407,52 @@ function makeResponse(prompt, factsOnlySetting = els.factsOnly.checked) {
   };
 }
 
-function addMessage(role, text, translation = "", trace = null, engine = "") {
+function createFeedbackSnapshot({ prompt = "", text = "", translation = "", history = [], engine = "welcome", factsOnly = false, trace = DEFAULT_TRACE, metadata = {}, latencyMs = null } = {}) {
+  const sourceIds = (trace.sources || []).map((source) => source.id);
+  const ids = (key, pattern, max) => [...new Set(metadata[key] || sourceIds.filter((id) => pattern.test(id)))].slice(0, max);
+  return Object.freeze({
+    prompt: prompt.slice(0, MAX_PROMPT_CHARS),
+    answer_en: text.slice(0, MAX_HISTORY_CHARS),
+    answer_zh: translation.slice(0, MAX_HISTORY_CHARS),
+    history: Object.freeze(history.slice(-4).map((item) => Object.freeze({ role: item.role, content: item.content.slice(0, MAX_HISTORY_CHARS) }))),
+    engine,
+    model: String(metadata.model || "").slice(0, 80),
+    route: String(trace.route || "").slice(0, 80),
+    style_card_id: String(metadata.style_card_id || (engine === "fallback" ? trace.style.match(/SC-\d+/)?.[0] : "") || "").slice(0, 40),
+    package_version: String(metadata.package_version || "").slice(0, 40),
+    source_hash: String(metadata.source_hash || "").slice(0, 80),
+    facts_only: Boolean(factsOnly),
+    app_version: APP_VERSION,
+    knowledge_fact_ids: Object.freeze(ids("knowledge_fact_ids", /^KF-/, 4)),
+    rumor_item_ids: Object.freeze(ids("rumor_item_ids", /^RM-/, 1)),
+    judgment_rule_ids: Object.freeze((metadata.judgment_rule_ids || []).slice(0, 1)),
+    evidence_ids: Object.freeze(ids("evidence_ids", /^EV-/, 8)),
+    latency_ms: Number.isFinite(latencyMs) ? Math.max(0, Math.round(latencyMs)) : null,
+  });
+}
+
+function attachFeedback(article, snapshot) {
+  const actions = article.querySelector(".answer-actions") || document.createElement("div");
+  actions.className = "answer-actions";
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "answer-feedback";
+  button.textContent = "反馈";
+  button.setAttribute("aria-label", "反馈这条回复");
+  button.setAttribute("aria-haspopup", "dialog");
+  button.setAttribute("aria-controls", "feedbackPanel");
+  const record = {
+    messageId: crypto.randomUUID(), feedbackId: crypto.randomUUID(), snapshot, button,
+    draft: { rating: "negative", categories: [], comment: "", expected: "", consent: false, includeContext: false },
+    payload: null, state: "draft", status: "", receipt: null,
+  };
+  article.dataset.messageId = record.messageId;
+  button.addEventListener("click", () => openFeedback(record, button));
+  actions.append(button);
+  article.querySelector(".message-copy").append(actions);
+}
+
+function addMessage(role, text, translation = "", trace = null, engine = "", feedbackSnapshot = null) {
   const article = document.createElement("article");
   article.className = `message ${role === "user" ? "user-message" : "assistant-message"}`;
 
@@ -441,6 +516,7 @@ function addMessage(role, text, translation = "", trace = null, engine = "") {
   }
 
   article.append(meta, copy);
+  if (role === "assistant") attachFeedback(article, feedbackSnapshot || createFeedbackSnapshot({ text, translation, engine: engine || "fallback", trace: trace || DEFAULT_TRACE }));
   els.messages.append(article);
   if (role === "user" || followLatest) scrollToLatest();
   else els.jumpLatest.hidden = false;
@@ -490,29 +566,174 @@ function renderTrace(trace) {
 }
 
 function setPanel(open, trigger = els.panelButton) {
+  if (open) showDialog(els.panel, els.closePanel, trigger);
+  else if (activeDialog === els.panel) closeDialog();
+}
+
+function showDialog(panel, firstFocus, trigger) {
   clearTimeout(drawerCloseTimer);
-  els.panelButton.setAttribute("aria-expanded", String(open));
-  if (open) {
-    drawerTrigger = trigger;
-    els.panel.hidden = false;
-    els.panel.inert = false;
-    els.backdrop.hidden = false;
-    els.page.inert = true;
-    requestAnimationFrame(() => {
-      els.panel.classList.add("is-open");
-      els.backdrop.classList.add("is-open");
-      els.closePanel.focus();
+  if (activeFeedback && activeDialog === els.feedbackPanel) saveFeedbackDraft();
+  for (const other of [els.panel, els.feedbackPanel]) {
+    if (other !== panel) { other.classList.remove("is-open"); other.hidden = true; other.inert = true; }
+  }
+  activeDialog = panel;
+  drawerTrigger = trigger;
+  els.panelButton.setAttribute("aria-expanded", String(panel === els.panel));
+  panel.hidden = false;
+  panel.inert = false;
+  els.backdrop.hidden = false;
+  els.page.inert = true;
+  requestAnimationFrame(() => {
+    if (activeDialog !== panel) return;
+    panel.classList.add("is-open");
+    els.backdrop.classList.add("is-open");
+    firstFocus.focus({ preventScroll: true });
+  });
+}
+
+function closeDialog() {
+  const panel = activeDialog;
+  if (!panel) return;
+  if (panel === els.feedbackPanel) saveFeedbackDraft();
+  clearTimeout(drawerCloseTimer);
+  activeDialog = null;
+  panel.classList.remove("is-open");
+  els.backdrop.classList.remove("is-open");
+  els.panelButton.setAttribute("aria-expanded", "false");
+  els.page.inert = false;
+  panel.inert = true;
+  if (drawerTrigger?.isConnected) drawerTrigger.focus({ preventScroll: true });
+  else els.input.focus({ preventScroll: true });
+  drawerCloseTimer = setTimeout(() => {
+    panel.hidden = true;
+    els.backdrop.hidden = true;
+  }, reducedMotion.matches ? 0 : 400);
+}
+
+function saveFeedbackDraft() {
+  if (!activeFeedback || activeFeedback.payload) return;
+  activeFeedback.draft = {
+    rating: els.feedbackForm.querySelector('input[name="feedbackRating"]:checked')?.value || "negative",
+    categories: [...els.feedbackIssues.querySelectorAll("input:checked")].map((input) => input.value),
+    comment: els.feedbackComment.value,
+    expected: els.feedbackExpected.value,
+    consent: els.feedbackConsent.checked,
+    includeContext: els.feedbackContextConsent.checked,
+  };
+}
+
+function updateFeedbackSelection() {
+  const positive = els.feedbackForm.querySelector('input[name="feedbackRating"]:checked')?.value === "positive";
+  els.feedbackIssues.hidden = positive;
+  const chosen = [...els.feedbackIssues.querySelectorAll("input:checked")];
+  els.feedbackCategoryCount.textContent = `已选 ${chosen.length} / 4`;
+  els.feedbackIssues.querySelectorAll("input").forEach((input) => { input.disabled = !input.checked && chosen.length >= 4; });
+  const includeContext = els.feedbackContextConsent.checked;
+  els.feedbackContextPreview.hidden = !includeContext;
+  const draftReady = els.feedbackConsent.checked && (positive || chosen.length > 0);
+  const pending = activeFeedback?.state === "pending";
+  const submitted = activeFeedback?.state === "submitted";
+  els.feedbackFields.disabled = Boolean(activeFeedback?.payload);
+  els.feedbackSubmit.disabled = pending || submitted || (!activeFeedback?.payload && !draftReady);
+  els.feedbackSubmit.textContent = pending ? "正在提交…" : submitted ? "反馈已收到 ✓" : activeFeedback?.payload ? "重试提交 ↗" : "提交反馈 ↗";
+  els.feedbackSubmitNote.textContent = submitted ? "感谢你帮我们磨好这一句。" : activeFeedback?.payload ? "重试只发送同一份内容，不重复收集。" : !els.feedbackConsent.checked ? "需要你的明确同意。" : !draftReady ? "请至少选择一种问题。" : "只提交你看到的这些内容。";
+  els.feedbackForm.setAttribute("aria-busy", String(pending));
+}
+
+function feedbackStatus(record, text, kind = "") {
+  record.status = text;
+  record.statusKind = kind;
+  if (activeFeedback !== record) return;
+  els.feedbackStatus.textContent = text;
+  els.feedbackStatus.dataset.kind = kind;
+  updateFeedbackSelection();
+}
+
+function openFeedback(record, trigger) {
+  if (activeDialog === els.feedbackPanel) saveFeedbackDraft();
+  activeFeedback = record;
+  const draft = record.draft;
+  els.feedbackForm.querySelectorAll('input[name="feedbackRating"]').forEach((input) => { input.checked = input.value === draft.rating; });
+  els.feedbackIssues.querySelectorAll("input").forEach((input) => { input.checked = draft.categories.includes(input.value); });
+  els.feedbackComment.value = draft.comment;
+  els.feedbackExpected.value = draft.expected;
+  els.feedbackConsent.checked = draft.consent;
+  els.feedbackContextConsent.checked = draft.includeContext;
+  els.feedbackContextConsent.disabled = !record.snapshot.history.length;
+  els.feedbackPromptPreview.textContent = record.snapshot.prompt || "（固定欢迎语，没有用户提问）";
+  els.feedbackAnswerPreview.textContent = [record.snapshot.answer_en, record.snapshot.answer_zh].filter(Boolean).join("\n\n");
+  const snapshot = record.snapshot;
+  els.feedbackMetadataPreview.textContent = [
+    `生成方式：${snapshot.engine} · 路由：${snapshot.route}`,
+    `模型：${snapshot.model || "无（固定文案）"} · Skill：${snapshot.package_version || "无模型版本"}`,
+    `风格卡：${snapshot.style_card_id || "无"} · 仅事实：${snapshot.facts_only ? "是" : "否"}`,
+    `事实 / 谣言 / 规则 / 证据：${[...snapshot.knowledge_fact_ids, ...snapshot.rumor_item_ids, ...snapshot.judgment_rule_ids, ...snapshot.evidence_ids].join(", ") || "无"}`,
+    `版本：${snapshot.app_version} · 耗时：${snapshot.latency_ms === null ? "无" : `${snapshot.latency_ms} ms`}`,
+    `来源版本校验：${snapshot.source_hash || "无"}`,
+    "仅提交上方文字；单条回复与上下文分别最多 900 字。",
+  ].join("\n");
+  els.feedbackContextPreview.replaceChildren();
+  record.snapshot.history.forEach((item) => {
+    const label = document.createElement("strong");
+    label.textContent = item.role === "user" ? "你" : "Companion";
+    const copy = document.createElement("p");
+    copy.textContent = item.content;
+    els.feedbackContextPreview.append(label, copy);
+  });
+  els.feedbackPanel.querySelectorAll("details").forEach((detail) => { detail.open = false; });
+  els.feedbackPanel.scrollTop = 0;
+  feedbackStatus(record, record.status, record.statusKind);
+  showDialog(els.feedbackPanel, els.closeFeedback, trigger);
+}
+
+async function submitFeedback(event) {
+  event.preventDefault();
+  const record = activeFeedback;
+  if (!record || activeDialog !== els.feedbackPanel || record.state === "pending" || record.state === "submitted") return;
+  saveFeedbackDraft();
+  if (!record.payload) {
+    const draft = record.draft;
+    if (!draft.consent || (draft.rating === "negative" && !draft.categories.length)) return;
+    record.payload = JSON.stringify({
+      feedback_id: record.feedbackId,
+      message_id: record.messageId,
+      rating: draft.rating,
+      categories: draft.rating === "negative" ? draft.categories.slice(0, 4) : [],
+      comment: draft.comment.trim().slice(0, 1000),
+      expected_reply: draft.expected.trim().slice(0, 1000),
+      consent: true,
+      include_context: draft.includeContext,
+      snapshot: { ...record.snapshot, history: draft.includeContext ? record.snapshot.history : [] },
     });
-  } else {
-    els.panel.classList.remove("is-open");
-    els.backdrop.classList.remove("is-open");
-    els.page.inert = false;
-    els.panel.inert = true;
-    drawerTrigger?.focus({ preventScroll: true });
-    drawerCloseTimer = setTimeout(() => {
-      els.panel.hidden = true;
-      els.backdrop.hidden = true;
-    }, reducedMotion.matches ? 0 : 400);
+  }
+  record.state = "pending";
+  feedbackStatus(record, "正在安全提交，请稍等。尚未确认保存。");
+  try {
+    const response = await fetch(`${companionApiUrl}/companion/feedback`, {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: record.payload, signal: AbortSignal.timeout(15000),
+    });
+    const receipt = await response.json().catch(() => null);
+    if (!response.ok || receipt?.accepted !== true || receipt.feedback_id !== record.feedbackId) {
+      const messages = {
+        400: "反馈格式未通过校验，请保留本页并告知产品团队。",
+        409: "反馈编号发生冲突，尚未确认保存，请告知产品团队。",
+        429: "提交较频繁，请稍后重试。",
+        503: "反馈服务暂不可用，请稍后重试。",
+      };
+      throw new Error(messages[response.status] || "服务尚未确认保存，请稍后重试。");
+    }
+    record.state = "submitted";
+    record.receipt = receipt;
+    record.button.textContent = "已反馈 ✓";
+    record.button.setAttribute("aria-label", "查看这条回复的反馈回执");
+    feedbackStatus(record, `反馈已收到。回执：${receipt.feedback_id}。反馈保留 90 天，到期后每日清理。`, "success");
+  } catch (error) {
+    record.state = "error";
+    const message = error?.name === "TimeoutError" || error?.name === "AbortError" || error instanceof TypeError
+      ? "网络未确认保存结果。可重试同一份反馈，不会重复记录。"
+      : error.message;
+    feedbackStatus(record, message, "error");
   }
 }
 
@@ -623,14 +844,14 @@ function modelTrace(payload) {
   };
 }
 
-async function requestModelResponse(prompt, factsOnly, signal) {
+async function requestModelResponse(prompt, factsOnly, signal, history) {
   const response = await fetch(`${companionApiUrl}/companion/chat`, {
     method: "POST",
     signal,
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       message: prompt,
-      history: conversationHistory.slice(-MAX_HISTORY_ITEMS).map((item) => ({ role: item.role, content: item.content.slice(0, MAX_HISTORY_CHARS) })),
+      history,
       facts_only: factsOnly,
       candidate_mode: true,
       disclosure_shown: true,
@@ -653,6 +874,7 @@ async function requestModelResponse(prompt, factsOnly, signal) {
     zh: payload.answer_zh || "",
     singleLanguage: false,
     trace: modelTrace(payload),
+    metadata: payload,
   };
 }
 
@@ -672,10 +894,12 @@ async function submitPrompt(rawPrompt) {
   scrollToLatest();
 
   const factsOnly = els.factsOnly.checked;
+  const requestHistory = conversationHistory.slice(-MAX_HISTORY_ITEMS).map((item) => ({ role: item.role, content: item.content.slice(0, MAX_HISTORY_CHARS) }));
+  const requestStarted = performance.now();
   let response;
   let usedModel = false;
   try {
-    response = await requestModelResponse(prompt, factsOnly, controller.signal);
+    response = await requestModelResponse(prompt, factsOnly, controller.signal, requestHistory);
     if (epoch !== requestEpoch) return;
     usedModel = true;
     companionStatus = { ...(companionStatus || {}), online: true, model: response.model };
@@ -701,7 +925,16 @@ async function submitPrompt(rawPrompt) {
   const translation = response.singleLanguage
     ? ""
     : (useZh ? (factsOnly && response.factsZh ? response.factsZh : response.zh) : "");
-  addMessage("assistant", text, translation, response.trace, usedModel ? response.generationKind : "fallback");
+  const engine = usedModel ? response.generationKind : "fallback";
+  const feedbackSnapshot = createFeedbackSnapshot({
+    prompt,
+    text: response.singleLanguage && useZh ? "" : text,
+    translation: response.singleLanguage && useZh ? text : translation,
+    history: requestHistory,
+    engine, factsOnly, trace: response.trace, metadata: response.metadata,
+    latencyMs: performance.now() - requestStarted,
+  });
+  addMessage("assistant", text, translation, response.trace, engine, feedbackSnapshot);
   renderTrace(response.trace);
   conversationHistory.push(
     { role: "user", content: prompt },
@@ -712,6 +945,7 @@ async function submitPrompt(rawPrompt) {
 }
 
 function resetConversation() {
+  closeDialog();
   requestEpoch += 1;
   activeRequest?.abort();
   activeRequest = null;
@@ -796,20 +1030,25 @@ els.promptList.addEventListener("click", (event) => {
 els.reset.addEventListener("click", resetConversation);
 els.panelButton.addEventListener("click", () => setPanel(!els.panel.classList.contains("is-open")));
 els.closePanel.addEventListener("click", () => setPanel(false));
-els.backdrop.addEventListener("click", () => setPanel(false));
+els.backdrop.addEventListener("click", closeDialog);
+els.closeFeedback.addEventListener("click", closeDialog);
+els.feedbackForm.addEventListener("submit", submitFeedback);
+els.feedbackForm.addEventListener("change", () => { saveFeedbackDraft(); updateFeedbackSelection(); });
+els.feedbackForm.addEventListener("input", saveFeedbackDraft);
 els.jumpLatest.addEventListener("click", () => scrollToLatest());
 els.messages.addEventListener("scroll", () => {
   followLatest = els.messages.scrollHeight - els.messages.clientHeight - els.messages.scrollTop < 80;
   if (followLatest) els.jumpLatest.hidden = true;
 }, { passive: true });
 document.addEventListener("keydown", (event) => {
-  if (!els.panel.classList.contains("is-open")) return;
-  if (event.key === "Escape") { event.preventDefault(); setPanel(false); }
+  if (!activeDialog) return;
+  if (event.key === "Escape") { event.preventDefault(); closeDialog(); }
   if (event.key === "Tab") {
-    const targets = [...els.panel.querySelectorAll("button, a[href], input, [tabindex='0']")].filter((el) => !el.disabled && el.getClientRects().length);
+    const targets = [...activeDialog.querySelectorAll("button, a[href], input, textarea, summary, [tabindex='0']")].filter((el) => !el.matches(":disabled") && el.getClientRects().length);
     const first = targets[0];
     const last = targets.at(-1);
-    if (event.shiftKey && (document.activeElement === first || document.activeElement === els.panel)) { event.preventDefault(); last?.focus(); }
+    if (!targets.length) { event.preventDefault(); activeDialog.focus(); }
+    else if (event.shiftKey && (document.activeElement === first || document.activeElement === activeDialog)) { event.preventDefault(); last?.focus(); }
     else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
   }
 });
@@ -841,6 +1080,21 @@ els.hero.addEventListener("pointerleave", () => {
 window.addEventListener("resize", syncViewportHeight);
 window.visualViewport?.addEventListener("resize", syncViewportHeight);
 
+FEEDBACK_CATEGORIES.forEach(([id, label], index) => {
+  const option = document.createElement("label");
+  const input = document.createElement("input");
+  input.type = "checkbox";
+  input.name = "feedbackCategory";
+  input.value = id;
+  const copy = document.createElement("span");
+  copy.textContent = label;
+  option.append(input, copy);
+  (index < 6 ? els.feedbackCommon : els.feedbackMore).append(option);
+});
+attachFeedback(welcomeMessage, createFeedbackSnapshot({
+  text: "A race. A rumour.\nOr just a good result.",
+  translation: "聊一场比赛，核验一条传闻，\n或者，单纯为一个好结果高兴。",
+}));
 syncViewportHeight();
 resizeInput();
 loadCompanionConfig();

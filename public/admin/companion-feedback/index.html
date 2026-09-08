@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <meta name="referrer" content="no-referrer">
+    <title>Companion 反馈工作台 · Piasnews</title>
+    <link rel="stylesheet" href="styles.css?v=20260908-feedback-1">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="back-link" href="../">← 管理后台</a>
+      <div class="connection-actions"><span id="connectionState">未连接</span><button id="settingsButton" type="button">连接设置</button></div>
+    </header>
+    <main>
+      <header class="page-heading">
+        <div><p class="eyebrow">PIASNEWS / COMPANION QUALITY</p><h1>反馈工作台<span class="internal-label">内部</span></h1><p class="subtitle">先还原对话，再定位问题。每个 badcase 都是线索，不是人格判决。</p></div>
+        <button id="exportButton" type="button" disabled>导出当前筛选 JSON</button>
+      </header>
+      <p class="policy-note"><strong>CLIENT-REPORTED · 待核验</strong> 对话与运行信息由用户主动提交，未经服务端追溯验证；不自动训练，也不触发全局人格优化。最多保留 90 天，仅管理员可读。</p>
+      <form class="filter-bar" id="filterForm">
+        <label>评价<select id="ratingFilter"><option value="">全部评价</option><option value="negative">有问题</option><option value="positive">不错</option></select></label>
+        <label>处理状态<select id="statusFilter"><option value="">全部状态</option><option value="new">待查看</option><option value="triaged">已归因</option><option value="resolved">已修复</option><option value="dismissed">不采纳</option></select></label>
+        <label class="category-filter">问题类型<select id="categoryFilter"><option value="">全部问题类型</option></select></label>
+        <button class="dark-button" type="submit" id="refreshButton">查询 / 刷新</button>
+      </form>
+      <div class="queue-summary"><span id="resultCount">连接后查看反馈</span><span id="loadingState" role="status" aria-live="polite"></span></div>
+      <div class="workspace">
+        <section class="queue" aria-label="反馈列表">
+          <div id="feedbackList" class="feedback-list"></div>
+          <p id="listEmpty" class="empty-state">使用已有管理员密钥连接。对话内容不会公开在静态页面中。</p>
+          <button id="loadMoreButton" class="load-more" type="button" hidden>加载更多</button>
+        </section>
+        <section class="detail" id="detailPanel" aria-label="反馈详情">
+          <div id="detailEmpty" class="detail-empty"><span class="outline-number">81</span><h2>选择一条反馈</h2><p>对照原始问答和上下文，再记录局部修正方向。</p></div>
+          <article id="detailContent" hidden>
+            <header class="detail-heading"><div class="badges" id="detailBadges"></div><h2 id="detailTitle">反馈详情</h2><p id="detailMeta" class="muted"></p></header>
+            <div id="categoryBadges" class="badges category-badges"></div>
+            <section class="conversation-block"><h3>用户提问</h3><p id="promptText" class="message-text"></p><h3>收到的回复</h3><div class="reply-box"><p id="answerEn" class="message-text" lang="en"></p><p id="answerZh" class="message-text"></p></div></section>
+            <section class="feedback-notes"><h3>用户补充</h3><p id="commentText" class="message-text"></p><h3>用户期望的回答</h3><p id="expectedText" class="message-text"></p></section>
+            <details id="contextDetails"><summary>用户选择附带的上下文</summary><div id="contextList"></div></details>
+            <details><summary>运行信息 <span class="muted">· 客户端上报，待核验</span></summary><dl class="metadata" id="runtimeMetadata"></dl></details>
+            <form id="reviewForm" class="review-form">
+              <h3>人工归因与处理</h3><p class="muted">只更新这条反馈；修复与回归验证需单独执行。</p>
+              <label>状态<select id="reviewStatus"><option value="new">待查看</option><option value="triaged">已归因</option><option value="resolved">已修复</option><option value="dismissed">不采纳</option></select></label>
+              <label>处理备注<textarea id="reviewNote" rows="4" maxlength="1000" placeholder="问题依据、局部修正建议、关联回归用例；不记录密钥或无关个人信息。"></textarea></label>
+              <div class="review-footer"><span id="reviewState" role="status" aria-live="polite"></span><button class="dark-button" id="saveReviewButton" type="submit">保存处理记录</button></div>
+            </form>
+          </article>
+        </section>
+      </div>
+    </main>
+    <dialog id="settingsDialog" aria-labelledby="settingsTitle">
+      <form id="settingsForm" class="settings-form">
+        <header><h2 id="settingsTitle">连接管理接口</h2><button id="closeSettingsButton" class="icon-button" type="button" aria-label="关闭连接设置">×</button></header>
+        <p class="muted">沿用 Piasnews 管理后台账号，仅 admin 角色可以查看对话反馈。密钥仅存于当前浏览器会话，不进入网址或日志。</p>
+        <label>Worker 地址<input id="workerUrlInput" type="url" required spellcheck="false" autocomplete="url"></label>
+        <label>已有管理员密钥<input id="adminKeyInput" type="password" required autocomplete="off" spellcheck="false" placeholder="不会显示已保存的密钥"></label>
+        <p id="settingsState" class="muted" role="status"></p>
+        <footer><button id="disconnectButton" type="button">退出并清除密钥</button><button class="dark-button" type="submit">连接</button></footer>
+      </form>
+    </dialog>
+    <script src="app.js?v=20260908-feedback-1" defer></script>
+  </body>
+</html>

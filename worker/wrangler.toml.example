@@ -14,6 +14,9 @@ DEEPSEEK_MODEL = "deepseek-v4-flash"
 PUBLIC_DATA_BASE_URL = "https://znonymity.github.io/piasnews/data"
 COMPANION_ALLOW_CANDIDATE_MODE = "true"
 
+[triggers]
+crons = ["17 3 * * *"]
+
 [[ratelimits]]
 name = "COMPANION_RATE_LIMITER"
 namespace_id = "replace-with-a-unique-integer"
@@ -28,6 +31,22 @@ namespace_id = "replace-with-another-unique-integer"
 
   [ratelimits.simple]
   limit = 60
+  period = 60
+
+[[ratelimits]]
+name = "COMPANION_FEEDBACK_RATE_LIMITER"
+namespace_id = "replace-with-feedback-client-unique-integer"
+
+  [ratelimits.simple]
+  limit = 20
+  period = 60
+
+[[ratelimits]]
+name = "COMPANION_FEEDBACK_GLOBAL_LIMITER"
+namespace_id = "replace-with-feedback-shared-unique-integer"
+
+  [ratelimits.simple]
+  limit = 120
   period = 60
 
 [[d1_databases]]

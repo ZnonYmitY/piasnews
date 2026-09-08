@@ -252,6 +252,7 @@ test("companion status reports the DeepSeek-backed distilled package", async () 
 
 test("companion sends the distilled Skill to DeepSeek and returns a trace", async () => {
   const originalFetch = globalThis.fetch;
+  const previousWrites = env.ANALYTICS_DB.operations.length;
   globalThis.fetch = deepseekFetchMock(modelResult());
   try {
     const response = await worker.fetch(companionRequest(), env);
@@ -263,6 +264,7 @@ test("companion sends the distilled Skill to DeepSeek and returns a trace", asyn
     assert.equal(payload.style_card_id, "SC-05");
     assert.equal(payload.sources[0].id, "EV-046");
     assert.equal(payload.usage.total_tokens, 120);
+    assert.equal(env.ANALYTICS_DB.operations.length, previousWrites, "ordinary chats are never persisted as feedback");
   } finally {
     globalThis.fetch = originalFetch;
   }

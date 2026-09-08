@@ -5,6 +5,7 @@ import {
   COMPANION_SOURCE_HASH,
   COMPANION_SYSTEM_PROMPT,
 } from "./companion-runtime.js";
+import { cleanupCompanionFeedback, handleCompanionFeedback } from "./companion-feedback.js";
 
 const DEFAULT_ORIGIN = "https://znonymity.github.io";
 const MAX_BODY_BYTES = 64 * 1024;
@@ -794,6 +795,9 @@ async function readJson(request, origin) {
 }
 
 export default {
+  async scheduled(_event, env) {
+    await cleanupCompanionFeedback(env);
+  },
   async fetch(request, env, context) {
     const url = new URL(request.url);
     const origin = allowedOrigin(request, env);
@@ -801,6 +805,10 @@ export default {
 
     if (request.method === "OPTIONS") {
       return new Response(null, { status: 204, headers: responseHeaders(origin) });
+    }
+
+    if (["/companion/feedback", "/companion/feedback/review", "/companion/feedback/export"].includes(url.pathname)) {
+      return handleCompanionFeedback(request, env, { origin, jsonResponse, authenticatedSession, hasRole });
     }
 
     if (request.method === "GET" && url.pathname === "/health") {

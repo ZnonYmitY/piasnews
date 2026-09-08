@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#eeede7">
     <meta name="description" content="留一点时间，聊聊 Oscar。基于公开材料的非官方 Piastri 粉丝对话体验。">
     <title>The Garage — Piastri Companion · Piasnews</title>
-    <link rel="stylesheet" href="styles.css?v=20260908-garage-5">
+    <link rel="stylesheet" href="styles.css?v=20260908-feedback-1">
   </head>
   <body>
     <div class="page-shell" id="pageShell">
@@ -40,6 +40,21 @@
       <section class="trace-card evidence-card"><div class="section-label-row"><span class="section-label">关联公开来源</span><button id="evidenceToggle" type="button" aria-controls="evidenceList" aria-expanded="true">收起</button></div><div class="evidence-list" id="evidenceList"></div></section>
       <section class="style-readout"><span class="section-label">这条回答的限制</span><p id="styleNote"></p></section><p class="version-note" id="runtimeNote">Skill v0.4.0 · 正在连接模型</p>
     </aside>
-    <script src="app.js?v=20260908-garage-3" defer></script>
+    <aside class="insight-panel feedback-panel" id="feedbackPanel" role="dialog" aria-modal="true" aria-labelledby="feedbackTitle" aria-describedby="feedbackIntro" tabindex="-1" inert hidden>
+      <div class="insight-header"><div><p class="eyebrow">MAKE THE NEXT LAP BETTER</p><h2 id="feedbackTitle">这句，哪里可以更好？</h2></div><button class="icon-button" id="closeFeedbackButton" type="button" aria-label="关闭反馈面板">×</button></div>
+      <p class="drawer-intro" id="feedbackIntro">好的表达留下来，没接住的地方也值得记录。反馈由内部产品团队查看，不会触发全局人格自动修改。</p>
+      <form id="feedbackForm" novalidate>
+        <fieldset class="feedback-fields" id="feedbackFields">
+          <fieldset class="feedback-rating"><legend>这条回复的整体感受</legend><label><input type="radio" name="feedbackRating" value="positive"><span>＋ 这句不错</span></label><label><input type="radio" name="feedbackRating" value="negative"><span>－ 有待改进</span></label></fieldset>
+          <section id="feedbackIssues" class="feedback-section"><div class="section-label-row"><h3>主要卡在哪里？</h3><span id="feedbackCategoryCount">最多选 4 项</span></div><div class="feedback-categories" id="feedbackCommonCategories"></div><details class="feedback-more"><summary>更多问题类型</summary><div class="feedback-categories" id="feedbackMoreCategories"></div></details></section>
+          <div class="feedback-section"><label class="feedback-label" for="feedbackComment">补充说明 <span>选填 · 1000 字内</span></label><textarea id="feedbackComment" rows="3" maxlength="1000" placeholder="例如：只是打招呼，不需要展开介绍自己。"></textarea></div>
+          <div class="feedback-section"><label class="feedback-label" for="feedbackExpected">你期待怎样回答？ <span>选填 · 1000 字内</span></label><textarea id="feedbackExpected" rows="2" maxlength="1000" placeholder="可以写一个更合适的答法，或描述你的期待。"></textarea></div>
+          <div class="feedback-privacy"><p class="feedback-privacy-note">请勿填写密码、API Key、手机号或其他个人联系方式。</p><details class="feedback-preview"><summary>查看本次将提交的内容</summary><div class="feedback-preview-copy"><strong>你的这条消息</strong><p id="feedbackPromptPreview"></p><strong>这条回复</strong><p id="feedbackAnswerPreview"></p><strong>生成信息</strong><p id="feedbackMetadataPreview"></p></div></details><label class="feedback-check"><input id="feedbackContextConsent" type="checkbox"><span>额外附上此前最多 4 条对话 <small>默认不附带；帮助判断上下文问题。</small></span></label><div class="feedback-preview-copy feedback-context-preview" id="feedbackContextPreview" hidden></div><label class="feedback-check feedback-consent"><input id="feedbackConsent" type="checkbox"><span>我同意提交以上问题、回复、反馈选项，以及模型 / Skill 元数据给内部产品团队。反馈保留 90 天，到期后每日清理。<small>只收集你主动提交的这条反馈，不自动保存普通聊天；不会公开到 GitHub。</small></span></label></div>
+        </fieldset>
+        <div class="feedback-status" id="feedbackStatus" role="status" aria-live="polite"></div>
+        <div class="feedback-submit-row"><button class="feedback-submit" id="feedbackSubmit" type="submit">提交反馈 <span aria-hidden="true">↗</span></button><span class="feedback-submit-note" id="feedbackSubmitNote">需要你的明确同意。</span></div>
+      </form>
+    </aside>
+    <script src="app.js?v=20260908-feedback-1" defer></script>
   </body>
 </html>
