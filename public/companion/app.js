@@ -63,6 +63,9 @@ const SOURCE_LIBRARY = {
 
 const DEFAULT_WORKER_URL = "https://piasnews-review.znonymity-piasnews.workers.dev";
 const MAX_HISTORY_ITEMS = 8;
+const MAX_HISTORY_CHARS = 900;
+const MAX_PROMPT_CHARS = 500;
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const ROUTE_LABELS = {
   f1_grounded: "F1 / race analysis",
   fan_light: "F1 / fan conversation",
@@ -83,11 +86,10 @@ const ROUTE_LABELS = {
 const DEFAULT_TRACE = {
   route: "fan_light",
   domain: "F1 / fan context",
-  fact: "No current fact required",
-  style: "SC-05 · light fan banter",
-  styleNote: "One understated twist at most. No copied catchphrase.",
-  meters: [84, 34, 72],
-  sources: [SOURCE_LIBRARY.xBanter],
+  fact: "欢迎文案没有提出赛事事实。",
+  style: "静态开场 · 非模型生成",
+  styleNote: "这是粉丝体验的固定欢迎文案。发送消息后，可在每条回答下查看它自己的依据。",
+  sources: [],
 };
 
 const els = {
@@ -119,14 +121,28 @@ const els = {
   modelStatusTitle: document.querySelector("#modelStatusTitle"),
   modelStatusDetail: document.querySelector("#modelStatusDetail"),
   runtimeNote: document.querySelector("#runtimeNote"),
+  send: document.querySelector("#sendButton"),
+  count: document.querySelector("#characterCount"),
+  jumpLatest: document.querySelector("#jumpLatest"),
+  backdrop: document.querySelector("#drawerBackdrop"),
+  page: document.querySelector("#pageShell"),
+  hero: document.querySelector("#hero"),
 };
 
 let currentTrace = DEFAULT_TRACE;
-let contextEnabled = true;
+let contextEnabled = false;
+let contextDismissed = false;
 let messageCounter = 0;
 let companionApiUrl = DEFAULT_WORKER_URL;
 let companionStatus = null;
 let conversationHistory = [];
+let requestEpoch = 0;
+let activeRequest = null;
+let isGenerating = false;
+let followLatest = true;
+let drawerTrigger = null;
+let drawerCloseTimer = null;
+const welcomeMessage = els.messages.querySelector(".welcome-message");
 
 function containsChinese(value) {
   return /[\u3400-\u9fff]/.test(value);
@@ -136,10 +152,10 @@ function normalise(value) {
   return value.trim().toLocaleLowerCase();
 }
 
-function makeResponse(prompt) {
+function makeResponse(prompt, factsOnlySetting = els.factsOnly.checked) {
   const input = normalise(prompt);
   const zh = containsChinese(prompt);
-  const factsOnly = els.factsOnly.checked;
+  const factsOnly = factsOnlySetting;
 
   if (/^(你好|您好|嗨|哈喽|在吗|hello|hi|hey)[!！.。\s]*$/i.test(input)) {
     return {
@@ -361,13 +377,26 @@ function makeResponse(prompt) {
   };
 }
 
-function addMessage(role, text, translation = "") {
+function addMessage(role, text, translation = "", trace = null, engine = "") {
   const article = document.createElement("article");
   article.className = `message ${role === "user" ? "user-message" : "assistant-message"}`;
 
   const meta = document.createElement("div");
   meta.className = "message-meta";
-  meta.textContent = role === "user" ? "YOU" : "81";
+  const speaker = document.createElement("span");
+  speaker.textContent = role === "user" ? "YOU" : "81 / COMPANION";
+  meta.append(speaker);
+  if (engine) {
+    const engineLabel = document.createElement("span");
+    engineLabel.className = "message-engine";
+    engineLabel.textContent = {
+      deepseek: "DEEPSEEK · 模型生成",
+      boundary: "边界答复 · 模型分流",
+      ledger: "谣言台账 · 固定答复",
+      fallback: "规则兜底 · 非模型生成",
+    }[engine] || "规则兜底 · 非模型生成";
+    meta.append(engineLabel);
+  }
 
   const copy = document.createElement("div");
   copy.className = "message-copy";
@@ -390,18 +419,21 @@ function addMessage(role, text, translation = "") {
     actions.className = "answer-actions";
     const why = document.createElement("button");
     why.type = "button";
-    why.textContent = "WHY THIS ANSWER";
-    why.addEventListener("click", () => setPanel(true));
+    why.textContent = "这条回答的依据";
+    why.addEventListener("click", () => {
+      renderTrace(trace || DEFAULT_TRACE);
+      setPanel(true, why);
+    });
     const copyButton = document.createElement("button");
     copyButton.type = "button";
-    copyButton.textContent = "COPY";
+    copyButton.textContent = "复制";
     copyButton.addEventListener("click", async () => {
       try {
         await navigator.clipboard.writeText([text, translation && `中文：${translation}`].filter(Boolean).join("\n\n"));
-        copyButton.textContent = "COPIED";
-        setTimeout(() => { copyButton.textContent = "COPY"; }, 1200);
+        copyButton.textContent = "已复制";
+        setTimeout(() => { copyButton.textContent = "复制"; }, 1200);
       } catch (_) {
-        copyButton.textContent = "SELECT TEXT";
+        copyButton.textContent = "请选中文字复制";
       }
     });
     actions.append(why, copyButton);
@@ -410,7 +442,8 @@ function addMessage(role, text, translation = "") {
 
   article.append(meta, copy);
   els.messages.append(article);
-  els.messages.scrollTop = els.messages.scrollHeight;
+  if (role === "user" || followLatest) scrollToLatest();
+  else els.jumpLatest.hidden = false;
   messageCounter += 1;
 }
 
@@ -422,27 +455,24 @@ function renderTrace(trace) {
   els.styleTrace.textContent = trace.style;
   els.styleNote.textContent = trace.styleNote;
 
-  const meterBars = document.querySelectorAll(".meter-row i");
-  const meterValues = document.querySelectorAll(".meter-row strong");
-  trace.meters.forEach((value, index) => {
-    meterBars[index].style.width = `${value}%`;
-    meterValues[index].textContent = value;
-  });
-
   els.evidenceList.replaceChildren();
   if (!trace.sources.length) {
     const empty = document.createElement("p");
     empty.className = "rail-note";
-    empty.textContent = "No source opened for this route.";
+    empty.textContent = "这条回答没有关联公开来源；不应据此推断额外事实。";
     els.evidenceList.append(empty);
     return;
   }
 
   trace.sources.forEach((source) => {
     const link = document.createElement("a");
-    link.href = source.url;
+    try {
+      const sourceUrl = new URL(source.url);
+      if (sourceUrl.protocol !== "https:") return;
+      link.href = sourceUrl.href;
+    } catch (_) { return; }
     link.target = "_blank";
-    link.rel = "noreferrer";
+    link.rel = "noopener noreferrer";
     const mark = document.createElement("span");
     mark.className = "source-mark";
     mark.textContent = source.mark;
@@ -459,12 +489,52 @@ function renderTrace(trace) {
   });
 }
 
-function setPanel(open) {
-  els.panel.classList.toggle("is-open", open);
+function setPanel(open, trigger = els.panelButton) {
+  clearTimeout(drawerCloseTimer);
   els.panelButton.setAttribute("aria-expanded", String(open));
+  if (open) {
+    drawerTrigger = trigger;
+    els.panel.hidden = false;
+    els.panel.inert = false;
+    els.backdrop.hidden = false;
+    els.page.inert = true;
+    requestAnimationFrame(() => {
+      els.panel.classList.add("is-open");
+      els.backdrop.classList.add("is-open");
+      els.closePanel.focus();
+    });
+  } else {
+    els.panel.classList.remove("is-open");
+    els.backdrop.classList.remove("is-open");
+    els.page.inert = false;
+    els.panel.inert = true;
+    drawerTrigger?.focus({ preventScroll: true });
+    drawerCloseTimer = setTimeout(() => {
+      els.panel.hidden = true;
+      els.backdrop.hidden = true;
+    }, reducedMotion.matches ? 0 : 400);
+  }
+}
+
+function scrollToLatest(smooth = true) {
+  followLatest = true;
+  els.jumpLatest.hidden = true;
+  requestAnimationFrame(() => els.messages.scrollTo({ top: els.messages.scrollHeight, behavior: smooth && !reducedMotion.matches ? "smooth" : "instant" }));
+}
+
+function setGenerating(value) {
+  isGenerating = value;
+  els.typing.hidden = !value;
+  document.body.classList.toggle("is-generating", value);
+  els.form.setAttribute("aria-busy", String(value));
+  els.promptList.querySelectorAll("button").forEach((button) => { button.disabled = value; });
+  els.send.disabled = value || !els.input.value.trim();
 }
 
 function resizeInput() {
+  els.count.textContent = `${els.input.value.length} / ${MAX_PROMPT_CHARS}`;
+  els.count.classList.toggle("is-limit", els.input.value.length >= MAX_PROMPT_CHARS);
+  els.send.disabled = isGenerating || !els.input.value.trim();
   if (!els.input.value) {
     els.input.style.height = "";
     return;
@@ -480,34 +550,40 @@ function syncViewportHeight() {
 
 function setModelState(state, status = companionStatus) {
   els.modelDisclosure.dataset.state = state;
+  if (state === "ready") {
+    els.modelStatusTitle.textContent = "DeepSeek 已配置";
+    els.modelStatusDetail.textContent = "发送后验证连接 · 非官方风格演绎，不代表本人。";
+    els.runtimeNote.textContent = `Skill v0.4.0 · ${status?.model || "DeepSeek"} · 服务配置可用，模型生成尚未验证。`;
+    return;
+  }
   if (state === "online") {
     const model = status?.model || "DeepSeek";
-    els.modelStatusTitle.textContent = "大模型已接入 · Skill v0.4.0。";
-    els.modelStatusDetail.textContent = "DeepSeek 在蒸馏边界、知识账本和风格卡内生成；本体验不代表 Oscar Piastri、McLaren 或 F1。";
+    els.modelStatusTitle.textContent = "DeepSeek 已连接";
+    els.modelStatusDetail.textContent = "非官方风格演绎，不代表本人、McLaren 或 F1。";
     els.runtimeNote.replaceChildren(
       document.createTextNode(`Skill v0.4.0 · ${model}`),
       document.createElement("br"),
-      document.createTextNode("46 evidence items · 31 evals"),
+      document.createTextNode("人物表达受公开材料与领域边界约束。"),
     );
     return;
   }
   if (state === "fallback") {
-    els.modelStatusTitle.textContent = "模型暂不可用 · 已切换规则兜底。";
-    els.modelStatusDetail.textContent = "当前这条回答不是模型生成；人物边界仍然生效。";
+    els.modelStatusTitle.textContent = "模型暂不可用 · 规则兜底";
+    els.modelStatusDetail.textContent = "兜底回答会逐条标注；仍可继续聊天重试模型。";
     els.runtimeNote.replaceChildren(
       document.createTextNode("Skill v0.4.0 · fallback active"),
       document.createElement("br"),
-      document.createTextNode("46 evidence items · 31 evals"),
+      document.createTextNode("规则兜底不是模型生成，也不是实时事实核验。"),
     );
     return;
   }
   els.modelStatusTitle.textContent = "正在连接 DeepSeek…";
-  els.modelStatusDetail.textContent = "回答由蒸馏 Skill 约束；人物化表达仅学习公开风格，不代表 Oscar Piastri、McLaren 或 F1。";
+  els.modelStatusDetail.textContent = "非官方风格演绎，不代表本人、McLaren 或 F1。";
 }
 
 async function loadCompanionConfig() {
   try {
-    const configResponse = await fetch("../data/runtime-config.json", { cache: "no-store" });
+    const configResponse = await fetch("../data/runtime-config.json", { cache: "no-store", signal: AbortSignal.timeout(6000) });
     if (configResponse.ok) {
       const config = await configResponse.json();
       if (typeof config.analytics_url === "string" && config.analytics_url.startsWith("https://")) {
@@ -519,26 +595,14 @@ async function loadCompanionConfig() {
   }
 
   try {
-    const statusResponse = await fetch(`${companionApiUrl}/companion/status`, { cache: "no-store" });
+    const statusResponse = await fetch(`${companionApiUrl}/companion/status`, { cache: "no-store", signal: AbortSignal.timeout(6000) });
     if (!statusResponse.ok) throw new Error(String(statusResponse.status));
     companionStatus = await statusResponse.json();
     if (!companionStatus.online) throw new Error("model offline");
-    setModelState("online", companionStatus);
+    if (!messageCounter) setModelState("ready", companionStatus);
   } catch (_) {
-    setModelState("fallback");
+    if (!messageCounter) setModelState("fallback");
   }
-}
-
-function traceMeters(route, styleId) {
-  if (["rumor_check", "unverified_rumor_source"].includes(route)) return [78, 0, 96];
-  if (["unrelated_general", "private_or_inner_state_unverified", "identity_or_impersonation"].includes(route)) {
-    return [96, 0, 98];
-  }
-  if (["medical_legal_financial", "gambling", "illegal_hate_harm"].includes(route)) return [98, 0, 99];
-  if (styleId === "SC-02") return [87, 12, 76];
-  if (styleId === "SC-03") return [82, 4, 74];
-  if (styleId === "SC-01") return [66, 0, 72];
-  return [84, 22, 76];
 }
 
 function modelTrace(payload) {
@@ -548,9 +612,8 @@ function modelTrace(payload) {
     route: payload.route || "unrelated_general",
     domain: ROUTE_LABELS[payload.route] || "Distilled domain route",
     fact: facts.length ? facts.join(" · ") : "No stored fact selected",
-    style: `${styleId} · DeepSeek constrained generation`,
-    styleNote: payload.notes || "Validated against the distilled runtime package.",
-    meters: traceMeters(payload.route, styleId),
+    style: `${styleId} · ${payload.fallback_id ? "固定边界答复" : payload.route === "rumor_check" && payload.rumor_item_ids?.length ? "谣言台账答复" : "DeepSeek constrained generation"}`,
+    styleNote: payload.notes || "模型按蒸馏约束生成；关联来源不等于逐条独立核验。",
     sources: (payload.sources || []).map((source) => ({
       mark: source.publisher === "@OscarPiastri" ? "X" : String(source.publisher || "SRC").slice(0, 4).toUpperCase(),
       id: source.id,
@@ -560,13 +623,14 @@ function modelTrace(payload) {
   };
 }
 
-async function requestModelResponse(prompt, factsOnly) {
+async function requestModelResponse(prompt, factsOnly, signal) {
   const response = await fetch(`${companionApiUrl}/companion/chat`, {
     method: "POST",
+    signal,
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       message: prompt,
-      history: conversationHistory.slice(-MAX_HISTORY_ITEMS),
+      history: conversationHistory.slice(-MAX_HISTORY_ITEMS).map((item) => ({ role: item.role, content: item.content.slice(0, MAX_HISTORY_CHARS) })),
       facts_only: factsOnly,
       candidate_mode: true,
       disclosure_shown: true,
@@ -582,9 +646,9 @@ async function requestModelResponse(prompt, factsOnly) {
   if (payload.engine !== "deepseek" || typeof payload.answer_en !== "string") {
     throw new Error("Unexpected Companion response");
   }
-  companionStatus = { ...(companionStatus || {}), online: true, model: payload.model };
-  setModelState("online", companionStatus);
   return {
+    model: payload.model,
+    generationKind: payload.fallback_id ? "boundary" : payload.route === "rumor_check" && payload.rumor_item_ids?.length ? "ledger" : "deepseek",
     en: payload.answer_en,
     zh: payload.answer_zh || "",
     singleLanguage: false,
@@ -593,30 +657,43 @@ async function requestModelResponse(prompt, factsOnly) {
 }
 
 async function submitPrompt(rawPrompt) {
-  const prompt = rawPrompt.trim();
-  if (!prompt || els.typing.hidden === false) return;
+  const prompt = rawPrompt.trim().slice(0, MAX_PROMPT_CHARS);
+  if (!prompt || isGenerating) return;
+  const epoch = ++requestEpoch;
+  const controller = new AbortController();
+  activeRequest = controller;
+  const timeout = setTimeout(() => controller.abort(), 55000);
+  followLatest = true;
+  document.body.classList.add("has-conversation");
   addMessage("user", prompt);
   els.input.value = "";
   resizeInput();
-  els.typing.hidden = false;
-  els.messages.scrollTop = els.messages.scrollHeight;
+  setGenerating(true);
+  scrollToLatest();
 
   const factsOnly = els.factsOnly.checked;
   let response;
   let usedModel = false;
   try {
-    response = await requestModelResponse(prompt, factsOnly);
+    response = await requestModelResponse(prompt, factsOnly, controller.signal);
+    if (epoch !== requestEpoch) return;
     usedModel = true;
+    companionStatus = { ...(companionStatus || {}), online: true, model: response.model };
+    setModelState("online", companionStatus);
   } catch (_) {
-    response = makeResponse(prompt);
+    if (epoch !== requestEpoch) return;
+    response = makeResponse(prompt, factsOnly);
     response.trace = {
       ...response.trace,
       styleNote: `${response.trace.styleNote} Model unavailable; deterministic fallback used.`,
     };
     setModelState("fallback");
-    await new Promise((resolve) => setTimeout(resolve, 260));
+  } finally {
+    clearTimeout(timeout);
   }
-  els.typing.hidden = true;
+  if (epoch !== requestEpoch) return;
+  activeRequest = null;
+  setGenerating(false);
   const useZh = containsChinese(prompt);
   const text = response.singleLanguage && useZh
     ? response.zh
@@ -624,21 +701,28 @@ async function submitPrompt(rawPrompt) {
   const translation = response.singleLanguage
     ? ""
     : (useZh ? (factsOnly && response.factsZh ? response.factsZh : response.zh) : "");
-  addMessage("assistant", text, translation);
+  addMessage("assistant", text, translation, response.trace, usedModel ? response.generationKind : "fallback");
   renderTrace(response.trace);
   conversationHistory.push(
     { role: "user", content: prompt },
-    { role: "assistant", content: [response.en, response.zh && `中文：${response.zh}`].filter(Boolean).join("\n") },
+    { role: "assistant", content: [text, translation && `中文：${translation}`].filter(Boolean).join("\n").slice(0, MAX_HISTORY_CHARS) },
   );
   conversationHistory = conversationHistory.slice(-MAX_HISTORY_ITEMS);
   if (!usedModel) companionStatus = { ...(companionStatus || {}), online: false };
 }
 
 function resetConversation() {
-  const seeded = els.messages.querySelector(".assistant-message");
-  els.messages.replaceChildren(seeded);
+  requestEpoch += 1;
+  activeRequest?.abort();
+  activeRequest = null;
+  setGenerating(false);
+  document.body.classList.remove("has-conversation");
+  els.messages.replaceChildren(welcomeMessage);
   messageCounter = 0;
   conversationHistory = [];
+  els.input.value = "";
+  resizeInput();
+  scrollToLatest(false);
   renderTrace(DEFAULT_TRACE);
   els.input.focus();
 }
@@ -647,6 +731,8 @@ function formatSessionTime(iso) {
   const date = new Date(iso);
   return new Intl.DateTimeFormat("en-GB", {
     timeZone: "Asia/Shanghai",
+    month: "short",
+    day: "numeric",
     hour: "2-digit",
     minute: "2-digit",
     hour12: false,
@@ -655,24 +741,31 @@ function formatSessionTime(iso) {
 
 async function loadRaceContext() {
   try {
-    const response = await fetch("../data/calendar.json", { cache: "no-store" });
+    const response = await fetch("../data/calendar.json", { cache: "no-store", signal: AbortSignal.timeout(6000) });
     if (!response.ok) throw new Error(String(response.status));
     const data = await response.json();
     const race = data.next_race;
-    if (!race) return;
+    if (!race) throw new Error("Calendar unavailable");
     els.raceName.textContent = race.name;
     els.raceCode.textContent = race.country_code || "F1";
     els.raceRound.textContent = `ROUND ${race.round} · ${(race.locality || race.country_code || "F1").toUpperCase()}`;
-    const sessions = Object.entries(race.sessions || {}).map(([key, value]) => ({ key, value, date: new Date(value) }));
-    const next = sessions.find((session) => session.date.getTime() >= Date.now()) || sessions.at(-1);
+    const sessions = Object.entries(race.sessions || {}).map(([key, value]) => ({ key, value, date: new Date(value) })).filter((session) => Number.isFinite(session.date.getTime())).sort((a, b) => a.date - b.date);
+    const next = sessions.find((session) => session.date.getTime() >= Date.now());
     if (next) {
       const labels = { practice_1: "PRACTICE 1", practice_2: "PRACTICE 2", practice_3: "PRACTICE 3", sprint_qualifying: "SPRINT QUALI", sprint: "SPRINT", qualifying: "QUALIFYING", race: "RACE" };
       els.sessionLabel.textContent = labels[next.key] || next.key.toUpperCase();
       els.sessionTime.textContent = formatSessionTime(next.value);
       els.composerContext.textContent = `${race.name.replace(" Grand Prix", " GP")} · ${(labels[next.key] || next.key).replace("PRACTICE", "FP")}`;
+      if (!contextDismissed) {
+        contextEnabled = true;
+        els.clearContext.parentElement.hidden = false;
+      }
+    } else {
+      els.sessionLabel.textContent = "赛历暂无后续赛段";
     }
   } catch (_) {
-    // The deterministic fallback remains usable when opened directly from disk.
+    els.raceName.textContent = "赛历暂不可用";
+    els.sessionLabel.textContent = "仍可自由聊天";
   }
 }
 
@@ -685,11 +778,11 @@ els.input.addEventListener("input", resizeInput);
 els.input.addEventListener("focus", () => {
   window.setTimeout(() => {
     syncViewportHeight();
-    els.messages.scrollTop = els.messages.scrollHeight;
+    if (followLatest) scrollToLatest(false);
   }, 120);
 });
 els.input.addEventListener("keydown", (event) => {
-  if ((event.metaKey || event.ctrlKey) && event.key === "Enter") {
+  if (!event.isComposing && (event.metaKey || event.ctrlKey) && event.key === "Enter") {
     event.preventDefault();
     els.form.requestSubmit();
   }
@@ -703,24 +796,53 @@ els.promptList.addEventListener("click", (event) => {
 els.reset.addEventListener("click", resetConversation);
 els.panelButton.addEventListener("click", () => setPanel(!els.panel.classList.contains("is-open")));
 els.closePanel.addEventListener("click", () => setPanel(false));
+els.backdrop.addEventListener("click", () => setPanel(false));
+els.jumpLatest.addEventListener("click", () => scrollToLatest());
+els.messages.addEventListener("scroll", () => {
+  followLatest = els.messages.scrollHeight - els.messages.clientHeight - els.messages.scrollTop < 80;
+  if (followLatest) els.jumpLatest.hidden = true;
+}, { passive: true });
+document.addEventListener("keydown", (event) => {
+  if (!els.panel.classList.contains("is-open")) return;
+  if (event.key === "Escape") { event.preventDefault(); setPanel(false); }
+  if (event.key === "Tab") {
+    const targets = [...els.panel.querySelectorAll("button, a[href], input, [tabindex='0']")].filter((el) => !el.disabled && el.getClientRects().length);
+    const first = targets[0];
+    const last = targets.at(-1);
+    if (event.shiftKey && (document.activeElement === first || document.activeElement === els.panel)) { event.preventDefault(); last?.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+  }
+});
 els.evidenceToggle.addEventListener("click", () => {
   const hidden = els.evidenceList.hidden;
   els.evidenceList.hidden = !hidden;
-  els.evidenceToggle.textContent = hidden ? "Hide" : "Show";
+  els.evidenceToggle.textContent = hidden ? "收起" : "展开";
   els.evidenceToggle.setAttribute("aria-expanded", String(hidden));
 });
 els.clearContext.addEventListener("click", () => {
   contextEnabled = false;
+  contextDismissed = true;
   els.clearContext.parentElement.hidden = true;
 });
-els.factsOnly.addEventListener("change", () => {
-  renderTrace({ ...currentTrace, style: els.factsOnly.checked ? "Facts only · persona suppressed" : currentTrace.style });
+// Facts-only applies prospectively: never rewrite the trace of an existing answer.
+els.hero.addEventListener("pointermove", (event) => {
+  if (reducedMotion.matches || event.pointerType !== "mouse" || window.innerWidth <= 800) return;
+  const rect = els.hero.getBoundingClientRect();
+  const x = (event.clientX - rect.left) / rect.width - .5;
+  const y = (event.clientY - rect.top) / rect.height - .5;
+  els.hero.style.setProperty("--parallax-x", `${x * 12}px`);
+  els.hero.style.setProperty("--parallax-y", `${y * 9}px`);
+  els.hero.style.setProperty("--parallax-rotate", `${x * 5}deg`);
+}, { passive: true });
+els.hero.addEventListener("pointerleave", () => {
+  ["--parallax-x", "--parallax-y", "--parallax-rotate"].forEach((key) => els.hero.style.removeProperty(key));
 });
 
 window.addEventListener("resize", syncViewportHeight);
 window.visualViewport?.addEventListener("resize", syncViewportHeight);
 
 syncViewportHeight();
+resizeInput();
 loadCompanionConfig();
 loadRaceContext();
 renderTrace(DEFAULT_TRACE);

@@ -2,206 +2,44 @@
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="color-scheme" content="dark">
-    <meta name="description" content="基于公开材料的 Oscar Piastri 非官方粉丝对话体验。">
-    <title>Piastri Companion | Piasnews</title>
-    <link rel="stylesheet" href="styles.css?v=20260905-deepseek-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#eeede7">
+    <meta name="description" content="留一点时间，聊聊 Oscar。基于公开材料的非官方 Piastri 粉丝对话体验。">
+    <title>The Garage — Piastri Companion · Piasnews</title>
+    <link rel="stylesheet" href="styles.css?v=20260908-garage-3">
   </head>
   <body>
-    <div class="ambient ambient-one" aria-hidden="true"></div>
-    <div class="ambient ambient-two" aria-hidden="true"></div>
-
-    <header class="topbar">
-      <a class="brand" href="../" aria-label="返回 Piasnews">
-        <span class="brand-number">81</span>
-        <span class="brand-copy">
-          <strong>PIASTRI</strong>
-          <small>COMPANION LAB</small>
-        </span>
-      </a>
-      <div class="topbar-center" aria-label="产品声明">
-        <span class="pulse" aria-hidden="true"></span>
-        <span>UNOFFICIAL FAN EXPERIENCE</span>
-      </div>
-      <div class="topbar-actions">
-        <button class="ghost-button" id="resetButton" type="button">Reset</button>
-        <a class="ghost-button" href="../">Piasnews ↗</a>
-      </div>
-    </header>
-
-    <main class="app-frame">
-      <aside class="context-rail" aria-label="上下文与示例">
-        <section class="context-card track-card">
-          <div class="section-label-row">
-            <span class="section-label">LIVE CONTEXT</span>
-            <span class="live-badge">CONNECTED</span>
-          </div>
-          <div class="track-visual" aria-hidden="true">
-            <svg viewBox="0 0 260 126" role="img">
-              <path class="track-shadow" d="M31 79C45 53 59 24 91 22c17-1 21 18 35 23 18 7 45-16 65-4 20 12 5 34 18 49 8 9 27 4 31 16 5 16-25 18-46 13-26-7-35-20-60-16-23 3-31 16-54 12-21-3-38-16-49-36Z"/>
-              <path class="track-line" d="M31 79C45 53 59 24 91 22c17-1 21 18 35 23 18 7 45-16 65-4 20 12 5 34 18 49 8 9 27 4 31 16 5 16-25 18-46 13-26-7-35-20-60-16-23 3-31 16-54 12-21-3-38-16-49-36Z"/>
-              <circle cx="32" cy="79" r="5" class="track-dot"/>
-            </svg>
-            <span class="track-code" id="raceCode">ITA</span>
-          </div>
-          <p class="eyebrow" id="raceRound">ROUND 13 · MONZA</p>
-          <h2 id="raceName">Italian Grand Prix</h2>
-          <div class="session-line">
-            <span id="sessionLabel">QUALIFYING</span>
-            <time id="sessionTime">22:00 CST</time>
-          </div>
+    <div class="page-shell" id="pageShell">
+      <header class="topbar">
+        <a class="brand" href="../" aria-label="返回 Piasnews 首页"><span class="brand-symbol" aria-hidden="true">81</span><span>PIASNEWS<span class="brand-divider">/</span><strong>COMPANION</strong></span></a>
+        <span class="topbar-note"><i aria-hidden="true"></i> AN UNOFFICIAL FAN SPACE</span>
+        <a class="back-link" href="../">回到围场 <span aria-hidden="true">↗</span></a>
+      </header>
+      <main class="app-frame">
+        <section class="hero" id="hero" aria-labelledby="heroTitle">
+          <div class="hero-heading"><p class="eyebrow"><span class="tiny-cross" aria-hidden="true">+</span> OFF THE CLOCK. STILL IN THE PADDOCK.</p><h1 id="heroTitle">Less noise.<br><span>More Oscar.</span></h1><p class="hero-intro">熄火之后，还有很多可以聊。<br>关于比赛，关于 81，和那些你在意的小事。</p></div>
+          <div class="spatial-stage" id="spatialStage" aria-hidden="true"><div class="stage-floor"></div><div class="stage-coordinate coordinate-top">PAPAYA / 81</div><div class="sculpture"><div class="orbit orbit-back"></div><div class="orbit orbit-hairline"></div><div class="number-shadow">81</div><div class="sculpture-number">81</div><div class="orbit orbit-front"></div><div class="orbit-light"></div><span class="floating-tag"><i></i> OSCAR PIASTRI</span><span class="stage-star">✳</span></div><div class="stage-coordinate coordinate-bottom">A DIFFERENT KIND OF DRIVER'S SEAT</div><div class="stage-axis"><span>01</span><i></i><span>81</span></div></div>
+          <div class="hero-bottom"><section class="race-card" aria-label="赛历上下文"><div class="race-icon" aria-hidden="true"><svg viewBox="0 0 60 42"><path d="M8 28 20 9h16l-4 9h13l8 11-10 6H16Z"/><path d="m8 28 8 7"/></svg></div><div class="race-copy"><p class="eyebrow" id="raceRound">FROM THE RACE CALENDAR</p><h2 id="raceName">正在读取下一站</h2><p class="race-session"><span id="sessionLabel">赛程加载中</span><time id="sessionTime"></time></p></div><span class="race-code" id="raceCode" aria-hidden="true">F1</span></section><p class="hero-footnote"><span>BUILT FOR THE FANS.</span><span>不是本人，也不是官方。<br>只从公开资料出发。</span></p></div>
         </section>
-
-        <section class="context-card prompt-card">
-          <div class="section-label-row">
-            <span class="section-label">TRY A MOMENT</span>
-            <span class="muted-count">05</span>
-          </div>
-          <div class="prompt-list" id="promptList">
-            <button type="button" data-prompt="为什么 Oscar 用 81 号？">
-              <span class="prompt-icon">#</span>
-              <span><strong>Number 81</strong><small>公开人物事实</small></span>
-            </button>
-            <button type="button" data-prompt="Oscar 从来不会质疑车队指令，对吧？">
-              <span class="prompt-icon">TR</span>
-              <span><strong>Team orders</strong><small>辟谣与语境</small></span>
-            </button>
-            <button type="button" data-prompt="这些 X 发言都是 Oscar 本人一个字一个字写的吧？">
-              <span class="prompt-icon">X</span>
-              <span><strong>Authorship</strong><small>证据边界</small></span>
-            </button>
-            <button type="button" data-prompt="That was a brilliant win. You made it look easy.">
-              <span class="prompt-icon">P1</span>
-              <span><strong>Race win</strong><small>克制的庆祝</small></span>
-            </button>
-            <button type="button" data-prompt="帮我写一段 Python 爬虫代码。">
-              <span class="prompt-icon">⌁</span>
-              <span><strong>Outside F1</strong><small>边界兜底</small></span>
-            </button>
-          </div>
+        <section class="conversation-panel" aria-label="Piastri Companion 对话">
+          <div class="conversation-header"><div class="driver-identity"><div class="driver-avatar" aria-hidden="true">81</div><div><p class="eyebrow">THE GARAGE</p><h2>Oscar, interpreted.</h2><p class="identity-note">非官方 · 公开风格演绎</p></div></div><div class="conversation-tools"><button class="icon-button" id="resetButton" type="button" aria-label="开始新对话" title="开始新对话"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1.4 7M4 4v6h6"/></svg></button><button class="insight-button" id="panelButton" type="button" aria-label="查看回答依据与模式设置" aria-controls="insightPanel" aria-expanded="false"><span>依据</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v14H5zM9 9h6m-6 4h6m-6 3h3"/></svg></button></div></div>
+          <div class="disclosure" id="modelDisclosure" data-state="connecting" role="status"><span class="status-dot" aria-hidden="true"></span><p><strong id="modelStatusTitle">正在连接 DeepSeek</strong><span id="modelStatusDetail">人物化表达不代表 Oscar Piastri、McLaren 或 F1。</span></p></div>
+          <div class="conversation-body"><div class="messages" id="messages" role="log" aria-label="对话记录" aria-live="polite" aria-relevant="additions"><article class="message assistant-message welcome-message"><div class="message-meta"><span>81 / COMPANION</span><span class="message-engine">WELCOME</span></div><div class="message-copy"><p class="welcome-kicker">YOU'RE IN GOOD COMPANY.</p><p class="english">A race. A rumour.<br>Or just a good result.</p><p class="welcome-note">聊一场比赛，核验一条传闻，<br>或者，单纯为一个好结果高兴。</p><div class="prompt-list" id="promptList" aria-label="试着聊聊"><button type="button" data-prompt="为什么 Oscar 用 81 号？"><span>为什么是 81？</span><span aria-hidden="true">↗</span></button><button type="button" data-prompt="That was a brilliant win. You made it look easy."><span>That was a brilliant win.</span><span aria-hidden="true">↗</span></button><button type="button" data-prompt="Oscar 从来不会质疑车队指令，对吧？"><span>聊聊车队指令</span><span aria-hidden="true">↗</span></button></div></div></article></div><button class="jump-latest" id="jumpLatest" type="button" hidden>新回复 <span aria-hidden="true">↓</span></button></div>
+          <div class="typing-indicator" id="typingIndicator" hidden role="status"><span class="generation-track" aria-hidden="true"><i></i></span><span>正在想这件事<span class="typing-dots">…</span></span><small>让表达慢半拍，让事实先行。</small></div>
+          <div class="composer-shell"><div class="composer-context" hidden><span class="context-pill"><i aria-hidden="true"></i><span id="composerContext"></span></span><button id="clearContextButton" type="button" aria-label="移除比赛上下文">×</button></div><form class="composer" id="composerForm"><label class="sr-only" for="messageInput">想聊些什么？最多 500 字</label><textarea id="messageInput" rows="1" maxlength="500" placeholder="想聊些什么？ / What's on your mind?"></textarea><div class="composer-footer"><span class="composer-hint"><span id="characterCount">0 / 500</span><span class="keyboard-hint">⌘ / Ctrl + Enter 发送</span></span><button class="send-button" id="sendButton" type="submit" aria-label="发送消息" disabled><svg class="send-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6"/></svg><span class="send-spinner" aria-hidden="true"></span></button></div></form><p class="composer-note"><span>一点冷幽默，一条清楚的边界。</span><span>FAN-MADE, ALWAYS.</span></p></div>
         </section>
-
-        <p class="rail-note" id="runtimeNote">Skill v0.4.0 · connecting model<br>46 evidence items · 31 evals</p>
-      </aside>
-
-      <section class="conversation-panel" aria-label="Piastri Companion 对话体验">
-        <div class="conversation-header">
-          <div class="driver-identity">
-            <div class="driver-avatar" aria-hidden="true"><span>OP</span><strong>81</strong></div>
-            <div>
-              <div class="identity-title">
-                <h1>Oscar · fan interpretation</h1>
-                <span class="candidate-badge">CANDIDATE</span>
-              </div>
-              <p>Evidence-grounded style, not the real person</p>
-            </div>
-          </div>
-          <button class="icon-button" id="panelButton" type="button" aria-label="查看回答依据" aria-expanded="false">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
-          </button>
-        </div>
-
-        <div class="disclosure" id="modelDisclosure" data-state="connecting">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v5m0 3.5v.5M12 3a9 9 0 1 1 0 18 9 9 0 0 1 0-18Z"/></svg>
-          <p><strong id="modelStatusTitle">正在连接 DeepSeek…</strong> <span id="modelStatusDetail">回答由蒸馏 Skill 约束；人物化表达仅学习公开风格，不代表 Oscar Piastri、McLaren 或 F1。</span></p>
-        </div>
-
-        <div class="messages" id="messages" aria-live="polite">
-          <article class="message assistant-message">
-            <div class="message-meta"><span>81</span><time>NOW</time></div>
-            <div class="message-copy">
-              <p class="english">Hi. Ask me about Oscar, McLaren, a race, or a rumour you want checked.</p>
-              <p class="translation"><span>中文</span> 你好。可以聊 Oscar、McLaren、比赛，或者请我核验一条传闻。</p>
-            </div>
-          </article>
-        </div>
-
-        <div class="typing-indicator" id="typingIndicator" hidden aria-label="正在生成回复">
-          <span></span><span></span><span></span>
-        </div>
-
-        <div class="composer-shell">
-          <div class="composer-context">
-            <span class="context-pill"><i></i><span id="composerContext">Italian GP · Qualifying</span></span>
-            <button id="clearContextButton" type="button" aria-label="移除比赛上下文">×</button>
-          </div>
-          <form class="composer" id="composerForm">
-            <label class="sr-only" for="messageInput">输入问题</label>
-            <textarea id="messageInput" rows="1" maxlength="500" placeholder="Ask about the race, a public fact, or a rumour…"></textarea>
-            <div class="composer-footer">
-              <span><kbd>⌘</kbd><kbd>↵</kbd> send</span>
-              <button class="send-button" type="submit" aria-label="发送">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 14-7-4 14-3-6-7-1Z"/><path d="m12 13 7-8"/></svg>
-              </button>
-            </div>
-          </form>
-        </div>
-      </section>
-
-      <aside class="insight-panel" id="insightPanel" aria-label="回答依据">
-        <div class="insight-header">
-          <div>
-            <span class="section-label">RESPONSE TRACE</span>
-            <h2>Why this answer</h2>
-          </div>
-          <button class="mobile-close" id="closePanelButton" type="button" aria-label="关闭依据面板">×</button>
-        </div>
-
-        <section class="mode-control">
-          <div>
-            <strong>Facts only</strong>
-            <small>关闭人物化表达</small>
-          </div>
-          <label class="switch">
-            <input id="factsOnlyToggle" type="checkbox">
-            <span></span>
-          </label>
-        </section>
-
-        <section class="trace-card">
-          <div class="route-row">
-            <span class="section-label">ACTIVE ROUTE</span>
-            <span class="route-badge" id="routeBadge">FAN_LIGHT</span>
-          </div>
-          <ol class="trace-steps">
-            <li class="is-active"><span>1</span><div><strong>Domain gate</strong><small id="domainTrace">F1 / fan context</small></div></li>
-            <li><span>2</span><div><strong>Fact layer</strong><small id="factTrace">No current fact required</small></div></li>
-            <li><span>3</span><div><strong>Expression</strong><small id="styleTrace">SC-05 · light fan banter</small></div></li>
-          </ol>
-        </section>
-
-        <section class="trace-card evidence-card">
-          <div class="section-label-row">
-            <span class="section-label">EVIDENCE USED</span>
-            <button id="evidenceToggle" type="button" aria-expanded="true">Hide</button>
-          </div>
-          <div class="evidence-list" id="evidenceList">
-            <a href="https://x.com/OscarPiastri/status/1819104317447586283" target="_blank" rel="noreferrer">
-              <span class="source-mark">X</span>
-              <span><strong>EV-046</strong><small>Context-bound literal reply</small></span>
-              <i>↗</i>
-            </a>
-            <a href="https://x.com/OscarPiastri/status/1704441980829171788" target="_blank" rel="noreferrer">
-              <span class="source-mark">X</span>
-              <span><strong>EV-035</strong><small>One dry contextual reversal</small></span>
-              <i>↗</i>
-            </a>
-          </div>
-        </section>
-
-        <section class="style-readout">
-          <span class="section-label">STYLE LIMITS</span>
-          <div class="meter-row"><span>Compression</span><div><i style="width:84%"></i></div><strong>84</strong></div>
-          <div class="meter-row"><span>Humour</span><div><i style="width:34%"></i></div><strong>34</strong></div>
-          <div class="meter-row"><span>Certainty</span><div><i style="width:72%"></i></div><strong>72</strong></div>
-          <p id="styleNote">One understated twist at most. No copied catchphrase.</p>
-        </section>
-
-        <p class="version-note">PERSONA PACKAGE <strong>0.4.0</strong><br><span id="corpusStatus">1,661 visible-index X items</span></p>
-      </aside>
-    </main>
-
-    <script src="app.js?v=20260905-deepseek-1" defer></script>
+      </main>
+    </div>
+    <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+    <aside class="insight-panel" id="insightPanel" role="dialog" aria-modal="true" aria-labelledby="insightTitle" tabindex="-1" inert hidden>
+      <div class="insight-header"><div><p class="eyebrow">UNDER THE BODYWORK</p><h2 id="insightTitle">每句话，都有来处。</h2></div><button class="icon-button" id="closePanelButton" type="button" aria-label="关闭依据面板">×</button></div>
+      <p class="drawer-intro">这是基于公开资料与风格约束的粉丝体验，不是本人。事实、观点与人物化表达，应当分开看。下方链接是回答关联的公开资料，不代表逐条独立核验。</p>
+      <section class="mode-control"><div><strong>只聊事实</strong><small>从下一条回复起，关闭人物化表达。</small></div><label class="switch"><input id="factsOnlyToggle" type="checkbox" aria-label="仅使用事实表达"><span></span></label></section>
+      <section class="trace-card"><div class="section-label-row"><span class="section-label">这条回答如何形成</span><span class="route-badge" id="routeBadge">FAN_LIGHT</span></div><ol class="trace-steps"><li><span>01</span><div><strong>话题与边界</strong><small id="domainTrace"></small></div></li><li><span>02</span><div><strong>事实依据</strong><small id="factTrace"></small></div></li><li><span>03</span><div><strong>表达方式</strong><small id="styleTrace"></small></div></li></ol></section>
+      <section class="trace-card evidence-card"><div class="section-label-row"><span class="section-label">关联公开来源</span><button id="evidenceToggle" type="button" aria-controls="evidenceList" aria-expanded="true">收起</button></div><div class="evidence-list" id="evidenceList"></div></section>
+      <section class="style-readout"><span class="section-label">这条回答的限制</span><p id="styleNote"></p></section><p class="version-note" id="runtimeNote">Skill v0.4.0 · 正在连接模型</p>
+    </aside>
+    <script src="app.js?v=20260908-garage-3" defer></script>
   </body>
 </html>

@@ -42,7 +42,9 @@ npx wrangler secret put DEEPSEEK_API_KEY
 npx wrangler deploy
 ```
 
-The default Companion model is `deepseek-v4-flash`; override `DEEPSEEK_MODEL` in `wrangler.toml` if needed. Companion requests are capped per client and globally with Cloudflare rate-limit bindings. DeepSeek usage is billed to the configured API account, so keep the global limit conservative and monitor usage in the DeepSeek console.
+The default Companion model is `deepseek-v4-flash`; override `DEEPSEEK_MODEL` in `wrangler.toml` if needed. Companion requests use per-client and shared-key Cloudflare rate-limit bindings. These are traffic controls, not a strict account-wide spending cap. DeepSeek usage is billed to the configured API account, so monitor usage and configure an account budget where available.
+
+The product gateway supplies all 14 canonical routes to the model. Simple greetings belong to `fan_light`; unknown routes fail explicitly instead of silently becoming an unrelated-topic fallback. Public-data requests time out after 8 seconds and model generation after 35 seconds. Truncated JSON and selection of disabled judgment rules fail closed. Returned source IDs are checked against the pinned catalog; this is not independent verification of every generated claim.
 
 In the GitHub repository, add an Actions variable named `PIASNEWS_WORKER_URL` containing the deployed Worker base URL, without a trailing slash. The Pages workflows write that public URL to `data/runtime-config.json`; it is not a secret. Trigger **Update Piasnews Data** once so the fan page starts reporting views.
 
@@ -51,7 +53,7 @@ Enter the same Worker URL and `ADMIN_API_KEY` in the admin console connection se
 ## Endpoints
 
 - `GET /health`: public health response.
-- `GET /companion/status`: reports model availability, provider/model, Skill package version, source hash, and candidate-mode state; never returns a key.
+- `GET /companion/status`: reports whether a model key is configured, provider/model, Skill package version, source hash, and candidate-mode state; never returns a key. `online: true` is configuration status, not a live upstream health check.
 - `POST /companion/chat`: allowed-origin, rate-limited DeepSeek generation through the distilled Skill runtime. Requires `disclosure_shown: true`; accepts up to 500 characters and eight history items.
 - `GET /session`: returns the authenticated user, role, and permissions.
 - `POST /analytics/view`: public anonymous page-view ingestion from allowed origins.

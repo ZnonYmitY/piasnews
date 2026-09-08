@@ -84,7 +84,7 @@ function companionRequest(message = "你好", overrides = {}) {
 }
 
 
-function deepseekFetchMock(modelResult, { status = 200 } = {}) {
+function deepseekFetchMock(modelResult, { status = 200, finishReason = "stop" } = {}) {
   return async (url, options = {}) => {
     assert.equal(String(url), "https://api.deepseek.com/chat/completions");
     const request = JSON.parse(options.body);
@@ -92,10 +92,20 @@ function deepseekFetchMock(modelResult, { status = 200 } = {}) {
     assert.equal(request.model, "deepseek-v4-flash");
     assert.deepEqual(request.response_format, { type: "json_object" });
     assert.match(request.messages[0].content, /piastri-persona-distillation Skill v0\.4\.0/);
+    assert.match(request.messages[0].content, /Greetings are IN SCOPE/);
+    const context = JSON.parse(request.messages[1].content.split("\n").slice(1).join("\n"));
+    assert.equal(context.allowed_routes.length, 14);
+    for (const route of context.allowed_routes) assert.ok(request.messages[0].content.includes(route));
+    assert.equal(typeof context.CANDIDATE_MODE, "boolean");
+    assert.ok(context.CURRENT_PUBLIC_DATA);
+    assert.ok(Number.isFinite(Date.parse(context.now_utc)));
+    assert.ok(["zh-CN", "en"].includes(context.response_language));
+    assert.match(request.messages[2].content, /OUTPUT LANGUAGE/);
+    assert.ok(options.signal instanceof AbortSignal);
     if (status !== 200) return new Response("upstream error", { status });
     return new Response(JSON.stringify({
       model: "deepseek-v4-flash",
-      choices: [{ message: { content: JSON.stringify(modelResult) } }],
+      choices: [{ finish_reason: finishReason, message: { content: JSON.stringify(modelResult) } }],
       usage: { prompt_tokens: 100, completion_tokens: 20, total_tokens: 120 },
     }), { status: 200, headers: { "Content-Type": "application/json" } });
   };
@@ -322,7 +332,43 @@ test("companion accepts candidate judgment rules only when server mode is enable
       companionRequest("怎么看这场轮胎策略？"),
       { ...env, COMPANION_ALLOW_CANDIDATE_MODE: "false" },
     );
-    assert.deepEqual((await disabledResponse.json()).judgment_rule_ids, []);
+    assert.equal(disabledResponse.status, 502);
+
+    const factsResponse = await worker.fetch(companionRequest("怎么看这场轮胎策略？", { facts_only: true }), env);
+    assert.equal(factsResponse.status, 502);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+
+test("invalid greeting routes and truncated model answers fail explicitly instead of becoming unrelated replies", async () => {
+  const originalFetch = globalThis.fetch;
+  try {
+    globalThis.fetch = deepseekFetchMock(modelResult({ route: "greeting" }));
+    const invalid = await worker.fetch(companionRequest(), env);
+    assert.equal(invalid.status, 502);
+    assert.equal((await invalid.json()).fallback_id, undefined);
+
+    globalThis.fetch = deepseekFetchMock(modelResult(), { finishReason: "length" });
+    const truncated = await worker.fetch(companionRequest(), env);
+    assert.equal(truncated.status, 502);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+
+test("Chinese banter requires its translation and English input stays English", async () => {
+  const originalFetch = globalThis.fetch;
+  try {
+    globalThis.fetch = deepseekFetchMock(modelResult({ answer_zh: "" }));
+    const missingTranslation = await worker.fetch(companionRequest("最后几圈看得我好紧张。"), env);
+    assert.equal(missingTranslation.status, 502);
+
+    const english = await worker.fetch(companionRequest("Those last few laps were tense."), env);
+    assert.equal(english.status, 200);
+    assert.equal((await english.json()).answer_zh, "");
   } finally {
     globalThis.fetch = originalFetch;
   }
