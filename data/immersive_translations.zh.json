@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T19:23:50.671036Z",
+  "generated_at": "2026-09-09T23:32:14.941316Z",
   "translations": {
     "items:piasnews-fe3697a79f634516:title:c94eece5ccf0587686a48ca8": {
       "dataset": "items",
@@ -5245,6 +5245,66 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-09T19:23:49.650877Z"
+    },
+    "social:piasnews-social-eda7822b0c7eb76c:summary:648ad4dbcd94a108cde54ab6": {
+      "dataset": "social",
+      "item_id": "piasnews-social-eda7822b0c7eb76c",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "twitter is no longer giving me balloons so i added my own 🎈🎉 i've been thinking that since it's my home race this weekend a certain aussie driver winning it would be a great birthday present... just putting it out in the universe 🫣 https://t.co/3yPBRysItJ",
+      "zh": "推特不再给我气球了，所以我加了自己的🎈🎉 我一直在想，既然这周末是我的主场比赛，某个澳大利亚车手赢下比赛会是一份很棒的生日礼物……只是把它说出来🫣",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-09T23:32:13.943643Z"
+    },
+    "social:piasnews-social-598cc17a1d23110d:summary:3f20a4cea2006591d491a2d6": {
+      "dataset": "social",
+      "item_id": "piasnews-social-598cc17a1d23110d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @FACUA: FACUA denuncia a Madring 🏁 ante Consumo por impedir el acceso con alimentos a los asistentes al Gran Premio de Fórmula 1 🏎️ http…",
+      "zh": "转推@FACUA：FACUA向消费部门投诉Madring 🏁，因其阻止F1大奖赛观众携带食物入场🏎️ http…",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-09T23:32:13.943650Z"
+    },
+    "social:piasnews-social-71e25ad0af0e98da:summary:80a36945137778ec458a8cec": {
+      "dataset": "social",
+      "item_id": "piasnews-social-71e25ad0af0e98da",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar, pedro and pedro's friend gianluca 🤗 https://t.co/qVL1F65hjL",
+      "zh": "oscar、pedro和pedro的朋友gianluca 🤗",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-09T23:32:13.943655Z"
+    },
+    "social:piasnews-social-edf0ade08c99d181:summary:6f2400ce32a81212f79907e4": {
+      "dataset": "social",
+      "item_id": "piasnews-social-edf0ade08c99d181",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "the podium in madrid faces one of the grandstands and only people who sit there will be able to properly see ??? and photographers won't be able to get good pics unless they get into that grandstand ????? and drivers have to walk a long ass walkway to get there ??????? 😭😭😭 https://t.co/znokgHANxf",
+      "zh": "马德里的领奖台面向一个看台，只有坐在那里的人才能看清楚？？？摄影师除非进入那个看台，否则拍不到好照片？？？？？车手们还得走很长一段路才能到那里？？？？？？？😭😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-09T23:32:13.943659Z"
+    },
+    "social:piasnews-social-b66596847d9bf831:summary:0f412e555de4e86fa26d3f18": {
+      "dataset": "social",
+      "item_id": "piasnews-social-b66596847d9bf831",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar's garage at the madring is ready to go! https://t.co/ql0ab4Bko8",
+      "zh": "oscar在Madring的车库已经准备好了！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-09T23:32:13.943662Z"
     }
   },
   "retention_days": 8
