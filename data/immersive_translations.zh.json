@@ -1,67 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T06:37:56.672254Z",
+  "generated_at": "2026-09-09T09:38:45.970123Z",
   "translations": {
-    "items:piasnews-1f7c0b3ede66e7bc:title:58e93862b796bb630dd8ddfd": {
-      "dataset": "items",
-      "item_id": "piasnews-1f7c0b3ede66e7bc",
-      "field": "title",
-      "target_field": "title_zh",
-      "source_text": "What does Norris deal mean for Piastri? F1 Q&A",
-      "zh": "Norris续约对Piastri意味着什么？F1问答",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-09-01T09:31:02.701661Z"
-    },
-    "items:piasnews-1f7c0b3ede66e7bc:summary:73c687deab0b33e8260654ec": {
-      "dataset": "items",
-      "item_id": "piasnews-1f7c0b3ede66e7bc",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
-      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-09-01T09:31:02.701669Z"
-    },
-    "items:piasnews-4fff58d07a5012cb:title:08367f8abb124a81f8333582": {
-      "dataset": "items",
-      "item_id": "piasnews-4fff58d07a5012cb",
-      "field": "title",
-      "target_field": "title_zh",
-      "source_text": "F1 Q&A: Piastri after Norris deal, Antonelli's Italian GP penalty, Ferrari and Zandvoort",
-      "zh": "F1问答：Norris续约后的Piastri、Antonelli的意大利大奖赛处罚、Ferrari和赞德福特",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-09-01T09:31:02.701674Z"
-    },
-    "items:piasnews-4fff58d07a5012cb:summary:7f7c735e99427ccf70333fad": {
-      "dataset": "items",
-      "item_id": "piasnews-4fff58d07a5012cb",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "Race-week or performance-related item discovered from public news metadata.",
-      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的条目。",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-09-01T09:31:02.701678Z"
-    },
-    "social:piasnews-social-c3bec72aae21d30b:summary:e10b998bfcc79c550e5e8b79": {
-      "dataset": "social",
-      "item_id": "piasnews-social-c3bec72aae21d30b",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "throwback to a journalist telling oscar his first lap in monza 2024 was magic and oscar going 😊😌 https://t.co/0jKFE3pwGA",
-      "zh": "回顾一位记者告诉Oscar他在2024年Monza的第一圈很神奇，Oscar的反应是😊😌",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-09-01T09:31:02.701682Z"
-    },
     "items:piasnews-4f8f8800f67d14d8:title:08367f8abb124a81f8333582": {
       "dataset": "items",
       "item_id": "piasnews-4f8f8800f67d14d8",
@@ -4861,6 +4801,90 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-09T03:25:03.587429Z"
+    },
+    "items:piasnews-969ba377ec609846:title:ab61719ac9589f68576256c6": {
+      "dataset": "items",
+      "item_id": "piasnews-969ba377ec609846",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "MPH: Did Piastri really sabotage Norris's qualifying? The paranoia of F1's towing game",
+      "zh": "MPH：Piastri真的破坏了Norris的排位赛吗？F1拖车游戏的偏执",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-09T09:38:45.019974Z"
+    },
+    "items:piasnews-969ba377ec609846:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-969ba377ec609846",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-09T09:38:45.019983Z"
+    },
+    "items:piasnews-9e0e51480cdf0366:title:928e3341365108eac6c7253e": {
+      "dataset": "items",
+      "item_id": "piasnews-9e0e51480cdf0366",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Andrea Stella confirms McLaren ‘investigation’ after Oscar Piastri proved MCL40 issue at Monza",
+      "zh": "安德烈亚·斯特拉确认McLaren在Oscar Piastri于Monza证明MCL40问题后进行“调查”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-09T09:38:45.019988Z"
+    },
+    "items:piasnews-9e0e51480cdf0366:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-9e0e51480cdf0366",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-09T09:38:45.019991Z"
+    },
+    "items:piasnews-444d49c4bf801c14:title:460de19cdf171d45fec85b9d": {
+      "dataset": "items",
+      "item_id": "piasnews-444d49c4bf801c14",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "David Croft questions McLaren 'equality' after Oscar Piastri's battle with Lando Norris at Monza",
+      "zh": "大卫·克罗夫特质疑McLaren在Oscar Piastri与Lando NorrisMonza之战后的“平等”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-09T09:38:45.019995Z"
+    },
+    "items:piasnews-444d49c4bf801c14:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-444d49c4bf801c14",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-09T09:38:45.019998Z"
+    },
+    "social:piasnews-social-7d593093f817275e:summary:a86a6a0a272b20e386c2c85f": {
+      "dataset": "social",
+      "item_id": "piasnews-social-7d593093f817275e",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "the maroon quarter zip has been restocked in most sizes!! everybody run 🏃🏻‍♀️🏃🏻‍♀️ https://t.co/7gyEf7ntyJ",
+      "zh": "栗色半拉链已补货大部分尺码！！大家快跑 🏃🏻‍♀️🏃🏻‍♀️",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-09T09:38:45.020003Z"
     }
   },
   "retention_days": 8

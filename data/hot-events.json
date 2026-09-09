@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T06:37:58.056386Z",
+  "generated_at": "2026-09-09T09:38:47.610686Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -11,39 +11,15 @@
       "rule_id": "oscar-monza-preparation",
       "hot_word_zh": "Oscar 开始为蒙扎站进行准备",
       "hot_word_en": "Oscar begins preparations for Monza",
-      "first_seen_at": "2026-09-02T09:12:08Z",
-      "last_seen_at": "2026-09-08T18:02:19Z",
-      "anchor_item_id": "piasnews-social-ec5899470fd8a005",
+      "first_seen_at": "2026-09-03T09:27:02Z",
+      "last_seen_at": "2026-09-09T07:30:00Z",
+      "anchor_item_id": "piasnews-social-20019cd4a3be8d38",
       "image_url": "https://pbs.twimg.com/media/HRsiJXGbcAAFPkU.jpg",
-      "video_url": "https://video.twimg.com/amplify_video/2097245323676536832/vid/avc1/320x568/EcV3AulsqcRFHP8c.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/media/HRrqO2UXMAAJEoB.jpg",
+      "video_url": "https://video.twimg.com/amplify_video/2096898273386622976/vid/avc1/320x568/g2sBk6TKyU_oc5hU.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/media/HRmuiEaXwAArrCn.jpg",
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
-        {
-          "item_id": "piasnews-social-ec5899470fd8a005",
-          "dataset": "social",
-          "source_type": "official",
-          "source": "@F1",
-          "title": "X post from @F1: Max 🆚 Oscar... 2.0 👀 Verstappen's move around the outside of Piastri at Monza reminds us of som…",
-          "title_zh": "X 发帖 @F1：Max 🆚 Oscar... 2.0 👀 Verstappen在Monza从外线超越Piastri的动作让我们想起了在Imola见过的场景 💨 #F1 #ItalianGP",
-          "summary": "Max 🆚 Oscar... 2.0 👀 Verstappen's move around the outside of Piastri at Monza reminds us of something we've seen before at Imola 💨 #F1 #ItalianGP https://t.co/jgTbhWDX66",
-          "summary_zh": "Max 🆚 Oscar... 2.0 👀 Verstappen在Monza从外线超越Piastri的动作让我们想起了在Imola见过的场景 💨 #F1 #ItalianGP",
-          "url": "https://x.com/F1/status/2097253860964524143",
-          "published_at": "2026-09-08T09:21:00Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2097245323676536832/vid/avc1/320x568/EcV3AulsqcRFHP8c.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/media/HRrqO2UXMAAJEoB.jpg",
-          "heat_contribution": 8.7004,
-          "metrics": {
-            "likes": 3933,
-            "retweets": 310,
-            "replies": 26,
-            "quotes": 0,
-            "views": 337511,
-            "bookmarks": 0
-          }
-        },
         {
           "item_id": "piasnews-social-20019cd4a3be8d38",
           "dataset": "social",
@@ -58,13 +34,37 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2096898273386622976/vid/avc1/320x568/g2sBk6TKyU_oc5hU.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/media/HRmuiEaXwAArrCn.jpg",
-          "heat_contribution": 8.3206,
+          "heat_contribution": 8.3249,
           "metrics": {
-            "likes": 4323,
-            "retweets": 347,
+            "likes": 4346,
+            "retweets": 349,
             "replies": 20,
             "quotes": 0,
-            "views": 404858,
+            "views": 406106,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-ec5899470fd8a005",
+          "dataset": "social",
+          "source_type": "official",
+          "source": "@F1",
+          "title": "X post from @F1: Max 🆚 Oscar... 2.0 👀 Verstappen's move around the outside of Piastri at Monza reminds us of som…",
+          "title_zh": "X 发帖 @F1：Max 🆚 Oscar... 2.0 👀 Verstappen在Monza从外线超越Piastri的动作让我们想起了在Imola见过的场景 💨 #F1 #ItalianGP",
+          "summary": "Max 🆚 Oscar... 2.0 👀 Verstappen's move around the outside of Piastri at Monza reminds us of something we've seen before at Imola 💨 #F1 #ItalianGP https://t.co/jgTbhWDX66",
+          "summary_zh": "Max 🆚 Oscar... 2.0 👀 Verstappen在Monza从外线超越Piastri的动作让我们想起了在Imola见过的场景 💨 #F1 #ItalianGP",
+          "url": "https://x.com/F1/status/2097253860964524143",
+          "published_at": "2026-09-08T09:21:00Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2097245323676536832/vid/avc1/320x568/EcV3AulsqcRFHP8c.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/media/HRrqO2UXMAAJEoB.jpg",
+          "heat_contribution": 8.2252,
+          "metrics": {
+            "likes": 4079,
+            "retweets": 319,
+            "replies": 26,
+            "quotes": 0,
+            "views": 349996,
             "bookmarks": 0
           }
         },
@@ -82,13 +82,13 @@
           "image_url": "https://pbs.twimg.com/media/HRsiJXGbcAAFPkU.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRsiJXGbcAAFPkU.jpg",
-          "heat_contribution": 8.1241,
+          "heat_contribution": 8.1681,
           "metrics": {
-            "likes": 3311,
-            "retweets": 414,
-            "replies": 4,
+            "likes": 3454,
+            "retweets": 434,
+            "replies": 5,
             "quotes": 0,
-            "views": 34736,
+            "views": 36372,
             "bookmarks": 0
           }
         },
@@ -106,13 +106,13 @@
           "image_url": "https://pbs.twimg.com/media/HRrR_ZCagAA_gm2.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRrR_ZCagAA_gm2.jpg",
-          "heat_contribution": 7.0688,
+          "heat_contribution": 6.5671,
           "metrics": {
-            "likes": 1172,
-            "retweets": 117,
+            "likes": 1182,
+            "retweets": 118,
             "replies": 1,
             "quotes": 0,
-            "views": 15601,
+            "views": 15739,
             "bookmarks": 0
           }
         },
@@ -154,37 +154,13 @@
           "image_url": "https://pbs.twimg.com/media/HRtXYCGXYAAJ3kD.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRtXYCGXYAAJ3kD.jpg",
-          "heat_contribution": 6.1632,
+          "heat_contribution": 6.2195,
           "metrics": {
-            "likes": 475,
-            "retweets": 50,
+            "likes": 504,
+            "retweets": 52,
             "replies": 1,
             "quotes": 0,
-            "views": 5392,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-9d90100a69099370",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: andrea stella on oscar's improvement: \"[the italian gp] confirms a trajectory with oscar. we we…",
-          "title_zh": "X 发帖 @laurogeitabat：andrea stella 谈 oscar 的进步：“[意大利大奖赛]证实了 oscar 的进步轨迹。我们很高兴看到他在赞德福特排位赛中的竞争力，然后我们为比赛调校做了更多工作。这些工作似乎在Monza派上了用场，这很好。”",
-          "summary": "andrea stella on oscar's improvement: \"[the italian gp] confirms a trajectory with oscar. we were happy to see how competitive he was in zandvoort quali, then we put in some more work for race trim. it's good that this work seems like it's been useful in monza.\" https://t.co/4pyBVQ3RE0",
-          "summary_zh": "andrea stella 谈 oscar 的进步：“[意大利大奖赛]证实了 oscar 的进步轨迹。我们很高兴看到他在赞德福特排位赛中的竞争力，然后我们为比赛调校做了更多工作。这些工作似乎在Monza派上了用场，这很好。”",
-          "url": "https://x.com/laurogeitabat/status/2096957263114056163",
-          "published_at": "2026-09-07T13:42:25Z",
-          "image_url": "https://pbs.twimg.com/media/HRnjf1IaYAASEgS.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HRnjf1IaYAASEgS.jpg",
-          "heat_contribution": 5.798,
-          "metrics": {
-            "likes": 495,
-            "retweets": 24,
-            "replies": 1,
-            "quotes": 0,
-            "views": 18433,
+            "views": 5760,
             "bookmarks": 0
           }
         },
@@ -202,13 +178,37 @@
           "image_url": "https://pbs.twimg.com/media/HRtVrmCWoAAGuDN.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRtVrmCWoAAGuDN.jpg",
-          "heat_contribution": 5.7639,
+          "heat_contribution": 5.8367,
           "metrics": {
-            "likes": 308,
-            "retweets": 28,
+            "likes": 334,
+            "retweets": 29,
             "replies": 0,
             "quotes": 0,
-            "views": 5946,
+            "views": 6355,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-9d90100a69099370",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: andrea stella on oscar's improvement: \"[the italian gp] confirms a trajectory with oscar. we we…",
+          "title_zh": "X 发帖 @laurogeitabat：andrea stella 谈 oscar 的进步：“[意大利大奖赛]证实了 oscar 的进步轨迹。我们很高兴看到他在赞德福特排位赛中的竞争力，然后我们为比赛调校做了更多工作。这些工作似乎在Monza派上了用场，这很好。”",
+          "summary": "andrea stella on oscar's improvement: \"[the italian gp] confirms a trajectory with oscar. we were happy to see how competitive he was in zandvoort quali, then we put in some more work for race trim. it's good that this work seems like it's been useful in monza.\" https://t.co/4pyBVQ3RE0",
+          "summary_zh": "andrea stella 谈 oscar 的进步：“[意大利大奖赛]证实了 oscar 的进步轨迹。我们很高兴看到他在赞德福特排位赛中的竞争力，然后我们为比赛调校做了更多工作。这些工作似乎在Monza派上了用场，这很好。”",
+          "url": "https://x.com/laurogeitabat/status/2096957263114056163",
+          "published_at": "2026-09-07T13:42:25Z",
+          "image_url": "https://pbs.twimg.com/media/HRnjf1IaYAASEgS.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HRnjf1IaYAASEgS.jpg",
+          "heat_contribution": 5.7985,
+          "metrics": {
+            "likes": 495,
+            "retweets": 24,
+            "replies": 1,
+            "quotes": 0,
+            "views": 18465,
             "bookmarks": 0
           }
         },
@@ -226,13 +226,13 @@
           "image_url": "https://pbs.twimg.com/media/HRit31lWwAMgqrk.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRit31lWwAMgqrk.jpg",
-          "heat_contribution": 4.9973,
+          "heat_contribution": 4.9986,
           "metrics": {
-            "likes": 545,
+            "likes": 546,
             "retweets": 66,
             "replies": 1,
             "quotes": 0,
-            "views": 5504,
+            "views": 5505,
             "bookmarks": 0
           }
         },
@@ -261,14 +261,48 @@
           }
         },
         {
+          "item_id": "piasnews-9e0e51480cdf0366",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "F1 Oversteer",
+          "title": "Andrea Stella confirms McLaren ‘investigation’ after Oscar Piastri proved MCL40 issue at Monza",
+          "title_zh": "安德烈亚·斯特拉确认McLaren在Oscar Piastri于Monza证明MCL40问题后进行“调查”",
+          "summary": "Team or car-performance item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+          "url": "https://www.f1oversteer.com/news/andrea-stella-confirms-mclaren-investigation-after-oscar-piastri-proved-mcl40-issue-at-monza/",
+          "published_at": "2026-09-09T07:30:00Z",
+          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2293169149-scaled.jpg",
+          "video_url": null,
+          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2293169149-scaled.jpg",
+          "heat_contribution": 1.0,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-444d49c4bf801c14",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "F1 Oversteer",
+          "title": "David Croft questions McLaren 'equality' after Oscar Piastri's battle with Lando Norris at Monza",
+          "title_zh": "大卫·克罗夫特质疑McLaren在Oscar Piastri与Lando NorrisMonza之战后的“平等”",
+          "summary": "Team or car-performance item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+          "url": "https://www.f1oversteer.com/news/david-croft-questions-mclaren-equality-after-oscar-piastris-battle-with-lando-norris-at-monza/",
+          "published_at": "2026-09-09T07:00:00Z",
+          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2284372550-scaled.jpg",
+          "video_url": null,
+          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2284372550-scaled.jpg",
+          "heat_contribution": 1.0,
+          "metrics": {}
+        },
+        {
           "item_id": "piasnews-39230234f5c9eaec",
           "dataset": "items",
           "source_type": "media",
-          "source": "planetf1.com",
+          "source": "PlanetF1",
           "title": "Oscar Piastri on new 'trajectory' after Monza drive",
           "title_zh": "Oscar Piastri谈Monza驾驶后的新“轨迹”",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与车队或赛车性能相关的项目。",
+          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
           "url": "https://www.planetf1.com/news/oscar-piastri-on-new-trajectory-after-driving-style-adaptations",
           "published_at": "2026-09-08T18:02:19Z",
           "image_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F09%2F08093833%2Foscar-piastri-monza-pit-lane-mclaren-planetf1.jpg",
@@ -285,7 +319,7 @@
           "title": "McLaren set to 'review' papaya rules after Lando Norris and Oscar Piastri's tense battle at Monza",
           "title_zh": "McLaren将在Lando Norris和Oscar Piastri在Monza的紧张对决后“审查”木瓜规则",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与车队或赛车性能相关的项目。",
+          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
           "url": "https://www.gpfans.com/en/f1-news/1090018/f1-mclaren-papaya-rules-italian-grand-prix-lando-norris-oscar-piastri/",
           "published_at": "2026-09-08T10:32:00Z",
           "image_url": "https://sportsbase.io/images/gpfans/copy_1200x800/c264f033eaec4afb5bcc6f28e92fd92c719a98b2.jpg",
@@ -302,7 +336,7 @@
           "title": "McLaren react to Lando Norris-Oscar Piastri complaints after Monza clash",
           "title_zh": "McLaren回应Lando Norris与Oscar Piastri在Monza冲突后的抱怨",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与车队或赛车性能相关的项目。",
+          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
           "url": "https://www.crash.net/f1/news/1104031/1/mclaren-react-lando-norris-oscar-piastri-complaints-after-monza-clash",
           "published_at": "2026-09-08T10:07:00Z",
           "image_url": "https://www.crash.net/sites/default/files/2026-09/xpb_1420283_hires_0.jpg?width=1600&aspect_ratio=16:9",
@@ -332,11 +366,11 @@
           "item_id": "piasnews-5e14a0ccbbe78c43",
           "dataset": "items",
           "source_type": "media",
-          "source": "motorsportweek.com",
+          "source": "Motorsport Week",
           "title": "McLaren confirms review after Lando Norris and Oscar Piastri Monza clash",
           "title_zh": "McLaren确认在Lando Norris与Oscar PiastriMonza冲突后进行审查",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与车队或赛车性能相关的项目。",
+          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
           "url": "https://www.motorsportweek.com/2026/09/07/mclaren-lando-norris-oscar-piastri-monza/",
           "published_at": "2026-09-07T15:45:00Z",
           "image_url": "https://www.motorsportweek.com/wp-content/uploads/2026/09/XPB_1432610_HiRes-2.webp",
@@ -353,7 +387,7 @@
           "title": "F1 news: Oscar Piastri buoyed by progress after tough Monza battle",
           "title_zh": "F1新闻：Oscar Piastri在Monza艰难一战后因进步而备受鼓舞",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与车队或赛车性能相关的项目。",
+          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
           "url": "https://speedcafe.com/f1-news-2026-italian-grand-prix-monza-oscar-piastri-lando-norris-battle-update-reaction-what-happened-mclarae/",
           "published_at": "2026-09-06T18:05:01Z",
           "image_url": "https://speedcafe.com/wp-content/uploads/2026/09/XPB_1434468_HiRes.jpg",
@@ -370,7 +404,7 @@
           "title": "Oscar Piastri, McLaren, Monza, 2026",
           "title_zh": "Oscar Piastri,McLaren,Monza,2026年",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与车队或赛车性能相关的项目。",
+          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
           "url": "https://www.racefans.net/2026/09/06/2026-italian-grand-prix-in-pictures/motor-racing-formula-one-world-championship-italian-grand-prix-race-day-monza-italy-122/",
           "published_at": "2026-09-06T16:58:51Z",
           "image_url": "https://www.racefans.net/wp-content/themes/twentyfifteen/assets/images/default-og.jpg",
@@ -404,7 +438,7 @@
           "title": "Lee McKenzie amazed by what she saw Oscar Piastri's family do in McLaren's Monza hospitality",
           "title_zh": "Lee McKenzie对Oscar Piastri的家人在McLaren的Monza招待区所做的事感到惊叹",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与车队或赛车性能相关的项目。",
+          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
           "url": "https://www.f1oversteer.com/news/lee-mckenzie-amazed-by-what-she-saw-oscar-piastris-family-do-in-mclarens-monza-hospitality/",
           "published_at": "2026-09-06T10:30:00Z",
           "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2264442899-scaled.jpg",
@@ -438,7 +472,7 @@
           "title": "Oscar Piastri handed major F1 grid penalty after earning Monza P3",
           "title_zh": "Oscar Piastri在Monza获得P3后遭重大F1罚退",
           "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与比赛周或表现相关的项目。",
+          "summary_zh": "从公开新闻元数据中发现的与比赛周或表现相关的条目。",
           "url": "https://www.motorsportweek.com/2026/09/05/oscar-piastri-f1-grid-penalty-monza/",
           "published_at": "2026-09-05T16:59:01Z",
           "image_url": "https://www.motorsportweek.com/wp-content/uploads/2026/09/Oscar-Piastri-F1-Italian-GP-1.webp",
@@ -455,7 +489,7 @@
           "title": "Official: Oscar Piastri gets three-place Monza grid penalty as Ferrari gain positions",
           "title_zh": "官方：Oscar Piastri在Monza被罚退三位，Ferrari获益提升名次",
           "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与比赛周或表现相关的项目。",
+          "summary_zh": "从公开新闻元数据中发现的与比赛周或表现相关的条目。",
           "url": "https://scuderiafans.com/official-oscar-piastri-gets-three-place-monza-grid-penalty-as-ferrari-gain-positions/",
           "published_at": "2026-09-05T16:46:02Z",
           "image_url": "https://scuderiafans.com/wp-content/uploads/2026/06/mclaren.jpg",
@@ -472,7 +506,7 @@
           "title": "Oscar Piastri handed three-place grid penalty for impeding during Monza qualifying",
           "title_zh": "Oscar Piastri因在Monza排位赛中阻挡被罚退三位",
           "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与比赛周或表现相关的项目。",
+          "summary_zh": "从公开新闻元数据中发现的与比赛周或表现相关的条目。",
           "url": "https://www.grandprix247.com/grand-prix-f1-weekend-news/oscar-piastri-handed-three-place-grid-penalty-for-impeding-during-monza-qualifying",
           "published_at": "2026-09-05T16:42:00Z",
           "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgrandprix247.com%2Fimages%2F2026-09%2F47-saturday-monza-2026-6a9c466ac362e.jpg",
@@ -489,7 +523,7 @@
           "title": "Oscar Piastri handed three-grid place penalty for impeding during Monza qualifying",
           "title_zh": "Oscar Piastri因在Monza排位赛中阻挡被罚退三位",
           "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与比赛周或表现相关的项目。",
+          "summary_zh": "从公开新闻元数据中发现的与比赛周或表现相关的条目。",
           "url": "https://www.grandprix247.com/grand-prix-f1-weekend-news/oscar-piastri-gets-a-three-grid-place-penalty-for-impeding-during-monza-qualifying",
           "published_at": "2026-09-05T16:42:00Z",
           "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgrandprix247.com%2Fimages%2F2026-09%2F47-saturday-monza-2026-6a9c466ac362e.jpg",
@@ -506,7 +540,7 @@
           "title": "Oscar Piastri's clear-headed thoughts after qualifying at Monza: \"I don't think I could have fought for pole position\"",
           "title_zh": "Oscar Piastri在Monza排位赛后的清醒思考：“我认为我本可以争夺杆位”",
           "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与比赛周或表现相关的项目。",
+          "summary_zh": "从公开新闻元数据中发现的与比赛周或表现相关的条目。",
           "url": "https://www.autohebdof1.com/news/f1/Oscar-Piastri--clear-headed-after-qualifying-at-Monza%3A-%22I-don%27t-think-I-could-have-fought-for-pole-position.%22.html",
           "published_at": "2026-09-05T16:41:00Z",
           "image_url": "https://www.autohebdo.fr/wp-content/uploads/2026/09/DPPI_00126016_1416.jpg",
@@ -540,7 +574,7 @@
           "title": "Penalty looms for Oscar Piastri (McLaren) – Monza P3 soon to be lost?",
           "title_zh": "Oscar Piastri（McLaren）面临处罚——MonzaP3即将不保？",
           "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与比赛周或表现相关的项目。",
+          "summary_zh": "从公开新闻元数据中发现的与比赛周或表现相关的条目。",
           "url": "https://www.speedweek.com/en/a/formula-1/penalty-looms-for-oscar-piastri-mclaren-monza-3rd-place-soon-gone",
           "published_at": "2026-09-05T16:15:04.891000Z",
           "image_url": "https://files.speedweek.com/images/c_crop,x_0,y_182,w_2048,h_1024/c_fill,f_auto,q_auto,w_1200,h_630/2026/9/5/fzzckwdglerqpcljwgll/0000-piastri-c-mc-laren",
@@ -557,7 +591,7 @@
           "title": "Oscar Piastri faces grid penalty as Ferrari eye all-red second row at Monza",
           "title_zh": "Oscar Piastri面临发车处罚，Ferrari瞄准Monza全红第二排",
           "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与比赛周或表现相关的项目。",
+          "summary_zh": "从公开新闻元数据中发现的与比赛周或表现相关的条目。",
           "url": "https://scuderiafans.com/oscar-piastri-faces-grid-penalty-as-ferrari-eye-all-red-second-row-at-monza/",
           "published_at": "2026-09-05T16:02:22Z",
           "image_url": "https://scuderiafans.com/wp-content/uploads/2026/07/mclaren.jpg",
@@ -574,7 +608,7 @@
           "title": "Oscar Piastri risks losing third in Monza qualifying",
           "title_zh": "Oscar Piastri可能在Monza排位赛中失去第三名",
           "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与比赛周或表现相关的项目。",
+          "summary_zh": "从公开新闻元数据中发现的与比赛周或表现相关的条目。",
           "url": "https://sports.yahoo.com/articles/oscar-piastri-risks-losing-third-152656789.html",
           "published_at": "2026-09-05T15:26:56Z",
           "image_url": "https://s.yimg.com/lo/mysterio/api/eb1f940de9d58a49b864db5314ec04d439bf5b3c773531718735b4a19d5cd006/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fmotorsport_articles_445%2Fc5bc1f57e64616cdd0e4e76f6009b004.jpg",
@@ -608,7 +642,7 @@
           "title": "Oscar Piastri, McLaren, Monza, 2026",
           "title_zh": "Oscar Piastri,McLaren,Monza,2026年",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与车队或赛车性能相关的项目。",
+          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
           "url": "https://www.racefans.net/2026/09/05/gasly-takes-surprise-monza-pole-ahead-of-russell-piastri-and-the-ferraris/f1-grand-prix-of-italy-final-practice-49/",
           "published_at": "2026-09-05T14:07:28Z",
           "image_url": "https://www.racefans.net/wp-content/themes/twentyfifteen/assets/images/default-og.jpg",
@@ -625,7 +659,7 @@
           "title": "Jolyon Palmer saw exactly where Lewis Hamilton is ‘mullering’ Oscar Piastri at Monza",
           "title_zh": "乔利恩·帕尔默看出Lewis Hamilton在Monza究竟在哪里‘碾压’Oscar Piastri",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与车队或赛车性能相关的项目。",
+          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
           "url": "https://www.f1oversteer.com/news/jolyon-palmer-saw-exactly-where-lewis-hamilton-is-mullering-oscar-piastri-at-monza/",
           "published_at": "2026-09-05T13:30:00Z",
           "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2293630249-scaled.jpg",
@@ -642,7 +676,7 @@
           "title": "Pierre Gasly Takes Shock Pole At Monza, Beating George Russell And Oscar Piastri: 46 outlets compared",
           "title_zh": "Pierre Gasly在Monza爆冷夺杆，击败乔治·拉塞尔和Oscar Piastri：46家媒体对比",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与车队或赛车性能相关的项目。",
+          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
           "url": "https://newscord.org/article/pierre-gasly-takes-pole-for-2026-italian-grand-prix-at-monza-beating-george-russ--Story_20260905_AlpinesGaslybeatsRus6e47900c",
           "published_at": "2026-09-05T00:00:00Z",
           "image_url": "https://media.tycsports.com/files/2026/09/05/984881/colapinto-y-gasly_1440x810.webp",
@@ -659,7 +693,7 @@
           "title": "F1 news: Oscar Piastri concerned by McLaren pace deficit at Monza",
           "title_zh": "F1新闻：Oscar Piastri担忧McLaren在Monza的速度差距",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与车队或赛车性能相关的项目。",
+          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
           "url": "https://speedcafe.com/f1-news-2026-italian-grand-prix-monza-oscar-piastri-reaction-practice-friday-mclaren-update-latest-lando-norris/",
           "published_at": "2026-09-04T17:28:09Z",
           "image_url": "https://speedcafe.com/wp-content/uploads/2026/09/XPB_1432366_HiRes.jpg",
@@ -676,7 +710,7 @@
           "title": "F1 news: Oscar Piastri reveals bizarre Monza speed anomaly",
           "title_zh": "F1新闻：Oscar Piastri揭示Monza怪异速度异常",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与车队或赛车性能相关的项目。",
+          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
           "url": "https://speedcafe.com/f1-news-2026-italian-grand-prix-monza-oscar-piastri-speed-differences-simulations-mclaren-update-performance-expectations-lando-norris/",
           "published_at": "2026-09-03T22:29:01Z",
           "image_url": "https://speedcafe.com/wp-content/uploads/2026/09/XPB_1427949_HiRes.jpg",
@@ -693,7 +727,7 @@
           "title": "F1-Oscar Piastri-2026-Italian GP-Monza-GettyImages-2293306857",
           "title_zh": "F1-Oscar Piastri-2026年意大利大奖赛-Monza-GettyImages-2293306857",
           "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与比赛周或表现相关的项目。",
+          "summary_zh": "从公开新闻元数据中发现的与比赛周或表现相关的条目。",
           "url": "https://autoaction.com.au/2026/09/04/oscar-piastri-driving-style-mclaren-monza-f1/f1-oscar-piastri-2026-italian-gp-monza-gettyimages-2293306857",
           "published_at": "2026-09-03T20:23:13Z",
           "image_url": "https://autoaction.com.au/2026/09/04/oscar-piastri-driving-style-mclaren-monza-f1/f1-oscar-piastri-2026-italian-gp-monza-gettyimages-2293306857",
@@ -744,7 +778,7 @@
           "title": "McLaren's top speed higher in Hungary than at Monza – Oscar Piastri",
           "title_zh": "McLaren在匈牙利的速度比Monza更高——Oscar Piastri",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与车队或赛车性能相关的项目。",
+          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
           "url": "https://sports.yahoo.com/articles/mclarens-top-speed-higher-hungary-163241261.html",
           "published_at": "2026-09-03T16:32:41Z",
           "image_url": "https://s.yimg.com/lo/mysterio/api/3a4b06c14696f3586943d97028ad1ed03df6acd7b24e95ee7cbc965cf48785b9/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fmotorsport_articles_445%2F56d4add2d849a4f7d8155fd3ac8ff3d8.jpg",
@@ -896,34 +930,10 @@
             "views": 34414,
             "bookmarks": 0
           }
-        },
-        {
-          "item_id": "piasnews-social-71576618f876386d",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar is on his way to monza! always doing the most random stuff on the plane 😭😭",
-          "title_zh": "X 发帖 @laurogeitabat：oscar正在前往Monza的路上！总是在飞机上做最奇怪的事 😭😭",
-          "summary": "oscar is on his way to monza! always doing the most random stuff on the plane 😭😭 https://t.co/SC0glhvvCE",
-          "summary_zh": "oscar正在前往Monza的路上！总是在飞机上做最奇怪的事 😭😭",
-          "url": "https://x.com/laurogeitabat/status/2095077301717172551",
-          "published_at": "2026-09-02T09:12:08Z",
-          "image_url": "https://pbs.twimg.com/media/HRM1sElWgAMMIgF.jpg",
-          "video_url": "https://video.twimg.com/amplify_video/2095077262857048065/vid/avc1/320x426/FRgH8AwsUpioro-F.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2095077262857048065/img/ZHvE0Xhsz2lEMvXJ.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {
-            "likes": 978,
-            "retweets": 118,
-            "replies": 0,
-            "quotes": 0,
-            "views": 8867,
-            "bookmarks": 0
-          }
         }
       ],
-      "official_heat": 77,
-      "media_heat": 39,
+      "official_heat": 75,
+      "media_heat": 48,
       "fan_heat": 100,
       "heat": 100,
       "source_labels": [
@@ -933,7 +943,7 @@
       ],
       "source_counts": {
         "official": 2,
-        "media": 20,
+        "media": 19,
         "fan": 3
       },
       "pinned_rank": null,
@@ -968,13 +978,13 @@
           "image_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
-          "heat_contribution": 10.3891,
+          "heat_contribution": 9.8993,
           "metrics": {
-            "likes": 32331,
-            "retweets": 3977,
-            "replies": 232,
+            "likes": 33024,
+            "retweets": 4046,
+            "replies": 237,
             "quotes": 0,
-            "views": 235696,
+            "views": 242918,
             "bookmarks": 0
           }
         },
@@ -992,10 +1002,10 @@
           "image_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
-          "heat_contribution": 8.6943,
+          "heat_contribution": 8.2005,
           "metrics": {
             "likes": 0,
-            "retweets": 3978,
+            "retweets": 4046,
             "replies": 0,
             "quotes": 0,
             "views": 69,
@@ -1016,10 +1026,10 @@
           "image_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
-          "heat_contribution": 8.6943,
+          "heat_contribution": 8.2005,
           "metrics": {
             "likes": 0,
-            "retweets": 3978,
+            "retweets": 4046,
             "replies": 0,
             "quotes": 0,
             "views": 69,
@@ -1027,10 +1037,10 @@
           }
         }
       ],
-      "official_heat": 66,
+      "official_heat": 64,
       "media_heat": 0,
-      "fan_heat": 64,
-      "heat": 82,
+      "fan_heat": 61,
+      "heat": 79,
       "source_labels": [
         "官",
         "粉"
@@ -1072,13 +1082,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2096656814003892224/vid/avc1/320x404/fQy_0R4wBBAATCMF.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2096656814003892224/img/OInX8zS6uWm1qbaB.jpg",
-          "heat_contribution": 7.0737,
+          "heat_contribution": 7.074,
           "metrics": {
-            "likes": 3909,
+            "likes": 3910,
             "retweets": 763,
             "replies": 2,
             "quotes": 0,
-            "views": 45659,
+            "views": 45728,
             "bookmarks": 0
           }
         },
@@ -1096,13 +1106,13 @@
           "image_url": "https://pbs.twimg.com/media/HRrPTMuXQAAzJmz.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRrPTMuXQAAzJmz.jpg",
-          "heat_contribution": 6.7554,
+          "heat_contribution": 6.2606,
           "metrics": {
-            "likes": 922,
-            "retweets": 81,
+            "likes": 935,
+            "retweets": 83,
             "replies": 0,
             "quotes": 0,
-            "views": 5953,
+            "views": 6017,
             "bookmarks": 0
           }
         },
@@ -1120,13 +1130,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2097044522052300800/vid/avc1/476x270/QRUr1ouywE8MtSC9.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2097044522052300800/img/Cc5BcoTY6-QTGkFk.jpg",
-          "heat_contribution": 3.9354,
+          "heat_contribution": 3.9374,
           "metrics": {
             "likes": 56,
             "retweets": 3,
             "replies": 1,
             "quotes": 0,
-            "views": 4652,
+            "views": 4675,
             "bookmarks": 0
           }
         },
@@ -1157,8 +1167,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 59,
-      "heat": 59,
+      "fan_heat": 58,
+      "heat": 58,
       "source_labels": [
         "粉"
       ],
@@ -1199,13 +1209,13 @@
           "image_url": "https://pbs.twimg.com/media/HRn3KczaMAEmFXJ.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRn3KczaMAEmFXJ.jpg",
-          "heat_contribution": 8.6553,
+          "heat_contribution": 8.659,
           "metrics": {
-            "likes": 10387,
-            "retweets": 336,
+            "likes": 10423,
+            "retweets": 338,
             "replies": 200,
             "quotes": 0,
-            "views": 109527,
+            "views": 110217,
             "bookmarks": 0
           }
         }
@@ -1254,21 +1264,21 @@
           "image_url": "https://pbs.twimg.com/media/HRsHNKAXEAATWhb.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRsHNKAXEAATWhb.jpg",
-          "heat_contribution": 8.3289,
+          "heat_contribution": 8.3948,
           "metrics": {
-            "likes": 4525,
-            "retweets": 297,
+            "likes": 4812,
+            "retweets": 325,
             "replies": 7,
             "quotes": 0,
-            "views": 38118,
+            "views": 41423,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 43,
-      "heat": 43,
+      "fan_heat": 44,
+      "heat": 44,
       "source_labels": [
         "粉"
       ],
@@ -1280,61 +1290,6 @@
       "pinned_rank": null,
       "hidden": false,
       "rank": 5
-    },
-    {
-      "event_id": "evt-2026-09-07-f0a7ac990586",
-      "rule_id": null,
-      "hot_word_zh": "Oscar被要求签一个Alpine水瓶“为了梗” 😭😭 🎥：_gaiaaa_05",
-      "hot_word_en": "oscar got asked to sign an alpine water bottle \"for the meme\" 😭😭 🎥: _gaiaaa_05",
-      "first_seen_at": "2026-09-07T07:07:16Z",
-      "last_seen_at": "2026-09-07T07:07:16Z",
-      "anchor_item_id": "piasnews-social-3fb884b1b47df156",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2096857792803897344/vid/avc1/320x568/99Zqhhez9uT6Rrl2.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2096857792803897344/img/4jnJSykmS1n82t8I.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-3fb884b1b47df156",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar got asked to sign an alpine water bottle \"for the meme\" 😭😭 🎥: _gaiaaa_05",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar被要求签一个Alpine水瓶“为了梗” 😭😭 🎥：_gaiaaa_05",
-          "summary": "oscar got asked to sign an alpine water bottle \"for the meme\" 😭😭 🎥: _gaiaaa_05 https://t.co/FLxY3znBrz",
-          "summary_zh": "Oscar被要求签一个Alpine水瓶“为了梗” 😭😭 🎥：_gaiaaa_05",
-          "url": "https://x.com/laurogeitabat/status/2096857817927864674",
-          "published_at": "2026-09-07T07:07:16Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2096857792803897344/vid/avc1/320x568/99Zqhhez9uT6Rrl2.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2096857792803897344/img/4jnJSykmS1n82t8I.jpg",
-          "heat_contribution": 7.7752,
-          "metrics": {
-            "likes": 3961,
-            "retweets": 280,
-            "replies": 4,
-            "quotes": 0,
-            "views": 75549,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 41,
-      "heat": 41,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 6
     },
     {
       "event_id": "evt-2026-09-06-a5be13c44d20",
@@ -1389,7 +1344,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 6
     },
     {
       "event_id": "evt-2026-09-06-ebd150206ea9",
@@ -1444,7 +1399,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 7
     },
     {
       "event_id": "evt-2026-09-07-6588af55a0c5",
@@ -1474,13 +1429,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2096885499927633920/vid/avc1/480x270/QK1GGo5duxiRFSMc.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2096885499927633920/img/jBXny-YpThQmazeR.jpg",
-          "heat_contribution": 7.2042,
+          "heat_contribution": 7.2054,
           "metrics": {
-            "likes": 2273,
+            "likes": 2276,
             "retweets": 175,
             "replies": 1,
             "quotes": 0,
-            "views": 36092,
+            "views": 36150,
             "bookmarks": 0
           }
         }
@@ -1499,7 +1454,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 9
+      "rank": 8
     },
     {
       "event_id": "evt-2026-09-07-f0ed115735e8",
@@ -1529,13 +1484,13 @@
           "image_url": "https://pbs.twimg.com/media/HRmsMd2WIAAwngg.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRmsMd2WIAAwngg.jpg",
-          "heat_contribution": 7.1233,
+          "heat_contribution": 7.1265,
           "metrics": {
-            "likes": 1609,
+            "likes": 1613,
             "retweets": 214,
             "replies": 15,
             "quotes": 0,
-            "views": 67254,
+            "views": 67729,
             "bookmarks": 0
           }
         }
@@ -1544,6 +1499,61 @@
       "media_heat": 0,
       "fan_heat": 38,
       "heat": 38,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "event_id": "evt-2026-09-06-688a19051fff",
+      "rule_id": null,
+      "hot_word_zh": "oscar在事故发生后立刻在无线电里问charles是否安好 🫶🏻 oscar：\"他没事吧…",
+      "hot_word_en": "oscar on the radio asking if charles was okay right after the crash 🫶🏻 oscar: \"is he okay?\" tom…",
+      "first_seen_at": "2026-09-06T13:21:21Z",
+      "last_seen_at": "2026-09-06T13:21:21Z",
+      "anchor_item_id": "piasnews-social-d159d1aa49795eb7",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2096589300947406848/vid/avc1/534x270/zE19ymEn77LQBApU.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2096589300947406848/img/VfzrmQ59Xv710Qh7.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-d159d1aa49795eb7",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar on the radio asking if charles was okay right after the crash 🫶🏻 oscar: \"is he okay?\" tom…",
+          "title_zh": "X 发帖 @laurogeitabat：oscar在事故发生后立刻在无线电里问charles是否安好 🫶🏻 oscar：\"他没事吧？\" tom：\"是的，他已经下车了\"",
+          "summary": "oscar on the radio asking if charles was okay right after the crash 🫶🏻 oscar: \"is he okay?\" tom: \"yeah, he's out of the car\" https://t.co/sWZ2jDG6Tk",
+          "summary_zh": "oscar在事故发生后立刻在无线电里问charles是否安好 🫶🏻 oscar：\"他没事吧？\" tom：\"是的，他已经下车了\"",
+          "url": "https://x.com/laurogeitabat/status/2096589574059303345",
+          "published_at": "2026-09-06T13:21:21Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2096589300947406848/vid/avc1/534x270/zE19ymEn77LQBApU.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2096589300947406848/img/VfzrmQ59Xv710Qh7.jpg",
+          "heat_contribution": 7.0159,
+          "metrics": {
+            "likes": 4083,
+            "retweets": 434,
+            "replies": 2,
+            "quotes": 0,
+            "views": 60899,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 37,
+      "heat": 37,
       "source_labels": [
         "粉"
       ],
