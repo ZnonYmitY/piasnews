@@ -1,31 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T09:38:45.970123Z",
+  "generated_at": "2026-09-09T12:49:03.768246Z",
   "translations": {
-    "items:piasnews-4f8f8800f67d14d8:title:08367f8abb124a81f8333582": {
-      "dataset": "items",
-      "item_id": "piasnews-4f8f8800f67d14d8",
-      "field": "title",
-      "target_field": "title_zh",
-      "source_text": "F1 Q&A: Piastri after Norris deal, Antonelli's Italian GP penalty, Ferrari and Zandvoort",
-      "zh": "F1问答：Norris签约后的Piastri、Antonelli的意大利大奖赛处罚、Ferrari和赞德福特",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-09-01T12:38:24.913414Z"
-    },
-    "items:piasnews-4f8f8800f67d14d8:summary:7f7c735e99427ccf70333fad": {
-      "dataset": "items",
-      "item_id": "piasnews-4f8f8800f67d14d8",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "Race-week or performance-related item discovered from public news metadata.",
-      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的项目。",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-09-01T12:38:24.913423Z"
-    },
     "items:piasnews-fe3697a79f634516:title:c94eece5ccf0587686a48ca8": {
       "dataset": "items",
       "item_id": "piasnews-fe3697a79f634516",
@@ -4885,6 +4861,18 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-09T09:38:45.020003Z"
+    },
+    "social:piasnews-social-97f5bb7bea3b9928:summary:c8941a28fe62f50cf0f41505": {
+      "dataset": "social",
+      "item_id": "piasnews-social-97f5bb7bea3b9928",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @summerdaisyf1: Host: If you had to pick an F1 driver who you think is right at the top when it comes to having a really smooth driving…",
+      "zh": "转推 @summerdaisyf1：主持人：如果你必须选一位F1车手，你认为谁在驾驶非常流畅方面处于顶尖水平……",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-09T12:49:02.834627Z"
     }
   },
   "retention_days": 8

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T09:38:47.610686Z",
+  "generated_at": "2026-09-09T12:49:05.565402Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -13,37 +13,13 @@
       "hot_word_en": "Oscar begins preparations for Monza",
       "first_seen_at": "2026-09-03T09:27:02Z",
       "last_seen_at": "2026-09-09T07:30:00Z",
-      "anchor_item_id": "piasnews-social-20019cd4a3be8d38",
+      "anchor_item_id": "piasnews-social-ec5899470fd8a005",
       "image_url": "https://pbs.twimg.com/media/HRsiJXGbcAAFPkU.jpg",
-      "video_url": "https://video.twimg.com/amplify_video/2096898273386622976/vid/avc1/320x568/g2sBk6TKyU_oc5hU.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/media/HRmuiEaXwAArrCn.jpg",
+      "video_url": "https://video.twimg.com/amplify_video/2097245323676536832/vid/avc1/320x568/EcV3AulsqcRFHP8c.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/media/HRrqO2UXMAAJEoB.jpg",
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
-        {
-          "item_id": "piasnews-social-20019cd4a3be8d38",
-          "dataset": "social",
-          "source_type": "official",
-          "source": "@F1",
-          "title": "X post from @F1: Back around the outside of Oscar Piastri 💨 Max Verstappen mastered this signature second-chican…",
-          "title_zh": "X 发帖 @F1：再次从外线超越Oscar Piastri 💨 Max Verstappen在Monza掌握了这个标志性的第二弯动作！✍️ #F1 #ItalianGP",
-          "summary": "Back around the outside of Oscar Piastri 💨 Max Verstappen mastered this signature second-chicane move at Monza! ✍️ #F1 #ItalianGP https://t.co/DmZDLGr0fw",
-          "summary_zh": "再次从外线超越Oscar Piastri 💨 Max Verstappen在Monza掌握了这个标志性的第二弯动作！✍️ #F1 #ItalianGP",
-          "url": "https://x.com/F1/status/2096911354015727643",
-          "published_at": "2026-09-07T10:40:00Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2096898273386622976/vid/avc1/320x568/g2sBk6TKyU_oc5hU.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/media/HRmuiEaXwAArrCn.jpg",
-          "heat_contribution": 8.3249,
-          "metrics": {
-            "likes": 4346,
-            "retweets": 349,
-            "replies": 20,
-            "quotes": 0,
-            "views": 406106,
-            "bookmarks": 0
-          }
-        },
         {
           "item_id": "piasnews-social-ec5899470fd8a005",
           "dataset": "social",
@@ -58,13 +34,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2097245323676536832/vid/avc1/320x568/EcV3AulsqcRFHP8c.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/media/HRrqO2UXMAAJEoB.jpg",
-          "heat_contribution": 8.2252,
+          "heat_contribution": 8.2409,
           "metrics": {
-            "likes": 4079,
-            "retweets": 319,
-            "replies": 26,
+            "likes": 4156,
+            "retweets": 328,
+            "replies": 27,
             "quotes": 0,
-            "views": 349996,
+            "views": 353383,
             "bookmarks": 0
           }
         },
@@ -82,13 +58,37 @@
           "image_url": "https://pbs.twimg.com/media/HRsiJXGbcAAFPkU.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRsiJXGbcAAFPkU.jpg",
-          "heat_contribution": 8.1681,
+          "heat_contribution": 8.2097,
           "metrics": {
-            "likes": 3454,
-            "retweets": 434,
+            "likes": 3605,
+            "retweets": 450,
             "replies": 5,
             "quotes": 0,
-            "views": 36372,
+            "views": 38035,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-20019cd4a3be8d38",
+          "dataset": "social",
+          "source_type": "official",
+          "source": "@F1",
+          "title": "X post from @F1: Back around the outside of Oscar Piastri 💨 Max Verstappen mastered this signature second-chican…",
+          "title_zh": "X 发帖 @F1：再次从外线超越Oscar Piastri 💨 Max Verstappen在Monza掌握了这个标志性的第二弯动作！✍️ #F1 #ItalianGP",
+          "summary": "Back around the outside of Oscar Piastri 💨 Max Verstappen mastered this signature second-chicane move at Monza! ✍️ #F1 #ItalianGP https://t.co/DmZDLGr0fw",
+          "summary_zh": "再次从外线超越Oscar Piastri 💨 Max Verstappen在Monza掌握了这个标志性的第二弯动作！✍️ #F1 #ItalianGP",
+          "url": "https://x.com/F1/status/2096911354015727643",
+          "published_at": "2026-09-07T10:40:00Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2096898273386622976/vid/avc1/320x568/g2sBk6TKyU_oc5hU.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/media/HRmuiEaXwAArrCn.jpg",
+          "heat_contribution": 7.5143,
+          "metrics": {
+            "likes": 4346,
+            "retweets": 349,
+            "replies": 20,
+            "quotes": 0,
+            "views": 406106,
             "bookmarks": 0
           }
         },
@@ -106,13 +106,13 @@
           "image_url": "https://pbs.twimg.com/media/HRrR_ZCagAA_gm2.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRrR_ZCagAA_gm2.jpg",
-          "heat_contribution": 6.5671,
+          "heat_contribution": 6.5741,
           "metrics": {
-            "likes": 1182,
-            "retweets": 118,
+            "likes": 1188,
+            "retweets": 120,
             "replies": 1,
             "quotes": 0,
-            "views": 15739,
+            "views": 15860,
             "bookmarks": 0
           }
         },
@@ -154,13 +154,13 @@
           "image_url": "https://pbs.twimg.com/media/HRtXYCGXYAAJ3kD.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRtXYCGXYAAJ3kD.jpg",
-          "heat_contribution": 6.2195,
+          "heat_contribution": 6.2414,
           "metrics": {
-            "likes": 504,
+            "likes": 516,
             "retweets": 52,
             "replies": 1,
             "quotes": 0,
-            "views": 5760,
+            "views": 6043,
             "bookmarks": 0
           }
         },
@@ -178,13 +178,13 @@
           "image_url": "https://pbs.twimg.com/media/HRtVrmCWoAAGuDN.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRtVrmCWoAAGuDN.jpg",
-          "heat_contribution": 5.8367,
+          "heat_contribution": 5.899,
           "metrics": {
-            "likes": 334,
-            "retweets": 29,
+            "likes": 357,
+            "retweets": 30,
             "replies": 0,
             "quotes": 0,
-            "views": 6355,
+            "views": 6790,
             "bookmarks": 0
           }
         },
@@ -202,13 +202,13 @@
           "image_url": "https://pbs.twimg.com/media/HRnjf1IaYAASEgS.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRnjf1IaYAASEgS.jpg",
-          "heat_contribution": 5.7985,
+          "heat_contribution": 5.8002,
           "metrics": {
-            "likes": 495,
+            "likes": 496,
             "retweets": 24,
             "replies": 1,
             "quotes": 0,
-            "views": 18465,
+            "views": 18490,
             "bookmarks": 0
           }
         },
@@ -226,13 +226,13 @@
           "image_url": "https://pbs.twimg.com/media/HRit31lWwAMgqrk.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRit31lWwAMgqrk.jpg",
-          "heat_contribution": 4.9986,
+          "heat_contribution": 4.9987,
           "metrics": {
             "likes": 546,
             "retweets": 66,
             "replies": 1,
             "quotes": 0,
-            "views": 5505,
+            "views": 5508,
             "bookmarks": 0
           }
         },
@@ -264,7 +264,7 @@
           "item_id": "piasnews-9e0e51480cdf0366",
           "dataset": "items",
           "source_type": "media",
-          "source": "F1 Oversteer",
+          "source": "f1oversteer.com",
           "title": "Andrea Stella confirms McLaren ‘investigation’ after Oscar Piastri proved MCL40 issue at Monza",
           "title_zh": "安德烈亚·斯特拉确认McLaren在Oscar Piastri于Monza证明MCL40问题后进行“调查”",
           "summary": "Team or car-performance item discovered from public news metadata.",
@@ -281,7 +281,7 @@
           "item_id": "piasnews-444d49c4bf801c14",
           "dataset": "items",
           "source_type": "media",
-          "source": "F1 Oversteer",
+          "source": "f1oversteer.com",
           "title": "David Croft questions McLaren 'equality' after Oscar Piastri's battle with Lando Norris at Monza",
           "title_zh": "大卫·克罗夫特质疑McLaren在Oscar Piastri与Lando NorrisMonza之战后的“平等”",
           "summary": "Team or car-performance item discovered from public news metadata.",
@@ -325,7 +325,7 @@
           "image_url": "https://sportsbase.io/images/gpfans/copy_1200x800/c264f033eaec4afb5bcc6f28e92fd92c719a98b2.jpg",
           "video_url": null,
           "video_poster_url": "https://sportsbase.io/images/gpfans/copy_1200x800/c264f033eaec4afb5bcc6f28e92fd92c719a98b2.jpg",
-          "heat_contribution": 0.75,
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -342,7 +342,7 @@
           "image_url": "https://www.crash.net/sites/default/files/2026-09/xpb_1420283_hires_0.jpg?width=1600&aspect_ratio=16:9",
           "video_url": null,
           "video_poster_url": "https://www.crash.net/sites/default/files/2026-09/xpb_1420283_hires_0.jpg?width=1600&aspect_ratio=16:9",
-          "heat_contribution": 0.75,
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -427,7 +427,7 @@
           "image_url": "https://deweb-519a7.b-cdn.net/post-images/40d2263a-a86c-4096-b864-02b3f2473015.jpeg",
           "video_url": null,
           "video_poster_url": "https://deweb-519a7.b-cdn.net/post-images/40d2263a-a86c-4096-b864-02b3f2473015.jpeg",
-          "heat_contribution": 0.2,
+          "heat_contribution": 0.0,
           "metrics": {}
         },
         {
@@ -444,7 +444,7 @@
           "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2264442899-scaled.jpg",
           "video_url": null,
           "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2264442899-scaled.jpg",
-          "heat_contribution": 0.2,
+          "heat_contribution": 0.0,
           "metrics": {}
         },
         {
@@ -932,8 +932,8 @@
           }
         }
       ],
-      "official_heat": 75,
-      "media_heat": 48,
+      "official_heat": 72,
+      "media_heat": 44,
       "fan_heat": 100,
       "heat": 100,
       "source_labels": [
@@ -943,7 +943,7 @@
       ],
       "source_counts": {
         "official": 2,
-        "media": 19,
+        "media": 20,
         "fan": 3
       },
       "pinned_rank": null,
@@ -978,13 +978,13 @@
           "image_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
-          "heat_contribution": 9.8993,
+          "heat_contribution": 9.9185,
           "metrics": {
-            "likes": 33024,
-            "retweets": 4046,
+            "likes": 33657,
+            "retweets": 4119,
             "replies": 237,
             "quotes": 0,
-            "views": 242918,
+            "views": 250917,
             "bookmarks": 0
           }
         },
@@ -1002,10 +1002,10 @@
           "image_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
-          "heat_contribution": 8.2005,
+          "heat_contribution": 8.2184,
           "metrics": {
             "likes": 0,
-            "retweets": 4046,
+            "retweets": 4119,
             "replies": 0,
             "quotes": 0,
             "views": 69,
@@ -1026,10 +1026,10 @@
           "image_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
-          "heat_contribution": 8.2005,
+          "heat_contribution": 8.2184,
           "metrics": {
             "likes": 0,
-            "retweets": 4046,
+            "retweets": 4119,
             "replies": 0,
             "quotes": 0,
             "views": 69,
@@ -1082,13 +1082,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2096656814003892224/vid/avc1/320x404/fQy_0R4wBBAATCMF.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2096656814003892224/img/OInX8zS6uWm1qbaB.jpg",
-          "heat_contribution": 7.074,
+          "heat_contribution": 7.0741,
           "metrics": {
             "likes": 3910,
             "retweets": 763,
             "replies": 2,
             "quotes": 0,
-            "views": 45728,
+            "views": 45799,
             "bookmarks": 0
           }
         },
@@ -1106,13 +1106,13 @@
           "image_url": "https://pbs.twimg.com/media/HRrPTMuXQAAzJmz.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRrPTMuXQAAzJmz.jpg",
-          "heat_contribution": 6.2606,
+          "heat_contribution": 6.2654,
           "metrics": {
-            "likes": 935,
+            "likes": 940,
             "retweets": 83,
             "replies": 0,
             "quotes": 0,
-            "views": 6017,
+            "views": 6074,
             "bookmarks": 0
           }
         },
@@ -1130,13 +1130,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2097044522052300800/vid/avc1/476x270/QRUr1ouywE8MtSC9.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2097044522052300800/img/Cc5BcoTY6-QTGkFk.jpg",
-          "heat_contribution": 3.9374,
+          "heat_contribution": 3.9388,
           "metrics": {
             "likes": 56,
             "retweets": 3,
             "replies": 1,
             "quotes": 0,
-            "views": 4675,
+            "views": 4691,
             "bookmarks": 0
           }
         },
@@ -1209,13 +1209,13 @@
           "image_url": "https://pbs.twimg.com/media/HRn3KczaMAEmFXJ.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRn3KczaMAEmFXJ.jpg",
-          "heat_contribution": 8.659,
+          "heat_contribution": 8.6638,
           "metrics": {
-            "likes": 10423,
-            "retweets": 338,
-            "replies": 200,
+            "likes": 10468,
+            "retweets": 341,
+            "replies": 201,
             "quotes": 0,
-            "views": 110217,
+            "views": 111051,
             "bookmarks": 0
           }
         }
@@ -1264,21 +1264,21 @@
           "image_url": "https://pbs.twimg.com/media/HRsHNKAXEAATWhb.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRsHNKAXEAATWhb.jpg",
-          "heat_contribution": 8.3948,
+          "heat_contribution": 7.9448,
           "metrics": {
-            "likes": 4812,
-            "retweets": 325,
+            "likes": 5089,
+            "retweets": 337,
             "replies": 7,
             "quotes": 0,
-            "views": 41423,
+            "views": 48219,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 44,
-      "heat": 44,
+      "fan_heat": 41,
+      "heat": 41,
       "source_labels": [
         "粉"
       ],
@@ -1402,116 +1402,6 @@
       "rank": 7
     },
     {
-      "event_id": "evt-2026-09-07-6588af55a0c5",
-      "rule_id": null,
-      "hot_word_zh": "2022年的Oscar和埃斯特班，太可爱了🥹 埃斯特班：“你在这儿干嘛？”主持人：“他多才…",
-      "hot_word_en": "oscar and esteban in 2022, this is so cute 🥹 esteban: \"what are you doing here?\" host: \"he’s mu…",
-      "first_seen_at": "2026-09-07T12:19:04Z",
-      "last_seen_at": "2026-09-07T12:19:04Z",
-      "anchor_item_id": "piasnews-social-a56fbc5e9f1ae9bb",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2096885499927633920/vid/avc1/480x270/QK1GGo5duxiRFSMc.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2096885499927633920/img/jBXny-YpThQmazeR.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-a56fbc5e9f1ae9bb",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar and esteban in 2022, this is so cute 🥹 esteban: \"what are you doing here?\" host: \"he’s mu…",
-          "title_zh": "X 发帖 @laurogeitabat：2022年的Oscar和埃斯特班，太可爱了🥹 埃斯特班：“你在这儿干嘛？”主持人：“他多才多艺！既能解说，又能开车……”埃斯特班：“我得说，他开车更厉害。”Oscar：☺️🤷🏻‍♂️🤗",
-          "summary": "oscar and esteban in 2022, this is so cute 🥹 esteban: \"what are you doing here?\" host: \"he’s multi-talented! he can do broadcasting, he can do driving...\" esteban: \"he’s better at driving, i have to say\" oscar: ☺️🤷🏻‍♂️🤗 https://t.co/QioYigQJcw",
-          "summary_zh": "2022年的Oscar和埃斯特班，太可爱了🥹 埃斯特班：“你在这儿干嘛？”主持人：“他多才多艺！既能解说，又能开车……”埃斯特班：“我得说，他开车更厉害。”Oscar：☺️🤷🏻‍♂️🤗",
-          "url": "https://x.com/laurogeitabat/status/2096936285952700833",
-          "published_at": "2026-09-07T12:19:04Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2096885499927633920/vid/avc1/480x270/QK1GGo5duxiRFSMc.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2096885499927633920/img/jBXny-YpThQmazeR.jpg",
-          "heat_contribution": 7.2054,
-          "metrics": {
-            "likes": 2276,
-            "retweets": 175,
-            "replies": 1,
-            "quotes": 0,
-            "views": 36150,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 38,
-      "heat": 38,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 8
-    },
-    {
-      "event_id": "evt-2026-09-07-f0ed115735e8",
-      "rule_id": null,
-      "hot_word_zh": "根据F1梦幻游戏，Oscar昨天在意大利大奖赛期间超车了十六次😭 超车次数第二多的车手，仅…",
-      "hot_word_en": "according to the f1 fantasy game oscar overtook SIXTEEN times yesterday during the italian gp 😭…",
-      "first_seen_at": "2026-09-07T09:40:44Z",
-      "last_seen_at": "2026-09-07T09:40:44Z",
-      "anchor_item_id": "piasnews-social-a933bff91319f419",
-      "image_url": "https://pbs.twimg.com/media/HRmsMd2WIAAwngg.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HRmsMd2WIAAwngg.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-a933bff91319f419",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: according to the f1 fantasy game oscar overtook SIXTEEN times yesterday during the italian gp 😭…",
-          "title_zh": "X 发帖 @laurogeitabat：根据F1梦幻游戏，Oscar昨天在意大利大奖赛期间超车了十六次😭 超车次数第二多的车手，仅次于Antonelli 🙂‍↕️👏🏻",
-          "summary": "according to the f1 fantasy game oscar overtook SIXTEEN times yesterday during the italian gp 😭 second driver with most overtakes just after antonelli 🙂‍↕️👏🏻 https://t.co/EIqOLCNXE1",
-          "summary_zh": "根据F1梦幻游戏，Oscar昨天在意大利大奖赛期间超车了十六次😭 超车次数第二多的车手，仅次于Antonelli 🙂‍↕️👏🏻",
-          "url": "https://x.com/laurogeitabat/status/2096896441218220249",
-          "published_at": "2026-09-07T09:40:44Z",
-          "image_url": "https://pbs.twimg.com/media/HRmsMd2WIAAwngg.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HRmsMd2WIAAwngg.jpg",
-          "heat_contribution": 7.1265,
-          "metrics": {
-            "likes": 1613,
-            "retweets": 214,
-            "replies": 15,
-            "quotes": 0,
-            "views": 67729,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 38,
-      "heat": 38,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 9
-    },
-    {
       "event_id": "evt-2026-09-06-688a19051fff",
       "rule_id": null,
       "hot_word_zh": "oscar在事故发生后立刻在无线电里问charles是否安好 🫶🏻 oscar：\"他没事吧…",
@@ -1546,6 +1436,116 @@
             "replies": 2,
             "quotes": 0,
             "views": 60899,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 37,
+      "heat": 37,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 8
+    },
+    {
+      "event_id": "evt-2026-09-07-cd6653038298",
+      "rule_id": null,
+      "hot_word_zh": "安德烈亚·斯特拉确认Oscar并非故意将Lando挤出赛道：“当Lando的车轮压上草地时…",
+      "hot_word_en": "andrea stella confirms oscar didn't intentionally push lando off: \"when lando put the wheels on…",
+      "first_seen_at": "2026-09-07T13:04:09Z",
+      "last_seen_at": "2026-09-07T13:04:09Z",
+      "anchor_item_id": "piasnews-social-d98f1f46987c6dde",
+      "image_url": "https://pbs.twimg.com/media/HRnavN2a8AEst8e.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HRnavN2a8AEst8e.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-d98f1f46987c6dde",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: andrea stella confirms oscar didn't intentionally push lando off: \"when lando put the wheels on…",
+          "title_zh": "X 发帖 @laurogeitabat：安德烈亚·斯特拉确认Oscar并非故意将Lando挤出赛道：“当Lando的车轮压上草地时，他在无线电中说‘他把我挤出去了’。但实际上，当我们回看录像时，发现这一事件比当时看起来的要温和得多。”",
+          "summary": "andrea stella confirms oscar didn't intentionally push lando off: \"when lando put the wheels on the grass he came on the radio, said ‘he pushed me off’. but actually, when we reviewed it, we saw the episode was more benign than what it might've looked in the heat of the moment.\" https://t.co/EwKCpe9xz7",
+          "summary_zh": "安德烈亚·斯特拉确认Oscar并非故意将Lando挤出赛道：“当Lando的车轮压上草地时，他在无线电中说‘他把我挤出去了’。但实际上，当我们回看录像时，发现这一事件比当时看起来的要温和得多。”",
+          "url": "https://x.com/laurogeitabat/status/2096947630311887035",
+          "published_at": "2026-09-07T13:04:09Z",
+          "image_url": "https://pbs.twimg.com/media/HRnavN2a8AEst8e.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HRnavN2a8AEst8e.jpg",
+          "heat_contribution": 7.0706,
+          "metrics": {
+            "likes": 1332,
+            "retweets": 111,
+            "replies": 13,
+            "quotes": 0,
+            "views": 102004,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 37,
+      "heat": 37,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "event_id": "evt-2026-09-07-f0a7ac990586",
+      "rule_id": null,
+      "hot_word_zh": "Oscar被要求签一个Alpine水瓶“为了梗” 😭😭 🎥：_gaiaaa_05",
+      "hot_word_en": "oscar got asked to sign an alpine water bottle \"for the meme\" 😭😭 🎥: _gaiaaa_05",
+      "first_seen_at": "2026-09-07T07:07:16Z",
+      "last_seen_at": "2026-09-07T07:07:16Z",
+      "anchor_item_id": "piasnews-social-3fb884b1b47df156",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2096857792803897344/vid/avc1/320x568/99Zqhhez9uT6Rrl2.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2096857792803897344/img/4jnJSykmS1n82t8I.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-3fb884b1b47df156",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar got asked to sign an alpine water bottle \"for the meme\" 😭😭 🎥: _gaiaaa_05",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar被要求签一个Alpine水瓶“为了梗” 😭😭 🎥：_gaiaaa_05",
+          "summary": "oscar got asked to sign an alpine water bottle \"for the meme\" 😭😭 🎥: _gaiaaa_05 https://t.co/FLxY3znBrz",
+          "summary_zh": "Oscar被要求签一个Alpine水瓶“为了梗” 😭😭 🎥：_gaiaaa_05",
+          "url": "https://x.com/laurogeitabat/status/2096857817927864674",
+          "published_at": "2026-09-07T07:07:16Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2096857792803897344/vid/avc1/320x568/99Zqhhez9uT6Rrl2.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2096857792803897344/img/4jnJSykmS1n82t8I.jpg",
+          "heat_contribution": 6.9662,
+          "metrics": {
+            "likes": 3966,
+            "retweets": 280,
+            "replies": 4,
+            "quotes": 0,
+            "views": 75814,
             "bookmarks": 0
           }
         }
