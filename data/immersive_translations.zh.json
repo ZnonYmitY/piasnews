@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T15:52:47.677962Z",
+  "generated_at": "2026-09-09T19:23:50.671036Z",
   "translations": {
     "items:piasnews-fe3697a79f634516:title:c94eece5ccf0587686a48ca8": {
       "dataset": "items",
@@ -5077,6 +5077,174 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-09T15:52:46.712116Z"
+    },
+    "items:piasnews-4d9162e9c53ad238:title:f0ba01c4936b11b41f54a912": {
+      "dataset": "items",
+      "item_id": "piasnews-4d9162e9c53ad238",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri McLaren 'contract' point made by Rosberg",
+      "zh": "罗斯伯格指出Oscar Piastri与McLaren的‘合同’问题",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-09T19:23:49.650811Z"
+    },
+    "items:piasnews-4d9162e9c53ad238:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-4d9162e9c53ad238",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-09T19:23:49.650820Z"
+    },
+    "items:piasnews-9d795afd21e429d1:title:6fde9df35a36743b77c62e4a": {
+      "dataset": "items",
+      "item_id": "piasnews-9d795afd21e429d1",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri explains 'quite bizarre' Italian GP battle with Lewis Hamilton",
+      "zh": "Oscar Piastri解释与Lewis Hamilton在意大利大奖赛的‘相当奇怪’对决",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-09T19:23:49.650825Z"
+    },
+    "items:piasnews-9d795afd21e429d1:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-9d795afd21e429d1",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-09T19:23:49.650830Z"
+    },
+    "items:piasnews-73d51ae106bd33cc:title:c5ceb31cd6c70c60993a0875": {
+      "dataset": "items",
+      "item_id": "piasnews-73d51ae106bd33cc",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "McLaren reveals it will review Norris and Piastri's Monza battle",
+      "zh": "McLaren表示将审查Norris与Piastri在Monza的争夺",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-09T19:23:49.650835Z"
+    },
+    "items:piasnews-73d51ae106bd33cc:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-73d51ae106bd33cc",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-09T19:23:49.650838Z"
+    },
+    "items:piasnews-b15887f40ca706a2:title:a85ab22491b415a22df7d8ac": {
+      "dataset": "items",
+      "item_id": "piasnews-b15887f40ca706a2",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "McLaren to review papaya rules after Norris and Piastri’s intense Monza battle",
+      "zh": "McLaren将在Norris与Piastri激烈的Monza对决后审查木瓜规则",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-09T19:23:49.650844Z"
+    },
+    "items:piasnews-b15887f40ca706a2:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-b15887f40ca706a2",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-09T19:23:49.650852Z"
+    },
+    "items:piasnews-e9fdab7844a23cdf:title:30fbb23ac2d12c1c527f8caa": {
+      "dataset": "items",
+      "item_id": "piasnews-e9fdab7844a23cdf",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Lando Norris wins battle with Lewis Hamilton and Oscar Piastri to secure fourth at Italian GP",
+      "zh": "Lando Norris战胜Lewis Hamilton和Oscar Piastri，在意大利大奖赛获得第四",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-09T19:23:49.650857Z"
+    },
+    "items:piasnews-e9fdab7844a23cdf:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-e9fdab7844a23cdf",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-09T19:23:49.650861Z"
+    },
+    "items:piasnews-2d9a7ed98afd6f20:title:6ab49534341472e18c4c5a6a": {
+      "dataset": "items",
+      "item_id": "piasnews-2d9a7ed98afd6f20",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "McLaren to review Norris and Piastri clash that cost chance to fight Verstappen at Monza",
+      "zh": "McLaren将审查Norris与Piastri的冲突，该冲突使他们失去了在Monza与Verstappen一较高下的机会",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-09T19:23:49.650865Z"
+    },
+    "items:piasnews-2d9a7ed98afd6f20:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-2d9a7ed98afd6f20",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-09T19:23:49.650869Z"
+    },
+    "social:piasnews-social-ab6f26e58d856692:summary:6fa622d4bc609eec02c260d2": {
+      "dataset": "social",
+      "item_id": "piasnews-social-ab6f26e58d856692",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "calvin harris fanboy oscar piastri strikes again https://t.co/AMrTRVWih7",
+      "zh": "卡尔文·哈里斯粉丝Oscar Piastri又来了",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-09T19:23:49.650873Z"
+    },
+    "social:piasnews-social-3eb6bd1f53ee3252:summary:f4acaefe442d89c3e004c2e1": {
+      "dataset": "social",
+      "item_id": "piasnews-social-3eb6bd1f53ee3252",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "some of the pins being sold at the mclaren pop up in madrid, including a #81 one 😊 https://t.co/fPTZcrLFRM",
+      "zh": "马德里McLaren快闪店出售的一些徽章，包括一个#81的😊",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-09T19:23:49.650877Z"
     }
   },
   "retention_days": 8
