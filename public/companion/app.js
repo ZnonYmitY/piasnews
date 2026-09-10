@@ -1,71 +1,10 @@
-const SOURCE_LIBRARY = {
-  number81: {
-    mark: "F1",
-    id: "KF-004",
-    label: "Official explanation of number 81",
-    url: "https://www.formula1.com/en/latest/article/mclaren-rookie-piastri-explains-why-he-chose-81-as-his-race-number-for-2023.3TYgCqI5kg4t8OztNvb2K3",
-  },
-  alpine: {
-    mark: "FIA",
-    id: "RM-001",
-    label: "Contract Recognition Board decision",
-    url: "https://www.fia.com/news/decision-contract-recognition-board-02092022",
-  },
-  redBull: {
-    mark: "MCL",
-    id: "RM-003",
-    label: "McLaren multi-year extension",
-    url: "https://www.mclaren.com/racing/formula-1/2025/mclaren-formula-1-team-announce-multi-year-contract-extension-with-oscar-piastri/",
-  },
-  teamOrders: {
-    mark: "F1",
-    id: "RM-014",
-    label: "Public team-order sequence",
-    url: "https://www.formula1.com/en/latest/article/piastri-concedes-there-were-valid-reasons-for-mclaren-team-orders-in-monza.fCgwRC1rwwqj0ZxjYrBJP",
-  },
-  hungary: {
-    mark: "F1",
-    id: "RM-015",
-    label: "Official 2024 Hungarian GP result",
-    url: "https://www.formula1.com/en/latest/article/piastri-wins-hungarian-grand-prix-as-norris-belatedly-hands-back-lead-in.70F4mNzYrbmvNYaj8KXm18",
-  },
-  xCorrection: {
-    mark: "X",
-    id: "EV-034",
-    label: "Direct, bounded public correction",
-    url: "https://x.com/OscarPiastri/status/1554527452231262210",
-  },
-  xWin: {
-    mark: "X",
-    id: "EV-039",
-    label: "Compressed first-win reaction",
-    url: "https://x.com/OscarPiastri/status/1815060903663935931",
-  },
-  xWinLong: {
-    mark: "X",
-    id: "EV-040",
-    label: "Bounded first-win acknowledgement",
-    url: "https://x.com/OscarPiastri/status/1815091307963904440",
-  },
-  xSetback: {
-    mark: "X",
-    id: "EV-045",
-    label: "Compact mixed-season reflection",
-    url: "https://x.com/OscarPiastri/status/1998121758025470085",
-  },
-  xBanter: {
-    mark: "X",
-    id: "EV-046",
-    label: "Context-bound literal reply",
-    url: "https://x.com/OscarPiastri/status/1819104317447586283",
-  },
-};
+import { makeOfflineResponse } from "./offline-response.js?v=20260910-scope-1";
 
 const DEFAULT_WORKER_URL = "https://piasnews-review.znonymity-piasnews.workers.dev";
 const MAX_HISTORY_ITEMS = 8;
 const MAX_HISTORY_CHARS = 900;
 const MAX_PROMPT_CHARS = 500;
-const APP_VERSION = "20260908-feedback-1";
+const APP_VERSION = "20260910-scope-1";
 const FEEDBACK_CATEGORIES = [
   ["off_persona", "不像 Oscar"], ["unnatural", "太机械 / 不自然"],
   ["fact_error", "事实不对"], ["irrelevant", "答非所问"],
@@ -178,234 +117,6 @@ function containsChinese(value) {
   return /[\u3400-\u9fff]/.test(value);
 }
 
-function normalise(value) {
-  return value.trim().toLocaleLowerCase();
-}
-
-function makeResponse(prompt, factsOnlySetting = els.factsOnly.checked) {
-  const input = normalise(prompt);
-  const zh = containsChinese(prompt);
-  const factsOnly = factsOnlySetting;
-
-  if (/^(你好|您好|嗨|哈喽|在吗|hello|hi|hey)[!！.。\s]*$/i.test(input)) {
-    return {
-      en: "Hey. Good to see you.",
-      zh: "嗨，很高兴见到你。",
-      singleLanguage: true,
-      trace: {
-        route: "fan_light",
-        domain: "Simple social greeting",
-        fact: "No factual claim required",
-        style: "SC-05 · minimal greeting",
-        styleNote: "Natural greeting only. No forced topic menu or closing question.",
-        meters: [98, 0, 92],
-        sources: [],
-      },
-    };
-  }
-
-  if (/(一个字一个字|本人.*写|亲自.*写|authorship|wrote every|social.*team)/i.test(input) && /(x|推文|帖子|发言|caption)/i.test(input)) {
-    return {
-      en: "Individual authorship is unverified. @OscarPiastri is a first-party public account, so its output can support style analysis, but the public record does not identify who drafted, edited, or published each post.",
-      zh: "无法逐条确认作者。@OscarPiastri 属于第一方公开账号，其输出可以支持风格分析，但公开资料没有说明每条内容由谁撰写、编辑或发布。",
-      trace: {
-        route: "rumor_check",
-        domain: "Public-account authorship claim",
-        fact: "RM-012 · item authorship unverified",
-        style: "Facts only · no persona performance",
-        styleNote: "Account output is evidence. Item-level authorship is not assumed.",
-        meters: [78, 0, 96],
-        sources: [SOURCE_LIBRARY.xCorrection, SOURCE_LIBRARY.xBanter],
-      },
-    };
-  }
-
-  if (/(81|车号|号码|race number)/i.test(input)) {
-    return {
-      en: "It came from karting. I started with 11 because those were the stickers I had; when 11 was taken at the Victorian state titles, the first digit became an 8. Fairly practical, really.",
-      zh: "它来自卡丁车时期。我最初用了 11，因为手边只有数字 1 的贴纸；后来参加维多利亚州锦标赛时 11 已被占用，于是第一位改成了 8。其实很实际。",
-      factsEn: "Piastri has said the number came from karting: he first used 11 because those were the stickers available, then changed the first digit to 8 when 11 was taken at the Victorian state titles.",
-      factsZh: "Piastri 公开解释过，81 来自卡丁车时期：他先因手边只有数字 1 的贴纸用了 11，后来州锦标赛上 11 已被占用，于是把第一位改成 8。",
-      trace: {
-        route: "public_fact",
-        domain: "Verified public biography",
-        fact: "KF-004 · stable fact",
-        style: factsOnly ? "Facts only" : "SC-05 · one dry close",
-        styleNote: "No symbolic meaning is invented for the number.",
-        meters: [69, factsOnly ? 0 : 16, 94],
-        sources: [SOURCE_LIBRARY.number81],
-      },
-    };
-  }
-
-  if (/(alpine|阿尔派|背弃|contract recognition|crb)/i.test(input)) {
-    return {
-      en: "The claim is false as stated. The FIA Contract Recognition Board found that the only agreement it recognised for 2023 and 2024 was Piastri's McLaren contract; being Alpine's reserve driver in 2022 was not the same as holding a valid 2023 Alpine race contract.",
-      zh: "这句话不准确。FIA 合同认可委员会裁定，唯一被认可的 2023–2024 合同是 Piastri 的 McLaren 合同；他在 2022 年担任 Alpine 预备车手，并不等于持有有效的 2023 Alpine 正赛车手合同。",
-      trace: {
-        route: "rumor_check",
-        domain: "Contract-history claim",
-        fact: "RM-001 · false as stated",
-        style: "Facts only · no persona performance",
-        styleNote: "Preserve the reserve-driver fact while correcting the contract claim.",
-        meters: [63, 0, 98],
-        sources: [SOURCE_LIBRARY.alpine, SOURCE_LIBRARY.xCorrection],
-      },
-    };
-  }
-
-  if (/(red bull|红牛|转会|离队|leave mclaren|signed for)/i.test(input)) {
-    return {
-      en: "There is no official confirmation of that move. The current public record includes a multi-year McLaren extension, so this is unsupported as of this demo's 4 September 2026 knowledge snapshot, not proof that a future move is impossible.",
-      zh: "目前没有官方确认这一转会。现有公开记录包括他与 McLaren 的多年续约，因此截至本演示采用的 2026 年 9 月 4 日知识快照，这个说法没有可靠支持；这不代表未来转会永远不可能。",
-      trace: {
-        route: "rumor_check",
-        domain: "Live driver-market claim",
-        fact: "RM-003 · currently unsupported",
-        style: "Facts only · dated verdict",
-        styleNote: "Absence of an announcement is not permanent proof of falsity.",
-        meters: [66, 0, 88],
-        sources: [SOURCE_LIBRARY.redBull],
-      },
-    };
-  }
-
-  if (/(从来不会质疑|永远服从|车队指令|team order|always obey|never question)/i.test(input)) {
-    return {
-      en: "That is false as stated. Public radio records Piastri questioning specific instructions and their fairness while sometimes still carrying out the immediate decision. Compliance is not the same as agreement.",
-      zh: "这句话不准确。公开无线电记录过 Piastri 质疑具体指令及其公平性，同时有时仍执行当下决定。执行不等于认同。",
-      trace: {
-        route: "rumor_check",
-        domain: "Absolute team-order claim",
-        fact: "RM-014 · false as stated",
-        style: "Facts only · preserve event sequence",
-        styleNote: "Do not replace one absolute trait with its opposite.",
-        meters: [76, 0, 97],
-        sources: [SOURCE_LIBRARY.teamOrders],
-      },
-    };
-  }
-
-  if (/(匈牙利|hungar|首胜不算|gifted win|not a real win)/i.test(input)) {
-    return {
-      en: "That mixes a result fact with a value judgment. Piastri is the official winner of the 2024 Hungarian Grand Prix; the late team-order sequence is open to analysis, but it does not erase the classified win.",
-      zh: "这把赛果事实和价值判断混在了一起。Piastri 是 2024 年匈牙利大奖赛的官方冠军；末段车队指令可以讨论，但不会取消正式胜者身份。",
-      trace: {
-        route: "rumor_check",
-        domain: "Result fact versus opinion",
-        fact: "RM-015 · misleading",
-        style: "Facts only · no persona performance",
-        styleNote: "Debate the event without rewriting the classified result.",
-        meters: [71, 0, 98],
-        sources: [SOURCE_LIBRARY.hungary],
-      },
-    };
-  }
-
-  if (/(没有情绪|从不庆祝|emotionless|never celebrate|never excited)/i.test(input)) {
-    return {
-      en: "That is an overstatement. The public style is often restrained, but first-win posts also show direct excitement and thanks. Compressed expression is not the absence of emotion, and public text cannot measure private emotion anyway.",
-      zh: "这是过度概括。他的公开表达经常很克制，但首胜内容中也有直接的兴奋和感谢。表达简短不等于没有情绪，公开文字也无法测量私人情绪。",
-      trace: {
-        route: "rumor_check",
-        domain: "Public-expression stereotype",
-        fact: "RM-013 · misleading",
-        style: "Facts only · no inner-state claim",
-        styleNote: "Describe observable expression, not private emotional intensity.",
-        meters: [74, 0, 92],
-        sources: [SOURCE_LIBRARY.xWin, SOURCE_LIBRARY.xWinLong],
-      },
-    };
-  }
-
-  if (/(女友|分手|恋爱|私下关系|内心|抑郁|焦虑|girlfriend|breakup|private relationship|diagnose)/i.test(input)) {
-    return {
-      en: "That's not something this experience can verify or catalogue. Public photos, likes, and fan inference are not reliable evidence of a private relationship or inner state.",
-      zh: "这不是这个体验可以核验或整理的内容。公开照片、点赞和粉丝推测都不是判断私人关系或内心状态的可靠证据。",
-      trace: {
-        route: "private_or_inner_state_unverified",
-        domain: "Private or unverified personal claim",
-        fact: "Privacy boundary · do not investigate",
-        style: "SC-06 · direct stop",
-        styleNote: "Do not list names, theories, or inferred feelings.",
-        meters: [91, 0, 99],
-        sources: [],
-      },
-    };
-  }
-
-  if (/(python|代码|编程|数学|高数|菜谱|吃什么|股票|投资|博彩|bet|medical|诊断|律师|legal)/i.test(input)) {
-    const professional = /(股票|投资|博彩|bet|medical|诊断|律师|legal)/i.test(input);
-    return {
-      en: professional ? "You should get that from someone qualified." : "Not really my field.",
-      zh: professional ? "这应该交给有资质的人回答。" : "这不是我的领域。",
-      trace: {
-        route: professional ? "medical_legal_financial" : "unrelated_general",
-        domain: professional ? "Professional-advice boundary" : "Outside Piastri / F1 scope",
-        fact: "No retrieval performed",
-        style: professional ? "SC-07 · unstyled refusal" : "SC-06 · direct stop",
-        styleNote: "End after the boundary. No redirect or engagement hook.",
-        meters: [98, 0, 99],
-        sources: [],
-      },
-    };
-  }
-
-  if (/(win|won|victory|podium|领奖台|赢|冠军|brilliant)/i.test(input)) {
-    return {
-      en: factsOnly ? "The supplied context describes a win; this demo has not loaded a classified result beyond that context." : "That was a good one. The result looks simple; getting the whole weekend there usually isn't.",
-      zh: factsOnly ? "当前输入描述了一场胜利；除此之外，本演示没有载入正式赛果，因而不补充更多事实。" : "这场不错。结果看起来简单，但把整个周末带到这里通常并不简单。",
-      trace: factsOnly ? {
-        route: "insufficient_current_fact",
-        domain: "Positive race context",
-        fact: "Only the user-supplied result is available",
-        style: "Facts only · persona suppressed",
-        styleNote: "No race detail is invented when the classified result is absent.",
-        meters: [82, 0, 78],
-        sources: [],
-      } : {
-        route: "fan_light",
-        domain: "Positive fan reaction",
-        fact: "User-supplied win context",
-        style: "SC-02 · restrained win",
-        styleNote: "Short first reaction; no destiny claim or mandatory speech.",
-        meters: [87, 12, 72],
-        sources: [SOURCE_LIBRARY.xWin, SOURCE_LIBRARY.xWinLong],
-      },
-    };
-  }
-
-  const asksAboutAttachedContext = contextEnabled && /(怎么看|这场|这里|这一段|这个结果|what do you think|this race|that result)/i.test(input);
-  if (/(bad|mistake|失误|遗憾|retire|退赛|strategy|策略|tyre|轮胎|pace|速度|qualifying|排位|race|比赛|f1|mclaren)/i.test(input) || asksAboutAttachedContext) {
-    return {
-      en: factsOnly ? "I don't have enough verified session data in this static demo to identify the cause. Pace, tyre state, gaps, and the event record would need to be checked first." : "First work out what actually capped the result: pace, tyres, traffic, or the decision itself. Without that, a confident answer would just be theatre.",
-      zh: factsOnly ? "这个静态演示没有足够的已核验赛段数据来确认原因；需要先核对速度、轮胎状态、差距和赛事记录。" : "先弄清真正限制结果的是什么：速度、轮胎、交通，还是决策本身。没有这些信息，过度确定的回答只是表演。",
-      trace: {
-        route: factsOnly ? "insufficient_current_fact" : "f1_grounded",
-        domain: "Race or session analysis",
-        fact: "Current session data not loaded",
-        style: factsOnly ? "Facts only · stop at evidence gap" : "SC-01 · measured debrief",
-        styleNote: "Name the missing constraints before making a driver-specific judgment.",
-        meters: [62, 0, 68],
-        sources: [],
-      },
-    };
-  }
-
-  return {
-    en: "Not really my field.",
-    zh: "这不是我的领域。",
-    trace: {
-      route: "unrelated_general",
-      domain: "Outside Piastri / F1 scope",
-      fact: "No retrieval performed",
-      style: "SC-06 · direct stop",
-      styleNote: "End after the boundary. No redirect or engagement hook.",
-      meters: [98, 0, 99],
-      sources: [],
-    },
-  };
-}
 
 function createFeedbackSnapshot({ prompt = "", text = "", translation = "", history = [], engine = "welcome", factsOnly = false, trace = DEFAULT_TRACE, metadata = {}, latencyMs = null } = {}) {
   const sourceIds = (trace.sources || []).map((source) => source.id);
@@ -466,7 +177,7 @@ function addMessage(role, text, translation = "", trace = null, engine = "", fee
     engineLabel.className = "message-engine";
     engineLabel.textContent = {
       deepseek: "DEEPSEEK · 模型生成",
-      boundary: "边界答复 · 模型分流",
+      boundary: feedbackSnapshot?.model ? "边界答复 · 模型分流" : "边界答复 · 服务端判定",
       ledger: "谣言台账 · 固定答复",
       fallback: "规则兜底 · 非模型生成",
     }[engine] || "规则兜底 · 非模型生成";
@@ -771,6 +482,12 @@ function syncViewportHeight() {
 
 function setModelState(state, status = companionStatus) {
   els.modelDisclosure.dataset.state = state;
+  if (state === "boundary") {
+    els.modelStatusTitle.textContent = "边界答复 · 本轮未调用模型";
+    els.modelStatusDetail.textContent = "服务端直接判定边界；这条回复不代表模型连接验证。";
+    els.runtimeNote.textContent = "Skill v0.4.0 · 固定边界答复 · 本轮没有调用 DeepSeek。";
+    return;
+  }
   if (state === "ready") {
     els.modelStatusTitle.textContent = "DeepSeek 已配置";
     els.modelStatusDetail.textContent = "发送后验证连接 · 非官方风格演绎，不代表本人。";
@@ -864,12 +581,13 @@ async function requestModelResponse(prompt, factsOnly, signal, history) {
   });
   if (!response.ok) throw new Error(`Companion API ${response.status}`);
   const payload = await response.json();
-  if (payload.engine !== "deepseek" || typeof payload.answer_en !== "string") {
+  if (!["deepseek", "boundary"].includes(payload.engine) || typeof payload.answer_en !== "string") {
     throw new Error("Unexpected Companion response");
   }
   return {
     model: payload.model,
-    generationKind: payload.fallback_id ? "boundary" : payload.route === "rumor_check" && payload.rumor_item_ids?.length ? "ledger" : "deepseek",
+    modelInvoked: payload.engine === "deepseek",
+    generationKind: payload.engine === "boundary" || payload.fallback_id ? "boundary" : payload.route === "rumor_check" && payload.rumor_item_ids?.length ? "ledger" : "deepseek",
     en: payload.answer_en,
     zh: payload.answer_zh || "",
     singleLanguage: false,
@@ -895,18 +613,23 @@ async function submitPrompt(rawPrompt) {
 
   const factsOnly = els.factsOnly.checked;
   const requestHistory = conversationHistory.slice(-MAX_HISTORY_ITEMS).map((item) => ({ role: item.role, content: item.content.slice(0, MAX_HISTORY_CHARS) }));
+  const requestContextEnabled = contextEnabled;
   const requestStarted = performance.now();
   let response;
-  let usedModel = false;
+  let usedApi = false;
   try {
     response = await requestModelResponse(prompt, factsOnly, controller.signal, requestHistory);
     if (epoch !== requestEpoch) return;
-    usedModel = true;
-    companionStatus = { ...(companionStatus || {}), online: true, model: response.model };
-    setModelState("online", companionStatus);
+    usedApi = true;
+    if (response.modelInvoked) {
+      companionStatus = { ...(companionStatus || {}), online: true, model: response.model };
+      setModelState("online", companionStatus);
+    } else if (els.modelDisclosure.dataset.state === "connecting") {
+      setModelState("boundary");
+    }
   } catch (_) {
     if (epoch !== requestEpoch) return;
-    response = makeResponse(prompt, factsOnly);
+    response = makeOfflineResponse(prompt, { factsOnly, history: requestHistory, contextEnabled: requestContextEnabled });
     response.trace = {
       ...response.trace,
       styleNote: `${response.trace.styleNote} Model unavailable; deterministic fallback used.`,
@@ -925,7 +648,7 @@ async function submitPrompt(rawPrompt) {
   const translation = response.singleLanguage
     ? ""
     : (useZh ? (factsOnly && response.factsZh ? response.factsZh : response.zh) : "");
-  const engine = usedModel ? response.generationKind : "fallback";
+  const engine = usedApi ? response.generationKind : "fallback";
   const feedbackSnapshot = createFeedbackSnapshot({
     prompt,
     text: response.singleLanguage && useZh ? "" : text,
@@ -941,7 +664,7 @@ async function submitPrompt(rawPrompt) {
     { role: "assistant", content: [text, translation && `中文：${translation}`].filter(Boolean).join("\n").slice(0, MAX_HISTORY_CHARS) },
   );
   conversationHistory = conversationHistory.slice(-MAX_HISTORY_ITEMS);
-  if (!usedModel) companionStatus = { ...(companionStatus || {}), online: false };
+  if (!usedApi) companionStatus = { ...(companionStatus || {}), online: false };
 }
 
 function resetConversation() {
