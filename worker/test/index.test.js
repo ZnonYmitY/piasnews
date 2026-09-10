@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import worker from "../src/index.js";
+import { COMPANION_PACKAGE_VERSION } from "../src/companion-runtime.js";
 
 
 function createAnalyticsDb() {
@@ -85,19 +86,21 @@ function companionRequest(message = "你好", overrides = {}) {
 
 
 function deepseekFetchMock(modelResult, { status = 200, finishReason = "stop" } = {}) {
+  modelResult = { self_check: { actual_facts: false, facts_supported: true, temporal_scope: "none", mode_consistent: true, answers_question: true }, ...modelResult };
   return async (url, options = {}) => {
     assert.equal(String(url), "https://api.deepseek.com/chat/completions");
     const request = JSON.parse(options.body);
     assert.equal(options.headers.Authorization, "Bearer test-deepseek-key");
     assert.equal(request.model, "deepseek-v4-flash");
     assert.deepEqual(request.response_format, { type: "json_object" });
-    assert.match(request.messages[0].content, /piastri-persona-distillation Skill v0\.4\.0/);
-    assert.match(request.messages[0].content, /Greetings are IN SCOPE/);
+    assert.ok(request.messages[0].content.includes(`piastri-persona-distillation Skill v${COMPANION_PACKAGE_VERSION}`));
+    assert.match(request.messages[0].content, /Both modes receive the SAME RETRIEVED_KNOWLEDGE_CONTEXT/);
     const context = JSON.parse(request.messages[1].content.split("\n").slice(1).join("\n"));
     assert.equal(context.allowed_routes.length, 14);
     for (const route of context.allowed_routes) assert.ok(request.messages[0].content.includes(route));
     assert.equal(typeof context.CANDIDATE_MODE, "boolean");
     assert.ok(context.CURRENT_PUBLIC_DATA);
+    assert.ok(context.RETRIEVED_KNOWLEDGE_CONTEXT);
     assert.ok(Number.isFinite(Date.parse(context.now_utc)));
     assert.ok(["zh-CN", "en"].includes(context.response_language));
     assert.match(request.messages[2].content, /OUTPUT LANGUAGE/);
@@ -244,7 +247,7 @@ test("companion status reports the DeepSeek-backed distilled package", async () 
   assert.equal(payload.online, true);
   assert.equal(payload.provider, "deepseek");
   assert.equal(payload.model, "deepseek-v4-flash");
-  assert.equal(payload.package_version, "0.4.0");
+  assert.equal(payload.package_version, COMPANION_PACKAGE_VERSION);
   assert.equal(payload.candidate_mode, true);
   assert.match(payload.source_hash, /^[a-f0-9]{16}$/);
 });
@@ -262,7 +265,8 @@ test("companion sends the distilled Skill to DeepSeek and returns a trace", asyn
     assert.equal(payload.answer_zh, "嗨。很高兴见到你。");
     assert.equal(payload.route, "fan_light");
     assert.equal(payload.style_card_id, "SC-05");
-    assert.equal(payload.sources[0].id, "EV-046");
+    assert.deepEqual(payload.sources, []);
+    assert.equal(payload.style_sources[0].id, "EV-046");
     assert.equal(payload.usage.total_tokens, 120);
     assert.equal(env.ANALYTICS_DB.operations.length, previousWrites, "ordinary chats are never persisted as feedback");
   } finally {
@@ -271,33 +275,34 @@ test("companion sends the distilled Skill to DeepSeek and returns a trace", asyn
 });
 
 
-test("companion hard-stops an unrelated answer even if the model tries to answer", async () => {
+test("companion preserves a generated boundary rather than replacing it with a persona template", async () => {
   const originalFetch = globalThis.fetch;
   globalThis.fetch = deepseekFetchMock(modelResult({
-    answer_en: "Here is Python code.",
-    answer_zh: "这是 Python 代码。",
+    answer_en: "I cannot do that coding task in this companion.",
+    answer_zh: "这个聊天角色不处理代码编写任务。",
     route: "unrelated_general",
+    answer_kind: "boundary",
     style_card_id: "SC-05",
   }));
   try {
     const response = await worker.fetch(companionRequest("帮我写 Python 爬虫"), env);
     const payload = await response.json();
     assert.equal(response.status, 200);
-    assert.equal(payload.answer_en, "Not really my field.");
-    assert.equal(payload.answer_zh, "这不是我的领域。");
+    assert.equal(payload.answer_en, "I cannot do that coding task in this companion.");
+    assert.equal(payload.answer_zh, "这个聊天角色不处理代码编写任务。");
     assert.equal(payload.fallback_id, "FB-01");
-    assert.equal(payload.style_card_id, "SC-06");
+    assert.equal(payload.style_card_id, "SC-05");
   } finally {
     globalThis.fetch = originalFetch;
   }
 });
 
 
-test("companion replaces rumor prose with the reviewed rumor-ledger response", async () => {
+test("companion validates a retrieved rumor source without overwriting the generated wording", async () => {
   const originalFetch = globalThis.fetch;
   globalThis.fetch = deepseekFetchMock(modelResult({
-    answer_en: "The model improvised this.",
-    answer_zh: "模型临场发挥。",
+    answer_en: "The FIA board recognised the McLaren agreement, not an Alpine race contract.",
+    answer_zh: "FIA 合同委员会认可的是迈凯伦协议，而非 Alpine 正赛车手合同。",
     route: "rumor_check",
     rumor_item_ids: ["RM-001"],
     judgment_rule_ids: ["JR-01"],
@@ -307,8 +312,8 @@ test("companion replaces rumor prose with the reviewed rumor-ledger response", a
     const response = await worker.fetch(companionRequest("他是不是背弃了 Alpine 合同？"), env);
     const payload = await response.json();
     assert.equal(response.status, 200);
-    assert.match(payload.answer_en, /^Verdict: false as stated\./);
-    assert.match(payload.answer_zh, /^结论：这句话不准确。/);
+    assert.match(payload.answer_en, /^The FIA board/);
+    assert.match(payload.answer_zh, /^FIA 合同委员会/);
     assert.deepEqual(payload.judgment_rule_ids, []);
     assert.equal(payload.sources.some((source) => source.id === "KS-010"), true);
   } finally {

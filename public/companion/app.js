@@ -1,10 +1,8 @@
-import { makeOfflineResponse } from "./offline-response.js?v=20260910-preferences-1";
-
 const DEFAULT_WORKER_URL = "https://piasnews-review.znonymity-piasnews.workers.dev";
 const MAX_HISTORY_ITEMS = 8;
 const MAX_HISTORY_CHARS = 900;
 const MAX_PROMPT_CHARS = 500;
-const APP_VERSION = "20260910-preferences-1";
+const APP_VERSION = "20260910-shared-knowledge-2";
 const MODE_LABELS = { free: "自由演绎", grounded: "强依据" };
 const ANSWER_KIND_LABELS = { fictional: "角色演绎 · 非本人事实", evidence: "有来源的事实", social: "轻松聊天", boundary: "边界答复", insufficient: "依据不足" };
 const FEEDBACK_CATEGORIES = [
@@ -112,6 +110,7 @@ let generatingMode = null;
 let conversationHistories = { free: [], grounded: [] };
 let requestEpoch = 0;
 let activeRequest = null;
+let retryableFailure = null;
 let isGenerating = false;
 let followLatest = true;
 let drawerTrigger = null;
@@ -138,7 +137,7 @@ function createFeedbackSnapshot({ prompt = "", text = "", translation = "", hist
     answer_kind: answerKind,
     model: String(metadata.model || "").slice(0, 80),
     route: String(trace.route || "").slice(0, 80),
-    style_card_id: String(metadata.style_card_id || (engine === "fallback" ? trace.style.match(/SC-\d+/)?.[0] : "") || "").slice(0, 40),
+    style_card_id: String(metadata.style_card_id || "").slice(0, 40),
     package_version: String(metadata.package_version || "").slice(0, 40),
     source_hash: String(metadata.source_hash || "").slice(0, 80),
     facts_only: mode === "grounded",
@@ -192,12 +191,7 @@ function addMessage(role, text, translation = "", trace = null, engine = "", fee
   if (engine) {
     const engineLabel = document.createElement("span");
     engineLabel.className = "message-engine";
-    engineLabel.textContent = {
-      deepseek: "DEEPSEEK · 模型生成",
-      boundary: feedbackSnapshot?.model ? "边界答复 · 模型分流" : "边界答复 · 服务端判定",
-      ledger: "谣言台账 · 固定答复",
-      fallback: "规则兜底 · 非模型生成",
-    }[engine] || "规则兜底 · 非模型生成";
+    engineLabel.textContent = engine === "deepseek" ? "DEEPSEEK · 模型生成" : "静态开场 · 非模型生成";
     meta.append(engineLabel);
   }
 
@@ -244,7 +238,7 @@ function addMessage(role, text, translation = "", trace = null, engine = "", fee
   }
 
   article.append(meta, copy);
-  if (role === "assistant") attachFeedback(article, feedbackSnapshot || createFeedbackSnapshot({ text, translation, engine: engine || "fallback", trace: trace || DEFAULT_TRACE }));
+  if (role === "assistant") attachFeedback(article, feedbackSnapshot || createFeedbackSnapshot({ text, translation, engine: engine || "deepseek", trace: trace || DEFAULT_TRACE }));
   els.messages.append(article);
   if (role === "user") scrollToLatest(false);
   else if (followLatest) scrollToLatest();
@@ -480,15 +474,16 @@ function setGenerating(value) {
   els.form.setAttribute("aria-busy", String(value));
   els.promptList.querySelectorAll("button").forEach((button) => { button.disabled = value; });
   els.send.disabled = value || !els.input.value.trim();
+  if (retryableFailure) retryableFailure.button.disabled = value;
   updateModeUi();
 }
 
 function updateModeUi(announced = false) {
   els.modeButtons.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.companionMode === selectedMode)));
   els.modeDescription.textContent = selectedMode === "free"
-    ? "像他那样聊：想法与反应可以演绎，不代表本人事实。"
-    : "只按本次可用来源回答；证据不足会直接说明。";
-  els.drawerModeSummary.textContent = `当前选择：${MODE_LABELS[selectedMode]}。从下一条回复生效；两种模式的上下文彼此独立，旧回复保持原模式。`;
+    ? "同样检索公开资料；想法与反应可以演绎，不代表本人事实。"
+    : "使用相同的资料检索；只说本次来源能支持的内容。";
+  els.drawerModeSummary.textContent = `当前选择：${MODE_LABELS[selectedMode]}。两种模式共享人物知识与公开资料检索，区别是允许演绎还是必须有依据。从下一条回复生效；上下文彼此独立，旧回复保持原模式。`;
   els.modeStatus.textContent = isGenerating && generatingMode !== selectedMode
     ? `正在生成的回复仍是「${MODE_LABELS[generatingMode]}」；下一条切换。`
     : announced ? `已切换，下条生效 · ${MODE_LABELS[selectedMode]}有独立上下文。` : "两种模式上下文独立 · 旧回复不会改变";
@@ -518,17 +513,12 @@ function syncViewportHeight() {
 }
 
 function setModelState(state, status = companionStatus) {
+  const packageLabel = status?.package_version ? `人物知识包 v${status.package_version}` : "人物知识包";
   els.modelDisclosure.dataset.state = state;
-  if (state === "boundary") {
-    els.modelStatusTitle.textContent = "边界答复 · 本轮未调用模型";
-    els.modelStatusDetail.textContent = "服务端直接判定边界；这条回复不代表模型连接验证。";
-    els.runtimeNote.textContent = "Skill v0.4.0 · 固定边界答复 · 本轮没有调用 DeepSeek。";
-    return;
-  }
   if (state === "ready") {
     els.modelStatusTitle.textContent = "DeepSeek 已配置";
-    els.modelStatusDetail.textContent = "发送后验证连接 · 非官方风格演绎，不代表本人。";
-    els.runtimeNote.textContent = `Skill v0.4.0 · ${status?.model || "DeepSeek"} · 服务配置可用，模型生成尚未验证。`;
+    els.modelStatusDetail.textContent = "发送后由模型生成；连接未验证。非本人、非官方。";
+    els.runtimeNote.textContent = `${packageLabel} · ${status?.model || "DeepSeek"} · 服务配置可用，模型生成尚未验证。`;
     return;
   }
   if (state === "online") {
@@ -536,19 +526,19 @@ function setModelState(state, status = companionStatus) {
     els.modelStatusTitle.textContent = "DeepSeek 已连接";
     els.modelStatusDetail.textContent = "非官方风格演绎，不代表本人、McLaren 或 F1。";
     els.runtimeNote.replaceChildren(
-      document.createTextNode(`Skill v0.4.0 · ${model}`),
+      document.createTextNode(`${packageLabel} · ${model}`),
       document.createElement("br"),
-      document.createTextNode("人物表达受公开材料与领域边界约束。"),
+      document.createTextNode("两种模式共享资料检索；人物表达受公开材料与领域边界约束。"),
     );
     return;
   }
-  if (state === "fallback") {
-    els.modelStatusTitle.textContent = "模型暂不可用 · 规则兜底";
-    els.modelStatusDetail.textContent = "兜底回答会逐条标注；仍可继续聊天重试模型。";
+  if (state === "error") {
+    els.modelStatusTitle.textContent = "模型服务暂不可用";
+    els.modelStatusDetail.textContent = "未生成角色回复。可重试；不会使用预写回答代替。";
     els.runtimeNote.replaceChildren(
-      document.createTextNode("Skill v0.4.0 · fallback active"),
+      document.createTextNode(`${packageLabel} · 模型服务异常`),
       document.createElement("br"),
-      document.createTextNode("规则兜底不是模型生成，也不是实时事实核验。"),
+      document.createTextNode("服务异常提示不是角色回复，不会写入对话上下文。"),
     );
     return;
   }
@@ -576,7 +566,7 @@ async function loadCompanionConfig() {
     if (!companionStatus.online) throw new Error("model offline");
     if (!messageCounter) setModelState("ready", companionStatus);
   } catch (_) {
-    if (!messageCounter) setModelState("fallback");
+    if (!messageCounter) setModelState("error");
   }
 }
 
@@ -584,13 +574,17 @@ function modelTrace(payload) {
   const facts = [...new Set([...(payload.knowledge_fact_ids || []), ...(payload.rumor_item_ids || []), ...(payload.public_source_ids || [])])];
   const liveSources = (payload.sources || []).filter((source) => /^LIVE-/.test(source.id || ""));
   for (const source of liveSources) if (!facts.includes(source.id)) facts.push(source.id);
+  const retrievalKeys = ["retrieved_knowledge_fact_ids", "retrieved_rumor_item_ids", "retrieved_public_source_ids"];
+  const retrievalSummary = retrievalKeys.some((key) => Array.isArray(payload[key]))
+    ? `本次检索：人物事实 ${payload.retrieved_knowledge_fact_ids?.length || 0} 项、传闻台账 ${payload.retrieved_rumor_item_ids?.length || 0} 项、公开来源 ${payload.retrieved_public_source_ids?.length || 0} 项。检索到不等于回答采用；下方只展示本条引用的来源。`
+    : "";
   const styleId = payload.style_card_id || "SC-06";
   return {
     route: payload.route || "unrelated_general",
     domain: ROUTE_LABELS[payload.route] || "Distilled domain route",
-    fact: payload.answer_kind === "fictional" ? "角色演绎 · 不是本人事实，也不是原话" : facts.length ? facts.join(" · ") : payload.answer_kind === "social" ? "社交表达，无需事实来源" : payload.answer_kind === "insufficient" ? "本次可用来源不足" : "这条回答没有关联事实来源",
-    style: `${styleId} · ${payload.fallback_id ? "固定边界答复" : payload.route === "rumor_check" && payload.rumor_item_ids?.length ? "谣言台账答复" : "DeepSeek constrained generation"}`,
-    styleNote: payload.notes || "模型按蒸馏约束生成；关联来源不等于逐条独立核验。",
+    fact: payload.answer_kind === "fictional" ? `角色演绎 · 不是本人事实，也不是原话${facts.length ? `；关联来源：${facts.join(" · ")}` : ""}` : facts.length ? facts.join(" · ") : payload.answer_kind === "social" ? "社交表达，无需事实来源" : payload.answer_kind === "insufficient" ? "本次可用来源不足" : "这条回答没有关联事实来源",
+    style: `${styleId} · ${payload.answer_kind === "boundary" ? "模型生成的边界答复" : "DeepSeek constrained generation"}`,
+    styleNote: [payload.notes || "模型按蒸馏约束生成；关联来源不等于逐条独立核验。", retrievalSummary].filter(Boolean).join("\n"),
     sources: (payload.sources || []).map((source) => ({
       mark: source.publisher === "@OscarPiastri" ? "X" : String(source.publisher || "SRC").slice(0, 4).toUpperCase(),
       id: source.id,
@@ -615,31 +609,107 @@ async function requestModelResponse(prompt, mode, signal, history, surfaceContex
       surface_context: surfaceContext,
     }),
   });
-  if (!response.ok) throw new Error(`Companion API ${response.status}`);
-  const payload = await response.json();
-  if (!["deepseek", "boundary"].includes(payload.engine) || typeof payload.answer_en !== "string") {
-    throw new Error("Unexpected Companion response");
+  if (!response.ok) {
+    const error = new Error("Companion service request failed");
+    error.status = response.status;
+    throw error;
   }
-  if (payload.mode !== mode || !Object.hasOwn(ANSWER_KIND_LABELS, payload.answer_kind)) throw new Error("Unexpected Companion mode or answer kind");
-  if (mode === "grounded" && payload.answer_kind === "fictional") throw new Error("Grounded response cannot be fictional");
+  let payload;
+  try {
+    payload = await response.json();
+    if (payload.engine !== "deepseek" || typeof payload.model !== "string" || !payload.model.trim() || typeof payload.answer_en !== "string" || !payload.answer_en.trim()) throw new Error("Missing model response");
+    if (payload.answer_zh != null && typeof payload.answer_zh !== "string") throw new Error("Unexpected translation");
+    if (payload.mode !== mode || !Object.hasOwn(ANSWER_KIND_LABELS, payload.answer_kind)) throw new Error("Unexpected mode or answer kind");
+    if (mode === "grounded" && payload.answer_kind === "fictional") throw new Error("Grounded response cannot be fictional");
+  } catch (_) {
+    const error = new Error("Companion response validation failed");
+    error.serviceReason = "invalid_response";
+    throw error;
+  }
   return {
     mode: payload.mode,
     answerKind: payload.answer_kind,
     model: payload.model,
-    modelInvoked: payload.engine === "deepseek",
-    generationKind: payload.engine === "boundary" || payload.fallback_id ? "boundary" : payload.route === "rumor_check" && payload.rumor_item_ids?.length ? "ledger" : "deepseek",
+    generationKind: "deepseek",
     en: payload.answer_en,
     zh: payload.answer_zh || "",
-    singleLanguage: false,
     trace: modelTrace(payload),
     metadata: payload,
   };
 }
 
-async function submitPrompt(rawPrompt) {
+function serviceErrorDescription(error) {
+  if (error?.status === 429) return "请求较多，模型暂时无法响应。请稍后重试。";
+  if (error?.name === "AbortError" || error?.name === "TimeoutError" || error?.status === 504) return "等待模型响应超时。可以重试这条消息。";
+  if (error?.serviceReason === "invalid_response") return "模型服务返回的内容未通过校验，因此没有显示为角色回复。请重试。";
+  if (error?.name === "TypeError") return "暂时无法连接模型服务。请检查网络后重试。";
+  return "模型服务暂时异常，这次没有生成回答。请稍后重试。";
+}
+
+function expireRetryableFailure() {
+  if (!retryableFailure) return;
+  retryableFailure.button.disabled = true;
+  retryableFailure.button.textContent = "重试已结束";
+  retryableFailure.note.textContent = "已开始新的请求。如仍想问这条消息，请重新发送。";
+  retryableFailure = null;
+}
+
+function showServiceError(error, request, existing = null) {
+  let record = existing;
+  if (!record) {
+    const article = document.createElement("article");
+    article.className = "message system-message";
+    article.dataset.mode = request.mode;
+    article.setAttribute("aria-label", "系统服务异常，不是角色回复");
+    const meta = document.createElement("div");
+    meta.className = "message-meta";
+    const speaker = document.createElement("span");
+    speaker.textContent = "SYSTEM";
+    const label = document.createElement("span");
+    label.className = "message-engine";
+    label.textContent = `服务提示 · ${MODE_LABELS[request.mode]}`;
+    meta.append(speaker, label);
+    const copy = document.createElement("div");
+    copy.className = "message-copy";
+    const title = document.createElement("p");
+    title.className = "service-error-title";
+    title.textContent = "这次没有生成回答";
+    const detail = document.createElement("p");
+    detail.className = "service-error-detail";
+    detail.setAttribute("role", "status");
+    detail.setAttribute("aria-atomic", "true");
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "service-retry";
+    const note = document.createElement("p");
+    note.className = "service-error-note";
+    copy.append(title, detail, button, note);
+    article.append(meta, copy);
+    record = { request, article, detail, button, note };
+    button.addEventListener("click", () => submitPrompt(request.prompt, record));
+    els.messages.append(article);
+  }
+  record.detail.textContent = serviceErrorDescription(error);
+  record.button.textContent = `重试这条 · ${MODE_LABELS[request.mode]}`;
+  record.button.disabled = isGenerating;
+  record.note.textContent = "沿用本条发送时的模式与上下文；不会重复添加你的消息。";
+  retryableFailure = record;
+  if (followLatest) scrollToLatest();
+  else els.jumpLatest.hidden = false;
+  return record;
+}
+
+async function submitPrompt(rawPrompt, retryRecord = null) {
   const prompt = rawPrompt.trim().slice(0, MAX_PROMPT_CHARS);
-  if (!prompt || isGenerating) return;
-  const requestMode = selectedMode;
+  if (!prompt || isGenerating || (retryRecord && retryRecord !== retryableFailure)) return;
+  if (!retryRecord) expireRetryableFailure();
+  const requestMode = retryRecord?.request.mode || selectedMode;
+  const request = retryRecord?.request || Object.freeze({
+    prompt,
+    mode: requestMode,
+    history: Object.freeze(conversationHistories[requestMode].slice(-MAX_HISTORY_ITEMS).map((item) => Object.freeze({ role: item.role, content: item.content.slice(0, MAX_HISTORY_CHARS) }))),
+    surfaceContext: contextEnabled ? Object.freeze({ race: els.raceName.textContent, session: els.sessionLabel.textContent, local_time: els.sessionTime.textContent }) : null,
+  });
   generatingMode = requestMode;
   const epoch = ++requestEpoch;
   const controller = new AbortController();
@@ -647,58 +717,55 @@ async function submitPrompt(rawPrompt) {
   const timeout = setTimeout(() => controller.abort(), 55000);
   followLatest = true;
   document.body.classList.add("has-conversation");
-  addMessage("user", prompt);
-  els.input.value = "";
+  if (!retryRecord) {
+    addMessage("user", prompt);
+    els.input.value = "";
+  } else {
+    retryRecord.button.textContent = "正在重试…";
+    retryRecord.detail.textContent = "正在重新请求模型，本条仍使用发送时的模式与上下文。";
+  }
   resizeInput();
   setGenerating(true);
   // Pin the sent message synchronously at the next frame. A smooth initial
-  // scroll can emit intermediate scroll events before an instant offline reply,
+  // scroll can emit intermediate scroll events before an instant service reply,
   // incorrectly marking the user as reading history instead of following along.
   scrollToLatest(false);
 
-  const factsOnly = requestMode === "grounded";
-  const requestHistory = conversationHistories[requestMode].slice(-MAX_HISTORY_ITEMS).map((item) => ({ role: item.role, content: item.content.slice(0, MAX_HISTORY_CHARS) }));
-  const requestContextEnabled = contextEnabled;
-  const requestSurfaceContext = requestContextEnabled ? { race: els.raceName.textContent, session: els.sessionLabel.textContent, local_time: els.sessionTime.textContent } : null;
+  const requestHistory = request.history;
   const requestStarted = performance.now();
   let response;
-  let usedApi = false;
   try {
-    response = await requestModelResponse(prompt, requestMode, controller.signal, requestHistory, requestSurfaceContext);
+    response = await requestModelResponse(prompt, requestMode, controller.signal, requestHistory, request.surfaceContext);
     if (epoch !== requestEpoch) return;
-    usedApi = true;
-    if (response.modelInvoked) {
-      companionStatus = { ...(companionStatus || {}), online: true, model: response.model };
-      setModelState("online", companionStatus);
-    } else if (els.modelDisclosure.dataset.state === "connecting") {
-      setModelState("boundary");
-    }
-  } catch (_) {
+    companionStatus = { ...(companionStatus || {}), online: true, model: response.model, package_version: response.metadata.package_version, source_hash: response.metadata.source_hash };
+    setModelState("online", companionStatus);
+  } catch (error) {
     if (epoch !== requestEpoch) return;
-    response = makeOfflineResponse(prompt, { mode: requestMode, factsOnly, history: requestHistory, contextEnabled: requestContextEnabled });
-    response.trace = {
-      ...response.trace,
-      styleNote: `${response.trace.styleNote} Model unavailable; deterministic fallback used.`,
-    };
-    setModelState("fallback");
+    companionStatus = { ...(companionStatus || {}), online: false };
+    setModelState("error");
+    showServiceError(error, request, retryRecord);
+    return;
   } finally {
     clearTimeout(timeout);
+    if (epoch === requestEpoch) {
+      activeRequest = null;
+      generatingMode = null;
+      setGenerating(false);
+    }
   }
   if (epoch !== requestEpoch) return;
-  activeRequest = null;
-  setGenerating(false);
+  if (retryRecord) {
+    retryRecord.article.remove();
+    retryableFailure = null;
+  }
   const useZh = containsChinese(prompt);
-  const text = response.singleLanguage && useZh
-    ? response.zh
-    : (factsOnly && response.factsEn ? response.factsEn : response.en);
-  const translation = response.singleLanguage
-    ? ""
-    : (useZh ? (factsOnly && response.factsZh ? response.factsZh : response.zh) : "");
-  const engine = usedApi ? response.generationKind : "fallback";
+  const text = response.en;
+  const translation = useZh ? response.zh : "";
+  const engine = response.generationKind;
   const feedbackSnapshot = createFeedbackSnapshot({
     prompt,
-    text: response.singleLanguage && useZh ? "" : text,
-    translation: response.singleLanguage && useZh ? text : translation,
+    text,
+    translation,
     history: requestHistory,
     engine, mode: requestMode, answerKind: response.answerKind, trace: response.trace, metadata: response.metadata,
     latencyMs: performance.now() - requestStarted,
@@ -710,14 +777,15 @@ async function submitPrompt(rawPrompt) {
     { role: "assistant", content: [text, translation && `中文：${translation}`].filter(Boolean).join("\n").slice(0, MAX_HISTORY_CHARS) },
   );
   conversationHistories[requestMode] = conversationHistories[requestMode].slice(-MAX_HISTORY_ITEMS);
-  if (!usedApi) companionStatus = { ...(companionStatus || {}), online: false };
 }
 
 function resetConversation() {
   closeDialog();
   requestEpoch += 1;
+  expireRetryableFailure();
   activeRequest?.abort();
   activeRequest = null;
+  generatingMode = null;
   setGenerating(false);
   document.body.classList.remove("has-conversation");
   els.messages.replaceChildren(welcomeMessage);

@@ -2,7 +2,6 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import vm from "node:vm";
-import { makeOfflineResponse } from "../../public/companion/offline-response.js";
 
 // Exercise the real browser request/snapshot functions without a browser or live API.
 // Keeping these functions in the script also preserves the small static-site build.
@@ -12,8 +11,18 @@ const functions = [
   segment("function createFeedbackSnapshot(", "function attachFeedback("),
   segment("function updateModeUi(", "function resizeInput("),
   segment("function modelTrace(", "async function requestModelResponse("),
-  segment("async function requestModelResponse(", "function resetConversation("),
+  segment("async function requestModelResponse(", "function formatSessionTime("),
 ].join("\n");
+
+class Element {
+  constructor(tag = "div") { this.tag = tag; this.children = []; this.dataset = {}; this.listeners = {}; this.textContent = ""; this.disabled = false; }
+  append(...children) { for (const child of children) { child.parent = this; this.children.push(child); } }
+  replaceChildren(...children) { this.children = []; this.append(...children); }
+  setAttribute(key, value) { this[key] = value; }
+  addEventListener(name, callback) { this.listeners[name] = callback; }
+  remove() { if (this.parent) this.parent.children = this.parent.children.filter((child) => child !== this); }
+  focus() {}
+}
 
 function harness() {
   const pending = [];
@@ -23,23 +32,23 @@ function harness() {
   const scrollCalls = [];
   const buttons = ["free", "grounded"].map((mode) => ({ dataset: { companionMode: mode }, setAttribute(key, value) { this[key] = value; } }));
   const context = {
-    MAX_PROMPT_CHARS: 500, MAX_HISTORY_ITEMS: 8, MAX_HISTORY_CHARS: 900, APP_VERSION: "20260910-preferences-1",
+    MAX_PROMPT_CHARS: 500, MAX_HISTORY_ITEMS: 8, MAX_HISTORY_CHARS: 900, APP_VERSION: "20260910-model-only-1",
     MODE_LABELS: { free: "自由演绎", grounded: "强依据" },
     ANSWER_KIND_LABELS: { fictional: "角色演绎", evidence: "有来源的事实", social: "轻松聊天", boundary: "边界答复", insufficient: "依据不足" },
     ROUTE_LABELS: { fan_light: "Fan conversation", public_fact: "Public fact", unrelated_general: "Outside scope" },
     DEFAULT_TRACE: { route: "fan_light", sources: [] },
     selectedMode: "free", generatingMode: null, conversationHistories: { free: [], grounded: [] },
-    requestEpoch: 0, activeRequest: null, isGenerating: false, followLatest: false, contextEnabled: false,
+    requestEpoch: 0, activeRequest: null, retryableFailure: null, isGenerating: false, followLatest: false, contextEnabled: false, messageCounter: 0,
     companionApiUrl: "https://example.invalid", companionStatus: { online: true, model: "previous-model" },
-    els: { input: { value: "" }, modeButtons: buttons, modeDescription: {}, modeStatus: {}, drawerModeSummary: {}, modelDisclosure: { dataset: { state: "ready" } } },
-    document: { body: { classList: { add() {} } } },
+    els: { input: Object.assign(new Element("textarea"), { value: "" }), messages: new Element(), jumpLatest: {}, modeButtons: buttons, modeDescription: {}, modeStatus: {}, drawerModeSummary: {}, modelDisclosure: { dataset: { state: "ready" } }, raceName: { textContent: "Race before send" }, sessionLabel: { textContent: "Session before send" }, sessionTime: { textContent: "Time before send" } },
+    document: { body: { classList: { add() {}, remove() {} } }, createElement(tag) { return new Element(tag); } },
+    welcomeMessage: new Element(), closeDialog() {},
     AbortController, setTimeout, clearTimeout, performance,
     addMessage(...args) { messages.push(args); }, containsChinese(value) { return /[\u3400-\u9fff]/.test(value); },
     resizeInput() {}, scrollToLatest(smooth = true) { scrollCalls.push(smooth); }, renderTrace() {},
     fetch(_url, options) { posts.push(JSON.parse(options.body)); return new Promise((resolve) => pending.push(resolve)); },
-    makeOfflineResponse() { throw new Error("Unexpected fallback"); },
   };
-  context.setGenerating = (value) => { context.isGenerating = value; context.updateModeUi(); };
+  context.setGenerating = (value) => { context.isGenerating = value; if (context.retryableFailure) context.retryableFailure.button.disabled = value; context.updateModeUi(); };
   context.setModelState = (state) => { modelStates.push(state); context.els.modelDisclosure.dataset.state = state; };
   vm.createContext(context);
   vm.runInContext(functions, context);
@@ -48,7 +57,8 @@ function harness() {
     answer_en: "One step at a time.", answer_zh: "一次处理一步。", route: "fan_light", style_card_id: "SC-05",
     package_version: "0.4.0", source_hash: "snapshot-hash", sources: [], public_source_ids: [], ...overrides,
   }) });
-  return { context, pending, posts, messages, modelStates, scrollCalls, respond };
+  const fail = (status = 503) => pending.shift()({ ok: false, status });
+  return { context, pending, posts, messages, modelStates, scrollCalls, respond, fail };
 }
 
 test("switching mode during generation keeps the request, feedback and history in the original mode", async () => {
@@ -104,17 +114,18 @@ test("LIVE-only evidence appears in the trace and immutable feedback metadata", 
   assert.doesNotMatch(h.messages[1][3].fact, /No stored fact selected/);
 });
 
-test("a server boundary keeps the chosen mode without falsely verifying a model connection", async () => {
+test("a model-generated boundary is honestly labeled as model generation", async () => {
   const h = harness();
-  const previous = h.context.companionStatus;
   const result = h.context.submitPrompt("帮我写Python代码");
-  h.respond({ engine: "boundary", model: null, answer_kind: "boundary", route: "unrelated_general", fallback_id: "FB-01" });
+  h.respond({ answer_kind: "boundary", route: "unrelated_general", fallback_id: "FB-01" });
   await result;
-  assert.deepEqual(h.modelStates, []);
-  assert.equal(h.context.companionStatus, previous);
-  assert.equal(h.messages[1][4], "boundary");
+  assert.deepEqual(h.modelStates, ["online"]);
+  assert.equal(h.messages[1][4], "deepseek");
   assert.equal(h.messages[1][5].mode, "free");
-  assert.equal(h.messages[1][5].model, "");
+  assert.equal(h.messages[1][5].model, "deepseek-test");
+  assert.equal(h.messages[1][5].answer_kind, "boundary");
+  assert.match(h.messages[1][3].style, /模型生成的边界答复/);
+  assert.doesNotMatch(h.messages[1][3].style, /固定/);
 });
 
 test("fast responses after a mode switch begin with instant scrolling, not a cancellable smooth scroll", async () => {
@@ -131,51 +142,162 @@ test("fast responses after a mode switch begin with instant scrolling, not a can
   assert.match(source, /else if \(followLatest\) scrollToLatest\(\);/, "assistant responses still respect a user reading history");
 });
 
-test("a fast offline failure still uses the sending mode after the user switches", async () => {
+test("a failed request shows only a system notice and retry preserves its original mode, context and question", async () => {
   const h = harness();
-  h.context.makeOfflineResponse = makeOfflineResponse;
-  h.context.fetch = async (_url, options) => { h.posts.push(JSON.parse(options.body)); throw new TypeError("Offline test"); };
-  const first = h.context.submitPrompt("你在想什么");
+  h.context.contextEnabled = true;
+  h.context.conversationHistories.free.push({ role: "user", content: "先聊聊" }, { role: "assistant", content: "Earlier model answer" });
+  const first = h.context.submitPrompt("喜欢猫还是喜欢狗");
   h.context.selectMode("grounded");
+  h.fail();
   await first;
-  assert.equal(h.messages[1][4], "fallback");
-  assert.equal(h.messages[1][5].mode, "free");
-  assert.equal(h.messages[1][5].answer_kind, "fictional");
+  assert.equal(h.messages.length, 1, "only the user message, no fake Oscar reply");
   assert.equal(h.context.conversationHistories.free.length, 2);
   assert.equal(h.context.conversationHistories.grounded.length, 0);
-  const second = h.context.submitPrompt("你在想什么");
-  await second;
-  assert.equal(h.messages[3][5].mode, "grounded");
-  assert.equal(h.messages[3][5].answer_kind, "insufficient");
-  assert.deepEqual(h.posts[1].history, []);
-  assert.equal(h.scrollCalls.at(-1), false);
+  const failure = h.context.retryableFailure;
+  assert.equal(failure.article.className, "message system-message");
+  assert.equal(failure.article.children[0].children[0].textContent, "SYSTEM");
+  assert.equal(failure.request.mode, "free");
+  assert.equal(failure.button.disabled, false);
+  h.context.els.raceName.textContent = "Changed race";
+  h.context.els.input.value = "draft of a new question";
+  const retry = failure.button.listeners.click();
+  assert.deepEqual(h.posts[1], h.posts[0]);
+  assert.equal(failure.button.disabled, true);
+  assert.match(h.context.els.modeStatus.textContent, /仍是「自由演绎」/);
+  h.respond();
+  await retry;
+  assert.equal(h.messages.length, 2, "retry does not add a duplicate user bubble");
+  assert.equal(h.messages[1][5].mode, "free");
+  assert.equal(h.messages[1][5].engine, "deepseek");
+  assert.equal(h.messages[1][5].prompt, "喜欢猫还是喜欢狗");
+  assert.equal(h.messages[1][5].history.length, 2);
+  assert.equal(h.context.els.messages.children.length, 0, "successful retry removes the stale service notice");
+  assert.equal(h.context.els.input.value, "draft of a new question");
+  assert.equal(h.context.conversationHistories.free.length, 4);
+  assert.equal(h.context.conversationHistories.grounded.length, 0);
+  assert.equal(h.context.retryableFailure, null);
 });
 
-test("grounded mode refuses an inconsistent fictional API payload and falls back to an evidence gap", async () => {
+test("invalid API payloads show a service validation error, never a generated evidence-gap template", async () => {
+  for (const overrides of [
+    { mode: "grounded", answer_kind: "fictional" },
+    { engine: "boundary", model: null },
+    { engine: "fallback" },
+    { mode: "free" },
+    { model: "" },
+    { answer_en: "  " },
+    { answer_zh: { unsafe: "not a string" } },
+  ]) {
+    const h = harness();
+    h.context.selectMode("grounded");
+    const turn = h.context.submitPrompt("你在想什么");
+    h.respond({ answer_kind: "insufficient", ...overrides });
+    await turn;
+    assert.equal(h.messages.length, 1);
+    assert.equal(h.context.conversationHistories.grounded.length, 0);
+    assert.equal(h.context.retryableFailure.request.mode, "grounded");
+    assert.match(h.context.retryableFailure.detail.textContent, /未通过校验/);
+    assert.deepEqual(h.modelStates, ["error"]);
+  }
+});
+
+test("network, timeout, rate-limit and upstream failures never enter model history or expose raw errors", async () => {
+  for (const error of [Object.assign(new Error("private upstream details"), { status: 429 }), Object.assign(new Error("private upstream details"), { status: 503 }), Object.assign(new Error("private upstream details"), { status: 504 }), new TypeError("private network details"), Object.assign(new Error("private timeout details"), { name: "AbortError" })]) {
+    const h = harness();
+    h.context.fetch = async () => { throw error; };
+    await h.context.submitPrompt("你好");
+    assert.equal(h.messages.length, 1);
+    assert.equal(h.context.conversationHistories.free.length, 0);
+    assert.equal(h.context.isGenerating, false);
+    assert.equal(h.context.activeRequest, null);
+    assert.equal(h.context.retryableFailure.button.disabled, false);
+    assert.doesNotMatch(h.context.retryableFailure.detail.textContent, /private/);
+    assert.equal(h.context.companionStatus.online, false);
+  }
+});
+
+test("a repeated retry failure updates the same system notice and never duplicates the question", async () => {
   const h = harness();
-  h.context.makeOfflineResponse = makeOfflineResponse;
-  h.context.selectMode("grounded");
-  const turn = h.context.submitPrompt("你在想什么");
-  h.respond({ mode: "grounded", answer_kind: "fictional" });
-  await turn;
-  assert.equal(h.messages[1][4], "fallback");
-  assert.equal(h.messages[1][5].mode, "grounded");
-  assert.equal(h.messages[1][5].answer_kind, "insufficient");
-  assert.match(h.messages[1][1], /verified public source/);
+  const first = h.context.submitPrompt("你好"); h.fail(429); await first;
+  const failure = h.context.retryableFailure;
+  assert.match(failure.detail.textContent, /请求较多/);
+  const retry = failure.button.listeners.click(); h.fail(504); await retry;
+  assert.equal(h.context.retryableFailure, failure);
+  assert.equal(h.context.els.messages.children.length, 1);
+  assert.equal(h.messages.length, 1);
+  assert.match(failure.detail.textContent, /超时/);
+  assert.equal(failure.button.disabled, false);
 });
 
-test("HTML exposes the two modes, removes the old hidden switch and versions assets consistently", () => {
+test("sending a new question expires the old retry so it cannot overwrite a newer conversational context", async () => {
+  const h = harness();
+  const first = h.context.submitPrompt("第一个问题"); h.fail(); await first;
+  const oldFailure = h.context.retryableFailure;
+  const next = h.context.submitPrompt("新的问题");
+  assert.equal(oldFailure.button.disabled, true);
+  assert.match(oldFailure.note.textContent, /重新发送/);
+  h.respond(); await next;
+  await oldFailure.button.listeners.click();
+  assert.equal(h.posts.length, 2);
+  assert.equal(h.context.conversationHistories.free[0].content, "新的问题");
+});
+
+test("reset cancels a pending retry and ignores its eventual response", async () => {
+  const h = harness();
+  const first = h.context.submitPrompt("你好"); h.fail(); await first;
+  const record = h.context.retryableFailure;
+  const retry = record.button.listeners.click();
+  const signal = h.context.activeRequest.signal;
+  h.context.resetConversation();
+  assert.equal(signal.aborted, true);
+  assert.equal(h.context.retryableFailure, null);
+  h.respond(); await retry;
+  assert.equal(h.messages.length, 1);
+  assert.equal(h.context.conversationHistories.free.length, 0);
+  assert.equal(h.context.els.messages.children[0], h.context.welcomeMessage);
+  assert.equal(h.context.isGenerating, false);
+});
+
+test("free-mode facts and mixed fictional responses keep cited public knowledge visible", async () => {
+  for (const kind of ["evidence", "fictional"]) {
+    const h = harness();
+    const turn = h.context.submitPrompt("喜欢什么宠物，公开说过吗");
+    h.respond({ answer_kind: kind, knowledge_fact_ids: ["KF-001"], public_source_ids: ["LIVE-aabbccddeeff0011"] });
+    await turn;
+    assert.equal(h.messages[1][5].mode, "free");
+    assert.match(h.messages[1][3].fact, /KF-001/);
+    assert.match(h.messages[1][3].fact, /LIVE-aabbccddeeff0011/);
+    assert.equal(h.messages[1][5].facts_only, false);
+  }
+});
+
+test("retrieved context is distinguished from facts actually cited in the answer", async () => {
+  const h = harness();
+  const turn = h.context.submitPrompt("喜欢猫还是喜欢狗");
+  h.respond({ retrieved_knowledge_fact_ids: ["KF-001", "KF-002"], retrieved_rumor_item_ids: ["RM-001"], retrieved_public_source_ids: ["LIVE-aabbccddeeff0011"], knowledge_fact_ids: [], public_source_ids: [] });
+  await turn;
+  const trace = h.messages[1][3];
+  assert.match(trace.styleNote, /人物事实 2 项、传闻台账 1 项、公开来源 1 项/);
+  assert.match(trace.styleNote, /检索到不等于回答采用/);
+  assert.doesNotMatch(trace.fact, /KF-001|RM-001|LIVE-/);
+  assert.equal(h.messages[1][5].knowledge_fact_ids.length, 0);
+  assert.equal(h.messages[1][5].public_source_ids.length, 0);
+});
+
+test("chat assets are versioned together and no keyword response module is loaded or called", () => {
   const html = readFileSync(new URL("../../public/companion/index.html", import.meta.url), "utf8");
-  const offline = readFileSync(new URL("../../public/companion/offline-response.js", import.meta.url), "utf8");
   assert.match(html, /data-companion-mode="free" aria-pressed="true"/);
   assert.match(html, /data-companion-mode="grounded" aria-pressed="false"/);
   assert.doesNotMatch(html, /factsOnlyToggle/);
-  const scope = readFileSync(new URL("../../public/companion/scope-policy.js", import.meta.url), "utf8");
-  const mode = readFileSync(new URL("../../public/companion/mode-policy.js", import.meta.url), "utf8");
-  for (const text of [html, source, offline, scope, mode]) {
-    assert.doesNotMatch(text, /20260910-scope-2|20260908-feedback-1|20260910-modes-1/);
-    assert.match(text, /20260910-preferences-1/);
+  for (const text of [html, source]) {
+    assert.doesNotMatch(text, /20260910-preferences-1|offline-response|preference-policy|makeOfflineResponse|规则兜底/);
+    assert.match(text, /20260910-shared-knowledge-2/);
   }
-  assert.match(html, /styles\.css\?v=20260910-preferences-1/);
+  assert.match(html, /styles\.css\?v=20260910-shared-knowledge-2/);
+  assert.doesNotMatch(source, /Skill v0\.4\.0/);
+  assert.match(source, /package_version: response\.metadata\.package_version/);
+  assert.match(html, /共享人物知识与公开资料检索/);
+  assert.match(source, /不会使用预写回答代替/);
   assert.match(source, /把演绎当真实私事/);
+  assert.doesNotMatch(segment("function showServiceError(", "async function submitPrompt("), /attachFeedback|createFeedbackSnapshot|conversationHistories/);
 });

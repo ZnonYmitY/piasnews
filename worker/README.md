@@ -72,6 +72,10 @@ Enter the same Worker URL and `ADMIN_API_KEY` in the admin console connection se
 - `GET /hot-events/config`: authenticated override-layer read; requires `viewer` or above.
 - `POST /hot-events/change`: saves a draft with `editor`; activating an override requires `publisher` or `admin`.
 
+Companion v0.5 uses the same bounded bilingual knowledge retrieval for both modes: selected historical KF/RM records plus applicable current news/calendar/results. Free mode additionally permits fact-compatible performance; grounded mode does not invent missing facts. Successful replies always have `engine: deepseek`; boundary policies no longer contain fixed text. Network/model/validation failures return a non-2xx service error without a character answer. Restricted originals are withheld locally; only abstract boundary instructions reach the model.
+
+Responses expose `retrieved_knowledge_fact_ids`, `retrieved_rumor_item_ids`, `retrieved_public_source_ids` and `retrieval_status`, separately from IDs actually cited. Style evidence appears in `style_sources`, never as factual proof. `validation_trace` reports a same-generation self-check plus bounded local ID/mode/factual-intent/time checks, with at most one generation repair. No additional independent model review is performed. Retrieval is not a whole-web search and these checks are not independent semantic verification.
+
 Hot-event changes may include a `content_items` snapshot with at most 50 entries. Every entry has a stable `item_id`, source type, source name, title, HTTPS original URL, and optional per-item image, video, and video-poster URLs. Draft snapshots coexist with the active version until a publisher activates them.
 
 An editorial position changes order only while the event still meets the ranking's normal `minimum_heat` threshold. It does not keep a zero-heat event on the public ranking, and it cannot displace the structured post-session result hard rule from rank 1. The override remains visible in the workbench after the public event exits, so an editor can inspect or revise it later.

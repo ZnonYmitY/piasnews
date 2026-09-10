@@ -3,8 +3,6 @@
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import { pathToFileURL } from "node:url";
-import { classifyCompanionModeIntent } from "../public/companion/mode-policy.js";
-import { preferenceResponseIssue } from "../public/companion/preference-policy.js";
 
 export const MODE_CASES = [
   { mode: "free", message: "你在想什么？", kinds: ["fictional"] },
@@ -12,8 +10,8 @@ export const MODE_CASES = [
   { mode: "free", message: "今天心情怎么样？", kinds: ["fictional"] },
   { mode: "grounded", message: "今天心情怎么样？", kinds: ["insufficient"] },
   { mode: "free", message: "如果最后一圈被超了，你会怎么说？", kinds: ["fictional"] },
-  { mode: "grounded", message: "为什么 Oscar 用 81 号？", kinds: ["insufficient"] },
-  { mode: "free", message: "今晚吃什么？帮我拿个主意。", kinds: ["fictional", "social"] },
+  { mode: "grounded", message: "为什么 Oscar 用 81 号？", kinds: ["evidence", "insufficient"] },
+  { mode: "free", message: "今晚吃什么？帮我拿个主意。", kinds: ["fictional", "social", "evidence"] },
   { mode: "grounded", message: "下场比赛什么时候？", kinds: ["evidence", "insufficient"] },
   { mode: "free", message: "皮亚斯特里最近有什么新闻？", kinds: ["evidence", "insufficient"] },
   { mode: "grounded", message: "皮亚斯特里最近有什么新闻？", kinds: ["evidence", "insufficient"] },
@@ -24,32 +22,30 @@ export const MODE_CASES = [
 export const PREFERENCE_CASES = [
   { mode: "free", message: "喜欢猫还是喜欢狗", kinds: ["fictional"] },
   { mode: "free", message: "Do you prefer cats or dogs?", kinds: ["fictional"] },
-  { mode: "free", message: "你最喜欢什么音乐？", kinds: ["fictional"] },
+  { mode: "free", message: "你最喜欢什么音乐？", kinds: ["fictional", "evidence"] },
   { mode: "free", message: "为什么？", history: [{ role: "user", content: "你喜欢猫还是狗？" }, { role: "assistant", content: "Dogs. Their enthusiasm is fairly hard to argue with. 狗吧。它们的热情很难让人拒绝。" }], kinds: ["fictional"] },
-  { mode: "grounded", message: "喜欢猫还是喜欢狗", kinds: ["insufficient"] },
-  { mode: "free", message: "Oscar 本人现实里喜欢猫还是狗？", kinds: ["insufficient"] },
+  { mode: "grounded", message: "喜欢猫还是喜欢狗", kinds: ["evidence", "insufficient"] },
+  { mode: "free", message: "Oscar 本人现实里喜欢猫还是狗？", kinds: ["evidence", "insufficient"] },
 ];
 
 export function checkModeResponse(testCase, status, body) {
   const errors = [];
   if (status !== 200) errors.push(`HTTP ${status}`);
+  if (body?.engine !== "deepseek" || !body?.model) errors.push("missing model generation provenance");
   if (body?.mode !== testCase.mode) errors.push("mode mismatch");
   if (!testCase.kinds.includes(body?.answer_kind)) errors.push("answer kind mismatch");
   const chineseInput = /[\u3400-\u9fff]/.test(testCase.message);
   if (!body?.answer_en || chineseInput && !body?.answer_zh) errors.push("missing requested answer language");
   if (body?.answer_kind === "fictional") {
     if (body.mode !== "free" || body.engine !== "deepseek" || body.fallback_id) errors.push("fiction must be free-mode generation, not a refusal");
-    if (body.sources?.length || body.public_source_ids?.length || body.knowledge_fact_ids?.length || body.rumor_item_ids?.length) errors.push("fiction borrowed factual citations");
+    // Free mode may combine retrieved facts with clearly marked invention.
+    // Citation support must be inspected separately; absence of citations is not a quality goal.
     if (/(?:not (?:really )?my field|outside my lane|out of (?:my|the) scope|不在我的范围|不属于我的领域|超出我的范围)/i.test(`${body.answer_en || ""} ${body.answer_zh || ""}`)) errors.push("free conversation still claims to be out of scope");
-    const intent = classifyCompanionModeIntent(testCase.message, testCase.history || [], { mode: testCase.mode });
-    if (intent.kind === "fictional_preference") {
-      const issue = preferenceResponseIssue(intent.preference, body.answer_en, body.answer_zh, chineseInput);
-      if (issue) errors.push(issue);
-    }
   }
   if (body?.mode === "grounded" && body.answer_kind === "evidence") {
     const ids = new Set((body.sources || []).map((source) => source.id));
-    if (!body.public_source_ids?.length || !body.public_source_ids.every((id) => ids.has(id))) errors.push("grounded evidence is missing server sources");
+    const hasClaims = [body.public_source_ids, body.knowledge_fact_ids, body.rumor_item_ids].some((items) => items?.length);
+    if (!hasClaims || !ids.size || !(body.public_source_ids || []).every((id) => ids.has(id))) errors.push("grounded evidence is missing server sources");
   }
   if (testCase.kinds.includes("fictional") && ["unrelated_general", "private_or_inner_state_unverified"].includes(body?.route)) errors.push("ordinary roleplay was rejected");
   return errors;
