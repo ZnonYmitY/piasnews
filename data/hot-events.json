@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-10T06:22:09.008299Z",
+  "generated_at": "2026-09-10T06:51:35.922245Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
