@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-10T08:05:39.641238Z",
+  "generated_at": "2026-09-10T09:24:58.676147Z",
   "translations": {
     "items:piasnews-083328cc182860be:title:58e93862b796bb630dd8ddfd": {
       "dataset": "items",
@@ -5113,6 +5113,42 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-10T06:22:06.664358Z"
+    },
+    "items:piasnews-3b4af291126de643:title:43ab81ebf80db4b185aea8d4": {
+      "dataset": "items",
+      "item_id": "piasnews-3b4af291126de643",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "McLaren to Review Norris-Piastri Battle After It Costs Time Against Verstappen",
+      "zh": "McLaren将在Norris与Piastri的内斗导致对Verstappen损失时间后展开评估",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-10T09:24:57.677747Z"
+    },
+    "items:piasnews-3b4af291126de643:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-3b4af291126de643",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-10T09:24:57.677755Z"
+    },
+    "social:piasnews-social-86a382cade8ac5a4:summary:edab7ed707b7c0e95ad490ca": {
+      "dataset": "social",
+      "item_id": "piasnews-social-86a382cade8ac5a4",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @oskipiastri: HELLOOOOOOO!!???? OSCAR PIASTRI OVERTAKING HAMILTON ON THE IPHONE DUO OFFICIAL TRAILER!!!!!",
+      "zh": "RT @oskipiastri：喂喂喂喂！！？？OSCAR PIASTRI 在 iPhone Duo 官方预告片里超车 HAMILTON！！！！！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-10T09:24:57.677760Z"
     }
   },
   "retention_days": 8
