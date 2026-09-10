@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T23:32:16.788853Z",
+  "generated_at": "2026-09-10T03:20:02.073513Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -58,14 +58,14 @@
           "image_url": "https://pbs.twimg.com/media/HRsiJXGbcAAFPkU.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRsiJXGbcAAFPkU.jpg",
-          "heat_contribution": 7.7443,
+          "heat_contribution": 7.7778,
           "metrics": {
-            "likes": 3761,
-            "retweets": 476,
+            "likes": 3774,
+            "retweets": 478,
             "replies": 5,
-            "quotes": 0,
-            "views": 39967,
-            "bookmarks": 0
+            "quotes": 78,
+            "views": 40135,
+            "bookmarks": 205
           }
         },
         {
@@ -130,14 +130,14 @@
           "image_url": "https://pbs.twimg.com/media/HRtXYCGXYAAJ3kD.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRtXYCGXYAAJ3kD.jpg",
-          "heat_contribution": 5.7724,
+          "heat_contribution": 5.7841,
           "metrics": {
             "likes": 535,
             "retweets": 54,
             "replies": 1,
-            "quotes": 0,
-            "views": 6583,
-            "bookmarks": 0
+            "quotes": 4,
+            "views": 6622,
+            "bookmarks": 27
           }
         },
         {
@@ -154,14 +154,14 @@
           "image_url": "https://pbs.twimg.com/media/HRtVrmCWoAAGuDN.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRtVrmCWoAAGuDN.jpg",
-          "heat_contribution": 5.4816,
+          "heat_contribution": 5.5407,
           "metrics": {
             "likes": 395,
             "retweets": 31,
             "replies": 0,
-            "quotes": 0,
-            "views": 7460,
-            "bookmarks": 0
+            "quotes": 16,
+            "views": 7510,
+            "bookmarks": 25
           }
         },
         {
@@ -243,7 +243,7 @@
           "item_id": "piasnews-39230234f5c9eaec",
           "dataset": "items",
           "source_type": "media",
-          "source": "planetf1.com",
+          "source": "PlanetF1",
           "title": "Oscar Piastri on new 'trajectory' after Monza drive",
           "title_zh": "Oscar Piastri谈Monza驾驶后的新“轨迹”",
           "summary": "Team or car-performance item discovered from public news metadata.",
@@ -1012,14 +1012,14 @@
           "image_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
-          "heat_contribution": 9.9938,
+          "heat_contribution": 10.0287,
           "metrics": {
-            "likes": 36425,
-            "retweets": 4387,
+            "likes": 37090,
+            "retweets": 4446,
             "replies": 242,
-            "quotes": 0,
-            "views": 271913,
-            "bookmarks": 0
+            "quotes": 448,
+            "views": 276686,
+            "bookmarks": 695
           }
         },
         {
@@ -1089,6 +1089,250 @@
       "rank": 2
     },
     {
+      "event_id": "evt-2026-09-08-1300912a26b2",
+      "rule_id": null,
+      "hot_word_zh": "osctruck 正在去马德里的路上 ✨",
+      "hot_word_en": "osctruck on her way to madridddd ✨",
+      "first_seen_at": "2026-09-08T10:56:53Z",
+      "last_seen_at": "2026-09-08T10:56:53Z",
+      "anchor_item_id": "piasnews-social-5eb4067ca6752c16",
+      "image_url": "https://pbs.twimg.com/media/HRsHNKAXEAATWhb.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HRsHNKAXEAATWhb.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-5eb4067ca6752c16",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: osctruck on her way to madridddd ✨",
+          "title_zh": "X 发帖 @laurogeitabat：osctruck 正在去马德里的路上 ✨",
+          "summary": "osctruck on her way to madridddd ✨ https://t.co/MOB4oscQln",
+          "summary_zh": "osctruck 正在去马德里的路上 ✨",
+          "url": "https://x.com/laurogeitabat/status/2097277991046783301",
+          "published_at": "2026-09-08T10:56:53Z",
+          "image_url": "https://pbs.twimg.com/media/HRsHNKAXEAATWhb.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HRsHNKAXEAATWhb.jpg",
+          "heat_contribution": 8.082,
+          "metrics": {
+            "likes": 5790,
+            "retweets": 378,
+            "replies": 9,
+            "quotes": 0,
+            "views": 61544,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 42,
+      "heat": 42,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "event_id": "evt-2026-09-07-fce0a116a493",
+      "rule_id": null,
+      "hot_word_zh": "不，Oscar今天没有得分。但我确实有值得庆祝的事，所以自然，我买了个蛋糕。",
+      "hot_word_en": "No, Oscar did not score any points today. But I did have something worth celebrating, so natura…",
+      "first_seen_at": "2026-09-07T15:08:17Z",
+      "last_seen_at": "2026-09-07T15:08:17Z",
+      "anchor_item_id": "piasnews-social-13f79ce2bae73736",
+      "image_url": "https://pbs.twimg.com/media/HRn3KczaMAEmFXJ.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HRn3KczaMAEmFXJ.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-13f79ce2bae73736",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@oscarpiastri81",
+          "title": "X post from @oscarpiastri81: No, Oscar did not score any points today. But I did have something worth celebrating, so natura…",
+          "title_zh": "X 发帖 @oscarpiastri81：不，Oscar今天没有得分。但我确实有值得庆祝的事，所以自然，我买了个蛋糕。",
+          "summary": "No, Oscar did not score any points today. But I did have something worth celebrating, so naturally, I got a cake. https://t.co/9973oIiX28",
+          "summary_zh": "不，Oscar今天没有得分。但我确实有值得庆祝的事，所以自然，我买了个蛋糕。",
+          "url": "https://x.com/oscarpiastri81/status/2096978869408366877",
+          "published_at": "2026-09-07T15:08:17Z",
+          "image_url": "https://pbs.twimg.com/media/HRn3KczaMAEmFXJ.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HRn3KczaMAEmFXJ.jpg",
+          "heat_contribution": 7.8589,
+          "metrics": {
+            "likes": 10502,
+            "retweets": 343,
+            "replies": 202,
+            "quotes": 9,
+            "views": 112671,
+            "bookmarks": 201
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 41,
+      "heat": 41,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "event_id": "evt-2026-09-09-31938dbf1daa",
+      "rule_id": null,
+      "hot_word_zh": "这周McLaren有谷歌地图和一个梦想 🔥🔥🔥",
+      "hot_word_en": "this week mclaren has google maps and a dream 🔥🔥🔥",
+      "first_seen_at": "2026-09-09T14:26:18Z",
+      "last_seen_at": "2026-09-09T14:26:18Z",
+      "anchor_item_id": "piasnews-social-88bcb2ca44d3a953",
+      "image_url": "https://pbs.twimg.com/media/HRyAvG8WkAAbYSO.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HRyAvG8WkAAbYSO.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-88bcb2ca44d3a953",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: this week mclaren has google maps and a dream 🔥🔥🔥",
+          "title_zh": "X 发帖 @laurogeitabat：这周McLaren有谷歌地图和一个梦想 🔥🔥🔥",
+          "summary": "this week mclaren has google maps and a dream 🔥🔥🔥 https://t.co/TATUuZBawn",
+          "summary_zh": "这周McLaren有谷歌地图和一个梦想 🔥🔥🔥",
+          "url": "https://x.com/laurogeitabat/status/2097693079922782434",
+          "published_at": "2026-09-09T14:26:18Z",
+          "image_url": "https://pbs.twimg.com/media/HRyAvG8WkAAbYSO.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HRyAvG8WkAAbYSO.jpg",
+          "heat_contribution": 7.7664,
+          "metrics": {
+            "likes": 2478,
+            "retweets": 158,
+            "replies": 4,
+            "quotes": 22,
+            "views": 29531,
+            "bookmarks": 74
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 41,
+      "heat": 41,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "event_id": "evt-2026-09-09-927f5d28e936",
+      "rule_id": null,
+      "hot_word_zh": "主持人：如果让你选一位你认为驾驶风格最平顺的F1车手，你会选谁？Michael Shin（…",
+      "hot_word_en": "Host: If you had to pick an F1 driver who you think is right at the top when it comes to having…",
+      "first_seen_at": "2026-09-09T05:06:04Z",
+      "last_seen_at": "2026-09-09T09:55:51Z",
+      "anchor_item_id": "piasnews-social-9a990ae4547a395f",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2097552015643881472/vid/avc1/2070x1170/Pbt_aVdDVXEcsiyq.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2097552015643881472/img/iWdQko-7PmroRfnp.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-9a990ae4547a395f",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: Host: If you had to pick an F1 driver who you think is right at the top when it comes to having…",
+          "title_zh": "X 转帖 @laurogeitabat：主持人：如果让你选一位你认为驾驶风格最平顺的F1车手，你会选谁？Michael Shin（Hitech TGR的F3车手）：就我所见，我认为Piastri的驾驶非常平顺。所谓平顺，是指他对重心转移的控制非常精准。",
+          "summary": "Host: If you had to pick an F1 driver who you think is right at the top when it comes to having a really smooth driving style, who would it be? Michael Shin (F3 driver for Hitech TGR): From what I’ve seen, I think Piastri is really good at driving smoothly. And by smooth, I mean he manages the weight transfer very precisely.",
+          "summary_zh": "主持人：如果让你选一位你认为驾驶风格最平顺的F1车手，你会选谁？Michael Shin（Hitech TGR的F3车手）：就我所见，我认为Piastri的驾驶非常平顺。所谓平顺，是指他对重心转移的控制非常精准。",
+          "url": "https://x.com/summerdaisyf1/status/2097552092777082967",
+          "published_at": "2026-09-09T05:06:04Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2097552015643881472/vid/avc1/2070x1170/Pbt_aVdDVXEcsiyq.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2097552015643881472/img/iWdQko-7PmroRfnp.jpg",
+          "heat_contribution": 6.0016,
+          "metrics": {
+            "likes": 323,
+            "retweets": 61,
+            "replies": 0,
+            "quotes": 7,
+            "views": 7844,
+            "bookmarks": 45
+          }
+        },
+        {
+          "item_id": "piasnews-social-97f5bb7bea3b9928",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: RT @summerdaisyf1: Host: If you had to pick an F1 driver who you think is right at the top when…",
+          "title_zh": "X 转帖 @laurogeitabat：转推 @summerdaisyf1：主持人：如果你必须选一位F1车手，你认为谁在驾驶非常流畅方面处于顶尖水平……",
+          "summary": "RT @summerdaisyf1: Host: If you had to pick an F1 driver who you think is right at the top when it comes to having a really smooth driving…",
+          "summary_zh": "转推 @summerdaisyf1：主持人：如果你必须选一位F1车手，你认为谁在驾驶非常流畅方面处于顶尖水平……",
+          "url": "https://x.com/laurogeitabat/status/2097625021078282407",
+          "published_at": "2026-09-09T09:55:51Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 4.4955,
+          "metrics": {
+            "likes": 0,
+            "retweets": 58,
+            "replies": 0,
+            "quotes": 0,
+            "views": 215,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 41,
+      "heat": 41,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 6
+    },
+    {
       "event_id": "evt-2026-09-09-ce6d04371599",
       "rule_id": null,
       "hot_word_zh": "罗斯伯格指出Oscar Piastri与McLaren的‘合同’问题",
@@ -1106,7 +1350,7 @@
           "item_id": "piasnews-4d9162e9c53ad238",
           "dataset": "items",
           "source_type": "media",
-          "source": "planetf1.com",
+          "source": "PlanetF1",
           "title": "Oscar Piastri McLaren 'contract' point made by Rosberg",
           "title_zh": "罗斯伯格指出Oscar Piastri与McLaren的‘合同’问题",
           "summary": "Team or car-performance item discovered from public news metadata.",
@@ -1116,7 +1360,7 @@
           "image_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F09%2F09110711%2Foscar-piastri-mclaren-monza-2026-planetf1.jpg",
           "video_url": null,
           "video_poster_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F09%2F09110711%2Foscar-piastri-mclaren-monza-2026-planetf1.jpg",
-          "heat_contribution": 1.0,
+          "heat_contribution": 0.75,
           "metrics": {}
         },
         {
@@ -1201,7 +1445,7 @@
           "image_url": "https://speedcafe.com/wp-content/uploads/2026/09/Screenshot-2026-09-08-101326.jpg",
           "video_url": null,
           "video_poster_url": "https://speedcafe.com/wp-content/uploads/2026/09/Screenshot-2026-09-08-101326.jpg",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -1276,7 +1520,7 @@
           "item_id": "piasnews-b1e281e2b15bb8f6",
           "dataset": "items",
           "source_type": "media",
-          "source": "planetf1.com",
+          "source": "PlanetF1",
           "title": "Lando Norris called Oscar Piastri’s defence ‘dangerous’ — then changed his verdict",
           "title_zh": "Lando Norris称Oscar Piastri的防守‘危险’——随后改变了看法",
           "summary": "Team or car-performance item discovered from public news metadata.",
@@ -1320,7 +1564,7 @@
           "image_url": "https://autoaction.com.au/wp-content/uploads/2026/09/Screenshot-2026-09-07-at-10.37.45-am-e1788741695525.jpeg?v=1788741638",
           "video_url": null,
           "video_poster_url": "https://autoaction.com.au/wp-content/uploads/2026/09/Screenshot-2026-09-07-at-10.37.45-am-e1788741695525.jpeg?v=1788741638",
-          "heat_contribution": 0.2,
+          "heat_contribution": 0.0,
           "metrics": {}
         },
         {
@@ -1461,166 +1705,80 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 45,
+      "media_heat": 41,
       "fan_heat": 0,
-      "heat": 45,
+      "heat": 41,
       "source_labels": [
         "媒"
       ],
       "source_counts": {
         "official": 0,
-        "media": 15,
+        "media": 14,
         "fan": 0
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 3
+      "rank": 7
     },
     {
-      "event_id": "evt-2026-09-08-1300912a26b2",
+      "event_id": "evt-2026-09-09-387146117851",
       "rule_id": null,
-      "hot_word_zh": "osctruck 正在去马德里的路上 ✨",
-      "hot_word_en": "osctruck on her way to madridddd ✨",
-      "first_seen_at": "2026-09-08T10:56:53Z",
-      "last_seen_at": "2026-09-08T10:56:53Z",
-      "anchor_item_id": "piasnews-social-5eb4067ca6752c16",
-      "image_url": "https://pbs.twimg.com/media/HRsHNKAXEAATWhb.jpg",
+      "hot_word_zh": "FACUA向消费部门投诉Madring 🏁，因其阻止F1大奖赛 🏎️ 观众携带食物入场",
+      "hot_word_en": "FACUA denuncia a Madring 🏁 ante Consumo por impedir el acceso con alimentos a los asistentes al…",
+      "first_seen_at": "2026-09-09T07:35:23Z",
+      "last_seen_at": "2026-09-09T20:37:29Z",
+      "anchor_item_id": "piasnews-social-5352f7a1cd78c74a",
+      "image_url": null,
       "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HRsHNKAXEAATWhb.jpg",
+      "video_poster_url": null,
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
         {
-          "item_id": "piasnews-social-5eb4067ca6752c16",
+          "item_id": "piasnews-social-5352f7a1cd78c74a",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: osctruck on her way to madridddd ✨",
-          "title_zh": "X 发帖 @laurogeitabat：osctruck 正在去马德里的路上 ✨",
-          "summary": "osctruck on her way to madridddd ✨ https://t.co/MOB4oscQln",
-          "summary_zh": "osctruck 正在去马德里的路上 ✨",
-          "url": "https://x.com/laurogeitabat/status/2097277991046783301",
-          "published_at": "2026-09-08T10:56:53Z",
-          "image_url": "https://pbs.twimg.com/media/HRsHNKAXEAATWhb.jpg",
+          "title": "X repost from @laurogeitabat: FACUA denuncia a Madring 🏁 ante Consumo por impedir el acceso con alimentos a los asistentes al…",
+          "title_zh": "X 转帖 @laurogeitabat：FACUA向消费部门投诉Madring 🏁，因其阻止F1大奖赛 🏎️ 观众携带食物入场",
+          "summary": "FACUA denuncia a Madring 🏁 ante Consumo por impedir el acceso con alimentos a los asistentes al Gran Premio de Fórmula 1 🏎️ https://t.co/4PGaVuiV5A",
+          "summary_zh": "FACUA向消费部门投诉Madring 🏁，因其阻止F1大奖赛 🏎️ 观众携带食物入场",
+          "url": "https://x.com/FACUA/status/2097589672864035072",
+          "published_at": "2026-09-09T07:35:23Z",
+          "image_url": null,
           "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HRsHNKAXEAATWhb.jpg",
-          "heat_contribution": 8.082,
+          "video_poster_url": null,
+          "heat_contribution": 5.8168,
           "metrics": {
-            "likes": 5790,
-            "retweets": 378,
-            "replies": 9,
-            "quotes": 0,
-            "views": 61544,
-            "bookmarks": 0
+            "likes": 139,
+            "retweets": 46,
+            "replies": 2,
+            "quotes": 10,
+            "views": 18953,
+            "bookmarks": 3
           }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 42,
-      "heat": 42,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 4
-    },
-    {
-      "event_id": "evt-2026-09-07-fce0a116a493",
-      "rule_id": null,
-      "hot_word_zh": "不，Oscar今天没有得分。但我确实有值得庆祝的事，所以自然，我买了个蛋糕。",
-      "hot_word_en": "No, Oscar did not score any points today. But I did have something worth celebrating, so natura…",
-      "first_seen_at": "2026-09-07T15:08:17Z",
-      "last_seen_at": "2026-09-07T15:08:17Z",
-      "anchor_item_id": "piasnews-social-13f79ce2bae73736",
-      "image_url": "https://pbs.twimg.com/media/HRn3KczaMAEmFXJ.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HRn3KczaMAEmFXJ.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
+        },
         {
-          "item_id": "piasnews-social-13f79ce2bae73736",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@oscarpiastri81",
-          "title": "X post from @oscarpiastri81: No, Oscar did not score any points today. But I did have something worth celebrating, so natura…",
-          "title_zh": "X 发帖 @oscarpiastri81：不，Oscar今天没有得分。但我确实有值得庆祝的事，所以自然，我买了个蛋糕。",
-          "summary": "No, Oscar did not score any points today. But I did have something worth celebrating, so naturally, I got a cake. https://t.co/9973oIiX28",
-          "summary_zh": "不，Oscar今天没有得分。但我确实有值得庆祝的事，所以自然，我买了个蛋糕。",
-          "url": "https://x.com/oscarpiastri81/status/2096978869408366877",
-          "published_at": "2026-09-07T15:08:17Z",
-          "image_url": "https://pbs.twimg.com/media/HRn3KczaMAEmFXJ.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HRn3KczaMAEmFXJ.jpg",
-          "heat_contribution": 7.8571,
-          "metrics": {
-            "likes": 10499,
-            "retweets": 343,
-            "replies": 202,
-            "quotes": 0,
-            "views": 112450,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 41,
-      "heat": 41,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 5
-    },
-    {
-      "event_id": "evt-2026-09-09-31938dbf1daa",
-      "rule_id": null,
-      "hot_word_zh": "这周McLaren有谷歌地图和一个梦想 🔥🔥🔥",
-      "hot_word_en": "this week mclaren has google maps and a dream 🔥🔥🔥",
-      "first_seen_at": "2026-09-09T14:26:18Z",
-      "last_seen_at": "2026-09-09T14:26:18Z",
-      "anchor_item_id": "piasnews-social-88bcb2ca44d3a953",
-      "image_url": "https://pbs.twimg.com/media/HRyAvG8WkAAbYSO.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HRyAvG8WkAAbYSO.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-88bcb2ca44d3a953",
+          "item_id": "piasnews-social-598cc17a1d23110d",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: this week mclaren has google maps and a dream 🔥🔥🔥",
-          "title_zh": "X 发帖 @laurogeitabat：这周McLaren有谷歌地图和一个梦想 🔥🔥🔥",
-          "summary": "this week mclaren has google maps and a dream 🔥🔥🔥 https://t.co/TATUuZBawn",
-          "summary_zh": "这周McLaren有谷歌地图和一个梦想 🔥🔥🔥",
-          "url": "https://x.com/laurogeitabat/status/2097693079922782434",
-          "published_at": "2026-09-09T14:26:18Z",
-          "image_url": "https://pbs.twimg.com/media/HRyAvG8WkAAbYSO.jpg",
+          "title": "X repost from @laurogeitabat: RT @FACUA: FACUA denuncia a Madring 🏁 ante Consumo por impedir el acceso con alimentos a los as…",
+          "title_zh": "X 转帖 @laurogeitabat：转推@FACUA：FACUA向消费部门投诉Madring 🏁，因其阻止F1大奖赛观众携带食物入场🏎️ http…",
+          "summary": "RT @FACUA: FACUA denuncia a Madring 🏁 ante Consumo por impedir el acceso con alimentos a los asistentes al Gran Premio de Fórmula 1 🏎️ http…",
+          "summary_zh": "转推@FACUA：FACUA向消费部门投诉Madring 🏁，因其阻止F1大奖赛观众携带食物入场🏎️ http…",
+          "url": "https://x.com/laurogeitabat/status/2097786493444170161",
+          "published_at": "2026-09-09T20:37:29Z",
+          "image_url": null,
           "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HRyAvG8WkAAbYSO.jpg",
-          "heat_contribution": 7.6373,
+          "video_poster_url": null,
+          "heat_contribution": 4.2257,
           "metrics": {
-            "likes": 2210,
-            "retweets": 145,
-            "replies": 4,
+            "likes": 0,
+            "retweets": 44,
+            "replies": 0,
             "quotes": 0,
-            "views": 25207,
+            "views": 190,
             "bookmarks": 0
           }
         }
@@ -1639,7 +1797,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 8
     },
     {
       "event_id": "evt-2026-09-06-68a259b7fe68",
@@ -1669,14 +1827,14 @@
           "image_url": "https://pbs.twimg.com/media/HRzJAh_WMAIQ4Ur.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRzJAh_WMAIQ4Ur.jpg",
-          "heat_contribution": 6.0506,
+          "heat_contribution": 5.9663,
           "metrics": {
-            "likes": 348,
-            "retweets": 21,
+            "likes": 427,
+            "retweets": 25,
             "replies": 1,
             "quotes": 0,
-            "views": 3038,
-            "bookmarks": 0
+            "views": 3876,
+            "bookmarks": 19
           }
         },
         {
@@ -1730,8 +1888,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 39,
-      "heat": 39,
+      "fan_heat": 38,
+      "heat": 38,
       "source_labels": [
         "粉"
       ],
@@ -1742,7 +1900,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 9
     },
     {
       "event_id": "evt-2026-09-07-f0a7ac990586",
@@ -1787,116 +1945,6 @@
       "media_heat": 0,
       "fan_heat": 37,
       "heat": 37,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 8
-    },
-    {
-      "event_id": "evt-2026-09-09-a996317b9805",
-      "rule_id": null,
-      "hot_word_zh": "在现役车手中，只有4位在西班牙赢过！！祈祷我个人的家庭朋友Oscar Piastri能为这…",
-      "hot_word_en": "out of the current drivers only 4 of them have won in spain !! praying my personal family frien…",
-      "first_seen_at": "2026-09-09T13:44:15Z",
-      "last_seen_at": "2026-09-09T13:44:15Z",
-      "anchor_item_id": "piasnews-social-37defcfd5ec53955",
-      "image_url": "https://pbs.twimg.com/media/HRx3HS9WAAApvCd.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HRx3HS9WAAApvCd.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-37defcfd5ec53955",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: out of the current drivers only 4 of them have won in spain !! praying my personal family frien…",
-          "title_zh": "X 发帖 @laurogeitabat：在现役车手中，只有4位在西班牙赢过！！祈祷我个人的家庭朋友Oscar Piastri能为这张图再添一个日期 🙏🏻",
-          "summary": "out of the current drivers only 4 of them have won in spain !! praying my personal family friend oscar piastri adds a second date to this graphic 🙏🏻 https://t.co/gy7AuYoayv",
-          "summary_zh": "在现役车手中，只有4位在西班牙赢过！！祈祷我个人的家庭朋友Oscar Piastri能为这张图再添一个日期 🙏🏻",
-          "url": "https://x.com/laurogeitabat/status/2097682499795103764",
-          "published_at": "2026-09-09T13:44:15Z",
-          "image_url": "https://pbs.twimg.com/media/HRx3HS9WAAApvCd.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HRx3HS9WAAApvCd.jpg",
-          "heat_contribution": 6.9261,
-          "metrics": {
-            "likes": 1036,
-            "retweets": 103,
-            "replies": 1,
-            "quotes": 0,
-            "views": 11169,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 37,
-      "heat": 37,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 9
-    },
-    {
-      "event_id": "evt-2026-09-09-75397687f681",
-      "rule_id": null,
-      "hot_word_zh": "马德里的领奖台面向一个看台，只有坐在那里的人才能看清楚？？？摄影师除非进入那个看台，否则拍…",
-      "hot_word_en": "the podium in madrid faces one of the grandstands and only people who sit there will be able to…",
-      "first_seen_at": "2026-09-09T19:31:09Z",
-      "last_seen_at": "2026-09-09T19:31:09Z",
-      "anchor_item_id": "piasnews-social-edf0ade08c99d181",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2097769773249740800/vid/avc1/462x270/ycu5g05G5VpiBHBq.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2097769773249740800/img/l8Kvv-m6H1rCUXuc.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-edf0ade08c99d181",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: the podium in madrid faces one of the grandstands and only people who sit there will be able to…",
-          "title_zh": "X 发帖 @laurogeitabat：马德里的领奖台面向一个看台，只有坐在那里的人才能看清楚？？？摄影师除非进入那个看台，否则拍不到好照片？？？？？车手们还得走很长一段路才能到那里？？？？？？？😭😭😭",
-          "summary": "the podium in madrid faces one of the grandstands and only people who sit there will be able to properly see ??? and photographers won't be able to get good pics unless they get into that grandstand ????? and drivers have to walk a long ass walkway to get there ??????? 😭😭😭 https://t.co/znokgHANxf",
-          "summary_zh": "马德里的领奖台面向一个看台，只有坐在那里的人才能看清楚？？？摄影师除非进入那个看台，否则拍不到好照片？？？？？车手们还得走很长一段路才能到那里？？？？？？？😭😭😭",
-          "url": "https://x.com/laurogeitabat/status/2097769798172099006",
-          "published_at": "2026-09-09T19:31:09Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2097769773249740800/vid/avc1/462x270/ycu5g05G5VpiBHBq.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2097769773249740800/img/l8Kvv-m6H1rCUXuc.jpg",
-          "heat_contribution": 6.7782,
-          "metrics": {
-            "likes": 504,
-            "retweets": 20,
-            "replies": 4,
-            "quotes": 0,
-            "views": 32146,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 36,
-      "heat": 36,
       "source_labels": [
         "粉"
       ],

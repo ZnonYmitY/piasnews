@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T23:32:14.941316Z",
+  "generated_at": "2026-09-10T03:20:00.820935Z",
   "translations": {
     "items:piasnews-fe3697a79f634516:title:c94eece5ccf0587686a48ca8": {
       "dataset": "items",
@@ -5305,6 +5305,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-09T23:32:13.943662Z"
+    },
+    "social:piasnews-social-5352f7a1cd78c74a:summary:c6a65f39e120a2755b579594": {
+      "dataset": "social",
+      "item_id": "piasnews-social-5352f7a1cd78c74a",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "FACUA denuncia a Madring 🏁 ante Consumo por impedir el acceso con alimentos a los asistentes al Gran Premio de Fórmula 1 🏎️ https://t.co/4PGaVuiV5A",
+      "zh": "FACUA向消费部门投诉Madring 🏁，因其阻止F1大奖赛 🏎️ 观众携带食物入场",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-10T03:19:59.818706Z"
+    },
+    "social:piasnews-social-9a990ae4547a395f:summary:5e650d4f577ace530cf0fd88": {
+      "dataset": "social",
+      "item_id": "piasnews-social-9a990ae4547a395f",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Host: If you had to pick an F1 driver who you think is right at the top when it comes to having a really smooth driving style, who would it be? Michael Shin (F3 driver for Hitech TGR): From what I’ve seen, I think Piastri is really good at driving smoothly. And by smooth, I mean he manages the weight transfer very precisely.",
+      "zh": "主持人：如果让你选一位你认为驾驶风格最平顺的F1车手，你会选谁？Michael Shin（Hitech TGR的F3车手）：就我所见，我认为Piastri的驾驶非常平顺。所谓平顺，是指他对重心转移的控制非常精准。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-10T03:19:59.818713Z"
     }
   },
   "retention_days": 8
