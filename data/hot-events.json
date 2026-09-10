@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-10T06:51:35.922245Z",
+  "generated_at": "2026-09-10T07:04:25.048485Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -106,7 +106,7 @@
           "image_url": "https://pbs.twimg.com/media/HRrR_ZCagAA_gm2.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HRrR_ZCagAA_gm2.jpg",
-          "heat_contribution": 6.586,
+          "heat_contribution": 5.7768,
           "metrics": {
             "likes": 1203,
             "retweets": 120,
@@ -236,7 +236,7 @@
           "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2284372550-scaled.jpg",
           "video_url": null,
           "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2284372550-scaled.jpg",
-          "heat_contribution": 0.75,
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -984,8 +984,8 @@
         }
       ],
       "official_heat": 73,
-      "media_heat": 42,
-      "fan_heat": 65,
+      "media_heat": 40,
+      "fan_heat": 64,
       "heat": 93,
       "source_labels": [
         "官",
