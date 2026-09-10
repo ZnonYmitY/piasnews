@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-10T10:00:26.275076Z",
+  "generated_at": "2026-09-10T12:32:45.082040Z",
   "translations": {
     "items:piasnews-92b62c72e03d87aa:title:0caf949e6993b7f732f15544": {
       "dataset": "items",
@@ -5077,6 +5077,126 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-10T09:24:57.677760Z"
+    },
+    "items:piasnews-efa822b1111b0d55:title:934c756f8fd1a473d8dc1eb8": {
+      "dataset": "items",
+      "item_id": "piasnews-efa822b1111b0d55",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Ferrari-McLaren Monza fight highlights difficult energy management for Hamilton and Piastri",
+      "zh": "Ferrari-McLarenMonza之争凸显Hamilton和Piastri在能量管理上的困难",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-10T12:32:44.083924Z"
+    },
+    "items:piasnews-efa822b1111b0d55:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-efa822b1111b0d55",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-10T12:32:44.083933Z"
+    },
+    "items:piasnews-a52d2e85de35f764:title:43ab81ebf80db4b185aea8d4": {
+      "dataset": "items",
+      "item_id": "piasnews-a52d2e85de35f764",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "McLaren to Review Norris-Piastri Battle After It Costs Time Against Verstappen",
+      "zh": "McLaren将在Norris-Piastri之争导致对Verstappen损失时间后对此进行复盘",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-10T12:32:44.083937Z"
+    },
+    "items:piasnews-a52d2e85de35f764:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-a52d2e85de35f764",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-10T12:32:44.083941Z"
+    },
+    "items:piasnews-57b62a82107e9997:title:34279e482d3b7ae2ce00dc9f": {
+      "dataset": "items",
+      "item_id": "piasnews-57b62a82107e9997",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri explains the unusual energy battle with Lewis Hamilton at Monza",
+      "zh": "Oscar Piastri解释在Monza与Lewis Hamilton不同寻常的能量之争",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-10T12:32:44.083945Z"
+    },
+    "items:piasnews-57b62a82107e9997:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-57b62a82107e9997",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-10T12:32:44.083949Z"
+    },
+    "social:piasnews-social-07f6a3d44d190cff:summary:1526741439d14478ebc84a49": {
+      "dataset": "social",
+      "item_id": "piasnews-social-07f6a3d44d190cff",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "fan: \"good luck!\" oscar: \"thank you\" ☺️ mcl admin: \"i'm just gonna follow\" oscar: ??? \"there's a seat here!\" *scoot scoot* mcl admin: *running after them* oscar: 😂 \"please hit the breaks!\" 😭😭😭😭 https://t.co/2NxdbNSkUX",
+      "zh": "粉丝：“祝你好运！”Oscar：“谢谢”☺️ McLaren管理员：“我就跟着吧”Oscar：？？？“这儿有个座位！”*挪一挪挪一挪* McLaren管理员：*在后面追他们* Oscar：😂“请踩刹车！”😭😭😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-10T12:32:44.083954Z"
+    },
+    "social:piasnews-social-ccdc09ba9efe6c4c:summary:5ed87db8add4a3d7ecfb4b86": {
+      "dataset": "social",
+      "item_id": "piasnews-social-ccdc09ba9efe6c4c",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "he's never looked better https://t.co/LQ1nAnNk1Y",
+      "zh": "他从没看起来这么好过",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-10T12:32:44.083961Z"
+    },
+    "social:piasnews-social-a85025f8d0d5ba33:summary:5332c8475dac76577a172112": {
+      "dataset": "social",
+      "item_id": "piasnews-social-a85025f8d0d5ba33",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "\"first impressions of the madring?\" oscar: \"i'm... confused\" great start 😭😭😭 https://t.co/Tkk4O0SR5N",
+      "zh": "“对madring的第一印象？”Oscar：“我……很困惑”好开头😭😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-10T12:32:44.083966Z"
+    },
+    "social:piasnews-social-e6478e9c878d41de:summary:2a7c2d8a3c617870d727fb04": {
+      "dataset": "social",
+      "item_id": "piasnews-social-e6478e9c878d41de",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar has arrived for media day in madrid! https://t.co/o6n1J2gvM6",
+      "zh": "Oscar 已抵达马德里参加媒体日！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-10T12:32:44.083969Z"
     }
   },
   "retention_days": 8
