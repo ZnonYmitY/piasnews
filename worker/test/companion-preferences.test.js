@@ -85,6 +85,15 @@ test("preference followups inherit only an immediately relevant bounded user top
     }
   }
   for (const message of ["我喜欢猫，你呢？", "I like cats, what about you?"]) assert.equal(classifyCharacterPreference(message)?.followup, "reciprocal", message);
+  // A named alternative from another topic is itself unresolved, not a bridge
+  // that permits a later short question to revive the old pet preference.
+  for (const changedTopic of ["那咖啡呢？", "what about coffee?"]) {
+    const switched = [...preferenceHistory, { role: "user", content: changedTopic }, { role: "assistant", content: "Coffee. Simple and to the point." }];
+    for (const message of ["为什么？", "why?"]) {
+      assert.equal(classifyCharacterPreference(message, switched), null, `${changedTopic} -> ${message}`);
+      assert.notEqual(classifyCompanionModeIntent(message, switched).kind, "fictional_preference", `${changedTopic} -> ${message}`);
+    }
+  }
   const why = makeOfflineResponse("为什么？", { mode: "free", history: preferenceHistory });
   assert.equal(why.answerKind, "fictional");
   assert.match(why.en, /cats/i);

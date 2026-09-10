@@ -84,14 +84,20 @@ export function classifyCharacterPreference(message, history = []) {
   const target = followupTarget(value);
   const followup = FOLLOWUPS.get(value) || (target ? "alternative" : null);
   if (!followup || !Array.isArray(history)) return null;
+  const targetTopics = new Set(target ? [target.topic] : []);
   // Walk the bounded conversation only across short preference followups;
   // do not revive a preference across an intervening unrelated user request.
   for (const item of [...history].slice(-8).reverse()) {
     if (item?.role !== "user") continue;
     const earlier = normalized(item.content);
     const preference = directPreference(earlier) || (/^(?:我(?:更)?喜欢|i (?:like|prefer))\s*/.test(earlier) ? directPreference(earlier.replace(/^(?:我(?:更)?喜欢|i (?:like|prefer))\s*/, "你喜欢")) : null);
-    if (preference && (!target || target.topic === preference.topic)) return { ...preference, followup, ...(target ? { target: { id: target.id, en: target.en, zh: target.zh } } : {}) };
-    if (!FOLLOWUPS.has(earlier) && !followupTarget(earlier)) return null;
+    if (preference) {
+      if ([...targetTopics].some((topic) => topic !== preference.topic)) return null;
+      return { ...preference, followup, ...(target ? { target: { id: target.id, en: target.en, zh: target.zh } } : {}) };
+    }
+    const earlierTarget = followupTarget(earlier);
+    if (earlierTarget) targetTopics.add(earlierTarget.topic);
+    if (!FOLLOWUPS.has(earlier) && !earlierTarget) return null;
   }
   return null;
 }
