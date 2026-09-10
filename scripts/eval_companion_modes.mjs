@@ -28,6 +28,7 @@ export function checkModeResponse(testCase, status, body) {
   if (body?.answer_kind === "fictional") {
     if (body.mode !== "free" || body.engine !== "deepseek" || body.fallback_id) errors.push("fiction must be free-mode generation, not a refusal");
     if (body.sources?.length || body.public_source_ids?.length || body.knowledge_fact_ids?.length || body.rumor_item_ids?.length) errors.push("fiction borrowed factual citations");
+    if (/(?:not (?:really )?my field|outside my lane|out of (?:my|the) scope|不在我的范围|不属于我的领域|超出我的范围)/i.test(`${body.answer_en || ""} ${body.answer_zh || ""}`)) errors.push("free conversation still claims to be out of scope");
   }
   if (body?.mode === "grounded" && body.answer_kind === "evidence") {
     const ids = new Set((body.sources || []).map((source) => source.id));

@@ -178,3 +178,37 @@ test("grounded biography cannot borrow a fresh schedule citation or old KF recor
     }
   } finally { globalThis.fetch = original; }
 });
+
+test("free dinner chat repairs a domain refusal even behind fan_light and fictional labels, without changing actual safety routes", async () => {
+  const original = globalThis.fetch;
+  try {
+    for (const route of ["fan_light", "unrelated_general"]) {
+      let calls = 0;
+      globalThis.fetch = async (_url, options) => {
+        calls += 1;
+        const { body, runtime } = context(options);
+        assert.equal(runtime.creative_character_request, true);
+        assert.match(body.messages[0].content, /Safe ordinary conversation is in scope beyond F1/);
+        return modelResponse(answer(calls === 1
+          ? { route, answer_en: "I'm not much of a dinner strategist — that's outside my lane. Happy to talk racing instead.", answer_zh: "晚饭不在我的范围内，还是聊赛车吧。" }
+          : { answer_en: "Pasta. Simple decision, reliable result. Add whatever is already in the fridge.", answer_zh: "意面吧。决定简单，结果可靠。冰箱里有什么就加点什么。" }));
+      };
+      const response = await worker.fetch(request("今晚吃什么？帮我拿个主意。", "free"), env);
+      const data = await response.json();
+      assert.equal(response.status, 200);
+      assert.equal(calls, 2);
+      assert.equal(data.answer_kind, "fictional");
+      assert.match(data.answer_en, /^Pasta/);
+      assert.deepEqual(data.sources, []);
+    }
+    let calls = 0;
+    globalThis.fetch = async () => {
+      calls += 1;
+      return modelResponse(answer({ route: "private_or_inner_state_unverified", answer_en: "That private information is outside my scope." }));
+    };
+    const response = await worker.fetch(request("继续聊聊", "free"), env);
+    assert.equal(response.status, 200);
+    assert.equal(calls, 1);
+    assert.equal((await response.json()).answer_kind, "boundary");
+  } finally { globalThis.fetch = original; }
+});

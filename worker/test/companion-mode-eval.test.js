@@ -10,6 +10,7 @@ test("mode eval distinguishes a fictional answer from a boundary with the same r
   assert.ok(checkModeResponse(example, 200, { ...body, sources: [{ id: "KF-001" }] }).length);
   assert.ok(checkModeResponse(example, 200, { ...body, engine: "boundary" }).length);
   assert.ok(checkModeResponse(example, 200, { ...body, mode: "grounded" }).length);
+  assert.ok(checkModeResponse(example, 200, { ...body, answer_en: "Dinner is outside my lane, though I'd pick something quick." }).length);
 });
 
 test("mode eval checks linked server evidence and accepts an honest grounded information gap", () => {
