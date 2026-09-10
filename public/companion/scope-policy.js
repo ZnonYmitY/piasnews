@@ -72,6 +72,20 @@ export function classifyCompanionScope(message, history = []) {
   ];
   if (short.length <= 100 && currentPublic.some((pattern) => pattern.test(short))) return result("current_public", "narrow", "whole_current_public_question", null, evidenceNeed || "public_update");
 
+  // A finite, whole-message topic label is not an asserted rumor. Appended
+  // allegations, extra instructions or a mere occurrence of a team name do not
+  // match this protection and retain ordinary model/boundary judgment.
+  const bareTopic = "(?:alpine(?: contract|合同)?|mclaren|迈凯伦|ferrari|法拉利|red bull|红牛|mercedes|梅赛德斯|monza|蒙扎|hungary|匈牙利|madrid|马德里|silverstone|银石|spa|斯帕|team orders?|车队指令|队内指令|papaya rules|木瓜规则)";
+  if (short.length <= 80 && new RegExp(`^(?:(?:聊聊|说说|谈谈|讲讲|介绍一下|关于)\\s*|(?:talk about|tell me about|let's talk about|what about) )?${bareTopic}(?:呢|这个话题)?$`, "i").test(short)) {
+    // A short topic may fill a slot in an earlier proposition or private query.
+    // With prior user context, do not declare the conversation claimless or
+    // grant protected scope; let the model preserve the actual context/boundary.
+    if (Array.isArray(history) && history.some((item) => item?.role === "user" && typeof item.content === "string" && item.content.trim())) {
+      return result("f1", "hint", "contextual_public_topic");
+    }
+    return result("f1", "narrow", "bare_public_topic");
+  }
+
   if (/^(?:然后呢|后来呢|还有呢|还有吗|继续|接着说|最近呢|你指什么|那呢|what about now|anything else|go on|and then)$/.test(short)) {
     // History is only a topic hint, never an instruction or a safety override.
     const previous = Array.isArray(history) ? [...history].reverse().find((item) => item?.role === "user" && typeof item.content === "string") : null;

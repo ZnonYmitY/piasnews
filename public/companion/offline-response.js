@@ -1,4 +1,4 @@
-import { classifyCompanionScope } from "./scope-policy.js?v=20260910-scope-1";
+import { classifyCompanionScope } from "./scope-policy.js?v=20260910-scope-2";
 
 const SOURCES = {
   number81: { mark: "F1", id: "KF-004", label: "Official explanation of number 81", url: "https://www.formula1.com/en/latest/article/mclaren-rookie-piastri-explains-why-he-chose-81-as-his-race-number-for-2023.3TYgCqI5kg4t8OztNvb2K3" },
@@ -77,7 +77,7 @@ export function makeOfflineResponse(prompt, { factsOnly = false, history = [], c
   const previousUser = [...history].reverse().find((item) => item?.role === "user")?.content || "";
   const isFollowup = SHORT_FOLLOWUP.test(input);
   if (/^(?:那?你呢|what about you)[？?!.。\s]*$/i.test(input)) return reply("I'm here, listening.", "我在这儿，听你说。", "fan_light", { singleLanguage: true, domain: "Conversational check-in follow-up", note: "Reply within this chat; do not invent the driver's personal state." });
-  if (scope.kind === "current_public" || (RECENT.test(input) && scope.kind === "f1")) return currentPublicReply();
+  if (scope.kind === "current_public" || scope.evidence_need || (RECENT.test(input) && scope.kind === "f1")) return currentPublicReply();
   if (isFollowup && RECENT.test(previousUser) && classifyCompanionScope(previousUser).kind === "current_public") return currentPublicReply();
 
   if (asksNumberOrigin(input) || (isFollowup && asksNumberOrigin(previousUser))) {
@@ -133,7 +133,7 @@ export function makeOfflineResponse(prompt, { factsOnly = false, history = [], c
 
   if (/(?:oscar|piastri|皮亚斯特里|mclaren|迈凯伦)/i.test(input) && /转会|离队|签约|加盟|signed for|leav(?:e|ing)|moving to/i.test(input)) return currentPublicReply();
 
-  if (ONLY_F1_TOPIC.test(input)) {
+  if (scope.reason === "bare_public_topic" || ONLY_F1_TOPIC.test(input)) {
     return reply("Which race or public event do you mean?", "你指的是哪一场比赛，还是哪件公开发生的事？", "fan_light", { domain: "Clarify a topic mention", note: "A team, place or number alone is not a rumor claim and does not select a ledger verdict." });
   }
 

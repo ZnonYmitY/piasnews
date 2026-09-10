@@ -93,7 +93,7 @@ test("number origin retains stable evidence without matching arbitrary 81", () =
 });
 
 test("team, circuit and instruction names alone do not trigger a rumor verdict", () => {
-  for (const message of ["Alpine", "聊聊Alpine", "Red Bull", "红牛", "Hungary", "匈牙利", "车队指令", "Team orders", "聊聊车队指令"]) {
+  for (const message of ["Alpine", "聊聊Alpine", "Red Bull", "红牛", "Hungary", "匈牙利", "车队指令", "Team orders", "聊聊车队指令", "Tell me about Alpine", "Tell me about Hungary"]) {
     const result = answer(message);
     assert.equal(result.trace.route, "fan_light", message);
     assert.equal(result.trace.sources.length, 0, message);
@@ -119,6 +119,15 @@ test("transfer speculation cannot reuse stale fixed current verdicts", () => {
   for (const message of ["Oscar转会红牛了吗", "Piastri is leaving McLaren?", "Oscar最近签约Red Bull了吗"]) {
     const result = answer(message);
     assert.equal(result.trace.route, "insufficient_current_fact", message);
+    assert.equal(result.trace.sources.length, 0, message);
+  }
+});
+
+test("shared evidence requirements keep standings, schedule and recent results out of static answers", () => {
+  for (const message of ["Oscar上一场正赛跑得怎么样", "Piastri championship standings", "下一场比赛什么时候", "Oscar's last race result"]) {
+    const result = answer(message);
+    assert.equal(result.trace.route, "insufficient_current_fact", message);
+    assert.match(result.zh, /暂时没拿到已核验/);
     assert.equal(result.trace.sources.length, 0, message);
   }
 });

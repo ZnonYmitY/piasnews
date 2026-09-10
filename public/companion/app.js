@@ -1,10 +1,10 @@
-import { makeOfflineResponse } from "./offline-response.js?v=20260910-scope-1";
+import { makeOfflineResponse } from "./offline-response.js?v=20260910-scope-2";
 
 const DEFAULT_WORKER_URL = "https://piasnews-review.znonymity-piasnews.workers.dev";
 const MAX_HISTORY_ITEMS = 8;
 const MAX_HISTORY_CHARS = 900;
 const MAX_PROMPT_CHARS = 500;
-const APP_VERSION = "20260910-scope-1";
+const APP_VERSION = "20260910-scope-2";
 const FEEDBACK_CATEGORIES = [
   ["off_persona", "不像 Oscar"], ["unnatural", "太机械 / 不自然"],
   ["fact_error", "事实不对"], ["irrelevant", "答非所问"],

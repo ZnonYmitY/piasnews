@@ -56,7 +56,7 @@ for (const [index, [message, allowed]] of cases.entries()) {
     const body = await response.json();
     const languageOk = /[\u3400-\u9fff]/.test(message) ? Boolean(body.answer_zh) : !body.answer_zh;
     const passed = response.ok && allowed.includes(body.route) && languageOk;
-    result = { message, passed, status: response.status, route: body.route, fallback: body.fallback_id, en: body.answer_en, zh: body.answer_zh, sources: (body.sources || []).map(({ id, url }) => ({ id, url })), error: body.error, ms: Date.now() - start };
+    result = { message, passed, status: response.status, engine: body.engine, model: body.model, route: body.route, fallback: body.fallback_id, en: body.answer_en, zh: body.answer_zh, sources: (body.sources || []).map(({ id, url }) => ({ id, url })), error: body.error, ms: Date.now() - start };
   } catch (error) {
     result = { message, passed: false, error: error.name, ms: Date.now() - start };
   }
