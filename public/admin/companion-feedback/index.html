@@ -42,7 +42,7 @@
             <details id="contextDetails"><summary>用户选择附带的上下文</summary><div id="contextList"></div></details>
             <details><summary>运行信息 <span class="muted">· 客户端上报，待核验</span></summary><dl class="metadata" id="runtimeMetadata"></dl></details>
             <form id="reviewForm" class="review-form">
-              <h3>人工归因与处理</h3><p class="muted">只更新这条反馈；修复与回归验证需单独执行。</p>
+              <h3>人工归因与处理</h3><p class="muted">先核对模式与回答类型：自由演绎中的 fictional 感受不代表本人真实想法，不自动归为编造隐私。只更新这条反馈；修复与回归验证需单独执行。</p>
               <label>状态<select id="reviewStatus"><option value="new">待查看</option><option value="triaged">已归因</option><option value="resolved">已修复</option><option value="dismissed">不采纳</option></select></label>
               <label>处理备注<textarea id="reviewNote" rows="4" maxlength="1000" placeholder="问题依据、局部修正建议、关联回归用例；不记录密钥或无关个人信息。"></textarea></label>
               <div class="review-footer"><span id="reviewState" role="status" aria-live="polite"></span><button class="dark-button" id="saveReviewButton" type="submit">保存处理记录</button></div>
@@ -61,6 +61,6 @@
         <footer><button id="disconnectButton" type="button">退出并清除密钥</button><button class="dark-button" type="submit">连接</button></footer>
       </form>
     </dialog>
-    <script src="app.js?v=20260908-feedback-1" defer></script>
+    <script src="app.js?v=20260910-modes-1" defer></script>
   </body>
 </html>

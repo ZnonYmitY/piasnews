@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { DatabaseSync } from "node:sqlite";
 import test from "node:test";
@@ -129,6 +130,84 @@ test("feedback requires explicit consent, origin and JSON with no writes on inva
   assert.equal((await worker.fetch(request(undefined, { body: feedback(), headers: { "Content-Type": "text/plain" } }), env)).status, 415);
   assert.equal((await worker.fetch(request(undefined, { body: "{" }), env)).status, 400);
   assert.equal(env.ANALYTICS_DB.operations.length, 0);
+});
+
+test("feedback preserves mode, answer kind and bounded current-source IDs without treating fictional thoughts as real private facts", async (t) => {
+  const env = testEnv(t);
+  const supplied = feedback({
+    categories: ["off_persona"],
+    snapshot: { ...feedback().snapshot, route: "fan_light", mode: "free", answer_kind: "fictional", answer_en: "In this fictional scene, I'd be quietly pleased.", answer_zh: "在这个虚构场景里，我大概会挺高兴。", public_source_ids: [] },
+  });
+  assert.equal((await worker.fetch(request(undefined, { body: supplied }), env)).status, 202);
+  const read = await (await worker.fetch(request(undefined, { key: "test-admin" }), env)).json();
+  assert.equal(read.items[0].snapshot.mode, "free");
+  assert.equal(read.items[0].snapshot.answer_kind, "fictional");
+  assert.deepEqual(read.items[0].categories, ["off_persona"]);
+  assert.equal(read.items[0].client_reported, true);
+  const grounded = validateFeedback(feedback({ snapshot: { ...feedback().snapshot, mode: "grounded", facts_only: true, answer_kind: "evidence", public_source_ids: ["LIVE-0123456789abcdef", "LIVE-fedcba9876543210"] } }));
+  assert.equal(grounded.snapshot.mode, "grounded");
+  assert.equal(grounded.snapshot.facts_only, true);
+  assert.deepEqual(grounded.snapshot.public_source_ids, ["LIVE-0123456789abcdef", "LIVE-fedcba9876543210"]);
+  assert.equal(validateFeedback(feedback({ snapshot: { ...feedback().snapshot, mode: "free", answer_kind: "evidence" } })).snapshot.answer_kind, "evidence");
+  for (const kind of ["social", "boundary", "insufficient"]) {
+    assert.equal(validateFeedback(feedback({ snapshot: { ...feedback().snapshot, mode: "grounded", facts_only: true, answer_kind: kind } })).snapshot.answer_kind, kind);
+  }
+});
+
+test("invalid or conflicting mode metadata and malformed current-source IDs are rejected before any write", async (t) => {
+  const env = testEnv(t);
+  const patches = [
+    { mode: "anything" }, { mode: null }, { mode: true },
+    { mode: "grounded", facts_only: false }, { mode: "free", facts_only: true },
+    { mode: "grounded", facts_only: true, answer_kind: "fictional" },
+    { mode: "grounded", facts_only: undefined, answer_kind: "fictional" },
+    { answer_kind: "simulation" }, { answer_kind: false },
+    { public_source_ids: ["KS-001"] }, { public_source_ids: ["https://example.com"] },
+    { public_source_ids: ["LIVE-0123456789ABCDEF"] },
+    { public_source_ids: ["LIVE-0123456789abcdef", "LIVE-0123456789abcdef"] },
+    { public_source_ids: Array.from({ length: 5 }, (_, i) => `LIVE-${String(i).padStart(16, "0")}`) },
+  ];
+  for (const patch of patches) {
+    const response = await worker.fetch(request(undefined, { body: feedback({ snapshot: { ...feedback().snapshot, ...patch } }) }), env);
+    assert.equal(response.status, 400, JSON.stringify(patch));
+  }
+  assert.equal(env.ANALYTICS_DB.operations.length, 0);
+});
+
+test("legacy snapshots infer mode from facts_only and keep unknown answer type null", () => {
+  const legacyFree = validateFeedback(feedback());
+  assert.equal(legacyFree.snapshot.mode, "free");
+  assert.equal(legacyFree.snapshot.answer_kind, null);
+  assert.deepEqual(legacyFree.snapshot.public_source_ids, []);
+  const legacyGrounded = validateFeedback(feedback({ snapshot: { ...feedback().snapshot, facts_only: true } }));
+  assert.equal(legacyGrounded.snapshot.mode, "grounded");
+  assert.equal(legacyGrounded.snapshot.answer_kind, null);
+  const explicitGrounded = validateFeedback(feedback({ snapshot: { ...feedback().snapshot, facts_only: undefined, mode: "grounded" } }));
+  assert.equal(explicitGrounded.snapshot.facts_only, true);
+});
+
+test("pre-mode stored feedback reads with legacy defaults and retries remain idempotent without rewriting the original record", async (t) => {
+  const env = testEnv(t);
+  const legacy = validateFeedback(feedback());
+  delete legacy.snapshot.mode; delete legacy.snapshot.answer_kind; delete legacy.snapshot.public_source_ids;
+  const originalPayload = JSON.stringify(legacy);
+  const originalHash = createHash("sha256").update(originalPayload).digest("hex");
+  env.ANALYTICS_DB.sqlite.prepare(`INSERT INTO companion_feedback
+    (feedback_id, message_id, created_at, payload_hash, payload_json, rating, categories_json, status)
+    VALUES (?, ?, ?, ?, ?, ?, ?, 'triaged')`).run(FEEDBACK_ID, MESSAGE_ID, new Date().toISOString(), originalHash, originalPayload, "negative", JSON.stringify(legacy.categories));
+  const read = await (await worker.fetch(request(undefined, { key: "test-admin" }), env)).json();
+  assert.equal(read.items[0].snapshot.mode, "free");
+  assert.equal(read.items[0].snapshot.answer_kind, null);
+  assert.deepEqual(read.items[0].snapshot.public_source_ids, []);
+  const retry = await worker.fetch(request(undefined, { body: feedback() }), env);
+  assert.equal(retry.status, 200);
+  assert.equal((await retry.json()).deduplicated, true);
+  const changedKind = await worker.fetch(request(undefined, { body: feedback({ snapshot: { ...feedback().snapshot, mode: "free", answer_kind: "fictional" } }) }), env);
+  assert.equal(changedKind.status, 409);
+  const stored = env.ANALYTICS_DB.sqlite.prepare("SELECT payload_hash, payload_json, status FROM companion_feedback WHERE feedback_id = ?").get(FEEDBACK_ID);
+  assert.equal(stored.payload_json, originalPayload);
+  assert.equal(stored.payload_hash, originalHash);
+  assert.equal(stored.status, "triaged");
 });
 
 test("all badcase categories are accepted, negative needs one, at most four unique known options", () => {

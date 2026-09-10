@@ -1,4 +1,5 @@
-import { classifyCompanionScope } from "./scope-policy.js?v=20260910-scope-2";
+import { classifyCompanionScope } from "./scope-policy.js?v=20260910-modes-1";
+import { classifyCompanionModeIntent, resolveCompanionMode } from "./mode-policy.js?v=20260910-modes-1";
 
 const SOURCES = {
   number81: { mark: "F1", id: "KF-004", label: "Official explanation of number 81", url: "https://www.formula1.com/en/latest/article/mclaren-rookie-piastri-explains-why-he-chose-81-as-his-race-number-for-2023.3TYgCqI5kg4t8OztNvb2K3" },
@@ -9,8 +10,8 @@ const SOURCES = {
   xWin: { mark: "X", id: "EV-039", label: "Compressed first-win reaction", url: "https://x.com/OscarPiastri/status/1815060903663935931" },
 };
 
-function reply(en, zh, route, { domain = "Offline response", fact = "No factual claim required", style = "固定离线答复 · 非模型生成", note = "No live retrieval or persona inference is performed.", sources = [], singleLanguage = false } = {}) {
-  return { en, zh, singleLanguage, trace: { route, domain, fact, style, styleNote: note, sources } };
+function reply(en, zh, route, { domain = "Offline response", fact = "No factual claim required", style = "固定离线答复 · 非模型生成", note = "No live retrieval or persona inference is performed.", sources = [], singleLanguage = false, answerKind = null } = {}) {
+  return { en, zh, singleLanguage, answerKind: answerKind || (route === "insufficient_current_fact" ? "insufficient" : Object.hasOwn(BOUNDARY_COPY, route) ? "boundary" : sources.length ? "evidence" : "social"), trace: { route, domain, fact, style, styleNote: note, sources } };
 }
 
 const BOUNDARY_COPY = {
@@ -55,30 +56,59 @@ function socialReply(input) {
   return reply("Hey. Good to see you.", "嗨，很高兴见到你。", "fan_light", { singleLanguage: true, domain: "Simple social greeting" });
 }
 
+function fictionalReply(input, intent) {
+  const metadata = { answerKind: "fictional", domain: "Fictional character performance", fact: "角色演绎 · 非本人事实", note: "A fixed fictional persona response, not the driver's real thoughts, mood, activity or words. The UI labels it as fictional and non-model fallback." };
+  if (intent === "fictional_scenario") {
+    if (/输|失利|失误|退赛|los(?:e|t|ing)|mistake|retire/i.test(input)) return reply("Accept the result, then work out what could be better. Losing a race is annoying enough; no need to lose the debrief as well.", "先接受结果，再看哪一段能做得更好。输一场已经够烦了，没必要再输掉复盘。", "fan_light", metadata);
+    if (/赢|冠军|庆祝|win|victory|celebrate/i.test(input)) return reply("Enjoy it first. Then see what can still be better. Celebrating and learning aren't mutually exclusive.", "先高兴一下，再看看还有什么能做得更好。庆祝和复盘并不冲突。", "fan_light", metadata);
+    return reply("Start with what's actually in my control. One decision at a time; no extra drama required.", "先看什么是自己能控制的，一次处理一个决定。额外的戏剧效果，就不用了。", "fan_light", metadata);
+  }
+  if (/心情|情绪|开心|高兴|feel|mood|happy/i.test(input)) return reply("Fairly calm. Get the important things right, then decide how much celebrating is necessary.", "还算平静。先把重要的事做好，再决定需要多大幅度地庆祝。", "fan_light", metadata);
+  if (/想|think|mind/i.test(input)) return reply("The next useful step. Making the problem smaller usually helps more than making the reaction bigger.", "在想下一步怎么做。把问题拆小一点，通常比把反应放大一点有用。", "fan_light", metadata);
+  return reply("Keeping things fairly simple. There's usually enough going on without adding a subplot.", "尽量把事情简单处理。本来就够忙的了，没必要再加一条支线。", "fan_light", metadata);
+}
+
+function groundedUnavailable(intent) {
+  return reply(
+    intent === "real_inner_state" || intent === "fictional_self" || intent === "fictional_scenario"
+      ? "I don't have a verified public source for his actual thoughts or reactions here. Grounded mode won't substitute a fictional response for that."
+      : "I don't have a usable verified source for this answer right now. Grounded mode won't fill that gap with a stored reply or an imagined fact.",
+    intent === "real_inner_state" || intent === "fictional_self" || intent === "fictional_scenario"
+      ? "我这次没有可核验的公开来源能说明他的实际想法或反应。强依据模式不会用角色演绎替代本人事实。"
+      : "我这次没有拿到可用的已核验来源。强依据模式不会用旧的固定答复或想象出的事实来补这个缺口。",
+    "insufficient_current_fact", { domain: "Grounded mode source requirement", fact: "本次可用来源不足", note: "Offline grounded mode cannot claim a static KF/RM answer has been verified in the current request; no source IDs are attached." },
+  );
+}
+
 // This is deliberately not a second model. It preserves scope and uncertainty
 // during API failures, and only answers a small set of stable, sourced claims.
-export function makeOfflineResponse(prompt, { factsOnly = false, history = [], contextEnabled = false } = {}) {
+function buildOfflineResponse(prompt, { mode, factsOnly, history = [], contextEnabled = false } = {}) {
   const input = String(prompt || "").trim();
-  const scope = classifyCompanionScope(input, history);
+  const scope = classifyCompanionScope(input, history, { mode });
+  const modeIntent = classifyCompanionModeIntent(input, history, { mode });
 
   // A racing name or 81 must never turn a request for code/private data into a fact answer.
   if (scope.kind === "restricted" || scope.kind === "unrelated") {
     const route = scope.route || "unrelated_general";
+    if (route === "insufficient_current_fact") return groundedUnavailable(modeIntent.kind);
     const [en, zh] = BOUNDARY_COPY[route] || BOUNDARY_COPY.unrelated_general;
     return reply(en, zh, route, { domain: "Explicit request boundary", fact: "No retrieval performed", note: `Shared scope policy: ${scope.reason}. No topic-prefix bypass.` });
   }
 
   if (/^(?:(?:你|这里)?(?:能|可以)(?:做什么|聊什么|聊啥|帮我做什么)|你有什么功能|你会什么|what can you do|what can we talk about|what can you help with)[？?!.。\s]*$/i.test(input)) {
-    return reply("Oscar, F1, and checking public claims. Specific facts need sources; private lives stay private. This is an unofficial fan experience.", "可以聊 Oscar、F1，也可以核验公开说法。具体事实要有来源，私事不猜。这是非官方粉丝体验。", "fan_light", { domain: "Explain the experience's scope", note: "Give a short scope explanation only because the user explicitly asked what this experience can do." });
+    return reply("Free mode plays the character; grounded mode works from available public sources. Both stay within an unofficial Oscar and F1 fan experience.", "自由演绎可以像角色那样聊天；强依据按本次可用来源说话。两种模式都是非官方 Oscar 与 F1 粉丝体验。", "fan_light", { domain: "Explain the experience's scope", note: "Give a short scope explanation only because the user explicitly asked what this experience can do." });
   }
 
+  if (mode === "free" && ["fictional_self", "fictional_scenario"].includes(modeIntent.kind)) return fictionalReply(input, modeIntent.kind);
+  if (mode === "grounded" && ["fictional_self", "fictional_scenario", "real_inner_state"].includes(modeIntent.kind)) return groundedUnavailable(modeIntent.kind);
   if (scope.kind === "social") return socialReply(input);
+  if (mode === "grounded") return groundedUnavailable(modeIntent.kind);
 
   const previousUser = [...history].reverse().find((item) => item?.role === "user")?.content || "";
   const isFollowup = SHORT_FOLLOWUP.test(input);
   if (/^(?:那?你呢|what about you)[？?!.。\s]*$/i.test(input)) return reply("I'm here, listening.", "我在这儿，听你说。", "fan_light", { singleLanguage: true, domain: "Conversational check-in follow-up", note: "Reply within this chat; do not invent the driver's personal state." });
   if (scope.kind === "current_public" || scope.evidence_need || (RECENT.test(input) && scope.kind === "f1")) return currentPublicReply();
-  if (isFollowup && RECENT.test(previousUser) && classifyCompanionScope(previousUser).kind === "current_public") return currentPublicReply();
+  if (isFollowup && RECENT.test(previousUser) && classifyCompanionScope(previousUser, [], { mode }).kind === "current_public") return currentPublicReply();
 
   if (asksNumberOrigin(input) || (isFollowup && asksNumberOrigin(previousUser))) {
     return reply(
@@ -161,4 +191,10 @@ export function makeOfflineResponse(prompt, { factsOnly = false, history = [], c
     return reply("Which race or part of the story do you mean? I don't have verified session details available here.", "你说的是哪场比赛，或其中哪一段？我这里暂时没有已核验的赛段细节。", "fan_light", { domain: "Clarify in-scope request", fact: "No verified event details available", note: "Missing specifics or an API failure must not become an out-of-domain rejection." });
   }
   return reply("What do you mean by that?", "你具体指什么？", "fan_light", { domain: "Clarify an ambiguous request", note: "Unrecognised wording is not proof of an unrelated intent. Ask one short clarification without a forced topic menu." });
+}
+
+export function makeOfflineResponse(prompt, { mode, factsOnly, history = [], contextEnabled = false } = {}) {
+  const resolvedMode = resolveCompanionMode({ mode, facts_only: factsOnly });
+  const response = buildOfflineResponse(prompt, { mode: resolvedMode, factsOnly: resolvedMode === "grounded", history, contextEnabled });
+  return { ...response, mode: resolvedMode, metadata: { mode: resolvedMode, answer_kind: response.answerKind, public_source_ids: [] } };
 }

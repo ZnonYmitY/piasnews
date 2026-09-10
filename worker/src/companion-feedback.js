@@ -10,6 +10,8 @@ const CATEGORIES = new Set([
 ]);
 const STATUSES = new Set(["new", "triaged", "resolved", "dismissed"]);
 const ENGINES = new Set(["deepseek", "boundary", "ledger", "fallback", "welcome"]);
+const MODES = new Set(["free", "grounded"]);
+const ANSWER_KINDS = new Set(["fictional", "evidence", "social", "boundary", "insufficient"]);
 
 function object(value) {
   return value !== null && typeof value === "object" && !Array.isArray(value);
@@ -34,6 +36,28 @@ function uuid(value, field) {
   return value.toLowerCase();
 }
 
+function snapshotMode(snapshot) {
+  if (snapshot.mode !== undefined && !MODES.has(snapshot.mode)) throw new Error("Invalid snapshot mode.");
+  const mode = snapshot.mode ?? (snapshot.facts_only === true ? "grounded" : "free");
+  if (snapshot.mode !== undefined && typeof snapshot.facts_only === "boolean" && snapshot.facts_only !== (mode === "grounded")) {
+    throw new Error("Snapshot mode conflicts with facts_only.");
+  }
+  return mode;
+}
+
+function snapshotAnswerKind(snapshot, mode) {
+  if (snapshot.answer_kind == null) return null;
+  if (!ANSWER_KINDS.has(snapshot.answer_kind)) throw new Error("Invalid snapshot answer_kind.");
+  if (mode === "grounded" && snapshot.answer_kind === "fictional") throw new Error("A grounded snapshot cannot be labelled fictional.");
+  return snapshot.answer_kind;
+}
+
+function publicSourceIds(value) {
+  const ids = idList(value, 4, "public_source_ids");
+  if (ids.some((id) => !/^LIVE-[0-9a-f]{16}$/.test(id))) throw new Error("Invalid public_source_ids.");
+  return ids;
+}
+
 export function validateFeedback(body) {
   if (!object(body)) throw new Error("Request body must be an object.");
   if (body.consent !== true) throw new Error("Explicit feedback consent is required.");
@@ -47,6 +71,8 @@ export function validateFeedback(body) {
   const snapshot = body.snapshot;
   if (!ENGINES.has(snapshot.engine)) throw new Error("Invalid snapshot engine.");
   if (snapshot.facts_only != null && typeof snapshot.facts_only !== "boolean") throw new Error("Invalid facts_only.");
+  const mode = snapshotMode(snapshot);
+  const answerKind = snapshotAnswerKind(snapshot, mode);
   const history = snapshot.history ?? [];
   if (!Array.isArray(history) || history.length > 4 || (!body.include_context && history.length)) {
     throw new Error("History requires include_context and contains at most four items.");
@@ -82,12 +108,15 @@ export function validateFeedback(body) {
       style_card_id: text(snapshot.style_card_id, 40, "style_card_id"),
       package_version: text(snapshot.package_version, 40, "package_version"),
       source_hash: text(snapshot.source_hash, 80, "source_hash"),
-      facts_only: snapshot.facts_only === true,
+      mode,
+      answer_kind: answerKind,
+      facts_only: mode === "grounded",
       app_version: text(snapshot.app_version, 60, "app_version"),
       knowledge_fact_ids: idList(snapshot.knowledge_fact_ids, 4, "knowledge_fact_ids"),
       rumor_item_ids: idList(snapshot.rumor_item_ids, 1, "rumor_item_ids"),
       judgment_rule_ids: idList(snapshot.judgment_rule_ids, 1, "judgment_rule_ids"),
       evidence_ids: idList(snapshot.evidence_ids, 8, "evidence_ids"),
+      public_source_ids: publicSourceIds(snapshot.public_source_ids),
       latency_ms: latency,
     },
   };
@@ -157,10 +186,16 @@ async function recordFeedback(payload, env) {
     (feedback_id, message_id, created_at, payload_hash, payload_json, rating, categories_json, status)
     VALUES (?, ?, ?, ?, ?, ?, ?, 'new') ON CONFLICT(feedback_id) DO NOTHING`)
     .bind(payload.feedback_id, payload.message_id, new Date().toISOString(), hash, encoded, payload.rating, JSON.stringify(payload.categories)).run();
-  const stored = await env.ANALYTICS_DB.prepare("SELECT payload_hash FROM companion_feedback WHERE feedback_id = ?")
+  const stored = await env.ANALYTICS_DB.prepare("SELECT payload_hash, payload_json FROM companion_feedback WHERE feedback_id = ?")
     .bind(payload.feedback_id).first();
   if (!stored) throw new Error("Feedback storage unavailable.");
-  if (stored.payload_hash !== hash) return { error: "feedback_id already belongs to a different submission.", status: 409 };
+  if (stored.payload_hash !== hash) {
+    // Additive metadata defaults must not break a retry of a pre-mode report.
+    // Compare its normalized meaning, but never rewrite the original snapshot.
+    let sameLegacyPayload = false;
+    try { sameLegacyPayload = JSON.stringify(validateFeedback(JSON.parse(stored.payload_json))) === encoded; } catch { /* A different/invalid payload remains a conflict. */ }
+    if (!sameLegacyPayload) return { error: "feedback_id already belongs to a different submission.", status: 409 };
+  }
   const deduplicated = Number(result.meta?.changes ?? 0) === 0;
   return { body: { accepted: true, feedback_id: payload.feedback_id, deduplicated, retention_days: FEEDBACK_RETENTION_DAYS }, status: deduplicated ? 200 : 202 };
 }
@@ -203,8 +238,16 @@ function listOptions(url, isExport) {
 }
 
 function feedbackItem(row) {
+  const payload = JSON.parse(row.payload_json);
+  const snapshot = payload.snapshot || {};
   return {
-    ...JSON.parse(row.payload_json),
+    ...payload,
+    snapshot: {
+      ...snapshot,
+      mode: snapshot.mode ?? (snapshot.facts_only === true ? "grounded" : "free"),
+      answer_kind: snapshot.answer_kind ?? null,
+      public_source_ids: snapshot.public_source_ids ?? [],
+    },
     created_at: row.created_at,
     status: row.status,
     review_note: row.review_note || "",

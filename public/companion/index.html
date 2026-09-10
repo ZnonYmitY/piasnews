@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#eeede7">
     <meta name="description" content="留一点时间，聊聊 Oscar。基于公开材料的非官方 Piastri 粉丝对话体验。">
     <title>The Garage — Piastri Companion · Piasnews</title>
-    <link rel="stylesheet" href="styles.css?v=20260908-feedback-1">
+    <link rel="stylesheet" href="styles.css?v=20260910-modes-1">
   </head>
   <body>
     <div class="page-shell" id="pageShell">
@@ -24,6 +24,7 @@
         </section>
         <section class="conversation-panel" aria-label="Piastri Companion 对话">
           <div class="conversation-header"><div class="driver-identity"><div class="driver-avatar" aria-hidden="true">81</div><div><p class="eyebrow">THE GARAGE</p><h2>Oscar, interpreted.</h2><p class="identity-note">非官方 · 公开风格演绎</p></div></div><div class="conversation-tools"><button class="icon-button" id="resetButton" type="button" aria-label="开始新对话" title="开始新对话"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1.4 7M4 4v6h6"/></svg></button><button class="insight-button" id="panelButton" type="button" aria-label="查看回答依据与模式设置" aria-controls="insightPanel" aria-expanded="false"><span>依据</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v14H5zM9 9h6m-6 4h6m-6 3h3"/></svg></button></div></div>
+          <section class="conversation-mode" aria-label="选择对话模式"><div class="mode-switch" role="group" aria-label="对话模式"><button type="button" data-companion-mode="free" aria-pressed="true"><span class="mode-glyph" aria-hidden="true">✳</span><span>自由演绎</span><small>IMPROV</small></button><button type="button" data-companion-mode="grounded" aria-pressed="false"><span class="mode-glyph" aria-hidden="true">⌁</span><span>强依据</span><small>SOURCED</small></button></div><p class="mode-description" id="modeDescription">像他那样聊：想法与反应可以演绎，不代表本人事实。</p><p class="mode-status" id="modeStatus" role="status" aria-live="polite">两种模式上下文独立 · 旧回复不会改变</p></section>
           <div class="disclosure" id="modelDisclosure" data-state="connecting" role="status"><span class="status-dot" aria-hidden="true"></span><p><strong id="modelStatusTitle">正在连接 DeepSeek</strong><span id="modelStatusDetail">人物化表达不代表 Oscar Piastri、McLaren 或 F1。</span></p></div>
           <div class="conversation-body"><div class="messages" id="messages" role="log" aria-label="对话记录" aria-live="polite" aria-relevant="additions"><article class="message assistant-message welcome-message"><div class="message-meta"><span>81 / COMPANION</span><span class="message-engine">WELCOME</span></div><div class="message-copy"><p class="welcome-kicker">YOU'RE IN GOOD COMPANY.</p><p class="english">A race. A rumour.<br>Or just a good result.</p><p class="welcome-note">聊一场比赛，核验一条传闻，<br>或者，单纯为一个好结果高兴。</p><div class="prompt-list" id="promptList" aria-label="试着聊聊"><button type="button" data-prompt="为什么 Oscar 用 81 号？"><span>为什么是 81？</span><span aria-hidden="true">↗</span></button><button type="button" data-prompt="That was a brilliant win. You made it look easy."><span>That was a brilliant win.</span><span aria-hidden="true">↗</span></button><button type="button" data-prompt="Oscar 从来不会质疑车队指令，对吧？"><span>聊聊车队指令</span><span aria-hidden="true">↗</span></button></div></div></article></div><button class="jump-latest" id="jumpLatest" type="button" hidden>新回复 <span aria-hidden="true">↓</span></button></div>
           <div class="typing-indicator" id="typingIndicator" hidden role="status"><span class="generation-track" aria-hidden="true"><i></i></span><span>正在想这件事<span class="typing-dots">…</span></span><small>让表达慢半拍，让事实先行。</small></div>
@@ -33,9 +34,9 @@
     </div>
     <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
     <aside class="insight-panel" id="insightPanel" role="dialog" aria-modal="true" aria-labelledby="insightTitle" tabindex="-1" inert hidden>
-      <div class="insight-header"><div><p class="eyebrow">UNDER THE BODYWORK</p><h2 id="insightTitle">每句话，都有来处。</h2></div><button class="icon-button" id="closePanelButton" type="button" aria-label="关闭依据面板">×</button></div>
+      <div class="insight-header"><div><p class="eyebrow">UNDER THE BODYWORK</p><h2 id="insightTitle">风格与依据，分开看。</h2></div><button class="icon-button" id="closePanelButton" type="button" aria-label="关闭依据面板">×</button></div>
       <p class="drawer-intro">这是基于公开资料与风格约束的粉丝体验，不是本人。事实、观点与人物化表达，应当分开看。下方链接是回答关联的公开资料，不代表逐条独立核验。</p>
-      <section class="mode-control"><div><strong>只聊事实</strong><small>从下一条回复起，关闭人物化表达。</small></div><label class="switch"><input id="factsOnlyToggle" type="checkbox" aria-label="仅使用事实表达"><span></span></label></section>
+      <section class="mode-control"><div><strong>两种模式，各有边界</strong><small id="drawerModeSummary">自由演绎允许虚构角色表达；强依据只按本次可用来源回答。两种模式的上下文彼此独立。</small></div></section>
       <section class="trace-card"><div class="section-label-row"><span class="section-label">这条回答如何形成</span><span class="route-badge" id="routeBadge">FAN_LIGHT</span></div><ol class="trace-steps"><li><span>01</span><div><strong>话题与边界</strong><small id="domainTrace"></small></div></li><li><span>02</span><div><strong>事实依据</strong><small id="factTrace"></small></div></li><li><span>03</span><div><strong>表达方式</strong><small id="styleTrace"></small></div></li></ol></section>
       <section class="trace-card evidence-card"><div class="section-label-row"><span class="section-label">关联公开来源</span><button id="evidenceToggle" type="button" aria-controls="evidenceList" aria-expanded="true">收起</button></div><div class="evidence-list" id="evidenceList"></div></section>
       <section class="style-readout"><span class="section-label">这条回答的限制</span><p id="styleNote"></p></section><p class="version-note" id="runtimeNote">Skill v0.4.0 · 正在连接模型</p>
@@ -55,6 +56,6 @@
         <div class="feedback-submit-row"><button class="feedback-submit" id="feedbackSubmit" type="submit">提交反馈 <span aria-hidden="true">↗</span></button><span class="feedback-submit-note" id="feedbackSubmitNote">需要你的明确同意。</span></div>
       </form>
     </aside>
-    <script src="app.js?v=20260910-scope-2" type="module"></script>
+    <script src="app.js?v=20260910-modes-1" type="module"></script>
   </body>
 </html>

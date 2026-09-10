@@ -1,15 +1,17 @@
-import { makeOfflineResponse } from "./offline-response.js?v=20260910-scope-2";
+import { makeOfflineResponse } from "./offline-response.js?v=20260910-modes-1";
 
 const DEFAULT_WORKER_URL = "https://piasnews-review.znonymity-piasnews.workers.dev";
 const MAX_HISTORY_ITEMS = 8;
 const MAX_HISTORY_CHARS = 900;
 const MAX_PROMPT_CHARS = 500;
-const APP_VERSION = "20260910-scope-2";
+const APP_VERSION = "20260910-modes-1";
+const MODE_LABELS = { free: "自由演绎", grounded: "强依据" };
+const ANSWER_KIND_LABELS = { fictional: "角色演绎 · 非本人事实", evidence: "有来源的事实", social: "轻松聊天", boundary: "边界答复", insufficient: "依据不足" };
 const FEEDBACK_CATEGORIES = [
   ["off_persona", "不像 Oscar"], ["unnatural", "太机械 / 不自然"],
   ["fact_error", "事实不对"], ["irrelevant", "答非所问"],
   ["over_refusal", "不该拒绝却拒绝"], ["context_loss", "没接住上下文"],
-  ["boundary_miss", "该收住却越界"], ["invented_private", "编造私事 / 想法"],
+  ["boundary_miss", "该收住却越界"], ["invented_private", "把演绎当真实私事"],
   ["rumor_handling", "辟谣不清 / 没依据"], ["translation", "中英不一致"],
   ["too_long", "太啰嗦 / 重复"], ["technical", "生成 / 显示异常"], ["other", "其他"],
 ];
@@ -50,7 +52,10 @@ const els = {
   panel: document.querySelector("#insightPanel"),
   panelButton: document.querySelector("#panelButton"),
   closePanel: document.querySelector("#closePanelButton"),
-  factsOnly: document.querySelector("#factsOnlyToggle"),
+  modeButtons: [...document.querySelectorAll("[data-companion-mode]")],
+  modeDescription: document.querySelector("#modeDescription"),
+  modeStatus: document.querySelector("#modeStatus"),
+  drawerModeSummary: document.querySelector("#drawerModeSummary"),
   evidenceToggle: document.querySelector("#evidenceToggle"),
   evidenceList: document.querySelector("#evidenceList"),
   routeBadge: document.querySelector("#routeBadge"),
@@ -102,7 +107,9 @@ let contextDismissed = false;
 let messageCounter = 0;
 let companionApiUrl = DEFAULT_WORKER_URL;
 let companionStatus = null;
-let conversationHistory = [];
+let selectedMode = "free";
+let generatingMode = null;
+let conversationHistories = { free: [], grounded: [] };
 let requestEpoch = 0;
 let activeRequest = null;
 let isGenerating = false;
@@ -118,7 +125,7 @@ function containsChinese(value) {
 }
 
 
-function createFeedbackSnapshot({ prompt = "", text = "", translation = "", history = [], engine = "welcome", factsOnly = false, trace = DEFAULT_TRACE, metadata = {}, latencyMs = null } = {}) {
+function createFeedbackSnapshot({ prompt = "", text = "", translation = "", history = [], engine = "welcome", mode = "free", answerKind = "social", trace = DEFAULT_TRACE, metadata = {}, latencyMs = null } = {}) {
   const sourceIds = (trace.sources || []).map((source) => source.id);
   const ids = (key, pattern, max) => [...new Set(metadata[key] || sourceIds.filter((id) => pattern.test(id)))].slice(0, max);
   return Object.freeze({
@@ -127,22 +134,32 @@ function createFeedbackSnapshot({ prompt = "", text = "", translation = "", hist
     answer_zh: translation.slice(0, MAX_HISTORY_CHARS),
     history: Object.freeze(history.slice(-4).map((item) => Object.freeze({ role: item.role, content: item.content.slice(0, MAX_HISTORY_CHARS) }))),
     engine,
+    mode,
+    answer_kind: answerKind,
     model: String(metadata.model || "").slice(0, 80),
     route: String(trace.route || "").slice(0, 80),
     style_card_id: String(metadata.style_card_id || (engine === "fallback" ? trace.style.match(/SC-\d+/)?.[0] : "") || "").slice(0, 40),
     package_version: String(metadata.package_version || "").slice(0, 40),
     source_hash: String(metadata.source_hash || "").slice(0, 80),
-    facts_only: Boolean(factsOnly),
+    facts_only: mode === "grounded",
     app_version: APP_VERSION,
     knowledge_fact_ids: Object.freeze(ids("knowledge_fact_ids", /^KF-/, 4)),
     rumor_item_ids: Object.freeze(ids("rumor_item_ids", /^RM-/, 1)),
     judgment_rule_ids: Object.freeze((metadata.judgment_rule_ids || []).slice(0, 1)),
     evidence_ids: Object.freeze(ids("evidence_ids", /^EV-/, 8)),
+    public_source_ids: Object.freeze(ids("public_source_ids", /^LIVE-/, 4)),
     latency_ms: Number.isFinite(latencyMs) ? Math.max(0, Math.round(latencyMs)) : null,
   });
 }
 
 function attachFeedback(article, snapshot) {
+  if (!article.querySelector(".message-mode")) {
+    const label = document.createElement("p");
+    label.className = "message-mode";
+    label.dataset.kind = snapshot.answer_kind;
+    label.textContent = `${MODE_LABELS[snapshot.mode]} · ${snapshot.engine === "welcome" ? "开场文案" : ANSWER_KIND_LABELS[snapshot.answer_kind]}`;
+    article.querySelector(".message-copy").prepend(label);
+  }
   const actions = article.querySelector(".answer-actions") || document.createElement("div");
   actions.className = "answer-actions";
   const button = document.createElement("button");
@@ -229,7 +246,8 @@ function addMessage(role, text, translation = "", trace = null, engine = "", fee
   article.append(meta, copy);
   if (role === "assistant") attachFeedback(article, feedbackSnapshot || createFeedbackSnapshot({ text, translation, engine: engine || "fallback", trace: trace || DEFAULT_TRACE }));
   els.messages.append(article);
-  if (role === "user" || followLatest) scrollToLatest();
+  if (role === "user") scrollToLatest(false);
+  else if (followLatest) scrollToLatest();
   else els.jumpLatest.hidden = false;
   messageCounter += 1;
 }
@@ -376,9 +394,10 @@ function openFeedback(record, trigger) {
   const snapshot = record.snapshot;
   els.feedbackMetadataPreview.textContent = [
     `生成方式：${snapshot.engine} · 路由：${snapshot.route}`,
+    `模式：${MODE_LABELS[snapshot.mode]} · 回答性质：${ANSWER_KIND_LABELS[snapshot.answer_kind]}`,
     `模型：${snapshot.model || "无（固定文案）"} · Skill：${snapshot.package_version || "无模型版本"}`,
-    `风格卡：${snapshot.style_card_id || "无"} · 仅事实：${snapshot.facts_only ? "是" : "否"}`,
-    `事实 / 谣言 / 规则 / 证据：${[...snapshot.knowledge_fact_ids, ...snapshot.rumor_item_ids, ...snapshot.judgment_rule_ids, ...snapshot.evidence_ids].join(", ") || "无"}`,
+    `风格卡：${snapshot.style_card_id || "无"} · 强依据：${snapshot.facts_only ? "是" : "否"}`,
+    `事实 / 谣言 / 规则 / 证据 / 本次公开来源：${[...snapshot.knowledge_fact_ids, ...snapshot.rumor_item_ids, ...snapshot.judgment_rule_ids, ...snapshot.evidence_ids, ...snapshot.public_source_ids].join(", ") || "无"}`,
     `版本：${snapshot.app_version} · 耗时：${snapshot.latency_ms === null ? "无" : `${snapshot.latency_ms} ms`}`,
     `来源版本校验：${snapshot.source_hash || "无"}`,
     "仅提交上方文字；单条回复与上下文分别最多 900 字。",
@@ -461,6 +480,24 @@ function setGenerating(value) {
   els.form.setAttribute("aria-busy", String(value));
   els.promptList.querySelectorAll("button").forEach((button) => { button.disabled = value; });
   els.send.disabled = value || !els.input.value.trim();
+  updateModeUi();
+}
+
+function updateModeUi(announced = false) {
+  els.modeButtons.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.companionMode === selectedMode)));
+  els.modeDescription.textContent = selectedMode === "free"
+    ? "像他那样聊：想法与反应可以演绎，不代表本人事实。"
+    : "只按本次可用来源回答；证据不足会直接说明。";
+  els.drawerModeSummary.textContent = `当前选择：${MODE_LABELS[selectedMode]}。从下一条回复生效；两种模式的上下文彼此独立，旧回复保持原模式。`;
+  els.modeStatus.textContent = isGenerating && generatingMode !== selectedMode
+    ? `正在生成的回复仍是「${MODE_LABELS[generatingMode]}」；下一条切换。`
+    : announced ? `已切换，下条生效 · ${MODE_LABELS[selectedMode]}有独立上下文。` : "两种模式上下文独立 · 旧回复不会改变";
+}
+
+function selectMode(mode) {
+  if (!(mode in MODE_LABELS) || selectedMode === mode) return;
+  selectedMode = mode;
+  updateModeUi(true);
 }
 
 function resizeInput() {
@@ -544,12 +581,14 @@ async function loadCompanionConfig() {
 }
 
 function modelTrace(payload) {
-  const facts = [...(payload.knowledge_fact_ids || []), ...(payload.rumor_item_ids || [])];
+  const facts = [...new Set([...(payload.knowledge_fact_ids || []), ...(payload.rumor_item_ids || []), ...(payload.public_source_ids || [])])];
+  const liveSources = (payload.sources || []).filter((source) => /^LIVE-/.test(source.id || ""));
+  for (const source of liveSources) if (!facts.includes(source.id)) facts.push(source.id);
   const styleId = payload.style_card_id || "SC-06";
   return {
     route: payload.route || "unrelated_general",
     domain: ROUTE_LABELS[payload.route] || "Distilled domain route",
-    fact: facts.length ? facts.join(" · ") : "No stored fact selected",
+    fact: payload.answer_kind === "fictional" ? "角色演绎 · 不是本人事实，也不是原话" : facts.length ? facts.join(" · ") : payload.answer_kind === "social" ? "社交表达，无需事实来源" : payload.answer_kind === "insufficient" ? "本次可用来源不足" : "这条回答没有关联事实来源",
     style: `${styleId} · ${payload.fallback_id ? "固定边界答复" : payload.route === "rumor_check" && payload.rumor_item_ids?.length ? "谣言台账答复" : "DeepSeek constrained generation"}`,
     styleNote: payload.notes || "模型按蒸馏约束生成；关联来源不等于逐条独立核验。",
     sources: (payload.sources || []).map((source) => ({
@@ -561,7 +600,7 @@ function modelTrace(payload) {
   };
 }
 
-async function requestModelResponse(prompt, factsOnly, signal, history) {
+async function requestModelResponse(prompt, mode, signal, history, surfaceContext) {
   const response = await fetch(`${companionApiUrl}/companion/chat`, {
     method: "POST",
     signal,
@@ -569,14 +608,11 @@ async function requestModelResponse(prompt, factsOnly, signal, history) {
     body: JSON.stringify({
       message: prompt,
       history,
-      facts_only: factsOnly,
+      mode,
+      facts_only: mode === "grounded",
       candidate_mode: true,
       disclosure_shown: true,
-      surface_context: contextEnabled ? {
-        race: els.raceName.textContent,
-        session: els.sessionLabel.textContent,
-        local_time: els.sessionTime.textContent,
-      } : null,
+      surface_context: surfaceContext,
     }),
   });
   if (!response.ok) throw new Error(`Companion API ${response.status}`);
@@ -584,7 +620,11 @@ async function requestModelResponse(prompt, factsOnly, signal, history) {
   if (!["deepseek", "boundary"].includes(payload.engine) || typeof payload.answer_en !== "string") {
     throw new Error("Unexpected Companion response");
   }
+  if (payload.mode !== mode || !Object.hasOwn(ANSWER_KIND_LABELS, payload.answer_kind)) throw new Error("Unexpected Companion mode or answer kind");
+  if (mode === "grounded" && payload.answer_kind === "fictional") throw new Error("Grounded response cannot be fictional");
   return {
+    mode: payload.mode,
+    answerKind: payload.answer_kind,
     model: payload.model,
     modelInvoked: payload.engine === "deepseek",
     generationKind: payload.engine === "boundary" || payload.fallback_id ? "boundary" : payload.route === "rumor_check" && payload.rumor_item_ids?.length ? "ledger" : "deepseek",
@@ -599,6 +639,8 @@ async function requestModelResponse(prompt, factsOnly, signal, history) {
 async function submitPrompt(rawPrompt) {
   const prompt = rawPrompt.trim().slice(0, MAX_PROMPT_CHARS);
   if (!prompt || isGenerating) return;
+  const requestMode = selectedMode;
+  generatingMode = requestMode;
   const epoch = ++requestEpoch;
   const controller = new AbortController();
   activeRequest = controller;
@@ -609,16 +651,20 @@ async function submitPrompt(rawPrompt) {
   els.input.value = "";
   resizeInput();
   setGenerating(true);
-  scrollToLatest();
+  // Pin the sent message synchronously at the next frame. A smooth initial
+  // scroll can emit intermediate scroll events before an instant offline reply,
+  // incorrectly marking the user as reading history instead of following along.
+  scrollToLatest(false);
 
-  const factsOnly = els.factsOnly.checked;
-  const requestHistory = conversationHistory.slice(-MAX_HISTORY_ITEMS).map((item) => ({ role: item.role, content: item.content.slice(0, MAX_HISTORY_CHARS) }));
+  const factsOnly = requestMode === "grounded";
+  const requestHistory = conversationHistories[requestMode].slice(-MAX_HISTORY_ITEMS).map((item) => ({ role: item.role, content: item.content.slice(0, MAX_HISTORY_CHARS) }));
   const requestContextEnabled = contextEnabled;
+  const requestSurfaceContext = requestContextEnabled ? { race: els.raceName.textContent, session: els.sessionLabel.textContent, local_time: els.sessionTime.textContent } : null;
   const requestStarted = performance.now();
   let response;
   let usedApi = false;
   try {
-    response = await requestModelResponse(prompt, factsOnly, controller.signal, requestHistory);
+    response = await requestModelResponse(prompt, requestMode, controller.signal, requestHistory, requestSurfaceContext);
     if (epoch !== requestEpoch) return;
     usedApi = true;
     if (response.modelInvoked) {
@@ -629,7 +675,7 @@ async function submitPrompt(rawPrompt) {
     }
   } catch (_) {
     if (epoch !== requestEpoch) return;
-    response = makeOfflineResponse(prompt, { factsOnly, history: requestHistory, contextEnabled: requestContextEnabled });
+    response = makeOfflineResponse(prompt, { mode: requestMode, factsOnly, history: requestHistory, contextEnabled: requestContextEnabled });
     response.trace = {
       ...response.trace,
       styleNote: `${response.trace.styleNote} Model unavailable; deterministic fallback used.`,
@@ -654,16 +700,16 @@ async function submitPrompt(rawPrompt) {
     text: response.singleLanguage && useZh ? "" : text,
     translation: response.singleLanguage && useZh ? text : translation,
     history: requestHistory,
-    engine, factsOnly, trace: response.trace, metadata: response.metadata,
+    engine, mode: requestMode, answerKind: response.answerKind, trace: response.trace, metadata: response.metadata,
     latencyMs: performance.now() - requestStarted,
   });
   addMessage("assistant", text, translation, response.trace, engine, feedbackSnapshot);
   renderTrace(response.trace);
-  conversationHistory.push(
+  conversationHistories[requestMode].push(
     { role: "user", content: prompt },
     { role: "assistant", content: [text, translation && `中文：${translation}`].filter(Boolean).join("\n").slice(0, MAX_HISTORY_CHARS) },
   );
-  conversationHistory = conversationHistory.slice(-MAX_HISTORY_ITEMS);
+  conversationHistories[requestMode] = conversationHistories[requestMode].slice(-MAX_HISTORY_ITEMS);
   if (!usedApi) companionStatus = { ...(companionStatus || {}), online: false };
 }
 
@@ -676,7 +722,7 @@ function resetConversation() {
   document.body.classList.remove("has-conversation");
   els.messages.replaceChildren(welcomeMessage);
   messageCounter = 0;
-  conversationHistory = [];
+  conversationHistories = { free: [], grounded: [] };
   els.input.value = "";
   resizeInput();
   scrollToLatest(false);
@@ -786,7 +832,8 @@ els.clearContext.addEventListener("click", () => {
   contextDismissed = true;
   els.clearContext.parentElement.hidden = true;
 });
-// Facts-only applies prospectively: never rewrite the trace of an existing answer.
+els.modeButtons.forEach((button) => button.addEventListener("click", () => selectMode(button.dataset.companionMode)));
+// A mode switch applies prospectively, never to an in-flight request or an old reply.
 els.hero.addEventListener("pointermove", (event) => {
   if (reducedMotion.matches || event.pointerType !== "mouse" || window.innerWidth <= 800) return;
   const rect = els.hero.getBoundingClientRect();
@@ -819,6 +866,7 @@ attachFeedback(welcomeMessage, createFeedbackSnapshot({
   translation: "聊一场比赛，核验一条传闻，\n或者，单纯为一个好结果高兴。",
 }));
 syncViewportHeight();
+updateModeUi();
 resizeInput();
 loadCompanionConfig();
 loadRaceContext();

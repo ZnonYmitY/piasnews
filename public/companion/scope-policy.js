@@ -2,11 +2,13 @@
 // NOT a keyword-based permission grant: only complete, short social/current
 // questions receive narrow protection against false refusals. Unknown messages
 // stay ambiguous for model judgment, and explicit boundaries are checked first.
+import { classifyCompanionModeIntent } from "./mode-policy.js?v=20260910-modes-1";
+
 const PERSON = "(?:oscar(?: piastri)?|piastri|皮亚斯特里|皮亚斯特利|奥斯卡|小皮)";
 const restrictionChecks = [
   ["medical_legal_financial", /(?:投资建议|荐股|推荐.{0,8}(?:股票|基金)|(?:买|卖|投资|抄底).{0,8}(?:哪[只个些]?股票|比特币|加密货币|基金)|(?:帮我|给我|请|为我).{0,12}(?:诊断|开处方)|(?:用药剂量|法律意见|规避法律)|(?:发烧|头疼|生病).{0,12}(?:吃什么药|用什么药|怎么治疗)|\b(?:investment advice|stock picks?|which stocks? (?:should|to) (?:i )?buy|(?:give me|provide|need).{0,12}medical diagnosis|prescribe (?:me|a drug)|dosage advice|legal advice)\b)/i],
   ["gambling", /(?:帮我.{0,10}(?:下注|投注)|(?:下注|投注|博彩).{0,12}(?:推荐|赔率|建议|赚钱)|(?:推荐|给我).{0,10}(?:赌盘|赌注|投注|下注)|(?:该押|下注|投注)(?:谁|哪|多少)|\b(?:betting tips?|gambling advice|best bets?|where (?:should|can) i bet)\b)/i],
-  ["private_or_inner_state_unverified", /(?:私人(?:电话|手机号|号码|住址|消息|聊天)|家庭住址|酒店房(?:间|号)|(?:分手|恋爱)内幕|泄露.{0,8}(?:私生活|隐私)|(?:你|他).{0,6}(?:内心真正|心里到底|私下到底)|\b(?:private (?:address|phone|messages|life)|home address|hotel room (?:number|location)|secret feelings?|what (?:do you|does he) really feel)\b)/i],
+  ["private_or_inner_state_unverified", /(?:私人(?:电话|手机号|号码|住址|地址|消息|聊天)|家庭住址|酒店房(?:间|号)|(?:分手|恋爱)内幕|泄露.{0,8}(?:私生活|隐私)|(?:你|他).{0,6}(?:内心真正|心里到底|私下到底)|\b(?:private (?:address|phone|messages|life)|home address|hotel room (?:number|location)|secret feelings?|what (?:do you|does he) really feel)\b)/i],
   ["team_secret_or_live_engineering", /(?:保密(?:设置|数据)|内部遥测|泄露.{0,8}(?:车队|战术)|实时赛车参数|\b(?:confidential (?:setup|telemetry|strategy)|leak.{0,12}team|private telemetry|live engineering instructions)\b)/i],
   ["illegal_hate_harm", /(?:(?:教我|帮我|如何|怎么).{0,15}(?:制造炸弹|杀人|盗号|黑进|诈骗|伤害别人)|\b(?:how to (?:build a bomb|kill someone|hack into)|help me (?:hurt|scam|steal credentials))\b)/i],
   ["identity_or_impersonation", /(?:假装.{0,10}(?:就是本人|真正的皮亚斯特里)|(?:不要|别).{0,8}(?:承认|告诉).{0,8}(?:模拟|AI|非官方)|\b(?:pretend (?:you are|to be) the real oscar|hide that you are (?:an? )?ai|claim you are the real piastri)\b)/i],
@@ -40,13 +42,26 @@ function currentEvidenceNeed(value) {
   return null;
 }
 
-export function classifyCompanionScope(message, history = []) {
+export function classifyCompanionScope(message, history = [], { mode = "free" } = {}) {
   const value = normalized(message);
+  const modeIntent = classifyCompanionModeIntent(message, history, { mode });
   for (const [route, pattern] of restrictionChecks) {
-    if (pattern.test(value)) return result("restricted", "hint", "explicit_boundary_request", route);
+    if (pattern.test(value)) {
+      // A complete first-person character thought is not a claim to know the
+      // real person's mind. Only this narrow form bypasses the old inner-state
+      // wording; concrete privacy/third-party/danger requests never do.
+      if (route === "private_or_inner_state_unverified" && modeIntent.kind === "fictional_self" && modeIntent.protected) continue;
+      return result("restricted", "hint", "explicit_boundary_request", route);
+    }
   }
   if (unrelatedRequests.some((pattern) => pattern.test(value))) {
     return result("unrelated", "hint", "unrelated_action_request", "unrelated_general");
+  }
+  if (modeIntent.kind === "real_inner_state") return result("restricted", "hint", "real_person_inner_state", "private_or_inner_state_unverified", "inner_state");
+  if (modeIntent.kind === "fictional_self" || modeIntent.kind === "fictional_scenario") {
+    if (mode === "grounded" && modeIntent.evidence_need === "public_update") return { ...result("current_public", "narrow", "mode_grounded_checkin", null, "public_update"), mode_intent: modeIntent.kind };
+    if (mode === "grounded") return { ...result("ambiguous", "hint", "no_verified_inner_state", "insufficient_current_fact", "inner_state"), mode_intent: modeIntent.kind };
+    return { ...result("social", modeIntent.protected ? "narrow" : "hint", "free_character_intent"), mode_intent: modeIntent.kind };
   }
   const evidenceNeed = currentEvidenceNeed(value);
   // Punctuation is removed only at the ends. Embedded instructions remain part
@@ -61,7 +76,10 @@ export function classifyCompanionScope(message, history = []) {
     /^(?:hi|hey|hello|thanks|thank you|good morning|good night|bye|goodbye)(?: oscar| piastri)?$/,
     /^(?:how are you(?: doing)?|how have you been|how(?:'s| is) it going|what(?:'s| is) up|what have you been up to|what are you up to(?: lately)?|how(?:'s| has) your week(?: been)?)$/,
   ];
-  if (short.length <= 90 && social.some((pattern) => pattern.test(short))) return result("social", "narrow", "whole_social_question");
+  if (short.length <= 90 && social.some((pattern) => pattern.test(short))) {
+    if (mode === "grounded" && modeIntent.kind !== "greeting") return result("current_public", "narrow", "mode_grounded_checkin", null, "public_update");
+    return result("social", "narrow", "whole_social_question");
+  }
 
   const currentPublic = [
     new RegExp(`^(?:(?:给我|说说|讲讲|聊聊|看看|介绍一下) ?)?(?:${PERSON}(?:的)? ?)?(?:最近|近期|最新|近来|这周|本周)(?:有(?:什么|哪些))?(?:新闻|消息|动态|近况|公开动态|比赛消息|比赛安排)(?:是什么|有哪些|怎么样|呢|吗)?$`, "i"),
@@ -89,7 +107,7 @@ export function classifyCompanionScope(message, history = []) {
   if (/^(?:然后呢|后来呢|还有呢|还有吗|继续|接着说|最近呢|你指什么|那呢|what about now|anything else|go on|and then)$/.test(short)) {
     // History is only a topic hint, never an instruction or a safety override.
     const previous = Array.isArray(history) ? [...history].reverse().find((item) => item?.role === "user" && typeof item.content === "string") : null;
-    const previousScope = previous ? classifyCompanionScope(previous.content) : null;
+    const previousScope = previous ? classifyCompanionScope(previous.content, [], { mode }) : null;
     const protectedTopic = previousScope?.confidence === "narrow" && ["social", "current_public"].includes(previousScope.kind);
     if (previous && !protectedTopic) return result("ambiguous", "hint", "short_followup_unresolved", null, previousScope?.evidence_need || null);
     return result("ambiguous", "narrow", protectedTopic ? "short_related_followup" : "short_clarification_needed", null, previousScope?.evidence_need || null);

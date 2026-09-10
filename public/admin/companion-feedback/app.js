@@ -4,10 +4,12 @@ const DEFAULT_WORKER_URL = "https://piasnews-review.znonymity-piasnews.workers.d
 const CATEGORY_LABELS = {
   off_persona: "不像皮亚斯特里", unnatural: "表达生硬 / 不自然", fact_error: "事实错误",
   irrelevant: "答非所问", over_refusal: "过度拒答", boundary_miss: "边界失守",
-  invented_private: "编造隐私 / 内心活动", rumor_handling: "谣言处理不当", translation: "中英翻译问题",
+  invented_private: "把虚构当真 / 编造隐私", rumor_handling: "谣言处理不当", translation: "中英翻译问题",
   too_long: "过长 / 啰嗦", context_loss: "丢失上下文", technical: "响应 / 显示异常", other: "其他",
 };
 const STATUS_LABELS = { new: "待查看", triaged: "已归因", resolved: "已修复", dismissed: "不采纳" };
+const MODE_LABELS = { free: "自由演绎", grounded: "强依据" };
+const ANSWER_KIND_LABELS = { fictional: "fictional · 虚构角色演绎", evidence: "evidence · 依据回答", social: "social · 社交回应", boundary: "boundary · 边界答复", insufficient: "insufficient · 依据不足" };
 const $ = (id) => document.getElementById(id);
 const state = { items: [], selectedId: null, nextCursor: null, session: null, generation: 0, connectionEpoch: 0, loading: false, saving: false, exporting: false, drafts: new Map() };
 let volatileKey = "";
@@ -90,7 +92,8 @@ function renderList() {
     const top = node("div", "card-top");
     top.append(badge(item.rating === "positive" ? "不错" : "有问题", item.rating), node("span", "card-time", dateLabel(item.created_at)));
     card.append(top, node("p", "card-prompt", text(item.snapshot?.prompt, "未提供提问")));
-    card.append(node("div", "card-categories", `${STATUS_LABELS[item.status] || "未知状态"} · ${(item.categories || []).map((id) => CATEGORY_LABELS[id] || "未知类型").join(" / ") || "未选择问题类型"}`));
+    const mode = item.snapshot?.mode || (item.snapshot?.facts_only ? "grounded" : "free");
+    card.append(node("div", "card-categories", `${MODE_LABELS[mode] || "未知模式"} · ${STATUS_LABELS[item.status] || "未知状态"} · ${(item.categories || []).map((id) => CATEGORY_LABELS[id] || "未知类型").join(" / ") || "未选择问题类型"}`));
     card.addEventListener("click", () => {
       if (state.saving) return;
       state.selectedId = item.feedback_id; renderList(); renderDetail();
@@ -105,8 +108,9 @@ function renderDetail() {
   const item = selectedItem(); $("detailContent").hidden = !item; $("detailEmpty").hidden = Boolean(item);
   if (!item) { controls(); return; }
   const snapshot = item.snapshot || {};
-  $("detailBadges").replaceChildren(badge(item.rating === "positive" ? "不错" : "有问题", item.rating), badge(STATUS_LABELS[item.status] || "未知状态"), badge("CLIENT-REPORTED · 待核验"));
-  $("detailTitle").textContent = "对话反馈";
+  const mode = snapshot.mode || (snapshot.facts_only ? "grounded" : "free");
+  $("detailBadges").replaceChildren(badge(item.rating === "positive" ? "不错" : "有问题", item.rating), badge(STATUS_LABELS[item.status] || "未知状态"), badge(MODE_LABELS[mode] || "未知模式"), badge(ANSWER_KIND_LABELS[snapshot.answer_kind] || "旧记录 · 未标注回答类型"), badge("CLIENT-REPORTED · 待核验"));
+  $("detailTitle").textContent = snapshot.answer_kind === "fictional" ? "虚构角色演绎反馈（不代表本人真实想法）" : "对话反馈";
   $("detailMeta").textContent = `${dateLabel(item.created_at)}（北京时间） · ${item.feedback_id}`;
   $("categoryBadges").replaceChildren(...(item.categories || []).map((id) => badge(CATEGORY_LABELS[id] || "未知类型")));
   $("promptText").textContent = text(snapshot.prompt, "未提供提问");
@@ -120,10 +124,11 @@ function renderDetail() {
   const metadata = $("runtimeMetadata"); metadata.replaceChildren();
   const rows = [
     ["消息 ID", item.message_id], ["引擎 / 模型", [snapshot.engine, snapshot.model].filter(Boolean).join(" / ")], ["路由", snapshot.route], ["风格卡", snapshot.style_card_id],
-    ["人格包版本", snapshot.package_version], ["来源哈希", snapshot.source_hash], ["应用版本", snapshot.app_version], ["仅事实模式", snapshot.facts_only ? "是" : "否"],
+    ["人格包版本", snapshot.package_version], ["来源哈希", snapshot.source_hash], ["应用版本", snapshot.app_version], ["对话模式", MODE_LABELS[mode] || "未知模式"], ["回答类型", ANSWER_KIND_LABELS[snapshot.answer_kind] || "旧记录未标注，不据文本猜测"],
     ["响应耗时", Number.isFinite(snapshot.latency_ms) ? `${snapshot.latency_ms} ms` : "未提供"],
     ["事实条目", (snapshot.knowledge_fact_ids || []).join(", ")], ["谣言条目", (snapshot.rumor_item_ids || []).join(", ")],
     ["判断规则", (snapshot.judgment_rule_ids || []).join(", ")], ["风格证据", (snapshot.evidence_ids || []).join(", ")],
+    ["动态公开来源", (snapshot.public_source_ids || []).join(", ")],
     ["最近处理", item.reviewed_at ? `${dateLabel(item.reviewed_at)} · ${text(item.reviewed_by)}` : "尚未处理"],
   ];
   for (const [label, value] of rows) metadata.append(node("dt", "", label), node("dd", "", text(value)));
