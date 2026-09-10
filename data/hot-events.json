@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-10T07:04:25.048485Z",
+  "generated_at": "2026-09-10T07:38:26.727287Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -219,7 +219,7 @@
           "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2293169149-scaled.jpg",
           "video_url": null,
           "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2293169149-scaled.jpg",
-          "heat_contribution": 0.75,
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -984,7 +984,7 @@
         }
       ],
       "official_heat": 73,
-      "media_heat": 40,
+      "media_heat": 39,
       "fan_heat": 64,
       "heat": 93,
       "source_labels": [
@@ -1271,85 +1271,6 @@
       "rank": 5
     },
     {
-      "event_id": "evt-2026-09-09-387146117851",
-      "rule_id": null,
-      "hot_word_zh": "FACUA向消费部门投诉Madring 🏁，因其阻止F1大奖赛 🏎️ 观众携带食物入场",
-      "hot_word_en": "FACUA denuncia a Madring 🏁 ante Consumo por impedir el acceso con alimentos a los asistentes al…",
-      "first_seen_at": "2026-09-09T07:35:23Z",
-      "last_seen_at": "2026-09-09T20:37:29Z",
-      "anchor_item_id": "piasnews-social-5352f7a1cd78c74a",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-5352f7a1cd78c74a",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X repost from @laurogeitabat: FACUA denuncia a Madring 🏁 ante Consumo por impedir el acceso con alimentos a los asistentes al…",
-          "title_zh": "X 转帖 @laurogeitabat：FACUA向消费部门投诉Madring 🏁，因其阻止F1大奖赛 🏎️ 观众携带食物入场",
-          "summary": "FACUA denuncia a Madring 🏁 ante Consumo por impedir el acceso con alimentos a los asistentes al Gran Premio de Fórmula 1 🏎️ https://t.co/4PGaVuiV5A",
-          "summary_zh": "FACUA向消费部门投诉Madring 🏁，因其阻止F1大奖赛 🏎️ 观众携带食物入场",
-          "url": "https://x.com/FACUA/status/2097589672864035072",
-          "published_at": "2026-09-09T07:35:23Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 5.8168,
-          "metrics": {
-            "likes": 139,
-            "retweets": 46,
-            "replies": 2,
-            "quotes": 10,
-            "views": 18953,
-            "bookmarks": 3
-          }
-        },
-        {
-          "item_id": "piasnews-social-598cc17a1d23110d",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X repost from @laurogeitabat: RT @FACUA: FACUA denuncia a Madring 🏁 ante Consumo por impedir el acceso con alimentos a los as…",
-          "title_zh": "X 转帖 @laurogeitabat：转推@FACUA：FACUA向消费部门投诉Madring 🏁，因其阻止F1大奖赛观众携带食物入场🏎️ http…",
-          "summary": "RT @FACUA: FACUA denuncia a Madring 🏁 ante Consumo por impedir el acceso con alimentos a los asistentes al Gran Premio de Fórmula 1 🏎️ http…",
-          "summary_zh": "转推@FACUA：FACUA向消费部门投诉Madring 🏁，因其阻止F1大奖赛观众携带食物入场🏎️ http…",
-          "url": "https://x.com/laurogeitabat/status/2097786493444170161",
-          "published_at": "2026-09-09T20:37:29Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 4.2723,
-          "metrics": {
-            "likes": 0,
-            "retweets": 46,
-            "replies": 0,
-            "quotes": 0,
-            "views": 225,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 40,
-      "heat": 40,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 6
-    },
-    {
       "event_id": "evt-2026-09-06-68a259b7fe68",
       "rule_id": null,
       "hot_word_zh": "oscar、pedro和pedro的朋友gianluca 🤗",
@@ -1450,7 +1371,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 6
     },
     {
       "event_id": "evt-2026-09-09-927f5d28e936",
@@ -1529,7 +1450,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 7
     },
     {
       "event_id": "evt-2026-09-09-ce6d04371599",
@@ -1917,43 +1838,122 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 9
+      "rank": 8
     },
     {
-      "event_id": "evt-2026-09-07-f0a7ac990586",
+      "event_id": "evt-2026-09-09-387146117851",
       "rule_id": null,
-      "hot_word_zh": "Oscar被要求签一个Alpine水瓶“为了梗” 😭😭 🎥：_gaiaaa_05",
-      "hot_word_en": "oscar got asked to sign an alpine water bottle \"for the meme\" 😭😭 🎥: _gaiaaa_05",
-      "first_seen_at": "2026-09-07T07:07:16Z",
-      "last_seen_at": "2026-09-07T07:07:16Z",
-      "anchor_item_id": "piasnews-social-3fb884b1b47df156",
+      "hot_word_zh": "FACUA向消费部门投诉Madring 🏁，因其阻止F1大奖赛 🏎️ 观众携带食物入场",
+      "hot_word_en": "FACUA denuncia a Madring 🏁 ante Consumo por impedir el acceso con alimentos a los asistentes al…",
+      "first_seen_at": "2026-09-09T07:35:23Z",
+      "last_seen_at": "2026-09-09T20:37:29Z",
+      "anchor_item_id": "piasnews-social-5352f7a1cd78c74a",
       "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2096857792803897344/vid/avc1/320x568/99Zqhhez9uT6Rrl2.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2096857792803897344/img/4jnJSykmS1n82t8I.jpg",
+      "video_url": null,
+      "video_poster_url": null,
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
         {
-          "item_id": "piasnews-social-3fb884b1b47df156",
+          "item_id": "piasnews-social-5352f7a1cd78c74a",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar got asked to sign an alpine water bottle \"for the meme\" 😭😭 🎥: _gaiaaa_05",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar被要求签一个Alpine水瓶“为了梗” 😭😭 🎥：_gaiaaa_05",
-          "summary": "oscar got asked to sign an alpine water bottle \"for the meme\" 😭😭 🎥: _gaiaaa_05 https://t.co/FLxY3znBrz",
-          "summary_zh": "Oscar被要求签一个Alpine水瓶“为了梗” 😭😭 🎥：_gaiaaa_05",
-          "url": "https://x.com/laurogeitabat/status/2096857817927864674",
-          "published_at": "2026-09-07T07:07:16Z",
+          "title": "X repost from @laurogeitabat: FACUA denuncia a Madring 🏁 ante Consumo por impedir el acceso con alimentos a los asistentes al…",
+          "title_zh": "X 转帖 @laurogeitabat：FACUA向消费部门投诉Madring 🏁，因其阻止F1大奖赛 🏎️ 观众携带食物入场",
+          "summary": "FACUA denuncia a Madring 🏁 ante Consumo por impedir el acceso con alimentos a los asistentes al Gran Premio de Fórmula 1 🏎️ https://t.co/4PGaVuiV5A",
+          "summary_zh": "FACUA向消费部门投诉Madring 🏁，因其阻止F1大奖赛 🏎️ 观众携带食物入场",
+          "url": "https://x.com/FACUA/status/2097589672864035072",
+          "published_at": "2026-09-09T07:35:23Z",
           "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2096857792803897344/vid/avc1/320x568/99Zqhhez9uT6Rrl2.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2096857792803897344/img/4jnJSykmS1n82t8I.jpg",
-          "heat_contribution": 6.9667,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 5.308,
           "metrics": {
-            "likes": 3966,
-            "retweets": 280,
-            "replies": 4,
+            "likes": 139,
+            "retweets": 46,
+            "replies": 2,
+            "quotes": 10,
+            "views": 18953,
+            "bookmarks": 3
+          }
+        },
+        {
+          "item_id": "piasnews-social-598cc17a1d23110d",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: RT @FACUA: FACUA denuncia a Madring 🏁 ante Consumo por impedir el acceso con alimentos a los as…",
+          "title_zh": "X 转帖 @laurogeitabat：转推@FACUA：FACUA向消费部门投诉Madring 🏁，因其阻止F1大奖赛观众携带食物入场🏎️ http…",
+          "summary": "RT @FACUA: FACUA denuncia a Madring 🏁 ante Consumo por impedir el acceso con alimentos a los asistentes al Gran Premio de Fórmula 1 🏎️ http…",
+          "summary_zh": "转推@FACUA：FACUA向消费部门投诉Madring 🏁，因其阻止F1大奖赛观众携带食物入场🏎️ http…",
+          "url": "https://x.com/laurogeitabat/status/2097786493444170161",
+          "published_at": "2026-09-09T20:37:29Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 4.2723,
+          "metrics": {
+            "likes": 0,
+            "retweets": 46,
+            "replies": 0,
             "quotes": 0,
-            "views": 76059,
+            "views": 225,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 37,
+      "heat": 37,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "event_id": "evt-2026-09-09-75397687f681",
+      "rule_id": null,
+      "hot_word_zh": "马德里的领奖台面向一个看台，只有坐在那里的人才能看清楚？？？摄影师除非进入那个看台，否则拍…",
+      "hot_word_en": "the podium in madrid faces one of the grandstands and only people who sit there will be able to…",
+      "first_seen_at": "2026-09-09T19:31:09Z",
+      "last_seen_at": "2026-09-09T19:31:09Z",
+      "anchor_item_id": "piasnews-social-edf0ade08c99d181",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2097769773249740800/vid/avc1/462x270/ycu5g05G5VpiBHBq.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2097769773249740800/img/l8Kvv-m6H1rCUXuc.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-edf0ade08c99d181",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: the podium in madrid faces one of the grandstands and only people who sit there will be able to…",
+          "title_zh": "X 发帖 @laurogeitabat：马德里的领奖台面向一个看台，只有坐在那里的人才能看清楚？？？摄影师除非进入那个看台，否则拍不到好照片？？？？？车手们还得走很长一段路才能到那里？？？？？？？😭😭😭",
+          "summary": "the podium in madrid faces one of the grandstands and only people who sit there will be able to properly see ??? and photographers won't be able to get good pics unless they get into that grandstand ????? and drivers have to walk a long ass walkway to get there ??????? 😭😭😭 https://t.co/znokgHANxf",
+          "summary_zh": "马德里的领奖台面向一个看台，只有坐在那里的人才能看清楚？？？摄影师除非进入那个看台，否则拍不到好照片？？？？？车手们还得走很长一段路才能到那里？？？？？？？😭😭😭",
+          "url": "https://x.com/laurogeitabat/status/2097769798172099006",
+          "published_at": "2026-09-09T19:31:09Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2097769773249740800/vid/avc1/462x270/ycu5g05G5VpiBHBq.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2097769773249740800/img/l8Kvv-m6H1rCUXuc.jpg",
+          "heat_contribution": 6.9328,
+          "metrics": {
+            "likes": 696,
+            "retweets": 32,
+            "replies": 6,
+            "quotes": 0,
+            "views": 58777,
             "bookmarks": 0
           }
         }
