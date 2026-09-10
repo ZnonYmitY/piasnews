@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-10T14:30:51.923173Z",
+  "generated_at": "2026-09-10T15:38:20.208395Z",
   "translations": {
     "items:piasnews-252fb2b8a5b432d9:title:979814d4c6780327eb3799dd": {
       "dataset": "items",
@@ -5053,6 +5053,90 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-10T12:32:44.083969Z"
+    },
+    "social:piasnews-social-bdc191758a0900b9:summary:13b664d6bbad1a6ef3ce9f85": {
+      "dataset": "social",
+      "item_id": "piasnews-social-bdc191758a0900b9",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "\"i've only been in zak's office once\" *struggles to open door* \"as you can tell\" 😭😭😭 https://t.co/mrVFzfjmhn",
+      "zh": "“我只进过Zak的办公室一次” *挣扎着开门* “如你所见” 😭😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-10T15:38:19.222379Z"
+    },
+    "social:piasnews-social-2dbc4d2e4b7cf53d:summary:16430a54b7d46bc0ed09db46": {
+      "dataset": "social",
+      "item_id": "piasnews-social-2dbc4d2e4b7cf53d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "the little koala plushie oscar got from a fan in zandvoort now has a privileged spot in his driver's room 🥹🫶🏻 https://t.co/YEYzi0nyDJ",
+      "zh": "Oscar在Zandvoort从粉丝那里得到的小考拉玩偶，现在在他的车手休息室里有了一个特权位置 🥹🫶🏻",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-10T15:38:19.222387Z"
+    },
+    "social:piasnews-social-d3535870c9f75b4c:summary:04c271c8002608cc2e6fd053": {
+      "dataset": "social",
+      "item_id": "piasnews-social-d3535870c9f75b4c",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar: this is zak's office. when you come to my room you'll see where the pecking order lies ---- oscar: this is my room lawrence: oh it's smaller! oscar: it's a lot smaller. but that's okay! that's okay, i know where i sit compared to the boss 😭😭😭 https://t.co/uMdeCBIBur",
+      "zh": "Oscar：这是Zak的办公室。等你来我房间，你就会看到等级秩序在哪里了 ---- Oscar：这是我的房间。Lawrence：哦，小一点！Oscar：小很多。但没关系！没关系，我知道跟老板比，我坐哪儿 😭😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-10T15:38:19.222392Z"
+    },
+    "social:piasnews-social-8a9799251fce3668:summary:efae35e061e8256614c3a764": {
+      "dataset": "social",
+      "item_id": "piasnews-social-8a9799251fce3668",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "\"this is where all our fancy guests get to watch. any of our shareholders, vips.. this is where they get to chill. i do have a table up here, i'm technically a vip i suppose\" mate you drive for the team you are more than a vip 😭😭 https://t.co/rO8LX3svvO",
+      "zh": "“这就是我们所有贵宾观看的地方。我们的任何股东、VIP……他们就在这里放松。我在上面确实有张桌子，严格来说我猜我也是个VIP” 哥们，你为车队开车，你远不止是个VIP 😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-10T15:38:19.222397Z"
+    },
+    "social:piasnews-social-c4b26fd1ac0972c2:summary:c14bf9a14d93d7855f77ecc2": {
+      "dataset": "social",
+      "item_id": "piasnews-social-c4b26fd1ac0972c2",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "\"this is where i do all my signing so we're gonna keep that door locked so i don't [have to] go in\" PLEASE 😭😭😭 https://t.co/1jbODGjJY0",
+      "zh": "“这是我签所有东西的地方，所以我们要把那扇门锁上，这样我就不[用]进去了” 拜托 😭😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-10T15:38:19.222401Z"
+    },
+    "social:piasnews-social-5952a350ec7d6c32:summary:559aa50282cfd183e7be7bb4": {
+      "dataset": "social",
+      "item_id": "piasnews-social-5952a350ec7d6c32",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "\"this is zak's office. i've been here once but i cant remember what we talked about.. probably about what collector's item or car he'd just bought (..) of course his book is here. has he signed this one? no he hasn't\" 😭😭😭😭 https://t.co/AGXWrMzr1F",
+      "zh": "“这是Zak的办公室。我来过一次，但我不记得我们聊了什么……大概是聊他刚买了什么收藏品或车（……）当然他的书在这里。这本他签了吗？没有，他没签” 😭😭😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-10T15:38:19.222405Z"
+    },
+    "social:piasnews-social-7a0a4a12aa425816:summary:ffa0feff5c6a7dd225bca493": {
+      "dataset": "social",
+      "item_id": "piasnews-social-7a0a4a12aa425816",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "the bts of the socmed admin running after oscar 😭😭😭 https://t.co/piEUvMyuJK",
+      "zh": "社媒管理员追着Oscar跑的幕后花絮 😭😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-10T15:38:19.222410Z"
     }
   },
   "retention_days": 8
