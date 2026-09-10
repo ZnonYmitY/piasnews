@@ -1,3 +1,5 @@
+import { classifyCharacterPreference } from "./preference-policy.js?v=20260910-preferences-1";
+
 // Mode is an explicit product contract, not a model-selected preference.
 export function resolveCompanionMode(input = {}) {
   if (input.facts_only != null && typeof input.facts_only !== "boolean") throw new Error("Invalid facts_only value.");
@@ -26,6 +28,11 @@ export function classifyCompanionModeIntent(message, _history = [], { mode = "fr
   if (/(?:真实|本人|实际|确实).{0,10}(?:原话|说过)|(?:原话|逐字|verbatim|exact quote|what did.{0,25}(?:actually )?say)/i.test(value) && !(/(?:虚构|编一句|演绎|make up|fictional)/i.test(value) && !/(?:真实|实际|actually|real quote)/i.test(value))) {
     return result("public_fact", "quote");
   }
+  const preference = classifyCharacterPreference(message, _history);
+  if (/(?:喜欢|偏好|偏爱|最爱|\b(?:like|likes|prefer|prefers|preference|favourite|favorite)\b)/i.test(value)
+      && (/(?:本人|现实|真实|实际|公开|采访|说过|\b(?:actual(?:ly)?|real|public|interview|said|sources?)\b)/i.test(value)
+        || !preference && /(?:皮亚斯特里|奥斯卡|(?:^|[，, ])他|\b(?:oscar|piastri|he|his)\b)/i.test(value))) return result("public_fact", "public_preference");
+  if (preference) return { ...result("fictional_preference", mode === "grounded" ? "public_preference" : null, true), preference };
   if (hypothetical && /(?:(?:真实|实际|真正).{0,6}(?:赛果|比赛结果|新闻|赛程)|\b(?:real|actual) (?:race results?|news|schedule))/.test(value)) {
     return result("public_fact", /赛程|schedule/.test(value) ? "schedule" : /赛果|比赛结果|results?/.test(value) ? "recent_result" : "current_f1");
   }

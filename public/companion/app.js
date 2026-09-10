@@ -1,10 +1,10 @@
-import { makeOfflineResponse } from "./offline-response.js?v=20260910-modes-1";
+import { makeOfflineResponse } from "./offline-response.js?v=20260910-preferences-1";
 
 const DEFAULT_WORKER_URL = "https://piasnews-review.znonymity-piasnews.workers.dev";
 const MAX_HISTORY_ITEMS = 8;
 const MAX_HISTORY_CHARS = 900;
 const MAX_PROMPT_CHARS = 500;
-const APP_VERSION = "20260910-modes-1";
+const APP_VERSION = "20260910-preferences-1";
 const MODE_LABELS = { free: "自由演绎", grounded: "强依据" };
 const ANSWER_KIND_LABELS = { fictional: "角色演绎 · 非本人事实", evidence: "有来源的事实", social: "轻松聊天", boundary: "边界答复", insufficient: "依据不足" };
 const FEEDBACK_CATEGORIES = [

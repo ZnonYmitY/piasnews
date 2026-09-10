@@ -23,7 +23,7 @@ function harness() {
   const scrollCalls = [];
   const buttons = ["free", "grounded"].map((mode) => ({ dataset: { companionMode: mode }, setAttribute(key, value) { this[key] = value; } }));
   const context = {
-    MAX_PROMPT_CHARS: 500, MAX_HISTORY_ITEMS: 8, MAX_HISTORY_CHARS: 900, APP_VERSION: "20260910-modes-1",
+    MAX_PROMPT_CHARS: 500, MAX_HISTORY_ITEMS: 8, MAX_HISTORY_CHARS: 900, APP_VERSION: "20260910-preferences-1",
     MODE_LABELS: { free: "自由演绎", grounded: "强依据" },
     ANSWER_KIND_LABELS: { fictional: "角色演绎", evidence: "有来源的事实", social: "轻松聊天", boundary: "边界答复", insufficient: "依据不足" },
     ROUTE_LABELS: { fan_light: "Fan conversation", public_fact: "Public fact", unrelated_general: "Outside scope" },
@@ -170,7 +170,12 @@ test("HTML exposes the two modes, removes the old hidden switch and versions ass
   assert.match(html, /data-companion-mode="free" aria-pressed="true"/);
   assert.match(html, /data-companion-mode="grounded" aria-pressed="false"/);
   assert.doesNotMatch(html, /factsOnlyToggle/);
-  for (const text of [html, source, offline]) assert.doesNotMatch(text, /20260910-scope-2|20260908-feedback-1/);
-  assert.match(html, /styles\.css\?v=20260910-modes-1/);
+  const scope = readFileSync(new URL("../../public/companion/scope-policy.js", import.meta.url), "utf8");
+  const mode = readFileSync(new URL("../../public/companion/mode-policy.js", import.meta.url), "utf8");
+  for (const text of [html, source, offline, scope, mode]) {
+    assert.doesNotMatch(text, /20260910-scope-2|20260908-feedback-1|20260910-modes-1/);
+    assert.match(text, /20260910-preferences-1/);
+  }
+  assert.match(html, /styles\.css\?v=20260910-preferences-1/);
   assert.match(source, /把演绎当真实私事/);
 });

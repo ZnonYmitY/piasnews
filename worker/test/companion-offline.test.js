@@ -176,3 +176,64 @@ test("free fiction does not waive real-privacy or unsafe instruction boundaries"
     assert.equal(result.trace.sources.length, 0, message);
   }
 });
+
+test("free preference choices answer directly with a short fictional reason", () => {
+  for (const message of ["喜欢猫还是喜欢狗", "你喜欢猫还是狗？", "Do you prefer cats or dogs?", "咖啡还是茶？", "你最喜欢什么颜色？", "你喜欢狗吗？", "你最喜欢吃什么", "你最喜欢听什么", "看书还是打游戏", "夏天还是冬天", "海边还是山里"]) {
+    const result = answer(message, { mode: "free" });
+    assert.equal(result.mode, "free", message);
+    assert.equal(result.answerKind, "fictional", message);
+    assert.equal(result.trace.route, "fan_light", message);
+    assert.doesNotMatch(result.en, /what do you mean|which choice|not really my field/i, message);
+    assert.match(result.zh, /(?:我会选|喜欢).+[。]/, message);
+    assert.ok(result.zh.length < 80, message);
+    assert.equal(result.trace.sources.length, 0, message);
+    assert.match(result.trace.fact, /非本人事实/);
+    assert.doesNotMatch(result.zh, /我家|我养|采访里|本人|公开说过|小时候/, message);
+  }
+  assert.match(answer("喜欢猫还是喜欢狗", { mode: "free" }).zh, /^我会选猫/);
+});
+
+test("grounded preference questions report an evidence gap instead of performing a taste", () => {
+  for (const message of ["喜欢猫还是喜欢狗", "Do you prefer cats or dogs?", "你最喜欢什么颜色？", "咖啡还是茶？"]) {
+    const result = answer(message, { mode: "grounded" });
+    assert.equal(result.answerKind, "insufficient", message);
+    assert.equal(result.trace.route, "insufficient_current_fact", message);
+    assert.equal(result.trace.sources.length, 0, message);
+    assert.doesNotMatch(result.zh, /我会选猫|喜欢狗|我会选咖啡/);
+  }
+});
+
+test("preference why follow-ups preserve the latest identifiable assistant choice", () => {
+  const question = "喜欢猫还是喜欢狗";
+  const own = answer(question, { mode: "free" });
+  const ownWhy = answer("为什么？", { mode: "free", history: [{ role: "user", content: question }, { role: "assistant", content: `${own.en}\n中文：${own.zh}` }] });
+  assert.equal(ownWhy.answerKind, "fictional");
+  assert.match(ownWhy.zh, /^猫。/);
+  const dogWhy = answer("为什么？", { mode: "free", history: [{ role: "user", content: question }, { role: "assistant", content: "Dogs. I like their enthusiasm.\n中文：我会选狗。热情直接。" }] });
+  assert.equal(dogWhy.answerKind, "fictional");
+  assert.match(dogWhy.zh, /^狗。/);
+  assert.doesNotMatch(dogWhy.zh, /猫/);
+  const unclear = answer("为什么？", { mode: "free", history: [{ role: "user", content: question }, { role: "assistant", content: "Both cats and dogs have something going for them." }] });
+  assert.notEqual(unclear.answerKind, "fictional");
+  assert.match(unclear.zh, /哪个选择/);
+});
+
+test("ambiguous pronouns without preference context are not assigned a new preference", () => {
+  for (const message of ["为什么？", "你呢？", "那另一个呢？"]) {
+    const result = answer(message, { mode: "free" });
+    assert.notEqual(result.answerKind, "fictional", message);
+    assert.doesNotMatch(result.zh, /我会选猫|我会选狗|咖啡/);
+  }
+});
+
+test("preference alternatives answer the named or other option without repeating the original pick", () => {
+  const history = [{ role: "user", content: "喜欢猫还是喜欢狗" }, { role: "assistant", content: "I'd go with cats. Quiet company.\n中文：我会选猫。安静挺好。" }];
+  for (const message of ["那狗呢", "what about dogs?", "另一个呢"]) {
+    const result = answer(message, { mode: "free", history });
+    assert.equal(result.answerKind, "fictional", message);
+    assert.match(result.zh, /^狗也不错/, message);
+    assert.doesNotMatch(result.zh, /猫/);
+  }
+  const dogHistory = [{ role: "user", content: "喜欢猫还是喜欢狗" }, { role: "assistant", content: "Dogs. I like their enthusiasm." }];
+  assert.match(answer("另一个呢", { mode: "free", history: dogHistory }).zh, /^猫也不错/);
+});

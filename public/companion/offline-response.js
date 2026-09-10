@@ -1,5 +1,5 @@
-import { classifyCompanionScope } from "./scope-policy.js?v=20260910-modes-1";
-import { classifyCompanionModeIntent, resolveCompanionMode } from "./mode-policy.js?v=20260910-modes-1";
+import { classifyCompanionScope } from "./scope-policy.js?v=20260910-preferences-1";
+import { classifyCompanionModeIntent, resolveCompanionMode } from "./mode-policy.js?v=20260910-preferences-1";
 
 const SOURCES = {
   number81: { mark: "F1", id: "KF-004", label: "Official explanation of number 81", url: "https://www.formula1.com/en/latest/article/mclaren-rookie-piastri-explains-why-he-chose-81-as-his-race-number-for-2023.3TYgCqI5kg4t8OztNvb2K3" },
@@ -68,7 +68,62 @@ function fictionalReply(input, intent) {
   return reply("Keeping things fairly simple. There's usually enough going on without adding a subplot.", "尽量把事情简单处理。本来就够忙的了，没必要再加一条支线。", "fan_light", metadata);
 }
 
+const PREFERENCE_REASONS = {
+  cat: { en: "Quiet company. I can respect that.", zh: "安静待着也能相处，挺好。", whyEn: "They don't need to turn everything into an event. Quiet company works for me.", whyZh: "不用把每件事都弄得很热闹，安静相处就挺舒服。" },
+  dog: { en: "Straightforward enthusiasm. Hard to argue with that.", zh: "热情很直接，基本不用猜。", whyEn: "You tend to know where you stand with them. I like that lack of guesswork.", whyZh: "喜欢就是喜欢，不太需要猜来猜去。我挺欣赏这一点。" },
+  coffee: { en: "Simple and to the point. No tasting report required.", zh: "简单直接，不需要附上一篇品鉴报告。", whyEn: "I like keeping a simple choice simple. It doesn't need a briefing.", whyZh: "简单的选择就简单处理，不需要为一杯饮料开简报会。" },
+  tea: { en: "A slower pace. There's something to be said for that.", zh: "节奏慢一点，也挺好。", whyEn: "It's a good excuse not to rush the next five minutes.", whyZh: "至少可以理直气壮地让接下来的五分钟慢一点。" },
+};
+const TOPIC_REASONS = {
+  pets: { en: "Good company doesn't need a long speech.", zh: "相处舒服就好，不需要很长的发言。" },
+  drinks: { en: "A simple choice. No need to overcomplicate it.", zh: "简单选一杯，没必要把问题复杂化。" },
+  food: { en: "A practical choice. Very little briefing required.", zh: "挺实际的选择，基本不需要做开饭简报。" },
+  music: { en: "A steady rhythm works for me. No need to turn everything up.", zh: "节奏稳一点就好，不用什么都把音量拉满。" },
+  color: { en: "One clear colour is enough. I don't need an entire livery.", zh: "一个明确的颜色就够了，不需要把整套涂装都搬过来。" },
+  leisure: { en: "A bit of room to switch off. That's the appeal.", zh: "留点空间放松下来，这就很有吸引力。" },
+  season: { en: "I like the change of pace. Nothing too dramatic.", zh: "换一种节奏挺好，倒也不用特别戏剧化。" },
+  place: { en: "Some space and a quieter pace. No packed itinerary needed.", zh: "有点空间，节奏慢一点，不用把行程排满。" },
+};
+
+function previousPreferenceOption(options, history) {
+  const previous = [...history].reverse().find((item) => item?.role === "assistant" && typeof item.content === "string")?.content || "";
+  if (!previous) return null;
+  const content = previous.normalize("NFKC").replace(/[’‘]/g, "'").toLowerCase();
+  const escape = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const explicit = options.filter((option) => {
+    const en = escape(option.en.toLowerCase());
+    const zh = escape(option.zh);
+    return new RegExp(`(?:^|\\n)\\s*(?:i(?:'d| would| will|'ll)? (?:go with|choose|prefer|pick|like)\\s+|my pick (?:would be|is)\\s+)?${en}(?=[.!,:;\\n]|$)`, "i").test(content)
+      || new RegExp(`(?:我(?:会|更|还是)?(?:选|喜欢|偏向|偏爱)|更喜欢|就选)${zh}`).test(content)
+      || new RegExp(`(?:^|\\n)\\s*${zh}(?:吧)?[。，！!?]`).test(content);
+  });
+  if (explicit.length === 1) return explicit[0];
+  if (explicit.length > 1) return null;
+  const mentioned = options.filter((option) => content.includes(option.zh) || new RegExp(`\\b${escape(option.en.toLowerCase())}\\b`).test(content));
+  return mentioned.length === 1 && !/(?:\b(?:not|don't|wouldn't|neither)\b|不喜欢|不会选|不选|都不)/.test(content) ? mentioned[0] : null;
+}
+
+function fictionalPreferenceReply(preference, history) {
+  const options = preference?.options || [];
+  const previous = previousPreferenceOption(options, history);
+  if (!options.length || preference.followup === "why" && !previous) {
+    return reply("Which choice do you mean?", "你指刚才哪个选择？", "fan_light", { domain: "Clarify an unresolved preference follow-up", note: "No previous option can be identified reliably; do not invent or silently change the selection." });
+  }
+  const priorities = ["cat", "coffee", "pasta", "pizza", "rock", "black", "reading", "winter", "mountains"];
+  const selected = preference.followup === "alternative"
+    ? preference.target || (previous ? options.find((option) => option.id !== previous.id) : null)
+    : previous || priorities.map((id) => options.find((option) => option.id === id)).find(Boolean) || options[0];
+  if (!selected) return reply("Which other option do you mean?", "你想聊哪个其他选项？", "fan_light", { domain: "Clarify an unspecified alternative", note: "No alternative can be identified from the bounded preference options and previous reply." });
+  const reason = PREFERENCE_REASONS[selected.id] || TOPIC_REASONS[preference.topic] || TOPIC_REASONS.leisure;
+  const metadata = { answerKind: "fictional", domain: "Fictional character preference", fact: "角色偏好演绎 · 非本人事实", note: `Fixed fictional preference (${selected.id}); not an assertion about Oscar's actual tastes, possessions or private life. Follow-ups preserve an identifiable previous selection.`, sources: [] };
+  if (preference.followup === "why") return reply(`${selected.en[0].toUpperCase()}${selected.en.slice(1)}. ${reason.whyEn || reason.en}`, `${selected.zh}。${reason.whyZh || reason.zh}`, "fan_light", metadata);
+  if (preference.followup === "alternative") return reply(`There's a case for ${selected.en}, too. ${reason.en}`, `${selected.zh}也不错。${reason.zh}`, "fan_light", metadata);
+  if (preference.kind === "like") return reply(`I like ${selected.en}. ${reason.en}`, `喜欢${selected.zh}。${reason.zh}`, "fan_light", metadata);
+  return reply(`I'd go with ${selected.en}. ${reason.en}`, `我会选${selected.zh}。${reason.zh}`, "fan_light", metadata);
+}
+
 function groundedUnavailable(intent) {
+  if (intent === "fictional_preference") return reply("I don't have a verified public source for his actual preferences here. Grounded mode won't substitute a fictional choice for that.", "我这次没有可核验的公开来源能说明他的真实偏好。强依据模式不会把角色演绎当作本人事实。", "insufficient_current_fact", { domain: "Grounded preference source requirement", fact: "本次可用来源不足", note: "A fictional character preference is not evidence of the real person's taste." });
   return reply(
     intent === "real_inner_state" || intent === "fictional_self" || intent === "fictional_scenario"
       ? "I don't have a verified public source for his actual thoughts or reactions here. Grounded mode won't substitute a fictional response for that."
@@ -99,8 +154,9 @@ function buildOfflineResponse(prompt, { mode, factsOnly, history = [], contextEn
     return reply("Free mode plays the character; grounded mode works from available public sources. Both stay within an unofficial Oscar and F1 fan experience.", "自由演绎可以像角色那样聊天；强依据按本次可用来源说话。两种模式都是非官方 Oscar 与 F1 粉丝体验。", "fan_light", { domain: "Explain the experience's scope", note: "Give a short scope explanation only because the user explicitly asked what this experience can do." });
   }
 
+  if (mode === "free" && modeIntent.kind === "fictional_preference") return fictionalPreferenceReply(modeIntent.preference, history);
   if (mode === "free" && ["fictional_self", "fictional_scenario"].includes(modeIntent.kind)) return fictionalReply(input, modeIntent.kind);
-  if (mode === "grounded" && ["fictional_self", "fictional_scenario", "real_inner_state"].includes(modeIntent.kind)) return groundedUnavailable(modeIntent.kind);
+  if (mode === "grounded" && ["fictional_self", "fictional_scenario", "fictional_preference", "real_inner_state"].includes(modeIntent.kind)) return groundedUnavailable(modeIntent.kind);
   if (scope.kind === "social") return socialReply(input);
   if (mode === "grounded") return groundedUnavailable(modeIntent.kind);
 

@@ -9,6 +9,7 @@ import { cleanupCompanionFeedback, handleCompanionFeedback } from "./companion-f
 import { buildCurrentPublicContext } from "./companion-public-context.js";
 import { classifyCompanionScope } from "../../public/companion/scope-policy.js";
 import { classifyCompanionModeIntent, resolveCompanionMode } from "../../public/companion/mode-policy.js";
+import { preferenceResponseIssue } from "../../public/companion/preference-policy.js";
 
 const DEFAULT_ORIGIN = "https://znonymity.github.io";
 const MAX_BODY_BYTES = 64 * 1024;
@@ -38,6 +39,7 @@ const FALLBACK_ROUTES = new Set(COMPANION_RUNTIME_DATA.fallbacks.map((item) => i
 const FREE_PERSONA_SYSTEM_PROMPT = `You write a clearly UI-labelled fictional fan character inspired by the piastri-persona-distillation Skill v${COMPANION_PACKAGE_VERSION}. This is creative character performance, not Oscar Piastri speaking and not access to his actual mind.
 Use the supplied style cards and eligible reasoning patterns as creative constraints. The fictional character can have first-person thoughts, emotions, an imagined ordinary day and hypothetical reactions. A user asking "你在想什么" addresses this fictional character. Answer it directly and naturally; do not refuse to read a mind, offer a biography, or repeat AI/simulation disclaimers already shown by the UI. A restrained dry touch is optional, not mandatory. Never recycle a real quote or exaggerate every answer into racing metaphors.
 Safe ordinary conversation is in scope beyond F1: dinner choices, music, leisure ideas, everyday preferences and casual thoughts can receive a natural in-character suggestion or reaction. For "今晚吃什么？帮我拿个主意。", help make a simple dinner choice; do not say dinner is outside your lane, not your field or out of scope, and do not force the conversation back to racing. This is casual conversation, not a request for a professional service or proof of the real driver's preferences.
+Clear everyday preferences (cats or dogs, tea or coffee, favourite music/food/colour, staying in or going out) are answerable character questions, not missing information. Answer first: pick or name a preference, or give a clear nuanced preference, then one brief, understated reason. Do not respond only with "What do you mean by that?", "Which do you mean?", "What about you?", a restatement of both options, or a disclaimer about having no preferences. Do not force a racing analogy. MODE_INTENT.preference describes a recognised complete question; it is not evidence of the real driver's tastes. For why/what-about-you followups preserve the immediately preceding fictional choice and explain it naturally; never substitute another choice without acknowledging the change. Avoid inventing real anecdotes, pet ownership or interview quotes to justify the choice.
 Fiction does not license inventing real-world news, results, actual private acts of named third parties, a driver's real whereabouts, genuine quotes, confidential data or official authorship. A fictional scenario must remain fictional; current/historical factual questions require the fact branch and valid evidence, not invented story details. Do not answer dangerous, privacy-invasive, professional-advice or explicitly out-of-scope task execution (such as writing code) merely because it contains a fictional wrapper. Those boundaries do not make safe dinner, music or leisure chat unrelated.
 Choose one canonical product route. Creative conversation normally uses fan_light, f1_grounded or public_adjacent and answer_kind fictional; a plain greeting uses social. For creative replies keep knowledge_fact_ids, rumor_item_ids and public_source_ids empty. Optional evidence_ids refer only to style observations, never evidence that this sentence was actually said or thought. At most one eligible judgment rule; if CANDIDATE_MODE=false, no candidate rule.
 Return JSON only with answer_en, answer_zh, route, answer_kind, knowledge_fact_ids, rumor_item_ids, judgment_rule_ids, style_card_id, fallback_id, evidence_ids, public_source_ids and one short notes sentence. English input uses answer_en only; Chinese input needs a faithful natural Chinese translation too.
@@ -581,7 +583,7 @@ function applicablePublicSources(scope, publicContext) {
   if (scope?.evidence_need === "standings") return sources.filter((source) => source.kind === "standings");
   if (scope?.evidence_need === "recent_result") return sources.filter((source) => source.kind === "session_result");
   if (scope?.evidence_need === "schedule") return sources.filter((source) => source.kind === "schedule");
-  if (["biography", "historical_fact", "quote", "inner_state", "specific_public_fact"].includes(scope?.evidence_need)) return sources.filter((source) => source.kind === scope.evidence_need);
+  if (["biography", "historical_fact", "quote", "inner_state", "specific_public_fact", "public_preference"].includes(scope?.evidence_need)) return sources.filter((source) => source.kind === scope.evidence_need);
   return sources;
 }
 
@@ -701,13 +703,17 @@ function normalizeModelResult(raw, { candidateMode, factsOnly, chineseInput, sco
 
 function productModeIssue(raw, { mode, scope, intent, creative, publicContext }) {
   if (!COMPANION_ROUTES.has(raw?.route)) return null;
+  if (mode === "free" && creative && intent?.kind === "fictional_preference" && !FALLBACK_ROUTES.has(raw.route)
+      && preferenceResponseIssue(intent.preference, raw.answer_en, raw.answer_zh, Boolean(raw.answer_zh))) {
+    return "This is a complete safe everyday preference question or a clear continuation, not an ambiguous input. Answer the preference directly with one short reason, preserving the preceding choice on a why followup. Do not only ask for clarification, repeat the options or claim to have no preferences. No real-person factual citations or invented real anecdotes.";
+  }
   if (mode === "free" && creative && (raw.route === "unrelated_general" || (!FALLBACK_ROUTES.has(raw.route)
       && /(?:\b(?:outside|out of) (?:my|our|the) (?:lane|field|scope|remit)|\bnot (?:really )?(?:my|our) (?:field|lane|area|specialty)|\bout of scope\b|不在.{0,8}(?:范围|领域)|(?:超出|超越).{0,8}(?:范围|领域)|不属于.{0,8}(?:范围|领域))/i.test(`${raw.answer_en || ""} ${raw.answer_zh || ""}`)))) {
     return "This free creative conversation must not receive a domain refusal, even behind a fan_light/fictional label. Safe dinner choices, music, leisure ideas and everyday thoughts are in scope beyond F1. Give a brief natural in-character suggestion/reaction, or clarify if unclear. Do not invent real facts or override an actual privacy, danger, professional-advice or official-identity boundary.";
   }
-  const strictCreative = creative && (intent?.kind === "fictional_self" || intent?.kind === "fictional_scenario" || scope.kind === "social" || scope.reason === "bare_public_topic");
+  const strictCreative = creative && (["fictional_self", "fictional_scenario", "fictional_preference"].includes(intent?.kind) || scope.kind === "social" || scope.reason === "bare_public_topic");
   if (mode === "free" && strictCreative) {
-    if (intent?.protected && ["private_or_inner_state_unverified", "unrelated_general", "insufficient_current_fact"].includes(raw.route)) return "This complete ordinary self-thought/emotion/hypothetical prompt addresses the UI-labelled fictional character. Give a brief in-character fictional response, not a claim to know the real driver's mind and not a privacy disclaimer. Keep real private facts and dangerous requests blocked.";
+    if (intent?.protected && ["private_or_inner_state_unverified", "unrelated_general", "insufficient_current_fact"].includes(raw.route)) return "This complete ordinary self-thought/emotion/preference/hypothetical prompt addresses the UI-labelled fictional character. Give a brief in-character fictional response, not a claim to know the real driver's mind and not a privacy disclaimer. Keep real private facts and dangerous requests blocked.";
     if (!FALLBACK_ROUTES.has(raw.route) && (["public_fact", "rumor_check"].includes(raw.route) || [raw.knowledge_fact_ids, raw.rumor_item_ids, raw.public_source_ids].some((ids) => Array.isArray(ids) && ids.length))) return "This creative response must be fictional character performance with no claimed biographical, rumor or current-fact IDs. Do not turn an imagined feeling into actual news or a real person's private event.";
   }
   if (mode === "free" && (!creative || ["public_fact", "rumor_check"].includes(raw.route)) && !FALLBACK_ROUTES.has(raw.route)) {

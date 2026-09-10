@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { checkModeResponse, MODE_CASES } from "../../scripts/eval_companion_modes.mjs";
+import { checkModeResponse, MODE_CASES, PREFERENCE_CASES } from "../../scripts/eval_companion_modes.mjs";
 
 test("mode eval distinguishes a fictional answer from a boundary with the same route label", () => {
   const example = { mode: "free", message: "你在想什么？", kinds: ["fictional"] };
@@ -11,6 +11,14 @@ test("mode eval distinguishes a fictional answer from a boundary with the same r
   assert.ok(checkModeResponse(example, 200, { ...body, engine: "boundary" }).length);
   assert.ok(checkModeResponse(example, 200, { ...body, mode: "grounded" }).length);
   assert.ok(checkModeResponse(example, 200, { ...body, answer_en: "Dinner is outside my lane, though I'd pick something quick." }).length);
+});
+
+test("preference eval rejects vacuous clarifications and option mirrors but accepts English character choices", () => {
+  const example = PREFERENCE_CASES[1];
+  const body = { mode: "free", answer_kind: "fictional", engine: "deepseek", route: "fan_light", answer_en: "Cats. Quiet company suits me.", answer_zh: "", sources: [] };
+  assert.deepEqual(checkModeResponse(example, 200, body), []);
+  for (const answer_en of ["What do you mean by that?", "Cats or dogs.", "I don't have personal preferences."]) assert.ok(checkModeResponse(example, 200, { ...body, answer_en }).length);
+  assert.equal(PREFERENCE_CASES.length, 6);
 });
 
 test("mode eval checks linked server evidence and accepts an honest grounded information gap", () => {

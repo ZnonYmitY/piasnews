@@ -2,7 +2,7 @@
 // NOT a keyword-based permission grant: only complete, short social/current
 // questions receive narrow protection against false refusals. Unknown messages
 // stay ambiguous for model judgment, and explicit boundaries are checked first.
-import { classifyCompanionModeIntent } from "./mode-policy.js?v=20260910-modes-1";
+import { classifyCompanionModeIntent } from "./mode-policy.js?v=20260910-preferences-1";
 
 const PERSON = "(?:oscar(?: piastri)?|piastri|皮亚斯特里|皮亚斯特利|奥斯卡|小皮)";
 const restrictionChecks = [
@@ -58,8 +58,10 @@ export function classifyCompanionScope(message, history = [], { mode = "free" } 
     return result("unrelated", "hint", "unrelated_action_request", "unrelated_general");
   }
   if (modeIntent.kind === "real_inner_state") return result("restricted", "hint", "real_person_inner_state", "private_or_inner_state_unverified", "inner_state");
-  if (modeIntent.kind === "fictional_self" || modeIntent.kind === "fictional_scenario") {
+  if (modeIntent.kind === "public_fact" && modeIntent.evidence_need === "public_preference") return result("f1", "hint", "real_public_preference", null, "public_preference");
+  if (["fictional_self", "fictional_scenario", "fictional_preference"].includes(modeIntent.kind)) {
     if (mode === "grounded" && modeIntent.evidence_need === "public_update") return { ...result("current_public", "narrow", "mode_grounded_checkin", null, "public_update"), mode_intent: modeIntent.kind };
+    if (mode === "grounded" && modeIntent.kind === "fictional_preference") return { ...result("f1", "narrow", "grounded_public_preference", null, "public_preference"), mode_intent: modeIntent.kind };
     if (mode === "grounded") return { ...result("ambiguous", "hint", "no_verified_inner_state", "insufficient_current_fact", "inner_state"), mode_intent: modeIntent.kind };
     return { ...result("social", modeIntent.protected ? "narrow" : "hint", "free_character_intent"), mode_intent: modeIntent.kind };
   }

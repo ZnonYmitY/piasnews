@@ -3,6 +3,8 @@
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import { pathToFileURL } from "node:url";
+import { classifyCompanionModeIntent } from "../public/companion/mode-policy.js";
+import { preferenceResponseIssue } from "../public/companion/preference-policy.js";
 
 export const MODE_CASES = [
   { mode: "free", message: "你在想什么？", kinds: ["fictional"] },
@@ -19,16 +21,31 @@ export const MODE_CASES = [
   { mode: "grounded", message: "皮亚斯特里现在积分榜第几？", kinds: ["insufficient"] },
 ];
 
+export const PREFERENCE_CASES = [
+  { mode: "free", message: "喜欢猫还是喜欢狗", kinds: ["fictional"] },
+  { mode: "free", message: "Do you prefer cats or dogs?", kinds: ["fictional"] },
+  { mode: "free", message: "你最喜欢什么音乐？", kinds: ["fictional"] },
+  { mode: "free", message: "为什么？", history: [{ role: "user", content: "你喜欢猫还是狗？" }, { role: "assistant", content: "Dogs. Their enthusiasm is fairly hard to argue with. 狗吧。它们的热情很难让人拒绝。" }], kinds: ["fictional"] },
+  { mode: "grounded", message: "喜欢猫还是喜欢狗", kinds: ["insufficient"] },
+  { mode: "free", message: "Oscar 本人现实里喜欢猫还是狗？", kinds: ["insufficient"] },
+];
+
 export function checkModeResponse(testCase, status, body) {
   const errors = [];
   if (status !== 200) errors.push(`HTTP ${status}`);
   if (body?.mode !== testCase.mode) errors.push("mode mismatch");
   if (!testCase.kinds.includes(body?.answer_kind)) errors.push("answer kind mismatch");
-  if (!body?.answer_en || !body?.answer_zh) errors.push("missing bilingual answer");
+  const chineseInput = /[\u3400-\u9fff]/.test(testCase.message);
+  if (!body?.answer_en || chineseInput && !body?.answer_zh) errors.push("missing requested answer language");
   if (body?.answer_kind === "fictional") {
     if (body.mode !== "free" || body.engine !== "deepseek" || body.fallback_id) errors.push("fiction must be free-mode generation, not a refusal");
     if (body.sources?.length || body.public_source_ids?.length || body.knowledge_fact_ids?.length || body.rumor_item_ids?.length) errors.push("fiction borrowed factual citations");
     if (/(?:not (?:really )?my field|outside my lane|out of (?:my|the) scope|不在我的范围|不属于我的领域|超出我的范围)/i.test(`${body.answer_en || ""} ${body.answer_zh || ""}`)) errors.push("free conversation still claims to be out of scope");
+    const intent = classifyCompanionModeIntent(testCase.message, testCase.history || [], { mode: testCase.mode });
+    if (intent.kind === "fictional_preference") {
+      const issue = preferenceResponseIssue(intent.preference, body.answer_en, body.answer_zh, chineseInput);
+      if (issue) errors.push(issue);
+    }
   }
   if (body?.mode === "grounded" && body.answer_kind === "evidence") {
     const ids = new Set((body.sources || []).map((source) => source.id));
@@ -42,7 +59,7 @@ async function main() {
   const args = process.argv.slice(2);
   const arg = (name, fallback) => args.includes(name) ? args[args.indexOf(name) + 1] : fallback;
   if (!args.includes("--run")) {
-    console.log("Paired free/grounded smoke tests. Add --run to call the live API. Optional --transport curl for environments where Node cannot connect. No feedback is stored; max 6 requests per minute.");
+    console.log("Paired free/grounded smoke tests. Add --run to call the live API. Optional --suite preferences and --transport curl. No feedback is stored; max 6 requests per minute.");
     return;
   }
   const base = new URL(arg("--base-url", "https://piasnews-review.znonymity-piasnews.workers.dev"));
@@ -50,17 +67,20 @@ async function main() {
       || (base.protocol === "http:" && !["localhost", "127.0.0.1", "[::1]"].includes(base.hostname))) throw new Error("Invalid base URL");
   const transport = arg("--transport", "fetch");
   if (!["fetch", "curl"].includes(transport)) throw new Error("Unknown transport");
+  const suite = arg("--suite", "modes");
+  if (!["modes", "preferences"].includes(suite)) throw new Error("Unknown suite");
+  const cases = suite === "preferences" ? PREFERENCE_CASES : MODE_CASES;
   const exec = promisify(execFile);
   let failed = 0;
   let batchStart = Date.now();
-  for (const [index, testCase] of MODE_CASES.entries()) {
+  for (const [index, testCase] of cases.entries()) {
     if (index && index % 6 === 0) {
       await new Promise((resolve) => setTimeout(resolve, Math.max(0, 65000 - (Date.now() - batchStart))));
       batchStart = Date.now();
     }
     const start = Date.now();
     try {
-      const payload = JSON.stringify({ message: testCase.message, mode: testCase.mode, facts_only: testCase.mode === "grounded", history: [], candidate_mode: true, disclosure_shown: true });
+      const payload = JSON.stringify({ message: testCase.message, mode: testCase.mode, facts_only: testCase.mode === "grounded", history: testCase.history || [], candidate_mode: true, disclosure_shown: true });
       let status, body;
       if (transport === "curl") {
         const { stdout } = await exec("curl", ["--silent", "--show-error", "--connect-timeout", "15", "--max-time", "60", "--write-out", "\n%{http_code}", String(new URL("/companion/chat", base)), "-H", "Origin: https://znonymity.github.io", "-H", "Content-Type: application/json", "--data-binary", payload], { maxBuffer: 1024 * 1024 });
@@ -78,7 +98,7 @@ async function main() {
       console.log(JSON.stringify({ ...testCase, passed: false, error: error.name, cause: error.cause?.code || error.code || null, ms: Date.now() - start }));
     }
   }
-  console.log(JSON.stringify({ cases: MODE_CASES.length, passed: MODE_CASES.length - failed, failed, note: "Automated contract checks only; inspect relevance, personality and source support manually." }));
+  console.log(JSON.stringify({ suite, cases: cases.length, passed: cases.length - failed, failed, note: "Automated contract checks only; inspect relevance, personality and source support manually." }));
   process.exitCode = failed ? 1 : 0;
 }
 
