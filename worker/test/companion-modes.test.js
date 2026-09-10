@@ -153,15 +153,17 @@ test("model outages and persistent validation failures are technical errors with
   const logs = [];
   console.error = (...args) => logs.push(args.join(" "));
   try {
-    for (const mock of [
-      async () => { throw new Error("secret input SHOULD-NOT-LOG"); },
-      async () => modelResponse(answer({ route: "public_fact", knowledge_fact_ids: ["KF-NOT-RETRIEVED"] })),
+    for (const [mock, code] of [
+      [async () => { throw new Error("secret input SHOULD-NOT-LOG"); }, "COMPANION_UPSTREAM_FAILED"],
+      [async () => modelResponse(answer({ route: "public_fact", knowledge_fact_ids: ["KF-NOT-RETRIEVED"] })), "COMPANION_VALIDATION_FAILED"],
     ]) {
       globalThis.fetch = mock;
       const response = await worker.fetch(request("你好", "free"), env);
       const data = await response.json();
       assert.equal(response.status, 502);
-      assert.equal(data.error_code, "COMPANION_GENERATION_FAILED");
+      assert.equal(data.error_code, code);
+      assert.match(data.request_id, /^[0-9a-f-]{36}$/);
+      assert.ok(["upstream", "validation"].includes(data.diagnostic.stage));
       assert.equal(data.answer_en, undefined);
       assert.equal(data.answer_zh, undefined);
       assert.equal(data.engine, undefined);

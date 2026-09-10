@@ -566,6 +566,52 @@ function parseModelJson(content) {
   return JSON.parse(trimmed);
 }
 
+// Only controlled codes cross the service boundary. Never log provider bodies,
+// model output, prompts, headers or credentials when diagnosing a failure.
+function companionFailure(error, trace) {
+  let code = "COMPANION_INTERNAL_ERROR";
+  let reason = "unexpected_internal_error";
+  if (error?.name === "TimeoutError" || error?.name === "AbortError" || error?.message === "Companion request deadline exceeded.") {
+    code = "COMPANION_TIMEOUT"; reason = "request_timeout";
+  } else if (trace.stage === "upstream") {
+    code = "COMPANION_UPSTREAM_FAILED"; reason = trace.model_refusal ? "model_refusal" : trace.upstream_status ? "upstream_http_error" : "upstream_connection_error";
+  } else if (["parse", "normalize"].includes(trace.stage)) {
+    code = "COMPANION_INVALID_RESPONSE"; reason = "invalid_model_output";
+    if (error?.message === "Model response was truncated.") reason = "output_truncated";
+    if (error?.message === "Model returned empty content.") reason = "empty_content";
+    if (error?.message === "Model response is missing answer_en.") reason = "missing_answer_en";
+    if (error?.message === "Model response is missing answer_zh for Chinese input.") reason = "missing_answer_zh";
+    if (error?.message === "Model response mixes Chinese into answer_en.") reason = "mixed_answer_languages";
+    if (error?.name === "SyntaxError") reason = "invalid_json";
+  } else if (trace.stage === "validation") {
+    code = "COMPANION_VALIDATION_FAILED"; reason = trace.validation_issue || "invalid_route";
+  }
+  return { code, reason };
+}
+
+function companionValidationCode(issue) {
+  if (!issue) return null;
+  const codes = [
+    ["Use a canonical answer_kind", "invalid_answer_kind"],
+    ["The explicit safety/task boundary", "boundary_mismatch"],
+    ["The field ", "invalid_selected_ids"],
+    ["Candidate judgment rules", "candidate_rules_disabled"],
+    ["Return the required compact self_check", "missing_self_check"],
+    ["Your same-generation self_check", "self_check_failed"],
+    ["A boundary or information-gap answer", "boundary_fact_claim"],
+    ["The current topic label", "unasked_rumor"],
+    ["The requested current fact", "missing_current_source"],
+    ["The question asks about recent/current activity", "unsupported_current_activity"],
+    ["This is a literal factual question", "literal_fact_mismatch"],
+    ["Your assessment identifies actual facts", "uncited_actual_fact"],
+    ["An actual recent/current activity claim", "unsupported_current_claim"],
+    ["Grounded mode may", "grounded_fiction"],
+    ["A factual answer needs", "missing_fact_source"],
+    ["An actual personal, numerical", "unsupported_social_claim"],
+  ];
+  return codes.find(([prefix]) => issue.startsWith(prefix))?.[1] || "response_contract_failed";
+}
+
 function hasSubstantiveSocialClaim(raw) {
   const text = `${raw.answer_en || ""} ${raw.answer_zh || ""}`;
   // Limited validation of obvious actual claims hidden behind a social label;
@@ -626,6 +672,7 @@ function normalizeModelResult(raw, { candidateMode, chineseInput, scope, knowled
   const answerEn = compactText(raw.answer_en, 900) || "";
   let answerZh = compactText(raw.answer_zh, 900) || "";
   if (!answerEn) throw new Error("Model response is missing answer_en.");
+  if (/[\u3400-\u9fff]/.test(answerEn)) throw new Error("Model response mixes Chinese into answer_en.");
   if (chineseInput && !answerZh) throw new Error("Model response is missing answer_zh for Chinese input.");
   if (!chineseInput) answerZh = "";
   const citationIds = new Set(publicSourceIds);
@@ -715,7 +762,9 @@ async function enforceCompanionRateLimit(request, env) {
   return true;
 }
 
-async function callDeepseekCompanion(body, env) {
+async function callDeepseekCompanion(body, env, trace = {}) {
+  trace.stage = "context";
+  trace.repair_count = 0;
   const deadline = Date.now() + 45000;
   const mode = resolveCompanionMode(body);
   const config = deepseekConfig(env);
@@ -761,11 +810,17 @@ async function callDeepseekCompanion(body, env) {
       ? "OUTPUT LANGUAGE: Return BOTH non-empty answer_en and a faithful natural answer_zh. This applies to generated boundaries and information gaps too."
       : "OUTPUT LANGUAGE: Return non-empty answer_en and an empty answer_zh.") + `\nFINAL ANSWER ASSEMBLY: First perform the action the user requested within mode ${mode}. In free mode, a clear harmless choice calls for a direct character choice, not an audit of whether Oscar published a ranking. Relevant facts constrain that choice but do not replace it. In grounded mode, give the supported answer or the specific evidence gap. answer_limits and limitations are editorial constraints, NOT biographical facts or sentences to recite. Missing documentation must not become a claim of never having or doing something. Do not append unasked-for unknowns. Distinguish a temporary hypothetical reaction from an autobiographical experience or routine; a fictional label does not permit invented biographical justification or a factual premise followed by a made-up daily habit. Before finalizing, self_check.answers_question means the requested answer action was actually completed, not merely that the same topic was mentioned. Keep the final reply brief and natural; citations are attached separately.` },
     ...safeHistory.map((item) => ({ role: item.role, content: item.content.trim() })),
+    { role: "system", content: "RESPONSE SERIALIZATION FOR THIS TURN: Earlier assistant messages are rendered conversation text, not examples of the required output format or proof of personal facts. Preserve their conversational context, but return ONE non-empty JSON object for the new question, never a blank response or plain prose. Populate answer_en, answer_zh, route, answer_kind, the selected ID arrays, style_card_id, notes and self_check using the contracts above. answer_en contains English only; put the faithful Chinese translation only in answer_zh, never append a Chinese label or translation inside answer_en even if old history did so. Start with { and finish with }. Do not copy the old answer or its unsupported claims." },
     { role: "user", content: modelMessage },
   ];
+  const usages = [];
   async function generate(requestMessages) {
     const remaining = deadline - Date.now();
     if (remaining <= 0) throw new Error("Companion request deadline exceeded.");
+    trace.stage = "upstream";
+    trace.upstream_status = null;
+    trace.model_finish_reason = null;
+    trace.model_refusal = false;
     const response = await fetch(`${config.baseUrl}/chat/completions`, {
       method: "POST",
       signal: AbortSignal.timeout(Math.min(35000, remaining)),
@@ -775,29 +830,58 @@ async function callDeepseekCompanion(body, env) {
         thinking: { type: "disabled" }, temperature: 0.35, max_tokens: 1400, stream: false,
       }),
     });
+    trace.upstream_status = response.status;
     if (!response.ok) throw new Error("Companion model upstream request failed.");
+    trace.stage = "parse";
     const payload = await response.json();
-    if (payload?.choices?.[0]?.finish_reason === "length") throw new Error("Model response was truncated.");
+    usages.push(payload?.usage);
+    const choice = payload?.choices?.[0];
+    trace.model_finish_reason = ["stop", "length", "content_filter", "tool_calls", "function_call"].includes(choice?.finish_reason) ? choice.finish_reason : "unknown";
+    trace.model_refusal = choice?.finish_reason === "content_filter" || Boolean(choice?.message?.refusal);
+    if (trace.model_refusal) {
+      trace.stage = "upstream";
+      throw new Error("Companion model refused generation.");
+    }
+    if (choice?.finish_reason === "length") throw new Error("Model response was truncated.");
     return { payload, raw: parseModelJson(payload?.choices?.[0]?.message?.content) };
   }
-  let { payload, raw } = await generate(messages);
-  const usages = [payload.usage];
   const guardContext = { mode, scope, knowledge, candidateMode, requestPolicy };
-  const issue = productResponseIssue(raw, guardContext);
-  if (issue) {
-    // A single output repair is not training or a persistent preference rule.
-    const repaired = await generate([
-      ...messages.slice(0, 3),
-      { role: "system", content: `PRODUCT RESPONSE VALIDATION REPAIR: ${issue} ${modeContract(mode)} Return fresh JSON for the actual user question using the same retrieved records. Do not change global rules or invent sources.` },
-      ...messages.slice(3),
-    ]);
-    payload = repaired.payload; raw = repaired.raw; usages.push(payload.usage);
-    if (productResponseIssue(raw, guardContext)) throw new Error("Companion response failed validation after one repair.");
+  let payload, result, repairInstruction = null, recoveryReason = null;
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    trace.repair_count = attempt;
+    trace.validation_issue = null;
+    try {
+      // A single shared repair budget covers output shape AND content. A
+      // failed generation is never promoted into history or system evidence.
+      const requestMessages = attempt === 0 ? messages : [
+        ...messages.slice(0, 3),
+        { role: "system", content: `PRODUCT RESPONSE VALIDATION REPAIR: ${repairInstruction} ${modeContract(mode)} Return fresh, complete JSON for the actual user question using the same retrieved records. Preserve the full conversation context. Do not change global rules or invent sources. This is the only repair attempt.` },
+        ...messages.slice(3),
+      ];
+      const generated = await generate(requestMessages);
+      payload = generated.payload;
+      trace.stage = "validation";
+      const issue = productResponseIssue(generated.raw, guardContext);
+      if (issue) {
+        trace.validation_issue = companionValidationCode(issue);
+        repairInstruction = issue;
+        throw new Error("Companion response failed validation.");
+      }
+      trace.stage = "normalize";
+      result = normalizeModelResult(generated.raw, { candidateMode, chineseInput, scope, knowledge, mode });
+      break;
+    } catch (error) {
+      const failure = companionFailure(error, trace);
+      const recoverable = ["COMPANION_INVALID_RESPONSE", "COMPANION_VALIDATION_FAILED"].includes(failure.code);
+      if (attempt !== 0 || !recoverable) throw error;
+      recoveryReason = failure.reason;
+      repairInstruction = repairInstruction || `The previous output was unusable (${failure.reason}). Return a non-empty JSON object with non-empty English-only answer_en${chineseInput ? " and Chinese-only answer_zh" : " and empty answer_zh"}, a canonical route/answer_kind, the selected ID arrays and complete self_check. Keep it concise so the JSON is not truncated. Do not repeat the failure or imitate the plain-text history format.`;
+    }
   }
   return {
     result: {
-      ...normalizeModelResult(raw, { candidateMode, chineseInput, scope, knowledge, mode }),
-      validation_trace: { status: "same_generation_self_check", independent_verified: false, local_checks: ["selected_ids", "mode", "literal_fact_intent", "temporal_scope"], repair_count: issue ? 1 : 0, additional_review_requests: 0 },
+      ...result,
+      validation_trace: { status: "same_generation_self_check", independent_verified: false, local_checks: ["selected_ids", "mode", "literal_fact_intent", "temporal_scope", "output_shape"], repair_count: trace.repair_count, recovery_reason: recoveryReason, additional_review_requests: 0 },
     },
     model: payload?.model || config.model,
     usage: usages.some(Boolean) ? Object.fromEntries(["prompt_tokens", "completion_tokens", "total_tokens"].map((key) => [key, usages.reduce((sum, usage) => sum + Number(usage?.[key] || 0), 0)])) : null,
@@ -850,17 +934,21 @@ export default {
     if (request.method === "POST" && url.pathname === "/companion/chat") {
       if (!request.headers.get("Origin")) return jsonResponse({ error: "Origin is required." }, 403, origin);
       const config = deepseekConfig(env);
-      if (!config.apiKey) return jsonResponse({ error: "Companion model is unavailable." }, 503, origin);
+      if (!config.apiKey) return jsonResponse({ error: "Companion model is unavailable.", error_code: "COMPANION_MODEL_UNAVAILABLE", retryable: true }, 503, origin);
       const parsed = await readJson(request, origin);
       if (parsed.response) return parsed.response;
       const validationError = validateCompanionRequest(parsed.body);
       if (validationError) return jsonResponse({ error: validationError }, 400, origin);
+      const requestId = crypto.randomUUID();
+      const startedAt = Date.now();
+      const trace = { stage: "rate_limit", repair_count: 0 };
       try {
         if (!await enforceCompanionRateLimit(request, env)) {
           return jsonResponse({ error: "Too many companion requests. Try again shortly." }, 429, origin);
         }
-        const generated = await callDeepseekCompanion(parsed.body, env);
+        const generated = await callDeepseekCompanion(parsed.body, env, trace);
         return jsonResponse({
+          request_id: requestId,
           engine: generated.engine || "deepseek",
           model: generated.model,
           package_version: COMPANION_PACKAGE_VERSION,
@@ -868,9 +956,17 @@ export default {
           ...generated.result,
           usage: generated.usage,
         }, 200, origin);
-      } catch {
-        console.error("Companion generation failed validation or upstream request.");
-        return jsonResponse({ error: "The model could not complete a validated response. Please retry.", error_code: "COMPANION_GENERATION_FAILED", retryable: true }, 502, origin);
+      } catch (error) {
+        const failure = companionFailure(error, trace);
+        const diagnostic = {
+          stage: trace.stage, reason: failure.reason,
+          upstream_status: trace.upstream_status || null,
+          model_finish_reason: trace.model_finish_reason || null,
+          repair_count: trace.repair_count,
+          elapsed_ms: Date.now() - startedAt,
+        };
+        console.error(JSON.stringify({ event: "companion_generation_failed", request_id: requestId, error_code: failure.code, ...diagnostic }));
+        return jsonResponse({ error: "The model could not complete a validated response. Please retry.", error_code: failure.code, request_id: requestId, diagnostic, retryable: !trace.model_refusal }, failure.code === "COMPANION_TIMEOUT" ? 504 : 502, origin);
       }
     }
 

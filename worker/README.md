@@ -8,7 +8,7 @@ This Cloudflare Worker provides five narrowly scoped services:
 - a rate-limited DeepSeek gateway for the public Piastri Companion;
 - explicitly consented Companion feedback, with private administrator review and export.
 
-The Companion product and the persona distillation source are separate. Distillation evidence, facts, rumor checks, judgment rules, style cards, boundaries, and evals live in [piastri-persona-distillation](https://github.com/ZnonYmitY/piastri-persona-distillation). This repository stores only a pinned generated snapshot plus a product adapter; `worker/companion-runtime.lock.json` records the upstream tag, package version, source hash, and artifact checksum. DeepSeek supplies natural-language generation, while the Worker validates returned IDs and forcibly replaces out-of-domain and reviewed-rumor routes with the package's exact safe response. Current race context remains a Piasnews product responsibility and is reduced to an allow-listed shape before it reaches the model.
+The Companion product and the persona distillation source are separate. Distillation evidence, facts, rumor checks, judgment rules, style cards, boundaries, and evals live in [piastri-persona-distillation](https://github.com/ZnonYmitY/piastri-persona-distillation). This repository stores only a pinned generated snapshot plus a product adapter; `worker/companion-runtime.lock.json` records the upstream tag, package version, source hash, and artifact checksum. DeepSeek generates all conversational answers, including boundaries and evidence gaps; the Worker checks selected IDs and the mode/output contract without replacing replies with canned character wording. Current race context remains a Piasnews product responsibility and is reduced to an allow-listed shape before it reaches the model.
 
 History-review candidates and decisions remain in GitHub JSON. The existing `ANALYTICS_DB` D1 binding now serves two separate tables: anonymous analytics (timestamp, China Standard Time day, page path, referrer hostname) and explicitly submitted Companion feedback. Ordinary Companion chat is not automatically stored. Neither table stores an IP address, cookie, or visitor ID. Analytics and feedback have separate cleanup queries; feedback cleanup never touches analytics or GitHub review data.
 
@@ -48,7 +48,7 @@ npx wrangler deploy
 
 The default Companion model is `deepseek-v4-flash`; override `DEEPSEEK_MODEL` in `wrangler.toml` if needed. Companion requests use per-client and shared-key Cloudflare rate-limit bindings. These are traffic controls, not a strict account-wide spending cap. DeepSeek usage is billed to the configured API account, so monitor usage and configure an account budget where available.
 
-The product gateway supplies all 14 canonical routes to the model. Simple greetings belong to `fan_light`; unknown routes fail explicitly instead of silently becoming an unrelated-topic fallback. Public-data requests time out after 8 seconds and model generation after 35 seconds. Truncated JSON and selection of disabled judgment rules fail closed. Returned source IDs are checked against the pinned catalog; this is not independent verification of every generated claim.
+The product gateway supplies all 14 canonical routes to the model. Simple greetings belong to `fan_light`; unknown routes are never silently converted into an unrelated-topic fallback. Public-data requests time out after 8 seconds; each model generation is limited to 35 seconds inside one 45-second request budget. Empty content (including upstream HTTP 200), malformed/truncated JSON, invalid routes, missing response languages, and content-contract violations share **one** repair attempt. The repair preserves the allowed conversation and the same retrieved evidence; a second invalid output fails closed. Upstream refusals/content filtering, HTTP failures and timeouts are not bypassed with a format repair. Returned source IDs are checked against the pinned catalog; this is not independent verification of every generated claim.
 
 Feedback uses dedicated `COMPANION_FEEDBACK_RATE_LIMITER` and `COMPANION_FEEDBACK_GLOBAL_LIMITER` bindings, so submitting an answer review does not consume normal chat quota. Development deployments may fall back to the existing Companion bindings with separate prefixed keys. Cloudflare origin checks and traffic limits are abuse controls, not proof that anonymous client-reported data is genuine. Configure the daily Worker cron (currently `17 3 * * *`, UTC) to delete expired feedback even when the app has no visitors.
 
@@ -74,7 +74,22 @@ Enter the same Worker URL and `ADMIN_API_KEY` in the admin console connection se
 
 Companion v0.5 uses the same bounded bilingual knowledge retrieval for both modes: selected historical KF/RM records plus applicable current news/calendar/results. Free mode additionally permits fact-compatible performance; grounded mode does not invent missing facts. Successful replies always have `engine: deepseek`; boundary policies no longer contain fixed text. Network/model/validation failures return a non-2xx service error without a character answer. Restricted originals are withheld locally; only abstract boundary instructions reach the model.
 
-Responses expose `retrieved_knowledge_fact_ids`, `retrieved_rumor_item_ids`, `retrieved_public_source_ids` and `retrieval_status`, separately from IDs actually cited. Style evidence appears in `style_sources`, never as factual proof. `validation_trace` reports a same-generation self-check plus bounded local ID/mode/factual-intent/time checks, with at most one generation repair. No additional independent model review is performed. Retrieval is not a whole-web search and these checks are not independent semantic verification.
+Responses expose `retrieved_knowledge_fact_ids`, `retrieved_rumor_item_ids`, `retrieved_public_source_ids` and `retrieval_status`, separately from IDs actually cited. Style evidence appears in `style_sources`, never as factual proof. `validation_trace` reports a same-generation self-check plus bounded local ID/mode/factual-intent/time/output-shape checks, `repair_count`, and a controlled `recovery_reason` when a repair was needed. No additional independent model review is performed. Retrieval is not a whole-web search and these checks are not independent semantic verification.
+
+### Companion generation errors
+
+Generation responses have a server-generated `request_id`. Errors expose a controlled `error_code`, `retryable` and bounded `diagnostic` fields (stage, reason code, upstream HTTP status, canonical finish reason, repair count and elapsed milliseconds). The frontend displays its own localized text and a short request ID, never the provider's raw error message. Retrying uses the failed request's original mode/history and does not duplicate the user message. A model HTTP 200 is not considered a usable answer until non-empty structured output passes validation.
+
+| Code | Meaning |
+| --- | --- |
+| `COMPANION_UPSTREAM_FAILED` | Provider HTTP/connection failure or explicit refusal; no provider text is exposed. |
+| `COMPANION_TIMEOUT` | Shared deadline or upstream timeout; HTTP 504. |
+| `COMPANION_INVALID_RESPONSE` | Output shape remains unusable after the bounded repair. |
+| `COMPANION_VALIDATION_FAILED` | Output still violates the selected-record/mode/answer contract. |
+| `COMPANION_INTERNAL_ERROR` | Unexpected internal failure. |
+| `COMPANION_MODEL_UNAVAILABLE` | No model key is configured. |
+
+Failure logs contain only the request ID and those controlled metadata fields. They do not contain prompts, conversation history, raw model answers/refusals, upstream bodies, keys, authorization headers or IP addresses. Diagnostics are separate from consented user feedback and never automatically become a persona training signal.
 
 Hot-event changes may include a `content_items` snapshot with at most 50 entries. Every entry has a stable `item_id`, source type, source name, title, HTTPS original URL, and optional per-item image, video, and video-poster URLs. Draft snapshots coexist with the active version until a publisher activates them.
 

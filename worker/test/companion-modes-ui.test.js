@@ -48,7 +48,7 @@ function harness() {
     resizeInput() {}, scrollToLatest(smooth = true) { scrollCalls.push(smooth); }, renderTrace() {},
     fetch(_url, options) { posts.push(JSON.parse(options.body)); return new Promise((resolve) => pending.push(resolve)); },
   };
-  context.setGenerating = (value) => { context.isGenerating = value; if (context.retryableFailure) context.retryableFailure.button.disabled = value; context.updateModeUi(); };
+  context.setGenerating = (value) => { context.isGenerating = value; if (context.retryableFailure) context.retryableFailure.button.disabled = value || context.retryableFailure.retryable === false; context.updateModeUi(); };
   context.setModelState = (state) => { modelStates.push(state); context.els.modelDisclosure.dataset.state = state; };
   vm.createContext(context);
   vm.runInContext(functions, context);
@@ -57,7 +57,7 @@ function harness() {
     answer_en: "One step at a time.", answer_zh: "一次处理一步。", route: "fan_light", style_card_id: "SC-05",
     package_version: "0.4.0", source_hash: "snapshot-hash", sources: [], public_source_ids: [], ...overrides,
   }) });
-  const fail = (status = 503) => pending.shift()({ ok: false, status });
+  const fail = (status = 503, payload) => pending.shift()({ ok: false, status, json: async () => payload });
   return { context, pending, posts, messages, modelStates, scrollCalls, respond, fail };
 }
 
@@ -216,6 +216,108 @@ test("network, timeout, rate-limit and upstream failures never enter model histo
   }
 });
 
+test("server failure codes give safe, distinct diagnostics and a validated short request ID", async () => {
+  const cases = [
+    [502, "COMPANION_UPSTREAM_FAILED", /接口调用未成功/],
+    [502, "COMPANION_TIMEOUT", /响应超时/],
+    [502, "COMPANION_INVALID_RESPONSE", /格式不完整/],
+    [502, "COMPANION_VALIDATION_FAILED", /未通过回答校验/],
+    [500, "COMPANION_INTERNAL_ERROR", /处理请求时出现异常/],
+    [503, "COMPANION_MODEL_UNAVAILABLE", /检查服务配置/],
+    [502, "COMPANION_GENERATION_FAILED", /模型服务暂时异常/],
+  ];
+  for (const [status, errorCode, expected] of cases) {
+    const h = harness();
+    const turn = h.context.submitPrompt("你觉得自己最像什么动物");
+    h.fail(status, { error_code: errorCode, request_id: "84966B41-0F69-41B1-931C-8E8F3092E4D7", retryable: true, error: "private provider details", message: "private model output" });
+    await turn;
+    const failure = h.context.retryableFailure;
+    assert.match(failure.detail.textContent, expected);
+    assert.match(failure.note.textContent, /排查编号：84966b41/);
+    assert.equal(failure.article.dataset.requestId, "84966b41-0f69-41b1-931c-8e8f3092e4d7");
+    assert.doesNotMatch(failure.detail.textContent + failure.note.textContent, /private|8E8F3092E4D7/i);
+    assert.equal(h.messages.length, 1);
+    assert.equal(h.context.conversationHistories.free.length, 0);
+  }
+});
+
+test("unknown codes, malformed IDs and non-JSON proxy failures never expose arbitrary server content", async () => {
+  for (const payload of [
+    { error_code: "<script>private</script>", request_id: "private-key", error: "private failure", retryable: "false" },
+    { error_code: {}, request_id: ["84966b41-0f69-41b1-931c-8e8f3092e4d7"] },
+    null,
+  ]) {
+    const h = harness();
+    const turn = h.context.submitPrompt("你好");
+    h.fail(502, payload); await turn;
+    const failure = h.context.retryableFailure;
+    assert.match(failure.detail.textContent, /模型服务暂时异常/);
+    assert.equal(failure.article.dataset.requestId, "");
+    assert.doesNotMatch(failure.note.textContent + failure.detail.textContent, /private|script|排查编号/);
+    assert.equal(failure.button.disabled, false, "untrusted non-boolean retryability is ignored");
+  }
+  const h = harness();
+  const turn = h.context.submitPrompt("你好");
+  h.pending.shift()({ ok: false, status: 503, json: async () => { throw new SyntaxError("private HTML proxy response"); } });
+  await turn;
+  assert.match(h.context.retryableFailure.detail.textContent, /模型服务暂时异常/);
+  assert.doesNotMatch(h.context.retryableFailure.detail.textContent, /private|HTML/);
+});
+
+test("rate limits and local timeouts take priority over conflicting error bodies", async () => {
+  for (const [status, expected] of [[429, /请求较多/], [504, /响应超时/]]) {
+    const h = harness();
+    const turn = h.context.submitPrompt("你好");
+    h.fail(status, { error_code: "COMPANION_VALIDATION_FAILED" }); await turn;
+    assert.match(h.context.retryableFailure.detail.textContent, expected);
+  }
+  for (const ok of [true, false]) {
+    const h = harness();
+    const turn = h.context.submitPrompt("你好");
+    h.pending.shift()({ ok, status: ok ? 200 : 502, json: async () => { throw Object.assign(new Error("private body timeout"), { name: "AbortError" }); } });
+    await turn;
+    assert.match(h.context.retryableFailure.detail.textContent, /响应超时/);
+    assert.doesNotMatch(h.context.retryableFailure.detail.textContent, /校验|private/);
+  }
+});
+
+test("non-retryable failures remain disabled after generation ends and cannot send an identical request", async () => {
+  const h = harness();
+  h.context.conversationHistories.free.push({ role: "user", content: "Earlier question" }, { role: "assistant", content: "Earlier answer" });
+  const turn = h.context.submitPrompt("你好");
+  h.fail(503, { error_code: "COMPANION_MODEL_UNAVAILABLE", retryable: false }); await turn;
+  const failure = h.context.retryableFailure;
+  assert.equal(failure.button.disabled, true);
+  assert.equal(failure.button.textContent, "需要维护者处理");
+  assert.match(failure.note.textContent, /暂不提供原样重试/);
+  await failure.button.listeners.click();
+  assert.equal(h.posts.length, 1);
+  assert.equal(h.context.conversationHistories.free.length, 2);
+  assert.match(source, /retryableFailure\.button\.disabled = value \|\| retryableFailure\.retryable === false/);
+  for (const errorCode of ["COMPANION_UPSTREAM_FAILED", "COMPANION_TIMEOUT", "COMPANION_INVALID_RESPONSE", "COMPANION_VALIDATION_FAILED", "COMPANION_INTERNAL_ERROR", "COMPANION_GENERATION_FAILED"]) {
+    const copy = h.context.serviceErrorDescription({ errorCode, retryable: false });
+    assert.match(copy, /需要维护者检查/);
+    assert.doesNotMatch(copy, /请重试|请稍后重试|可以重试/);
+  }
+});
+
+test("retry replaces the diagnostic ID while preserving the original multi-turn snapshot", async () => {
+  const h = harness();
+  h.context.conversationHistories.free.push({ role: "user", content: "喜欢猫还是喜欢狗" }, { role: "assistant", content: "Earlier complete bilingual answer" });
+  const turn = h.context.submitPrompt("你觉得自己最像什么动物");
+  h.fail(502, { error_code: "COMPANION_VALIDATION_FAILED", request_id: "11111111-1111-4111-8111-111111111111", retryable: true }); await turn;
+  const failure = h.context.retryableFailure;
+  h.context.selectMode("grounded");
+  const retry = failure.button.listeners.click();
+  assert.deepEqual(h.posts[1], h.posts[0]);
+  h.fail(502, { error_code: "COMPANION_INVALID_RESPONSE", request_id: "22222222-2222-4222-8222-222222222222", retryable: true }); await retry;
+  assert.equal(h.context.retryableFailure, failure);
+  assert.match(failure.note.textContent, /排查编号：22222222/);
+  assert.doesNotMatch(failure.note.textContent, /11111111/);
+  assert.equal(h.context.els.messages.children.length, 1);
+  assert.equal(h.messages.length, 1);
+});
+
 test("a repeated retry failure updates the same system notice and never duplicates the question", async () => {
   const h = harness();
   const first = h.context.submitPrompt("你好"); h.fail(429); await first;
@@ -291,9 +393,9 @@ test("chat assets are versioned together and no keyword response module is loade
   assert.doesNotMatch(html, /factsOnlyToggle/);
   for (const text of [html, source]) {
     assert.doesNotMatch(text, /20260910-preferences-1|offline-response|preference-policy|makeOfflineResponse|规则兜底/);
-    assert.match(text, /20260910-shared-knowledge-2/);
+    assert.match(text, /20260910-service-errors-1/);
   }
-  assert.match(html, /styles\.css\?v=20260910-shared-knowledge-2/);
+  assert.match(html, /styles\.css\?v=20260910-service-errors-1/);
   assert.doesNotMatch(source, /Skill v0\.4\.0/);
   assert.match(source, /package_version: response\.metadata\.package_version/);
   assert.match(html, /共享人物知识与公开资料检索/);

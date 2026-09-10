@@ -159,6 +159,7 @@ test("one output repair shares a 45-second total deadline and a persistent inval
   try {
     const response = await worker.fetch(request("你好"), env); const data = await response.json();
     assert.equal(response.status, 502); assert.equal(calls, 2); assert.deepEqual(timeouts, [35000, 5000]);
-    assert.equal(data.answer_en, undefined); assert.equal(data.error_code, "COMPANION_GENERATION_FAILED");
+    assert.equal(data.answer_en, undefined); assert.equal(data.error_code, "COMPANION_VALIDATION_FAILED");
+    assert.equal(data.diagnostic.reason, "invalid_selected_ids");
   } finally { globalThis.fetch = original; Date.now = originalNow; AbortSignal.timeout = originalTimeout; console.error = originalError; }
 });

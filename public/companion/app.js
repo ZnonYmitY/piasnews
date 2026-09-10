@@ -2,7 +2,7 @@ const DEFAULT_WORKER_URL = "https://piasnews-review.znonymity-piasnews.workers.d
 const MAX_HISTORY_ITEMS = 8;
 const MAX_HISTORY_CHARS = 900;
 const MAX_PROMPT_CHARS = 500;
-const APP_VERSION = "20260910-shared-knowledge-2";
+const APP_VERSION = "20260910-service-errors-1";
 const MODE_LABELS = { free: "自由演绎", grounded: "强依据" };
 const ANSWER_KIND_LABELS = { fictional: "角色演绎 · 非本人事实", evidence: "有来源的事实", social: "轻松聊天", boundary: "边界答复", insufficient: "依据不足" };
 const FEEDBACK_CATEGORIES = [
@@ -474,7 +474,7 @@ function setGenerating(value) {
   els.form.setAttribute("aria-busy", String(value));
   els.promptList.querySelectorAll("button").forEach((button) => { button.disabled = value; });
   els.send.disabled = value || !els.input.value.trim();
-  if (retryableFailure) retryableFailure.button.disabled = value;
+  if (retryableFailure) retryableFailure.button.disabled = value || retryableFailure.retryable === false;
   updateModeUi();
 }
 
@@ -612,6 +612,17 @@ async function requestModelResponse(prompt, mode, signal, history, surfaceContex
   if (!response.ok) {
     const error = new Error("Companion service request failed");
     error.status = response.status;
+    // Only copy bounded, allowlisted diagnostics. The response may be an HTML
+    // proxy error or contain private provider details; never render its message.
+    try {
+      const failure = await response.json();
+      if (["COMPANION_UPSTREAM_FAILED", "COMPANION_TIMEOUT", "COMPANION_INVALID_RESPONSE", "COMPANION_VALIDATION_FAILED", "COMPANION_INTERNAL_ERROR", "COMPANION_MODEL_UNAVAILABLE", "COMPANION_GENERATION_FAILED"].includes(failure?.error_code)) error.errorCode = failure.error_code;
+      if (typeof failure?.request_id === "string" && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(failure.request_id)) error.requestId = failure.request_id.toLowerCase();
+      if (typeof failure?.retryable === "boolean") error.retryable = failure.retryable;
+    } catch (bodyError) {
+      if (bodyError?.name === "AbortError" || bodyError?.name === "TimeoutError") throw bodyError;
+      // Missing / non-JSON error bodies still have a usable HTTP status.
+    }
     throw error;
   }
   let payload;
@@ -621,7 +632,8 @@ async function requestModelResponse(prompt, mode, signal, history, surfaceContex
     if (payload.answer_zh != null && typeof payload.answer_zh !== "string") throw new Error("Unexpected translation");
     if (payload.mode !== mode || !Object.hasOwn(ANSWER_KIND_LABELS, payload.answer_kind)) throw new Error("Unexpected mode or answer kind");
     if (mode === "grounded" && payload.answer_kind === "fictional") throw new Error("Grounded response cannot be fictional");
-  } catch (_) {
+  } catch (bodyError) {
+    if (bodyError?.name === "AbortError" || bodyError?.name === "TimeoutError") throw bodyError;
     const error = new Error("Companion response validation failed");
     error.serviceReason = "invalid_response";
     throw error;
@@ -639,11 +651,22 @@ async function requestModelResponse(prompt, mode, signal, history, surfaceContex
 }
 
 function serviceErrorDescription(error) {
-  if (error?.status === 429) return "请求较多，模型暂时无法响应。请稍后重试。";
-  if (error?.name === "AbortError" || error?.name === "TimeoutError" || error?.status === 504) return "等待模型响应超时。可以重试这条消息。";
-  if (error?.serviceReason === "invalid_response") return "模型服务返回的内容未通过校验，因此没有显示为角色回复。请重试。";
+  const retryHint = error?.retryable === false ? "需要维护者检查后再试。" : "请重试。";
+  const retryLaterHint = error?.retryable === false ? retryHint : "请稍后重试。";
+  const timeoutHint = `等待模型响应超时。${error?.retryable === false ? retryHint : "可以重试这条消息。"}`;
+  if (error?.name === "AbortError" || error?.name === "TimeoutError" || error?.status === 504) return timeoutHint;
+  if (error?.status === 429) return `请求较多，模型暂时无法响应。${retryLaterHint}`;
   if (error?.name === "TypeError") return "暂时无法连接模型服务。请检查网络后重试。";
-  return "模型服务暂时异常，这次没有生成回答。请稍后重试。";
+  if (error?.serviceReason === "invalid_response") return `模型服务返回的内容未通过校验，因此没有显示为角色回复。${retryHint}`;
+  switch (error?.errorCode) {
+    case "COMPANION_TIMEOUT": return timeoutHint;
+    case "COMPANION_INVALID_RESPONSE": return `模型返回格式不完整，这次没有生成可显示的回答。${retryHint}`;
+    case "COMPANION_VALIDATION_FAILED": return `模型已返回内容，但未通过回答校验，因此没有显示为角色回复。${retryHint}`;
+    case "COMPANION_UPSTREAM_FAILED": return `模型接口调用未成功，这次没有生成回答。${retryLaterHint}`;
+    case "COMPANION_MODEL_UNAVAILABLE": return "模型连接尚未就绪，需要维护者检查服务配置。";
+    case "COMPANION_INTERNAL_ERROR": return `对话服务处理请求时出现异常，这次没有生成回答。${retryLaterHint}`;
+  }
+  return `模型服务暂时异常，这次没有生成回答。${retryLaterHint}`;
 }
 
 function expireRetryableFailure() {
@@ -689,10 +712,13 @@ function showServiceError(error, request, existing = null) {
     button.addEventListener("click", () => submitPrompt(request.prompt, record));
     els.messages.append(article);
   }
+  record.retryable = error?.retryable !== false;
+  const requestId = typeof error?.requestId === "string" && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(error.requestId) ? error.requestId.toLowerCase() : "";
+  record.article.dataset.requestId = requestId;
   record.detail.textContent = serviceErrorDescription(error);
-  record.button.textContent = `重试这条 · ${MODE_LABELS[request.mode]}`;
-  record.button.disabled = isGenerating;
-  record.note.textContent = "沿用本条发送时的模式与上下文；不会重复添加你的消息。";
+  record.button.textContent = record.retryable ? `重试这条 · ${MODE_LABELS[request.mode]}` : "需要维护者处理";
+  record.button.disabled = isGenerating || !record.retryable;
+  record.note.textContent = (record.retryable ? "沿用本条发送时的模式与上下文；不会重复添加你的消息。" : "此类问题需要服务端处理，暂不提供原样重试。") + (requestId ? ` 排查编号：${requestId.slice(0, 8)}` : "");
   retryableFailure = record;
   if (followLatest) scrollToLatest();
   else els.jumpLatest.hidden = false;
@@ -701,7 +727,7 @@ function showServiceError(error, request, existing = null) {
 
 async function submitPrompt(rawPrompt, retryRecord = null) {
   const prompt = rawPrompt.trim().slice(0, MAX_PROMPT_CHARS);
-  if (!prompt || isGenerating || (retryRecord && retryRecord !== retryableFailure)) return;
+  if (!prompt || isGenerating || (retryRecord && (retryRecord !== retryableFailure || retryRecord.retryable === false))) return;
   if (!retryRecord) expireRetryableFailure();
   const requestMode = retryRecord?.request.mode || selectedMode;
   const request = retryRecord?.request || Object.freeze({
