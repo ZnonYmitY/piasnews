@@ -1,19 +1,19 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-11T15:07:52.601429Z",
+  "generated_at": "2026-09-11T17:54:50.559531Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
   "event_count": 10,
   "events": [
     {
-      "event_id": "evt-session-result-2026-round-14-practice_1",
+      "event_id": "evt-session-result-2026-round-14-practice_2",
       "rule_id": null,
-      "hot_word_zh": "Oscar 在西班牙站一练获得第8名",
-      "hot_word_en": "Oscar finishes P8 in Spanish Grand Prix Practice 1",
-      "first_seen_at": "2026-09-11T14:18:34.531858Z",
-      "last_seen_at": "2026-09-11T14:18:34.531858Z",
-      "anchor_item_id": "session-result-2026-round-14-practice_1",
+      "hot_word_zh": "Oscar 在西班牙站二练获得第7名",
+      "hot_word_en": "Oscar finishes P7 in Spanish Grand Prix Practice 2",
+      "first_seen_at": "2026-09-11T17:51:35.722656Z",
+      "last_seen_at": "2026-09-11T17:51:35.722656Z",
+      "anchor_item_id": "session-result-2026-round-14-practice_2",
       "image_url": null,
       "video_url": null,
       "video_poster_url": null,
@@ -36,24 +36,24 @@
       "hard_rule": {
         "type": "session_result",
         "race_id": "2026-round-14",
-        "session": "practice_1",
-        "position": 8,
+        "session": "practice_2",
+        "position": 7,
         "status": "classified",
-        "source_item_id": "session-result-2026-round-14-practice_1",
+        "source_item_id": "session-result-2026-round-14-practice_2",
         "source": "OpenF1"
       },
       "items": [
         {
-          "item_id": "session-result-2026-round-14-practice_1",
+          "item_id": "session-result-2026-round-14-practice_2",
           "dataset": "session_result",
           "source_type": "media",
           "source": "OpenF1",
-          "title": "Oscar finishes P8 in Spanish Grand Prix Practice 1",
-          "title_zh": "Oscar 在西班牙站一练获得第8名",
+          "title": "Oscar finishes P7 in Spanish Grand Prix Practice 2",
+          "title_zh": "Oscar 在西班牙站二练获得第7名",
           "summary": "Structured session result for Oscar Piastri.",
           "summary_zh": "Oscar Piastri 的结构化场次成绩。",
-          "url": "https://api.openf1.org/v1/session_result?session_key=11362&driver_number=81",
-          "published_at": "2026-09-11T14:18:34.531858Z",
+          "url": "https://api.openf1.org/v1/session_result?session_key=11363&driver_number=81",
+          "published_at": "2026-09-11T17:51:35.722656Z",
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
@@ -91,7 +91,7 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2098097389978697729/vid/avc1/910x708/5RLIYiohQ9eVtiXJ.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098097389978697729/img/VYWbxULzGvQPa51H?format=webp&name=large",
-          "heat_contribution": 9.2817,
+          "heat_contribution": 8.7709,
           "metrics": {
             "likes": 9082,
             "retweets": 916,
@@ -152,8 +152,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 79,
-      "heat": 79,
+      "fan_heat": 77,
+      "heat": 77,
       "source_labels": [
         "粉"
       ],
@@ -246,11 +246,176 @@
       "rank": 3
     },
     {
+      "event_id": "evt-2026-09-10-7e1689051125",
+      "rule_id": null,
+      "hot_word_zh": "“对madring的第一印象？”Oscar：“我……很困惑”好开头😭😭😭",
+      "hot_word_en": "\"first impressions of the madring?\" oscar: \"i'm... confused\" great start 😭😭😭",
+      "first_seen_at": "2026-09-10T11:02:36Z",
+      "last_seen_at": "2026-09-10T11:02:36Z",
+      "anchor_item_id": "piasnews-social-a85025f8d0d5ba33",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2098004174806061056/vid/avc1/320x568/u95UTpEOjJJFgykr.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098004174806061056/img/TF8Tj57fd8tbvLmu.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-a85025f8d0d5ba33",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: \"first impressions of the madring?\" oscar: \"i'm... confused\" great start 😭😭😭",
+          "title_zh": "X 发帖 @laurogeitabat：“对madring的第一印象？”Oscar：“我……很困惑”好开头😭😭😭",
+          "summary": "\"first impressions of the madring?\" oscar: \"i'm... confused\" great start 😭😭😭 https://t.co/Tkk4O0SR5N",
+          "summary_zh": "“对madring的第一印象？”Oscar：“我……很困惑”好开头😭😭😭",
+          "url": "https://x.com/laurogeitabat/status/2098004205461999709",
+          "published_at": "2026-09-10T11:02:36Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2098004174806061056/vid/avc1/320x568/u95UTpEOjJJFgykr.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098004174806061056/img/TF8Tj57fd8tbvLmu.jpg",
+          "heat_contribution": 9.1594,
+          "metrics": {
+            "likes": 17003,
+            "retweets": 1213,
+            "replies": 6,
+            "quotes": 0,
+            "views": 166834,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 47,
+      "heat": 47,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "event_id": "evt-2026-09-10-3d08cfc5fe05",
+      "rule_id": null,
+      "hot_word_zh": "他从没看起来这么好过",
+      "hot_word_en": "he's never looked better",
+      "first_seen_at": "2026-09-10T11:13:14Z",
+      "last_seen_at": "2026-09-10T11:13:14Z",
+      "anchor_item_id": "piasnews-social-ccdc09ba9efe6c4c",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2098006858925793281/vid/avc1/300x270/a7afkw5vFvuqmthC.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098006858925793281/img/UGY5Vy1XV9GDHEbI.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-ccdc09ba9efe6c4c",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: he's never looked better",
+          "title_zh": "X 发帖 @laurogeitabat：他从没看起来这么好过",
+          "summary": "he's never looked better https://t.co/LQ1nAnNk1Y",
+          "summary_zh": "他从没看起来这么好过",
+          "url": "https://x.com/laurogeitabat/status/2098006884057788696",
+          "published_at": "2026-09-10T11:13:14Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2098006858925793281/vid/avc1/300x270/a7afkw5vFvuqmthC.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098006858925793281/img/UGY5Vy1XV9GDHEbI.jpg",
+          "heat_contribution": 8.467,
+          "metrics": {
+            "likes": 6656,
+            "retweets": 1365,
+            "replies": 12,
+            "quotes": 0,
+            "views": 114344,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 44,
+      "heat": 44,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "event_id": "evt-2026-09-10-3de7e52b6ef3",
+      "rule_id": null,
+      "hot_word_zh": "粉丝：“祝你好运！”Oscar：“谢谢”☺️ McLaren管理员：“我就跟着吧”Osca…",
+      "hot_word_en": "fan: \"good luck!\" oscar: \"thank you\" ☺️ mcl admin: \"i'm just gonna follow\" oscar: ??? \"there's…",
+      "first_seen_at": "2026-09-10T11:19:34Z",
+      "last_seen_at": "2026-09-10T11:19:34Z",
+      "anchor_item_id": "piasnews-social-07f6a3d44d190cff",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2098008449606893571/vid/avc1/320x426/CV5n4_liX-H5gr_u.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098008449606893571/img/OaIS0wGLI-xyeMYk.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-07f6a3d44d190cff",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: fan: \"good luck!\" oscar: \"thank you\" ☺️ mcl admin: \"i'm just gonna follow\" oscar: ??? \"there's…",
+          "title_zh": "X 发帖 @laurogeitabat：粉丝：“祝你好运！”Oscar：“谢谢”☺️ McLaren管理员：“我就跟着吧”Oscar：？？？“这儿有个座位！”*挪一挪挪一挪* McLaren管理员：*在后面追他们* Oscar：😂“请踩刹车！”😭😭😭😭",
+          "summary": "fan: \"good luck!\" oscar: \"thank you\" ☺️ mcl admin: \"i'm just gonna follow\" oscar: ??? \"there's a seat here!\" *scoot scoot* mcl admin: *running after them* oscar: 😂 \"please hit the breaks!\" 😭😭😭😭 https://t.co/2NxdbNSkUX",
+          "summary_zh": "粉丝：“祝你好运！”Oscar：“谢谢”☺️ McLaren管理员：“我就跟着吧”Oscar：？？？“这儿有个座位！”*挪一挪挪一挪* McLaren管理员：*在后面追他们* Oscar：😂“请踩刹车！”😭😭😭😭",
+          "url": "https://x.com/laurogeitabat/status/2098008478161740077",
+          "published_at": "2026-09-10T11:19:34Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2098008449606893571/vid/avc1/320x426/CV5n4_liX-H5gr_u.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098008449606893571/img/OaIS0wGLI-xyeMYk.jpg",
+          "heat_contribution": 8.569,
+          "metrics": {
+            "likes": 8312,
+            "retweets": 887,
+            "replies": 17,
+            "quotes": 0,
+            "views": 156220,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 44,
+      "heat": 44,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 6
+    },
+    {
       "event_id": "evt-oscar-monza-preparation",
       "rule_id": "oscar-monza-preparation",
       "hot_word_zh": "Oscar 开始为蒙扎站进行准备",
       "hot_word_en": "Oscar begins preparations for Monza",
-      "first_seen_at": "2026-09-04T16:36:38Z",
+      "first_seen_at": "2026-09-05T00:00:00Z",
       "last_seen_at": "2026-09-11T09:48:12Z",
       "anchor_item_id": "piasnews-social-9a6d82c581ab7f5d",
       "image_url": "https://pbs.twimg.com/media/HR6nZcKa0AAG5fq.jpg",
@@ -284,58 +449,10 @@
           }
         },
         {
-          "item_id": "piasnews-social-64a3e543878d958d",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: while acknowledging there's still work to do, oscar is happy with how monza went! \"it wasn't pe…",
-          "title_zh": "X 发帖 @laurogeitabat：虽然承认还有工作要做，oscar对Monza的结果感到满意！“并不完美，但比以前好多了。很高兴能讨论一些正常的细节来微调，而不是试图重新发明。这是最大的积极方面”",
-          "summary": "while acknowledging there's still work to do, oscar is happy with how monza went! \"it wasn't perfect, but it was a hell of a lot better than what it's been. it was nice to be talking about normal bits to finetune rather than trying to reinvent things. thats the biggest positive\" https://t.co/AuEidIadBm",
-          "summary_zh": "虽然承认还有工作要做，oscar对Monza的结果感到满意！“并不完美，但比以前好多了。很高兴能讨论一些正常的细节来微调，而不是试图重新发明。这是最大的积极方面”",
-          "url": "https://x.com/laurogeitabat/status/2097366141991555345",
-          "published_at": "2026-09-08T16:47:10Z",
-          "image_url": "https://pbs.twimg.com/media/HRtXYCGXYAAJ3kD.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HRtXYCGXYAAJ3kD.jpg",
-          "heat_contribution": 4.9704,
-          "metrics": {
-            "likes": 537,
-            "retweets": 54,
-            "replies": 1,
-            "quotes": 0,
-            "views": 6744,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-f45b09e01d9638f7",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: andrea stella is confident the performance shown by oscar in monza will persist throughout the…",
-          "title_zh": "X 发帖 @laurogeitabat：andrea stella相信oscar在Monza展现的表现将在2026年剩余赛季持续：“非常高兴，对oscar的进步非常满意。我认为他下半赛季会非常强劲。”",
-          "summary": "andrea stella is confident the performance shown by oscar in monza will persist throughout the rest of 2026: \"very happy, very pleased with the progress that oscar is making. i think he will have a very strong second half of the season.\" https://t.co/CTs1XuF0Bv",
-          "summary_zh": "andrea stella相信oscar在Monza展现的表现将在2026年剩余赛季持续：“非常高兴，对oscar的进步非常满意。我认为他下半赛季会非常强劲。”",
-          "url": "https://x.com/laurogeitabat/status/2097364296514613636",
-          "published_at": "2026-09-08T16:39:50Z",
-          "image_url": "https://pbs.twimg.com/media/HRtVrmCWoAAGuDN.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HRtVrmCWoAAGuDN.jpg",
-          "heat_contribution": 4.6836,
-          "metrics": {
-            "likes": 397,
-            "retweets": 31,
-            "replies": 0,
-            "quotes": 0,
-            "views": 7677,
-            "bookmarks": 0
-          }
-        },
-        {
           "item_id": "piasnews-3680b30ab6804ccd",
           "dataset": "items",
           "source_type": "media",
-          "source": "f1i.com",
+          "source": "F1i.com",
           "title": "Piastri insists ‘we’re all good’ after heated Monza battle with Norris",
           "title_zh": "Piastri 坚称在与 Norris 于 Monza 激烈交锋后“我们都很好”",
           "summary": "Oscar Piastri-related item discovered from public news metadata.",
@@ -345,7 +462,7 @@
           "image_url": "https://f1i.com/wp-content/uploads/2026/09/2294524420-1200x800-5b2df79.jpg",
           "video_url": null,
           "video_poster_url": "https://f1i.com/wp-content/uploads/2026/09/2294524420-1200x800-5b2df79.jpg",
-          "heat_contribution": 1.0,
+          "heat_contribution": 0.75,
           "metrics": {}
         },
         {
@@ -369,7 +486,7 @@
           "item_id": "piasnews-794a369347a15608",
           "dataset": "items",
           "source_type": "media",
-          "source": "Lente Desportiva",
+          "source": "lentedesportiva.com",
           "title": "Hamilton’s Monza overtake on Piastri evaporated in one straight",
           "title_zh": "Hamilton在Monza对Piastri的超车在一段直道上化为泡影",
           "summary": "Oscar Piastri-related item discovered from public news metadata.",
@@ -859,21 +976,52 @@
           "metrics": {}
         },
         {
-          "item_id": "piasnews-02671a2e91191226",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Speedcafe.com",
-          "title": "F1 news: Oscar Piastri concerned by McLaren pace deficit at Monza",
-          "title_zh": "F1新闻：Oscar Piastri担忧McLaren在Monza的速度差距",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
-          "url": "https://speedcafe.com/f1-news-2026-italian-grand-prix-monza-oscar-piastri-reaction-practice-friday-mclaren-update-latest-lando-norris/",
-          "published_at": "2026-09-04T17:28:09Z",
-          "image_url": "https://speedcafe.com/wp-content/uploads/2026/09/XPB_1432366_HiRes.jpg",
+          "item_id": "piasnews-social-64a3e543878d958d",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: while acknowledging there's still work to do, oscar is happy with how monza went! \"it wasn't pe…",
+          "title_zh": "X 发帖 @laurogeitabat：虽然承认还有工作要做，oscar对Monza的结果感到满意！“并不完美，但比以前好多了。很高兴能讨论一些正常的细节来微调，而不是试图重新发明。这是最大的积极方面”",
+          "summary": "while acknowledging there's still work to do, oscar is happy with how monza went! \"it wasn't perfect, but it was a hell of a lot better than what it's been. it was nice to be talking about normal bits to finetune rather than trying to reinvent things. thats the biggest positive\" https://t.co/AuEidIadBm",
+          "summary_zh": "虽然承认还有工作要做，oscar对Monza的结果感到满意！“并不完美，但比以前好多了。很高兴能讨论一些正常的细节来微调，而不是试图重新发明。这是最大的积极方面”",
+          "url": "https://x.com/laurogeitabat/status/2097366141991555345",
+          "published_at": "2026-09-08T16:47:10Z",
+          "image_url": "https://pbs.twimg.com/media/HRtXYCGXYAAJ3kD.jpg",
           "video_url": null,
-          "video_poster_url": "https://speedcafe.com/wp-content/uploads/2026/09/XPB_1432366_HiRes.jpg",
+          "video_poster_url": "https://pbs.twimg.com/media/HRtXYCGXYAAJ3kD.jpg",
           "heat_contribution": 0.0,
-          "metrics": {}
+          "metrics": {
+            "likes": 537,
+            "retweets": 54,
+            "replies": 1,
+            "quotes": 0,
+            "views": 6744,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-f45b09e01d9638f7",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: andrea stella is confident the performance shown by oscar in monza will persist throughout the…",
+          "title_zh": "X 发帖 @laurogeitabat：andrea stella相信oscar在Monza展现的表现将在2026年剩余赛季持续：“非常高兴，对oscar的进步非常满意。我认为他下半赛季会非常强劲。”",
+          "summary": "andrea stella is confident the performance shown by oscar in monza will persist throughout the rest of 2026: \"very happy, very pleased with the progress that oscar is making. i think he will have a very strong second half of the season.\" https://t.co/CTs1XuF0Bv",
+          "summary_zh": "andrea stella相信oscar在Monza展现的表现将在2026年剩余赛季持续：“非常高兴，对oscar的进步非常满意。我认为他下半赛季会非常强劲。”",
+          "url": "https://x.com/laurogeitabat/status/2097364296514613636",
+          "published_at": "2026-09-08T16:39:50Z",
+          "image_url": "https://pbs.twimg.com/media/HRtVrmCWoAAGuDN.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HRtVrmCWoAAGuDN.jpg",
+          "heat_contribution": 0.0,
+          "metrics": {
+            "likes": 397,
+            "retweets": 31,
+            "replies": 0,
+            "quotes": 0,
+            "views": 7677,
+            "bookmarks": 0
+          }
         },
         {
           "item_id": "piasnews-social-62e7533b290d277d",
@@ -1114,36 +1262,12 @@
             "views": 49565,
             "bookmarks": 0
           }
-        },
-        {
-          "item_id": "piasnews-social-5e64f9b66daf36d0",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@oscarpiastri81",
-          "title": "X repost from @oscarpiastri81: RT @teamopeightyone: Monza we’re back 🇮🇹",
-          "title_zh": "X 转帖 @oscarpiastri81：转发 @teamopeightyone：Monza，我们回来了 🇮🇹",
-          "summary": "RT @teamopeightyone: Monza we’re back 🇮🇹 https://t.co/OaUv7Od4MV",
-          "summary_zh": "转发 @teamopeightyone：Monza，我们回来了 🇮🇹",
-          "url": "https://x.com/oscarpiastri81/status/2095913939573809429",
-          "published_at": "2026-09-04T16:36:38Z",
-          "image_url": "https://pbs.twimg.com/media/HRYrfD0a0AINoJF.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HRYrfD0a0AINoJF.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {
-            "likes": 0,
-            "retweets": 35,
-            "replies": 0,
-            "quotes": 0,
-            "views": 409,
-            "bookmarks": 0
-          }
         }
       ],
       "official_heat": 0,
-      "media_heat": 36,
-      "fan_heat": 49,
-      "heat": 58,
+      "media_heat": 33,
+      "fan_heat": 30,
+      "heat": 40,
       "source_labels": [
         "媒",
         "粉"
@@ -1151,172 +1275,7 @@
       "source_counts": {
         "official": 2,
         "media": 19,
-        "fan": 3
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 4
-    },
-    {
-      "event_id": "evt-2026-09-10-7e1689051125",
-      "rule_id": null,
-      "hot_word_zh": "“对madring的第一印象？”Oscar：“我……很困惑”好开头😭😭😭",
-      "hot_word_en": "\"first impressions of the madring?\" oscar: \"i'm... confused\" great start 😭😭😭",
-      "first_seen_at": "2026-09-10T11:02:36Z",
-      "last_seen_at": "2026-09-10T11:02:36Z",
-      "anchor_item_id": "piasnews-social-a85025f8d0d5ba33",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2098004174806061056/vid/avc1/320x568/u95UTpEOjJJFgykr.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098004174806061056/img/TF8Tj57fd8tbvLmu.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-a85025f8d0d5ba33",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: \"first impressions of the madring?\" oscar: \"i'm... confused\" great start 😭😭😭",
-          "title_zh": "X 发帖 @laurogeitabat：“对madring的第一印象？”Oscar：“我……很困惑”好开头😭😭😭",
-          "summary": "\"first impressions of the madring?\" oscar: \"i'm... confused\" great start 😭😭😭 https://t.co/Tkk4O0SR5N",
-          "summary_zh": "“对madring的第一印象？”Oscar：“我……很困惑”好开头😭😭😭",
-          "url": "https://x.com/laurogeitabat/status/2098004205461999709",
-          "published_at": "2026-09-10T11:02:36Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2098004174806061056/vid/avc1/320x568/u95UTpEOjJJFgykr.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098004174806061056/img/TF8Tj57fd8tbvLmu.jpg",
-          "heat_contribution": 9.1594,
-          "metrics": {
-            "likes": 17003,
-            "retweets": 1213,
-            "replies": 6,
-            "quotes": 0,
-            "views": 166834,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 47,
-      "heat": 47,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 5
-    },
-    {
-      "event_id": "evt-2026-09-10-3d08cfc5fe05",
-      "rule_id": null,
-      "hot_word_zh": "他从没看起来这么好过",
-      "hot_word_en": "he's never looked better",
-      "first_seen_at": "2026-09-10T11:13:14Z",
-      "last_seen_at": "2026-09-10T11:13:14Z",
-      "anchor_item_id": "piasnews-social-ccdc09ba9efe6c4c",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2098006858925793281/vid/avc1/300x270/a7afkw5vFvuqmthC.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098006858925793281/img/UGY5Vy1XV9GDHEbI.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-ccdc09ba9efe6c4c",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: he's never looked better",
-          "title_zh": "X 发帖 @laurogeitabat：他从没看起来这么好过",
-          "summary": "he's never looked better https://t.co/LQ1nAnNk1Y",
-          "summary_zh": "他从没看起来这么好过",
-          "url": "https://x.com/laurogeitabat/status/2098006884057788696",
-          "published_at": "2026-09-10T11:13:14Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2098006858925793281/vid/avc1/300x270/a7afkw5vFvuqmthC.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098006858925793281/img/UGY5Vy1XV9GDHEbI.jpg",
-          "heat_contribution": 8.467,
-          "metrics": {
-            "likes": 6656,
-            "retweets": 1365,
-            "replies": 12,
-            "quotes": 0,
-            "views": 114344,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 44,
-      "heat": 44,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 6
-    },
-    {
-      "event_id": "evt-2026-09-10-3de7e52b6ef3",
-      "rule_id": null,
-      "hot_word_zh": "粉丝：“祝你好运！”Oscar：“谢谢”☺️ McLaren管理员：“我就跟着吧”Osca…",
-      "hot_word_en": "fan: \"good luck!\" oscar: \"thank you\" ☺️ mcl admin: \"i'm just gonna follow\" oscar: ??? \"there's…",
-      "first_seen_at": "2026-09-10T11:19:34Z",
-      "last_seen_at": "2026-09-10T11:19:34Z",
-      "anchor_item_id": "piasnews-social-07f6a3d44d190cff",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2098008449606893571/vid/avc1/320x426/CV5n4_liX-H5gr_u.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098008449606893571/img/OaIS0wGLI-xyeMYk.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-07f6a3d44d190cff",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: fan: \"good luck!\" oscar: \"thank you\" ☺️ mcl admin: \"i'm just gonna follow\" oscar: ??? \"there's…",
-          "title_zh": "X 发帖 @laurogeitabat：粉丝：“祝你好运！”Oscar：“谢谢”☺️ McLaren管理员：“我就跟着吧”Oscar：？？？“这儿有个座位！”*挪一挪挪一挪* McLaren管理员：*在后面追他们* Oscar：😂“请踩刹车！”😭😭😭😭",
-          "summary": "fan: \"good luck!\" oscar: \"thank you\" ☺️ mcl admin: \"i'm just gonna follow\" oscar: ??? \"there's a seat here!\" *scoot scoot* mcl admin: *running after them* oscar: 😂 \"please hit the breaks!\" 😭😭😭😭 https://t.co/2NxdbNSkUX",
-          "summary_zh": "粉丝：“祝你好运！”Oscar：“谢谢”☺️ McLaren管理员：“我就跟着吧”Oscar：？？？“这儿有个座位！”*挪一挪挪一挪* McLaren管理员：*在后面追他们* Oscar：😂“请踩刹车！”😭😭😭😭",
-          "url": "https://x.com/laurogeitabat/status/2098008478161740077",
-          "published_at": "2026-09-10T11:19:34Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2098008449606893571/vid/avc1/320x426/CV5n4_liX-H5gr_u.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098008449606893571/img/OaIS0wGLI-xyeMYk.jpg",
-          "heat_contribution": 8.569,
-          "metrics": {
-            "likes": 8312,
-            "retweets": 887,
-            "replies": 17,
-            "quotes": 0,
-            "views": 156220,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 44,
-      "heat": 44,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
+        "fan": 2
       },
       "pinned_rank": null,
       "hidden": false,
