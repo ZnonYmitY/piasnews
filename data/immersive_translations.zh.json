@@ -1,19 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-10T22:24:40.491517Z",
+  "generated_at": "2026-09-11T03:16:51.591345Z",
   "translations": {
-    "social:piasnews-social-10068858fc661b8d:summary:74ce590360d73b200ddecf9f": {
-      "dataset": "social",
-      "item_id": "piasnews-social-10068858fc661b8d",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "Since today’s been all about Oscar’s kindness, he was kind enough to stop the streak so I wouldn’t have to retire the account. He didn’t have to. But now that we all get it, I think we can go back to this. https://t.co/zAxh9xnBrD",
-      "zh": "既然今天都在讲Oscar的善良，他好心停止了连胜，这样我就不用退役这个账号了。他本不必这么做。但现在我们都明白了，我觉得我们可以回到这个话题。",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-09-02T23:37:11.210398Z"
-    },
     "items:piasnews-bd16b00a54aac45f:title:fc2c25f428cd4289eecc6751": {
       "dataset": "items",
       "item_id": "piasnews-bd16b00a54aac45f",
@@ -5269,6 +5257,90 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-10T22:24:39.470156Z"
+    },
+    "items:piasnews-e6ce561968fbf62d:title:298aba684eebbb6e869ea013": {
+      "dataset": "items",
+      "item_id": "piasnews-e6ce561968fbf62d",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri shuts down wild teammate sabotage claims",
+      "zh": "Piastri驳斥队友蓄意破坏的荒谬说法",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-11T03:16:50.714137Z"
+    },
+    "items:piasnews-e6ce561968fbf62d:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-e6ce561968fbf62d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-11T03:16:50.714144Z"
+    },
+    "items:piasnews-eff1aef676619a3e:title:01aea8652247d7e7acb7fd65": {
+      "dataset": "items",
+      "item_id": "piasnews-eff1aef676619a3e",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri ready for inaugural Madring challenge",
+      "zh": "Piastri准备迎接首届Madring挑战",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-11T03:16:50.714148Z"
+    },
+    "items:piasnews-eff1aef676619a3e:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-eff1aef676619a3e",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-11T03:16:50.714152Z"
+    },
+    "social:piasnews-social-732711f18167cbff:summary:a246216532418c38b6744706": {
+      "dataset": "social",
+      "item_id": "piasnews-social-732711f18167cbff",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "HAPPY TWO YEAR ANNIVERSARY https://t.co/J7rfH8mELj",
+      "zh": "两周年快乐",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-11T03:16:50.714155Z"
+    },
+    "social:piasnews-social-41074f375ad3782e:summary:0f3e21d84943ee3d74fab8d4": {
+      "dataset": "social",
+      "item_id": "piasnews-social-41074f375ad3782e",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar on his relationship with lando: “in the race we obviously got a bit closer at points but no, we're all fine. we went to the airport together and played padel with each other during the week, and we chose to be on the same team 😄 so we're all good\" https://t.co/EsGouRSBfG",
+      "zh": "oscar谈他与lando的关系：“比赛中我们确实在某些时刻靠得更近，但没事，我们都很好。我们一起去机场，这周还一起打padel，而且我们选择在同一支车队😄所以我们都没问题”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-11T03:16:50.714159Z"
+    },
+    "social:piasnews-social-1888235da22d0f5c:summary:26b5aa19449adfa0948e9d79": {
+      "dataset": "social",
+      "item_id": "piasnews-social-1888235da22d0f5c",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "HELLOOOOOOO!!???? OSCAR PIASTRI OVERTAKING HAMILTON ON THE IPHONE DUO OFFICIAL TRAILER!!!!!",
+      "zh": "哈喽？？？？OSCAR PIASTRI在iPhone DUO官方预告片中超越HAMILTON！！！！！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-11T03:16:50.714164Z"
     }
   },
   "retention_days": 8
