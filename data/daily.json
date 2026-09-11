@@ -1,22 +1,25 @@
 {
-  "generated_at": "2026-09-11T03:12:49.861272Z",
+  "generated_at": "2026-09-11T06:19:55.296544Z",
   "window_days": 7,
-  "total_items": 126,
+  "total_items": 127,
   "latest_date": "2026-09-11",
   "days": [
     {
       "date": "2026-09-11",
-      "total_new_items": 2,
+      "total_new_items": 4,
       "official_new_items": 0,
-      "media_new_items": 2,
+      "media_new_items": 4,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
-        "Auto Action": 1,
-        "Nine.com.au": 1
+        "Fox Sports": 1,
+        "autoaction.com.au": 1,
+        "nine.com.au": 1,
+        "speedweek.com": 1
       },
       "categories": {
-        "other": 2
+        "other": 2,
+        "team": 2
       }
     },
     {
@@ -201,9 +204,9 @@
     },
     {
       "date": "2026-09-04",
-      "total_new_items": 7,
+      "total_new_items": 6,
       "official_new_items": 1,
-      "media_new_items": 6,
+      "media_new_items": 5,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
@@ -212,12 +215,11 @@
         "Grande Prêmio": 1,
         "McLaren.com": 1,
         "PlanetF1": 1,
-        "Speedcafe.com": 1,
-        "racingnews365.com": 1
+        "Speedcafe.com": 1
       },
       "categories": {
         "interview": 3,
-        "race": 3,
+        "race": 2,
         "team": 1
       }
     }
@@ -249,7 +251,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 28
+      "items": 31
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
@@ -290,12 +292,12 @@
       "stage": "publisher_date_verification",
       "ok": true,
       "checked": 30,
-      "kept": 23,
+      "kept": 24,
       "results": {
-        "outside_window": 2,
+        "outside_window": 1,
         "publisher_date_missing": 1,
         "publisher_unavailable": 4,
-        "verified": 23
+        "verified": 24
       }
     },
     {
@@ -304,7 +306,7 @@
       "discovery_days": 3,
       "retention_days": 7,
       "previous_items": 126,
-      "kept": 126
+      "kept": 127
     }
   ]
 }

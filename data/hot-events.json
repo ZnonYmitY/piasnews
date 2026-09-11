@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-11T03:16:52.917234Z",
+  "generated_at": "2026-09-11T06:23:29.426244Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -58,13 +58,13 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 6.8243,
+          "heat_contribution": 7.3135,
           "metrics": {
             "likes": 0,
-            "retweets": 612,
+            "retweets": 999,
             "replies": 0,
             "quotes": 0,
-            "views": 119,
+            "views": 132,
             "bookmarks": 0
           }
         },
@@ -82,21 +82,21 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 6.8241,
+          "heat_contribution": 7.3134,
           "metrics": {
             "likes": 0,
-            "retweets": 612,
+            "retweets": 999,
             "replies": 0,
             "quotes": 0,
-            "views": 100,
+            "views": 111,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 77,
-      "heat": 77,
+      "fan_heat": 79,
+      "heat": 79,
       "source_labels": [
         "粉"
       ],
@@ -110,116 +110,12 @@
       "rank": 1
     },
     {
-      "event_id": "evt-2026-09-08-159413e123af",
-      "rule_id": null,
-      "hot_word_zh": "第81场大奖赛完成 ✔️",
-      "hot_word_en": "81st Grand Prix under the belt ✔️",
-      "first_seen_at": "2026-09-08T07:43:45Z",
-      "last_seen_at": "2026-09-08T08:19:29Z",
-      "anchor_item_id": "piasnews-social-af3013d84bce6015",
-      "image_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-af3013d84bce6015",
-          "dataset": "social",
-          "source_type": "official",
-          "source": "@OscarPiastri",
-          "title": "X post from @OscarPiastri: 81st Grand Prix under the belt ✔️",
-          "title_zh": "X 发帖 @OscarPiastri：第81场大奖赛完成 ✔️",
-          "summary": "81st Grand Prix under the belt ✔️ https://t.co/tE2Ta2LPOp",
-          "summary_zh": "第81场大奖赛完成 ✔️",
-          "url": "https://x.com/OscarPiastri/status/2097229390077723056",
-          "published_at": "2026-09-08T07:43:45Z",
-          "image_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
-          "heat_contribution": 9.2376,
-          "metrics": {
-            "likes": 37809,
-            "retweets": 4525,
-            "replies": 247,
-            "quotes": 455,
-            "views": 286857,
-            "bookmarks": 705
-          }
-        },
-        {
-          "item_id": "piasnews-social-3684be5450807dff",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@oscarsspiastree",
-          "title": "X repost from @oscarsspiastree: RT @OscarPiastri: 81st Grand Prix under the belt ✔️",
-          "title_zh": "X 转帖 @oscarsspiastree：RT @OscarPiastri: 第81场大奖赛完成 ✔️",
-          "summary": "RT @OscarPiastri: 81st Grand Prix under the belt ✔️ https://t.co/tE2Ta2LPOp",
-          "summary_zh": "RT @OscarPiastri: 第81场大奖赛完成 ✔️",
-          "url": "https://x.com/oscarsspiastree/status/2097229448592380031",
-          "published_at": "2026-09-08T07:43:59Z",
-          "image_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
-          "heat_contribution": 7.5015,
-          "metrics": {
-            "likes": 0,
-            "retweets": 4524,
-            "replies": 0,
-            "quotes": 0,
-            "views": 71,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-9a7f38ca584457da",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X repost from @laurogeitabat: RT @OscarPiastri: 81st Grand Prix under the belt ✔️",
-          "title_zh": "X 转帖 @laurogeitabat：RT @OscarPiastri: 第81场大奖赛完成 ✔️",
-          "summary": "RT @OscarPiastri: 81st Grand Prix under the belt ✔️ https://t.co/tE2Ta2LPOp",
-          "summary_zh": "RT @OscarPiastri: 第81场大奖赛完成 ✔️",
-          "url": "https://x.com/laurogeitabat/status/2097238381663080853",
-          "published_at": "2026-09-08T08:19:29Z",
-          "image_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
-          "heat_contribution": 7.5006,
-          "metrics": {
-            "likes": 0,
-            "retweets": 4520,
-            "replies": 0,
-            "quotes": 0,
-            "views": 69,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 60,
-      "media_heat": 0,
-      "fan_heat": 56,
-      "heat": 74,
-      "source_labels": [
-        "官",
-        "粉"
-      ],
-      "source_counts": {
-        "official": 1,
-        "media": 0,
-        "fan": 2
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 2
-    },
-    {
       "event_id": "evt-oscar-monza-preparation",
       "rule_id": "oscar-monza-preparation",
       "hot_word_zh": "Oscar 开始为蒙扎站进行准备",
       "hot_word_en": "Oscar begins preparations for Monza",
       "first_seen_at": "2026-09-04T08:34:11Z",
-      "last_seen_at": "2026-09-10T04:15:00Z",
+      "last_seen_at": "2026-09-11T05:32:32.004000Z",
       "anchor_item_id": "piasnews-social-ec5899470fd8a005",
       "image_url": "https://pbs.twimg.com/media/HRsiJXGbcAAFPkU.jpg",
       "video_url": "https://video.twimg.com/amplify_video/2097245323676536832/vid/avc1/320x568/EcV3AulsqcRFHP8c.mp4?tag=29",
@@ -348,6 +244,23 @@
           }
         },
         {
+          "item_id": "piasnews-8a67c6e5fc604090",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "speedweek.com",
+          "title": "Sabotage at Monza against champion Lando Norris? Oscar Piastri speaks out",
+          "title_zh": "Monza针对冠军 Lando Norris 的破坏？Oscar Piastri 发声",
+          "summary": "Team or car-performance item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+          "url": "https://www.speedweek.com/en/a/formula-1/monza-qualifying-piastri-norris-sabotage-accusation",
+          "published_at": "2026-09-11T05:32:32.004000Z",
+          "image_url": "https://files.speedweek.com/images/c_crop,x_0,y_0,w_6000,h_3000/c_fill,f_auto,q_auto,w_1200,h_630/2026/9/11/b8bvn22em1ubwi1og6vv/formel-1-oscar-piastri-mclaren-mcl40-2026",
+          "video_url": null,
+          "video_poster_url": "https://files.speedweek.com/images/c_crop,x_0,y_0,w_6000,h_3000/c_fill,f_auto,q_auto,w_1200,h_630/2026/9/11/b8bvn22em1ubwi1og6vv/formel-1-oscar-piastri-mclaren-mcl40-2026",
+          "heat_contribution": 1.0,
+          "metrics": {}
+        },
+        {
           "item_id": "piasnews-794a369347a15608",
           "dataset": "items",
           "source_type": "media",
@@ -361,7 +274,7 @@
           "image_url": "https://lentedesportiva.com/wp-content/uploads/2026/09/lente-e1bb3e9f-de4c-48cf-888e-315af60ee9ad.png",
           "video_url": null,
           "video_poster_url": "https://lentedesportiva.com/wp-content/uploads/2026/09/lente-e1bb3e9f-de4c-48cf-888e-315af60ee9ad.png",
-          "heat_contribution": 0.75,
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -1075,9 +988,9 @@
         }
       ],
       "official_heat": 49,
-      "media_heat": 32,
+      "media_heat": 37,
       "fan_heat": 58,
-      "heat": 73,
+      "heat": 74,
       "source_labels": [
         "官",
         "媒",
@@ -1085,8 +998,112 @@
       ],
       "source_counts": {
         "official": 2,
-        "media": 18,
+        "media": 19,
         "fan": 3
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "event_id": "evt-2026-09-08-159413e123af",
+      "rule_id": null,
+      "hot_word_zh": "第81场大奖赛完成 ✔️",
+      "hot_word_en": "81st Grand Prix under the belt ✔️",
+      "first_seen_at": "2026-09-08T07:43:45Z",
+      "last_seen_at": "2026-09-08T08:19:29Z",
+      "anchor_item_id": "piasnews-social-af3013d84bce6015",
+      "image_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-af3013d84bce6015",
+          "dataset": "social",
+          "source_type": "official",
+          "source": "@OscarPiastri",
+          "title": "X post from @OscarPiastri: 81st Grand Prix under the belt ✔️",
+          "title_zh": "X 发帖 @OscarPiastri：第81场大奖赛完成 ✔️",
+          "summary": "81st Grand Prix under the belt ✔️ https://t.co/tE2Ta2LPOp",
+          "summary_zh": "第81场大奖赛完成 ✔️",
+          "url": "https://x.com/OscarPiastri/status/2097229390077723056",
+          "published_at": "2026-09-08T07:43:45Z",
+          "image_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
+          "heat_contribution": 9.2199,
+          "metrics": {
+            "likes": 37811,
+            "retweets": 4525,
+            "replies": 247,
+            "quotes": 0,
+            "views": 287398,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-3684be5450807dff",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@oscarsspiastree",
+          "title": "X repost from @oscarsspiastree: RT @OscarPiastri: 81st Grand Prix under the belt ✔️",
+          "title_zh": "X 转帖 @oscarsspiastree：RT @OscarPiastri: 第81场大奖赛完成 ✔️",
+          "summary": "RT @OscarPiastri: 81st Grand Prix under the belt ✔️ https://t.co/tE2Ta2LPOp",
+          "summary_zh": "RT @OscarPiastri: 第81场大奖赛完成 ✔️",
+          "url": "https://x.com/oscarsspiastree/status/2097229448592380031",
+          "published_at": "2026-09-08T07:43:59Z",
+          "image_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
+          "heat_contribution": 7.5017,
+          "metrics": {
+            "likes": 0,
+            "retweets": 4525,
+            "replies": 0,
+            "quotes": 0,
+            "views": 71,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-9a7f38ca584457da",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: RT @OscarPiastri: 81st Grand Prix under the belt ✔️",
+          "title_zh": "X 转帖 @laurogeitabat：RT @OscarPiastri: 第81场大奖赛完成 ✔️",
+          "summary": "RT @OscarPiastri: 81st Grand Prix under the belt ✔️ https://t.co/tE2Ta2LPOp",
+          "summary_zh": "RT @OscarPiastri: 第81场大奖赛完成 ✔️",
+          "url": "https://x.com/laurogeitabat/status/2097238381663080853",
+          "published_at": "2026-09-08T08:19:29Z",
+          "image_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HRrbAhpaMAAoymB.jpg",
+          "heat_contribution": 7.5006,
+          "metrics": {
+            "likes": 0,
+            "retweets": 4520,
+            "replies": 0,
+            "quotes": 0,
+            "views": 69,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 59,
+      "media_heat": 0,
+      "fan_heat": 56,
+      "heat": 73,
+      "source_labels": [
+        "官",
+        "粉"
+      ],
+      "source_counts": {
+        "official": 1,
+        "media": 0,
+        "fan": 2
       },
       "pinned_rank": null,
       "hidden": false,
@@ -1144,13 +1161,13 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 7.586,
+          "heat_contribution": 7.6131,
           "metrics": {
             "likes": 0,
-            "retweets": 1312,
+            "retweets": 1348,
             "replies": 0,
             "quotes": 0,
-            "views": 199,
+            "views": 202,
             "bookmarks": 0
           }
         }
@@ -1180,8 +1197,8 @@
       "last_seen_at": "2026-09-10T11:02:36Z",
       "anchor_item_id": "piasnews-social-a85025f8d0d5ba33",
       "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2098004174806061056/vid/avc1/720x1280/30Od5nL2uPaMYyad.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098004174806061056/img/TF8Tj57fd8tbvLmu?format=webp&name=large",
+      "video_url": "https://video.twimg.com/amplify_video/2098004174806061056/vid/avc1/320x568/u95UTpEOjJJFgykr.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098004174806061056/img/TF8Tj57fd8tbvLmu.jpg",
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
@@ -1197,23 +1214,23 @@
           "url": "https://x.com/laurogeitabat/status/2098004205461999709",
           "published_at": "2026-09-10T11:02:36Z",
           "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2098004174806061056/vid/avc1/720x1280/30Od5nL2uPaMYyad.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098004174806061056/img/TF8Tj57fd8tbvLmu?format=webp&name=large",
-          "heat_contribution": 9.5832,
+          "video_url": "https://video.twimg.com/amplify_video/2098004174806061056/vid/avc1/320x568/u95UTpEOjJJFgykr.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098004174806061056/img/TF8Tj57fd8tbvLmu.jpg",
+          "heat_contribution": 9.6259,
           "metrics": {
-            "likes": 15452,
-            "retweets": 1060,
-            "replies": 5,
-            "quotes": 125,
-            "views": 152062,
-            "bookmarks": 597
+            "likes": 16288,
+            "retweets": 1150,
+            "replies": 6,
+            "quotes": 0,
+            "views": 159595,
+            "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 49,
-      "heat": 49,
+      "fan_heat": 50,
+      "heat": 50,
       "source_labels": [
         "粉"
       ],
@@ -1235,8 +1252,8 @@
       "last_seen_at": "2026-09-10T11:19:34Z",
       "anchor_item_id": "piasnews-social-07f6a3d44d190cff",
       "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2098008449606893571/vid/avc1/720x960/K-BE-LPJ3wN-1Wac.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098008449606893571/img/OaIS0wGLI-xyeMYk?format=webp&name=large",
+      "video_url": "https://video.twimg.com/amplify_video/2098008449606893571/vid/avc1/320x426/CV5n4_liX-H5gr_u.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098008449606893571/img/OaIS0wGLI-xyeMYk.jpg",
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
@@ -1252,16 +1269,16 @@
           "url": "https://x.com/laurogeitabat/status/2098008478161740077",
           "published_at": "2026-09-10T11:19:34Z",
           "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2098008449606893571/vid/avc1/720x960/K-BE-LPJ3wN-1Wac.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098008449606893571/img/OaIS0wGLI-xyeMYk?format=webp&name=large",
-          "heat_contribution": 9.0435,
+          "video_url": "https://video.twimg.com/amplify_video/2098008449606893571/vid/avc1/320x426/CV5n4_liX-H5gr_u.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098008449606893571/img/OaIS0wGLI-xyeMYk.jpg",
+          "heat_contribution": 9.0445,
           "metrics": {
-            "likes": 7690,
-            "retweets": 823,
-            "replies": 13,
-            "quotes": 252,
-            "views": 140375,
-            "bookmarks": 938
+            "likes": 8040,
+            "retweets": 859,
+            "replies": 16,
+            "quotes": 0,
+            "views": 148828,
+            "bookmarks": 0
           }
         }
       ],
@@ -1290,8 +1307,8 @@
       "last_seen_at": "2026-09-10T11:13:14Z",
       "anchor_item_id": "piasnews-social-ccdc09ba9efe6c4c",
       "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2098006858925793281/vid/avc1/800x720/3QRFAu-5RpgDdFHU.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098006858925793281/img/UGY5Vy1XV9GDHEbI?format=webp&name=large",
+      "video_url": "https://video.twimg.com/amplify_video/2098006858925793281/vid/avc1/300x270/a7afkw5vFvuqmthC.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098006858925793281/img/UGY5Vy1XV9GDHEbI.jpg",
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
@@ -1307,16 +1324,16 @@
           "url": "https://x.com/laurogeitabat/status/2098006884057788696",
           "published_at": "2026-09-10T11:13:14Z",
           "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2098006858925793281/vid/avc1/800x720/3QRFAu-5RpgDdFHU.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098006858925793281/img/UGY5Vy1XV9GDHEbI?format=webp&name=large",
-          "heat_contribution": 8.9135,
+          "video_url": "https://video.twimg.com/amplify_video/2098006858925793281/vid/avc1/300x270/a7afkw5vFvuqmthC.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098006858925793281/img/UGY5Vy1XV9GDHEbI.jpg",
+          "heat_contribution": 8.934,
           "metrics": {
-            "likes": 5955,
-            "retweets": 1199,
+            "likes": 6408,
+            "retweets": 1299,
             "replies": 11,
-            "quotes": 270,
-            "views": 98123,
-            "bookmarks": 699
+            "quotes": 0,
+            "views": 107387,
+            "bookmarks": 0
           }
         }
       ],
@@ -1400,8 +1417,8 @@
       "last_seen_at": "2026-09-10T14:56:53Z",
       "anchor_item_id": "piasnews-social-d3535870c9f75b4c",
       "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2098062244663971841/vid/avc1/1120x640/_vAhnQOwfucnJN02.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098062244663971841/img/90_AivBjT5igI1Pw?format=webp&name=large",
+      "video_url": "https://video.twimg.com/amplify_video/2098062244663971841/vid/avc1/472x270/qorirX-Flcv44nCE.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098062244663971841/img/90_AivBjT5igI1Pw.jpg",
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
@@ -1417,16 +1434,16 @@
           "url": "https://x.com/laurogeitabat/status/2098063164168401172",
           "published_at": "2026-09-10T14:56:53Z",
           "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2098062244663971841/vid/avc1/1120x640/_vAhnQOwfucnJN02.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098062244663971841/img/90_AivBjT5igI1Pw?format=webp&name=large",
-          "heat_contribution": 7.4017,
+          "video_url": "https://video.twimg.com/amplify_video/2098062244663971841/vid/avc1/472x270/qorirX-Flcv44nCE.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098062244663971841/img/90_AivBjT5igI1Pw.jpg",
+          "heat_contribution": 7.527,
           "metrics": {
-            "likes": 1734,
-            "retweets": 98,
+            "likes": 1979,
+            "retweets": 108,
             "replies": 0,
-            "quotes": 3,
-            "views": 24764,
-            "bookmarks": 206
+            "quotes": 0,
+            "views": 28040,
+            "bookmarks": 0
           }
         }
       ],

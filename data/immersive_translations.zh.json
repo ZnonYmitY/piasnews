@@ -1,43 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-11T03:16:51.591345Z",
+  "generated_at": "2026-09-11T06:23:27.832251Z",
   "translations": {
-    "items:piasnews-bd16b00a54aac45f:title:fc2c25f428cd4289eecc6751": {
-      "dataset": "items",
-      "item_id": "piasnews-bd16b00a54aac45f",
-      "field": "title",
-      "target_field": "title_zh",
-      "source_text": "81 FACTS ABOUT OUR NO. 81, OSCAR PIASTRI, AHEAD OF HIS 81ST GRAND PRIX START",
-      "zh": "关于我们的81号车手Oscar Piastri（Oscar Piastri）在其第81次大奖赛起步前的81个事实",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-09-03T03:25:35.999041Z"
-    },
-    "items:piasnews-bd16b00a54aac45f:summary:7f7c735e99427ccf70333fad": {
-      "dataset": "items",
-      "item_id": "piasnews-bd16b00a54aac45f",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "Race-week or performance-related item discovered from public news metadata.",
-      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的项目。",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-09-03T03:25:35.999049Z"
-    },
-    "social:piasnews-social-23be500c4299e07d:summary:0b1fbf27f61c2edcd464761c": {
-      "dataset": "social",
-      "item_id": "piasnews-social-23be500c4299e07d",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "oscar's ideal race day menu: eggs on toast with bacon + a smoothie for breakfast, and pasta with tomato sauce/bolognese and chicken for lunch! https://t.co/Ml3GrNSSL2",
-      "zh": "Oscar的理想比赛日菜单：早餐吃吐司配鸡蛋和培根，再加一杯冰沙；午餐吃番茄酱或肉酱意面配鸡肉！",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-09-03T03:25:35.999053Z"
-    },
     "social:piasnews-social-62e09d8b60c35ad7:summary:0a3f7eb49d409e291789c8d3": {
       "dataset": "social",
       "item_id": "piasnews-social-62e09d8b60c35ad7",
@@ -5341,6 +5305,54 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-11T03:16:50.714164Z"
+    },
+    "items:piasnews-8a67c6e5fc604090:title:8640d5dcdf1ba82a5399b5f7": {
+      "dataset": "items",
+      "item_id": "piasnews-8a67c6e5fc604090",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Sabotage at Monza against champion Lando Norris? Oscar Piastri speaks out",
+      "zh": "Monza针对冠军 Lando Norris 的破坏？Oscar Piastri 发声",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-11T06:23:26.798362Z"
+    },
+    "items:piasnews-8a67c6e5fc604090:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-8a67c6e5fc604090",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-11T06:23:26.798372Z"
+    },
+    "items:piasnews-935d426d939d8013:title:e6d8167c735e5cedbd10851e": {
+      "dataset": "items",
+      "item_id": "piasnews-935d426d939d8013",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri responds to Norris rift rumours, gives positive update on 2026 car struggles",
+      "zh": "Piastri 回应与 Norris 不和的传闻，就 2026 赛车困境给出积极更新",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-11T06:23:26.798377Z"
+    },
+    "items:piasnews-935d426d939d8013:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-935d426d939d8013",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-11T06:23:26.798382Z"
     }
   },
   "retention_days": 8
