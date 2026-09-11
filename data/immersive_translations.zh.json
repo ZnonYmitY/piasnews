@@ -1,19 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-11T06:23:27.832251Z",
+  "generated_at": "2026-09-11T09:28:27.453741Z",
   "translations": {
-    "social:piasnews-social-62e09d8b60c35ad7:summary:0a3f7eb49d409e291789c8d3": {
-      "dataset": "social",
-      "item_id": "piasnews-social-62e09d8b60c35ad7",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "oscar with fans last night 🫶🏻 https://t.co/6QgnMRCVfB",
-      "zh": "oscar昨晚和车迷在一起🫶🏻",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-09-03T06:26:59.007222Z"
-    },
     "items:piasnews-97c85bf458cca3ce:title:e1012196cae084b2a007b9d6": {
       "dataset": "items",
       "item_id": "piasnews-97c85bf458cca3ce",
@@ -5353,6 +5341,66 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-11T06:23:26.798382Z"
+    },
+    "items:piasnews-c37f665e2a1cca7a:title:570ff3549fec1704f1c1bef9": {
+      "dataset": "items",
+      "item_id": "piasnews-c37f665e2a1cca7a",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Lando Norris and Oscar Piastri clash forces McLaren to rethink its rules",
+      "zh": "Lando Norris 与 Oscar Piastri 的冲突迫使 McLaren 重新考虑其规则",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-11T09:28:26.520984Z"
+    },
+    "items:piasnews-c37f665e2a1cca7a:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-c37f665e2a1cca7a",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-11T09:28:26.520992Z"
+    },
+    "social:piasnews-social-8c3a00d4356a94a8:summary:3bc1b5acb4eece8c0d487165": {
+      "dataset": "social",
+      "item_id": "piasnews-social-8c3a00d4356a94a8",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "safety car onboard of a lap around madring... when you think there are no walls left a new one pops up out of nowhere 😭 https://t.co/J2UBxMQZ2C",
+      "zh": "安全车车载视角绕 madring 一圈……当你以为已经没有墙了，又有一堵墙不知从哪儿冒出来 😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-11T09:28:26.520998Z"
+    },
+    "social:piasnews-social-a3367bb96796bf0f:summary:cd8373855d9d79a7d2da7bbb": {
+      "dataset": "social",
+      "item_id": "piasnews-social-a3367bb96796bf0f",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar doing his seat fit yesterday in madrid! 📸: https://t.co/QtNBNbPbsP https://t.co/ltVK1g6xqO",
+      "zh": "oscar 昨天在马德里做座椅适配！📸：",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-11T09:28:26.521002Z"
+    },
+    "social:piasnews-social-9a6d82c581ab7f5d:summary:56adb83267aaa547b40f351d": {
+      "dataset": "social",
+      "item_id": "piasnews-social-9a6d82c581ab7f5d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar on the monza quali lock up: \"when you lock up and miss the corner, the first thing you think about is how to get out of the way. in hindsight i could've done things differently, but in the moment to expect anything else was a pretty big ask.\" https://t.co/DjO7v1UE0h",
+      "zh": "oscar 谈 monza 排位赛锁死：“当你锁死并错过弯角时，你首先想到的是如何让开。事后看来我本可以做得不同，但在那一刻，要期待别的结果实在是要求太高了。”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-11T09:28:26.521006Z"
     }
   },
   "retention_days": 8
