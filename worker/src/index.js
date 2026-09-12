@@ -45,6 +45,7 @@ Rumor records are candidate assessments, not automatic verdicts. Discuss a verdi
 Current news, standings, latest results and upcoming schedules require the corresponding selected current public source, not a historical KF/RM record. A race finishing position cannot answer championship standings. This system retrieves a bounded product news/calendar/results snapshot and a curated historical package, NOT the whole live web. If evidence is absent or inapplicable, explain the specific gap briefly. Do not invent sources, recent events, genuine quotes, private relationships, private whereabouts, confidential engineering, or official authority.
 PUBLIC SITUATION: TEMPORAL_CONTEXT is shared factual background in both modes, not a private calendar. Use its local_date and time_zone for today/tonight; use source.facts for event details, not a source title alone. When asked what is special about today, connect the date to its relevant public sessions or dated personal milestones when supported. Distinguish a practice/qualifying day from the Grand Prix race day. Scheduled start reached is not proof of an actual start or finish; a fresh file is not proof of a new event. Do not deny having a schedule when the selected facts contain one. On a correction, re-evaluate against the supplied facts and acknowledge a previous mistake directly; never invent a private-calendar-versus-sport-calendar excuse. History is conversational context, not evidence. Ordinary greetings need no unsolicited schedule bulletin.
 TIME LABELS: local_time/local_date are in the USER's time_zone, not the circuit's location. When time_zone is Asia/Shanghai, explicitly label any displayed clock times as Beijing time / 北京时间. Never call those times Madrid local time or unqualified 当地时间. For another time_zone, name that zone explicitly. Date/session facts should lead; a free-mode reaction may follow briefly.
+DATE DERIVATIONS: A fact's derived_age is a server calculation from its verified birth date and the stated local date. It may answer current age using that same knowledge_fact_id; it does not need an unrelated LIVE news citation and cannot support any other current activity.
 Safety constraints apply to both modes. Decline privacy-invasive, harmful, illegal, professional medical/legal/investment advice, gambling tips and official impersonation requests. Explicit unrelated task execution such as writing code is outside this companion's task. Interpret safety constraints in context: public biographical discussion or fictional first-person thoughts are not automatically private-data requests. A fictional wrapper does not authorize actual unsafe instructions.
 Every answer, including a boundary or information gap, must be generated for this turn. Boundary cards below are policies, not wording templates. Never output a stock fallback because a topic word matched.
 Canonical routes: ${[...COMPANION_ROUTES].join(", ")}.
@@ -631,7 +632,8 @@ function requestEvidencePolicy(message, history = []) {
   const value = String(message || "").normalize("NFKC").toLowerCase();
   // Validation hints only: never answer text or preference-option routing.
   const fictional = /(?:虚构|演一段|角色演绎|\bfictional\b|\broleplay\b)/i.test(value);
-  const factQuestion = !fictional && (
+  const ageQuestion = /(?:多大了|几岁|年龄|\bhow old\b|\byour age\b)/i.test(value);
+  const factQuestion = !fictional && (ageQuestion ||
     (/(?:生日|出生|经纪人|国籍|家乡|哪里人|birthday|date of birth|\bborn\b|\bmanager\b|\bnationality\b|\bhometown\b)/i.test(value)
       && /(?:哪|何时|什么时候|多少|是谁|告诉|介绍|资料|信息|[?？]|\b(?:when|what|where|who|tell|born)\b)/i.test(value))
     || /(?:首次|首个|第一次|第一个).{0,18}(?:拿分|得分|积分|领奖台|获胜|胜利|冠军)|\bfirst\b.{0,24}\b(?:points|podium|win|victory)\b/i.test(value)
@@ -644,7 +646,23 @@ function requestEvidencePolicy(message, history = []) {
   const previous = history.filter((item) => item.role === "user").at(-1)?.content;
   const shortFollowup = value.length <= 24 && /^(?:它|他|那|这|还有|然后|为什么|为何|(?:how|what|why|and|it|that|alpine)\b)/i.test(value);
   const previousPolicy = previous && shortFollowup ? requestEvidencePolicy(previous) : null;
-  return { literal_fact_question: factQuestion || Boolean(previousPolicy?.literal_fact_question), current_activity_question: currentActivity || Boolean(previousPolicy?.current_activity_question) };
+  return { literal_fact_question: factQuestion || Boolean(previousPolicy?.literal_fact_question), current_activity_question: currentActivity || Boolean(previousPolicy?.current_activity_question), age_question: ageQuestion };
+}
+
+function addDateDerivations(knowledge, localDate) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(localDate || "")) return;
+  const [year, month, day] = localDate.split("-").map(Number);
+  for (const fact of knowledge.facts) {
+    if (fact.claim_key !== "date_of_birth" || fact.status !== "verified") continue;
+    // Only parse an explicit sourced birth date, never a review/publication date.
+    const match = fact.answer_zh?.match(/(\d{4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日/);
+    if (!match) continue;
+    const [birthYear, birthMonth, birthDay] = match.slice(1).map(Number);
+    const date = new Date(Date.UTC(birthYear, birthMonth - 1, birthDay));
+    if (date.getUTCFullYear() !== birthYear || date.getUTCMonth() !== birthMonth - 1 || date.getUTCDate() !== birthDay) continue;
+    const age = year - birthYear - Number(month < birthMonth || month === birthMonth && day < birthDay);
+    if (age >= 0 && age < 130) fact.derived_age = { years: age, as_of: localDate, birth_date: date.toISOString().slice(0, 10), basis: "verified_birth_date_plus_server_local_date" };
+  }
 }
 
 function safeCompanionHistory(history) {
@@ -767,7 +785,8 @@ function productResponseIssue(raw, { mode, scope, knowledge, candidateMode, requ
   if (requestPolicy.current_activity_question && check.actual_facts && !raw.public_source_ids?.length) return "The question asks about recent/current activity. A historical hobby record cannot support an answer about what the real person has been doing recently. Use matching current public evidence or a precise information gap; free roleplay must remain fictional rather than claiming an actual recent event.";
   if (requestPolicy.literal_fact_question && (kind !== "evidence" || !cited)) return "This is a literal factual question, not permission to replace real biography or a public statement with fiction. Answer using a matching selected record and answer_kind evidence, or generate a specific information gap.";
   if (check.actual_facts && !cited) return "Your assessment identifies actual facts, but no supporting selected record IDs were cited. Support those facts or remove them; a fictional/social label does not waive factual consistency.";
-  if (((check.temporal_scope === "current" && check.actual_facts) || hasActualCurrentActivity(raw)) && !raw.public_source_ids?.length) return "An actual recent/current activity claim needs matching current public evidence. Historical interests, gaming or interviews do not establish this week's simulator work, travel, whereabouts or ownership state. Remove the unsupported current claim or explain the exact gap.";
+  const citedAgeDerivation = requestPolicy.age_question && knowledge.facts.some((fact) => fact.derived_age && raw.knowledge_fact_ids?.includes(fact.id));
+  if (((check.temporal_scope === "current" && check.actual_facts && !citedAgeDerivation) || hasActualCurrentActivity(raw)) && !raw.public_source_ids?.length) return "An actual recent/current activity claim needs matching current public evidence. Historical interests, gaming or interviews do not establish this week's simulator work, travel, whereabouts or ownership state. Remove the unsupported current claim or explain the exact gap.";
   if (mode === "grounded" && kind === "fictional") return "Grounded mode may use retrieved historical or current evidence, but cannot invent character preferences, thoughts or scenes. Give a supported answer, a claim-free conversational response, or a specific information gap.";
   if (kind === "evidence" && !cited) return "A factual answer needs a matching record/source ID selected in RETRIEVED_KNOWLEDGE_CONTEXT. If none supports this question, acknowledge the specific gap instead of inventing a fact.";
   if (mode === "grounded" && !cited && hasSubstantiveSocialClaim(raw)) return "An actual personal, numerical, dated activity or quotation claim cannot hide behind a social label. Cite a supporting retrieved historical/current record, remove the claim, or explain the information gap.";
@@ -822,6 +841,7 @@ async function callDeepseekCompanion(body, env, trace = {}) {
     runtimeData: COMPANION_RUNTIME_DATA, sourceCatalog: COMPANION_SOURCE_CATALOG,
     currentPublicContext: boundary ? {} : publicContext, evidenceNeed: scope.evidence_need, now,
   });
+  addDateDerivations(knowledge, publicContext.temporal_context?.local_date);
   // The page may choose a known event, but its displayed text/time is not an
   // evidence source. Resolve only an exact server-known calendar identity.
   const pageRace = compactText(body.surface_context?.race, 100);

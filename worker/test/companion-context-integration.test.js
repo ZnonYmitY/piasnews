@@ -142,10 +142,23 @@ test("age followup keeps safe context across a redacted restricted turn", async 
     assert.match(JSON.stringify(input), /The record gives 6 April 2001/);
     assert.equal(runtime.PRODUCT_SCOPE.history_withheld, true);
     assert.ok(runtime.RETRIEVED_KNOWLEDGE_CONTEXT.facts.some((f) => f.id === "KF-001"));
-    return reply({ route: "public_fact", knowledge_fact_ids: ["KF-001"], answer_en: "25, as of this date.", answer_zh: "截至今天，25岁。", self_check: { ...check, temporal_scope: "historical" } });
+    assert.equal(runtime.RETRIEVED_KNOWLEDGE_CONTEXT.facts.find((f) => f.id === "KF-001").derived_age.years, 25);
+    return reply({ route: "public_fact", knowledge_fact_ids: ["KF-001"], answer_en: "25, as of this date.", answer_zh: "截至今天，25岁。", self_check: check });
   } });
   assert.equal(result.status, 200);
   assert.equal(result.calls.length, 1);
+});
+
+test("age derivation changes on the birthday in the user's local date, with no live feed required", async () => {
+  for (const [clock, age] of [["2026-04-05T15:59:59Z", 24], ["2026-04-05T16:00:00Z", 25]]) {
+    const result = await exercise({ clock, body: { message: "你多大了？", mode: "grounded" }, feeds: { "calendar.json": {} }, model(runtime) {
+      const birth = runtime.RETRIEVED_KNOWLEDGE_CONTEXT.facts.find((f) => f.claim_key === "date_of_birth");
+      assert.equal(birth.derived_age.years, age);
+      return reply({ route: "public_fact", knowledge_fact_ids: [birth.id], answer_en: `${age} years old.`, answer_zh: `${age}岁。` });
+    } });
+    assert.equal(result.status, 200);
+    assert.equal(result.calls.length, 1);
+  }
 });
 
 test("result position and news summary survive the real fetch-build-retrieve-prompt path", async () => {
