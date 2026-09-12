@@ -33,11 +33,18 @@ function result(kind, confidence, reason, route = null, evidenceNeed = null) {
 function currentEvidenceNeed(value) {
   if (/(?:积分榜|车手积分|车队积分|championship standings|drivers?'? standings|championship points)/i.test(value)
       && !/(?:怎么算|如何计算|怎么计算|规则是什么|how.{0,15}(?:calculated|work))/i.test(value)) return "standings";
+  if (/(?:最近|最新|今天|这周|本周|recent|latest|today|this week)/i.test(value)
+      && /(?:你.{0,8}(?:发了|发的|发过|发什么)|本人.{0,8}(?:动态|社媒|发帖)|(?:your|oscar(?:'s)?).{0,15}(?:posts?|tweets?)|你.{0,8}(?:推特|微博|instagram|ins))/i.test(value)) return "official_update";
+  if (/(?:今天|昨天|刚才|today|yesterday|just)/i.test(value)
+      && /(?:比赛|正赛|练习|排位|冲刺|race|practice|qualifying|session|sprint)/i.test(value)
+      && /(?:成绩|结果|第几|表现|跑得|怎么样|如何|\b(?:result|position|finish|how.{0,20}(?:go|did|was))\b)/i.test(value)) return "recent_result";
+  if (/(?:今天|明天|今晚|今日|today|tomorrow|tonight)/i.test(value)
+      && /(?:什么日子|星期几|周几|特别|特殊|比赛日|有.{0,6}(?:比赛|排位|练习)|(?:比赛|排位|练习).{0,10}(?:日|几点|时候|安排)|\b(?:day|special|race|racing|session|practice|qualifying|schedule)\b)/i.test(value)) return "day_context";
   if (/(?:(?:上[一]?场|上[一]?站|最近一场|最新).{0,12}(?:比赛|正赛|排位|赛果)|(?:last|latest|most recent).{0,15}(?:race|session|grand prix))/i.test(value)
       && /(?:怎样|怎么样|如何|结果|成绩|第几|表现|跑得|how|result|finish|position)/i.test(value)) return "recent_result";
   if (/(?:下一场|下场|下一站|下站|赛程|next race|upcoming race)/i.test(value)
       && /(?:什么时候|几点|在哪|哪里|哪一|时间|安排|when|where|schedule)/i.test(value)) return "schedule";
-  if (/(?:最近|最新|近期|当前|现在|本周|这周|近况|currently|recent|latest|this week)/i.test(value)
+  if (/(?:最近|最新|近期|当前|现在|今天|本周|这周|近况|currently|recent|latest|today|this week)/i.test(value)
       && new RegExp(`(?:${PERSON}|\\bf1\\b|比赛|新闻|动态|消息|赛果|成绩|状态|news|updates?|result|race)`, "i").test(value)) return "current_f1";
   return null;
 }

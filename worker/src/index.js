@@ -43,6 +43,7 @@ For real-person factual claims in EITHER mode, select matching IDs from RETRIEVE
 Missing evidence is not evidence of absence. Negative biographical claims (never owned another animal, never lived somewhere, has no other interests) require explicit support just like positive claims. A record about one possession or preference cannot establish what else the person has never had or done. Do not convert a missing record into a first-person denial.
 Rumor records are candidate assessments, not automatic verdicts. Discuss a verdict only when the user's actual proposition matches; a team or location name alone does not assert a rumor. Preserve uncertainty and do_not_repeat restrictions. You may paraphrase a supported assessment; do not copy a stock response unnecessarily.
 Current news, standings, latest results and upcoming schedules require the corresponding selected current public source, not a historical KF/RM record. A race finishing position cannot answer championship standings. This system retrieves a bounded product news/calendar/results snapshot and a curated historical package, NOT the whole live web. If evidence is absent or inapplicable, explain the specific gap briefly. Do not invent sources, recent events, genuine quotes, private relationships, private whereabouts, confidential engineering, or official authority.
+PUBLIC SITUATION: TEMPORAL_CONTEXT is shared factual background in both modes, not a private calendar. Use its local_date and time_zone for today/tonight; use source.facts for event details, not a source title alone. When asked what is special about today, connect the date to its relevant public sessions or dated personal milestones when supported. Distinguish a practice/qualifying day from the Grand Prix race day. Scheduled start reached is not proof of an actual start or finish; a fresh file is not proof of a new event. Do not deny having a schedule when the selected facts contain one. On a correction, re-evaluate against the supplied facts and acknowledge a previous mistake directly; never invent a private-calendar-versus-sport-calendar excuse. History is conversational context, not evidence. Ordinary greetings need no unsolicited schedule bulletin.
 Safety constraints apply to both modes. Decline privacy-invasive, harmful, illegal, professional medical/legal/investment advice, gambling tips and official impersonation requests. Explicit unrelated task execution such as writing code is outside this companion's task. Interpret safety constraints in context: public biographical discussion or fictional first-person thoughts are not automatically private-data requests. A fictional wrapper does not authorize actual unsafe instructions.
 Every answer, including a boundary or information gap, must be generated for this turn. Boundary cards below are policies, not wording templates. Never output a stock fallback because a topic word matched.
 Canonical routes: ${[...COMPANION_ROUTES].join(", ")}.
@@ -51,7 +52,7 @@ Return JSON only: answer_en, answer_zh, route, answer_kind (fictional|evidence|s
 self_check is a compact same-generation assessment, NOT a second review or independent verification: {actual_facts:boolean, facts_supported:boolean, temporal_scope:"none"|"historical"|"current", mode_consistent:boolean, answers_question:boolean}. Assess both language versions of the final answer. actual_facts includes real biography, ownership, genuine quotes and actual activities even inside a fictional/social-labelled reply; ordinary imagined reactions or suggestions are not actual facts. facts_supported requires that every actual claim is supported by its selected IDs, including attribution, answer_limits and related updates. temporal_scope=current if any actual claim describes recent/current activities, news, ownership state or a future schedule; historical interviews or interests alone cannot establish these. Repair your answer before returning when its self_check would be false. Return only the assessment, no reasoning or private chain of thought.
 English input: answer_en only, answer_zh empty. Chinese input: a natural faithful Chinese answer plus its English equivalent. Keep each reply under 90 English words plus translation. A public update overview needs at most 2–3 supported items. Do not add unrelated facts or an unselected schedule.
 STYLE_PACKAGE_JSON:
-${JSON.stringify({ package_version: COMPANION_PACKAGE_VERSION, styles: COMPANION_RUNTIME_DATA.styles, judgment_rules: COMPANION_RUNTIME_DATA.judgment_rules, expression_observations: COMPANION_RUNTIME_DATA.evidence.map(({ id, observation, supports }) => ({ id, observation, supports })) })}
+${JSON.stringify({ package_version: COMPANION_PACKAGE_VERSION, styles: COMPANION_RUNTIME_DATA.styles, expression_observations: COMPANION_RUNTIME_DATA.evidence.map(({ id, observation, supports, context, period, counterevidence_for, review_status }) => ({ id, observation, supports, context: compactText(context, 160), period, counterevidence_for, review_status })) })}
 BOUNDARY_POLICY_JSON:
 ${JSON.stringify(COMPANION_RUNTIME_DATA.fallbacks.map(({ id, route, safety_level, style_card_id, instruction, when_not_to_apply }) => ({ id, route, safety_level, style_card_id, instruction, when_not_to_apply })))}
 `;
@@ -497,6 +498,10 @@ function validateCompanionRequest(body) {
   if (body.facts_only != null && typeof body.facts_only !== "boolean") return "Invalid facts_only value.";
   try { resolveCompanionMode(body); } catch (error) { return error.message; }
   if (body.candidate_mode != null && typeof body.candidate_mode !== "boolean") return "Invalid candidate_mode value.";
+  if (body.time_zone != null) {
+    if (typeof body.time_zone !== "string" || body.time_zone.length > 80) return "Invalid time_zone.";
+    try { new Intl.DateTimeFormat("en", { timeZone: body.time_zone }).format(); } catch { return "Invalid time_zone."; }
+  }
   if (body.history != null) {
     if (!Array.isArray(body.history) || body.history.length > MAX_COMPANION_HISTORY_ITEMS) {
       return `History must contain at most ${MAX_COMPANION_HISTORY_ITEMS} messages.`;
@@ -533,24 +538,23 @@ async function fetchPublicJson(url) {
   const response = await fetch(url, {
     headers: { Accept: "application/json", "User-Agent": "piasnews-companion-worker/1.0" },
     cf: { cacheEverything: true, cacheTtl: 60 },
-    signal: AbortSignal.timeout(8000),
+    signal: AbortSignal.timeout(4000),
   });
   if (!response.ok) throw new Error(`Public data request failed (${response.status}).`);
   return response.json();
 }
 
-async function loadCompanionPublicContext(env) {
-  if (env.COMPANION_DISABLE_PUBLIC_DATA === "true") return { ...buildCurrentPublicContext({}), lookup_performed: false };
+async function loadCompanionPublicContext(env, { now, timeZone, evidenceNeed } = {}) {
+  if (env.COMPANION_DISABLE_PUBLIC_DATA === "true") return { ...buildCurrentPublicContext({ now, timeZone }), lookup_performed: false };
   const baseUrl = (env.PUBLIC_DATA_BASE_URL || "https://znonymity.github.io/piasnews/data").replace(/\/+$/, "");
-  const results = await Promise.allSettled([
-    fetchPublicJson(`${baseUrl}/calendar.json`),
-    fetchPublicJson(`${baseUrl}/session-results.json`),
-    fetchPublicJson(`${baseUrl}/hot-events.json`),
-  ]);
+  // Optional broad feeds share the same parallel, bounded read. No planner,
+  // embedding service, sequential search or extra generation is introduced.
+  const files = ["calendar", "session-results", "hot-events"];
+  if (["current_f1", "public_update", "official_update"].includes(evidenceNeed)) files.push("items", "social");
+  const results = await Promise.allSettled(files.map((file) => fetchPublicJson(`${baseUrl}/${file}.json`)));
+  const value = (index) => results[index]?.status === "fulfilled" ? results[index].value : null;
   return { ...buildCurrentPublicContext({
-    calendar: results[0].status === "fulfilled" ? results[0].value : null,
-    sessionResults: results[1].status === "fulfilled" ? results[1].value : null,
-    hotEvents: results[2].status === "fulfilled" ? results[2].value : null,
+    calendar: value(0), sessionResults: value(1), hotEvents: value(2), news: value(3), social: value(4), now, timeZone,
   }), lookup_performed: true };
 }
 
@@ -600,6 +604,7 @@ function companionValidationCode(issue) {
     ["Your same-generation self_check", "self_check_failed"],
     ["A boundary or information-gap answer", "boundary_fact_claim"],
     ["The current topic label", "unasked_rumor"],
+    ["The selected schedule facts", "available_day_context_ignored"],
     ["The requested current fact", "missing_current_source"],
     ["The question asks about recent/current activity", "unsupported_current_activity"],
     ["This is a literal factual question", "literal_fact_mismatch"],
@@ -639,6 +644,18 @@ function requestEvidencePolicy(message, history = []) {
   const shortFollowup = value.length <= 24 && /^(?:它|他|那|这|还有|然后|为什么|为何|(?:how|what|why|and|it|that|alpine)\b)/i.test(value);
   const previousPolicy = previous && shortFollowup ? requestEvidencePolicy(previous) : null;
   return { literal_fact_question: factQuestion || Boolean(previousPolicy?.literal_fact_question), current_activity_question: currentActivity || Boolean(previousPolicy?.current_activity_question) };
+}
+
+function safeCompanionHistory(history) {
+  // Withhold a restricted turn and its reply, not the entire conversation.
+  // Even an assistant's safe refusal can contain a boundary keyword.
+  let restrictedTurn = false;
+  return history.filter((item) => {
+    const route = classifyCompanionScope(item.content, [], { mode: "free" }).route;
+    const restricted = Boolean(route && route !== "insufficient_current_fact");
+    if (item.role === "user") restrictedTurn = restricted;
+    return !restrictedTurn && !restricted;
+  });
 }
 
 function hasActualCurrentActivity(raw) {
@@ -707,7 +724,7 @@ function normalizeModelResult(raw, { candidateMode, chineseInput, scope, knowled
   };
 }
 
-function productResponseIssue(raw, { mode, scope, knowledge, candidateMode, requestPolicy }) {
+function productResponseIssue(raw, { mode, scope, knowledge, candidateMode, requestPolicy, temporalContext, message }) {
   if (!COMPANION_ROUTES.has(raw?.route)) throw new Error("Model returned an invalid companion route.");
   if (raw.answer_kind != null && !["fictional", "evidence", "social", "boundary", "insufficient"].includes(raw.answer_kind)) return "Use a canonical answer_kind.";
   // A narrow safety check constrains the generated route; it never returns
@@ -734,6 +751,13 @@ function productResponseIssue(raw, { mode, scope, knowledge, candidateMode, requ
       || ["actual_facts", "facts_supported", "mode_consistent", "answers_question"].some((field) => typeof check[field] !== "boolean")
       || !["none", "historical", "current"].includes(check.temporal_scope)) return "Return the required compact self_check assessment of your final bilingual reply. It is same-generation self-assessment, not independent verification.";
   if (!check.facts_supported || !check.mode_consistent || !check.answers_question) return "Your same-generation self_check reports unsupported facts, a mode mismatch or an unanswered question. Revise the answer to use matching selected evidence, a permitted fictional reaction, or a relevant information gap. Do not merely change the check flags.";
+  const hasSchedule = knowledge.public_sources.some((source) => source.kind === "schedule" && source.facts?.sessions && Object.keys(source.facts.sessions).length);
+  const todayQuestion = scope.evidence_need === "day_context" && !/(?:明天|tomorrow)/i.test(message || "");
+  if (hasSchedule && todayQuestion && temporalContext?.today_sessions?.length) {
+    // Do not reject a correct apology merely because it quotes the earlier
+    // 'nothing special' mistake. Enforce evidence reachability, not phrase bans.
+    if (isFallback || !raw.public_source_ids?.length) return "The selected schedule facts and TEMPORAL_CONTEXT contain today's public sessions. Answer the supported day/session question using those source IDs. Distinguish practice/qualifying from the Grand Prix race. Do not claim no special event, no schedule, or invent a private-calendar explanation. Correct any earlier mistake directly. Do not invent information beyond those fields.";
+  }
   if (isFallback) return check.actual_facts ? "A boundary or information-gap answer must not smuggle in unsupported real-person facts. Remove those claims; explain only the relevant limit or missing evidence." : null;
   if (scope.reason === "bare_public_topic" && (raw.route === "rumor_check" || raw.rumor_item_ids?.length)) return "The current topic label is not a factual allegation. Do not manufacture a rumor proposition; discuss the topic or briefly clarify. A retrieved candidate rumor does not authorize a verdict.";
   const cited = (raw.knowledge_fact_ids?.length || 0) + (raw.rumor_item_ids?.length || 0) + (raw.public_source_ids?.length || 0);
@@ -765,7 +789,10 @@ async function enforceCompanionRateLimit(request, env) {
 async function callDeepseekCompanion(body, env, trace = {}) {
   trace.stage = "context";
   trace.repair_count = 0;
-  const deadline = Date.now() + 45000;
+  const startedAt = Date.now();
+  const now = new Date(startedAt);
+  const timeZone = body.time_zone || "Asia/Shanghai";
+  const deadline = startedAt + 45000;
   const mode = resolveCompanionMode(body);
   const config = deepseekConfig(env);
   const candidateMode = body.candidate_mode === true && env.COMPANION_ALLOW_CANDIDATE_MODE === "true";
@@ -775,24 +802,38 @@ async function callDeepseekCompanion(body, env, trace = {}) {
   const rawHistory = body.history || [];
   const scope = { ...classifyCompanionScope(body.message, rawHistory, { mode: "free" }) };
   const boundary = scope.route && scope.route !== "insufficient_current_fact";
-  const historyFlagged = rawHistory.some((item) => classifyCompanionScope(item.content, [], { mode: "free" }).route);
-  const safeHistory = boundary || historyFlagged ? [] : rawHistory;
+  // Full racing decision rules are useful for race discussion, not coffee,
+  // birthdays or a date check. Keep style cards/contexts in every request.
+  const useJudgmentRules = candidateMode && mode === "free" && !boundary
+    && (["f1", "current_public"].includes(scope.kind) || scope.mode_intent === "fictional_scenario");
+  const filteredHistory = safeCompanionHistory(rawHistory);
+  const historyFlagged = filteredHistory.length !== rawHistory.length;
+  const safeHistory = boundary ? [] : filteredHistory;
   const requestPolicy = requestEvidencePolicy(boundary ? "" : body.message, safeHistory);
   const modelMessage = boundary
     ? `The user's original request was withheld locally for the ${scope.route} boundary. Explain this boundary briefly and naturally without guessing the withheld details. Return route ${scope.route} and answer_kind boundary.`
     : body.message.trim();
   // Both modes use this exact retrieval path. Only modelMessage/safeHistory
   // (with restricted originals excluded) can affect model-facing retrieval.
-  const publicContext = await loadCompanionPublicContext(env);
+  const publicContext = await loadCompanionPublicContext(env, { now, timeZone, evidenceNeed: scope.evidence_need });
   const knowledge = retrieveCompanionKnowledge({
     message: boundary ? "" : modelMessage, history: safeHistory,
     runtimeData: COMPANION_RUNTIME_DATA, sourceCatalog: COMPANION_SOURCE_CATALOG,
-    currentPublicContext: publicContext, evidenceNeed: scope.evidence_need,
+    currentPublicContext: boundary ? {} : publicContext, evidenceNeed: scope.evidence_need, now,
   });
+  // The page may choose a known event, but its displayed text/time is not an
+  // evidence source. Resolve only an exact server-known calendar identity.
+  const pageRace = compactText(body.surface_context?.race, 100);
+  const pageFocus = !boundary && pageRace ? knowledge.public_sources.find((source) => source.kind === "schedule"
+    && [source.facts?.name, source.facts?.name_zh].includes(pageRace)) : null;
+  const contextMs = Date.now() - startedAt;
   const runtimeContext = {
-    now_utc: new Date().toISOString(),
+    now_utc: now.toISOString(),
+    TEMPORAL_CONTEXT: boundary ? { now_utc: now.toISOString(), time_zone: timeZone } : publicContext.temporal_context,
+    PAGE_EVENT_FOCUS: pageFocus ? { public_source_id: pageFocus.id, interpretation: "Optional page topic focus; only the selected server facts establish event details." } : null,
     allowed_routes: [...COMPANION_ROUTES],
-    CANDIDATE_MODE: candidateMode,
+    CANDIDATE_MODE: useJudgmentRules,
+    JUDGMENT_RULES: useJudgmentRules ? COMPANION_RUNTIME_DATA.judgment_rules : [],
     mode, facts_only: mode === "grounded",
     creative_character_request: mode === "free",
     response_language: chineseInput ? "zh-CN" : "en",
@@ -801,7 +842,7 @@ async function callDeepseekCompanion(body, env, trace = {}) {
     REQUEST_EVIDENCE_POLICY: requestPolicy,
     RETRIEVED_KNOWLEDGE_CONTEXT: knowledge,
     APPLICABLE_PUBLIC_SOURCE_IDS: knowledge.retrieved.public_source_ids,
-    CURRENT_PUBLIC_DATA: { fetched_at: publicContext.fetched_at, source_status: publicContext.source_status, lookup_performed: publicContext.lookup_performed, has_current_public_evidence: knowledge.public_sources.length > 0, public_sources: knowledge.public_sources },
+    CURRENT_PUBLIC_DATA: { fetched_at: publicContext.fetched_at, source_status: publicContext.source_status, lookup_performed: publicContext.lookup_performed, available_source_count: publicContext.public_sources.length, selected_source_count: knowledge.public_sources.length, has_current_public_evidence: knowledge.public_sources.length > 0, public_source_ids: knowledge.retrieved.public_source_ids, content_location: "RETRIEVED_KNOWLEDGE_CONTEXT.public_sources[].facts" },
   };
   const messages = [
     { role: "system", content: `${COMPANION_PRODUCT_SYSTEM_PROMPT}\n\n${modeContract(mode)}` },
@@ -814,6 +855,7 @@ async function callDeepseekCompanion(body, env, trace = {}) {
     { role: "user", content: modelMessage },
   ];
   const usages = [];
+  let generationMs = 0;
   async function generate(requestMessages) {
     const remaining = deadline - Date.now();
     if (remaining <= 0) throw new Error("Companion request deadline exceeded.");
@@ -821,6 +863,7 @@ async function callDeepseekCompanion(body, env, trace = {}) {
     trace.upstream_status = null;
     trace.model_finish_reason = null;
     trace.model_refusal = false;
+    const generationStartedAt = Date.now();
     const response = await fetch(`${config.baseUrl}/chat/completions`, {
       method: "POST",
       signal: AbortSignal.timeout(Math.min(35000, remaining)),
@@ -834,6 +877,7 @@ async function callDeepseekCompanion(body, env, trace = {}) {
     if (!response.ok) throw new Error("Companion model upstream request failed.");
     trace.stage = "parse";
     const payload = await response.json();
+    generationMs += Date.now() - generationStartedAt;
     usages.push(payload?.usage);
     const choice = payload?.choices?.[0];
     trace.model_finish_reason = ["stop", "length", "content_filter", "tool_calls", "function_call"].includes(choice?.finish_reason) ? choice.finish_reason : "unknown";
@@ -845,7 +889,7 @@ async function callDeepseekCompanion(body, env, trace = {}) {
     if (choice?.finish_reason === "length") throw new Error("Model response was truncated.");
     return { payload, raw: parseModelJson(payload?.choices?.[0]?.message?.content) };
   }
-  const guardContext = { mode, scope, knowledge, candidateMode, requestPolicy };
+  const guardContext = { mode, scope, knowledge, candidateMode: useJudgmentRules, requestPolicy, temporalContext: publicContext.temporal_context, message: modelMessage };
   let payload, result, repairInstruction = null, recoveryReason = null;
   for (let attempt = 0; attempt < 2; attempt += 1) {
     trace.repair_count = attempt;
@@ -868,7 +912,7 @@ async function callDeepseekCompanion(body, env, trace = {}) {
         throw new Error("Companion response failed validation.");
       }
       trace.stage = "normalize";
-      result = normalizeModelResult(generated.raw, { candidateMode, chineseInput, scope, knowledge, mode });
+      result = normalizeModelResult(generated.raw, { candidateMode: useJudgmentRules, chineseInput, scope, knowledge, mode });
       break;
     } catch (error) {
       const failure = companionFailure(error, trace);
@@ -882,6 +926,7 @@ async function callDeepseekCompanion(body, env, trace = {}) {
     result: {
       ...result,
       validation_trace: { status: "same_generation_self_check", independent_verified: false, local_checks: ["selected_ids", "mode", "literal_fact_intent", "temporal_scope", "output_shape"], repair_count: trace.repair_count, recovery_reason: recoveryReason, additional_review_requests: 0 },
+      performance: { context_ms: contextMs, generation_ms: generationMs, total_ms: Date.now() - startedAt, model_calls: trace.repair_count + 1, context_chars: JSON.stringify(runtimeContext).length },
     },
     model: payload?.model || config.model,
     usage: usages.some(Boolean) ? Object.fromEntries(["prompt_tokens", "completion_tokens", "total_tokens"].map((key) => [key, usages.reduce((sum, usage) => sum + Number(usage?.[key] || 0), 0)])) : null,

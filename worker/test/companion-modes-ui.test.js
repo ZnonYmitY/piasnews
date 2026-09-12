@@ -393,9 +393,9 @@ test("chat assets are versioned together and no keyword response module is loade
   assert.doesNotMatch(html, /factsOnlyToggle/);
   for (const text of [html, source]) {
     assert.doesNotMatch(text, /20260910-preferences-1|offline-response|preference-policy|makeOfflineResponse|规则兜底/);
-    assert.match(text, /20260910-service-errors-1/);
+    assert.match(text, /20260912-shared-context-1/);
   }
-  assert.match(html, /styles\.css\?v=20260910-service-errors-1/);
+  assert.match(html, /styles\.css\?v=20260912-shared-context-1/);
   assert.doesNotMatch(source, /Skill v0\.4\.0/);
   assert.match(source, /package_version: response\.metadata\.package_version/);
   assert.match(html, /共享人物知识与公开资料检索/);

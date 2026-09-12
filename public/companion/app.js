@@ -2,7 +2,7 @@ const DEFAULT_WORKER_URL = "https://piasnews-review.znonymity-piasnews.workers.d
 const MAX_HISTORY_ITEMS = 8;
 const MAX_HISTORY_CHARS = 900;
 const MAX_PROMPT_CHARS = 500;
-const APP_VERSION = "20260910-service-errors-1";
+const APP_VERSION = "20260912-shared-context-1";
 const MODE_LABELS = { free: "自由演绎", grounded: "强依据" };
 const ANSWER_KIND_LABELS = { fictional: "角色演绎 · 非本人事实", evidence: "有来源的事实", social: "轻松聊天", boundary: "边界答复", insufficient: "依据不足" };
 const FEEDBACK_CATEGORIES = [
@@ -606,6 +606,7 @@ async function requestModelResponse(prompt, mode, signal, history, surfaceContex
       facts_only: mode === "grounded",
       candidate_mode: true,
       disclosure_shown: true,
+      time_zone: "Asia/Shanghai",
       surface_context: surfaceContext,
     }),
   });
