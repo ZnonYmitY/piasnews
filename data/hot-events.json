@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-11T17:54:50.559531Z",
+  "generated_at": "2026-09-12T05:43:33.286849Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -115,7 +115,7 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 7.3576,
+          "heat_contribution": 6.8472,
           "metrics": {
             "likes": 0,
             "retweets": 1044,
@@ -139,7 +139,7 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 7.3575,
+          "heat_contribution": 6.8471,
           "metrics": {
             "likes": 0,
             "retweets": 1044,
@@ -152,8 +152,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 77,
-      "heat": 77,
+      "fan_heat": 75,
+      "heat": 75,
       "source_labels": [
         "粉"
       ],
@@ -194,7 +194,7 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 9.1868,
+          "heat_contribution": 8.376,
           "metrics": {
             "likes": 14902,
             "retweets": 1337,
@@ -231,8 +231,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 62,
-      "heat": 62,
+      "fan_heat": 58,
+      "heat": 58,
       "source_labels": [
         "粉"
       ],
@@ -411,11 +411,121 @@
       "rank": 6
     },
     {
+      "event_id": "evt-2026-09-10-5b68564e57d0",
+      "rule_id": null,
+      "hot_word_zh": "Oscar：这是Zak的办公室。等你来我房间，你就会看到等级秩序在哪里了 ---- Osc…",
+      "hot_word_en": "oscar: this is zak's office. when you come to my room you'll see where the pecking order lies -…",
+      "first_seen_at": "2026-09-10T14:56:53Z",
+      "last_seen_at": "2026-09-10T14:56:53Z",
+      "anchor_item_id": "piasnews-social-d3535870c9f75b4c",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2098062244663971841/vid/avc1/472x270/qorirX-Flcv44nCE.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098062244663971841/img/90_AivBjT5igI1Pw.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-d3535870c9f75b4c",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar: this is zak's office. when you come to my room you'll see where the pecking order lies -…",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar：这是Zak的办公室。等你来我房间，你就会看到等级秩序在哪里了 ---- Oscar：这是我的房间。Lawrence：哦，小一点！Oscar：小很多。但没关系！没关系，我知道跟老板比，我坐哪儿 😭😭😭",
+          "summary": "oscar: this is zak's office. when you come to my room you'll see where the pecking order lies ---- oscar: this is my room lawrence: oh it's smaller! oscar: it's a lot smaller. but that's okay! that's okay, i know where i sit compared to the boss 😭😭😭 https://t.co/uMdeCBIBur",
+          "summary_zh": "Oscar：这是Zak的办公室。等你来我房间，你就会看到等级秩序在哪里了 ---- Oscar：这是我的房间。Lawrence：哦，小一点！Oscar：小很多。但没关系！没关系，我知道跟老板比，我坐哪儿 😭😭😭",
+          "url": "https://x.com/laurogeitabat/status/2098063164168401172",
+          "published_at": "2026-09-10T14:56:53Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2098062244663971841/vid/avc1/472x270/qorirX-Flcv44nCE.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098062244663971841/img/90_AivBjT5igI1Pw.jpg",
+          "heat_contribution": 7.105,
+          "metrics": {
+            "likes": 2167,
+            "retweets": 113,
+            "replies": 0,
+            "quotes": 0,
+            "views": 31157,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 37,
+      "heat": 37,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "event_id": "evt-2026-09-10-9349a3e243ae",
+      "rule_id": null,
+      "hot_word_zh": "oscar谈madring：“在模拟器上，一旦进入节奏就很有趣。现实中能否进入同样的节奏我…",
+      "hot_word_en": "oscar about madring: \"on the sim, once you get into the rhythm, it's fun. whether you can get i…",
+      "first_seen_at": "2026-09-10T21:40:31Z",
+      "last_seen_at": "2026-09-10T21:40:31Z",
+      "anchor_item_id": "piasnews-social-a13af243168499a8",
+      "image_url": "https://pbs.twimg.com/media/HR4tsMgWsAsvDJc.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HR4tsMgWsAsvDJc.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-a13af243168499a8",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar about madring: \"on the sim, once you get into the rhythm, it's fun. whether you can get i…",
+          "title_zh": "X 发帖 @laurogeitabat：oscar谈madring：“在模拟器上，一旦进入节奏就很有趣。现实中能否进入同样的节奏我不确定，因为如果我们尝试做我在模拟器里做的事，会报废几辆车。” 他在模拟器里撞了无数次吧 😭",
+          "summary": "oscar about madring: \"on the sim, once you get into the rhythm, it's fun. whether you can get into the same rhythm in real life i'm not sure, because we'll be writing off a few cars if we try to do what i did in the sim.\" he's crashed a million times in the sim hasn't he 😭 https://t.co/PaZo9zj5gj",
+          "summary_zh": "oscar谈madring：“在模拟器上，一旦进入节奏就很有趣。现实中能否进入同样的节奏我不确定，因为如果我们尝试做我在模拟器里做的事，会报废几辆车。” 他在模拟器里撞了无数次吧 😭",
+          "url": "https://x.com/laurogeitabat/status/2098164741759803751",
+          "published_at": "2026-09-10T21:40:31Z",
+          "image_url": "https://pbs.twimg.com/media/HR4tsMgWsAsvDJc.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HR4tsMgWsAsvDJc.jpg",
+          "heat_contribution": 6.9423,
+          "metrics": {
+            "likes": 1867,
+            "retweets": 102,
+            "replies": 4,
+            "quotes": 0,
+            "views": 21515,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 37,
+      "heat": 37,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 8
+    },
+    {
       "event_id": "evt-oscar-monza-preparation",
       "rule_id": "oscar-monza-preparation",
       "hot_word_zh": "Oscar 开始为蒙扎站进行准备",
       "hot_word_en": "Oscar begins preparations for Monza",
-      "first_seen_at": "2026-09-05T00:00:00Z",
+      "first_seen_at": "2026-09-05T13:30:00Z",
       "last_seen_at": "2026-09-11T09:48:12Z",
       "anchor_item_id": "piasnews-social-9a6d82c581ab7f5d",
       "image_url": "https://pbs.twimg.com/media/HR6nZcKa0AAG5fq.jpg",
@@ -479,7 +589,7 @@
           "image_url": "https://files.speedweek.com/images/c_crop,x_0,y_0,w_6000,h_3000/c_fill,f_auto,q_auto,w_1200,h_630/2026/9/11/b8bvn22em1ubwi1og6vv/formel-1-oscar-piastri-mclaren-mcl40-2026",
           "video_url": null,
           "video_poster_url": "https://files.speedweek.com/images/c_crop,x_0,y_0,w_6000,h_3000/c_fill,f_auto,q_auto,w_1200,h_630/2026/9/11/b8bvn22em1ubwi1og6vv/formel-1-oscar-piastri-mclaren-mcl40-2026",
-          "heat_contribution": 0.75,
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -496,7 +606,7 @@
           "image_url": "https://lentedesportiva.com/wp-content/uploads/2026/09/lente-e1bb3e9f-de4c-48cf-888e-315af60ee9ad.png",
           "video_url": null,
           "video_poster_url": "https://lentedesportiva.com/wp-content/uploads/2026/09/lente-e1bb3e9f-de4c-48cf-888e-315af60ee9ad.png",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -513,7 +623,7 @@
           "image_url": "https://www.paddocknews24.com/en/wp-content/uploads/2026/09/Oscar-Piastri-DSC_2699.webp",
           "video_url": null,
           "video_poster_url": "https://www.paddocknews24.com/en/wp-content/uploads/2026/09/Oscar-Piastri-DSC_2699.webp",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -564,7 +674,7 @@
           "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2293813299-1-scaled.jpg",
           "video_url": null,
           "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2293813299-1-scaled.jpg",
-          "heat_contribution": 0.2,
+          "heat_contribution": 0.0,
           "metrics": {}
         },
         {
@@ -581,7 +691,7 @@
           "image_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F09%2F08093833%2Foscar-piastri-monza-pit-lane-mclaren-planetf1.jpg",
           "video_url": null,
           "video_poster_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F09%2F08093833%2Foscar-piastri-monza-pit-lane-mclaren-planetf1.jpg",
-          "heat_contribution": 0.2,
+          "heat_contribution": 0.0,
           "metrics": {}
         },
         {
@@ -959,23 +1069,6 @@
           "metrics": {}
         },
         {
-          "item_id": "piasnews-1c95a1a190ea0294",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "NewsCord",
-          "title": "Pierre Gasly Takes Shock Pole At Monza, Beating George Russell And Oscar Piastri: 46 outlets compared",
-          "title_zh": "Pierre Gasly在Monza爆冷夺杆，击败乔治·拉塞尔和Oscar Piastri：46家媒体对比",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
-          "url": "https://newscord.org/article/pierre-gasly-takes-pole-for-2026-italian-grand-prix-at-monza-beating-george-russ--Story_20260905_AlpinesGaslybeatsRus6e47900c",
-          "published_at": "2026-09-05T00:00:00Z",
-          "image_url": "https://media.tycsports.com/files/2026/09/05/984881/colapinto-y-gasly_1440x810.webp",
-          "video_url": null,
-          "video_poster_url": "https://media.tycsports.com/files/2026/09/05/984881/colapinto-y-gasly_1440x810.webp",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        },
-        {
           "item_id": "piasnews-social-64a3e543878d958d",
           "dataset": "social",
           "source_type": "fan",
@@ -1265,175 +1358,65 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 33,
+      "media_heat": 28,
       "fan_heat": 30,
-      "heat": 40,
+      "heat": 37,
       "source_labels": [
         "媒",
         "粉"
       ],
       "source_counts": {
         "official": 2,
-        "media": 19,
+        "media": 18,
         "fan": 2
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 7
-    },
-    {
-      "event_id": "evt-2026-09-10-9349a3e243ae",
-      "rule_id": null,
-      "hot_word_zh": "oscar谈madring：“在模拟器上，一旦进入节奏就很有趣。现实中能否进入同样的节奏我…",
-      "hot_word_en": "oscar about madring: \"on the sim, once you get into the rhythm, it's fun. whether you can get i…",
-      "first_seen_at": "2026-09-10T21:40:31Z",
-      "last_seen_at": "2026-09-10T21:40:31Z",
-      "anchor_item_id": "piasnews-social-a13af243168499a8",
-      "image_url": "https://pbs.twimg.com/media/HR4tsMgWsAsvDJc.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HR4tsMgWsAsvDJc.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-a13af243168499a8",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar about madring: \"on the sim, once you get into the rhythm, it's fun. whether you can get i…",
-          "title_zh": "X 发帖 @laurogeitabat：oscar谈madring：“在模拟器上，一旦进入节奏就很有趣。现实中能否进入同样的节奏我不确定，因为如果我们尝试做我在模拟器里做的事，会报废几辆车。” 他在模拟器里撞了无数次吧 😭",
-          "summary": "oscar about madring: \"on the sim, once you get into the rhythm, it's fun. whether you can get into the same rhythm in real life i'm not sure, because we'll be writing off a few cars if we try to do what i did in the sim.\" he's crashed a million times in the sim hasn't he 😭 https://t.co/PaZo9zj5gj",
-          "summary_zh": "oscar谈madring：“在模拟器上，一旦进入节奏就很有趣。现实中能否进入同样的节奏我不确定，因为如果我们尝试做我在模拟器里做的事，会报废几辆车。” 他在模拟器里撞了无数次吧 😭",
-          "url": "https://x.com/laurogeitabat/status/2098164741759803751",
-          "published_at": "2026-09-10T21:40:31Z",
-          "image_url": "https://pbs.twimg.com/media/HR4tsMgWsAsvDJc.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HR4tsMgWsAsvDJc.jpg",
-          "heat_contribution": 7.4528,
-          "metrics": {
-            "likes": 1867,
-            "retweets": 102,
-            "replies": 4,
-            "quotes": 0,
-            "views": 21515,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 39,
-      "heat": 39,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 8
-    },
-    {
-      "event_id": "evt-2026-09-11-05abf6598a6c",
-      "rule_id": null,
-      "hot_word_zh": "两周年快乐",
-      "hot_word_en": "HAPPY TWO YEAR ANNIVERSARY",
-      "first_seen_at": "2026-09-11T00:14:17Z",
-      "last_seen_at": "2026-09-11T00:14:17Z",
-      "anchor_item_id": "piasnews-social-732711f18167cbff",
-      "image_url": "https://pbs.twimg.com/media/HR5Q5q8WEAAtdUO.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HR5Q5q8WEAAtdUO.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-732711f18167cbff",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: HAPPY TWO YEAR ANNIVERSARY",
-          "title_zh": "X 发帖 @laurogeitabat：两周年快乐",
-          "summary": "HAPPY TWO YEAR ANNIVERSARY https://t.co/J7rfH8mELj",
-          "summary_zh": "两周年快乐",
-          "url": "https://x.com/laurogeitabat/status/2098203437976494572",
-          "published_at": "2026-09-11T00:14:17Z",
-          "image_url": "https://pbs.twimg.com/media/HR5Q5q8WEAAtdUO.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HR5Q5q8WEAAtdUO.jpg",
-          "heat_contribution": 7.418,
-          "metrics": {
-            "likes": 1651,
-            "retweets": 222,
-            "replies": 1,
-            "quotes": 0,
-            "views": 12152,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 39,
-      "heat": 39,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
       },
       "pinned_rank": null,
       "hidden": false,
       "rank": 9
     },
     {
-      "event_id": "evt-2026-09-09-75397687f681",
+      "event_id": "evt-2026-09-10-76ec234fba6a",
       "rule_id": null,
-      "hot_word_zh": "马德里的领奖台面向一个看台，只有坐在那里的人才能看清楚？？？摄影师除非进入那个看台，否则拍…",
-      "hot_word_en": "the podium in madrid faces one of the grandstands and only people who sit there will be able to…",
-      "first_seen_at": "2026-09-09T19:31:09Z",
-      "last_seen_at": "2026-09-09T19:31:09Z",
-      "anchor_item_id": "piasnews-social-edf0ade08c99d181",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2097769773249740800/vid/avc1/462x270/ycu5g05G5VpiBHBq.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2097769773249740800/img/l8Kvv-m6H1rCUXuc.jpg",
+      "hot_word_zh": "oscar谈madring：“有很多地方一旦出错就会出大错” 天哪我好害怕 大家来手拉手吧…",
+      "hot_word_en": "oscar about madring: \"there's a lot of places where if it goes wrong it's going to go very wron…",
+      "first_seen_at": "2026-09-10T21:44:44Z",
+      "last_seen_at": "2026-09-10T21:44:44Z",
+      "anchor_item_id": "piasnews-social-dd3ef4ff0affab47",
+      "image_url": "https://pbs.twimg.com/media/HR4urPiWYAAtK2o.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HR4urPiWYAAtK2o.jpg",
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
         {
-          "item_id": "piasnews-social-edf0ade08c99d181",
+          "item_id": "piasnews-social-dd3ef4ff0affab47",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: the podium in madrid faces one of the grandstands and only people who sit there will be able to…",
-          "title_zh": "X 发帖 @laurogeitabat：马德里的领奖台面向一个看台，只有坐在那里的人才能看清楚？？？摄影师除非进入那个看台，否则拍不到好照片？？？？？车手们还得走很长一段路才能到那里？？？？？？？😭😭😭",
-          "summary": "the podium in madrid faces one of the grandstands and only people who sit there will be able to properly see ??? and photographers won't be able to get good pics unless they get into that grandstand ????? and drivers have to walk a long ass walkway to get there ??????? 😭😭😭 https://t.co/znokgHANxf",
-          "summary_zh": "马德里的领奖台面向一个看台，只有坐在那里的人才能看清楚？？？摄影师除非进入那个看台，否则拍不到好照片？？？？？车手们还得走很长一段路才能到那里？？？？？？？😭😭😭",
-          "url": "https://x.com/laurogeitabat/status/2097769798172099006",
-          "published_at": "2026-09-09T19:31:09Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2097769773249740800/vid/avc1/462x270/ycu5g05G5VpiBHBq.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2097769773249740800/img/l8Kvv-m6H1rCUXuc.jpg",
-          "heat_contribution": 7.2378,
+          "title": "X post from @laurogeitabat: oscar about madring: \"there's a lot of places where if it goes wrong it's going to go very wron…",
+          "title_zh": "X 发帖 @laurogeitabat：oscar谈madring：“有很多地方一旦出错就会出大错” 天哪我好害怕 大家来手拉手吧 😭😭",
+          "summary": "oscar about madring: \"there's a lot of places where if it goes wrong it's going to go very wrong\" GUYS I'M SCARED LET'S ALL HOLD HANDS 😭😭 https://t.co/ggYGbzUXtJ",
+          "summary_zh": "oscar谈madring：“有很多地方一旦出错就会出大错” 天哪我好害怕 大家来手拉手吧 😭😭",
+          "url": "https://x.com/laurogeitabat/status/2098165805049336257",
+          "published_at": "2026-09-10T21:44:44Z",
+          "image_url": "https://pbs.twimg.com/media/HR4urPiWYAAtK2o.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HR4urPiWYAAtK2o.jpg",
+          "heat_contribution": 6.7944,
           "metrics": {
-            "likes": 1169,
-            "retweets": 51,
-            "replies": 9,
+            "likes": 1571,
+            "retweets": 136,
+            "replies": 2,
             "quotes": 0,
-            "views": 179086,
+            "views": 13290,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 38,
-      "heat": 38,
+      "fan_heat": 36,
+      "heat": 36,
       "source_labels": [
         "粉"
       ],
