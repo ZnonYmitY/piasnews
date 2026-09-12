@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-12T13:49:56.167391Z",
+  "generated_at": "2026-09-12T14:20:23.563389Z",
   "translations": {
     "items:piasnews-d09636fb895600fa:title:177ecbcf8b155a380eba5277": {
       "dataset": "items",
@@ -5029,6 +5029,42 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-12T13:49:55.518939Z"
+    },
+    "social:piasnews-social-d796a74514906792:summary:e4a0c21dfe610539c080f448": {
+      "dataset": "social",
+      "item_id": "piasnews-social-d796a74514906792",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Antonelli. Leclerc. Piastri. 👀 This is your Top Three from Final Practice 😮‍💨 #F1 #SpanishGP https://t.co/RUDzVRlKDm",
+      "zh": "Antonelli。Leclerc。Piastri。👀 这是三练的前三名 😮‍💨 #F1 #SpanishGP",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-12T14:20:22.942339Z"
+    },
+    "social:piasnews-social-5f6cd41badcbed75:summary:fc7482df2504fdde951baf37": {
+      "dataset": "social",
+      "item_id": "piasnews-social-5f6cd41badcbed75",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "\"it was okay. I felt like we got a bit closer today in FP2 which was good. But we're still lacking a bit of pace, it seems like. Yeah we'll try and improve. It's been an interesting day, learning a new circuit. It's certainly tough to get on top of but it's been a day full of learning I would say. Hopefully we can find a bit more tomorrow.\"",
+      "zh": "“还可以。我觉得我们今天在二练中更接近了一些，这很好。但看起来我们还是缺少一点速度。是的，我们会努力改进。这是有趣的一天，学习一条新赛道。要完全掌握它确实很难，但我会说这是充满学习的一天。希望明天我们能找到更多。”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-12T14:20:22.942346Z"
+    },
+    "social:piasnews-social-f74583413eb0467d:summary:093cce173662d9557b04c8f4": {
+      "dataset": "social",
+      "item_id": "piasnews-social-f74583413eb0467d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar arrives for practice day! https://t.co/ZWlvIJoFLw",
+      "zh": "oscar抵达练习日！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-12T14:20:22.942349Z"
     }
   },
   "retention_days": 8

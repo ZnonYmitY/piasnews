@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-12T13:49:57.372765Z",
+  "generated_at": "2026-09-12T14:20:24.732736Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
@@ -58,13 +58,13 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 6.8472,
+          "heat_contribution": 6.9804,
           "metrics": {
             "likes": 0,
-            "retweets": 1044,
+            "retweets": 1193,
             "replies": 0,
             "quotes": 0,
-            "views": 135,
+            "views": 145,
             "bookmarks": 0
           }
         },
@@ -108,6 +108,61 @@
       "pinned_rank": null,
       "hidden": false,
       "rank": 1
+    },
+    {
+      "event_id": "evt-2026-09-12-24f171fa6502",
+      "rule_id": null,
+      "hot_word_zh": "Antonelli。Leclerc。Piastri。👀 这是三练的前三名 😮‍💨 #F1…",
+      "hot_word_en": "Antonelli. Leclerc. Piastri. 👀 This is your Top Three from Final Practice 😮‍💨 #F1 #SpanishGP",
+      "first_seen_at": "2026-09-12T11:54:23Z",
+      "last_seen_at": "2026-09-12T11:54:23Z",
+      "anchor_item_id": "piasnews-social-d796a74514906792",
+      "image_url": "https://pbs.twimg.com/media/HSA6u77bYAAdSCX.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HSA6u77bYAAdSCX.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-d796a74514906792",
+          "dataset": "social",
+          "source_type": "official",
+          "source": "@F1",
+          "title": "X post from @F1: Antonelli. Leclerc. Piastri. 👀 This is your Top Three from Final Practice 😮‍💨 #F1 #SpanishGP",
+          "title_zh": "X 发帖 @F1：Antonelli。Leclerc。Piastri。👀 这是三练的前三名 😮‍💨 #F1 #SpanishGP",
+          "summary": "Antonelli. Leclerc. Piastri. 👀 This is your Top Three from Final Practice 😮‍💨 #F1 #SpanishGP https://t.co/RUDzVRlKDm",
+          "summary_zh": "Antonelli。Leclerc。Piastri。👀 这是三练的前三名 😮‍💨 #F1 #SpanishGP",
+          "url": "https://x.com/F1/status/2098742013772345676",
+          "published_at": "2026-09-12T11:54:23Z",
+          "image_url": "https://pbs.twimg.com/media/HSA6u77bYAAdSCX.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HSA6u77bYAAdSCX.jpg",
+          "heat_contribution": 9.5377,
+          "metrics": {
+            "likes": 8342,
+            "retweets": 1483,
+            "replies": 80,
+            "quotes": 0,
+            "views": 232345,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 61,
+      "media_heat": 0,
+      "fan_heat": 0,
+      "heat": 61,
+      "source_labels": [
+        "官"
+      ],
+      "source_counts": {
+        "official": 1,
+        "media": 0,
+        "fan": 0
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 2
     },
     {
       "event_id": "evt-2026-09-09-1975e5331e4b",
@@ -186,7 +241,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 2
+      "rank": 3
     },
     {
       "event_id": "evt-2026-09-10-7e1689051125",
@@ -241,7 +296,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 3
+      "rank": 4
     },
     {
       "event_id": "evt-2026-09-10-3de7e52b6ef3",
@@ -296,7 +351,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 4
+      "rank": 5
     },
     {
       "event_id": "evt-2026-09-10-3d08cfc5fe05",
@@ -351,7 +406,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 5
+      "rank": 6
     },
     {
       "event_id": "evt-2026-09-10-5b68564e57d0",
@@ -406,7 +461,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 7
     },
     {
       "event_id": "evt-2026-09-10-62769926ee8f",
@@ -494,7 +549,7 @@
           "item_id": "piasnews-c37f665e2a1cca7a",
           "dataset": "items",
           "source_type": "media",
-          "source": "planetf1.com",
+          "source": "PlanetF1",
           "title": "Lando Norris and Oscar Piastri clash forces McLaren to rethink its rules",
           "title_zh": "Lando Norris 与 Oscar Piastri 的冲突迫使 McLaren 重新考虑其规则",
           "summary": "Team or car-performance item discovered from public news metadata.",
@@ -545,7 +600,7 @@
           "item_id": "piasnews-4d9162e9c53ad238",
           "dataset": "items",
           "source_type": "media",
-          "source": "planetf1.com",
+          "source": "PlanetF1",
           "title": "Oscar Piastri McLaren 'contract' point made by Rosberg",
           "title_zh": "罗斯伯格指出Oscar Piastri与McLaren的‘合同’问题",
           "summary": "Team or car-performance item discovered from public news metadata.",
@@ -789,12 +844,12 @@
       ],
       "source_counts": {
         "official": 0,
-        "media": 12,
+        "media": 11,
         "fan": 0
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 8
     },
     {
       "event_id": "evt-2026-09-10-9349a3e243ae",
@@ -849,7 +904,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 9
     },
     {
       "event_id": "evt-2026-09-10-76ec234fba6a",
@@ -886,61 +941,6 @@
             "replies": 2,
             "quotes": 0,
             "views": 13290,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 36,
-      "heat": 36,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 9
-    },
-    {
-      "event_id": "evt-2026-09-11-05abf6598a6c",
-      "rule_id": null,
-      "hot_word_zh": "两周年快乐",
-      "hot_word_en": "HAPPY TWO YEAR ANNIVERSARY",
-      "first_seen_at": "2026-09-11T00:14:17Z",
-      "last_seen_at": "2026-09-11T00:14:17Z",
-      "anchor_item_id": "piasnews-social-732711f18167cbff",
-      "image_url": "https://pbs.twimg.com/media/HR5Q5q8WEAAtdUO.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HR5Q5q8WEAAtdUO.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-732711f18167cbff",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: HAPPY TWO YEAR ANNIVERSARY",
-          "title_zh": "X 发帖 @laurogeitabat：两周年快乐",
-          "summary": "HAPPY TWO YEAR ANNIVERSARY https://t.co/J7rfH8mELj",
-          "summary_zh": "两周年快乐",
-          "url": "https://x.com/laurogeitabat/status/2098203437976494572",
-          "published_at": "2026-09-11T00:14:17Z",
-          "image_url": "https://pbs.twimg.com/media/HR5Q5q8WEAAtdUO.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HR5Q5q8WEAAtdUO.jpg",
-          "heat_contribution": 6.9075,
-          "metrics": {
-            "likes": 1651,
-            "retweets": 222,
-            "replies": 1,
-            "quotes": 0,
-            "views": 12152,
             "bookmarks": 0
           }
         }
