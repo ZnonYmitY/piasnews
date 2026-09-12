@@ -53,6 +53,8 @@ test("both modes receive Friday sessions and timezone in one generation, with no
     const result = await exercise({ body: { mode }, model(runtime, input) {
       assert.equal(runtime.TEMPORAL_CONTEXT.local_date, "2026-09-11");
       assert.equal(runtime.TEMPORAL_CONTEXT.time_zone, "Asia/Shanghai");
+      assert.equal(runtime.TEMPORAL_CONTEXT.time_zone_label, "Beijing time / 北京时间");
+      assert.match(input.messages[0].content, /not the circuit's location/);
       assert.deepEqual(runtime.TEMPORAL_CONTEXT.today_sessions.map((s) => s.session), ["practice_1", "practice_2"]);
       assert.deepEqual(runtime.TEMPORAL_CONTEXT.today_sessions.map((s) => s.local_time), ["19:30", "23:00"]);
       const knowledge = runtime.RETRIEVED_KNOWLEDGE_CONTEXT;

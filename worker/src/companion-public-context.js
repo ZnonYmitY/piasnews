@@ -115,7 +115,7 @@ function buildCalendar(data, sourceStatus, nowMs, timeZone, publicSources) {
   const clock = (ms) => localClock(ms, formatter);
   const today = clock(nowMs);
   const temporal = {
-    now_utc: new Date(nowMs).toISOString(), time_zone: timeZone, ...today,
+    now_utc: new Date(nowMs).toISOString(), time_zone: timeZone, time_zone_label: timeZone === "Asia/Shanghai" ? "Beijing time / 北京时间" : timeZone, ...today,
     status: sourceStatus.status, current_event: null, today_sessions: [], next_session: null, schedule_source_ids: [],
     interpretation: "Public schedule context, not Oscar's personal calendar. A scheduled start being reached does not establish actual start, live status or completion. An empty day is only no listed F1 session in this calendar, not proof that nothing special is happening.",
   };
