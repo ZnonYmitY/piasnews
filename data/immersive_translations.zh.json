@@ -1,31 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-12T14:20:23.563389Z",
+  "generated_at": "2026-09-12T16:58:57.745751Z",
   "translations": {
-    "items:piasnews-d09636fb895600fa:title:177ecbcf8b155a380eba5277": {
-      "dataset": "items",
-      "item_id": "piasnews-d09636fb895600fa",
-      "field": "title",
-      "target_field": "title_zh",
-      "source_text": "Oscar Piastri admits Lando Norris has now exposed his biggest problem at McLaren this season",
-      "zh": "Oscar Piastri承认Lando Norris本赛季暴露了他在McLaren最大的问题",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-09-04T15:11:01.355611Z"
-    },
-    "items:piasnews-d09636fb895600fa:summary:0d864a8260f8519601fd9ae1": {
-      "dataset": "items",
-      "item_id": "piasnews-d09636fb895600fa",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "Quote or interview-related item discovered from public news metadata.",
-      "zh": "从公开新闻元数据中发现的引述或采访相关项目。",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-09-04T15:11:01.355670Z"
-    },
     "items:piasnews-db1d4bcabd5cd670:title:3624802d6402ba1632ebb5b5": {
       "dataset": "items",
       "item_id": "piasnews-db1d4bcabd5cd670",
@@ -5065,6 +5041,126 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-12T14:20:22.942349Z"
+    },
+    "items:piasnews-e5fde135a8c9a072:title:a5a5e406b7c51210a4f1fdfe": {
+      "dataset": "items",
+      "item_id": "piasnews-e5fde135a8c9a072",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "In Spain, Piastri says wins will help prepare for 2027 title fight",
+      "zh": "Piastri在西班牙表示，胜利将有助于为2027年冠军争夺做准备",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-12T16:58:57.117611Z"
+    },
+    "items:piasnews-e5fde135a8c9a072:summary:0d864a8260f8519601fd9ae1": {
+      "dataset": "items",
+      "item_id": "piasnews-e5fde135a8c9a072",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Quote or interview-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的引述或采访相关内容。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-12T16:58:57.117617Z"
+    },
+    "items:piasnews-d0e5b0624665c17c:title:ee736dcfb40dca0d032dae48": {
+      "dataset": "items",
+      "item_id": "piasnews-d0e5b0624665c17c",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "‘Pretty shocking’: Piastri left frustrated by Spanish qualifying",
+      "zh": "“相当震惊”：Piastri对西班牙排位赛感到沮丧",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-12T16:58:57.117620Z"
+    },
+    "items:piasnews-d0e5b0624665c17c:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-d0e5b0624665c17c",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或表现相关内容。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-12T16:58:57.117622Z"
+    },
+    "items:piasnews-21c5f03ad815adf7:title:bfb20ecb2afcac881283a1a6": {
+      "dataset": "items",
+      "item_id": "piasnews-21c5f03ad815adf7",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri still hoping to win races to set up 2027 title bid",
+      "zh": "Piastri仍希望赢得比赛，为2027年冠军争夺奠定基础",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-12T16:58:57.117625Z"
+    },
+    "items:piasnews-21c5f03ad815adf7:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-21c5f03ad815adf7",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或表现相关内容。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-12T16:58:57.117627Z"
+    },
+    "items:piasnews-cff9e451e638e2d6:title:a30a7b562f47f6c667b04773": {
+      "dataset": "items",
+      "item_id": "piasnews-cff9e451e638e2d6",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri Eyes Future Victories Amidst Current Challenges",
+      "zh": "Oscar Piastri在当前挑战中展望未来胜利",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-12T16:58:57.117631Z"
+    },
+    "items:piasnews-cff9e451e638e2d6:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-cff9e451e638e2d6",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车表现相关内容。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-12T16:58:57.117637Z"
+    },
+    "items:piasnews-2d6a5ac74c5d85f2:title:fb78f9432923e465b7a11851": {
+      "dataset": "items",
+      "item_id": "piasnews-2d6a5ac74c5d85f2",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "F1-Oscar Piastri-McLaren-2026-Spanish Grand Prix",
+      "zh": "F1-Oscar Piastri-McLaren-2026-西班牙大奖赛",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-12T16:58:57.117641Z"
+    },
+    "items:piasnews-2d6a5ac74c5d85f2:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-2d6a5ac74c5d85f2",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或表现相关内容。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-12T16:58:57.117643Z"
     }
   },
   "retention_days": 8

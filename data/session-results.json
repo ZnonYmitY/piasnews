@@ -1,33 +1,40 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-12T14:16:54.708152Z",
+  "generated_at": "2026-09-12T16:54:40.317965Z",
   "driver_number": 81,
   "source": "OpenF1 session_result",
-  "attempted_session_ref": "2026-round-14:practice_3",
-  "result_available": false,
+  "attempted_session_ref": "2026-round-14:qualifying",
+  "result_available": true,
   "latest": {
-    "session_ref": "2026-round-14:practice_2",
+    "session_ref": "2026-round-14:qualifying",
     "race_id": "2026-round-14",
     "race_name": "Spanish Grand Prix",
     "race_name_zh": "西班牙大奖赛",
-    "session": "practice_2",
-    "session_name": "Practice 2",
-    "session_key": 11363,
-    "session_start": "2026-09-11T15:00:00Z",
-    "session_end": "2026-09-11T16:00:00+00:00",
+    "session": "qualifying",
+    "session_name": "Qualifying",
+    "session_key": 11365,
+    "session_start": "2026-09-12T14:00:00Z",
+    "session_end": "2026-09-12T15:00:00+00:00",
     "driver_number": 81,
     "position": 7,
     "status": "classified",
     "dnf": false,
     "dns": false,
     "dsq": false,
-    "number_of_laps": 24,
-    "gap_to_leader": 0.538,
-    "duration": 94.2,
+    "number_of_laps": 22,
+    "gap_to_leader": [
+      0.618,
+      0.773,
+      0.47
+    ],
+    "duration": [
+      93.829,
+      93.204,
+      92.294
+    ],
     "source": "OpenF1",
-    "source_url": "https://api.openf1.org/v1/session_result?session_key=11363&driver_number=81",
-    "fetched_at": "2026-09-11T17:51:35.722656Z",
-    "first_ranked_at": "2026-09-11T17:51:35.722656Z"
-  },
-  "last_error": "openf1_http_401_live_access_requires_auth"
+    "source_url": "https://api.openf1.org/v1/session_result?session_key=11365&driver_number=81",
+    "fetched_at": "2026-09-12T16:54:40.317965Z",
+    "first_ranked_at": "2026-09-12T16:54:40.317965Z"
+  }
 }
