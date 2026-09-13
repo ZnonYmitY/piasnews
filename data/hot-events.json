@@ -1,19 +1,19 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-13T13:18:03.678775Z",
+  "generated_at": "2026-09-13T16:25:21.005918Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
   "event_count": 10,
   "events": [
     {
-      "event_id": "evt-session-result-2026-round-14-qualifying",
+      "event_id": "evt-session-result-2026-round-14-race",
       "rule_id": null,
-      "hot_word_zh": "Oscar 在西班牙站排位赛获得第7名",
-      "hot_word_en": "Oscar qualifies P7 for the Spanish Grand Prix",
-      "first_seen_at": "2026-09-12T16:54:40.317965Z",
-      "last_seen_at": "2026-09-12T16:54:40.317965Z",
-      "anchor_item_id": "session-result-2026-round-14-qualifying",
+      "hot_word_zh": "Oscar 在西班牙站正赛获得第8名",
+      "hot_word_en": "Oscar finishes P8 in the Spanish Grand Prix",
+      "first_seen_at": "2026-09-13T16:22:23.678151Z",
+      "last_seen_at": "2026-09-13T16:22:23.678151Z",
+      "anchor_item_id": "session-result-2026-round-14-race",
       "image_url": null,
       "video_url": null,
       "video_poster_url": null,
@@ -36,24 +36,24 @@
       "hard_rule": {
         "type": "session_result",
         "race_id": "2026-round-14",
-        "session": "qualifying",
-        "position": 7,
+        "session": "race",
+        "position": 8,
         "status": "classified",
-        "source_item_id": "session-result-2026-round-14-qualifying",
+        "source_item_id": "session-result-2026-round-14-race",
         "source": "OpenF1"
       },
       "items": [
         {
-          "item_id": "session-result-2026-round-14-qualifying",
+          "item_id": "session-result-2026-round-14-race",
           "dataset": "session_result",
           "source_type": "media",
           "source": "OpenF1",
-          "title": "Oscar qualifies P7 for the Spanish Grand Prix",
-          "title_zh": "Oscar 在西班牙站排位赛获得第7名",
+          "title": "Oscar finishes P8 in the Spanish Grand Prix",
+          "title_zh": "Oscar 在西班牙站正赛获得第8名",
           "summary": "Structured session result for Oscar Piastri.",
           "summary_zh": "Oscar Piastri 的结构化场次成绩。",
-          "url": "https://api.openf1.org/v1/session_result?session_key=11365&driver_number=81",
-          "published_at": "2026-09-12T16:54:40.317965Z",
+          "url": "https://api.openf1.org/v1/session_result?session_key=11369&driver_number=81",
+          "published_at": "2026-09-13T16:22:23.678151Z",
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
@@ -211,7 +211,7 @@
           "image_url": "https://f1i.com/wp-content/uploads/2026/09/XPB_1436505_1200px.jpg",
           "video_url": null,
           "video_poster_url": "https://f1i.com/wp-content/uploads/2026/09/XPB_1436505_1200px.jpg",
-          "heat_contribution": 1.0,
+          "heat_contribution": 0.75,
           "metrics": {}
         },
         {
@@ -228,7 +228,24 @@
           "image_url": "https://f1i.com/wp-content/uploads/2026/09/XPB_1436505_1200px.jpg",
           "video_url": null,
           "video_poster_url": "https://f1i.com/wp-content/uploads/2026/09/XPB_1436505_1200px.jpg",
-          "heat_contribution": 1.0,
+          "heat_contribution": 0.75,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-6009dc6215d34dc7",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "F1 Oversteer",
+          "title": "Lando Norris and Andrea Stella agree about McLaren after Oscar Piastri struggled at Spanish GP",
+          "title_zh": "Oscar Piastri在西班牙大奖赛表现挣扎后，Lando Norris和Andrea Stella对McLaren看法一致",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+          "url": "https://www.f1oversteer.com/news/lando-norris-and-andrea-stella-agree-about-mclaren-after-oscar-piastri-struggled-at-spanish-gp/",
+          "published_at": "2026-09-13T08:00:00Z",
+          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2294680399-scaled.jpg",
+          "video_url": null,
+          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2294680399-scaled.jpg",
+          "heat_contribution": 0.75,
           "metrics": {}
         },
         {
@@ -347,7 +364,7 @@
           "image_url": "https://www.total-motorsport.com/wp-content/uploads/2026/07/2287710415.webp",
           "video_url": null,
           "video_poster_url": "https://www.total-motorsport.com/wp-content/uploads/2026/07/2287710415.webp",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -364,7 +381,7 @@
           "image_url": "https://motorcyclesports.net/wp-content/uploads/2026/09/george-russell-dominates-spanish-grand-prix-practice-as-tsunoda-and-piastri-face-issues.jpg",
           "video_url": null,
           "video_poster_url": "https://motorcyclesports.net/wp-content/uploads/2026/09/george-russell-dominates-spanish-grand-prix-practice-as-tsunoda-and-piastri-face-issues.jpg",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -454,15 +471,15 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 61,
+      "media_heat": 60,
       "fan_heat": 0,
-      "heat": 61,
+      "heat": 60,
       "source_labels": [
         "媒"
       ],
       "source_counts": {
         "official": 0,
-        "media": 14,
+        "media": 15,
         "fan": 0
       },
       "pinned_rank": null,
@@ -576,7 +593,7 @@
           "image_url": "https://pbs.twimg.com/media/HSFScI0XoA8CX-T.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HSFScI0XoA8CX-T.jpg",
-          "heat_contribution": 6.6217,
+          "heat_contribution": 6.3345,
           "metrics": {
             "likes": 578,
             "retweets": 50,
@@ -589,8 +606,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 55,
-      "heat": 55,
+      "fan_heat": 54,
+      "heat": 54,
       "source_labels": [
         "粉"
       ],
@@ -769,61 +786,6 @@
       "rank": 8
     },
     {
-      "event_id": "evt-2026-09-12-0c003bc57f9d",
-      "rule_id": null,
-      "hot_word_zh": "问：你如何评价Q3？\"我觉得第一圈还不错，但第二圈说实话相当糟糕。是的，令人失望。1号弯开…",
-      "hot_word_en": "Q: How do you assess Q3 in particular? \"I think the first lap wasn't too bad but the second lap…",
-      "first_seen_at": "2026-09-12T15:42:49Z",
-      "last_seen_at": "2026-09-12T15:42:49Z",
-      "anchor_item_id": "piasnews-social-040131e285214328",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2098799423559995400/vid/avc1/320x320/uuCtqkxJ_DtU65PY.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098799423559995400/img/x3F1X8HWtMf8oich.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-040131e285214328",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@oscarsspiastree",
-          "title": "X post from @oscarsspiastree: Q: How do you assess Q3 in particular? \"I think the first lap wasn't too bad but the second lap…",
-          "title_zh": "X 发帖 @oscarsspiastree：问：你如何评价Q3？\"我觉得第一圈还不错，但第二圈说实话相当糟糕。是的，令人失望。1号弯开局不太好，有几个地方比上一圈好很多，但一旦你在这里失去节奏，生活就会变得非常艰难。不是一场好的比赛。我觉得速度一直还算合理。关键是要努力保持稳定，不幸的是，这就是那种你希望能再来一次的比赛。\"",
-          "summary": "Q: How do you assess Q3 in particular? \"I think the first lap wasn't too bad but the second lap was pretty shocking, to be honest. Yeah, disappointing. Turn 1 didn't start very well and a few places were quite a lot better than the lap before but once you get out of the rhythm here, it makes life very tough. Not a great session. I feel like the pace has been reasonable. It's just been about trying to be there consistently and it's unfortunately one of those sessions where you just wish you could have it again.\"",
-          "summary_zh": "问：你如何评价Q3？\"我觉得第一圈还不错，但第二圈说实话相当糟糕。是的，令人失望。1号弯开局不太好，有几个地方比上一圈好很多，但一旦你在这里失去节奏，生活就会变得非常艰难。不是一场好的比赛。我觉得速度一直还算合理。关键是要努力保持稳定，不幸的是，这就是那种你希望能再来一次的比赛。\"",
-          "url": "https://x.com/oscarsspiastree/status/2098799498973651065",
-          "published_at": "2026-09-12T15:42:49Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2098799423559995400/vid/avc1/320x320/uuCtqkxJ_DtU65PY.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098799423559995400/img/x3F1X8HWtMf8oich.jpg",
-          "heat_contribution": 6.8207,
-          "metrics": {
-            "likes": 781,
-            "retweets": 91,
-            "replies": 0,
-            "quotes": 0,
-            "views": 25784,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 36,
-      "heat": 36,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 9
-    },
-    {
       "event_id": "evt-2026-09-12-3417fb364979",
       "rule_id": null,
       "hot_word_zh": "排位赛后一位McLaren车队成员拍了拍Oscar的背，Oscar回以一个大拇指 🫶🏻",
@@ -866,6 +828,61 @@
       "media_heat": 0,
       "fan_heat": 36,
       "heat": 36,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "event_id": "evt-2026-09-12-b7cb1b30e9e2",
+      "rule_id": null,
+      "hot_word_zh": "Oscar 周五和他的团队一起大笑 🥹🫶🏻 🎥：aroahere",
+      "hot_word_en": "oscar laughing with his crew on friday 🥹🫶🏻 🎥: aroahere",
+      "first_seen_at": "2026-09-12T17:55:02Z",
+      "last_seen_at": "2026-09-12T17:55:02Z",
+      "anchor_item_id": "piasnews-social-3b6f59fff31143cf",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2098832753160777728/vid/avc1/320x568/bFhAitWwkasYowtW.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098832753160777728/img/hCri1BZCOb8DZoaT.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-3b6f59fff31143cf",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar laughing with his crew on friday 🥹🫶🏻 🎥: aroahere",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar 周五和他的团队一起大笑 🥹🫶🏻 🎥：aroahere",
+          "summary": "oscar laughing with his crew on friday 🥹🫶🏻 🎥: aroahere https://t.co/GGZlt7SPkK",
+          "summary_zh": "Oscar 周五和他的团队一起大笑 🥹🫶🏻 🎥：aroahere",
+          "url": "https://x.com/laurogeitabat/status/2098832775445106933",
+          "published_at": "2026-09-12T17:55:02Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2098832753160777728/vid/avc1/320x568/bFhAitWwkasYowtW.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2098832753160777728/img/hCri1BZCOb8DZoaT.jpg",
+          "heat_contribution": 6.5858,
+          "metrics": {
+            "likes": 769,
+            "retweets": 57,
+            "replies": 0,
+            "quotes": 0,
+            "views": 8194,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 35,
+      "heat": 35,
       "source_labels": [
         "粉"
       ],

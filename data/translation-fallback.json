@@ -1,11 +1,21 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-12T14:20:23.631703Z",
+  "generated_at": "2026-09-13T16:25:19.890051Z",
   "status": "action_required",
-  "pending_count": 3,
+  "pending_count": 4,
   "ignored_non_text_count": 1,
   "workbench_path": "../immersive/translation-workbench.html",
   "items": [
+    {
+      "key": "items:piasnews-365124e54c310929:title:f45b4fab67fa01141cc442d4",
+      "dataset": "items",
+      "item_id": "piasnews-365124e54c310929",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri, McLaren, Madring, 2026",
+      "source_url": "https://www.racefans.net/2026/09/11/first-pictures-formula-1-cars-in-action-at-the-new-madring/f1-grand-prix-of-spain-practice-83/",
+      "source_name": "RaceFans",
+      "reason": "llm_mapping_missing"
+    },
     {
       "key": "items:piasnews-bbf590767bf1eab1:title:f45b4fab67fa01141cc442d4",
       "dataset": "items",

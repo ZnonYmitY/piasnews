@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T13:18:03.571157Z",
+  "generated_at": "2026-09-13T16:25:20.890695Z",
   "schema_version": 1,
   "description": "History candidates awaiting or recording human review decisions.",
   "candidates": [
@@ -1027,6 +1027,83 @@
           "still_hoping_win_races_set_up"
         ],
         "embedding_text": "Piastri still hoping to win races to set up 2027 title bid. Race-week or performance-related item discovered from public news metadata."
+      },
+      "tags": [
+        "Oscar Piastri",
+        "McLaren",
+        "F1",
+        "race_win"
+      ]
+    },
+    {
+      "id": "piastri-2026-09-13-auto-abb4d1d44c",
+      "date": "2026-09-13",
+      "month_day": "09-13",
+      "year": 2026,
+      "title": "Piastri hit twice on first lap, Antonelli wins thanks to safety car luck",
+      "title_zh": null,
+      "summary": "Team or car-performance item discovered from public news metadata.",
+      "summary_zh": null,
+      "type": "race_win",
+      "source": "ABC News & Headlines – Australian Broadcasting Corporation",
+      "url": "https://www.abc.net.au/news/2026-09-14/f1-spanish-grand-prix-piastri-eighth-antonelli-wins/106998642",
+      "verification": {
+        "status": "needs_review",
+        "source_type": "media",
+        "primary_source": false
+      },
+      "candidate": {
+        "status": "pending",
+        "score": 80,
+        "signals": [
+          "race_win",
+          "record_or_first"
+        ],
+        "source_count": 1,
+        "sources": [
+          "ABC News & Headlines – Australian Broadcasting Corporation"
+        ],
+        "source_item_ids": [
+          "piasnews-124eb9f3af32612f"
+        ],
+        "discovered_at": "2026-09-13T16:25:20.890695Z",
+        "origin": "deterministic_recent_news_rules",
+        "reviewed_at": null,
+        "reviewed_by": null,
+        "decision_reason": null
+      },
+      "selection": {
+        "review_status": "pending",
+        "include": null,
+        "historical_value": 85,
+        "peak_attention": null,
+        "lasting_significance": null,
+        "career_impact": null,
+        "fan_recognition": null,
+        "inclusion_reason": "Automatically nominated from signals: race_win, record_or_first.",
+        "inclusion_reason_zh": null
+      },
+      "semantic": {
+        "event_kind": "race_win",
+        "themes": [
+          "race_win",
+          "record_or_first"
+        ],
+        "entities": [
+          "Oscar Piastri",
+          "McLaren"
+        ],
+        "competition": "Formula 1",
+        "season": 2026,
+        "round": null,
+        "circuit": null,
+        "session": null,
+        "outcome": "Piastri hit twice on first lap, Antonelli wins thanks to safety car luck",
+        "strong_keys": [
+          "race_win",
+          "hit_twice_first_lap_antonelli_wins"
+        ],
+        "embedding_text": "Piastri hit twice on first lap, Antonelli wins thanks to safety car luck. Team or car-performance item discovered from public news metadata."
       },
       "tags": [
         "Oscar Piastri",
