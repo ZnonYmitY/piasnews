@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T20:52:40.855620Z",
+  "generated_at": "2026-09-13T13:18:03.571157Z",
   "schema_version": 1,
   "description": "History candidates awaiting or recording human review decisions.",
   "candidates": [
@@ -947,6 +947,86 @@
           "norris_wins_again_as_struggles_pace"
         ],
         "embedding_text": "Norris Wins Again as Piastri Struggles with Pace at Zandvoort. Team or car-performance item discovered from public news metadata."
+      },
+      "tags": [
+        "Oscar Piastri",
+        "McLaren",
+        "F1",
+        "race_win"
+      ]
+    },
+    {
+      "id": "piastri-2026-09-12-auto-fa50c80cb1",
+      "date": "2026-09-12",
+      "month_day": "09-12",
+      "year": 2026,
+      "title": "Piastri still hoping to win races to set up 2027 title bid",
+      "title_zh": null,
+      "summary": "Race-week or performance-related item discovered from public news metadata.",
+      "summary_zh": null,
+      "type": "race_win",
+      "source": "Cyprus Mail",
+      "url": "https://cyprus-mail.com/2026/09/12/piastri-still-hoping-to-win-races-to-set-up-2027-title-bid",
+      "verification": {
+        "status": "needs_review",
+        "source_type": "media",
+        "primary_source": false
+      },
+      "candidate": {
+        "status": "pending",
+        "score": 75,
+        "signals": [
+          "race_win",
+          "coverage_3_plus_sources"
+        ],
+        "source_count": 3,
+        "sources": [
+          "Cyprus Mail",
+          "Sportstar",
+          "The Straits Times"
+        ],
+        "source_item_ids": [
+          "piasnews-21c5f03ad815adf7",
+          "piasnews-69c1155f678c346b",
+          "piasnews-71e7a828de25520a"
+        ],
+        "discovered_at": "2026-09-13T13:18:03.571157Z",
+        "origin": "deterministic_recent_news_rules",
+        "reviewed_at": null,
+        "reviewed_by": null,
+        "decision_reason": null
+      },
+      "selection": {
+        "review_status": "pending",
+        "include": null,
+        "historical_value": 70,
+        "peak_attention": null,
+        "lasting_significance": null,
+        "career_impact": null,
+        "fan_recognition": null,
+        "inclusion_reason": "Automatically nominated from signals: race_win, coverage_3_plus_sources.",
+        "inclusion_reason_zh": null
+      },
+      "semantic": {
+        "event_kind": "race_win",
+        "themes": [
+          "race_win"
+        ],
+        "entities": [
+          "Oscar Piastri",
+          "McLaren"
+        ],
+        "competition": "Formula 1",
+        "season": 2026,
+        "round": null,
+        "circuit": null,
+        "session": null,
+        "outcome": "Piastri still hoping to win races to set up 2027 title bid",
+        "strong_keys": [
+          "race_win",
+          "still_hoping_win_races_set_up"
+        ],
+        "embedding_text": "Piastri still hoping to win races to set up 2027 title bid. Race-week or performance-related item discovered from public news metadata."
       },
       "tags": [
         "Oscar Piastri",

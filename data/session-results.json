@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-12T16:54:40.317965Z",
+  "generated_at": "2026-09-13T13:14:45.448608Z",
   "driver_number": 81,
   "source": "OpenF1 session_result",
   "attempted_session_ref": "2026-round-14:qualifying",
-  "result_available": true,
+  "result_available": false,
   "latest": {
     "session_ref": "2026-round-14:qualifying",
     "race_id": "2026-round-14",
@@ -36,5 +36,6 @@
     "source_url": "https://api.openf1.org/v1/session_result?session_key=11365&driver_number=81",
     "fetched_at": "2026-09-12T16:54:40.317965Z",
     "first_ranked_at": "2026-09-12T16:54:40.317965Z"
-  }
+  },
+  "last_error": "openf1_http_401_live_access_requires_auth"
 }
