@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-15T15:27:28.503888Z",
+  "generated_at": "2026-09-15T23:42:25.077982Z",
   "translations": {
     "items:piasnews-b6e94b14244991d9:title:8f2459777c84fc35217be6e4": {
       "dataset": "items",
@@ -4669,6 +4669,138 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-15T15:27:27.592691Z"
+    },
+    "items:piasnews-f05d904ca8b3a695:title:1869f2a230a82808e5543e05": {
+      "dataset": "items",
+      "item_id": "piasnews-f05d904ca8b3a695",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Andrea Stella: McLaren must help Oscar Piastri stop \"thinking\" about how to drive '26 F1 car",
+      "zh": "Andrea Stella：McLaren必须帮助Oscar Piastri停止“思考”如何驾驶'26 F1赛车",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-15T23:42:24.131526Z"
+    },
+    "items:piasnews-f05d904ca8b3a695:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-f05d904ca8b3a695",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-15T23:42:24.131535Z"
+    },
+    "items:piasnews-cbb15dbcae09ef9f:title:8a0a6f9ed33900588954d5b3": {
+      "dataset": "items",
+      "item_id": "piasnews-cbb15dbcae09ef9f",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "F1 star issues Zak Brown apology after getting it badly wrong about Oscar Piastri",
+      "zh": "F1明星就Oscar Piastri一事严重判断失误后向Zak Brown道歉",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-15T23:42:24.131540Z"
+    },
+    "items:piasnews-cbb15dbcae09ef9f:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-cbb15dbcae09ef9f",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-15T23:42:24.131544Z"
+    },
+    "items:piasnews-ee83cc6768284a6e:title:48f8466e4e8450aef6c239f8": {
+      "dataset": "items",
+      "item_id": "piasnews-ee83cc6768284a6e",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri's McLaren engineer admits he had an 'impossible' problem at the Spanish Grand Prix",
+      "zh": "Oscar Piastri的McLaren工程师承认他在西班牙大奖赛遇到了一个“不可能”的问题",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-15T23:42:24.131548Z"
+    },
+    "items:piasnews-ee83cc6768284a6e:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-ee83cc6768284a6e",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-15T23:42:24.131551Z"
+    },
+    "items:piasnews-53bea05e360ac5ae:title:6b05251112f48226cb500ef2": {
+      "dataset": "items",
+      "item_id": "piasnews-53bea05e360ac5ae",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Zak Brown offered apology by ex-F1 driver after Oscar Piastri comment claim",
+      "zh": "前F1车手就Oscar Piastri言论一事向Zak Brown道歉",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-15T23:42:24.131555Z"
+    },
+    "items:piasnews-53bea05e360ac5ae:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-53bea05e360ac5ae",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-15T23:42:24.131561Z"
+    },
+    "items:piasnews-d491d13cda7125e1:title:ab44c70fa293c3101c799275": {
+      "dataset": "items",
+      "item_id": "piasnews-d491d13cda7125e1",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri describes Spanish GP as “painful” after challenging F1 outing",
+      "zh": "Oscar Piastri在艰难的F1比赛后将西班牙大奖赛描述为“痛苦”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-15T23:42:24.131566Z"
+    },
+    "items:piasnews-d491d13cda7125e1:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-d491d13cda7125e1",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-15T23:42:24.131569Z"
+    },
+    "social:piasnews-social-66e2d6cc2958e631:summary:9a95927af68760f508bd45f7": {
+      "dataset": "social",
+      "item_id": "piasnews-social-66e2d6cc2958e631",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "\"fashion\" and it's oscar wearing a plain white tshirt bless him 😭🙏🏻",
+      "zh": "“时尚”，结果就是 Oscar 穿了件纯白T恤，天哪他 😭🙏🏻",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-15T23:42:24.131572Z"
     }
   },
   "retention_days": 8
