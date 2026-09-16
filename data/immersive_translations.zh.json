@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-15T23:42:25.077982Z",
+  "generated_at": "2026-09-16T03:10:50.651385Z",
   "translations": {
     "items:piasnews-b6e94b14244991d9:title:8f2459777c84fc35217be6e4": {
       "dataset": "items",
@@ -4801,6 +4801,54 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-15T23:42:24.131572Z"
+    },
+    "items:piasnews-5004994a3883ed84:title:4c12bc0d672a011ed182755a": {
+      "dataset": "items",
+      "item_id": "piasnews-5004994a3883ed84",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "F1 news: McLaren identifies key Oscar Piastri weakness",
+      "zh": "F1新闻：McLaren指出Oscar Piastri的关键弱点",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-16T03:10:49.945221Z"
+    },
+    "items:piasnews-5004994a3883ed84:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-5004994a3883ed84",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-16T03:10:49.945228Z"
+    },
+    "items:piasnews-f7279f3d0c3ec393:title:d50afe1feeb6a203e7fb8a06": {
+      "dataset": "items",
+      "item_id": "piasnews-f7279f3d0c3ec393",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri salvages silver ling despite Madrid misery",
+      "zh": "尽管在马德里遭遇困境，Piastri仍抢下银牌",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-16T03:10:49.945232Z"
+    },
+    "items:piasnews-f7279f3d0c3ec393:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-f7279f3d0c3ec393",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-16T03:10:49.945235Z"
     }
   },
   "retention_days": 8
