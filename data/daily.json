@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-09-16T18:36:01.864619Z",
+  "generated_at": "2026-09-16T22:01:22.168605Z",
   "window_days": 7,
   "total_items": 97,
   "latest_date": "2026-09-16",
   "days": [
     {
       "date": "2026-09-16",
-      "total_new_items": 6,
+      "total_new_items": 7,
       "official_new_items": 0,
-      "media_new_items": 6,
+      "media_new_items": 7,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
-        "F1 Oversteer": 1,
+        "F1 Oversteer": 2,
         "Grandprix.com": 1,
         "Kalkine": 1,
         "PlanetF1": 1,
@@ -21,7 +21,7 @@
       },
       "categories": {
         "race": 1,
-        "team": 5
+        "team": 6
       }
     },
     {
@@ -68,11 +68,11 @@
         "PlanetF1": 2,
         "Read Motorsport": 2,
         "SPEEDWEEK.com": 1,
-        "The Race": 1,
         "express.co.uk": 1,
         "f1i.autojournal.fr": 1,
         "f1ingenerale.com": 1,
-        "gpfans.com": 1
+        "gpfans.com": 1,
+        "the-race.com": 1
       },
       "categories": {
         "interview": 4,
@@ -190,20 +190,6 @@
         "race": 1,
         "team": 4
       }
-    },
-    {
-      "date": "2026-09-09",
-      "total_new_items": 1,
-      "official_new_items": 0,
-      "media_new_items": 1,
-      "x_new_items": 0,
-      "rumor_new_items": 0,
-      "sources": {
-        "Paddock News 24": 1
-      },
-      "categories": {
-        "team": 1
-      }
     }
   ],
   "feed_status": [
@@ -233,14 +219,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 54
+      "items": 45
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 35
+      "items": 34
     },
     {
       "query": "\"OP81\" when:3d",
@@ -261,7 +247,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 29
+      "items": 25
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -273,13 +259,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 51,
-      "kept": 42,
+      "checked": 42,
+      "kept": 33,
       "results": {
-        "outside_window": 2,
-        "publisher_date_missing": 5,
+        "outside_window": 4,
+        "publisher_date_missing": 3,
         "publisher_unavailable": 2,
-        "verified": 42
+        "verified": 33
       }
     },
     {

@@ -1,11 +1,162 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-16T18:39:13.675318Z",
+  "generated_at": "2026-09-16T22:04:09.167111Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
   "event_count": 10,
   "events": [
+    {
+      "event_id": "evt-2026-09-16-7e3c651a8734",
+      "rule_id": null,
+      "hot_word_zh": "他们竟然让 OSCAR 来组织 McLAREN 时装秀 😭😭😭😭",
+      "hot_word_en": "THEY'VE GOT OSCAR ORGANIZING THE MCLAREN FASHION SHOW 😭😭😭😭",
+      "first_seen_at": "2026-09-16T16:13:38Z",
+      "last_seen_at": "2026-09-16T21:08:59Z",
+      "anchor_item_id": "piasnews-social-6632ba2c51a1e4e0",
+      "image_url": "https://pbs.twimg.com/media/HSXd-OiW8AAobV-.jpg",
+      "video_url": "https://video.twimg.com/amplify_video/2100256754906849280/vid/avc1/320x568/Gr1W1iCHdBSwf9Dy.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100256754906849280/img/E4wwPTpqdfHoeF6X.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-6632ba2c51a1e4e0",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: THEY'VE GOT OSCAR ORGANIZING THE MCLAREN FASHION SHOW 😭😭😭😭",
+          "title_zh": "X 发帖 @laurogeitabat：他们竟然让 OSCAR 来组织 McLAREN 时装秀 😭😭😭😭",
+          "summary": "THEY'VE GOT OSCAR ORGANIZING THE MCLAREN FASHION SHOW 😭😭😭😭 https://t.co/vX4OeCiGHJ",
+          "summary_zh": "他们竟然让 OSCAR 来组织 McLAREN 时装秀 😭😭😭😭",
+          "url": "https://x.com/laurogeitabat/status/2100256806152835473",
+          "published_at": "2026-09-16T16:13:38Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2100256754906849280/vid/avc1/320x568/Gr1W1iCHdBSwf9Dy.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100256754906849280/img/E4wwPTpqdfHoeF6X.jpg",
+          "heat_contribution": 7.4006,
+          "metrics": {
+            "likes": 1321,
+            "retweets": 98,
+            "replies": 1,
+            "quotes": 0,
+            "views": 11601,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-4db6825a8f0bf51a",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: waitttt oscar and lando are at the mclaren fashion show!!",
+          "title_zh": "X 发帖 @laurogeitabat：等等 oscar 和 lando 在 mclaren 时装秀！！",
+          "summary": "waitttt oscar and lando are at the mclaren fashion show!! https://t.co/hanQWijCIK",
+          "summary_zh": "等等 oscar 和 lando 在 mclaren 时装秀！！",
+          "url": "https://x.com/laurogeitabat/status/2100320142873989360",
+          "published_at": "2026-09-16T20:25:18Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2100320116856537088/vid/avc1/320x516/6jvHG0qR8RyhAXFb.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100320116856537088/img/WWxkVYTTybK-C49R.jpg",
+          "heat_contribution": 7.2652,
+          "metrics": {
+            "likes": 1131,
+            "retweets": 76,
+            "replies": 1,
+            "quotes": 0,
+            "views": 14273,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-d8f5075e3d51a4e6",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: HELLO FASHION SHOW OSCAR",
+          "title_zh": "X 发帖 @laurogeitabat：你好 时装秀 OSCAR",
+          "summary": "HELLO FASHION SHOW OSCAR https://t.co/wgG5h5YLEM",
+          "summary_zh": "你好 时装秀 OSCAR",
+          "url": "https://x.com/laurogeitabat/status/2100328870901670149",
+          "published_at": "2026-09-16T20:59:59Z",
+          "image_url": "https://pbs.twimg.com/media/HSXd-OiW8AAobV-.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HSXd-OiW8AAobV-.jpg",
+          "heat_contribution": 6.5104,
+          "metrics": {
+            "likes": 527,
+            "retweets": 55,
+            "replies": 0,
+            "quotes": 0,
+            "views": 3411,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-0911ad242c6eb0e8",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: OSCAR AND LANDO AT THE MCLAREN FASHION SHOW",
+          "title_zh": "X 发帖 @laurogeitabat：OSCAR 和 LANDO 在 MCLAREN 时装秀",
+          "summary": "OSCAR AND LANDO AT THE MCLAREN FASHION SHOW https://t.co/c2GEXkvIUz",
+          "summary_zh": "OSCAR 和 LANDO 在 MCLAREN 时装秀",
+          "url": "https://x.com/laurogeitabat/status/2100331135201120747",
+          "published_at": "2026-09-16T21:08:59Z",
+          "image_url": "https://pbs.twimg.com/media/HSXgB92WIAAatpQ.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HSXgB92WIAAatpQ.jpg",
+          "heat_contribution": 5.9717,
+          "metrics": {
+            "likes": 303,
+            "retweets": 31,
+            "replies": 0,
+            "quotes": 0,
+            "views": 2616,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-b8aad9b0d9b1aacc",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: cute pic of oscar with a fan at the mclaren fashion show tonight! 📸: expiredfilmclub",
+          "title_zh": "X 发帖 @laurogeitabat：oscar 今晚在 mclaren 时装秀上和粉丝的可爱合照！📸：expiredfilmclub",
+          "summary": "cute pic of oscar with a fan at the mclaren fashion show tonight! 📸: expiredfilmclub https://t.co/xy67mXEGyK",
+          "summary_zh": "oscar 今晚在 mclaren 时装秀上和粉丝的可爱合照！📸：expiredfilmclub",
+          "url": "https://x.com/laurogeitabat/status/2100321735551627633",
+          "published_at": "2026-09-16T20:31:38Z",
+          "image_url": "https://pbs.twimg.com/media/HSXXe6iWsAAI21k.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HSXXe6iWsAAI21k.jpg",
+          "heat_contribution": 5.8331,
+          "metrics": {
+            "likes": 276,
+            "retweets": 13,
+            "replies": 1,
+            "quotes": 0,
+            "views": 3542,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 66,
+      "heat": 66,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 1
+    },
     {
       "event_id": "evt-2026-09-14-47c0dc5d1efb",
       "rule_id": null,
@@ -34,14 +185,14 @@
           "image_url": "https://pbs.twimg.com/media/HSMo7nuWEAA_FCy.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HSMo7nuWEAA_FCy.jpg",
-          "heat_contribution": 8.711,
+          "heat_contribution": 8.6953,
           "metrics": {
-            "likes": 21276,
-            "retweets": 2839,
+            "likes": 21285,
+            "retweets": 2841,
             "replies": 334,
-            "quotes": 247,
-            "views": 189204,
-            "bookmarks": 358
+            "quotes": 0,
+            "views": 189947,
+            "bookmarks": 0
           }
         },
         {
@@ -58,10 +209,10 @@
           "image_url": "https://pbs.twimg.com/media/HSMo7nuWEAA_FCy.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HSMo7nuWEAA_FCy.jpg",
-          "heat_contribution": 7.0178,
+          "heat_contribution": 7.0366,
           "metrics": {
             "likes": 0,
-            "retweets": 2788,
+            "retweets": 2841,
             "replies": 0,
             "quotes": 0,
             "views": 70,
@@ -84,46 +235,22 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 1
+      "rank": 2
     },
     {
-      "event_id": "evt-2026-09-16-aead04985071",
+      "event_id": "evt-2026-09-15-ba3ccb5fd4a5",
       "rule_id": null,
-      "hot_word_zh": "Oscar 在 MTC！",
-      "hot_word_en": "oscar at the mtc!",
+      "hot_word_zh": "OSCAR PIASTRI 由 _rosscooke_ 拍摄 ✨",
+      "hot_word_en": "OSCAR PIASTRI captured by _rosscooke_ ✨",
       "first_seen_at": "2026-09-10T22:09:05Z",
       "last_seen_at": "2026-09-16T12:54:23Z",
-      "anchor_item_id": "piasnews-social-642a03a05602dffe",
-      "image_url": "https://pbs.twimg.com/media/HSVu0VOXMAAc3HY.jpg",
+      "anchor_item_id": "piasnews-social-5a6cd71f037446b8",
+      "image_url": "https://pbs.twimg.com/media/HSPyXktWsAAYdAo.jpg",
       "video_url": "https://video.twimg.com/amplify_video/2099180402820702210/vid/avc1/296x270/mhDSF8oSHhIl6mkH.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/media/HSVu0VOXMAAc3HY.jpg",
+      "video_poster_url": "https://pbs.twimg.com/media/HSPyXktWsAAYdAo.jpg",
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
-        {
-          "item_id": "piasnews-social-642a03a05602dffe",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar at the mtc!",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar 在 MTC！",
-          "summary": "oscar at the mtc! https://t.co/oKhI8UEM9j",
-          "summary_zh": "Oscar 在 MTC！",
-          "url": "https://x.com/laurogeitabat/status/2100206663525412916",
-          "published_at": "2026-09-16T12:54:23Z",
-          "image_url": "https://pbs.twimg.com/media/HSVu0VOXMAAc3HY.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HSVu0VOXMAAc3HY.jpg",
-          "heat_contribution": 6.3621,
-          "metrics": {
-            "likes": 484,
-            "retweets": 32,
-            "replies": 0,
-            "quotes": 0,
-            "views": 3045,
-            "bookmarks": 15
-          }
-        },
         {
           "item_id": "piasnews-social-5a6cd71f037446b8",
           "dataset": "social",
@@ -138,14 +265,38 @@
           "image_url": "https://pbs.twimg.com/media/HSPyXktWsAAYdAo.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HSPyXktWsAAYdAo.jpg",
-          "heat_contribution": 6.3367,
+          "heat_contribution": 6.3347,
           "metrics": {
-            "likes": 961,
+            "likes": 964,
             "retweets": 112,
             "replies": 0,
-            "quotes": 3,
-            "views": 6221,
-            "bookmarks": 72
+            "quotes": 0,
+            "views": 6263,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-642a03a05602dffe",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar at the mtc!",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar 在 MTC！",
+          "summary": "oscar at the mtc! https://t.co/oKhI8UEM9j",
+          "summary_zh": "Oscar 在 MTC！",
+          "url": "https://x.com/laurogeitabat/status/2100206663525412916",
+          "published_at": "2026-09-16T12:54:23Z",
+          "image_url": "https://pbs.twimg.com/media/HSVu0VOXMAAc3HY.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HSVu0VOXMAAc3HY.jpg",
+          "heat_contribution": 6.1413,
+          "metrics": {
+            "likes": 516,
+            "retweets": 34,
+            "replies": 0,
+            "quotes": 0,
+            "views": 3420,
+            "bookmarks": 0
           }
         },
         {
@@ -162,14 +313,14 @@
           "image_url": "https://pbs.twimg.com/media/HSLHfw8aAAAA3CT.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HSLHfw8aAAAA3CT.jpg",
-          "heat_contribution": 6.0763,
+          "heat_contribution": 6.075,
           "metrics": {
-            "likes": 1734,
+            "likes": 1735,
             "retweets": 169,
             "replies": 0,
-            "quotes": 2,
-            "views": 9611,
-            "bookmarks": 94
+            "quotes": 0,
+            "views": 9628,
+            "bookmarks": 0
           }
         },
         {
@@ -186,14 +337,14 @@
           "image_url": "https://pbs.twimg.com/media/HSPA5q4XUAAY5lC.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HSPA5q4XUAAY5lC.jpg",
-          "heat_contribution": 5.1474,
+          "heat_contribution": 5.1612,
           "metrics": {
-            "likes": 308,
-            "retweets": 20,
+            "likes": 311,
+            "retweets": 21,
             "replies": 0,
             "quotes": 0,
-            "views": 3197,
-            "bookmarks": 10
+            "views": 3227,
+            "bookmarks": 0
           }
         },
         {
@@ -319,8 +470,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 59,
-      "heat": 59,
+      "fan_heat": 58,
+      "heat": 58,
       "source_labels": [
         "粉"
       ],
@@ -331,7 +482,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 2
+      "rank": 3
     },
     {
       "event_id": "evt-2026-09-14-be91a4639f94",
@@ -361,13 +512,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2099218652885307392/vid/avc1/320x568/_OoW5MREd8HAA4TR.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/media/HSHsluyWcAQ05ka.jpg",
-          "heat_contribution": 7.2529,
+          "heat_contribution": 7.2655,
           "metrics": {
-            "likes": 2047,
-            "retweets": 143,
+            "likes": 2060,
+            "retweets": 144,
             "replies": 37,
             "quotes": 0,
-            "views": 461204,
+            "views": 468675,
             "bookmarks": 0
           }
         }
@@ -386,61 +537,6 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 3
-    },
-    {
-      "event_id": "evt-2026-09-13-4382c95ef045",
-      "rule_id": null,
-      "hot_word_zh": "今天，我在 @CanalplusF1 上就 Zak Brown 昨天在 @F1 TV 采访…",
-      "hot_word_en": "Today, I made a comment on @CanalplusF1 regarding Zak Brown’s comments about Oscar Piastri duri…",
-      "first_seen_at": "2026-09-13T21:07:14Z",
-      "last_seen_at": "2026-09-13T21:07:14Z",
-      "anchor_item_id": "piasnews-social-24a2168829d2dd08",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-24a2168829d2dd08",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@oscarsspiastree",
-          "title": "X repost from @oscarsspiastree: Today, I made a comment on @CanalplusF1 regarding Zak Brown’s comments about Oscar Piastri duri…",
-          "title_zh": "X 转帖 @oscarsspiastree：今天，我在 @CanalplusF1 上就 Zak Brown 昨天在 @F1 TV 采访中关于 Oscar Piastri 的言论发表了评论，我当时也在场。我完全误解了他的话，为此道歉。我知道对 Zak 和整个 McLaren 车队来说，尊重他们的车手、公平平等地对待他们有多重要。McLaren 今天拥有最快的赛车，只是在 VSC 上运气不好。我相信 Lando 和 Oscar 在 Baku 都会再次有机会争夺胜利。",
-          "summary": "Today, I made a comment on @CanalplusF1 regarding Zak Brown’s comments about Oscar Piastri during an interview yesterday on @F1 TV, which I was part of. I completely misunderstood his words and want to apologise for that. I know how important it is to Zak and the entire McLaren team to respect their drivers and treat them fairly and equally. McLaren had the fastest car today and were unlucky with the VSC. I’m sure both Lando and Oscar will have another chance to fight for the win in Baku.",
-          "summary_zh": "今天，我在 @CanalplusF1 上就 Zak Brown 昨天在 @F1 TV 采访中关于 Oscar Piastri 的言论发表了评论，我当时也在场。我完全误解了他的话，为此道歉。我知道对 Zak 和整个 McLaren 车队来说，尊重他们的车手、公平平等地对待他们有多重要。McLaren 今天拥有最快的赛车，只是在 VSC 上运气不好。我相信 Lando 和 Oscar 在 Baku 都会再次有机会争夺胜利。",
-          "url": "https://x.com/RGrosjean/status/2099243529008472105",
-          "published_at": "2026-09-13T21:07:14Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 8.1737,
-          "metrics": {
-            "likes": 6743,
-            "retweets": 344,
-            "replies": 173,
-            "quotes": 521,
-            "views": 873581,
-            "bookmarks": 607
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 43,
-      "heat": 43,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
       "rank": 4
     },
     {
@@ -452,7 +548,7 @@
       "last_seen_at": "2026-09-15T10:19:28Z",
       "anchor_item_id": "piasnews-social-deecee2152dd98f7",
       "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2099805265696579584/vid/avc1/720x852/M82ob5C00SvXw3c_.mp4?tag=29",
+      "video_url": "https://video.twimg.com/amplify_video/2099805265696579584/vid/avc1/320x378/GOzN3qfKvKMK8KNN.mp4?tag=29",
       "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2099805265696579584/img/1clh7ALtkr--OHcu.jpg",
       "review_needed": false,
       "review_needed_reason": null,
@@ -469,16 +565,16 @@
           "url": "https://x.com/laurogeitabat/status/2099805291000832495",
           "published_at": "2026-09-15T10:19:28Z",
           "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2099805265696579584/vid/avc1/720x852/M82ob5C00SvXw3c_.mp4?tag=29",
+          "video_url": "https://video.twimg.com/amplify_video/2099805265696579584/vid/avc1/320x378/GOzN3qfKvKMK8KNN.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2099805265696579584/img/1clh7ALtkr--OHcu.jpg",
-          "heat_contribution": 8.2429,
+          "heat_contribution": 8.233,
           "metrics": {
-            "likes": 5904,
-            "retweets": 469,
+            "likes": 5911,
+            "retweets": 470,
             "replies": 3,
-            "quotes": 60,
-            "views": 147232,
-            "bookmarks": 646
+            "quotes": 0,
+            "views": 149995,
+            "bookmarks": 0
           }
         }
       ],
@@ -497,6 +593,61 @@
       "pinned_rank": null,
       "hidden": false,
       "rank": 5
+    },
+    {
+      "event_id": "evt-2026-09-15-e9acdee22b15",
+      "rule_id": null,
+      "hot_word_zh": "他是蓝色的 daba dee daba die",
+      "hot_word_en": "he's blue daba dee daba die",
+      "first_seen_at": "2026-09-15T05:37:57Z",
+      "last_seen_at": "2026-09-15T05:37:57Z",
+      "anchor_item_id": "piasnews-social-0df6bba8a482e427",
+      "image_url": "https://pbs.twimg.com/media/HSPBUS2XIAAU1DI.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HSPBUS2XIAAU1DI.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-0df6bba8a482e427",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: he's blue daba dee daba die",
+          "title_zh": "X 发帖 @laurogeitabat：他是蓝色的 daba dee daba die",
+          "summary": "he's blue daba dee daba die https://t.co/nRMWxPsRlV",
+          "summary_zh": "他是蓝色的 daba dee daba die",
+          "url": "https://x.com/laurogeitabat/status/2099734444596703693",
+          "published_at": "2026-09-15T05:37:57Z",
+          "image_url": "https://pbs.twimg.com/media/HSPBUS2XIAAU1DI.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HSPBUS2XIAAU1DI.jpg",
+          "heat_contribution": 7.2967,
+          "metrics": {
+            "likes": 2459,
+            "retweets": 290,
+            "replies": 0,
+            "quotes": 0,
+            "views": 23749,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 38,
+      "heat": 38,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 6
     },
     {
       "event_id": "evt-2026-09-14-6d0f0d6b313d",
@@ -526,23 +677,6 @@
           "image_url": "https://kalkine.com.au/imagefeeds/medium/shutterstock_2593193569_09_16_2026_13_43_38_514456.jpg",
           "video_url": null,
           "video_poster_url": "https://kalkine.com.au/imagefeeds/medium/shutterstock_2593193569_09_16_2026_13_43_38_514456.jpg",
-          "heat_contribution": 1.0,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-ee83cc6768284a6e",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "F1 Oversteer",
-          "title": "Oscar Piastri's McLaren engineer admits he had an 'impossible' problem at the Spanish Grand Prix",
-          "title_zh": "Oscar Piastri的McLaren工程师承认他在西班牙大奖赛遇到了一个“不可能”的问题",
-          "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于比赛周或表现的条目。",
-          "url": "https://www.f1oversteer.com/news/oscar-piastris-mclaren-engineer-admits-he-had-an-impossible-problem-at-the-spanish-grand-prix/",
-          "published_at": "2026-09-15T19:00:00Z",
-          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2294872788-scaled.jpg",
-          "video_url": null,
-          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2294872788-scaled.jpg",
           "heat_contribution": 0.75,
           "metrics": {}
         },
@@ -561,6 +695,23 @@
           "video_url": null,
           "video_poster_url": "https://media.formula1.com/image/upload/c_lfill,w_2048/q_auto/v1740000001/fom-website/2026/Spain%20(Madrid)/Piastri%20post-race%20Madrid.webp",
           "heat_contribution": 0.6,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-ee83cc6768284a6e",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "F1 Oversteer",
+          "title": "Oscar Piastri's McLaren engineer admits he had an 'impossible' problem at the Spanish Grand Prix",
+          "title_zh": "Oscar Piastri的McLaren工程师承认他在西班牙大奖赛遇到了一个“不可能”的问题",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的关于比赛周或表现的条目。",
+          "url": "https://www.f1oversteer.com/news/oscar-piastris-mclaren-engineer-admits-he-had-an-impossible-problem-at-the-spanish-grand-prix/",
+          "published_at": "2026-09-15T19:00:00Z",
+          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2294872788-scaled.jpg",
+          "video_url": null,
+          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2294872788-scaled.jpg",
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -837,9 +988,9 @@
         }
       ],
       "official_heat": 8,
-      "media_heat": 39,
+      "media_heat": 35,
       "fan_heat": 0,
-      "heat": 41,
+      "heat": 37,
       "source_labels": [
         "官",
         "媒"
@@ -851,141 +1002,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
-    },
-    {
-      "event_id": "evt-2026-09-13-96f288daa1a2",
-      "rule_id": null,
-      "hot_word_zh": "RT @RGrosjean：今天，我在 @CanalplusF1 上就 Zak Brown…",
-      "hot_word_en": "RT @RGrosjean: Today, I made a comment on @CanalplusF1 regarding Zak Brown’s comments about Osc…",
-      "first_seen_at": "2026-09-13T21:16:51Z",
-      "last_seen_at": "2026-09-13T21:37:29Z",
-      "anchor_item_id": "piasnews-social-db3d0b8b0a93d0da",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-db3d0b8b0a93d0da",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X repost from @laurogeitabat: RT @RGrosjean: Today, I made a comment on @CanalplusF1 regarding Zak Brown’s comments about Osc…",
-          "title_zh": "X 转帖 @laurogeitabat：RT @RGrosjean：今天，我在 @CanalplusF1 上就 Zak Brown 昨天在采访中关于 Oscar Piastri 的言论发表了评论……",
-          "summary": "RT @RGrosjean: Today, I made a comment on @CanalplusF1 regarding Zak Brown’s comments about Oscar Piastri during an interview yesterday on…",
-          "summary_zh": "RT @RGrosjean：今天，我在 @CanalplusF1 上就 Zak Brown 昨天在采访中关于 Oscar Piastri 的言论发表了评论……",
-          "url": "https://x.com/laurogeitabat/status/2099245949558104195",
-          "published_at": "2026-09-13T21:16:51Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 4.935,
-          "metrics": {
-            "likes": 0,
-            "retweets": 344,
-            "replies": 0,
-            "quotes": 0,
-            "views": 236,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-449ac7df46bb8d5f",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@oscarsspiastree",
-          "title": "X repost from @oscarsspiastree: RT @RGrosjean: Today, I made a comment on @CanalplusF1 regarding Zak Brown’s comments about Osc…",
-          "title_zh": "X 转帖 @oscarsspiastree：RT @RGrosjean：今天，我在 @CanalplusF1 上就 Zak Brown 昨天在采访中关于 Oscar Piastri 的言论发表了评论……",
-          "summary": "RT @RGrosjean: Today, I made a comment on @CanalplusF1 regarding Zak Brown’s comments about Oscar Piastri during an interview yesterday on…",
-          "summary_zh": "RT @RGrosjean：今天，我在 @CanalplusF1 上就 Zak Brown 昨天在采访中关于 Oscar Piastri 的言论发表了评论……",
-          "url": "https://x.com/oscarsspiastree/status/2099251142114906269",
-          "published_at": "2026-09-13T21:37:29Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 4.9348,
-          "metrics": {
-            "likes": 0,
-            "retweets": 344,
-            "replies": 0,
-            "quotes": 0,
-            "views": 223,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 39,
-      "heat": 39,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 2
-      },
-      "pinned_rank": null,
-      "hidden": false,
       "rank": 7
-    },
-    {
-      "event_id": "evt-2026-09-15-e9acdee22b15",
-      "rule_id": null,
-      "hot_word_zh": "他是蓝色的 daba dee daba die",
-      "hot_word_en": "he's blue daba dee daba die",
-      "first_seen_at": "2026-09-15T05:37:57Z",
-      "last_seen_at": "2026-09-15T05:37:57Z",
-      "anchor_item_id": "piasnews-social-0df6bba8a482e427",
-      "image_url": "https://pbs.twimg.com/media/HSPBUS2XIAAU1DI.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HSPBUS2XIAAU1DI.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-0df6bba8a482e427",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: he's blue daba dee daba die",
-          "title_zh": "X 发帖 @laurogeitabat：他是蓝色的 daba dee daba die",
-          "summary": "he's blue daba dee daba die https://t.co/nRMWxPsRlV",
-          "summary_zh": "他是蓝色的 daba dee daba die",
-          "url": "https://x.com/laurogeitabat/status/2099734444596703693",
-          "published_at": "2026-09-15T05:37:57Z",
-          "image_url": "https://pbs.twimg.com/media/HSPBUS2XIAAU1DI.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HSPBUS2XIAAU1DI.jpg",
-          "heat_contribution": 7.3144,
-          "metrics": {
-            "likes": 2456,
-            "retweets": 290,
-            "replies": 0,
-            "quotes": 31,
-            "views": 23718,
-            "bookmarks": 112
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 38,
-      "heat": 38,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 8
     },
     {
       "event_id": "evt-2026-09-16-1dce43c1e7f1",
@@ -1015,21 +1032,21 @@
           "image_url": "https://pbs.twimg.com/media/HSVDRQ8XMAAU5pF.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HSVDRQ8XMAAU5pF.jpg",
-          "heat_contribution": 7.1349,
+          "heat_contribution": 7.119,
           "metrics": {
-            "likes": 1065,
-            "retweets": 167,
-            "replies": 4,
-            "quotes": 52,
-            "views": 15704,
-            "bookmarks": 42
+            "likes": 1120,
+            "retweets": 172,
+            "replies": 5,
+            "quotes": 0,
+            "views": 16656,
+            "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 38,
-      "heat": 38,
+      "fan_heat": 37,
+      "heat": 37,
       "source_labels": [
         "粉"
       ],
@@ -1040,7 +1057,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 9
+      "rank": 8
     },
     {
       "event_id": "evt-2026-09-16-a0d62fcdc65c",
@@ -1070,21 +1087,76 @@
           "image_url": "https://pbs.twimg.com/media/HSU7m-3WEAAHmBK.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HSU7m-3WEAAHmBK.jpg",
-          "heat_contribution": 7.1222,
+          "heat_contribution": 7.1028,
           "metrics": {
-            "likes": 1133,
-            "retweets": 154,
+            "likes": 1161,
+            "retweets": 159,
             "replies": 1,
-            "quotes": 37,
-            "views": 13287,
-            "bookmarks": 40
+            "quotes": 0,
+            "views": 13721,
+            "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 38,
-      "heat": 38,
+      "fan_heat": 37,
+      "heat": 37,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "event_id": "evt-2026-09-15-f314c03b115a",
+      "rule_id": null,
+      "hot_word_zh": "“我们正在与oscar合作，确保他更适应mcl40。潜力在增加，我们需要把它实现出来。我总…",
+      "hot_word_en": "\"we are working with oscar to make sure he gets more in tune with the mcl40. the potential is i…",
+      "first_seen_at": "2026-09-15T10:11:51Z",
+      "last_seen_at": "2026-09-15T10:11:51Z",
+      "anchor_item_id": "piasnews-social-2a6a739e0111a8d9",
+      "image_url": "https://pbs.twimg.com/media/HSQAArKWcAAurg3.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HSQAArKWcAAurg3.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-2a6a739e0111a8d9",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: \"we are working with oscar to make sure he gets more in tune with the mcl40. the potential is i…",
+          "title_zh": "X 发帖 @laurogeitabat：“我们正在与oscar合作，确保他更适应mcl40。潜力在增加，我们需要把它实现出来。我总是对oscar说：‘让我们从容地去做。’我们正在为此投入资源，就像去年我们对lando做的那样。我期待同样的结果。”",
+          "summary": "\"we are working with oscar to make sure he gets more in tune with the mcl40. the potential is increasing, we need to realise it. i always say to oscar: “let's do it with serenity”. we are deploying resources to this, like we did last year with lando. i expect the same results.\" https://t.co/xe4izJBWGx",
+          "summary_zh": "“我们正在与oscar合作，确保他更适应mcl40。潜力在增加，我们需要把它实现出来。我总是对oscar说：‘让我们从容地去做。’我们正在为此投入资源，就像去年我们对lando做的那样。我期待同样的结果。”",
+          "url": "https://x.com/laurogeitabat/status/2099803373297938572",
+          "published_at": "2026-09-15T10:11:51Z",
+          "image_url": "https://pbs.twimg.com/media/HSQAArKWcAAurg3.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HSQAArKWcAAurg3.jpg",
+          "heat_contribution": 6.8849,
+          "metrics": {
+            "likes": 538,
+            "retweets": 41,
+            "replies": 6,
+            "quotes": 0,
+            "views": 153181,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 36,
+      "heat": 36,
       "source_labels": [
         "粉"
       ],

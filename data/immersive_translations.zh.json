@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-16T18:39:12.552887Z",
+  "generated_at": "2026-09-16T22:04:07.889147Z",
   "translations": {
     "items:piasnews-670a66f24a5f0120:title:7e7b70d057d9c5e85ff80884": {
       "dataset": "items",
@@ -4561,6 +4561,126 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-16T18:39:11.576523Z"
+    },
+    "items:piasnews-0e8262bdbaf73fd8:title:f090137a4f8f6ed26b7dccc6": {
+      "dataset": "items",
+      "item_id": "piasnews-0e8262bdbaf73fd8",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Andrea Stella thinks he knows what's wrong with Oscar Piastri but there's a hole in his theory",
+      "zh": "Andrea Stella 认为他知道 Oscar Piastri 出了什么问题，但他的理论有个漏洞",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-16T22:04:06.996931Z"
+    },
+    "items:piasnews-0e8262bdbaf73fd8:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-0e8262bdbaf73fd8",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-16T22:04:06.996938Z"
+    },
+    "social:piasnews-social-febcac5ffc20eecf:summary:d1a375575ed8c155760f1fea": {
+      "dataset": "social",
+      "item_id": "piasnews-social-febcac5ffc20eecf",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar and lando yapping away with guests! https://t.co/7LWOyTDMdU",
+      "zh": "oscar 和 lando 跟嘉宾们聊个不停！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-16T22:04:06.996943Z"
+    },
+    "social:piasnews-social-d73736bd9e2c07fd:summary:b834281e227dc31229aa14b9": {
+      "dataset": "social",
+      "item_id": "piasnews-social-d73736bd9e2c07fd",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar and lily taking pics tonight ☺️ https://t.co/PlhMCHh68a",
+      "zh": "oscar 和 lily 今晚在拍照 ☺️",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-16T22:04:06.996947Z"
+    },
+    "social:piasnews-social-7dac317914415913:summary:02059c3c74d1bc0f050e47f7": {
+      "dataset": "social",
+      "item_id": "piasnews-social-7dac317914415913",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar and lily chatting with guests at the mtc! featuring oscar's silly expressions 😭🤏🏻 https://t.co/ThwA34UGs7",
+      "zh": "oscar 和 lily 在 mtc 跟嘉宾们聊天！还有 oscar 的搞笑表情 😭🤏🏻",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-16T22:04:06.996951Z"
+    },
+    "social:piasnews-social-0911ad242c6eb0e8:summary:d56d20c0c336eb420650f5f8": {
+      "dataset": "social",
+      "item_id": "piasnews-social-0911ad242c6eb0e8",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "OSCAR AND LANDO AT THE MCLAREN FASHION SHOW https://t.co/c2GEXkvIUz",
+      "zh": "OSCAR 和 LANDO 在 MCLAREN 时装秀",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-16T22:04:06.996954Z"
+    },
+    "social:piasnews-social-d8f5075e3d51a4e6:summary:e54c7c9b50f6e8f3c0589e02": {
+      "dataset": "social",
+      "item_id": "piasnews-social-d8f5075e3d51a4e6",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "HELLO FASHION SHOW OSCAR https://t.co/wgG5h5YLEM",
+      "zh": "你好 时装秀 OSCAR",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-16T22:04:06.996959Z"
+    },
+    "social:piasnews-social-b8aad9b0d9b1aacc:summary:2603c425cf47ec931253087c": {
+      "dataset": "social",
+      "item_id": "piasnews-social-b8aad9b0d9b1aacc",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "cute pic of oscar with a fan at the mclaren fashion show tonight! 📸: expiredfilmclub https://t.co/xy67mXEGyK",
+      "zh": "oscar 今晚在 mclaren 时装秀上和粉丝的可爱合照！📸：expiredfilmclub",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-16T22:04:06.996966Z"
+    },
+    "social:piasnews-social-4db6825a8f0bf51a:summary:8b5d7f64db8d9fd7b1ac3840": {
+      "dataset": "social",
+      "item_id": "piasnews-social-4db6825a8f0bf51a",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "waitttt oscar and lando are at the mclaren fashion show!! https://t.co/hanQWijCIK",
+      "zh": "等等 oscar 和 lando 在 mclaren 时装秀！！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-16T22:04:06.996971Z"
+    },
+    "social:piasnews-social-4468ba799d25df7e:summary:6f40c01685a05dd895c15dcf": {
+      "dataset": "social",
+      "item_id": "piasnews-social-4468ba799d25df7e",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @ln4norris: LANDO & OSCAR AT THE MCLAREN FASHION SHOW!!! https://t.co/tVQTR1M1r5",
+      "zh": "RT @ln4norris：LANDO 和 OSCAR 在 MCLAREN 时装秀！！！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-16T22:04:06.996974Z"
     }
   },
   "retention_days": 8
