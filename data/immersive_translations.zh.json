@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-16T06:18:27.251425Z",
+  "generated_at": "2026-09-16T09:20:47.272715Z",
   "translations": {
     "items:piasnews-b6e94b14244991d9:title:8f2459777c84fc35217be6e4": {
       "dataset": "items",
@@ -4873,6 +4873,78 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-16T06:18:26.312071Z"
+    },
+    "items:piasnews-037cb437bc9152eb:title:36d0dca6ce4ed6f284f09e29": {
+      "dataset": "items",
+      "item_id": "piasnews-037cb437bc9152eb",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Ralf Schumacher thinks one Lando Norris comment about George Russell was a ‘dig’ at Oscar Piastri",
+      "zh": "拉尔夫·舒马赫认为Lando Norris关于乔治·拉塞尔的一句评论是在“暗讽”Oscar Piastri",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-16T09:20:46.326340Z"
+    },
+    "items:piasnews-037cb437bc9152eb:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-037cb437bc9152eb",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-16T09:20:46.326347Z"
+    },
+    "items:piasnews-eb4e115c6962eb0d:title:c0d4a475554f26a3d62e4d3b": {
+      "dataset": "items",
+      "item_id": "piasnews-eb4e115c6962eb0d",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri Salvages Eighth in Madrid Despite Tough Race Challenges",
+      "zh": "Piastri在马德里艰难比赛挑战中抢下第八名",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-16T09:20:46.326351Z"
+    },
+    "items:piasnews-eb4e115c6962eb0d:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-eb4e115c6962eb0d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与比赛周或表现相关的内容。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-16T09:20:46.326355Z"
+    },
+    "social:piasnews-social-7797a89422353fac:summary:e5d9ee97ad8f5277591ec68b": {
+      "dataset": "social",
+      "item_id": "piasnews-social-7797a89422353fac",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar's birthday is 2 days after the australian gp god if you're out there PLEASEEEE https://t.co/2nRxbOdGyU",
+      "zh": "Oscar的生日在澳大利亚大奖赛之后两天，天哪，如果你在那里的话，求求了",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-16T09:20:46.326359Z"
+    },
+    "social:piasnews-social-4d9dd7c6138f0b35:summary:f36068bf5e15a2bfdb139e8f": {
+      "dataset": "social",
+      "item_id": "piasnews-social-4d9dd7c6138f0b35",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "andrea stella said the front wing damage oscar had to drive with for the entirety of the madrid gp was \"very measurable\". oscar still managed one of the very few overtakes we saw in the race, maximizing the results after his race was compromised from lap 1. that's goat !!!! https://t.co/TFxR98fETc",
+      "zh": "安德烈亚·斯特拉说，Oscar在整个马德里大奖赛中不得不带着的前翼损伤“非常可测量”。Oscar仍然完成了我们在比赛中看到的少数几次超车之一，在比赛从第1圈起就受到影响后最大化了结果。这就是GOAT！！！！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-16T09:20:46.326362Z"
     }
   },
   "retention_days": 8
