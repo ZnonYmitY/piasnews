@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-16T22:04:07.889147Z",
+  "generated_at": "2026-09-17T01:15:55.383680Z",
   "translations": {
     "items:piasnews-670a66f24a5f0120:title:7e7b70d057d9c5e85ff80884": {
       "dataset": "items",
@@ -4681,6 +4681,66 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-16T22:04:06.996974Z"
+    },
+    "social:piasnews-social-500b7b40299d6142:summary:d4c62aeef19c911ce536e06e": {
+      "dataset": "social",
+      "item_id": "piasnews-social-500b7b40299d6142",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar smiling when he gets back to lily awwwww 🥹🥹 https://t.co/OB0eSv9Ov9",
+      "zh": "oscar回到lily身边时笑了，啊啊啊啊 🥹🥹",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-17T01:15:54.486053Z"
+    },
+    "social:piasnews-social-ab272e8d86184147:summary:6dc6639c23e826fd1a96e290": {
+      "dataset": "social",
+      "item_id": "piasnews-social-ab272e8d86184147",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "the yaps never stop 🎥: aesthetikmagazine https://t.co/GUpLHnABDx",
+      "zh": "这碎碎念永远停不下来 🎥：aesthetikmagazine",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-17T01:15:54.486061Z"
+    },
+    "social:piasnews-social-0a218c0097181c3b:summary:75bcf42c900df562eb8bc602": {
+      "dataset": "social",
+      "item_id": "piasnews-social-0a218c0097181c3b",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "lando: [your outfit] is very you! oscar: ?? when have you ever seen me wear anything like this he was so offended he wants his tshirt and shorts combo back 😭😭 https://t.co/Zuky8TkdiV",
+      "zh": "lando：[你的这身衣服]很你！oscar：？？你什么时候见过我穿这样的东西 他被冒犯到了，想要回他的T恤和短裤组合 😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-17T01:15:54.486066Z"
+    },
+    "social:piasnews-social-83766b900775a9e3:summary:7f766ccb3d6088700031ddd2": {
+      "dataset": "social",
+      "item_id": "piasnews-social-83766b900775a9e3",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "front row for the mclaren boys 🥰 https://t.co/g2FG3mL3Dw",
+      "zh": "mclaren男孩们头排发车 🥰",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-17T01:15:54.486070Z"
+    },
+    "social:piasnews-social-312320e7e9f672f2:summary:6301696e85a604dd89f4d385": {
+      "dataset": "social",
+      "item_id": "piasnews-social-312320e7e9f672f2",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "looking good 🙂‍↕️🙂‍↕️ 📸: itssophiemilner https://t.co/jRnB1lq9nb",
+      "zh": "看起来不错 🙂‍↕️🙂‍↕️ 📸：itssophiemilner",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-17T01:15:54.486074Z"
     }
   },
   "retention_days": 8
