@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-17T04:24:16.566681Z",
+  "generated_at": "2026-09-17T07:26:35.641059Z",
   "translations": {
     "items:piasnews-969ba377ec609846:title:ab61719ac9589f68576256c6": {
       "dataset": "items",
@@ -4477,6 +4477,78 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-17T04:24:15.652754Z"
+    },
+    "items:piasnews-50b8e660e17abf8f:title:655c113734c73e8a13001b55": {
+      "dataset": "items",
+      "item_id": "piasnews-50b8e660e17abf8f",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri’s difficult Madrid weekend reopens questions over his place at McLaren",
+      "zh": "Piastri 在马德里艰难的周末再次引发外界对他在 McLaren 位置的质疑",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-17T07:26:34.956650Z"
+    },
+    "items:piasnews-50b8e660e17abf8f:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-50b8e660e17abf8f",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-17T07:26:34.956656Z"
+    },
+    "items:piasnews-c875804eae4ed812:title:d54e422d17f5aeea4a17fe66": {
+      "dataset": "items",
+      "item_id": "piasnews-c875804eae4ed812",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Stella reveals McLaren’s ‘clear agenda’ to unlock Piastri",
+      "zh": "Stella 透露 McLaren 释放 Piastri 潜力的“明确计划”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-17T07:26:34.956661Z"
+    },
+    "items:piasnews-c875804eae4ed812:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-c875804eae4ed812",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-17T07:26:34.956664Z"
+    },
+    "social:piasnews-social-4cb6c57ebd9a597f:summary:f0c5132b921816f33eda803c": {
+      "dataset": "social",
+      "item_id": "piasnews-social-4cb6c57ebd9a597f",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "WOAH https://t.co/wBDdCdoMMr",
+      "zh": "哇",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-17T07:26:34.956668Z"
+    },
+    "social:piasnews-social-e6970048d74004bb:summary:cd46e95fa4b04c05c9fd4e33": {
+      "dataset": "social",
+      "item_id": "piasnews-social-e6970048d74004bb",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar talking about the mclaren fashion show! \"hey everyone! 'designed to race: front row' has just wrapped up. very, very cool, something different for me, and plenty of cool outfits as well. really enjoyed my time here, and great location for it as well.\" 😊 https://t.co/GylQypdsm1",
+      "zh": "Oscar 谈 McLaren 时装秀！“大家好！‘Designed to 正赛: 头排’ 刚刚结束。非常非常酷，对我来说是种不同的体验，也有很多很酷的服装。我真的很享受在这里的时光，场地也很棒。”😊",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-17T07:26:34.956671Z"
     }
   },
   "retention_days": 8
