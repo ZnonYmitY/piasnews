@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-18T03:16:52.358970Z",
+  "generated_at": "2026-09-18T06:18:07.645296Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
   "event_count": 10,
   "events": [
     {
-      "event_id": "evt-2026-09-17-7b66d1269e6e",
+      "event_id": "evt-2026-09-16-604cc692330e",
       "rule_id": null,
       "hot_word_zh": "OSCAR 和 LILY 在 MCLAREN 时装秀 ✨",
       "hot_word_en": "OSCAR AND LILY AT THE MCLAREN FASHION SHOW ✨",
@@ -34,13 +34,13 @@
           "image_url": "https://pbs.twimg.com/media/HScNYZjWYAApwPM.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HScNYZjWYAApwPM.jpg",
-          "heat_contribution": 7.5629,
+          "heat_contribution": 7.7763,
           "metrics": {
-            "likes": 2089,
-            "retweets": 167,
+            "likes": 2591,
+            "retweets": 206,
             "replies": 2,
             "quotes": 0,
-            "views": 13695,
+            "views": 16755,
             "bookmarks": 0
           }
         },
@@ -58,13 +58,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2100666868813950976/vid/avc1/312x270/IT36fDEd2IJR8aGX.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100666868813950976/img/aadJWD7s3OXuPCib.jpg",
-          "heat_contribution": 6.0736,
+          "heat_contribution": 6.1415,
           "metrics": {
-            "likes": 477,
-            "retweets": 24,
+            "likes": 507,
+            "retweets": 27,
             "replies": 0,
             "quotes": 0,
-            "views": 5268,
+            "views": 5732,
             "bookmarks": 0
           }
         },
@@ -95,8 +95,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 63,
-      "heat": 63,
+      "fan_heat": 64,
+      "heat": 64,
       "source_labels": [
         "粉"
       ],
@@ -112,41 +112,17 @@
     {
       "event_id": "evt-2026-09-17-6243d5abb128",
       "rule_id": null,
-      "hot_word_zh": "哇",
-      "hot_word_en": "WOAH",
+      "hot_word_zh": "这些小可爱们 😭🫶🏻",
+      "hot_word_en": "THESE CUTIES 😭🫶🏻",
       "first_seen_at": "2026-09-16T12:54:23Z",
       "last_seen_at": "2026-09-17T19:27:07Z",
-      "anchor_item_id": "piasnews-social-4cb6c57ebd9a597f",
+      "anchor_item_id": "piasnews-social-74158f3cfe3926f6",
       "image_url": "https://pbs.twimg.com/media/HSZaEPIWkAAqgCA.jpg",
       "video_url": "https://video.twimg.com/amplify_video/2100667864696913920/vid/avc1/320x354/Rra69Lou3Zt3sZVE.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/media/HSZaEPIWkAAqgCA.jpg",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100667864696913920/img/J4XqV2PpO1U62rMX.jpg",
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
-        {
-          "item_id": "piasnews-social-4cb6c57ebd9a597f",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: WOAH",
-          "title_zh": "X 发帖 @laurogeitabat：哇",
-          "summary": "WOAH https://t.co/wBDdCdoMMr",
-          "summary_zh": "哇",
-          "url": "https://x.com/laurogeitabat/status/2100465310025367604",
-          "published_at": "2026-09-17T06:02:09Z",
-          "image_url": "https://pbs.twimg.com/media/HSZaEPIWkAAqgCA.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HSZaEPIWkAAqgCA.jpg",
-          "heat_contribution": 7.0467,
-          "metrics": {
-            "likes": 1029,
-            "retweets": 127,
-            "replies": 0,
-            "quotes": 0,
-            "views": 24777,
-            "bookmarks": 0
-          }
-        },
         {
           "item_id": "piasnews-social-74158f3cfe3926f6",
           "dataset": "social",
@@ -161,13 +137,37 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2100667864696913920/vid/avc1/320x354/Rra69Lou3Zt3sZVE.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100667864696913920/img/J4XqV2PpO1U62rMX.jpg",
-          "heat_contribution": 6.784,
+          "heat_contribution": 6.8526,
           "metrics": {
-            "likes": 906,
-            "retweets": 79,
+            "likes": 959,
+            "retweets": 89,
             "replies": 1,
             "quotes": 0,
-            "views": 10974,
+            "views": 12039,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-4cb6c57ebd9a597f",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: WOAH",
+          "title_zh": "X 发帖 @laurogeitabat：哇",
+          "summary": "WOAH https://t.co/wBDdCdoMMr",
+          "summary_zh": "哇",
+          "url": "https://x.com/laurogeitabat/status/2100465310025367604",
+          "published_at": "2026-09-17T06:02:09Z",
+          "image_url": "https://pbs.twimg.com/media/HSZaEPIWkAAqgCA.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HSZaEPIWkAAqgCA.jpg",
+          "heat_contribution": 6.5661,
+          "metrics": {
+            "likes": 1043,
+            "retweets": 132,
+            "replies": 0,
+            "quotes": 0,
+            "views": 26980,
             "bookmarks": 0
           }
         },
@@ -198,8 +198,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 62,
-      "heat": 62,
+      "fan_heat": 61,
+      "heat": 61,
       "source_labels": [
         "粉"
       ],
@@ -240,13 +240,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2100591397556375552/vid/avc1/320x520/nbuCm_OdGDW1lp1x.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100591397556375552/img/822asd9uA3swUIuU.jpg",
-          "heat_contribution": 5.9105,
+          "heat_contribution": 5.9735,
           "metrics": {
-            "likes": 359,
-            "retweets": 30,
+            "likes": 384,
+            "retweets": 32,
             "replies": 1,
             "quotes": 0,
-            "views": 6852,
+            "views": 7150,
             "bookmarks": 0
           }
         },
@@ -264,13 +264,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/tweet_video/HSaZlrOWgAAzi7I.mp4",
           "video_poster_url": "https://pbs.twimg.com/tweet_video_thumb/HSaZlrOWgAAzi7I.jpg",
-          "heat_contribution": 5.7618,
+          "heat_contribution": 5.7773,
           "metrics": {
-            "likes": 314,
+            "likes": 320,
             "retweets": 36,
             "replies": 0,
             "quotes": 0,
-            "views": 3657,
+            "views": 3718,
             "bookmarks": 0
           }
         },
@@ -288,13 +288,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2100680282755964928/vid/avc1/320x320/3f80uaseWQKcFfgz.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100680282755964928/img/69ONJ08UB1vk9AUH.jpg",
-          "heat_contribution": 5.3899,
+          "heat_contribution": 5.5709,
           "metrics": {
-            "likes": 224,
-            "retweets": 16,
+            "likes": 263,
+            "retweets": 23,
             "replies": 0,
             "quotes": 0,
-            "views": 3491,
+            "views": 3988,
             "bookmarks": 0
           }
         },
@@ -325,8 +325,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 54,
-      "heat": 54,
+      "fan_heat": 55,
+      "heat": 55,
       "source_labels": [
         "粉"
       ],
@@ -367,21 +367,21 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2100670776751923200/vid/avc1/312x270/XWYBbJZHe7vuwHzd.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100670776751923200/img/U6wpjo7sjXRMrJ62.jpg",
-          "heat_contribution": 10.5945,
+          "heat_contribution": 10.7254,
           "metrics": {
-            "likes": 39397,
-            "retweets": 3310,
-            "replies": 62,
+            "likes": 44415,
+            "retweets": 3821,
+            "replies": 67,
             "quotes": 0,
-            "views": 701764,
+            "views": 840514,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 54,
-      "heat": 54,
+      "fan_heat": 55,
+      "heat": 55,
       "source_labels": [
         "粉"
       ],
@@ -501,13 +501,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2100532806833045504/vid/avc1/320x568/l51A_5m-wpGvGvet.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100532806833045504/img/-xf3L8IOOT_3pKDu.jpg",
-          "heat_contribution": 6.9384,
+          "heat_contribution": 6.9459,
           "metrics": {
-            "likes": 777,
+            "likes": 780,
             "retweets": 111,
             "replies": 0,
             "quotes": 0,
-            "views": 37455,
+            "views": 38188,
             "bookmarks": 0
           }
         },
@@ -580,21 +580,21 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2100669657111748608/vid/avc1/320x404/EuzXwD-4hXznrHHZ.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100669657111748608/img/lmNHTWUZiEyPMtu_.jpg",
-          "heat_contribution": 9.0668,
+          "heat_contribution": 9.2379,
           "metrics": {
-            "likes": 8886,
-            "retweets": 732,
-            "replies": 15,
+            "likes": 10345,
+            "retweets": 900,
+            "replies": 18,
             "quotes": 0,
-            "views": 115370,
+            "views": 150610,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 47,
-      "heat": 47,
+      "fan_heat": 48,
+      "heat": 48,
       "source_labels": [
         "粉"
       ],
@@ -635,13 +635,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2100531902541090816/vid/avc1/320x560/Z6foTsWuJp8K5q53.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100531902541090816/img/BaU9Op6Q4moWWW-u.jpg",
-          "heat_contribution": 8.3424,
+          "heat_contribution": 8.3652,
           "metrics": {
-            "likes": 4149,
-            "retweets": 359,
+            "likes": 4238,
+            "retweets": 365,
             "replies": 4,
             "quotes": 0,
-            "views": 71721,
+            "views": 74558,
             "bookmarks": 0
           }
         }
@@ -690,13 +690,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2100639404599504896/vid/avc1/320x568/-0DTHvVOosGBz3Iw.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100639404599504896/img/mM8dj21u2Mfkaw91.jpg",
-          "heat_contribution": 7.7848,
+          "heat_contribution": 7.8903,
           "metrics": {
-            "likes": 2467,
-            "retweets": 105,
+            "likes": 2675,
+            "retweets": 118,
             "replies": 1,
             "quotes": 0,
-            "views": 52379,
+            "views": 64647,
             "bookmarks": 0
           }
         }

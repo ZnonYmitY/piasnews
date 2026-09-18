@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-18T03:16:51.045673Z",
+  "generated_at": "2026-09-18T06:18:06.352371Z",
   "status": "action_required",
-  "pending_count": 2,
+  "pending_count": 3,
   "ignored_non_text_count": 2,
   "workbench_path": "../immersive/translation-workbench.html",
   "items": [
@@ -24,6 +24,16 @@
       "source_text": "Oscar Piastri, McLaren, Madring, 2026",
       "source_url": "https://www.racefans.net/2026/09/11/first-pictures-formula-1-cars-in-action-at-the-new-madring/f1-grand-prix-of-spain-practice-72/",
       "source_name": "RaceFans",
+      "reason": "llm_mapping_missing"
+    },
+    {
+      "key": "social:piasnews-social-2e552efaec758d4c:summary:b790892a723ccfe25defe26d",
+      "dataset": "social",
+      "item_id": "piasnews-social-2e552efaec758d4c",
+      "target_field": "summary_zh",
+      "source_text": "RT @PIZZAPIASTRI: 🐝❤️ https://t.co/nsWyoy5tLD",
+      "source_url": "https://x.com/oscarpiastri81/status/2100660601399754940",
+      "source_name": "@oscarpiastri81",
       "reason": "llm_mapping_missing"
     }
   ]
