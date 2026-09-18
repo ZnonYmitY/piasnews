@@ -21,7 +21,8 @@ class RefreshGateTest(unittest.TestCase):
             now=now,
             last_generated=datetime(2026, 8, 26, 10, 0, tzinfo=timezone.utc),
             calendar=calendar,
-            daily_hours=24,
+            daily_hour=7,
+            daily_timezone="Asia/Shanghai",
             confirmation_minutes=15,
             force=False,
             handled_session_ref=None,
@@ -35,7 +36,8 @@ class RefreshGateTest(unittest.TestCase):
             now=now,
             last_generated=now - timedelta(hours=2),
             calendar={"races": []},
-            daily_hours=24,
+            daily_hour=7,
+            daily_timezone="Asia/Shanghai",
             confirmation_minutes=15,
             force=False,
             handled_session_ref=None,
@@ -53,7 +55,8 @@ class RefreshGateTest(unittest.TestCase):
             "now": now,
             "last_generated": now - timedelta(minutes=5),
             "calendar": calendar,
-            "daily_hours": 24,
+            "daily_hour": 7,
+            "daily_timezone": "Asia/Shanghai",
             "confirmation_minutes": 15,
             "force": False,
         }
@@ -77,7 +80,8 @@ class RefreshGateTest(unittest.TestCase):
                 "id": "2026-round-13",
                 "sessions": {"practice_1": "2026-09-04T10:30:00Z"},
             }]},
-            daily_hours=24,
+            daily_hour=7,
+            daily_timezone="Asia/Shanghai",
             confirmation_minutes=15,
             force=True,
             handled_session_ref=None,
@@ -85,6 +89,76 @@ class RefreshGateTest(unittest.TestCase):
 
         self.assertTrue(run)
         self.assertEqual(reason, "session_completed:2026-round-13:practice_1")
+
+    def test_waits_until_0700_beijing_for_daily_refresh(self):
+        run, reason = should_refresh.decision(
+            now=datetime(2026, 9, 18, 22, 45, tzinfo=timezone.utc),
+            last_generated=datetime(2026, 9, 17, 23, 5, tzinfo=timezone.utc),
+            calendar={"races": []},
+            daily_hour=7,
+            daily_timezone="Asia/Shanghai",
+            confirmation_minutes=15,
+            force=False,
+            handled_session_ref=None,
+        )
+
+        self.assertFalse(run)
+        self.assertEqual(reason, "waiting_for_daily_or_session_trigger")
+
+    def test_refreshes_once_after_0700_beijing(self):
+        common = {
+            "now": datetime(2026, 9, 18, 23, 0, tzinfo=timezone.utc),
+            "calendar": {"races": []},
+            "daily_hour": 7,
+            "daily_timezone": "Asia/Shanghai",
+            "confirmation_minutes": 15,
+            "force": False,
+            "handled_session_ref": None,
+        }
+
+        run, reason = should_refresh.decision(
+            **common,
+            last_generated=datetime(2026, 9, 17, 23, 5, tzinfo=timezone.utc),
+        )
+        self.assertTrue(run)
+        self.assertEqual(reason, "daily_refresh_due")
+
+        run, reason = should_refresh.decision(
+            **common,
+            last_generated=datetime(2026, 9, 18, 23, 0, tzinfo=timezone.utc),
+        )
+        self.assertFalse(run)
+        self.assertEqual(reason, "waiting_for_daily_or_session_trigger")
+
+    def test_retries_a_missed_daily_slot_before_the_next_0700(self):
+        run, reason = should_refresh.decision(
+            now=datetime(2026, 9, 18, 22, 59, tzinfo=timezone.utc),
+            last_generated=datetime(2026, 9, 17, 22, 0, tzinfo=timezone.utc),
+            calendar={"races": []},
+            daily_hour=7,
+            daily_timezone="Asia/Shanghai",
+            confirmation_minutes=15,
+            force=False,
+            handled_session_ref=None,
+        )
+
+        self.assertTrue(run)
+        self.assertEqual(reason, "daily_refresh_due")
+
+    def test_session_refresh_before_0700_does_not_replace_daily_slot(self):
+        run, reason = should_refresh.decision(
+            now=datetime(2026, 9, 18, 23, 0, tzinfo=timezone.utc),
+            last_generated=datetime(2026, 9, 18, 22, 55, tzinfo=timezone.utc),
+            calendar={"races": []},
+            daily_hour=7,
+            daily_timezone="Asia/Shanghai",
+            confirmation_minutes=15,
+            force=False,
+            handled_session_ref=None,
+        )
+
+        self.assertTrue(run)
+        self.assertEqual(reason, "daily_refresh_due")
 
 
 if __name__ == "__main__":

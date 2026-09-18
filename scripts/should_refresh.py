@@ -9,6 +9,7 @@ import os
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
+from zoneinfo import ZoneInfo
 
 
 SESSION_DURATIONS = {
@@ -28,7 +29,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--daily", default="data/daily.json")
     parser.add_argument("--session-results", default="data/session-results.json")
     parser.add_argument("--now", help="Override current UTC time.")
-    parser.add_argument("--daily-hours", type=int, default=24)
+    parser.add_argument("--daily-hour", type=int, default=7)
+    parser.add_argument("--daily-timezone", default="Asia/Shanghai")
     parser.add_argument("--confirmation-minutes", type=int, default=15)
     parser.add_argument("--force", action="store_true")
     return parser.parse_args()
@@ -67,12 +69,33 @@ def session_ready_times(calendar: dict[str, Any], confirmation_minutes: int) -> 
     return sorted(result)
 
 
+def daily_refresh_due(
+    *,
+    now: datetime,
+    last_generated: datetime,
+    daily_hour: int,
+    daily_timezone: str,
+) -> bool:
+    local_timezone = ZoneInfo(daily_timezone)
+    local_now = now.astimezone(local_timezone)
+    scheduled_today = local_now.replace(
+        hour=daily_hour,
+        minute=0,
+        second=0,
+        microsecond=0,
+    )
+    if local_now < scheduled_today:
+        scheduled_today -= timedelta(days=1)
+    return last_generated < scheduled_today.astimezone(timezone.utc)
+
+
 def decision(
     *,
     now: datetime,
     last_generated: datetime | None,
     calendar: dict[str, Any],
-    daily_hours: int,
+    daily_hour: int,
+    daily_timezone: str,
     confirmation_minutes: int,
     force: bool,
     handled_session_ref: str | None = None,
@@ -84,7 +107,12 @@ def decision(
         return True, "manual_dispatch"
     if last_generated is None:
         return True, "missing_previous_generation"
-    if now - last_generated >= timedelta(hours=daily_hours):
+    if daily_refresh_due(
+        now=now,
+        last_generated=last_generated,
+        daily_hour=daily_hour,
+        daily_timezone=daily_timezone,
+    ):
         return True, "daily_refresh_due"
     return False, "waiting_for_daily_or_session_trigger"
 
@@ -101,7 +129,8 @@ def main() -> int:
         now=now,
         last_generated=parse_time(daily.get("generated_at")),
         calendar=calendar,
-        daily_hours=max(1, args.daily_hours),
+        daily_hour=min(23, max(0, args.daily_hour)),
+        daily_timezone=args.daily_timezone,
         confirmation_minutes=max(0, args.confirmation_minutes),
         force=force,
         handled_session_ref=latest_result.get("session_ref"),
