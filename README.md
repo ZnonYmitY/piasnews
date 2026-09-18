@@ -131,7 +131,7 @@ Piastri Fan Companion 的页面、API、实时 Piasnews 上下文和部署保留
 - 每次数据工作流都会完整遍历中文翻译，自动审查疑似 badcase，写入 `data/translation_candidates.csv`，并上传本轮新增候选 Excel artifact；候选必须有建议中文，否则不进入 review-needed 队列。
 - 大模型翻译完成后会生成 `data/translation-fallback.json`。只有仍缺少大模型映射且包含可翻译英文的内容才会在管理后台告警；纯链接、纯表情以及 HTML 实体造成的键差异不会触发告警。沉浸式翻译不再定时启动，由 publisher 或 admin 在后台按需打开缺口 Workbench。
 - 如果仓库配置了 `FEISHU_WEBHOOK_URL` secret，工作流会在发现本轮新增翻译 badcase 后向飞书发送通知，包含新增数量、预览、飞书审核表链接和最新 Excel 链接。Codex 当前对话不作为 GitHub Actions 的稳定入站通知目标。
-- 如果另一个飞书账号的群配置了独立自定义机器人，并把 webhook URL 写入 GitHub Actions secret `PIASNEWS_FEISHU_WEBHOOK_URL`，工作流会在新闻数据、粉丝源或其他公开网页数据发生实际内容变化且 Pages 部署成功后，向该群推送刷新通知。这个机器人不复用翻译审核通知的 `FEISHU_WEBHOOK_URL`。
+- 如果另一个飞书账号的群配置了独立自定义机器人，并把 webhook URL 写入 GitHub Actions secret `PIASNEWS_FEISHU_WEBHOOK_URL`，独立工作流会在每天北京时间 08:00 连续发送两条消息：过去 24 小时的网页更新统计，以及当前已发布热榜。这个机器人不复用翻译审核通知的 `FEISHU_WEBHOOK_URL`，网页部署本身不再触发群消息。
 - 每次 GitHub Actions 完成信息抓取后，会在同一工作流中重新部署网页和 JSON/RSS，因此页面与公开数据同步更新。
 - 日报由浏览器中的确定性模板生成，不调用大模型，不消耗项目方或访问者的模型 token。
 
@@ -656,7 +656,7 @@ Only an explicit hot-ranking/list/order request uses exact snapshot readback. Fa
 - The page reads the F1 calendar and shows the next Grand Prix, race-week timing, and a live countdown to the next session. During practice, sprint qualifying, sprint, qualifying, or the race, the timer switches to elapsed time, then moves to the next session after the expected session duration. The page exposes iCalendar links for adding the next race, the next race weekend, or the full season to any iCalendar-compatible calendar app.
 - Each data workflow fully audits Chinese translations, appends suspected review-needed badcases with concrete suggested Chinese text to `data/translation_candidates.csv`, and uploads the current run's new candidates as an Excel artifact.
 - If the repository has a `FEISHU_WEBHOOK_URL` secret, the workflow sends a Feishu notification when the current run finds new translation badcases, including the count, preview, Feishu review table link, and latest Excel link. The active Codex conversation is not treated as a stable inbound target for GitHub Actions.
-- If another Feishu account creates a separate custom bot in the target group and its webhook URL is stored as the GitHub Actions secret `PIASNEWS_FEISHU_WEBHOOK_URL`, the workflow sends a refresh notification after meaningful public data changes are deployed to Pages. This public-refresh bot is separate from the translation-review `FEISHU_WEBHOOK_URL`.
+- If another Feishu account creates a separate custom bot in the target group and its webhook URL is stored as the GitHub Actions secret `PIASNEWS_FEISHU_WEBHOOK_URL`, a dedicated workflow sends exactly two messages every day at 08:00 Asia/Shanghai: the previous 24 hours of website updates and the current published hot ranking. This bot is separate from the translation-review `FEISHU_WEBHOOK_URL`, and ordinary website deployments no longer send group messages.
 - Each successful GitHub Actions collection redeploys the page and JSON/RSS in the same workflow, keeping them synchronized.
 - Browser-side deterministic templates generate the views without an LLM or model-token usage.
 
@@ -926,7 +926,7 @@ launchctl print gui/$(id -u)/com.znonymity.piasnews.immersive
 
 To enable Feishu notifications for new translation badcase Excel exports, create a Feishu incoming webhook in the target group and add it as the GitHub Actions secret `FEISHU_WEBHOOK_URL`. The notification sends a link to the latest published Excel file; uploading the file itself requires a Feishu app with file-upload permission.
 
-To enable the separate public-refresh group notification, use the other Feishu account to create a custom bot in that group and add its webhook URL as the GitHub Actions secret `PIASNEWS_FEISHU_WEBHOOK_URL`. This bot is intentionally separate from `FEISHU_WEBHOOK_URL`: it sends only post-deploy website refresh messages for meaningful changes in public data such as news, fan-source updates, calendar data, translation mappings, or history candidates.
+To enable the separate daily group notification, use the other Feishu account to create a custom bot in that group and add its webhook URL as the GitHub Actions secret `PIASNEWS_FEISHU_WEBHOOK_URL`. This bot is intentionally separate from `FEISHU_WEBHOOK_URL`: `.github/workflows/notify-feishu-daily.yml` sends the previous 24 hours of website updates and the current published hot ranking as two messages at 08:00 Asia/Shanghai every day.
 
 Update locally:
 

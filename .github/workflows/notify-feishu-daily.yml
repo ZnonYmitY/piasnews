@@ -1,0 +1,45 @@
+name: Notify Feishu Daily
+
+on:
+  schedule:
+    # GitHub Actions cron uses UTC. 00:00 UTC is 08:00 Asia/Shanghai.
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: piasnews-feishu-daily
+  cancel-in-progress: false
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Prepare previous-day data snapshot
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/piasnews-before-data"
+          base_sha="$(git rev-list -1 --before='24 hours ago' HEAD)"
+          if [[ -z "$base_sha" ]]; then
+            base_sha="$(git rev-list --max-parents=0 HEAD | tail -1)"
+          fi
+          for filename in items.json daily.json social.json calendar.json session-results.json immersive_translations.zh.json history-candidates.json; do
+            git show "$base_sha:data/$filename" > "$RUNNER_TEMP/piasnews-before-data/$filename" 2>/dev/null || true
+          done
+
+      - name: Send daily update and hot ranking
+        env:
+          PIASNEWS_FEISHU_WEBHOOK_URL: ${{ secrets.PIASNEWS_FEISHU_WEBHOOK_URL }}
+          PIASNEWS_PAGE_URL: https://znonymity.github.io/piasnews/
+        run: |
+          python scripts/notify_feishu_daily.py \
+            --before-dir "$RUNNER_TEMP/piasnews-before-data" \
+            --data-dir data \
+            --hot-events data/hot-events.json
