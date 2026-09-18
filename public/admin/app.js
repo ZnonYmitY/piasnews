@@ -678,6 +678,25 @@ function deleteHotContent() {
   selectHotContent(state.selectedHotItemId);
 }
 
+function hotReviewInfo(event) {
+  const reason = event?.review_needed_reason;
+  if (reason === "media_evidence_missing") {
+    return { label: "待补媒体", detail: "原始短文案缺少媒体证据，未进入前台" };
+  }
+  if (reason === "insufficient_semantic_text") {
+    return { label: "待补标题", detail: "原文只有账号、链接、表情或泛化指代，未进入前台" };
+  }
+  if (reason === "fan_account_public_cap") {
+    const account = event?.review_needed_context?.source_account || "同一粉丝账号";
+    const limit = event?.review_needed_context?.limit;
+    return {
+      label: "同账号上榜受限",
+      detail: `${account} 的自然热点${limit ? `最多公开 ${limit} 条` : "已达到公开上限"}，本条暂未进入前台`,
+    };
+  }
+  return { label: "待审核", detail: "该事件未通过自动发布规则，暂未进入前台" };
+}
+
 function renderHotAdminList() {
   const rows = allHotEvents();
   elements.hotEventCount.textContent = `${rows.length} 条`;
@@ -687,12 +706,13 @@ function renderHotAdminList() {
     const activeOverride = activeHotOverride(event.event_id);
     const hidden = Boolean(activeOverride?.hidden || event.hidden);
     const shownRank = override?.pinned_rank || event.rank || "—";
+    const reviewInfo = hotReviewInfo(event);
     return `
       <button class="hot-admin-item${selected}" type="button" data-hot-event-id="${escapeHtml(event.event_id)}">
         <span class="hot-admin-rank">${shownRank}</span>
         <span class="hot-admin-item-main">
           <strong>${escapeHtml(override?.hot_word_zh || event.hot_word_zh)}</strong>
-          <small>${escapeHtml(`${hidden ? "前台隐藏 · " : ""}${override?.status === "draft" ? "有未发布草稿 · " : ""}${override?.pinned_rank ? `人工第 ${override.pinned_rank} 位 · ` : ""}${(override?.source_labels || event.source_labels || []).join(" · ") || "无来源标签"}${event.review_needed && !override ? " · 待补媒体" : ""}`)}</small>
+          <small>${escapeHtml(`${hidden ? "前台隐藏 · " : ""}${override?.status === "draft" ? "有未发布草稿 · " : ""}${override?.pinned_rank ? `人工第 ${override.pinned_rank} 位 · ` : ""}${(override?.source_labels || event.source_labels || []).join(" · ") || "无来源标签"}${event.review_needed && !override ? ` · ${reviewInfo.label}` : ""}`)}</small>
         </span>
         <span class="hot-admin-heat">${override?.heat ?? event.heat ?? 0}</span>
       </button>`;
@@ -729,6 +749,7 @@ function selectHotEvent(eventId) {
   const event = hotEvent(eventId) || allHotEvents().find((row) => row.event_id === eventId);
   if (!event) return;
   const override = hotOverride(eventId);
+  const reviewInfo = hotReviewInfo(event);
   state.selectedHotVersion = override?.updated_at || null;
   state.manualHotEvent = Boolean(event.manual_event || override?.manual_event);
   elements.hotEditorEmpty.hidden = true;
@@ -750,11 +771,11 @@ function selectHotEvent(eventId) {
   });
   elements.hotOverrideStatus.textContent = override
     ? (override.status === "active" ? "已启用覆盖" : "覆盖草稿")
-    : event.review_needed ? "待补媒体" : "算法结果";
+    : event.review_needed ? reviewInfo.label : "算法结果";
   const editorMeta = override?.updated_by
     ? ` · 最近由 ${override.updated_by} 于 ${formatAnalyticsTime(override.updated_at)} 修改`
     : "";
-  elements.hotEventMeta.textContent = `算法热度 ${event.heat ?? 0} · ${state.editingHotItems.length} 条关联信息${event.review_needed ? " · 原始短文案缺少媒体证据，未进入前台" : ""}${editorMeta}`;
+  elements.hotEventMeta.textContent = `算法热度 ${event.heat ?? 0} · ${state.editingHotItems.length} 条关联信息${event.review_needed ? ` · ${reviewInfo.detail}` : ""}${editorMeta}`;
   const anchor = event.items?.find((item) => item.item_id === event.anchor_item_id) || event.items?.[0];
   elements.hotSourceLink.hidden = !anchor?.url;
   if (anchor?.url) elements.hotSourceLink.href = anchor.url;

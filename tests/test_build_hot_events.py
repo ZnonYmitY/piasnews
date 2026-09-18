@@ -15,12 +15,25 @@ import build_hot_events as builder  # noqa: E402
 NOW = "2026-08-25T12:00:00Z"
 
 
-def social_item(item_id, text, *, official=False, source="@fan", likes=1000, image_url=None):
+def social_item(
+    item_id,
+    text,
+    *,
+    official=False,
+    source="@fan",
+    likes=1000,
+    image_url=None,
+    video_url=None,
+    title_zh=None,
+    summary=None,
+    summary_zh=None,
+):
     item = {
         "id": item_id,
         "title": text,
-        "summary": text,
-        "summary_zh": text,
+        "title_zh": title_zh if title_zh is not None else text,
+        "summary": summary if summary is not None else text,
+        "summary_zh": summary_zh if summary_zh is not None else text,
         "url": f"https://x.com/example/status/{item_id}",
         "source": source,
         "source_type": "x",
@@ -31,6 +44,8 @@ def social_item(item_id, text, *, official=False, source="@fan", likes=1000, ima
     }
     if image_url:
         item["image_url"] = image_url
+    if video_url:
+        item["video_url"] = video_url
     return item
 
 
@@ -96,6 +111,161 @@ class HotEventBuildTest(unittest.TestCase):
         event = payload["review_needed_events"][0]
         self.assertTrue(event["review_needed"])
         self.assertNotEqual(event["hot_word_zh"], "Oscar 在花絮视频中比划乌龟和鲨鱼")
+
+    def test_low_information_post_with_media_is_still_held_for_review(self):
+        payload = self.build([], [social_item(
+            "link-only",
+            "X post from @laurogeitabat: @laurogeitabat",
+            title_zh="X 发帖：@laurogeitabat",
+            summary="https://t.co/example",
+            summary_zh="https://t.co/example",
+            likes=9000,
+            video_url="https://video.example.com/oscar.mp4",
+        )])
+
+        self.assertEqual(payload["events"], [])
+        self.assertEqual(payload["review_needed_count"], 1)
+        event = payload["review_needed_events"][0]
+        self.assertEqual(event["review_needed_reason"], "insufficient_semantic_text")
+        self.assertEqual(event["items"][0]["video_url"], "https://video.example.com/oscar.mp4")
+
+    def test_live_low_information_quartet_does_not_cluster_by_account_wrapper(self):
+        rows = [
+            social_item(
+                "link-only",
+                "X post from @laurogeitabat: @laurogeitabat",
+                source="@laurogeitabat",
+                summary="https://t.co/one",
+                video_url="https://video.example.com/one.mp4",
+            ),
+            social_item(
+                "emoji-only",
+                "X post from @laurogeitabat: ✨😊🌻🌟🥰🌼☀️🤩",
+                source="@laurogeitabat",
+                video_url="https://video.example.com/two.mp4",
+            ),
+            social_item(
+                "same-video",
+                "X post from @laurogeitabat: exact same video",
+                source="@laurogeitabat",
+                video_url="https://video.example.com/three.mp4",
+            ),
+            social_item(
+                "video-here",
+                "X post from @laurogeitabat: video here 👇🏻",
+                source="@laurogeitabat",
+                video_url="https://video.example.com/four.mp4",
+            ),
+        ]
+
+        payload = self.build([], rows)
+
+        self.assertEqual(payload["events"], [])
+        self.assertEqual(payload["review_needed_count"], 4)
+        self.assertEqual({len(event["items"]) for event in payload["review_needed_events"]}, {1})
+        self.assertEqual(
+            {event["review_needed_reason"] for event in payload["review_needed_events"]},
+            {"insufficient_semantic_text"},
+        )
+
+    def test_same_account_wrapper_does_not_merge_different_meaningful_topics(self):
+        payload = self.build([], [
+            social_item("helmet", "X post from @fan: Oscar reveals a new helmet design", source="@fan"),
+            social_item("tyres", "X post from @fan: Oscar discusses tyre warm-up", source="@fan"),
+        ])
+
+        self.assertEqual(payload["event_count"], 2)
+        self.assertEqual({event["anchor_item_id"] for event in payload["events"]}, {"helmet", "tyres"})
+
+    def test_repost_wrapper_is_removed_but_meaningful_mention_is_preserved(self):
+        payload = self.build([], [social_item(
+            "thanks",
+            "RT @source: Oscar thanks @designer for helmet artwork",
+            source="@fan",
+        )])
+
+        self.assertEqual(payload["event_count"], 1)
+        self.assertEqual(payload["events"][0]["hot_word_zh"], "Oscar thanks @designer for helmet artwork")
+
+    def test_more_informative_member_names_a_meaningful_cluster(self):
+        payload = self.build([], [
+            social_item(
+                "hot-short",
+                "Oscar Lily McLaren fashion show video",
+                title_zh="Oscar、Lily 的 McLaren 时装秀视频",
+                likes=9000,
+            ),
+            social_item(
+                "complete",
+                "Oscar and Lily attend the McLaren fashion show together",
+                title_zh="Oscar 与 Lily 一同出席 McLaren 时装秀",
+                likes=500,
+            ),
+        ])
+
+        self.assertEqual(payload["event_count"], 1)
+        event = payload["events"][0]
+        self.assertEqual(event["anchor_item_id"], "complete")
+        self.assertEqual(event["hot_word_zh"], "Oscar 与 Lily 一同出席 McLaren 时装秀")
+        self.assertEqual(len(event["items"]), 2)
+
+    def test_previous_id_cannot_collide_with_a_later_rule_event(self):
+        first = social_item("pace", "Oscar says there are no answers for the lack of pace")
+        turtle = social_item("turtle", "Oscar mimes a turtle and a shark in a behind-the-scenes video")
+        previous = {"events": [{
+            "event_id": "evt-oscar-turtle-shark-gesture",
+            "hot_word_zh": "Oscar 回应赛车速度不足",
+            "items": [{"item_id": "pace"}],
+        }]}
+
+        payload = self.build([], [first, turtle], previous=previous)
+
+        event_ids = [event["event_id"] for event in payload["events"]]
+        self.assertEqual(len(event_ids), 2)
+        self.assertEqual(len(event_ids), len(set(event_ids)))
+        turtle_event = next(event for event in payload["events"] if event["rule_id"] == "oscar-turtle-shark-gesture")
+        self.assertNotEqual(turtle_event["event_id"], "evt-oscar-turtle-shark-gesture")
+
+    def test_public_ranking_caps_organic_fan_events_per_account_and_backfills(self):
+        rows = [
+            social_item("helmet", "Oscar reveals a geometric helmet design", source="@dominantfan", likes=9000),
+            social_item("tyres", "Oscar explains tyre warm-up technique", source="@dominantfan", likes=8000),
+            social_item("sim", "Oscar completes a simulator preparation day", source="@dominantfan", likes=7000),
+            social_item("museum", "Oscar visits a Melbourne motorsport museum", source="@dominantfan", likes=6000),
+            social_item("engineer", "Oscar thanks a race engineer after testing", source="@anotherfan", likes=5000),
+        ]
+
+        payload = self.build([], rows)
+
+        dominant_public = [
+            event for event in payload["events"]
+            if event["items"][0]["source"] == "@dominantfan"
+        ]
+        self.assertEqual(len(dominant_public), 2)
+        self.assertTrue(any(event["items"][0]["source"] == "@anotherfan" for event in payload["events"]))
+        capped = [
+            event for event in payload["review_needed_events"]
+            if event["review_needed_reason"] == "fan_account_public_cap"
+        ]
+        self.assertEqual(len(capped), 2)
+        self.assertEqual({event["review_needed_context"]["source_account"] for event in capped}, {"@dominantfan"})
+
+    def test_active_override_is_exempt_from_fan_account_public_cap(self):
+        events = [
+            {
+                "event_id": f"evt-{index}",
+                "heat": 100 - index,
+                "pinned_rank": None,
+                "override": {"updated_at": NOW} if index == 3 else None,
+                "items": [{"source_type": "fan", "source": "@fan"}],
+            }
+            for index in range(1, 4)
+        ]
+
+        public, suppressed = builder.rank_public_events(events, 10, 2)
+
+        self.assertEqual([event["event_id"] for event in public], ["evt-1", "evt-2", "evt-3"])
+        self.assertEqual(suppressed, [])
 
     def test_active_editorial_content_can_release_media_review_event(self):
         source = social_item("vague", "i'm never leaving this app", likes=9000)

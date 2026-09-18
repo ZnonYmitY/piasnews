@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import html
 import json
 import math
 import re
@@ -18,6 +19,14 @@ ROOT = Path(__file__).resolve().parents[1]
 TOKEN_RE = re.compile(r"[a-z0-9]+", re.IGNORECASE)
 URL_RE = re.compile(r"https?://\S+", re.IGNORECASE)
 SOCIAL_PREFIX_RE = re.compile(r"^(?:X|Instagram)\s+(?:post|repost|发帖|转帖)[^:：]*[:：]\s*", re.IGNORECASE)
+REPOST_PREFIX_RE = re.compile(r"^(?:RT|repost|转发)\s+@[a-z0-9_.-]+\s*[:：]\s*", re.IGNORECASE)
+HANDLE_RE = re.compile(r"(?<![\w])@[a-z0-9_.-]+", re.IGNORECASE)
+MEDIA_CREDIT_RE = re.compile(r"(?:📸|🎥|🎬|credit)\s*[:：]?\s*@?[a-z0-9_.-]+\s*$", re.IGNORECASE)
+GENERIC_MEDIA_POINTER_RE = re.compile(
+    r"^(?:(?:exact(?:ly)?\s+)?same|another|more|full)?\s*(?:video|clip|photo|picture|pics?)\s*(?:here|below)?$"
+    r"|^(?:watch|see|look\s+at)\s+(?:this|the)(?:\s+(?:video|clip|photo|picture))?$",
+    re.IGNORECASE,
+)
 STOPWORDS = {
     "a", "an", "and", "are", "as", "at", "be", "by", "for", "from", "has", "have", "he", "his",
     "in", "is", "it", "mclaren", "of", "on", "oscar", "piastri", "that", "the", "this", "to", "was",
@@ -92,6 +101,65 @@ def item_text(item: dict[str, Any]) -> str:
     return " ".join(clean(item.get(field)) for field in ("title", "title_zh", "summary", "summary_zh") if item.get(field)).lower()
 
 
+def normalize_semantic_fragment(value: Any, *, strip_handles: bool = True) -> str:
+    text = html.unescape(clean(value))
+    text = SOCIAL_PREFIX_RE.sub("", text)
+    text = REPOST_PREFIX_RE.sub("", text)
+    text = URL_RE.sub(" ", text)
+    text = MEDIA_CREDIT_RE.sub("", text)
+    if strip_handles:
+        text = HANDLE_RE.sub(" ", text)
+    return clean(text).strip(" ·:-—|/\\")
+
+
+def semantic_key(value: Any) -> str:
+    return "".join(character.casefold() for character in clean(value) if character.isalnum())
+
+
+def low_information_keys(config: dict[str, Any]) -> set[str]:
+    phrases = [
+        *(config.get("low_information_phrases") or []),
+        *(config.get("media_review_phrases") or []),
+    ]
+    return {semantic_key(value) for value in phrases if semantic_key(value)}
+
+
+def is_informative_fragment(value: Any, config: dict[str, Any]) -> bool:
+    text = normalize_semantic_fragment(value)
+    key = semantic_key(text)
+    if not key or key in low_information_keys(config):
+        return False
+    normalized_words = " ".join(TOKEN_RE.findall(text.casefold()))
+    if normalized_words and GENERIC_MEDIA_POINTER_RE.fullmatch(normalized_words):
+        return False
+    latin_tokens = {token for token in TOKEN_RE.findall(text.casefold()) if token not in STOPWORDS}
+    has_cjk = any("\u3400" <= character <= "\u9fff" for character in text)
+    if not has_cjk and len(latin_tokens) <= 1 and len(key) < 8:
+        return False
+    return True
+
+
+def semantic_fragments(
+    item: dict[str, Any], config: dict[str, Any], *, informative_only: bool = True
+) -> list[str]:
+    fragments = []
+    seen = set()
+    for field in ("title", "title_zh", "summary", "summary_zh"):
+        fragment = normalize_semantic_fragment(item.get(field))
+        if not fragment or (informative_only and not is_informative_fragment(fragment, config)):
+            continue
+        key = semantic_key(fragment)
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        fragments.append(fragment)
+    return fragments
+
+
+def semantic_item_text(item: dict[str, Any], config: dict[str, Any], *, informative_only: bool = True) -> str:
+    return " ".join(semantic_fragments(item, config, informative_only=informative_only)).casefold()
+
+
 def source_type(item: dict[str, Any], dataset: str) -> str:
     if item.get("official"):
         return "official"
@@ -156,16 +224,67 @@ def matches_rule(text: str, rule: dict[str, Any]) -> bool:
     return not any(clean(term).lower() in text for term in excluded)
 
 
-def objective_hot_word(item: dict[str, Any]) -> tuple[str, str]:
-    zh = clean(item.get("title_zh") or item.get("summary_zh"))
-    en = clean(item.get("title") or item.get("summary"))
-    zh = SOCIAL_PREFIX_RE.sub("", URL_RE.sub("", zh)).strip(" ·:-—")
-    en = SOCIAL_PREFIX_RE.sub("", URL_RE.sub("", en)).strip(" ·:-—")
-    if len(zh) > 46:
-        zh = zh[:45].rstrip("，。；：,.;: ") + "…"
-    if len(en) > 110:
-        en = en[:109].rstrip(" ,.;: ") + "…"
-    return zh or en or "Oscar Piastri 相关动态", en or zh or "Oscar Piastri update"
+def fragment_richness(value: str) -> tuple[int, int]:
+    key = semantic_key(value)
+    tokens = set(TOKEN_RE.findall(value.casefold()))
+    return min(len(key), 120), min(len(tokens), 24)
+
+
+def truncate_hot_word(value: str, limit: int) -> str:
+    if len(value) <= limit:
+        return value
+    boundary = max(
+        (value.rfind(mark, 0, limit + 1) for mark in ("。", "！", "？", "；", ".", "!", "?", ";")),
+        default=-1,
+    )
+    if boundary >= limit // 2:
+        return value[:boundary + 1].strip()
+    return value[: limit - 1].rstrip("，。；：,.;: ") + "…"
+
+
+def contains_cjk(value: str) -> bool:
+    return any("\u3400" <= character <= "\u9fff" for character in value)
+
+
+def best_semantic_fragment(
+    item: dict[str, Any],
+    fields: tuple[str, ...],
+    config: dict[str, Any],
+    *,
+    prefer_cjk: bool | None = None,
+) -> str:
+    candidates = [
+        normalize_semantic_fragment(item.get(field), strip_handles=False)
+        for field in fields
+        if is_informative_fragment(item.get(field), config)
+    ]
+    preferred = [candidate for candidate in candidates if contains_cjk(candidate) is prefer_cjk]
+    if prefer_cjk is not None and preferred:
+        candidates = preferred
+    return max(candidates, key=fragment_richness) if candidates else ""
+
+
+def objective_hot_word(item: dict[str, Any], config: dict[str, Any]) -> tuple[str | None, str | None]:
+    zh = best_semantic_fragment(item, ("title_zh", "summary_zh"), config, prefer_cjk=True)
+    en = best_semantic_fragment(item, ("title", "summary"), config, prefer_cjk=False)
+    zh = truncate_hot_word(zh or en, 46) if zh or en else ""
+    en = truncate_hot_word(en or zh, 110) if en or zh else ""
+    return (zh or None), (en or None)
+
+
+def select_title_record(records: list[dict[str, Any]], config: dict[str, Any]) -> dict[str, Any] | None:
+    candidates = [record for record in records if semantic_fragments(record["item"], config)]
+    if not candidates:
+        return None
+    source_priority = {"official": 3, "media": 2, "fan": 1}
+    return max(
+        candidates,
+        key=lambda record: (
+            max(fragment_richness(fragment) for fragment in semantic_fragments(record["item"], config)),
+            source_priority.get(record["source_type"], 0),
+            record["item_heat"],
+        ),
+    )
 
 
 def event_id_for(rule_id: str | None, anchor: dict[str, Any]) -> str:
@@ -175,6 +294,27 @@ def event_id_for(rule_id: str | None, anchor: dict[str, Any]) -> str:
     digest = hashlib.sha1(seed.encode("utf-8")).hexdigest()[:12]
     published = clean(anchor.get("published_at"))[:10] or "undated"
     return f"evt-{published}-{digest}"
+
+
+def allocate_unique_event_id(
+    preferred_id: str | None,
+    rule_id: str | None,
+    anchor: dict[str, Any],
+    member_ids: set[str],
+    used_event_ids: set[str],
+) -> str:
+    base_id = event_id_for(rule_id, anchor)
+    for candidate in (clean(preferred_id), base_id, event_id_for(None, anchor)):
+        if candidate and candidate not in used_event_ids:
+            return candidate
+    fingerprint_seed = "|".join(sorted(member_ids)) or clean(anchor.get("id") or anchor.get("url") or anchor.get("title"))
+    fingerprint = hashlib.sha1(fingerprint_seed.encode("utf-8")).hexdigest()[:8]
+    candidate = f"{event_id_for(None, anchor)}-{fingerprint}"
+    suffix = 2
+    while candidate in used_event_ids:
+        candidate = f"{event_id_for(None, anchor)}-{fingerprint}-{suffix}"
+        suffix += 1
+    return candidate
 
 
 def previous_event_id(
@@ -437,13 +577,38 @@ def requires_media_review(record: dict[str, Any], config: dict[str, Any]) -> boo
     return not any((image, video, poster))
 
 
+def cluster_media_review_reason(records: list[dict[str, Any]], config: dict[str, Any]) -> str | None:
+    if not any(requires_media_review(record, config) for record in records):
+        return None
+    if any(any(media_fields(record["item"])) for record in records):
+        return None
+    return "media_evidence_missing"
+
+
+def fallback_cluster_match(left: str, right: str, config: dict[str, Any]) -> bool:
+    left_tokens, right_tokens = token_set(left), token_set(right)
+    if not left_tokens or not right_tokens:
+        return False
+    overlap = len(left_tokens & right_tokens)
+    union = len(left_tokens | right_tokens)
+    jaccard = overlap / union if union else 0.0
+    containment = overlap / min(len(left_tokens), len(right_tokens))
+    return (
+        jaccard >= float(config.get("fallback_similarity") or 0.42)
+        or (
+            overlap >= int(config.get("fallback_min_shared_tokens") or 2)
+            and containment >= float(config.get("fallback_containment") or 0.6)
+        )
+    )
+
+
 def cluster_items(records: list[dict[str, Any]], config: dict[str, Any]) -> list[dict[str, Any]]:
     rules = config.get("topic_rules") or []
     clusters: list[dict[str, Any]] = []
     by_rule: dict[str, dict[str, Any]] = {}
     unmatched: list[dict[str, Any]] = []
     for record in records:
-        text = item_text(record["item"])
+        text = semantic_item_text(record["item"], config, informative_only=False)
         rule = next((candidate for candidate in rules if matches_rule(text, candidate)), None)
         if rule:
             cluster = by_rule.get(rule["id"])
@@ -452,15 +617,24 @@ def cluster_items(records: list[dict[str, Any]], config: dict[str, Any]) -> list
                 by_rule[rule["id"]] = cluster
                 clusters.append(cluster)
             cluster["records"].append(record)
+        elif not semantic_item_text(record["item"], config):
+            clusters.append({
+                "rule": None,
+                "records": [record],
+                "review_reason": "insufficient_semantic_text",
+            })
         else:
             unmatched.append(record)
 
-    threshold = float(config.get("fallback_similarity") or 0.42)
     for record in unmatched:
-        text = item_text(record["item"])
+        text = semantic_item_text(record["item"], config)
         for cluster in clusters:
-            anchor_text = item_text(cluster["records"][0]["item"])
-            if not cluster.get("rule") and similarity(text, anchor_text) >= threshold:
+            anchor_text = semantic_item_text(cluster["records"][0]["item"], config)
+            if (
+                not cluster.get("rule")
+                and not cluster.get("review_reason")
+                and fallback_cluster_match(text, anchor_text, config)
+            ):
                 cluster["records"].append(record)
                 break
         else:
@@ -571,6 +745,57 @@ def rank_events(events: list[dict[str, Any]], maximum_events: int) -> list[dict[
     return ranked
 
 
+def normalized_source_account(value: Any) -> str:
+    return clean(value).casefold().lstrip("@")
+
+
+def fan_only_source_account(event: dict[str, Any]) -> str | None:
+    items = event.get("items") or []
+    if not items or any(item.get("source_type") != "fan" for item in items):
+        return None
+    sources = {normalized_source_account(item.get("source")) for item in items}
+    sources.discard("")
+    return next(iter(sources)) if len(sources) == 1 else None
+
+
+def rank_public_events(
+    events: list[dict[str, Any]], maximum_events: int, max_fan_events_per_account: int
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    ordered = rank_events(events, max(maximum_events, len(events)))
+    public = []
+    suppressed = []
+    source_counts: dict[str, int] = defaultdict(int)
+    for event in ordered:
+        if len(public) >= maximum_events:
+            break
+        hard_result = (event.get("hard_rule") or {}).get("type") == "session_result"
+        account = fan_only_source_account(event)
+        if event.get("override") or hard_result or not account or max_fan_events_per_account <= 0:
+            public.append(event)
+            continue
+        if source_counts[account] >= max_fan_events_per_account:
+            held = dict(event)
+            held.pop("rank", None)
+            held["review_needed"] = True
+            held["review_needed_reason"] = "fan_account_public_cap"
+            held["review_needed_context"] = {
+                "source_account": f"@{account}",
+                "limit": max_fan_events_per_account,
+            }
+            suppressed.append(held)
+            continue
+        source_counts[account] += 1
+        public.append(event)
+    return rank_events(public, maximum_events), suppressed
+
+
+def validate_unique_event_ids(*groups: list[dict[str, Any]]) -> None:
+    identifiers = [clean(event.get("event_id")) for group in groups for event in group]
+    duplicates = sorted({event_id for event_id in identifiers if event_id and identifiers.count(event_id) > 1})
+    if duplicates:
+        raise ValueError(f"duplicate_event_id:{','.join(duplicates)}")
+
+
 def build(args: argparse.Namespace) -> dict[str, Any]:
     now = now_time(args.now)
     config = read_json(Path(args.config), {})
@@ -602,17 +827,21 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
     used_event_ids: set[str] = set()
     for cluster in clusters:
         ranked = sorted(cluster["records"], key=lambda record: record["item_heat"], reverse=True)
-        anchor = ranked[0]["item"]
+        heat_anchor = ranked[0]["item"]
+        title_record = select_title_record(ranked, config)
+        anchor = title_record["item"] if title_record else heat_anchor
         rule = cluster.get("rule")
-        hot_word_zh, hot_word_en = objective_hot_word(anchor)
+        hot_word_zh, hot_word_en = objective_hot_word(anchor, config)
         if rule:
-            hot_word_zh = clean(rule.get("hot_word_zh")) or hot_word_zh
-            hot_word_en = clean(rule.get("hot_word_en")) or hot_word_en
+            hot_word_zh = clean(rule.get("hot_word_zh")) or hot_word_zh or "待补充事件标题"
+            hot_word_en = clean(rule.get("hot_word_en")) or hot_word_en or "Event title needs review"
+        else:
+            hot_word_zh = hot_word_zh or "待补充事件标题"
+            hot_word_en = hot_word_en or "Event title needs review"
         member_ids = {clean(record["item"].get("id")) for record in ranked if record["item"].get("id")}
         old_id = previous_event_id(member_ids, hot_word_zh, previous, used_event_ids)
-        event_id = old_id or event_id_for(clean(rule.get("id")) if rule else None, anchor)
-        if event_id in used_event_ids:
-            event_id = event_id_for(None, anchor)
+        rule_id = clean(rule.get("id")) if rule else None
+        event_id = allocate_unique_event_id(old_id, rule_id, anchor, member_ids, used_event_ids)
         used_event_ids.add(event_id)
         image_url = video_url = video_poster_url = None
         for record in ranked:
@@ -624,9 +853,13 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
             source: component_raw(ranked, source, int(config.get("max_items_per_source") or 3))
             for source in SOURCE_LABELS
         }
+        review_reason = cluster.get("review_reason")
+        if not review_reason and not rule and title_record is None:
+            review_reason = "insufficient_semantic_text"
+        review_reason = review_reason or cluster_media_review_reason(ranked, config)
         draft_events.append({
             "event_id": event_id,
-            "rule_id": clean(rule.get("id")) if rule else None,
+            "rule_id": rule_id,
             "hot_word_zh": hot_word_zh,
             "hot_word_en": hot_word_en,
             "first_seen_at": min(clean(record["item"].get("published_at")) for record in ranked),
@@ -635,8 +868,8 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
             "image_url": image_url,
             "video_url": video_url,
             "video_poster_url": video_poster_url,
-            "review_needed": any(requires_media_review(record, config) for record in ranked),
-            "review_needed_reason": "media_evidence_missing" if any(requires_media_review(record, config) for record in ranked) else None,
+            "review_needed": bool(review_reason),
+            "review_needed_reason": review_reason,
             "component_raw": component,
             "items": [
                 {
@@ -740,13 +973,22 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
         events.append(structured_result)
     else:
         apply_session_result_hard_rule(events, records, calendar, refresh_reason, now)
-    events = rank_events(events, int(config.get("maximum_events") or 15))
+    events, source_suppressed = rank_public_events(
+        events,
+        int(config.get("maximum_events") or 15),
+        int(config.get("max_public_fan_only_events_per_account") or 0),
+    )
+    review_needed_events.extend(source_suppressed)
+    validate_unique_event_ids(events, review_needed_events)
 
     return {
         "schema_version": 1,
         "generated_at": isoformat(now),
         "window_days": int(config.get("display_window_days") or 7),
         "active_heat_hours": int(config.get("active_heat_hours") or 72),
+        "max_public_fan_only_events_per_account": int(
+            config.get("max_public_fan_only_events_per_account") or 0
+        ),
         "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
         "event_count": len(events),
         "events": events,

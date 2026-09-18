@@ -23,6 +23,16 @@ class HotEventPublishWorkflowTests(unittest.TestCase):
         self.assertIn("热榜草稿，不发布线上", app)
         self.assertNotIn("已提交启用覆盖，未直接部署线上", app)
 
+    def test_workbench_distinguishes_hot_ranking_review_reasons(self):
+        app = (ROOT / "public/admin/app.js").read_text(encoding="utf-8")
+        html = (ROOT / "public/admin/index.html").read_text(encoding="utf-8")
+
+        self.assertIn('reason === "media_evidence_missing"', app)
+        self.assertIn('reason === "insufficient_semantic_text"', app)
+        self.assertIn('reason === "fan_account_public_cap"', app)
+        self.assertIn("同账号上榜受限", app)
+        self.assertIn("app.js?v=20260918-hot-quality", html)
+
     def test_hot_workbench_reuses_authenticated_admin_session(self):
         app = (ROOT / "public/admin/app.js").read_text(encoding="utf-8")
         html = (ROOT / "public/admin/index.html").read_text(encoding="utf-8")
