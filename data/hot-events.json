@@ -1,139 +1,12 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-18T17:45:30.087453Z",
+  "generated_at": "2026-09-19T00:42:18.492803Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
   "event_count": 10,
   "events": [
-    {
-      "event_id": "evt-2026-09-17-192dcb6c3424-c810e225",
-      "rule_id": null,
-      "hot_word_zh": "一些 Oscar、Lando 和 Lily 昨天看秀的片段！",
-      "hot_word_en": "some clips of oscar, lando and lily watching the show yesterday!",
-      "first_seen_at": "2026-09-16T20:22:53Z",
-      "last_seen_at": "2026-09-17T19:23:10Z",
-      "anchor_item_id": "piasnews-social-970b391fd2d09ce7",
-      "image_url": "https://pbs.twimg.com/media/HScNYZjWYAApwPM.jpg",
-      "video_url": "https://video.twimg.com/amplify_video/2100317761062801409/vid/avc1/320x480/eHW5Hcc1GEiLpx7c.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/media/HScNYZjWYAApwPM.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-eb3ca19aaaa31bff",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: OSCAR AND LILY AT THE MCLAREN FASHION SHOW ✨",
-          "title_zh": "X 发帖 @laurogeitabat：OSCAR 和 LILY 在 MCLAREN 时装秀 ✨",
-          "summary": "OSCAR AND LILY AT THE MCLAREN FASHION SHOW ✨ https://t.co/zhPsIA5sqi",
-          "summary_zh": "OSCAR 和 LILY 在 MCLAREN 时装秀 ✨",
-          "url": "https://x.com/laurogeitabat/status/2100662469978960231",
-          "published_at": "2026-09-17T19:05:35Z",
-          "image_url": "https://pbs.twimg.com/media/HScNYZjWYAApwPM.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HScNYZjWYAApwPM.jpg",
-          "heat_contribution": 7.7763,
-          "metrics": {
-            "likes": 2591,
-            "retweets": 206,
-            "replies": 2,
-            "quotes": 0,
-            "views": 16755,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-4468ba799d25df7e",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@oscarsspiastree",
-          "title": "X repost from @oscarsspiastree: RT @ln4norris: LANDO &amp; OSCAR AT THE MCLAREN FASHION SHOW!!!",
-          "title_zh": "X 转帖 @oscarsspiastree：RT @ln4norris：LANDO 和 OSCAR 在 MCLAREN 时装秀！！！",
-          "summary": "RT @ln4norris: LANDO &amp; OSCAR AT THE MCLAREN FASHION SHOW!!! https://t.co/tVQTR1M1r5",
-          "summary_zh": "RT @ln4norris：LANDO 和 OSCAR 在 MCLAREN 时装秀！！！",
-          "url": "https://x.com/oscarsspiastree/status/2100319531855946131",
-          "published_at": "2026-09-16T20:22:53Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2100317761062801409/vid/avc1/320x480/eHW5Hcc1GEiLpx7c.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100317761062801409/img/n-GqqyshLMgXITpC.jpg",
-          "heat_contribution": 6.9156,
-          "metrics": {
-            "likes": 0,
-            "retweets": 1118,
-            "replies": 0,
-            "quotes": 0,
-            "views": 139,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-970b391fd2d09ce7",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: some clips of oscar, lando and lily watching the show yesterday!",
-          "title_zh": "X 发帖 @laurogeitabat：一些 Oscar、Lando 和 Lily 昨天看秀的片段！",
-          "summary": "some clips of oscar, lando and lily watching the show yesterday! https://t.co/c4lWPkFY0p",
-          "summary_zh": "一些 Oscar、Lando 和 Lily 昨天看秀的片段！",
-          "url": "https://x.com/laurogeitabat/status/2100666894713815169",
-          "published_at": "2026-09-17T19:23:10Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2100666868813950976/vid/avc1/312x270/IT36fDEd2IJR8aGX.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100666868813950976/img/aadJWD7s3OXuPCib.jpg",
-          "heat_contribution": 6.1415,
-          "metrics": {
-            "likes": 507,
-            "retweets": 27,
-            "replies": 0,
-            "quotes": 0,
-            "views": 5732,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-0911ad242c6eb0e8",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: OSCAR AND LANDO AT THE MCLAREN FASHION SHOW",
-          "title_zh": "X 发帖 @laurogeitabat：OSCAR 和 LANDO 在 MCLAREN 时装秀",
-          "summary": "OSCAR AND LANDO AT THE MCLAREN FASHION SHOW https://t.co/c2GEXkvIUz",
-          "summary_zh": "OSCAR 和 LANDO 在 MCLAREN 时装秀",
-          "url": "https://x.com/laurogeitabat/status/2100331135201120747",
-          "published_at": "2026-09-16T21:08:59Z",
-          "image_url": "https://pbs.twimg.com/media/HSXgB92WIAAatpQ.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HSXgB92WIAAatpQ.jpg",
-          "heat_contribution": 5.712,
-          "metrics": {
-            "likes": 518,
-            "retweets": 51,
-            "replies": 0,
-            "quotes": 0,
-            "views": 4992,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 80,
-      "heat": 80,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 2
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 1
-    },
     {
       "event_id": "evt-2026-09-18-69584eceeb4a",
       "rule_id": null,
@@ -186,7 +59,7 @@
           "image_url": "https://pbs.twimg.com/media/HSfADwYXQAAaSME.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HSfADwYXQAAaSME.jpg",
-          "heat_contribution": 8.3034,
+          "heat_contribution": 8.0158,
           "metrics": {
             "likes": 0,
             "retweets": 2018,
@@ -199,7 +72,7 @@
       ],
       "official_heat": 63,
       "media_heat": 0,
-      "fan_heat": 43,
+      "fan_heat": 42,
       "heat": 74,
       "source_labels": [
         "官",
@@ -212,10 +85,240 @@
       },
       "pinned_rank": null,
       "hidden": false,
+      "rank": 1
+    },
+    {
+      "event_id": "evt-2026-09-17-192dcb6c3424",
+      "rule_id": null,
+      "hot_word_zh": "一些 Oscar、Lando 和 Lily 昨天看秀的片段！",
+      "hot_word_en": "some clips of oscar, lando and lily watching the show yesterday!",
+      "first_seen_at": "2026-09-16T20:22:53Z",
+      "last_seen_at": "2026-09-17T19:23:10Z",
+      "anchor_item_id": "piasnews-social-970b391fd2d09ce7",
+      "image_url": "https://pbs.twimg.com/media/HScNYZjWYAApwPM.jpg",
+      "video_url": "https://video.twimg.com/amplify_video/2100317761062801409/vid/avc1/320x480/eHW5Hcc1GEiLpx7c.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/media/HScNYZjWYAApwPM.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-eb3ca19aaaa31bff",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: OSCAR AND LILY AT THE MCLAREN FASHION SHOW ✨",
+          "title_zh": "X 发帖 @laurogeitabat：OSCAR 和 LILY 在 MCLAREN 时装秀 ✨",
+          "summary": "OSCAR AND LILY AT THE MCLAREN FASHION SHOW ✨ https://t.co/zhPsIA5sqi",
+          "summary_zh": "OSCAR 和 LILY 在 MCLAREN 时装秀 ✨",
+          "url": "https://x.com/laurogeitabat/status/2100662469978960231",
+          "published_at": "2026-09-17T19:05:35Z",
+          "image_url": "https://pbs.twimg.com/media/HScNYZjWYAApwPM.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HScNYZjWYAApwPM.jpg",
+          "heat_contribution": 7.2657,
+          "metrics": {
+            "likes": 2591,
+            "retweets": 206,
+            "replies": 2,
+            "quotes": 0,
+            "views": 16755,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-4468ba799d25df7e",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@oscarsspiastree",
+          "title": "X repost from @oscarsspiastree: RT @ln4norris: LANDO &amp; OSCAR AT THE MCLAREN FASHION SHOW!!!",
+          "title_zh": "X 转帖 @oscarsspiastree：RT @ln4norris：LANDO 和 OSCAR 在 MCLAREN 时装秀！！！",
+          "summary": "RT @ln4norris: LANDO &amp; OSCAR AT THE MCLAREN FASHION SHOW!!! https://t.co/tVQTR1M1r5",
+          "summary_zh": "RT @ln4norris：LANDO 和 OSCAR 在 MCLAREN 时装秀！！！",
+          "url": "https://x.com/oscarsspiastree/status/2100319531855946131",
+          "published_at": "2026-09-16T20:22:53Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2100317761062801409/vid/avc1/320x480/eHW5Hcc1GEiLpx7c.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100317761062801409/img/n-GqqyshLMgXITpC.jpg",
+          "heat_contribution": 6.1059,
+          "metrics": {
+            "likes": 0,
+            "retweets": 1118,
+            "replies": 0,
+            "quotes": 0,
+            "views": 139,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-970b391fd2d09ce7",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: some clips of oscar, lando and lily watching the show yesterday!",
+          "title_zh": "X 发帖 @laurogeitabat：一些 Oscar、Lando 和 Lily 昨天看秀的片段！",
+          "summary": "some clips of oscar, lando and lily watching the show yesterday! https://t.co/c4lWPkFY0p",
+          "summary_zh": "一些 Oscar、Lando 和 Lily 昨天看秀的片段！",
+          "url": "https://x.com/laurogeitabat/status/2100666894713815169",
+          "published_at": "2026-09-17T19:23:10Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2100666868813950976/vid/avc1/312x270/IT36fDEd2IJR8aGX.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100666868813950976/img/aadJWD7s3OXuPCib.jpg",
+          "heat_contribution": 5.6321,
+          "metrics": {
+            "likes": 507,
+            "retweets": 27,
+            "replies": 0,
+            "quotes": 0,
+            "views": 5732,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-0911ad242c6eb0e8",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: OSCAR AND LANDO AT THE MCLAREN FASHION SHOW",
+          "title_zh": "X 发帖 @laurogeitabat：OSCAR 和 LANDO 在 MCLAREN 时装秀",
+          "summary": "OSCAR AND LANDO AT THE MCLAREN FASHION SHOW https://t.co/c2GEXkvIUz",
+          "summary_zh": "OSCAR 和 LANDO 在 MCLAREN 时装秀",
+          "url": "https://x.com/laurogeitabat/status/2100331135201120747",
+          "published_at": "2026-09-16T21:08:59Z",
+          "image_url": "https://pbs.twimg.com/media/HSXgB92WIAAatpQ.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HSXgB92WIAAatpQ.jpg",
+          "heat_contribution": 4.9052,
+          "metrics": {
+            "likes": 518,
+            "retweets": 51,
+            "replies": 0,
+            "quotes": 0,
+            "views": 4992,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 73,
+      "heat": 73,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 2
+      },
+      "pinned_rank": null,
+      "hidden": false,
       "rank": 2
     },
     {
-      "event_id": "evt-2026-09-17-e59e72f81f79",
+      "event_id": "evt-2026-09-18-66ecbe9a0d1b",
+      "rule_id": null,
+      "hot_word_zh": "OSCAR 世界巡回周边系列的第二部分明天就要上线了！！🌎✨",
+      "hot_word_en": "THE SECOND PART OF OSCAR'S WORLD CIRCUIT MERCH COLLECTION IS DROPPING TOMORROW !! 🌎✨",
+      "first_seen_at": "2026-09-17T16:46:41Z",
+      "last_seen_at": "2026-09-18T09:10:02Z",
+      "anchor_item_id": "piasnews-social-c33f4360171eee56",
+      "image_url": "https://pbs.twimg.com/media/HSbtinrWYAAzgZQ.jpg",
+      "video_url": "https://video.twimg.com/amplify_video/2100862451851902976/vid/avc1/320x426/pvHDnnnUlivBSS2l.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/media/HSbtinrWYAAzgZQ.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-c33f4360171eee56",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: THE SECOND PART OF OSCAR'S WORLD CIRCUIT MERCH COLLECTION IS DROPPING TOMORROW !! 🌎✨",
+          "title_zh": "X 发帖 @laurogeitabat：OSCAR 世界巡回周边系列的第二部分明天就要上线了！！🌎✨",
+          "summary": "THE SECOND PART OF OSCAR'S WORLD CIRCUIT MERCH COLLECTION IS DROPPING TOMORROW !! 🌎✨ https://t.co/7ANf2fQBrv",
+          "summary_zh": "OSCAR 世界巡回周边系列的第二部分明天就要上线了！！🌎✨",
+          "url": "https://x.com/laurogeitabat/status/2100627512141251043",
+          "published_at": "2026-09-17T16:46:41Z",
+          "image_url": "https://pbs.twimg.com/media/HSbtinrWYAAzgZQ.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HSbtinrWYAAzgZQ.jpg",
+          "heat_contribution": 6.6893,
+          "metrics": {
+            "likes": 1188,
+            "retweets": 69,
+            "replies": 6,
+            "quotes": 0,
+            "views": 43984,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-8e4c51a47f6ec931",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@oscarpiastri81",
+          "title": "X repost from @oscarpiastri81: RT @teamopeightyone: World Circuit - drop 2 ✌️",
+          "title_zh": "X 转帖 @oscarpiastri81：RT @teamopeightyone：World Circuit - 第二弹 ✌️",
+          "summary": "RT @teamopeightyone: World Circuit - drop 2 ✌️ https://t.co/Kd8ezTNjdI",
+          "summary_zh": "RT @teamopeightyone：World Circuit - 第二弹 ✌️",
+          "url": "https://x.com/oscarpiastri81/status/2100874980594479338",
+          "published_at": "2026-09-18T09:10:02Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2100862451851902976/vid/avc1/320x426/pvHDnnnUlivBSS2l.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100862451851902976/img/yxMSwfLScE560LtH.jpg",
+          "heat_contribution": 4.2823,
+          "metrics": {
+            "likes": 0,
+            "retweets": 46,
+            "replies": 0,
+            "quotes": 0,
+            "views": 321,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-12cfdee79b8a4daf",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@oscarsspiastree",
+          "title": "X repost from @oscarsspiastree: RT @teamopeightyone: World Circuit - drop 2 ✌️",
+          "title_zh": "X 转帖 @oscarsspiastree：RT @teamopeightyone：World Circuit - 第二弹 ✌️",
+          "summary": "RT @teamopeightyone: World Circuit - drop 2 ✌️ https://t.co/Kd8ezTNjdI",
+          "summary_zh": "RT @teamopeightyone：World Circuit - 第二弹 ✌️",
+          "url": "https://x.com/oscarsspiastree/status/2100863694062166075",
+          "published_at": "2026-09-18T08:25:11Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2100862451851902976/vid/avc1/320x426/pvHDnnnUlivBSS2l.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100862451851902976/img/yxMSwfLScE560LtH.jpg",
+          "heat_contribution": 4.2633,
+          "metrics": {
+            "likes": 0,
+            "retweets": 46,
+            "replies": 0,
+            "quotes": 0,
+            "views": 139,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 56,
+      "heat": 56,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 3
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "event_id": "evt-2026-09-17-e59e72f81f79-e59e72f8",
       "rule_id": null,
       "hot_word_zh": "oscar替lily给lando传话……他正是待在他想待的地方",
       "hot_word_en": "oscar passing a message from lily to lando... he's exactly where he wants to be",
@@ -242,7 +345,7 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2100670776751923200/vid/avc1/312x270/XWYBbJZHe7vuwHzd.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100670776751923200/img/U6wpjo7sjXRMrJ62.jpg",
-          "heat_contribution": 10.7254,
+          "heat_contribution": 10.2146,
           "metrics": {
             "likes": 44415,
             "retweets": 3821,
@@ -255,8 +358,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 55,
-      "heat": 55,
+      "fan_heat": 52,
+      "heat": 52,
       "source_labels": [
         "粉"
       ],
@@ -267,10 +370,10 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 3
+      "rank": 4
     },
     {
-      "event_id": "evt-2026-09-17-b2d64ae72b94-b2d64ae7",
+      "event_id": "evt-2026-09-17-b2d64ae72b94",
       "rule_id": null,
       "hot_word_zh": "lily轻推oscar，两人互相meep meep 😭😭😭",
       "hot_word_en": "lily nudging oscar and both of them meeping at each other 😭😭😭",
@@ -297,7 +400,7 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2100669657111748608/vid/avc1/320x404/EuzXwD-4hXznrHHZ.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100669657111748608/img/lmNHTWUZiEyPMtu_.jpg",
-          "heat_contribution": 9.2379,
+          "heat_contribution": 8.7272,
           "metrics": {
             "likes": 10345,
             "retweets": 900,
@@ -310,8 +413,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 48,
-      "heat": 48,
+      "fan_heat": 45,
+      "heat": 45,
       "source_labels": [
         "粉"
       ],
@@ -322,7 +425,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 4
+      "rank": 5
     },
     {
       "event_id": "evt-2026-09-18-46ec817e5e37",
@@ -377,10 +480,10 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 5
+      "rank": 6
     },
     {
-      "event_id": "evt-2026-09-17-43a9ad887c52-43a9ad88",
+      "event_id": "evt-2026-09-17-43a9ad887c52",
       "rule_id": null,
       "hot_word_zh": "给这些穿搭打分 😮‍💨 #McLarenF1 #DesignedToRace",
       "hot_word_en": "Rating the fits 😮‍💨 #McLarenF1 #DesignedToRace",
@@ -432,7 +535,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 7
     },
     {
       "event_id": "evt-2026-09-18-70e215753b2e",
@@ -487,7 +590,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 8
     },
     {
       "event_id": "evt-2026-09-17-ee5342fbe889",
@@ -542,85 +645,6 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
-    },
-    {
-      "event_id": "evt-2026-09-18-66ecbe9a0d1b",
-      "rule_id": null,
-      "hot_word_zh": "世界电路 - 下降2 QQ",
-      "hot_word_en": "World Circuit - drop 2 ✌️",
-      "first_seen_at": "2026-09-18T08:25:11Z",
-      "last_seen_at": "2026-09-18T09:10:02Z",
-      "anchor_item_id": "piasnews-social-8e4c51a47f6ec931",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2100862451851902976/vid/avc1/320x426/pvHDnnnUlivBSS2l.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100862451851902976/img/yxMSwfLScE560LtH.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-8e4c51a47f6ec931",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@oscarpiastri81",
-          "title": "X repost from @oscarpiastri81: RT @teamopeightyone: World Circuit - drop 2 ✌️",
-          "title_zh": "X 转帖 @oscarpiastri81：RT @teamopeightyone:世界电路 - 下降2 QQ",
-          "summary": "RT @teamopeightyone: World Circuit - drop 2 ✌️ https://t.co/Kd8ezTNjdI",
-          "summary_zh": "RT @teamopeightyone:世界电路 - 下降2 QQ",
-          "url": "https://x.com/oscarpiastri81/status/2100874980594479338",
-          "published_at": "2026-09-18T09:10:02Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2100862451851902976/vid/avc1/320x426/pvHDnnnUlivBSS2l.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100862451851902976/img/yxMSwfLScE560LtH.jpg",
-          "heat_contribution": 4.2823,
-          "metrics": {
-            "likes": 0,
-            "retweets": 46,
-            "replies": 0,
-            "quotes": 0,
-            "views": 321,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-12cfdee79b8a4daf",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@oscarsspiastree",
-          "title": "X repost from @oscarsspiastree: RT @teamopeightyone: World Circuit - drop 2 ✌️",
-          "title_zh": "X 转帖 @oscarsspiastree：RT @teamopeightyone:世界电路 - 下降2 QQ",
-          "summary": "RT @teamopeightyone: World Circuit - drop 2 ✌️ https://t.co/Kd8ezTNjdI",
-          "summary_zh": "RT @teamopeightyone:世界电路 - 下降2 QQ",
-          "url": "https://x.com/oscarsspiastree/status/2100863694062166075",
-          "published_at": "2026-09-18T08:25:11Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2100862451851902976/vid/avc1/320x426/pvHDnnnUlivBSS2l.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100862451851902976/img/yxMSwfLScE560LtH.jpg",
-          "heat_contribution": 4.2633,
-          "metrics": {
-            "likes": 0,
-            "retweets": 46,
-            "replies": 0,
-            "quotes": 0,
-            "views": 139,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 34,
-      "heat": 34,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 2
-      },
-      "pinned_rank": null,
-      "hidden": false,
       "rank": 9
     },
     {
@@ -628,7 +652,7 @@
       "rule_id": null,
       "hot_word_zh": "Stella 证实 McLaren 正把 2025 年针对 Norris 的解决方案复制到…",
       "hot_word_en": "Stella confirms McLaren is repeating its 2025 Norris fix on Piastri, who can't stop 'driving and thinking'",
-      "first_seen_at": "2026-09-11T18:01:06Z",
+      "first_seen_at": "2026-09-12T05:20:00Z",
       "last_seen_at": "2026-09-18T11:02:00Z",
       "anchor_item_id": "piasnews-e77fc8b5a2066e33",
       "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-07%2Fpiastri-6a5d0557248d8.jpg",
@@ -641,7 +665,7 @@
           "item_id": "piasnews-e77fc8b5a2066e33",
           "dataset": "items",
           "source_type": "media",
-          "source": "GPblog",
+          "source": "gpblog.com",
           "title": "Stella confirms McLaren is repeating its 2025 Norris fix on Piastri, who can't stop 'driving and thinking'",
           "title_zh": "Stella 证实 McLaren 正把 2025 年针对 Norris 的解决方案复制到 Piastri 身上，后者无法停止“边开车边思考”",
           "summary": "Team or car-performance item discovered from public news metadata.",
@@ -668,14 +692,14 @@
           "image_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F08%2F23193459%2Foscar-piastri-zandvoort-luck.jpg",
           "video_url": null,
           "video_poster_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F08%2F23193459%2Foscar-piastri-zandvoort-luck.jpg",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
           "item_id": "piasnews-c875804eae4ed812",
           "dataset": "items",
           "source_type": "media",
-          "source": "BVM Sports",
+          "source": "bvmsports.com",
           "title": "Stella reveals McLaren’s ‘clear agenda’ to unlock Piastri",
           "title_zh": "Stella 透露 McLaren 释放 Piastri 潜力的“明确计划”",
           "summary": "Team or car-performance item discovered from public news metadata.",
@@ -709,7 +733,7 @@
           "item_id": "piasnews-4f183ddc0e11bfca",
           "dataset": "items",
           "source_type": "media",
-          "source": "grandprix.com",
+          "source": "Grandprix.com",
           "title": "McLaren wants Piastri to find his instincts again",
           "title_zh": "McLaren 希望 Piastri 重新找回自己的本能",
           "summary": "Team or car-performance item discovered from public news metadata.",
@@ -726,7 +750,7 @@
           "item_id": "piasnews-b685c971f208a1cf",
           "dataset": "items",
           "source_type": "media",
-          "source": "readmotorsport.com",
+          "source": "Read Motorsport",
           "title": "McLaren Recalibrate 2026 Setup To Fix Piastri Driving Deficit",
           "title_zh": "McLaren重新校准2026年设定以解决Piastri驾驶劣势",
           "summary": "Team or car-performance item discovered from public news metadata.",
@@ -743,7 +767,7 @@
           "item_id": "piasnews-5004994a3883ed84",
           "dataset": "items",
           "source_type": "media",
-          "source": "Speedcafe.com",
+          "source": "speedcafe.com",
           "title": "F1 news: McLaren identifies key Oscar Piastri weakness",
           "title_zh": "F1新闻：McLaren指出Oscar Piastri的关键弱点",
           "summary": "Team or car-performance item discovered from public news metadata.",
@@ -770,7 +794,7 @@
           "image_url": "https://s.yimg.com/lo/mysterio/api/b8f9df49a1ba206b3b917ab74adfafea3037500e37c199d6bcdc3b4ceb5cdbc7/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fmotorsport_articles_445%2F97414de3506aae2c62ce43cfc925b7c1.jpg",
           "video_url": null,
           "video_poster_url": "https://s.yimg.com/lo/mysterio/api/b8f9df49a1ba206b3b917ab74adfafea3037500e37c199d6bcdc3b4ceb5cdbc7/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fmotorsport_articles_445%2F97414de3506aae2c62ce43cfc925b7c1.jpg",
-          "heat_contribution": 0.2,
+          "heat_contribution": 0.0,
           "metrics": {}
         },
         {
@@ -874,35 +898,18 @@
           "video_poster_url": "https://cdn.racingnews365.com/2026/Norris/XPB_1435376_HiRes.jpg?v=1789127413&width=1800&height=945&quality=75&crop=5185%2C2723%2C0%2C369",
           "heat_contribution": 0.0,
           "metrics": {}
-        },
-        {
-          "item_id": "piasnews-b54a7ee50c88ff48",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Speedcafe.com",
-          "title": "F1 news: Oscar Piastri reveals McLaren concerns after difficult Madrid Friday",
-          "title_zh": "F1新闻：Oscar Piastri在艰难的马德里周五后透露对McLaren的担忧",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与车队或赛车性能相关的条目。",
-          "url": "https://speedcafe.com/f1-news-2026-spanish-grand-prix-madring-oscar-piastri-mclaren-practice-result-what-happened-update-latest-lando-norris-gearbox/",
-          "published_at": "2026-09-11T18:01:06Z",
-          "image_url": "https://speedcafe.com/wp-content/uploads/2026/09/XPB_1435499_HiRes.jpg",
-          "video_url": null,
-          "video_poster_url": "https://speedcafe.com/wp-content/uploads/2026/09/XPB_1435499_HiRes.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
         }
       ],
       "official_heat": 0,
-      "media_heat": 33,
+      "media_heat": 30,
       "fan_heat": 0,
-      "heat": 33,
+      "heat": 30,
       "source_labels": [
         "媒"
       ],
       "source_counts": {
         "official": 0,
-        "media": 14,
+        "media": 13,
         "fan": 0
       },
       "pinned_rank": null,
@@ -910,7 +917,7 @@
       "rank": 10
     }
   ],
-  "review_needed_count": 26,
+  "review_needed_count": 27,
   "review_needed_events": [
     {
       "event_id": "evt-2026-09-17-2ed5512eef4b",
@@ -940,7 +947,7 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2100680282755964928/vid/avc1/320x320/3f80uaseWQKcFfgz.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100680282755964928/img/69ONJ08UB1vk9AUH.jpg",
-          "heat_contribution": 5.5709,
+          "heat_contribution": 5.0626,
           "metrics": {
             "likes": 263,
             "retweets": 23,
@@ -953,8 +960,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 30,
-      "heat": 30,
+      "fan_heat": 28,
+      "heat": 28,
       "source_labels": [
         "粉"
       ],
@@ -994,7 +1001,7 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2100667864696913920/vid/avc1/320x354/Rra69Lou3Zt3sZVE.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100667864696913920/img/J4XqV2PpO1U62rMX.jpg",
-          "heat_contribution": 6.8526,
+          "heat_contribution": 6.3424,
           "metrics": {
             "likes": 959,
             "retweets": 89,
@@ -1007,8 +1014,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 36,
-      "heat": 36,
+      "fan_heat": 34,
+      "heat": 34,
       "source_labels": [
         "粉"
       ],
@@ -1242,34 +1249,10 @@
       "anchor_item_id": "piasnews-social-84b30b0632ca015a",
       "image_url": "https://pbs.twimg.com/media/HSXd-OiW8AAobV-.jpg",
       "video_url": "https://video.twimg.com/amplify_video/2100635193551863808/vid/avc1/320x426/Of5Eak-IWTZ4Zofh.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/media/HSXd-OiW8AAobV-.jpg",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100635193551863808/img/DpeQkLpvoJ8ZnB80.jpg",
       "review_needed": true,
       "review_needed_reason": "fan_account_public_cap",
       "items": [
-        {
-          "item_id": "piasnews-social-d8f5075e3d51a4e6",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: HELLO FASHION SHOW OSCAR",
-          "title_zh": "X 发帖 @laurogeitabat：你好 时装秀 OSCAR",
-          "summary": "HELLO FASHION SHOW OSCAR https://t.co/wgG5h5YLEM",
-          "summary_zh": "你好 时装秀 OSCAR",
-          "url": "https://x.com/laurogeitabat/status/2100328870901670149",
-          "published_at": "2026-09-16T20:59:59Z",
-          "image_url": "https://pbs.twimg.com/media/HSXd-OiW8AAobV-.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HSXd-OiW8AAobV-.jpg",
-          "heat_contribution": 6.2056,
-          "metrics": {
-            "likes": 838,
-            "retweets": 98,
-            "replies": 0,
-            "quotes": 0,
-            "views": 6497,
-            "bookmarks": 0
-          }
-        },
         {
           "item_id": "piasnews-social-84b30b0632ca015a",
           "dataset": "social",
@@ -1293,12 +1276,36 @@
             "views": 31133,
             "bookmarks": 0
           }
+        },
+        {
+          "item_id": "piasnews-social-d8f5075e3d51a4e6",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: HELLO FASHION SHOW OSCAR",
+          "title_zh": "X 发帖 @laurogeitabat：你好 时装秀 OSCAR",
+          "summary": "HELLO FASHION SHOW OSCAR https://t.co/wgG5h5YLEM",
+          "summary_zh": "你好 时装秀 OSCAR",
+          "url": "https://x.com/laurogeitabat/status/2100328870901670149",
+          "published_at": "2026-09-16T20:59:59Z",
+          "image_url": "https://pbs.twimg.com/media/HSXd-OiW8AAobV-.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HSXd-OiW8AAobV-.jpg",
+          "heat_contribution": 5.3972,
+          "metrics": {
+            "likes": 838,
+            "retweets": 98,
+            "replies": 0,
+            "quotes": 0,
+            "views": 6497,
+            "bookmarks": 0
+          }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 45,
-      "heat": 45,
+      "fan_heat": 43,
+      "heat": 43,
       "source_labels": [
         "粉"
       ],
@@ -1373,48 +1380,48 @@
       }
     },
     {
-      "event_id": "evt-2026-09-16-604cc692330e",
+      "event_id": "evt-2026-09-17-1865cc308c58",
       "rule_id": null,
-      "hot_word_zh": "oscar 和 lily 今晚在拍照 ☺️",
-      "hot_word_en": "oscar and lily taking pics tonight ☺️",
-      "first_seen_at": "2026-09-16T21:17:37Z",
-      "last_seen_at": "2026-09-16T21:17:37Z",
-      "anchor_item_id": "piasnews-social-d73736bd9e2c07fd",
+      "hot_word_zh": "Oscar 帮 Lily 接电话，因为她双手都占着 😊 这也是 Quadlock 手机壳的…",
+      "hot_word_en": "oscar picking up the phone for lily because both her hands were busy 😊 very good promo for quadlock cases as…",
+      "first_seen_at": "2026-09-17T17:34:03Z",
+      "last_seen_at": "2026-09-17T17:34:03Z",
+      "anchor_item_id": "piasnews-social-495cbd391389137f",
       "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2100333282336329728/vid/avc1/320x504/V1XQ9NVdLqDYWTDu.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100333282336329728/img/VkDfDcNKjsW7PtA5.jpg",
+      "video_url": "https://video.twimg.com/amplify_video/2100639404599504896/vid/avc1/320x568/-0DTHvVOosGBz3Iw.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100639404599504896/img/mM8dj21u2Mfkaw91.jpg",
       "review_needed": true,
       "review_needed_reason": "fan_account_public_cap",
       "items": [
         {
-          "item_id": "piasnews-social-d73736bd9e2c07fd",
+          "item_id": "piasnews-social-495cbd391389137f",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar and lily taking pics tonight ☺️",
-          "title_zh": "X 发帖 @laurogeitabat：oscar 和 lily 今晚在拍照 ☺️",
-          "summary": "oscar and lily taking pics tonight ☺️ https://t.co/PlhMCHh68a",
-          "summary_zh": "oscar 和 lily 今晚在拍照 ☺️",
-          "url": "https://x.com/laurogeitabat/status/2100333306256474475",
-          "published_at": "2026-09-16T21:17:37Z",
+          "title": "X post from @laurogeitabat: oscar picking up the phone for lily because both her hands were busy 😊 very good promo for quad…",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar 帮 Lily 接电话，因为她双手都占着 😊 这也是 Quadlock 手机壳的绝佳广告，因为那东西从相当高的地方掉下来了 😭😭",
+          "summary": "oscar picking up the phone for lily because both her hands were busy 😊 very good promo for quadlock cases as well because that thing fell from a considerable height 😭😭 https://t.co/XrfnG0s5mE",
+          "summary_zh": "Oscar 帮 Lily 接电话，因为她双手都占着 😊 这也是 Quadlock 手机壳的绝佳广告，因为那东西从相当高的地方掉下来了 😭😭",
+          "url": "https://x.com/laurogeitabat/status/2100639433385259434",
+          "published_at": "2026-09-17T17:34:03Z",
           "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2100333282336329728/vid/avc1/320x504/V1XQ9NVdLqDYWTDu.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100333282336329728/img/VkDfDcNKjsW7PtA5.jpg",
-          "heat_contribution": 7.5982,
+          "video_url": "https://video.twimg.com/amplify_video/2100639404599504896/vid/avc1/320x568/-0DTHvVOosGBz3Iw.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100639404599504896/img/mM8dj21u2Mfkaw91.jpg",
+          "heat_contribution": 7.3798,
           "metrics": {
-            "likes": 3234,
-            "retweets": 215,
-            "replies": 4,
+            "likes": 2675,
+            "retweets": 118,
+            "replies": 1,
             "quotes": 0,
-            "views": 75439,
+            "views": 64647,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 40,
-      "heat": 40,
+      "fan_heat": 39,
+      "heat": 39,
       "source_labels": [
         "粉"
       ],
@@ -1482,7 +1489,7 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2100347947091152897/vid/avc1/320x462/zS_RC3YS6CM_h2zD.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100347947091152897/img/Ebzs402l2VbD9Xw8.jpg",
-          "heat_contribution": 5.0911,
+          "heat_contribution": 4.2878,
           "metrics": {
             "likes": 261,
             "retweets": 21,
@@ -1495,8 +1502,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 40,
-      "heat": 40,
+      "fan_heat": 39,
+      "heat": 39,
       "source_labels": [
         "粉"
       ],
@@ -1540,7 +1547,7 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2100671978604490752/vid/avc1/320x384/xoSBQHpXLyqepf4q.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100671978604490752/img/f9vnIoJPihp4bXpQ.jpg",
-          "heat_contribution": 7.543,
+          "heat_contribution": 7.0325,
           "metrics": {
             "likes": 1746,
             "retweets": 153,
@@ -1553,180 +1560,6 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 40,
-      "heat": 40,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-09-17-1865cc308c58-1865cc30",
-      "rule_id": null,
-      "hot_word_zh": "Oscar 帮 Lily 接电话，因为她双手都占着 😊 这也是 Quadlock 手机壳的…",
-      "hot_word_en": "oscar picking up the phone for lily because both her hands were busy 😊 very good promo for quadlock cases as…",
-      "first_seen_at": "2026-09-17T17:34:03Z",
-      "last_seen_at": "2026-09-17T17:34:03Z",
-      "anchor_item_id": "piasnews-social-495cbd391389137f",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2100639404599504896/vid/avc1/320x568/-0DTHvVOosGBz3Iw.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100639404599504896/img/mM8dj21u2Mfkaw91.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-495cbd391389137f",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar picking up the phone for lily because both her hands were busy 😊 very good promo for quad…",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar 帮 Lily 接电话，因为她双手都占着 😊 这也是 Quadlock 手机壳的绝佳广告，因为那东西从相当高的地方掉下来了 😭😭",
-          "summary": "oscar picking up the phone for lily because both her hands were busy 😊 very good promo for quadlock cases as well because that thing fell from a considerable height 😭😭 https://t.co/XrfnG0s5mE",
-          "summary_zh": "Oscar 帮 Lily 接电话，因为她双手都占着 😊 这也是 Quadlock 手机壳的绝佳广告，因为那东西从相当高的地方掉下来了 😭😭",
-          "url": "https://x.com/laurogeitabat/status/2100639433385259434",
-          "published_at": "2026-09-17T17:34:03Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2100639404599504896/vid/avc1/320x568/-0DTHvVOosGBz3Iw.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100639404599504896/img/mM8dj21u2Mfkaw91.jpg",
-          "heat_contribution": 7.3798,
-          "metrics": {
-            "likes": 2675,
-            "retweets": 118,
-            "replies": 1,
-            "quotes": 0,
-            "views": 64647,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 39,
-      "heat": 39,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-09-16-263866a277a6",
-      "rule_id": null,
-      "hot_word_zh": "lando：[你的这身衣服]很你！oscar：？？",
-      "hot_word_en": "lando: [your outfit] is very you! oscar: ?? when have you ever seen me wear anything like this he was so offe…",
-      "first_seen_at": "2026-09-16T22:35:12Z",
-      "last_seen_at": "2026-09-16T22:35:12Z",
-      "anchor_item_id": "piasnews-social-0a218c0097181c3b",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2100351760460115968/vid/avc1/320x568/W90ZZoYNVrDs1p5R.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100351760460115968/img/Y8ovfWECXWjyDn4F.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-0a218c0097181c3b",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: lando: [your outfit] is very you! oscar: ?? when have you ever seen me wear anything like this…",
-          "title_zh": "X 发帖 @laurogeitabat：lando：[你的这身衣服]很你！oscar：？？你什么时候见过我穿这样的东西 他被冒犯到了，想要回他的T恤和短裤组合 😭😭",
-          "summary": "lando: [your outfit] is very you! oscar: ?? when have you ever seen me wear anything like this he was so offended he wants his tshirt and shorts combo back 😭😭 https://t.co/Zuky8TkdiV",
-          "summary_zh": "lando：[你的这身衣服]很你！oscar：？？你什么时候见过我穿这样的东西 他被冒犯到了，想要回他的T恤和短裤组合 😭😭",
-          "url": "https://x.com/laurogeitabat/status/2100352833786904619",
-          "published_at": "2026-09-16T22:35:12Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2100351760460115968/vid/avc1/320x568/W90ZZoYNVrDs1p5R.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100351760460115968/img/Y8ovfWECXWjyDn4F.jpg",
-          "heat_contribution": 7.3273,
-          "metrics": {
-            "likes": 2611,
-            "retweets": 228,
-            "replies": 1,
-            "quotes": 0,
-            "views": 30824,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 38,
-      "heat": 38,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-09-16-5fb94428ed16",
-      "rule_id": null,
-      "hot_word_zh": "oscar回到lily身边时笑了，啊啊啊啊 🥹🥹",
-      "hot_word_en": "oscar smiling when he gets back to lily awwwww 🥹🥹",
-      "first_seen_at": "2026-09-16T23:04:04Z",
-      "last_seen_at": "2026-09-16T23:04:04Z",
-      "anchor_item_id": "piasnews-social-500b7b40299d6142",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2100360071536427008/vid/avc1/320x340/WimJ00W4PDmN4xki.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100360071536427008/img/kQkslvEQNFaeS-VY.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-500b7b40299d6142",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar smiling when he gets back to lily awwwww 🥹🥹",
-          "title_zh": "X 发帖 @laurogeitabat：oscar回到lily身边时笑了，啊啊啊啊 🥹🥹",
-          "summary": "oscar smiling when he gets back to lily awwwww 🥹🥹 https://t.co/OB0eSv9Ov9",
-          "summary_zh": "oscar回到lily身边时笑了，啊啊啊啊 🥹🥹",
-          "url": "https://x.com/laurogeitabat/status/2100360097977491873",
-          "published_at": "2026-09-16T23:04:04Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2100360071536427008/vid/avc1/320x340/WimJ00W4PDmN4xki.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100360071536427008/img/kQkslvEQNFaeS-VY.jpg",
-          "heat_contribution": 7.1092,
-          "metrics": {
-            "likes": 1817,
-            "retweets": 114,
-            "replies": 1,
-            "quotes": 0,
-            "views": 66799,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
       "fan_heat": 37,
       "heat": 37,
       "source_labels": [
@@ -1745,48 +1578,48 @@
       }
     },
     {
-      "event_id": "evt-2026-09-16-6b88658daa0f-6b88658d",
+      "event_id": "evt-2026-09-16-604cc692330e",
       "rule_id": null,
-      "hot_word_zh": "等等 oscar 和 lando 在 mclaren 时装秀！！",
-      "hot_word_en": "waitttt oscar and lando are at the mclaren fashion show!!",
-      "first_seen_at": "2026-09-16T20:25:18Z",
-      "last_seen_at": "2026-09-16T20:25:18Z",
-      "anchor_item_id": "piasnews-social-4db6825a8f0bf51a",
+      "hot_word_zh": "oscar 和 lily 今晚在拍照 ☺️",
+      "hot_word_en": "oscar and lily taking pics tonight ☺️",
+      "first_seen_at": "2026-09-16T21:17:37Z",
+      "last_seen_at": "2026-09-16T21:17:37Z",
+      "anchor_item_id": "piasnews-social-d73736bd9e2c07fd",
       "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2100320116856537088/vid/avc1/320x516/6jvHG0qR8RyhAXFb.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100320116856537088/img/WWxkVYTTybK-C49R.jpg",
+      "video_url": "https://video.twimg.com/amplify_video/2100333282336329728/vid/avc1/320x504/V1XQ9NVdLqDYWTDu.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100333282336329728/img/VkDfDcNKjsW7PtA5.jpg",
       "review_needed": true,
       "review_needed_reason": "fan_account_public_cap",
       "items": [
         {
-          "item_id": "piasnews-social-4db6825a8f0bf51a",
+          "item_id": "piasnews-social-d73736bd9e2c07fd",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: waitttt oscar and lando are at the mclaren fashion show!!",
-          "title_zh": "X 发帖 @laurogeitabat：等等 oscar 和 lando 在 mclaren 时装秀！！",
-          "summary": "waitttt oscar and lando are at the mclaren fashion show!! https://t.co/hanQWijCIK",
-          "summary_zh": "等等 oscar 和 lando 在 mclaren 时装秀！！",
-          "url": "https://x.com/laurogeitabat/status/2100320142873989360",
-          "published_at": "2026-09-16T20:25:18Z",
+          "title": "X post from @laurogeitabat: oscar and lily taking pics tonight ☺️",
+          "title_zh": "X 发帖 @laurogeitabat：oscar 和 lily 今晚在拍照 ☺️",
+          "summary": "oscar and lily taking pics tonight ☺️ https://t.co/PlhMCHh68a",
+          "summary_zh": "oscar 和 lily 今晚在拍照 ☺️",
+          "url": "https://x.com/laurogeitabat/status/2100333306256474475",
+          "published_at": "2026-09-16T21:17:37Z",
           "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2100320116856537088/vid/avc1/320x516/6jvHG0qR8RyhAXFb.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100320116856537088/img/WWxkVYTTybK-C49R.jpg",
-          "heat_contribution": 7.0118,
+          "video_url": "https://video.twimg.com/amplify_video/2100333282336329728/vid/avc1/320x504/V1XQ9NVdLqDYWTDu.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100333282336329728/img/VkDfDcNKjsW7PtA5.jpg",
+          "heat_contribution": 6.7879,
           "metrics": {
-            "likes": 1829,
-            "retweets": 176,
-            "replies": 2,
+            "likes": 3234,
+            "retweets": 215,
+            "replies": 4,
             "quotes": 0,
-            "views": 27664,
+            "views": 75439,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 37,
-      "heat": 37,
+      "fan_heat": 36,
+      "heat": 36,
       "source_labels": [
         "粉"
       ],
@@ -1861,6 +1694,64 @@
       }
     },
     {
+      "event_id": "evt-2026-09-16-263866a277a6",
+      "rule_id": null,
+      "hot_word_zh": "lando：[你的这身衣服]很你！oscar：？？",
+      "hot_word_en": "lando: [your outfit] is very you! oscar: ?? when have you ever seen me wear anything like this he was so offe…",
+      "first_seen_at": "2026-09-16T22:35:12Z",
+      "last_seen_at": "2026-09-16T22:35:12Z",
+      "anchor_item_id": "piasnews-social-0a218c0097181c3b",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2100351760460115968/vid/avc1/320x568/W90ZZoYNVrDs1p5R.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100351760460115968/img/Y8ovfWECXWjyDn4F.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-0a218c0097181c3b",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: lando: [your outfit] is very you! oscar: ?? when have you ever seen me wear anything like this…",
+          "title_zh": "X 发帖 @laurogeitabat：lando：[你的这身衣服]很你！oscar：？？你什么时候见过我穿这样的东西 他被冒犯到了，想要回他的T恤和短裤组合 😭😭",
+          "summary": "lando: [your outfit] is very you! oscar: ?? when have you ever seen me wear anything like this he was so offended he wants his tshirt and shorts combo back 😭😭 https://t.co/Zuky8TkdiV",
+          "summary_zh": "lando：[你的这身衣服]很你！oscar：？？你什么时候见过我穿这样的东西 他被冒犯到了，想要回他的T恤和短裤组合 😭😭",
+          "url": "https://x.com/laurogeitabat/status/2100352833786904619",
+          "published_at": "2026-09-16T22:35:12Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2100351760460115968/vid/avc1/320x568/W90ZZoYNVrDs1p5R.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100351760460115968/img/Y8ovfWECXWjyDn4F.jpg",
+          "heat_contribution": 6.5172,
+          "metrics": {
+            "likes": 2611,
+            "retweets": 228,
+            "replies": 1,
+            "quotes": 0,
+            "views": 30824,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 35,
+      "heat": 35,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
       "event_id": "evt-2026-09-17-0037ceae41dd",
       "rule_id": null,
       "hot_word_zh": "Oscar 这周为 McLaren 高尔夫拍摄了一些宣传内容！#FREEOSCAR",
@@ -1895,64 +1786,6 @@
             "replies": 2,
             "quotes": 0,
             "views": 13817,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 35,
-      "heat": 35,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-09-17-1865cc308c58",
-      "rule_id": null,
-      "hot_word_zh": "他们叫他：THE MESSENGER 先是charles和max，现在又是lily和lan…",
-      "hot_word_en": "they call him: THE MESSENGER first charles & max and now lily & lando 😭😭",
-      "first_seen_at": "2026-09-17T19:53:35Z",
-      "last_seen_at": "2026-09-17T19:53:35Z",
-      "anchor_item_id": "piasnews-social-8b5de38754da9a2c",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2100674475213672448/vid/avc1/498x270/ZnZTScn__zXCb5x7.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100674475213672448/img/_r-SsVfVTnXPljIA.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-8b5de38754da9a2c",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: they call him: THE MESSENGER first charles &amp; max and now lily &amp; lando 😭😭",
-          "title_zh": "X 发帖 @laurogeitabat：他们叫他：THE MESSENGER 先是charles和max，现在又是lily和lando 😭😭",
-          "summary": "they call him: THE MESSENGER first charles &amp; max and now lily &amp; lando 😭😭 https://t.co/MFSmCiqyFe",
-          "summary_zh": "他们叫他：THE MESSENGER 先是charles和max，现在又是lily和lando 😭😭",
-          "url": "https://x.com/laurogeitabat/status/2100674547691270206",
-          "published_at": "2026-09-17T19:53:35Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2100674475213672448/vid/avc1/498x270/ZnZTScn__zXCb5x7.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100674475213672448/img/_r-SsVfVTnXPljIA.jpg",
-          "heat_contribution": 6.6155,
-          "metrics": {
-            "likes": 726,
-            "retweets": 81,
-            "replies": 3,
-            "quotes": 0,
-            "views": 9710,
             "bookmarks": 0
           }
         }
@@ -2035,156 +1868,40 @@
       }
     },
     {
-      "event_id": "evt-2026-09-17-6a5e09fc3204",
+      "event_id": "evt-2026-09-16-5fb94428ed16",
       "rule_id": null,
-      "hot_word_zh": "OSCAR 世界巡回周边系列的第二部分明天就要上线了！！🌎✨",
-      "hot_word_en": "THE SECOND PART OF OSCAR'S WORLD CIRCUIT MERCH COLLECTION IS DROPPING TOMORROW !! 🌎✨",
-      "first_seen_at": "2026-09-17T16:46:41Z",
-      "last_seen_at": "2026-09-17T16:46:41Z",
-      "anchor_item_id": "piasnews-social-c33f4360171eee56",
-      "image_url": "https://pbs.twimg.com/media/HSbtinrWYAAzgZQ.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HSbtinrWYAAzgZQ.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-c33f4360171eee56",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: THE SECOND PART OF OSCAR'S WORLD CIRCUIT MERCH COLLECTION IS DROPPING TOMORROW !! 🌎✨",
-          "title_zh": "X 发帖 @laurogeitabat：OSCAR 世界巡回周边系列的第二部分明天就要上线了！！🌎✨",
-          "summary": "THE SECOND PART OF OSCAR'S WORLD CIRCUIT MERCH COLLECTION IS DROPPING TOMORROW !! 🌎✨ https://t.co/7ANf2fQBrv",
-          "summary_zh": "OSCAR 世界巡回周边系列的第二部分明天就要上线了！！🌎✨",
-          "url": "https://x.com/laurogeitabat/status/2100627512141251043",
-          "published_at": "2026-09-17T16:46:41Z",
-          "image_url": "https://pbs.twimg.com/media/HSbtinrWYAAzgZQ.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HSbtinrWYAAzgZQ.jpg",
-          "heat_contribution": 6.6893,
-          "metrics": {
-            "likes": 1188,
-            "retweets": 69,
-            "replies": 6,
-            "quotes": 0,
-            "views": 43984,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 35,
-      "heat": 35,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-09-17-e1c169866519",
-      "rule_id": null,
-      "hot_word_zh": "Oscar 和 Lando 在比鞋子 😭😭😭",
-      "hot_word_en": "oscar and lando comparing shoes 😭😭😭",
-      "first_seen_at": "2026-09-17T19:14:03Z",
-      "last_seen_at": "2026-09-17T19:14:03Z",
-      "anchor_item_id": "piasnews-social-56cd0276dc73601a",
+      "hot_word_zh": "oscar回到lily身边时笑了，啊啊啊啊 🥹🥹",
+      "hot_word_en": "oscar smiling when he gets back to lily awwwww 🥹🥹",
+      "first_seen_at": "2026-09-16T23:04:04Z",
+      "last_seen_at": "2026-09-16T23:04:04Z",
+      "anchor_item_id": "piasnews-social-500b7b40299d6142",
       "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2100664571232923648/vid/avc1/480x270/WRw68NsFHnEUSPXg.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100664571232923648/img/dDqaGkVKgT0eCkj8.jpg",
+      "video_url": "https://video.twimg.com/amplify_video/2100360071536427008/vid/avc1/320x340/WimJ00W4PDmN4xki.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100360071536427008/img/kQkslvEQNFaeS-VY.jpg",
       "review_needed": true,
       "review_needed_reason": "fan_account_public_cap",
       "items": [
         {
-          "item_id": "piasnews-social-56cd0276dc73601a",
+          "item_id": "piasnews-social-500b7b40299d6142",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar and lando comparing shoes 😭😭😭",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar 和 Lando 在比鞋子 😭😭😭",
-          "summary": "oscar and lando comparing shoes 😭😭😭 https://t.co/DoW3l4s90Z",
-          "summary_zh": "Oscar 和 Lando 在比鞋子 😭😭😭",
-          "url": "https://x.com/laurogeitabat/status/2100664596852101571",
-          "published_at": "2026-09-17T19:14:03Z",
+          "title": "X post from @laurogeitabat: oscar smiling when he gets back to lily awwwww 🥹🥹",
+          "title_zh": "X 发帖 @laurogeitabat：oscar回到lily身边时笑了，啊啊啊啊 🥹🥹",
+          "summary": "oscar smiling when he gets back to lily awwwww 🥹🥹 https://t.co/OB0eSv9Ov9",
+          "summary_zh": "oscar回到lily身边时笑了，啊啊啊啊 🥹🥹",
+          "url": "https://x.com/laurogeitabat/status/2100360097977491873",
+          "published_at": "2026-09-16T23:04:04Z",
           "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2100664571232923648/vid/avc1/480x270/WRw68NsFHnEUSPXg.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100664571232923648/img/dDqaGkVKgT0eCkj8.jpg",
-          "heat_contribution": 6.6762,
+          "video_url": "https://video.twimg.com/amplify_video/2100360071536427008/vid/avc1/320x340/WimJ00W4PDmN4xki.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100360071536427008/img/kQkslvEQNFaeS-VY.jpg",
+          "heat_contribution": 6.2993,
           "metrics": {
-            "likes": 842,
-            "retweets": 50,
+            "likes": 1817,
+            "retweets": 114,
             "replies": 1,
             "quotes": 0,
-            "views": 11144,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 35,
-      "heat": 35,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-09-16-ed4f17aa02a9",
-      "rule_id": null,
-      "hot_word_zh": "这碎碎念永远停不下来",
-      "hot_word_en": "the yaps never stop",
-      "first_seen_at": "2026-09-16T22:56:54Z",
-      "last_seen_at": "2026-09-16T22:56:54Z",
-      "anchor_item_id": "piasnews-social-ab272e8d86184147",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2100358269940244480/vid/avc1/320x426/HOVEQs-FiTO-dgAo.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100358269940244480/img/WzJmp6jgcpGHWQ1x.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-ab272e8d86184147",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: the yaps never stop 🎥: aesthetikmagazine",
-          "title_zh": "X 发帖 @laurogeitabat：这碎碎念永远停不下来 🎥：aesthetikmagazine",
-          "summary": "the yaps never stop 🎥: aesthetikmagazine https://t.co/GUpLHnABDx",
-          "summary_zh": "这碎碎念永远停不下来 🎥：aesthetikmagazine",
-          "url": "https://x.com/laurogeitabat/status/2100358291595694437",
-          "published_at": "2026-09-16T22:56:54Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2100358269940244480/vid/avc1/320x426/HOVEQs-FiTO-dgAo.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100358269940244480/img/WzJmp6jgcpGHWQ1x.jpg",
-          "heat_contribution": 6.4206,
-          "metrics": {
-            "likes": 981,
-            "retweets": 107,
-            "replies": 0,
-            "quotes": 0,
-            "views": 16798,
+            "views": 66799,
             "bookmarks": 0
           }
         }
@@ -2383,40 +2100,40 @@
       }
     },
     {
-      "event_id": "evt-2026-09-16-47bd6f6e49b5",
+      "event_id": "evt-2026-09-16-6b88658daa0f-6b88658d",
       "rule_id": null,
-      "hot_word_zh": "oscar 和 lily 在 mtc 跟嘉宾们聊天！还有 oscar 的搞笑表情 😭🤏🏻",
-      "hot_word_en": "oscar and lily chatting with guests at the mtc! featuring oscar's silly expressions 😭🤏🏻",
-      "first_seen_at": "2026-09-16T21:12:48Z",
-      "last_seen_at": "2026-09-16T21:12:48Z",
-      "anchor_item_id": "piasnews-social-7dac317914415913",
+      "hot_word_zh": "等等 oscar 和 lando 在 mclaren 时装秀！！",
+      "hot_word_en": "waitttt oscar and lando are at the mclaren fashion show!!",
+      "first_seen_at": "2026-09-16T20:25:18Z",
+      "last_seen_at": "2026-09-16T20:25:18Z",
+      "anchor_item_id": "piasnews-social-4db6825a8f0bf51a",
       "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2100332077216382977/vid/avc1/320x416/n-r80uQ5mwGI-YqP.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100332077216382977/img/H0NvTnYVqJzmJNrf.jpg",
+      "video_url": "https://video.twimg.com/amplify_video/2100320116856537088/vid/avc1/320x516/6jvHG0qR8RyhAXFb.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100320116856537088/img/WWxkVYTTybK-C49R.jpg",
       "review_needed": true,
       "review_needed_reason": "fan_account_public_cap",
       "items": [
         {
-          "item_id": "piasnews-social-7dac317914415913",
+          "item_id": "piasnews-social-4db6825a8f0bf51a",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar and lily chatting with guests at the mtc! featuring oscar's silly expressions 😭🤏🏻",
-          "title_zh": "X 发帖 @laurogeitabat：oscar 和 lily 在 mtc 跟嘉宾们聊天！还有 oscar 的搞笑表情 😭🤏🏻",
-          "summary": "oscar and lily chatting with guests at the mtc! featuring oscar's silly expressions 😭🤏🏻 https://t.co/ThwA34UGs7",
-          "summary_zh": "oscar 和 lily 在 mtc 跟嘉宾们聊天！还有 oscar 的搞笑表情 😭🤏🏻",
-          "url": "https://x.com/laurogeitabat/status/2100332094237057309",
-          "published_at": "2026-09-16T21:12:48Z",
+          "title": "X post from @laurogeitabat: waitttt oscar and lando are at the mclaren fashion show!!",
+          "title_zh": "X 发帖 @laurogeitabat：等等 oscar 和 lando 在 mclaren 时装秀！！",
+          "summary": "waitttt oscar and lando are at the mclaren fashion show!! https://t.co/hanQWijCIK",
+          "summary_zh": "等等 oscar 和 lando 在 mclaren 时装秀！！",
+          "url": "https://x.com/laurogeitabat/status/2100320142873989360",
+          "published_at": "2026-09-16T20:25:18Z",
           "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2100332077216382977/vid/avc1/320x416/n-r80uQ5mwGI-YqP.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100332077216382977/img/H0NvTnYVqJzmJNrf.jpg",
-          "heat_contribution": 6.2203,
+          "video_url": "https://video.twimg.com/amplify_video/2100320116856537088/vid/avc1/320x516/6jvHG0qR8RyhAXFb.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100320116856537088/img/WWxkVYTTybK-C49R.jpg",
+          "heat_contribution": 6.202,
           "metrics": {
-            "likes": 829,
-            "retweets": 58,
-            "replies": 1,
+            "likes": 1829,
+            "retweets": 176,
+            "replies": 2,
             "quotes": 0,
-            "views": 16718,
+            "views": 27664,
             "bookmarks": 0
           }
         }
@@ -2425,6 +2142,354 @@
       "media_heat": 0,
       "fan_heat": 33,
       "heat": 33,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-09-16-7e3c651a8734",
+      "rule_id": null,
+      "hot_word_zh": "他们竟然让 OSCAR 来组织 McLAREN 时装秀 😭😭😭😭",
+      "hot_word_en": "THEY'VE GOT OSCAR ORGANIZING THE MCLAREN FASHION SHOW 😭😭😭😭",
+      "first_seen_at": "2026-09-16T16:13:38Z",
+      "last_seen_at": "2026-09-16T16:13:38Z",
+      "anchor_item_id": "piasnews-social-6632ba2c51a1e4e0",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2100256754906849280/vid/avc1/320x568/Gr1W1iCHdBSwf9Dy.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100256754906849280/img/E4wwPTpqdfHoeF6X.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-6632ba2c51a1e4e0",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: THEY'VE GOT OSCAR ORGANIZING THE MCLAREN FASHION SHOW 😭😭😭😭",
+          "title_zh": "X 发帖 @laurogeitabat：他们竟然让 OSCAR 来组织 McLAREN 时装秀 😭😭😭😭",
+          "summary": "THEY'VE GOT OSCAR ORGANIZING THE MCLAREN FASHION SHOW 😭😭😭😭 https://t.co/vX4OeCiGHJ",
+          "summary_zh": "他们竟然让 OSCAR 来组织 McLAREN 时装秀 😭😭😭😭",
+          "url": "https://x.com/laurogeitabat/status/2100256806152835473",
+          "published_at": "2026-09-16T16:13:38Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2100256754906849280/vid/avc1/320x568/Gr1W1iCHdBSwf9Dy.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100256754906849280/img/E4wwPTpqdfHoeF6X.jpg",
+          "heat_contribution": 6.1058,
+          "metrics": {
+            "likes": 1771,
+            "retweets": 145,
+            "replies": 1,
+            "quotes": 0,
+            "views": 17328,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 33,
+      "heat": 33,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-09-17-b2d64ae72b94-b2d64ae7",
+      "rule_id": null,
+      "hot_word_zh": "他们叫他：THE MESSENGER 先是charles和max，现在又是lily和lan…",
+      "hot_word_en": "they call him: THE MESSENGER first charles & max and now lily & lando 😭😭",
+      "first_seen_at": "2026-09-17T19:53:35Z",
+      "last_seen_at": "2026-09-17T19:53:35Z",
+      "anchor_item_id": "piasnews-social-8b5de38754da9a2c",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2100674475213672448/vid/avc1/498x270/ZnZTScn__zXCb5x7.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100674475213672448/img/_r-SsVfVTnXPljIA.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-8b5de38754da9a2c",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: they call him: THE MESSENGER first charles &amp; max and now lily &amp; lando 😭😭",
+          "title_zh": "X 发帖 @laurogeitabat：他们叫他：THE MESSENGER 先是charles和max，现在又是lily和lando 😭😭",
+          "summary": "they call him: THE MESSENGER first charles &amp; max and now lily &amp; lando 😭😭 https://t.co/MFSmCiqyFe",
+          "summary_zh": "他们叫他：THE MESSENGER 先是charles和max，现在又是lily和lando 😭😭",
+          "url": "https://x.com/laurogeitabat/status/2100674547691270206",
+          "published_at": "2026-09-17T19:53:35Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2100674475213672448/vid/avc1/498x270/ZnZTScn__zXCb5x7.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100674475213672448/img/_r-SsVfVTnXPljIA.jpg",
+          "heat_contribution": 6.1056,
+          "metrics": {
+            "likes": 726,
+            "retweets": 81,
+            "replies": 3,
+            "quotes": 0,
+            "views": 9710,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 33,
+      "heat": 33,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-09-17-e1c169866519",
+      "rule_id": null,
+      "hot_word_zh": "Oscar 和 Lando 在比鞋子 😭😭😭",
+      "hot_word_en": "oscar and lando comparing shoes 😭😭😭",
+      "first_seen_at": "2026-09-17T19:14:03Z",
+      "last_seen_at": "2026-09-17T19:14:03Z",
+      "anchor_item_id": "piasnews-social-56cd0276dc73601a",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2100664571232923648/vid/avc1/480x270/WRw68NsFHnEUSPXg.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100664571232923648/img/dDqaGkVKgT0eCkj8.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-56cd0276dc73601a",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar and lando comparing shoes 😭😭😭",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar 和 Lando 在比鞋子 😭😭😭",
+          "summary": "oscar and lando comparing shoes 😭😭😭 https://t.co/DoW3l4s90Z",
+          "summary_zh": "Oscar 和 Lando 在比鞋子 😭😭😭",
+          "url": "https://x.com/laurogeitabat/status/2100664596852101571",
+          "published_at": "2026-09-17T19:14:03Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2100664571232923648/vid/avc1/480x270/WRw68NsFHnEUSPXg.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100664571232923648/img/dDqaGkVKgT0eCkj8.jpg",
+          "heat_contribution": 6.1663,
+          "metrics": {
+            "likes": 842,
+            "retweets": 50,
+            "replies": 1,
+            "quotes": 0,
+            "views": 11144,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 33,
+      "heat": 33,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-oscar-greece-holiday",
+      "rule_id": "oscar-greece-holiday",
+      "hot_word_zh": "Oscar 分享希腊假期见闻",
+      "hot_word_en": "Oscar shares details from his holiday in Greece",
+      "first_seen_at": "2026-09-17T16:40:56Z",
+      "last_seen_at": "2026-09-17T16:40:56Z",
+      "anchor_item_id": "piasnews-social-fc09e915cae6fc5f",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2100626016506957824/vid/avc1/320x568/HGnkUDoRRQ4gOu8x.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100626016506957824/img/asQbTUCq8jzLnrqI.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-fc09e915cae6fc5f",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: \"i need you to make promo for mclaren racing live athens. it's for greece, make sure it feels a…",
+          "title_zh": "X 发帖 @laurogeitabat：“我需要你为 McLaren Racing Live Athens 做宣传。这是给希腊的，确保感觉地道” Oscar：“ya sas！”🇬🇷 “展示一些车迷，向最重要的人们问好” Lando：𖣘𖣘👋🏻👋🏻 “这是一场表演跑，展示甜甜圈” Oscar：“我能做到！”🍩🍩 求求了 😭😭😭",
+          "summary": "\"i need you to make promo for mclaren racing live athens. it's for greece, make sure it feels authentic\" oscar: \"ya sas!\" 🇬🇷 \"show some fans, say hello to the most important people\" lando: 𖣘𖣘👋🏻👋🏻 \"it's a show run, show donuts\" oscar: \"i can do that!\" 🍩🍩 PLEASEEE 😭😭😭 https://t.co/MKRs1eio0Q",
+          "summary_zh": "“我需要你为 McLaren Racing Live Athens 做宣传。这是给希腊的，确保感觉地道” Oscar：“ya sas！”🇬🇷 “展示一些车迷，向最重要的人们问好” Lando：𖣘𖣘👋🏻👋🏻 “这是一场表演跑，展示甜甜圈” Oscar：“我能做到！”🍩🍩 求求了 😭😭😭",
+          "url": "https://x.com/laurogeitabat/status/2100626064179446072",
+          "published_at": "2026-09-17T16:40:56Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2100626016506957824/vid/avc1/320x568/HGnkUDoRRQ4gOu8x.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2100626016506957824/img/asQbTUCq8jzLnrqI.jpg",
+          "heat_contribution": 6.022,
+          "metrics": {
+            "likes": 701,
+            "retweets": 50,
+            "replies": 1,
+            "quotes": 0,
+            "views": 11026,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 32,
+      "heat": 32,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-09-16-1dce43c1e7f1",
+      "rule_id": null,
+      "hot_word_zh": "PIASTRI 看台将在 2027 年回归 🥳 “想把对赛车的热爱与民族自豪感结合起来，那…",
+      "hot_word_en": "THE PIASTRI GRANDSTAND WILL BE BACK IN 2027 🥳 \"looking to combine your love of racing with national pride, th…",
+      "first_seen_at": "2026-09-16T09:44:05Z",
+      "last_seen_at": "2026-09-16T09:44:05Z",
+      "anchor_item_id": "piasnews-social-980d8ec98410666a",
+      "image_url": "https://pbs.twimg.com/media/HSVDRQ8XMAAU5pF.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HSVDRQ8XMAAU5pF.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-980d8ec98410666a",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: THE PIASTRI GRANDSTAND WILL BE BACK IN 2027 🥳 \"looking to combine your love of racing with nati…",
+          "title_zh": "X 发帖 @laurogeitabat：PIASTRI 看台将在 2027 年回归 🥳 “想把对赛车的热爱与民族自豪感结合起来，那就非 Piastri 看台莫属” 🥹🫶🏻 今年门票还将附赠官方 OP T 恤和帽子！！",
+          "summary": "THE PIASTRI GRANDSTAND WILL BE BACK IN 2027 🥳 \"looking to combine your love of racing with national pride, then look no further than the piastri grandstand\" 🥹🫶🏻 tickets will come with an official OP tshirt and cap this year too!! https://t.co/xSDHrkDDQP",
+          "summary_zh": "PIASTRI 看台将在 2027 年回归 🥳 “想把对赛车的热爱与民族自豪感结合起来，那就非 Piastri 看台莫属” 🥹🫶🏻 今年门票还将附赠官方 OP T 恤和帽子！！",
+          "url": "https://x.com/laurogeitabat/status/2100158773243355538",
+          "published_at": "2026-09-16T09:44:05Z",
+          "image_url": "https://pbs.twimg.com/media/HSVDRQ8XMAAU5pF.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HSVDRQ8XMAAU5pF.jpg",
+          "heat_contribution": 5.8646,
+          "metrics": {
+            "likes": 1183,
+            "retweets": 185,
+            "replies": 6,
+            "quotes": 0,
+            "views": 18575,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 31,
+      "heat": 31,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-09-16-a0d62fcdc65c",
+      "rule_id": null,
+      "hot_word_zh": "Oscar的生日在澳大利亚大奖赛之后两天，天哪，如果你在那里的话，求求了",
+      "hot_word_en": "oscar's birthday is 2 days after the australian gp god if you're out there PLEASEEEE",
+      "first_seen_at": "2026-09-16T09:10:37Z",
+      "last_seen_at": "2026-09-16T09:10:37Z",
+      "anchor_item_id": "piasnews-social-7797a89422353fac",
+      "image_url": "https://pbs.twimg.com/media/HSU7m-3WEAAHmBK.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HSU7m-3WEAAHmBK.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-7797a89422353fac",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar's birthday is 2 days after the australian gp god if you're out there PLEASEEEE",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar的生日在澳大利亚大奖赛之后两天，天哪，如果你在那里的话，求求了",
+          "summary": "oscar's birthday is 2 days after the australian gp god if you're out there PLEASEEEE https://t.co/2nRxbOdGyU",
+          "summary_zh": "Oscar的生日在澳大利亚大奖赛之后两天，天哪，如果你在那里的话，求求了",
+          "url": "https://x.com/laurogeitabat/status/2100150350443315667",
+          "published_at": "2026-09-16T09:10:37Z",
+          "image_url": "https://pbs.twimg.com/media/HSU7m-3WEAAHmBK.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HSU7m-3WEAAHmBK.jpg",
+          "heat_contribution": 5.8113,
+          "metrics": {
+            "likes": 1185,
+            "retweets": 166,
+            "replies": 1,
+            "quotes": 0,
+            "views": 14528,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 31,
+      "heat": 31,
       "source_labels": [
         "粉"
       ],
