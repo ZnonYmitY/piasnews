@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-20T18:53:57.789343Z",
+  "generated_at": "2026-09-20T23:35:21.820054Z",
   "translations": {
     "items:piasnews-69a390fd98d79abf:title:d60e43a707770e4d0959134b": {
       "dataset": "items",
@@ -4009,6 +4009,102 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-20T18:53:57.053183Z"
+    },
+    "items:piasnews-6b4f80add27a6094:title:907a1ecd7de4e3471e611968": {
+      "dataset": "items",
+      "item_id": "piasnews-6b4f80add27a6094",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "'He’s an Aussie batter': Fans stunned as McLaren F1 star Oscar Piastri takes on Kevin Pietersen’s 100 mph cricket challenge",
+      "zh": "“他是个澳洲击球手”：McLaren F1 明星 Oscar Piastri 挑战 Kevin Pietersen 的 100 英里每小时板球挑战，粉丝们惊呆了",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-20T23:35:21.022779Z"
+    },
+    "items:piasnews-6b4f80add27a6094:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-6b4f80add27a6094",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车表现相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-20T23:35:21.022786Z"
+    },
+    "items:piasnews-cfd525cced82d060:title:1a9905c4dae5aeac4d92f497": {
+      "dataset": "items",
+      "item_id": "piasnews-cfd525cced82d060",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri: F1 drivers sometimes feel like passengers with new energy systems",
+      "zh": "Piastri：有了新的能量系统，F1 车手有时感觉像乘客",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-20T23:35:21.022790Z"
+    },
+    "items:piasnews-cfd525cced82d060:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-cfd525cced82d060",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-20T23:35:21.022794Z"
+    },
+    "items:piasnews-632b5d1779b60730:title:03dcd9e64927a9dce1f1014b": {
+      "dataset": "items",
+      "item_id": "piasnews-632b5d1779b60730",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Lando Norris just shut down what Andrea Stella keeps saying about Oscar Piastri's problems",
+      "zh": "Lando Norris 刚刚驳斥了 Andrea Stella 关于 Oscar Piastri 问题的说法",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-20T23:35:21.022797Z"
+    },
+    "items:piasnews-632b5d1779b60730:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-632b5d1779b60730",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车表现相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-20T23:35:21.022800Z"
+    },
+    "items:piasnews-c47e20dccde76c71:title:91c165785fc3308f1fa4cdd5": {
+      "dataset": "items",
+      "item_id": "piasnews-c47e20dccde76c71",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "McLaren reckons Norris can still be world champ. That doesn’t mean what you think for Piastri",
+      "zh": "McLaren 认为 Norris 仍能成为世界冠军。这对 Piastri 来说并不是你想的那样",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-20T23:35:21.022805Z"
+    },
+    "items:piasnews-c47e20dccde76c71:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-c47e20dccde76c71",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车表现相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-20T23:35:21.022811Z"
     }
   },
   "retention_days": 8
