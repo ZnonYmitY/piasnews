@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-20T00:10:56.773951Z",
+  "generated_at": "2026-09-20T11:39:03.377664Z",
   "translations": {
     "items:piasnews-343e83aba4540d52:title:1dcae200256888350448d2fa": {
       "dataset": "items",
@@ -4021,6 +4021,150 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-20T00:10:55.978627Z"
+    },
+    "items:piasnews-40ab9a7d9f665fe2:title:6d0900ca3bd0da430fc8cfcf": {
+      "dataset": "items",
+      "item_id": "piasnews-40ab9a7d9f665fe2",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "McLaren engineers think they have fix for one key ‘weakness’ of Lando Norris and Oscar Piastri’s car",
+      "zh": "McLaren工程师认为他们已找到解决Lando Norris和Oscar Piastri赛车一个关键‘弱点’的方法",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-20T11:39:02.638232Z"
+    },
+    "items:piasnews-40ab9a7d9f665fe2:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-40ab9a7d9f665fe2",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-20T11:39:02.638240Z"
+    },
+    "social:piasnews-social-37afbed87c73d8a6:summary:09a4cbe7ec3916da156f6791": {
+      "dataset": "social",
+      "item_id": "piasnews-social-37afbed87c73d8a6",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @laurogeitabat: THE GIGGLES 😭🤏🏻 https://t.co/664A8sBnS0",
+      "zh": "RT @laurogeitabat: 笑死我了 😭🤏🏻",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-20T11:39:02.638244Z"
+    },
+    "social:piasnews-social-b8b36030d6370700:summary:50409028dc273e8bcf1bb5ec": {
+      "dataset": "social",
+      "item_id": "piasnews-social-b8b36030d6370700",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @laurogeitabat: \"what's your tactic?\" oscar: \"just hit the bloody ball\" fairs 😭😭😭 https://t.co/mBKmuIBHbS",
+      "zh": "RT @laurogeitabat: “你的战术是什么？” Oscar：“就狠狠击球” 没毛病 😭😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-20T11:39:02.638248Z"
+    },
+    "social:piasnews-social-8f7b278989e4cf1b:summary:60ff910eab254c327e82103d": {
+      "dataset": "social",
+      "item_id": "piasnews-social-8f7b278989e4cf1b",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @laurogeitabat: kevin: \"what is the highest level you've played cricket at?\" oscar: \"my cricket claim to fame is i played one game in t…",
+      "zh": "RT @laurogeitabat: Kevin：“你打过最高水平的板球是什么？” Oscar：“我打板球最值得吹嘘的是我打过一场…”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-20T11:39:02.638252Z"
+    },
+    "social:piasnews-social-7db938b0ee922f1d:summary:3a8f6e442ceb034f42615bf3": {
+      "dataset": "social",
+      "item_id": "piasnews-social-7db938b0ee922f1d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @laurogeitabat: kevin: \"how did that feel?\" oscar: \"scary as fuck\" *giggles* \"my footwork was pretty shocking because i value my toes a…",
+      "zh": "RT @laurogeitabat: Kevin：“那感觉怎么样？” Oscar：“吓死人了” *咯咯笑* “我的步法相当糟糕，因为我很珍惜我的脚趾…”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-20T11:39:02.638256Z"
+    },
+    "social:piasnews-social-c9f490def7582bc1:summary:9c409f9bf1c7191c3e29e508": {
+      "dataset": "social",
+      "item_id": "piasnews-social-c9f490def7582bc1",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @laurogeitabat: \"no runnnnmm\" his accent and delivery in this whole video are so !!! https://t.co/f3M8uSd020",
+      "zh": "RT @laurogeitabat: “不跑不跑” 他在这整个视频里的口音和表达方式都太！！！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-20T11:39:02.638261Z"
+    },
+    "social:piasnews-social-b232ba62d0235bf4:summary:cf30b24634608d7f9a12fe6e": {
+      "dataset": "social",
+      "item_id": "piasnews-social-b232ba62d0235bf4",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @laurogeitabat: \"that go pro is living a risky life\" he says after almost smacking the camera 😭😭😭 https://t.co/s5jXGzcGpd",
+      "zh": "RT @laurogeitabat: “那个GoPro过着危险的生活” 他在差点拍到摄像机之后说道 😭😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-20T11:39:02.638279Z"
+    },
+    "social:piasnews-social-4ae7c1cce4309bf3:summary:c363304161d887bbade83d26": {
+      "dataset": "social",
+      "item_id": "piasnews-social-4ae7c1cce4309bf3",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @laurogeitabat: *kevin pietersen does the 6 7 hands* oscar: \"...oh dear\" HE GOT THE ICK 😭😭😭😭😭 https://t.co/hF1ddORrJU",
+      "zh": "RT @laurogeitabat: *Kevin Pietersen做6 7手势* Oscar：“…天哪” 他犯恶心了 😭😭😭😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-20T11:39:02.638284Z"
+    },
+    "social:piasnews-social-0bb7560b2d273ee2:summary:e14a5e1ad9a97df524d211a2": {
+      "dataset": "social",
+      "item_id": "piasnews-social-0bb7560b2d273ee2",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @laurogeitabat: \"what a superstar\" \"formula 1 royalty\" EXACTLYYYYY 🙂‍↕️🙂‍↕️🙂‍↕️ https://t.co/SavoCzQTPo",
+      "zh": "RT @laurogeitabat: “真是个超级明星” “F1皇室” 完全正确 🙂‍↕️🙂‍↕️🙂‍↕️",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-20T11:39:02.638287Z"
+    },
+    "social:piasnews-social-4ccd9f6de98da369:summary:578ad14308d9e1df72cf22e3": {
+      "dataset": "social",
+      "item_id": "piasnews-social-4ccd9f6de98da369",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @laurogeitabat: the absolute devastation every time he got a strike, with the defeated head down and everything 😭😭 \"aaahhhh shit\" https…",
+      "zh": "RT @laurogeitabat: 每次他打出全中时那种彻底的崩溃，垂头丧气什么的 😭😭 “啊啊啊靠”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-20T11:39:02.638291Z"
+    },
+    "social:piasnews-social-1fa9d3ac34bd007c:summary:70983942a90571319165e853": {
+      "dataset": "social",
+      "item_id": "piasnews-social-1fa9d3ac34bd007c",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @laurogeitabat: MEET CRICKETER OSCAR PIASTRI https://t.co/4LDo5z42Im",
+      "zh": "RT @laurogeitabat: 认识一下板球运动员OSCAR PIASTRI",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-20T11:39:02.638294Z"
     }
   },
   "retention_days": 8
