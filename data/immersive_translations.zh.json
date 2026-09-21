@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-21T09:18:02.648510Z",
+  "generated_at": "2026-09-21T12:22:59.832516Z",
   "translations": {
     "items:piasnews-69a390fd98d79abf:title:d60e43a707770e4d0959134b": {
       "dataset": "items",
@@ -4321,6 +4321,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-21T09:18:01.798591Z"
+    },
+    "items:piasnews-ff86e7cc81adb4e0:title:03f2f509342193fade10e298": {
+      "dataset": "items",
+      "item_id": "piasnews-ff86e7cc81adb4e0",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "On this Day in Formula 1: Mansell seals Williams crown, Piastri crumbles in Baku",
+      "zh": "F1历史上的今天：曼塞尔为威廉姆斯锁定冠军，Piastri在Baku折戟",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-21T12:22:58.972548Z"
+    },
+    "items:piasnews-ff86e7cc81adb4e0:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-ff86e7cc81adb4e0",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-21T12:22:58.972556Z"
     }
   },
   "retention_days": 8
