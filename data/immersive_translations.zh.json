@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-21T03:16:35.320569Z",
+  "generated_at": "2026-09-21T06:17:13.463477Z",
   "translations": {
     "items:piasnews-69a390fd98d79abf:title:d60e43a707770e4d0959134b": {
       "dataset": "items",
@@ -4189,6 +4189,54 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-21T03:16:34.795814Z"
+    },
+    "items:piasnews-9a4f07674e8f4957:title:2c21804d5d09d87474e9f6b7": {
+      "dataset": "items",
+      "item_id": "piasnews-9a4f07674e8f4957",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Toto Wolff's 'league of his own' comments highlight why Lando Norris is beating Oscar Piastri",
+      "zh": "Toto Wolff“独一档”的评论凸显了为什么Lando Norris正在击败Oscar Piastri",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-21T06:17:12.830617Z"
+    },
+    "items:piasnews-9a4f07674e8f4957:summary:0d864a8260f8519601fd9ae1": {
+      "dataset": "items",
+      "item_id": "piasnews-9a4f07674e8f4957",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Quote or interview-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的引述或采访相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-21T06:17:12.830624Z"
+    },
+    "items:piasnews-244c4b96e8737a59:title:ebaaecae54e253772d90f341": {
+      "dataset": "items",
+      "item_id": "piasnews-244c4b96e8737a59",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri makes damning admission on 2026 F1 cars",
+      "zh": "Oscar Piastri对2026年F1赛车做出尖锐承认",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-21T06:17:12.830628Z"
+    },
+    "items:piasnews-244c4b96e8737a59:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-244c4b96e8737a59",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-21T06:17:12.830631Z"
     }
   },
   "retention_days": 8
