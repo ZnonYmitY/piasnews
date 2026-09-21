@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-21T06:17:13.463477Z",
+  "generated_at": "2026-09-21T09:18:02.648510Z",
   "translations": {
     "items:piasnews-69a390fd98d79abf:title:d60e43a707770e4d0959134b": {
       "dataset": "items",
@@ -4237,6 +4237,90 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-21T06:17:12.830631Z"
+    },
+    "items:piasnews-f0809e3ec2dfce6e:title:eadc577aa55f166c94f8caad": {
+      "dataset": "items",
+      "item_id": "piasnews-f0809e3ec2dfce6e",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri has scary verdict as AI takes control of F1 cars",
+      "zh": "AI接管F1赛车，Piastri给出可怕结论",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-21T09:18:01.798560Z"
+    },
+    "items:piasnews-f0809e3ec2dfce6e:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-f0809e3ec2dfce6e",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-21T09:18:01.798569Z"
+    },
+    "items:piasnews-5f7bfe29463e093e:title:8a816c42c3698b015cfb91fa": {
+      "dataset": "items",
+      "item_id": "piasnews-5f7bfe29463e093e",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri nightmare under the microscope as Lando Norris says: 'I disagree with all of that'",
+      "zh": "Oscar Piastri的噩梦被放大审视，Lando Norris表示：“我完全不同意那一切”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-21T09:18:01.798573Z"
+    },
+    "items:piasnews-5f7bfe29463e093e:summary:0d864a8260f8519601fd9ae1": {
+      "dataset": "items",
+      "item_id": "piasnews-5f7bfe29463e093e",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Quote or interview-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的引述或采访相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-21T09:18:01.798578Z"
+    },
+    "items:piasnews-9e34a3f1261a80d1:title:a5f5d277eabd8228f9518cd7": {
+      "dataset": "items",
+      "item_id": "piasnews-9e34a3f1261a80d1",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri reveals struggles with new F1 AI power system",
+      "zh": "Oscar Piastri透露在适应F1全新AI动力系统时遇到困难",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-21T09:18:01.798581Z"
+    },
+    "items:piasnews-9e34a3f1261a80d1:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-9e34a3f1261a80d1",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-21T09:18:01.798585Z"
+    },
+    "social:piasnews-social-6b2e72cc446e7009:summary:ada622fa9a4dfa91874a2026": {
+      "dataset": "social",
+      "item_id": "piasnews-social-6b2e72cc446e7009",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "2023: rates baku very low, doesn't score points (vid #1) 2024: says baku is the happiest he's ever felt on a race car (vid #2) 2025: has the worst race weekend of his life 2026: *pending* pattern recognition says it's time for baku to be kind to us again. happy race week! ✨ https://t.co/8vrI0CU0bx",
+      "zh": "2023年：对Baku评价极低，未能得分（视频#1）2024年：称Baku是他在赛车上感觉最快乐的一次（视频#2）2025年：经历了人生中最糟糕的比赛周末 2026年：*待定* 模式识别表明，是时候让Baku再次对我们温柔以待了。比赛周快乐！✨",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-21T09:18:01.798591Z"
     }
   },
   "retention_days": 8
