@@ -1,115 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-21T15:32:47.313332Z",
+  "generated_at": "2026-09-21T20:15:44.078837Z",
   "translations": {
-    "items:piasnews-d2a656ee034f42ed:title:d557458fca29a5ee3bd314de": {
-      "dataset": "items",
-      "item_id": "piasnews-d2a656ee034f42ed",
-      "field": "title",
-      "target_field": "title_zh",
-      "source_text": "Antonelli marches on in Spain as Piastri suffers again",
-      "zh": "Antonelli在西班牙继续前进，Piastri再次受挫",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-09-13T16:25:18.662636Z"
-    },
-    "items:piasnews-d2a656ee034f42ed:summary:73c687deab0b33e8260654ec": {
-      "dataset": "items",
-      "item_id": "piasnews-d2a656ee034f42ed",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
-      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-09-13T16:25:18.662644Z"
-    },
-    "items:piasnews-124eb9f3af32612f:title:6171189d91b55c742e3e3964": {
-      "dataset": "items",
-      "item_id": "piasnews-124eb9f3af32612f",
-      "field": "title",
-      "target_field": "title_zh",
-      "source_text": "Piastri hit twice on first lap, Antonelli wins thanks to safety car luck",
-      "zh": "Piastri首圈两度被撞，Antonelli因安全车运气夺冠",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-09-13T16:25:18.662649Z"
-    },
-    "items:piasnews-124eb9f3af32612f:summary:26b5911fbd1b8158d42ac2a8": {
-      "dataset": "items",
-      "item_id": "piasnews-124eb9f3af32612f",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "Team or car-performance item discovered from public news metadata.",
-      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-09-13T16:25:18.662653Z"
-    },
-    "items:piasnews-6009dc6215d34dc7:title:fcc323d6eea95e303ad39ec2": {
-      "dataset": "items",
-      "item_id": "piasnews-6009dc6215d34dc7",
-      "field": "title",
-      "target_field": "title_zh",
-      "source_text": "Lando Norris and Andrea Stella agree about McLaren after Oscar Piastri struggled at Spanish GP",
-      "zh": "Oscar Piastri在西班牙大奖赛表现挣扎后，Lando Norris和Andrea Stella对McLaren看法一致",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-09-13T16:25:18.662658Z"
-    },
-    "items:piasnews-6009dc6215d34dc7:summary:7f7c735e99427ccf70333fad": {
-      "dataset": "items",
-      "item_id": "piasnews-6009dc6215d34dc7",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "Race-week or performance-related item discovered from public news metadata.",
-      "zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-09-13T16:25:18.662661Z"
-    },
-    "items:piasnews-f749e81d5dbf7024:title:f5d65d743fd22a80a3c86f5a": {
-      "dataset": "items",
-      "item_id": "piasnews-f749e81d5dbf7024",
-      "field": "title",
-      "target_field": "title_zh",
-      "source_text": "F1: Oscar Piastri still hoping to win races to set up 2027 title bid",
-      "zh": "F1：Oscar Piastri仍希望赢得分站冠军，为2027年争冠铺路",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-09-13T16:25:18.662666Z"
-    },
-    "items:piasnews-f749e81d5dbf7024:summary:7f7c735e99427ccf70333fad": {
-      "dataset": "items",
-      "item_id": "piasnews-f749e81d5dbf7024",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "Race-week or performance-related item discovered from public news metadata.",
-      "zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-09-13T16:25:18.662674Z"
-    },
-    "items:piasnews-365124e54c310929:summary:26b5911fbd1b8158d42ac2a8": {
-      "dataset": "items",
-      "item_id": "piasnews-365124e54c310929",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "Team or car-performance item discovered from public news metadata.",
-      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-09-13T16:25:18.662679Z"
-    },
     "items:piasnews-1e349ebc993f7040:title:eb42be63557579e3ed950f9f": {
       "dataset": "items",
       "item_id": "piasnews-1e349ebc993f7040",
@@ -3673,6 +3565,18 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-21T15:32:46.436806Z"
+    },
+    "social:piasnews-social-5012f9334a171be3:summary:a42e02eeaf3256485c6c2d90": {
+      "dataset": "social",
+      "item_id": "piasnews-social-5012f9334a171be3",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "mclaren has confirmed they are bringing aerodynamic upgrades for baku! https://t.co/QZm7PSINxC",
+      "zh": "McLaren已确认他们将为Baku带来空气动力学升级！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-21T20:15:43.499458Z"
     }
   },
   "retention_days": 8
