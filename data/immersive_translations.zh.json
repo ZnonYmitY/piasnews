@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-20T23:35:21.820054Z",
+  "generated_at": "2026-09-21T03:16:35.320569Z",
   "translations": {
     "items:piasnews-69a390fd98d79abf:title:d60e43a707770e4d0959134b": {
       "dataset": "items",
@@ -4105,6 +4105,90 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-20T23:35:21.022811Z"
+    },
+    "social:piasnews-social-03a8a7960a7668db:summary:74be0637f7414d7259f02a2b": {
+      "dataset": "social",
+      "item_id": "piasnews-social-03a8a7960a7668db",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "hello friends @QuadLockCase can we get a little hint on when what will be the greatest video of all time will drop 👉👈",
+      "zh": "朋友们好 @QuadLockCase 能不能给点小提示，史上最伟大的视频什么时候发布 👉👈",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-21T03:16:34.795789Z"
+    },
+    "social:piasnews-social-cef664d164c9b189:summary:d1d2d053d1f9981ba39118c4": {
+      "dataset": "social",
+      "item_id": "piasnews-social-cef664d164c9b189",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "new pic of oscar and pedro filming as the wasp 🐝 and the shark 🦈 📸: domstorey https://t.co/ZqBIJDc9Ds",
+      "zh": "Oscar和Pedro拍摄黄蜂🐝和鲨鱼🦈的新照片 📸: domstorey",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-21T03:16:34.795796Z"
+    },
+    "social:piasnews-social-e7c20dd5b1aea724:summary:284dea99d7c8cd3ef674d795": {
+      "dataset": "social",
+      "item_id": "piasnews-social-e7c20dd5b1aea724",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar and lando giving commentary during the runway 😭😭 oscar: \"i could see you wearing that\" lando: \"she's got a shoey hat\" https://t.co/CWYy2URwc6",
+      "zh": "Oscar和Lando在走秀时解说 😭😭 Oscar：“我能想象你穿那件” Lando：“她戴了顶shoey帽”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-21T03:16:34.795799Z"
+    },
+    "social:piasnews-social-fc6355b6840b4ad3:summary:1a589c608ad0a5c476ac0107": {
+      "dataset": "social",
+      "item_id": "piasnews-social-fc6355b6840b4ad3",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @McLarenF1: The FROW conversations 😎 #McLarenF1 #DesignedToRace https://t.co/1u7iMSvISm",
+      "zh": "RT @McLarenF1: 前排对话 😎 #McLarenF1 #DesignedToRace",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-21T03:16:34.795803Z"
+    },
+    "social:piasnews-social-3bf7a74dadc9ebc5:summary:dce5c8712a54e6a8682827d3": {
+      "dataset": "social",
+      "item_id": "piasnews-social-3bf7a74dadc9ebc5",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "monicha tully about meeting oscar: \"turns out meeting your heroes is actually a great idea. what a gentleman. ✨\" 🫶🏻🫶🏻 https://t.co/5Nw5IXrBhu",
+      "zh": "monicha tully谈见到Oscar：“原来见到自己的偶像其实是个好主意。多么绅士。✨” 🫶🏻🫶🏻",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-21T03:16:34.795806Z"
+    },
+    "social:piasnews-social-8ef879a4b69da83c:summary:4ac46e8f83dfbb0ecebc3b85": {
+      "dataset": "social",
+      "item_id": "piasnews-social-8ef879a4b69da83c",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar talks us through his fashion show outfit: \"it's... brown. it was definitely not chosen by me.\" 😭😭😭😭 https://t.co/QmZ4Re0LgE",
+      "zh": "Oscar向我们介绍他的时装秀造型：“它是……棕色的。绝对不是我选的。” 😭😭😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-21T03:16:34.795810Z"
+    },
+    "social:piasnews-social-b8564d69913f209b:summary:1065cc1f7d5a12aa58820491": {
+      "dataset": "social",
+      "item_id": "piasnews-social-b8564d69913f209b",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "THE WORLD CIRCUIT COLLECTION - 2nd DROP 🌍✨ BY OSCAR PIASTRI https://t.co/LWso7N6tTh",
+      "zh": "世界赛道系列 - 第二波 🌍✨ 由OSCAR PIASTRI推出",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-21T03:16:34.795814Z"
     }
   },
   "retention_days": 8
