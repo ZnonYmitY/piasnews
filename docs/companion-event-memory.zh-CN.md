@@ -85,6 +85,7 @@ node scripts/eval_companion_events.mjs --run --transport curl
 每轮输出中英文回答、实际引用及链接、`event_query`、候选/引用来源 ID、模型和人物包版本、耗时、受控诊断字段，供人工复核。脚本不输出 API key、任意上游错误正文或未列入白名单的提供商元数据。
 
 - `contract_errors`：检查 HTTP、模式、模型生成来源、双语输出、每轮 1–2 次模型调用、无 fixed fallback、来源 ID 关联及轨迹结构；“你好”不得携带赛事轨迹或事实引用。
+  兼容现有 `FB-08` 路由元数据：仅 `insufficient_current_fact / insufficient` 且 DeepSeek 模型、调用次数和同次自检信息齐全时放行；这个字段本身不能证明用了预写兜底文案。离线引擎或缺少生成证据仍不通过。
 - `heuristic_flags`：同一赛事追问改变目标/赛段，或问候泄漏赛事内容等人工复核信号，不是独立语义判决。
 - `event_evidence_labeled_answers / event_information_gaps`：分开统计模型标记的事实回答与信息缺口，不把 `evidence` 标签当成事实覆盖证明。另核对实际引用的赛果、仅赛历回答及人工复核数；全部五个事实问题都答资料不足，也可能通过结构检查，但绝不代表赛事记忆覆盖充分。
 - `summary`：列出尝试/跳过数、契约失败、复核信号、已知模型调用次数和客户端延迟。任一失败、标记或跳过返回非零退出码。

@@ -85,7 +85,15 @@ export function checkEventResponse(testCase, status, body, earlierResults = []) 
   for (const name of ["answer_en", "answer_zh"]) {
     if (typeof body?.[name] !== "string" || !body[name].trim()) errors.push(`${name} must be a non-empty string`);
   }
-  if (body?.fallback_id) errors.push("event and social answers must not use a fixed fallback");
+  // normalizeModelResult attaches FB-08 from the route card even when the
+  // model generated a fresh, specific information gap. It is metadata, not
+  // proof of canned wording. Keep independent generation checks mandatory.
+  const generatedGapMetadata = body?.fallback_id === "FB-08" && body?.route === "insufficient_current_fact"
+    && body?.answer_kind === "insufficient" && body?.engine === "deepseek"
+    && typeof body?.model === "string" && Boolean(body.model.trim())
+    && [1, 2].includes(body?.performance?.model_calls)
+    && body?.validation_trace?.status === "same_generation_self_check";
+  if (body?.fallback_id && !generatedGapMetadata) errors.push("event and social answers must not use a fixed fallback or unsupported fallback metadata");
   for (const name of ["public_source_ids", "retrieved_public_source_ids"]) {
     if (!Array.isArray(body?.[name]) || body[name].some((id) => !identifier(id))) errors.push(`${name} must be an array of bounded source IDs`);
   }
