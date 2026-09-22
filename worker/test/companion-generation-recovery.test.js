@@ -258,7 +258,11 @@ test("diagnostics and repair instructions never include raw failed output, conve
   assert.ok(!repairInstructions.includes("private-output-marker"));
   assert.ok(!repairInstructions.includes("private-second-output-marker"));
   const diagnostic = result.data.diagnostic;
-  assert.deepEqual(Object.keys(diagnostic).sort(), ["elapsed_ms", "model_finish_reason", "reason", "repair_count", "stage", "upstream_status"]);
+  assert.deepEqual(Object.keys(diagnostic).sort(), ["context", "elapsed_ms", "model_finish_reason", "reason", "repair_count", "stage", "upstream_status"]);
+  assert.deepEqual(Object.keys(diagnostic.context).sort(), ["delivery", "event_status", "selected_source_count"]);
+  assert.equal(diagnostic.context.event_status, null);
+  assert.equal(diagnostic.context.selected_source_count, 0);
+  assert.deepEqual(diagnostic.context.delivery, {});
   assert.equal(diagnostic.model_finish_reason, "unknown");
   assert.match(result.data.request_id, /^[0-9a-f-]{36}$/i);
   const logged = JSON.parse(result.logs[0]);
