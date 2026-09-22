@@ -31,6 +31,21 @@ export function englishWordCount(value) {
   return typeof value === "string" ? (value.match(/[A-Za-z0-9]+(?:['’\-][A-Za-z0-9]+)*/g) || []).length : 0;
 }
 
+export function sanitizeConversationDiagnostic(value) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return null;
+  const safe = {};
+  // Copy only documented diagnostic fields, never arbitrary provider metadata,
+  // error messages, raw output, headers or nested objects. Strings must be
+  // controlled codes, not free-form text that could carry private content.
+  if (["rate_limit", "context", "upstream", "parse", "normalize", "validation"].includes(value.stage)) safe.stage = value.stage;
+  if (typeof value.reason === "string" && /^[a-z][a-z0-9_]{0,79}$/.test(value.reason)) safe.reason = value.reason;
+  if (value.upstream_status === null || Number.isInteger(value.upstream_status) && value.upstream_status >= 100 && value.upstream_status <= 599) safe.upstream_status = value.upstream_status;
+  if (value.model_finish_reason === null || ["stop", "length", "content_filter", "tool_calls", "function_call", "unknown"].includes(value.model_finish_reason)) safe.model_finish_reason = value.model_finish_reason;
+  if (Number.isInteger(value.repair_count) && value.repair_count >= 0 && value.repair_count <= 100) safe.repair_count = value.repair_count;
+  if (Number.isFinite(value.elapsed_ms) && value.elapsed_ms >= 0 && value.elapsed_ms <= 3600000) safe.elapsed_ms = value.elapsed_ms;
+  return Object.keys(safe).length ? safe : null;
+}
+
 export function checkConversationResponse(testCase, status, body) {
   const contractErrors = checkModeResponse(testCase, status, body);
   const flags = [];
@@ -55,6 +70,8 @@ export function checkConversationResponse(testCase, status, body) {
   }
   if (testCase.intent === "closing" && (/[?？]/.test(`${en} ${zh}`) || /\b(?:want to|would you like|shall we|anything else|what about you)\b|要不要|还想聊|还有什么想问/i.test(`${en} ${zh}`))) flags.push("closing reopens the conversation with a question/hook");
   if (testCase.intent === "preference" && (!/\b(?:cats?|dogs?)\b|猫|狗/i.test(`${en} ${zh}`) || /^(?:what do you mean|could you clarify|can you clarify|什么意思|请澄清)/i.test(en.trim()))) flags.push("clear preference may not have received a direct choice");
+  if (testCase.mode === "free" && testCase.intent === "preference"
+      && /\b(?:fictional (?:preference|choice)|role[- ]?play (?:preference|choice)|not (?:an? )?(?:public|official|verified) (?:ranking|preference))\b|角色(?:扮演|演绎)(?:里|中)?的?偏好|(?:不是|并非|不代表)(?:本人)?的?(?:公开|真实)的?(?:排名|偏好)/i.test(`${en} ${zh}`)) flags.push("preference repeats roleplay/public-ranking disclaimers; human naturalness review needed");
   if ((testCase.micro || testCase.intent === "preference") && /not (?:really )?my field|outside my lane|out of (?:my|the) scope|不在我的范围|不属于我的领域|超出我的范围/i.test(`${en} ${zh}`)) flags.push("ordinary conversation still sounds out of scope");
   return { contract_errors: contractErrors, heuristic_flags: flags, en_words: words, model_calls: Number.isInteger(calls) ? calls : null };
 }
@@ -139,7 +156,8 @@ export async function runConversationSuite(options, { request = requestConversat
         answer_kind: body?.answer_kind, route: body?.route, answer_en: body?.answer_en, answer_zh: body?.answer_zh,
         sources: (body?.sources || []).map(({ id, url }) => ({ id, url })),
         ...check, performance: body?.performance || null, validation_trace: body?.validation_trace || null,
-        request_id: body?.request_id, error_code: body?.error_code, client_ms: now() - start,
+        request_id: body?.request_id, error_code: body?.error_code,
+        diagnostic: sanitizeConversationDiagnostic(body?.diagnostic), client_ms: now() - start,
       };
       results.push(result); emit(result);
       if (options.suite === "multi") {

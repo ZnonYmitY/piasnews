@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 import {
   AMBIENT_BAKU, CONVERSATION_SUITES, DEFAULT_BASE_URL, ORIGIN,
   appendGeneratedTurn, buildConversationPayload, buildCurlArgs,
-  checkConversationResponse, englishWordCount, parseConversationArgs, runConversationSuite,
+  checkConversationResponse, englishWordCount, parseConversationArgs, runConversationSuite, sanitizeConversationDiagnostic,
 } from "../../scripts/eval_companion_conversation.mjs";
 
 const body = (overrides = {}) => ({
@@ -83,6 +83,32 @@ test("closing should not reopen the chat, and clear preferences should not be cl
   assert.ok(checkConversationResponse(choice, 200, body({ answer_kind: "fictional", answer_en: "What do you mean by that?", answer_zh: "你是什么意思？" })).heuristic_flags.some((item) => /direct choice/.test(item)));
 });
 
+test("ordinary free preferences flag repetitive roleplay disclaimers only for human review", () => {
+  const choice = CONVERSATION_SUITES.smoke[4];
+  for (const [answer_en, answer_zh] of [
+    ["Dogs. That's just a fictional preference.", "狗吧。"],
+    ["Dogs. This is not a public ranking.", "狗吧。"],
+    ["Dogs.", "狗吧，只是角色扮演里的偏好。"],
+    ["Dogs.", "狗吧，这不是公开排名。"],
+  ]) {
+    const result = checkConversationResponse(choice, 200, body({ answer_kind: "fictional", answer_en, answer_zh }));
+    assert.deepEqual(result.contract_errors, [], "This is an offline naturalness flag, not a runtime refusal or hard contract.");
+    assert.ok(result.heuristic_flags.some((item) => /human naturalness review/.test(item)));
+  }
+  const factCase = CONVERSATION_SUITES.smoke[5];
+  const factualGap = checkConversationResponse(factCase, 200, body({ mode: "grounded", answer_kind: "insufficient", route: "insufficient_current_fact", answer_en: "That fictional preference does not establish a public ranking.", answer_zh: "演绎偏好不代表公开排名。" }));
+  assert.ok(!factualGap.heuristic_flags.some((item) => /roleplay\/public-ranking/.test(item)), "A factual question may legitimately distinguish simulation from evidence.");
+});
+
+test("diagnostics copy only bounded documented codes and scalar fields", () => {
+  const allowed = { stage: "normalize", reason: "empty_content", upstream_status: 200, model_finish_reason: "stop", repair_count: 1, elapsed_ms: 1488 };
+  assert.deepEqual(sanitizeConversationDiagnostic({ ...allowed, provider_body: "PRIVATE_PROVIDER_BODY", authorization: "PRIVATE_AUTH", nested: { secret: true }, model_calls: 0 }), allowed);
+  assert.deepEqual(sanitizeConversationDiagnostic({ stage: "upstream", upstream_status: null, model_finish_reason: null }), { stage: "upstream", upstream_status: null, model_finish_reason: null });
+  assert.equal(sanitizeConversationDiagnostic({ stage: { secret: true }, reason: "Provider said: private body", upstream_status: "200", model_finish_reason: "PRIVATE", repair_count: -1, elapsed_ms: Infinity }), null);
+  assert.equal(sanitizeConversationDiagnostic({ reason: "x".repeat(81), elapsed_ms: 3600001, repair_count: 101 }), null);
+  assert.equal(sanitizeConversationDiagnostic([allowed]), null);
+});
+
 test("mixed greetings keep factual scope, while call budget and output language remain hard contracts", () => {
   const mixed = CONVERSATION_SUITES.smoke[3];
   assert.ok(checkConversationResponse(mixed, 200, body()).contract_errors.includes("answer kind mismatch"));
@@ -126,14 +152,14 @@ test("multi suite makes at most six chat calls, carries real outputs and reports
       assert.equal(transport, "curl");
       inputs.push(payload);
       const kind = payload.message.includes("喜欢猫") ? "fictional" : payload.message.includes("真的养过") || payload.message.includes("比赛安排") ? "insufficient" : "social";
-      return { status: 200, body: body({ mode: payload.mode, answer_kind: kind, route: kind === "insufficient" ? "insufficient_current_fact" : "fan_light", answer_en: kind === "fictional" ? "Dogs, in this fictional choice." : `Reply number ${inputs.length}.`, answer_zh: "合成测试回答。" }) };
+      return { status: 200, body: body({ mode: payload.mode, answer_kind: kind, route: kind === "insufficient" ? "insufficient_current_fact" : "fan_light", answer_en: kind === "fictional" ? "Dogs. Enthusiastic company." : `Reply number ${inputs.length}.`, answer_zh: "合成测试回答。" }) };
     },
   });
   assert.equal(inputs.length, 6);
   assert.ok(inputs.every((payload) => payload.mode === "free" && payload.facts_only === false));
   assert.equal(inputs[0].history.length, 0);
   assert.match(inputs[1].history.at(-1).content, /Reply number 1/);
-  assert.match(inputs[2].history.at(-1).content, /Dogs, in this fictional choice/);
+  assert.match(inputs[2].history.at(-1).content, /Dogs. Enthusiastic company/);
   assert.equal(inputs.at(-1).history.length, 8);
   assert.equal(result.summary.total_model_calls, 6);
   assert.equal(result.summary.contract_failed, 0);
@@ -154,4 +180,18 @@ test("failed multi turn stops dependent requests instead of fabricating history 
   assert.equal(summary.total_model_calls, null);
   assert.equal(results[0].error_code, "COMPANION_MODEL_UNAVAILABLE");
   assert.ok(results.slice(1).every((item) => item.skipped));
+});
+
+test("an HTTP 502 retains safe diagnostics without guessing failed model-call counts", async () => {
+  const diagnostic = { stage: "validation", reason: "conversation_pacing_mismatch", upstream_status: 200, model_finish_reason: "stop", repair_count: 1, elapsed_ms: 2134 };
+  const { summary, results } = await runConversationSuite(parseConversationArgs(["--run", "--suite", "multi"]), {
+    emit: () => {}, request: async () => ({ status: 502, body: {
+      error_code: "COMPANION_VALIDATION_FAILED", diagnostic: { ...diagnostic, provider_body: "PRIVATE_PROVIDER_BODY", credentials: { token: "PRIVATE_TOKEN" } },
+    } }),
+  });
+  assert.deepEqual(results[0].diagnostic, diagnostic);
+  assert.equal(results[0].model_calls, null, "repair_count must not be converted into an invented model_calls value.");
+  assert.equal(summary.total_model_calls, null);
+  assert.ok(!JSON.stringify(results).includes("PRIVATE_PROVIDER_BODY"));
+  assert.ok(!JSON.stringify(results).includes("PRIVATE_TOKEN"));
 });

@@ -54,7 +54,7 @@ function socialReply(patch = {}) {
 
 test("pure social turns ignore both ambient and selected race cards in both modes without public fetches", async () => {
   for (const mode of ["free", "grounded"]) {
-    for (const message of ["你好", "谢谢", "晚安", "在吗"]) {
+    for (const message of ["你好", "谢谢", "晚安", "在吗", "先聊到这，拜拜"]) {
       const history = [{ role: "user", content: "今天比赛几点？" }, { role: "assistant", content: "Madrid practice is listed in the calendar." }];
       const result = await exercise({ body: { message, mode, history,
         surface_context: { race: "Spanish Grand Prix", provenance: "user_selected" } }, model(runtime, input) {
@@ -68,6 +68,9 @@ test("pure social turns ignore both ambient and selected race cards in both mode
         assert.deepEqual(input.messages.filter((item) => ["user", "assistant"].includes(item.role)).slice(0, 2), history);
         assert.match(input.messages[0].content, /STYLE_PACKAGE_JSON/);
         assert.match(runtime.CONVERSATION_EXAMPLES.usage, /not Oscar quotes/);
+        assert.match(input.messages.at(-2).content, /CURRENT SOCIAL TURN/);
+        assert.match(input.messages.at(-2).content, /Assess only the new reply/);
+        assert.match(input.messages.at(-2).content, /not to re-answer an earlier factual question/);
         return socialReply();
       } });
       assert.equal(result.status, 200, `${mode}: ${message}`);

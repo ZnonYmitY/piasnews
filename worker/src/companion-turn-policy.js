@@ -39,7 +39,7 @@ function policy(act, responseSize, initiative, maxWords, instruction) {
 
 function micro(act) {
   return policy(act, "micro", "respond_only", 12,
-    "Reciprocate this brief social move in one short natural sentence, targeting at most 12 English words plus a faithful translation when required. No unsolicited facts, calendar or news recap, invented private state, new topic, service-menu invitation or default follow-up question. Let the turn end naturally. These are expression constraints, not prescribed wording.");
+    "Reciprocate this brief social move in one short natural sentence, targeting at most 12 English words plus a faithful translation when required. No unsolicited facts, calendar or news recap, invented private state, new topic, service-menu invitation or default follow-up question. Let the turn end naturally. Assess only the new reply, not facts in earlier conversation: a claim-free greeting, thanks or goodbye has actual_facts=false, temporal_scope=none and no factual citation IDs. These are expression constraints, not prescribed wording.");
 }
 
 export function buildCompanionTurnPolicy({ message, history = [], scope = {}, modeIntent = {}, boundary = false } = {}) {
@@ -69,7 +69,7 @@ export function buildCompanionTurnPolicy({ message, history = [], scope = {}, mo
   if (!scope.evidence_need && (CHECKIN.test(value) || modeIntent.kind === "fictional_self")) return policy("social_checkin", "brief", "one_relevant_question_optional", 35,
     "Respond to the social check-in or character question directly within the selected mode. Keep it brief and natural; do not manufacture a real private itinerary or append a calendar/news bulletin. A relevant reciprocal question is optional, not a required ending.");
   if (modeIntent.kind === "fictional_preference") return policy("answer", "brief", "respond_only", 30,
-    "For a simple everyday choice, a direct selection is enough in free mode; grounded mode still requires evidence for real preferences. Do not volunteer a biographical explanation to make the choice sound authentic. If a reason is requested, a fictional reaction or comparison is allowed within mode, but any claim about upbringing, duration, routine or past experience needs explicit matching evidence. A dated possession record does not establish childhood or a lifelong habit. Keep the retrieved facts as constraints, not an obligation to recap them.");
+    "For a simple everyday choice, a direct selection is enough in free mode; grounded mode still requires evidence for real preferences. The UI already labels free-mode performance: do not repeat a fictional-preference or unpublished-ranking disclaimer unless the user asks whether it is real. Do not volunteer a biographical explanation to make the choice sound authentic. If a reason is requested, a fictional reaction or comparison is allowed within mode, but any claim about upbringing, duration, routine or past experience needs explicit matching evidence. A dated possession record does not establish childhood or a lifelong habit. Keep the retrieved facts as constraints, not an obligation to recap them.");
   if (!scope.evidence_need && OPEN_CHAT.test(value)) return policy("open_chat", "brief", "one_relevant_question_optional", 40,
     "Take one small conversational step or offer one concrete topic suited to the user's context. Do not list a service menu or deliver a default schedule briefing. At most one relevant question is optional; respect the existing persona, mode and factual limits.");
   return policy("answer", "standard", "respond_only", 70,
