@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-22T00:42:51.615670Z",
+  "generated_at": "2026-09-22T03:47:29.464030Z",
   "translations": {
     "items:piasnews-1e349ebc993f7040:title:eb42be63557579e3ed950f9f": {
       "dataset": "items",
@@ -3637,6 +3637,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-22T00:42:50.378688Z"
+    },
+    "items:piasnews-ffedf36012c0a4c9:title:e3fe0e734e13240a60f2f0c0": {
+      "dataset": "items",
+      "item_id": "piasnews-ffedf36012c0a4c9",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Why McLaren must make Piastri shift; huge Max issue that lingers — What every F1 team needs",
+      "zh": "为什么McLaren必须让Piastri做出改变；挥之不去的巨大Max问题——每支F1车队都需要什么",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-22T03:47:28.881000Z"
+    },
+    "items:piasnews-ffedf36012c0a4c9:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-ffedf36012c0a4c9",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能项目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-22T03:47:28.881007Z"
     }
   },
   "retention_days": 8
