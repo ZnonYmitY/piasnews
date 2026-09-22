@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-22T10:08:20.500466Z",
+  "generated_at": "2026-09-22T14:42:10.558963Z",
   "translations": {
     "items:piasnews-1e349ebc993f7040:title:eb42be63557579e3ed950f9f": {
       "dataset": "items",
@@ -3733,6 +3733,66 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-22T09:49:52.453767Z"
+    },
+    "items:piasnews-ea96ebdf9993a39d:title:112fdf13d5ec5a507b992c73": {
+      "dataset": "items",
+      "item_id": "piasnews-ea96ebdf9993a39d",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "‘Figure out how to close that gap’ – How can Piastri recover from ‘anonymous’ Madrid weekend?",
+      "zh": "“想办法缩小差距”——Piastri 如何从“默默无闻”的马德里周末中恢复？",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-22T14:42:10.042447Z"
+    },
+    "items:piasnews-ea96ebdf9993a39d:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-ea96ebdf9993a39d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-22T14:42:10.042453Z"
+    },
+    "items:piasnews-b12f0a1e35cd3a30:title:089d2e9e03db804e38530b3c": {
+      "dataset": "items",
+      "item_id": "piasnews-b12f0a1e35cd3a30",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "McLaren call on Lando Norris and Oscar Piastri to execute three 'essentials' in Baku",
+      "zh": "McLaren 要求 Lando Norris 和 Oscar Piastri 在Baku执行三项“要点”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-22T14:42:10.042456Z"
+    },
+    "items:piasnews-b12f0a1e35cd3a30:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-b12f0a1e35cd3a30",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-22T14:42:10.042459Z"
+    },
+    "social:piasnews-social-5bbbb6c77ef91b4f:summary:03de417c9caf0409e114eda8": {
+      "dataset": "social",
+      "item_id": "piasnews-social-5bbbb6c77ef91b4f",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @McLarenF1: Throwing it back to 2024 with OP 🏆 #McLarenF1 | #AzerbaijanGP🇦🇿 https://t.co/Z2rbKm4A1B",
+      "zh": "RT @McLarenF1：用 OP 回顾 2024 🏆 #McLarenF1 | #AzerbaijanGP🇦🇿",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-22T14:42:10.042462Z"
     }
   },
   "retention_days": 8
