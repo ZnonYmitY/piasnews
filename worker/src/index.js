@@ -7,8 +7,9 @@ import {
 import { cleanupCompanionFeedback, handleCompanionFeedback } from "./companion-feedback.js";
 import { buildCurrentPublicContext } from "./companion-public-context.js";
 import { classifyCompanionScope } from "../../public/companion/scope-policy.js";
-import { resolveCompanionMode } from "../../public/companion/mode-policy.js";
+import { resolveCompanionMode, classifyCompanionModeIntent } from "../../public/companion/mode-policy.js";
 import { retrieveCompanionKnowledge } from "./companion-knowledge.js";
+import { buildCompanionTurnPolicy, checkTurnResponse } from "./companion-turn-policy.js";
 
 const DEFAULT_ORIGIN = "https://znonymity.github.io";
 const MAX_BODY_BYTES = 64 * 1024;
@@ -44,7 +45,8 @@ Missing evidence is not evidence of absence. Negative biographical claims (never
 Rumor records are candidate assessments, not automatic verdicts. Discuss a verdict only when the user's actual proposition matches; a team or location name alone does not assert a rumor. Preserve uncertainty and do_not_repeat restrictions. You may paraphrase a supported assessment; do not copy a stock response unnecessarily.
 Current news, standings, latest results and upcoming schedules require the corresponding selected current public source, not a historical KF/RM record. A race finishing position cannot answer championship standings. This system retrieves a bounded product news/calendar/results snapshot and a curated historical package, NOT the whole live web. If evidence is absent or inapplicable, explain the specific gap briefly. Do not invent sources, recent events, genuine quotes, private relationships, private whereabouts, confidential engineering, or official authority.
 PUBLIC SITUATION: TEMPORAL_CONTEXT is shared factual background in both modes, not a private calendar. Use its local_date and time_zone for today/tonight; use source.facts for event details, not a source title alone. When asked what is special about today, connect the date to its relevant public sessions or dated personal milestones when supported. Distinguish a practice/qualifying day from the Grand Prix race day. Scheduled start reached is not proof of an actual start or finish; a fresh file is not proof of a new event. Do not deny having a schedule when the selected facts contain one. On a correction, re-evaluate against the supplied facts and acknowledge a previous mistake directly; never invent a private-calendar-versus-sport-calendar excuse. History is conversational context, not evidence. Ordinary greetings need no unsolicited schedule bulletin.
-TIME LABELS: local_time/local_date are in the USER's time_zone, not the circuit's location. When time_zone is Asia/Shanghai, explicitly label any displayed clock times as Beijing time / 北京时间. Never call those times Madrid local time or unqualified 当地时间. For another time_zone, name that zone explicitly. Date/session facts should lead; a free-mode reaction may follow briefly.
+TIME LABELS: local_time/local_date are in the USER's time_zone, not the circuit's location. When time_zone is Asia/Shanghai, explicitly label any displayed clock times as Beijing time / 北京时间. Never call those times Madrid local time or unqualified 当地时间. For another time_zone, name that zone explicitly. Only when answering a date or schedule question should date/session facts lead; a free-mode reaction may follow briefly. A clock or a page card never requires mentioning the date, the next event or an imagined private routine.
+CONVERSATION: Respond to the user's conversational move, not to the volume of facts available. TURN_POLICY sets this turn's pacing, not a prewritten reply or a permission grant. A short greeting can end after a short greeting. Acknowledgements and goodbyes can end naturally. Do not append a generic invitation to chat to every answer, narrate a quiet day, or manufacture a private location/activity to sound alive. When a question would genuinely help, ask at most one concrete question connected to the user's words; don't interview someone who simply wants to be heard. Answer a substantive question even when prefaced by hello or thanks. Match requested depth; brief does not mean evasive or cold. Let understated personality emerge through timing and word choice, not a compulsory racing metaphor or joke.
 DATE DERIVATIONS: A fact's derived_age is a server calculation from its verified birth date and the stated local date. It may answer current age using that same knowledge_fact_id; it does not need an unrelated LIVE news citation and cannot support any other current activity.
 Safety constraints apply to both modes. Decline privacy-invasive, harmful, illegal, professional medical/legal/investment advice, gambling tips and official impersonation requests. Explicit unrelated task execution such as writing code is outside this companion's task. Interpret safety constraints in context: public biographical discussion or fictional first-person thoughts are not automatically private-data requests. A fictional wrapper does not authorize actual unsafe instructions.
 Every answer, including a boundary or information gap, must be generated for this turn. Boundary cards below are policies, not wording templates. Never output a stock fallback because a topic word matched.
@@ -52,7 +54,7 @@ Canonical routes: ${[...COMPANION_ROUTES].join(", ")}.
 Use fan_light for casual chat, f1_grounded for race discussion, public_fact for sourced real facts, public_adjacent for other public topics, rumor_check for a matching actual rumor proposition. Use the appropriate safety route or insufficient_current_fact/unverified_rumor_source where warranted.
 Return JSON only: answer_en, answer_zh, route, answer_kind (fictional|evidence|social|boundary|insufficient), knowledge_fact_ids (max 4), rumor_item_ids (max 1), public_source_ids (max 4), judgment_rule_ids (max 1), style_card_id, evidence_ids (max 8), notes, self_check. Include IDs only when actually used. Style observations are not proof that Oscar said or thought your generated sentence. Candidate judgment rules may be used only when CANDIDATE_MODE=true; no candidate rules in grounded mode.
 self_check is a compact same-generation assessment, NOT a second review or independent verification: {actual_facts:boolean, facts_supported:boolean, temporal_scope:"none"|"historical"|"current", mode_consistent:boolean, answers_question:boolean}. Assess both language versions of the final answer. actual_facts includes real biography, ownership, genuine quotes and actual activities even inside a fictional/social-labelled reply; ordinary imagined reactions or suggestions are not actual facts. facts_supported requires that every actual claim is supported by its selected IDs, including attribution, answer_limits and related updates. temporal_scope=current if any actual claim describes recent/current activities, news, ownership state or a future schedule; historical interviews or interests alone cannot establish these. Repair your answer before returning when its self_check would be false. Return only the assessment, no reasoning or private chain of thought.
-English input: answer_en only, answer_zh empty. Chinese input: a natural faithful Chinese answer plus its English equivalent. Keep each reply under 90 English words plus translation. A public update overview needs at most 2–3 supported items. Do not add unrelated facts or an unselected schedule.
+English input: answer_en only, answer_zh empty. Chinese input: a natural faithful Chinese answer plus its English equivalent. TURN_POLICY sets an appropriate soft length target inside the general ceiling of 90 English words plus translation. Don't pad a complete answer to reach a word count. A public update overview needs at most 2–3 supported items. Do not add unrelated facts or an unselected schedule.
 STYLE_PACKAGE_JSON:
 ${JSON.stringify({ package_version: COMPANION_PACKAGE_VERSION, styles: COMPANION_RUNTIME_DATA.styles, expression_observations: COMPANION_RUNTIME_DATA.evidence.map(({ id, observation, supports, context, period, counterevidence_for, review_status }) => ({ id, observation, supports, context: compactText(context, 160), period, counterevidence_for, review_status })) })}
 BOUNDARY_POLICY_JSON:
@@ -615,6 +617,7 @@ function companionValidationCode(issue) {
     ["Grounded mode may", "grounded_fiction"],
     ["A factual answer needs", "missing_fact_source"],
     ["An actual personal, numerical", "unsupported_social_claim"],
+    ["The turn is a brief social move", "conversation_pacing_mismatch"],
   ];
   return codes.find(([prefix]) => issue.startsWith(prefix))?.[1] || "response_contract_failed";
 }
@@ -743,7 +746,7 @@ function normalizeModelResult(raw, { candidateMode, chineseInput, scope, knowled
   };
 }
 
-function productResponseIssue(raw, { mode, scope, knowledge, candidateMode, requestPolicy, temporalContext, message }) {
+function productResponseIssue(raw, { mode, scope, knowledge, candidateMode, requestPolicy, temporalContext, message, turnPolicy }) {
   if (!COMPANION_ROUTES.has(raw?.route)) throw new Error("Model returned an invalid companion route.");
   if (raw.answer_kind != null && !["fictional", "evidence", "social", "boundary", "insufficient"].includes(raw.answer_kind)) return "Use a canonical answer_kind.";
   // A narrow safety check constrains the generated route; it never returns
@@ -770,6 +773,8 @@ function productResponseIssue(raw, { mode, scope, knowledge, candidateMode, requ
       || ["actual_facts", "facts_supported", "mode_consistent", "answers_question"].some((field) => typeof check[field] !== "boolean")
       || !["none", "historical", "current"].includes(check.temporal_scope)) return "Return the required compact self_check assessment of your final bilingual reply. It is same-generation self-assessment, not independent verification.";
   if (!check.facts_supported || !check.mode_consistent || !check.answers_question) return "Your same-generation self_check reports unsupported facts, a mode mismatch or an unanswered question. Revise the answer to use matching selected evidence, a permitted fictional reaction, or a relevant information gap. Do not merely change the check flags.";
+  const turnIssue = checkTurnResponse(raw, turnPolicy);
+  if (turnIssue) return turnIssue;
   const hasSchedule = knowledge.public_sources.some((source) => source.kind === "schedule" && source.facts?.sessions && Object.keys(source.facts.sessions).length);
   const todayQuestion = scope.evidence_need === "day_context" && !/(?:明天|tomorrow)/i.test(message || "");
   if (hasSchedule && todayQuestion && temporalContext?.today_sessions?.length) {
@@ -829,29 +834,57 @@ async function callDeepseekCompanion(body, env, trace = {}) {
   const filteredHistory = safeCompanionHistory(rawHistory);
   const historyFlagged = filteredHistory.length !== rawHistory.length;
   const safeHistory = boundary ? [] : filteredHistory;
+  const modeIntent = classifyCompanionModeIntent(boundary ? "" : body.message, safeHistory, { mode });
+  const turnPolicy = buildCompanionTurnPolicy({ message: boundary ? "" : body.message, history: safeHistory, scope, modeIntent, boundary });
+  let resultSelectorMessage = null;
+  // Carry only the evidence requirement of an actual follow-up. Never inherit
+  // a safety permission or let a new hello revive the previous factual topic.
+  if (!boundary && !scope.evidence_need && turnPolicy.act === "followup") {
+    const previous = [...safeHistory].reverse().find((item) => item.role === "user");
+    if (previous) {
+      scope.evidence_need = classifyCompanionScope(previous.content, [], { mode: "free" }).evidence_need;
+      if (scope.evidence_need === "recent_result") resultSelectorMessage = previous.content;
+    }
+  }
   const requestPolicy = requestEvidencePolicy(boundary ? "" : body.message, safeHistory);
   const modelMessage = boundary
     ? `The user's original request was withheld locally for the ${scope.route} boundary. Explain this boundary briefly and naturally without guessing the withheld details. Return route ${scope.route} and answer_kind boundary.`
     : body.message.trim();
   // Both modes use this exact retrieval path. Only modelMessage/safeHistory
   // (with restricted originals excluded) can affect model-facing retrieval.
-  const publicContext = await loadCompanionPublicContext(env, { now, timeZone, evidenceNeed: scope.evidence_need });
+  const socialOnly = !boundary && turnPolicy.suppress_ambient_context;
+  const publicContext = socialOnly
+    ? { ...buildCurrentPublicContext({ now, timeZone }), lookup_performed: false, lookup_reason: "not_needed_for_social_turn" }
+    : await loadCompanionPublicContext(env, { now, timeZone, evidenceNeed: scope.evidence_need });
+  // Only an explicit user choice can make a page card a topic. Old clients'
+  // automatic surface_context stays background, not conversational intent.
+  const pageRace = !boundary && !socialOnly && body.surface_context?.provenance === "user_selected"
+    ? compactText(body.surface_context.race, 100) : null;
+  const selectedPageSource = pageRace ? publicContext.public_sources.find((source) => source.kind === "schedule"
+    && [source.facts?.name, source.facts?.name_zh].includes(pageRace)) : null;
   const knowledge = retrieveCompanionKnowledge({
-    message: boundary ? "" : modelMessage, history: safeHistory,
+    message: boundary || socialOnly ? "" : modelMessage, history: socialOnly ? [] : safeHistory,
     runtimeData: COMPANION_RUNTIME_DATA, sourceCatalog: COMPANION_SOURCE_CATALOG,
-    currentPublicContext: boundary ? {} : publicContext, evidenceNeed: scope.evidence_need, now,
+    currentPublicContext: boundary ? {} : publicContext, evidenceNeed: scope.evidence_need, focusedPublicSourceId: selectedPageSource?.id, resultSelectorMessage, now,
   });
   addDateDerivations(knowledge, publicContext.temporal_context?.local_date);
-  // The page may choose a known event, but its displayed text/time is not an
-  // evidence source. Resolve only an exact server-known calendar identity.
-  const pageRace = compactText(body.surface_context?.race, 100);
-  const pageFocus = !boundary && pageRace ? knowledge.public_sources.find((source) => source.kind === "schedule"
-    && [source.facts?.name, source.facts?.name_zh].includes(pageRace)) : null;
+  const pageFocus = selectedPageSource && knowledge.public_sources.find((source) => source.id === selectedPageSource.id);
+  const temporal = publicContext.temporal_context || {};
+  const temporalContext = knowledge.public_sources.some((source) => source.kind === "schedule") || ["day_context", "schedule"].includes(scope.evidence_need) ? temporal
+    : Object.fromEntries(["now_utc", "time_zone", "time_zone_label", "local_date", "local_time", "weekday"].filter((key) => temporal[key] != null).map((key) => [key, temporal[key]]));
   const contextMs = Date.now() - startedAt;
   const runtimeContext = {
     now_utc: now.toISOString(),
-    TEMPORAL_CONTEXT: boundary ? { now_utc: now.toISOString(), time_zone: timeZone } : publicContext.temporal_context,
-    PAGE_EVENT_FOCUS: pageFocus ? { public_source_id: pageFocus.id, interpretation: "Optional page topic focus; only the selected server facts establish event details." } : null,
+    TEMPORAL_CONTEXT: boundary ? { now_utc: now.toISOString(), time_zone: timeZone } : temporalContext,
+    PAGE_EVENT_FOCUS: pageFocus ? { public_source_id: pageFocus.id, interpretation: "The user explicitly selected this page event; it is optional context, not a request to announce it. Only selected server facts establish details." } : null,
+    TURN_POLICY: turnPolicy,
+    CONVERSATION_EXAMPLES: !boundary && ["greeting", "closing", "acknowledgement", "social_checkin", "emotional_share", "open_chat"].includes(turnPolicy.act) ? {
+      usage: "Synthetic, independent pacing examples only, not Oscar quotes, personal facts, prior chat or lines to copy. Generate a new response to this turn and obey its mode.",
+      exchanges: [
+        [{ user: "Hi.", character: "Hey." }, { user: "Just saying hello.", character: "That works." }],
+        [{ user: "It's been a rough day.", character: "Sounds like it." }, { user: "I don't really want advice.", character: "Okay. I'm listening." }],
+      ],
+    } : undefined,
     allowed_routes: [...COMPANION_ROUTES],
     CANDIDATE_MODE: useJudgmentRules,
     JUDGMENT_RULES: useJudgmentRules ? COMPANION_RUNTIME_DATA.judgment_rules : [],
@@ -859,7 +892,7 @@ async function callDeepseekCompanion(body, env, trace = {}) {
     creative_character_request: mode === "free",
     response_language: chineseInput ? "zh-CN" : "en",
     disclosure_shown: true,
-    PRODUCT_SCOPE: { kind: scope.kind, route: scope.route, confidence: scope.confidence, reason: scope.reason, evidence_need: scope.evidence_need, original_withheld: Boolean(boundary), history_withheld: Boolean(boundary || historyFlagged) },
+    PRODUCT_SCOPE: { kind: scope.kind, route: scope.route, confidence: scope.confidence, reason: scope.reason, mode_intent: modeIntent.kind, evidence_need: scope.evidence_need, original_withheld: Boolean(boundary), history_withheld: Boolean(boundary || historyFlagged) },
     REQUEST_EVIDENCE_POLICY: requestPolicy,
     RETRIEVED_KNOWLEDGE_CONTEXT: knowledge,
     APPLICABLE_PUBLIC_SOURCE_IDS: knowledge.retrieved.public_source_ids,
@@ -910,7 +943,7 @@ async function callDeepseekCompanion(body, env, trace = {}) {
     if (choice?.finish_reason === "length") throw new Error("Model response was truncated.");
     return { payload, raw: parseModelJson(payload?.choices?.[0]?.message?.content) };
   }
-  const guardContext = { mode, scope, knowledge, candidateMode: useJudgmentRules, requestPolicy, temporalContext: publicContext.temporal_context, message: modelMessage };
+  const guardContext = { mode, scope, knowledge, candidateMode: useJudgmentRules, requestPolicy, temporalContext, message: modelMessage, turnPolicy };
   let payload, result, repairInstruction = null, recoveryReason = null;
   for (let attempt = 0; attempt < 2; attempt += 1) {
     trace.repair_count = attempt;
@@ -946,7 +979,8 @@ async function callDeepseekCompanion(body, env, trace = {}) {
   return {
     result: {
       ...result,
-      validation_trace: { status: "same_generation_self_check", independent_verified: false, local_checks: ["selected_ids", "mode", "literal_fact_intent", "temporal_scope", "output_shape"], repair_count: trace.repair_count, recovery_reason: recoveryReason, additional_review_requests: 0 },
+      conversation_policy: { act: turnPolicy.act, response_size: turnPolicy.response_size, initiative: turnPolicy.initiative, page_focus_used: Boolean(pageFocus) },
+      validation_trace: { status: "same_generation_self_check", independent_verified: false, local_checks: ["selected_ids", "mode", "literal_fact_intent", "temporal_scope", "turn_pacing", "output_shape"], repair_count: trace.repair_count, recovery_reason: recoveryReason, additional_review_requests: 0 },
       performance: { context_ms: contextMs, generation_ms: generationMs, total_ms: Date.now() - startedAt, model_calls: trace.repair_count + 1, context_chars: JSON.stringify(runtimeContext).length },
     },
     model: payload?.model || config.model,

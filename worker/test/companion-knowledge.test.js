@@ -146,6 +146,9 @@ test("today baseline survives implicit day questions without authorizing a stand
   assert.equal(retrieve("今天是什么日子", { currentPublicContext, evidenceNeed: "day_context" }).current_fact_required, true);
   assert.deepEqual(retrieve("现在积分榜第几", { currentPublicContext, evidenceNeed: "standings" }).retrieved.public_source_ids, []);
   assert.equal(retrieve("hello", { currentPublicContext }).current_fact_required, false);
+  for (const message of ["hello", "你好", "谢谢", "晚安", "咖啡还是茶"])
+    assert.deepEqual(retrieve(message, { currentPublicContext }).retrieved.public_source_ids, [], "Ambient schedule is not automatically relevant.");
+  assert.deepEqual(retrieve("聊聊这场比赛", { currentPublicContext, focusedPublicSourceId: source.id }).retrieved.public_source_ids, [source.id]);
 });
 
 test("latest Grand Prix questions cannot cite practice or qualifying as the race result", () => {
@@ -168,6 +171,25 @@ test("official-account lookup cannot cite a team post as an Oscar account statem
   ] };
   const result = retrieve("他本人发了什么", { currentPublicContext, evidenceNeed: "official_update" });
   assert.deepEqual(result.retrieved.public_source_ids, ["LIVE-oscar"]);
+});
+
+test("inherited result followups preserve session and date while explicit current slots win", () => {
+  const resultSource = (id, session, start) => ({ id, kind: "session_result", title: `${session} result`, url: `https://example.com/${id}`, facts: { session, session_start: start, position: 3 } });
+  const currentPublicContext = { temporal_context: { time_zone: "Asia/Shanghai", local_date: "2026-09-11" }, public_sources: [
+    resultSource("LIVE-practice-today", "practice_1", "2026-09-11T05:00:00Z"),
+    resultSource("LIVE-practice-yesterday", "practice_1", "2026-09-10T05:00:00Z"),
+    resultSource("LIVE-quali-today", "qualifying", "2026-09-11T07:00:00Z"),
+    resultSource("LIVE-race-today", "race", "2026-09-11T09:00:00Z"),
+  ] };
+  const options = { currentPublicContext, evidenceNeed: "recent_result", resultSelectorMessage: "How did today practice go?" };
+  assert.deepEqual(retrieve("Why?", options).retrieved.public_source_ids, ["LIVE-practice-today"]);
+  assert.deepEqual(retrieve("然后呢", { ...options, resultSelectorMessage: "今天排位结果如何" }).retrieved.public_source_ids, ["LIVE-quali-today"]);
+  assert.deepEqual(retrieve("What about qualifying?", options).retrieved.public_source_ids, ["LIVE-quali-today"]);
+  assert.deepEqual(retrieve("那正赛呢", options).retrieved.public_source_ids, ["LIVE-race-today"]);
+  assert.deepEqual(retrieve("那昨天呢", options).retrieved.public_source_ids, ["LIVE-practice-yesterday"], "New date replaces the old date rather than broadening it.");
+  assert.deepEqual(retrieve("那今天呢", { ...options, resultSelectorMessage: "昨天练习赛成绩如何" }).retrieved.public_source_ids, ["LIVE-practice-today"]);
+  assert.deepEqual(retrieve("那明天呢", options).retrieved.public_source_ids, [], "Today's available result cannot answer a tomorrow followup.");
+  assert.deepEqual(retrieve("Why?", { ...options, resultSelectorMessage: null }).retrieved.public_source_ids, ["LIVE-race-today"], "No implicit scan of unselected history supplies a result selector.");
 });
 
 test("relative-day results match session time in the viewer timezone, never the file publication date", () => {

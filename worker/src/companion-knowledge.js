@@ -103,7 +103,8 @@ function requestedResultSession(message) {
   if (/(?:练习|practice)/i.test(query)) return "practice";
   if (/(?:冲刺|sprint)/i.test(query)) return "sprint";
   if (/(?:赛段|上一节|上节|latest session|last session)/i.test(query)) return null;
-  return "race";
+  if (/(?:正赛|比赛|大奖赛|\brace\b|grand prix)/i.test(query)) return "race";
+  return undefined;
 }
 function sessionMatches(source, expected) {
   const actual = normal(source.facts?.session || source.session);
@@ -123,7 +124,8 @@ function localDateOf(value, timeZone) {
 function requestedResultDates(message, temporal) {
   const today = /(?:今天|今日|今晚|\btoday\b|\btonight\b)/i.test(message || "");
   const yesterday = /(?:昨天|昨日|昨晚|\byesterday\b)/i.test(message || "");
-  if (!today && !yesterday) return null;
+  const tomorrow = /(?:明天|明日|明晚|\btomorrow\b)/i.test(message || "");
+  if (!today && !yesterday && !tomorrow) return null;
   // Shift a calendar date, not a zoned instant: a local day need not be 24
   // hours across DST. An absent temporal anchor cannot authorize a date match.
   if (!/^\d{4}-\d{2}-\d{2}$/.test(temporal.local_date || "")) return new Set();
@@ -132,10 +134,11 @@ function requestedResultDates(message, temporal) {
   return new Set([
     ...(today ? [temporal.local_date] : []),
     ...(yesterday ? [new Date(anchor - 86400000).toISOString().slice(0, 10)] : []),
+    ...(tomorrow ? [new Date(anchor + 86400000).toISOString().slice(0, 10)] : []),
   ]);
 }
 
-export function retrieveCompanionKnowledge({ message, history = [], runtimeData = {}, sourceCatalog = {}, currentPublicContext = {}, evidenceNeed = null, now = new Date() } = {}) {
+export function retrieveCompanionKnowledge({ message, history = [], runtimeData = {}, sourceCatalog = {}, currentPublicContext = {}, evidenceNeed = null, focusedPublicSourceId = null, resultSelectorMessage = null, now = new Date() } = {}) {
   const clock = now instanceof Date ? now : new Date(now);
   const nowMs = Number.isFinite(clock.getTime()) ? clock.getTime() : Date.now();
   // History can improve retrieval recall only. It cannot create a record or a
@@ -190,14 +193,26 @@ export function retrieveCompanionKnowledge({ message, history = [], runtimeData 
   const temporal = currentPublicContext.temporal_context || {};
   const baselineIds = new Set(temporal.schedule_source_ids || []);
   const currentRequired = CURRENT_NEEDS.has(evidenceNeed);
+  // A useful default for day questions is not a topic for every conversation.
+  // This selects existing evidence, never a response or a permission boundary.
+  const implicitDayQuestion = /(?:今天|明天|今晚|今日|\btoday\b|\btomorrow\b|\btonight\b)/i.test(message || "")
+    && /(?:什么日子|星期|周几|特别|比赛|赛程|几点|\b(?:day|special|race|schedule|session|practice|qualifying)\b)/i.test(message || "");
+  const allowBaseline = currentRequired || implicitDayQuestion;
   const requiredKind = { standings: "standings", recent_result: "session_result", schedule: "schedule" }[evidenceNeed];
-  const expectedSession = requestedResultSession(message);
-  const resultDates = requestedResultDates(message, temporal);
+  // The caller supplies a prior safe user question only for an inherited
+  // follow-up. Resolve session/date slots independently so a new "yesterday"
+  // overrides "today" without changing the preceding practice/qualifying type.
+  // Never concatenate questions: that would accidentally select both dates.
+  const currentSession = requestedResultSession(message);
+  const priorSession = requestedResultSession(resultSelectorMessage);
+  const expectedSession = currentSession !== undefined ? currentSession : priorSession !== undefined ? priorSession : "race";
+  const resultDates = requestedResultDates(message, temporal) ?? requestedResultDates(resultSelectorMessage, temporal);
   const applicableLive = live.map((item, index) => ({
     item, index,
     baseline: item.kind === "schedule" && baselineIds.has(item.id),
+    focused: item.kind === "schedule" && item.id === focusedPublicSourceId,
     score: rank({ answer_en: strings([item.title, item.facts]).join(" "), answer_zh: item.title_zh, retrieval_terms: item.retrieval_terms }, query, contextQuery),
-  })).filter(({ item, score, baseline }) => {
+  })).filter(({ item, score, baseline, focused }) => {
     if (requiredKind) {
       if (item.kind !== requiredKind) return false;
       if (evidenceNeed !== "recent_result") return true;
@@ -206,8 +221,8 @@ export function retrieveCompanionKnowledge({ message, history = [], runtimeData 
     }
     if (evidenceNeed === "official_update") return item.kind === "public_post" && item.facts?.is_oscar_post === true;
     if (evidenceNeed === "day_context") return baseline || item.kind === "schedule" && score >= 1 || item.kind === "public_post" && localDateOf(item.facts?.published_at || item.date, temporal.time_zone || "Asia/Shanghai") === temporal.local_date;
-    return baseline || currentRequired || score >= 1;
-  }).sort((a, b) => Number(b.baseline) - Number(a.baseline) || b.score - a.score || a.index - b.index)
+    return focused || baseline && allowBaseline || currentRequired || score >= 1;
+  }).sort((a, b) => Number(b.focused) - Number(a.focused) || Number(b.baseline) - Number(a.baseline) || b.score - a.score || a.index - b.index)
     .slice(0, MAX_PUBLIC_SOURCES).map(({ item }) => item);
   const usedCatalogIds = new Set([...facts, ...rumors].flatMap(sourceIds));
   const sources = [...usedCatalogIds].map((id) => catalog[id]).filter(Boolean);

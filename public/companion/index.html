@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#eeede7">
     <meta name="description" content="留一点时间，聊聊 Oscar。基于公开材料的非官方 Piastri 粉丝对话体验。">
     <title>The Garage — Piastri Companion · Piasnews</title>
-    <link rel="stylesheet" href="styles.css?v=20260912-shared-context-1">
+    <link rel="stylesheet" href="styles.css?v=20260922-turn-taking-1">
   </head>
   <body>
     <div class="page-shell" id="pageShell">
@@ -28,7 +28,7 @@
           <div class="disclosure" id="modelDisclosure" data-state="connecting" role="status"><span class="status-dot" aria-hidden="true"></span><p><strong id="modelStatusTitle">正在连接 DeepSeek</strong><span id="modelStatusDetail">人物化表达不代表 Oscar Piastri、McLaren 或 F1。</span></p></div>
           <div class="conversation-body"><div class="messages" id="messages" role="log" aria-label="对话记录" aria-live="polite" aria-relevant="additions"><article class="message assistant-message welcome-message"><div class="message-meta"><span>81 / COMPANION</span><span class="message-engine">WELCOME</span></div><div class="message-copy"><p class="welcome-kicker">YOU'RE IN GOOD COMPANY.</p><p class="english">A race. A rumour.<br>Or just a good result.</p><p class="welcome-note">聊一场比赛，核验一条传闻，<br>或者，单纯为一个好结果高兴。</p><div class="prompt-list" id="promptList" aria-label="试着聊聊"><button type="button" data-prompt="为什么 Oscar 用 81 号？"><span>为什么是 81？</span><span aria-hidden="true">↗</span></button><button type="button" data-prompt="That was a brilliant win. You made it look easy."><span>That was a brilliant win.</span><span aria-hidden="true">↗</span></button><button type="button" data-prompt="Oscar 从来不会质疑车队指令，对吧？"><span>聊聊车队指令</span><span aria-hidden="true">↗</span></button></div></div></article></div><button class="jump-latest" id="jumpLatest" type="button" hidden>新回复 <span aria-hidden="true">↓</span></button></div>
           <div class="typing-indicator" id="typingIndicator" hidden role="status"><span class="generation-track" aria-hidden="true"><i></i></span><span>正在请求模型<span class="typing-dots">…</span></span><small>两种模式共享资料检索，回答由模型生成。</small></div>
-          <div class="composer-shell"><div class="composer-context" hidden><span class="context-pill"><i aria-hidden="true"></i><span id="composerContext"></span></span><button id="clearContextButton" type="button" aria-label="移除比赛上下文">×</button></div><form class="composer" id="composerForm"><label class="sr-only" for="messageInput">想聊些什么？最多 500 字</label><textarea id="messageInput" rows="1" maxlength="500" placeholder="想聊些什么？ / What's on your mind?"></textarea><div class="composer-footer"><span class="composer-hint"><span id="characterCount">0 / 500</span><span class="keyboard-hint">⌘ / Ctrl + Enter 发送</span></span><button class="send-button" id="sendButton" type="submit" aria-label="发送消息" disabled><svg class="send-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6"/></svg><span class="send-spinner" aria-hidden="true"></span></button></div></form><p class="composer-note"><span>一点冷幽默，一条清楚的边界。</span><span>FAN-MADE, ALWAYS.</span></p></div>
+          <div class="composer-shell"><div class="composer-context" id="raceContextControls" hidden><button id="selectRaceContextButton" type="button" aria-controls="selectedRaceContext" style="min-height:32px;text-align:left;font-size:12px" disabled>聊这场比赛</button><span class="context-pill" id="selectedRaceContext" hidden><i aria-hidden="true"></i><span id="composerContext"></span></span><button id="clearContextButton" type="button" aria-label="移除已选择的比赛话题" hidden>×</button></div><form class="composer" id="composerForm"><label class="sr-only" for="messageInput">想聊些什么？最多 500 字</label><textarea id="messageInput" rows="1" maxlength="500" placeholder="想聊些什么？ / What's on your mind?"></textarea><div class="composer-footer"><span class="composer-hint"><span id="characterCount">0 / 500</span><span class="keyboard-hint">⌘ / Ctrl + Enter 发送</span></span><button class="send-button" id="sendButton" type="submit" aria-label="发送消息" disabled><svg class="send-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6"/></svg><span class="send-spinner" aria-hidden="true"></span></button></div></form><p class="composer-note"><span>一点冷幽默，一条清楚的边界。</span><span>FAN-MADE, ALWAYS.</span></p></div>
         </section>
       </main>
     </div>
@@ -56,6 +56,6 @@
         <div class="feedback-submit-row"><button class="feedback-submit" id="feedbackSubmit" type="submit">提交反馈 <span aria-hidden="true">↗</span></button><span class="feedback-submit-note" id="feedbackSubmitNote">需要你的明确同意。</span></div>
       </form>
     </aside>
-    <script src="app.js?v=20260922-connection-diagnostics-1" type="module"></script>
+    <script src="app.js?v=20260922-turn-taking-1" type="module"></script>
   </body>
 </html>

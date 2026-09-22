@@ -12,6 +12,7 @@ const functions = [
   segment("function updateModeUi(", "function resizeInput("),
   segment("function modelTrace(", "async function requestModelResponse("),
   segment("async function requestModelResponse(", "function formatSessionTime("),
+  segment("function formatSessionTime(", "els.form.addEventListener("),
 ].join("\n");
 
 class Element {
@@ -32,18 +33,18 @@ function harness() {
   const scrollCalls = [];
   const buttons = ["free", "grounded"].map((mode) => ({ dataset: { companionMode: mode }, setAttribute(key, value) { this[key] = value; } }));
   const context = {
-    MAX_PROMPT_CHARS: 500, MAX_HISTORY_ITEMS: 8, MAX_HISTORY_CHARS: 900, APP_VERSION: "20260910-model-only-1",
+    MAX_PROMPT_CHARS: 500, MAX_HISTORY_ITEMS: 8, MAX_HISTORY_CHARS: 900, APP_VERSION: "20260922-turn-taking-1",
     MODE_LABELS: { free: "自由演绎", grounded: "强依据" },
     ANSWER_KIND_LABELS: { fictional: "角色演绎", evidence: "有来源的事实", social: "轻松聊天", boundary: "边界答复", insufficient: "依据不足" },
     ROUTE_LABELS: { fan_light: "Fan conversation", public_fact: "Public fact", unrelated_general: "Outside scope" },
     DEFAULT_TRACE: { route: "fan_light", sources: [] },
     selectedMode: "free", generatingMode: null, conversationHistories: { free: [], grounded: [] },
-    requestEpoch: 0, activeRequest: null, retryableFailure: null, isGenerating: false, followLatest: false, contextEnabled: false, messageCounter: 0,
+    requestEpoch: 0, activeRequest: null, retryableFailure: null, isGenerating: false, followLatest: false, availableRaceContext: null, selectedRaceContext: null, messageCounter: 0,
     companionApiUrl: "https://example.invalid", companionStatus: { online: true, model: "previous-model" },
-    els: { input: Object.assign(new Element("textarea"), { value: "" }), messages: new Element(), jumpLatest: {}, modeButtons: buttons, modeDescription: {}, modeStatus: {}, drawerModeSummary: {}, modelDisclosure: { dataset: { state: "ready" } }, raceName: { textContent: "Race before send" }, sessionLabel: { textContent: "Session before send" }, sessionTime: { textContent: "Time before send" } },
+    els: { input: Object.assign(new Element("textarea"), { value: "" }), messages: new Element(), jumpLatest: {}, modeButtons: buttons, modeDescription: {}, modeStatus: {}, drawerModeSummary: {}, modelDisclosure: { dataset: { state: "ready" } }, raceName: { textContent: "Race before send" }, sessionLabel: { textContent: "Session before send" }, sessionTime: { textContent: "Time before send" }, raceCode: {}, raceRound: {}, selectRaceContext: new Element("button"), raceContextControls: new Element(), selectedRaceContext: new Element(), composerContext: new Element(), clearContext: new Element("button") },
     document: { body: { classList: { add() {}, remove() {} } }, createElement(tag) { return new Element(tag); } },
     welcomeMessage: new Element(), closeDialog() {},
-    AbortController, setTimeout, clearTimeout, performance,
+    AbortController, AbortSignal, setTimeout, clearTimeout, performance,
     addMessage(...args) { messages.push(args); }, containsChinese(value) { return /[\u3400-\u9fff]/.test(value); },
     resizeInput() {}, scrollToLatest(smooth = true) { scrollCalls.push(smooth); }, renderTrace() {},
     fetch(_url, options) { posts.push(JSON.parse(options.body)); return new Promise((resolve) => pending.push(resolve)); },
@@ -60,6 +61,121 @@ function harness() {
   const fail = (status = 503, payload) => pending.shift()({ ok: false, status, json: async () => payload });
   return { context, pending, posts, messages, modelStates, scrollCalls, respond, fail };
 }
+
+async function loadCalendar(h, name = "Azerbaijan Grand Prix") {
+  const original = h.context.fetch;
+  h.context.fetch = async (url) => {
+    assert.equal(url, "../data/calendar.json");
+    return { ok: true, json: async () => ({ next_race: { name, round: 15, locality: "Baku", country_code: "AZE", sessions: { race: new Date(Date.now() + 86400000).toISOString() } } }) };
+  };
+  try { await h.context.loadRaceContext(); }
+  finally { h.context.fetch = original; }
+}
+
+test("ambient calendar loads display the race but never opt either mode into a topic", async () => {
+  for (const mode of ["free", "grounded"]) {
+    const h = harness();
+    h.context.selectMode(mode);
+    await loadCalendar(h);
+    assert.equal(h.context.els.raceName.textContent, "Azerbaijan Grand Prix");
+    assert.equal(h.context.els.selectRaceContext.disabled, false);
+    assert.equal(h.context.els.selectRaceContext.hidden, false);
+    assert.equal(h.context.els.selectedRaceContext.hidden, true);
+    assert.equal(h.context.els.clearContext.hidden, true);
+    assert.equal(h.context.selectedRaceContext, null);
+    assert.equal(h.posts.length, 0, "calendar loading must not send a chat request");
+    const turn = h.context.submitPrompt("你好");
+    assert.equal(h.posts[0].surface_context, null);
+    h.respond({ answer_kind: "social" });
+    await turn;
+  }
+});
+
+test("explicit race selection never sends and includes user-selected provenance in both modes", async () => {
+  for (const mode of ["free", "grounded"]) {
+    const h = harness();
+    h.context.selectMode(mode);
+    await loadCalendar(h);
+    h.context.els.input.value = "Unsaved draft";
+    h.context.selectRaceContext();
+    assert.equal(h.posts.length, 0);
+    assert.equal(h.messages.length, 0);
+    assert.equal(h.context.els.input.value, "Unsaved draft");
+    assert.equal(h.context.els.selectRaceContext.hidden, true);
+    assert.equal(h.context.els.selectedRaceContext.hidden, false);
+    assert.match(h.context.els.composerContext.textContent, /Azerbaijan GP/);
+    assert.ok(Object.isFrozen(h.context.selectedRaceContext));
+    const turn = h.context.submitPrompt("聊聊这场比赛");
+    assert.deepEqual(h.posts[0].surface_context, {
+      race: "Azerbaijan Grand Prix", session: "RACE",
+      local_time: h.context.els.sessionTime.textContent, provenance: "user_selected",
+    });
+    h.respond({ answer_kind: mode === "free" ? "fictional" : "insufficient" });
+    await turn;
+    assert.equal(h.messages[1][5].mode, mode);
+  }
+});
+
+test("calendar refresh cannot replace an explicit selection or re-enable a cleared topic", async () => {
+  const h = harness();
+  await loadCalendar(h);
+  h.context.selectRaceContext();
+  const selected = h.context.selectedRaceContext;
+  await loadCalendar(h, "Singapore Grand Prix");
+  assert.equal(h.context.els.raceName.textContent, "Singapore Grand Prix");
+  assert.equal(h.context.selectedRaceContext, selected);
+  assert.match(h.context.els.composerContext.textContent, /Azerbaijan GP/);
+  h.context.clearRaceContext();
+  await loadCalendar(h, "United States Grand Prix");
+  assert.equal(h.context.selectedRaceContext, null);
+  assert.equal(h.context.els.selectedRaceContext.hidden, true);
+  assert.match(h.context.els.selectRaceContext.textContent, /United States GP/);
+  assert.equal(h.posts.length, 0);
+});
+
+test("reset clears explicit context and a later calendar load does not restore it", async () => {
+  for (const mode of ["free", "grounded"]) {
+    const h = harness();
+    h.context.selectMode(mode);
+    await loadCalendar(h);
+    h.context.selectRaceContext();
+    h.context.resetConversation();
+    assert.equal(h.context.selectedRaceContext, null);
+    assert.equal(h.context.els.selectedRaceContext.hidden, true);
+    assert.equal(h.context.els.selectRaceContext.hidden, false);
+    assert.equal(h.context.els.selectRaceContext.disabled, false);
+    await loadCalendar(h, "Singapore Grand Prix");
+    const turn = h.context.submitPrompt("早上好");
+    assert.equal(h.posts[0].surface_context, null);
+    h.respond({ answer_kind: "social" });
+    await turn;
+  }
+});
+
+test("retry keeps the selected race provenance after clearing or changing ambient data in either mode", async () => {
+  for (const mode of ["free", "grounded"]) {
+    const h = harness();
+    h.context.selectMode(mode);
+    await loadCalendar(h);
+    h.context.selectRaceContext();
+    const first = h.context.submitPrompt("聊聊这场比赛");
+    h.fail();
+    await first;
+    const record = h.context.retryableFailure;
+    assert.equal(record.request.surfaceContext.provenance, "user_selected");
+    assert.ok(Object.isFrozen(record.request.surfaceContext));
+    h.context.clearRaceContext();
+    await loadCalendar(h, "Singapore Grand Prix");
+    h.context.selectMode(mode === "free" ? "grounded" : "free");
+    const retry = record.button.listeners.click();
+    assert.deepEqual(h.posts[1], h.posts[0]);
+    assert.equal(h.posts[1].surface_context.race, "Azerbaijan Grand Prix");
+    h.respond({ answer_kind: mode === "free" ? "fictional" : "insufficient" });
+    await retry;
+    assert.equal(h.messages[1][5].mode, mode);
+    assert.equal(h.context.selectedRaceContext, null);
+  }
+});
 
 test("switching mode during generation keeps the request, feedback and history in the original mode", async () => {
   const h = harness();
@@ -144,7 +260,8 @@ test("fast responses after a mode switch begin with instant scrolling, not a can
 
 test("a failed request shows only a system notice and retry preserves its original mode, context and question", async () => {
   const h = harness();
-  h.context.contextEnabled = true;
+  h.context.availableRaceContext = Object.freeze({ race: "Race before send", session: "RACE", local_time: "Time before send" });
+  h.context.selectRaceContext();
   h.context.conversationHistories.free.push({ role: "user", content: "先聊聊" }, { role: "assistant", content: "Earlier model answer" });
   const first = h.context.submitPrompt("喜欢猫还是喜欢狗");
   h.context.selectMode("grounded");
@@ -157,8 +274,11 @@ test("a failed request shows only a system notice and retry preserves its origin
   assert.equal(failure.article.className, "message system-message");
   assert.equal(failure.article.children[0].children[0].textContent, "SYSTEM");
   assert.equal(failure.request.mode, "free");
+  assert.equal(failure.request.surfaceContext.provenance, "user_selected");
+  assert.ok(Object.isFrozen(failure.request.surfaceContext));
   assert.equal(failure.button.disabled, false);
   h.context.els.raceName.textContent = "Changed race";
+  h.context.clearRaceContext();
   h.context.els.input.value = "draft of a new question";
   const retry = failure.button.listeners.click();
   assert.deepEqual(h.posts[1], h.posts[0]);
@@ -451,6 +571,22 @@ test("retrieved context is distinguished from facts actually cited in the answer
   assert.equal(h.messages[1][5].public_source_ids.length, 0);
 });
 
+test("short mobile CSS keeps race selection and removal visible in compact single-line controls", () => {
+  const css = readFileSync(new URL("../../public/companion/styles.css", import.meta.url), "utf8");
+  const shortMobile = css.split("@media(max-height:520px) and (max-width:800px){")[1]?.split("\n")[0];
+  assert.ok(shortMobile, "short-mobile breakpoint must remain explicit");
+  assert.match(shortMobile, /\.composer-context\{display:flex;min-width:0;min-height:32px;margin-bottom:3px\}/);
+  assert.doesNotMatch(css, /\.composer-context\{[^}]*display:none/);
+  assert.match(shortMobile, /\.composer-context button\{min-height:32px\}/);
+  assert.match(shortMobile, /#selectRaceContextButton\{min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap\}/);
+  assert.match(shortMobile, /\.context-pill\{min-width:0;flex:1\}/);
+  assert.match(shortMobile, /\.context-pill>span\{overflow:hidden;text-overflow:ellipsis;white-space:nowrap\}/);
+  assert.match(shortMobile, /#clearContextButton\{flex:0 0 32px\}/);
+  assert.match(shortMobile, /\.composer\{display:flex;align-items:flex-end;gap:8px\}/);
+  assert.match(shortMobile, /\.composer textarea\{flex:1\}/);
+  assert.match(css, /\[hidden\]\{display:none!important\}/, "data availability and selection still control which action is shown");
+});
+
 test("chat assets are versioned together and no keyword response module is loaded or called", () => {
   const html = readFileSync(new URL("../../public/companion/index.html", import.meta.url), "utf8");
   assert.match(html, /data-companion-mode="free" aria-pressed="true"/);
@@ -458,12 +594,15 @@ test("chat assets are versioned together and no keyword response module is loade
   assert.doesNotMatch(html, /factsOnlyToggle/);
   for (const text of [html, source]) {
     assert.doesNotMatch(text, /20260910-preferences-1|offline-response|preference-policy|makeOfflineResponse|规则兜底/);
-    assert.match(text, /20260922-connection-diagnostics-1/);
+    assert.match(text, /20260922-turn-taking-1/);
   }
-  assert.match(html, /styles\.css\?v=20260912-shared-context-1/);
+  assert.match(html, /styles\.css\?v=20260922-turn-taking-1/);
   assert.doesNotMatch(source, /Skill v0\.4\.0/);
   assert.match(source, /package_version: response\.metadata\.package_version/);
   assert.match(html, /共享人物知识与公开资料检索/);
+  assert.match(html, /id="selectRaceContextButton" type="button" aria-controls="selectedRaceContext"/);
+  assert.match(source, /els\.selectRaceContext\.addEventListener\("click", selectRaceContext\)/);
+  assert.doesNotMatch(segment("async function loadRaceContext(", "els.form.addEventListener("), /selectedRaceContext\s*=|selectRaceContext\(\)|submitPrompt\(/);
   assert.match(source, /不会使用预写回答代替/);
   assert.match(source, /把演绎当真实私事/);
   assert.doesNotMatch(segment("function showServiceError(", "async function submitPrompt("), /attachFeedback|createFeedbackSnapshot|conversationHistories/);

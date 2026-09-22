@@ -2,7 +2,7 @@ const DEFAULT_WORKER_URL = "https://piasnews-review.znonymity-piasnews.workers.d
 const MAX_HISTORY_ITEMS = 8;
 const MAX_HISTORY_CHARS = 900;
 const MAX_PROMPT_CHARS = 500;
-const APP_VERSION = "20260922-connection-diagnostics-1";
+const APP_VERSION = "20260922-turn-taking-1";
 const MODE_LABELS = { free: "自由演绎", grounded: "强依据" };
 const ANSWER_KIND_LABELS = { fictional: "角色演绎 · 非本人事实", evidence: "有来源的事实", social: "轻松聊天", boundary: "边界答复", insufficient: "依据不足" };
 const FEEDBACK_CATEGORIES = [
@@ -62,6 +62,9 @@ const els = {
   styleTrace: document.querySelector("#styleTrace"),
   styleNote: document.querySelector("#styleNote"),
   clearContext: document.querySelector("#clearContextButton"),
+  selectRaceContext: document.querySelector("#selectRaceContextButton"),
+  raceContextControls: document.querySelector("#raceContextControls"),
+  selectedRaceContext: document.querySelector("#selectedRaceContext"),
   composerContext: document.querySelector("#composerContext"),
   raceName: document.querySelector("#raceName"),
   raceCode: document.querySelector("#raceCode"),
@@ -100,8 +103,8 @@ const els = {
 };
 
 let currentTrace = DEFAULT_TRACE;
-let contextEnabled = false;
-let contextDismissed = false;
+let availableRaceContext = null;
+let selectedRaceContext = null;
 let messageCounter = 0;
 let companionApiUrl = DEFAULT_WORKER_URL;
 let companionStatus = null;
@@ -766,7 +769,7 @@ async function submitPrompt(rawPrompt, retryRecord = null) {
     prompt,
     mode: requestMode,
     history: Object.freeze(conversationHistories[requestMode].slice(-MAX_HISTORY_ITEMS).map((item) => Object.freeze({ role: item.role, content: item.content.slice(0, MAX_HISTORY_CHARS) }))),
-    surfaceContext: contextEnabled ? Object.freeze({ race: els.raceName.textContent, session: els.sessionLabel.textContent, local_time: els.sessionTime.textContent }) : null,
+    surfaceContext: selectedRaceContext ? Object.freeze({ ...selectedRaceContext }) : null,
   });
   generatingMode = requestMode;
   const epoch = ++requestEpoch;
@@ -849,11 +852,43 @@ function resetConversation() {
   els.messages.replaceChildren(welcomeMessage);
   messageCounter = 0;
   conversationHistories = { free: [], grounded: [] };
+  clearRaceContext();
   els.input.value = "";
   resizeInput();
   scrollToLatest(false);
   renderTrace(DEFAULT_TRACE);
   els.input.focus();
+}
+
+function renderRaceContextSelection() {
+  const selected = Boolean(selectedRaceContext);
+  els.raceContextControls.hidden = !availableRaceContext && !selected;
+  els.selectRaceContext.hidden = selected;
+  els.selectRaceContext.disabled = !availableRaceContext;
+  els.selectedRaceContext.hidden = !selected;
+  els.clearContext.hidden = !selected;
+  if (availableRaceContext) {
+    const raceLabel = availableRaceContext.race.replace(" Grand Prix", " GP");
+    els.selectRaceContext.textContent = `聊这场比赛 · ${raceLabel}`;
+    els.selectRaceContext.setAttribute("aria-label", `将 ${availableRaceContext.race} 的 ${availableRaceContext.session} 选为对话话题，不会立即发送`);
+  }
+  els.composerContext.textContent = selected
+    ? `${selectedRaceContext.race.replace(" Grand Prix", " GP")} · ${selectedRaceContext.session.replace("PRACTICE", "FP")}`
+    : "";
+}
+
+function selectRaceContext() {
+  if (!availableRaceContext) return;
+  // The schedule is ambient until the user explicitly chooses it. Keep that
+  // choice separate from later calendar refreshes and in-flight requests.
+  selectedRaceContext = Object.freeze({ ...availableRaceContext, provenance: "user_selected" });
+  renderRaceContextSelection();
+  els.input.focus({ preventScroll: true });
+}
+
+function clearRaceContext() {
+  selectedRaceContext = null;
+  renderRaceContextSelection();
 }
 
 function formatSessionTime(iso) {
@@ -874,7 +909,7 @@ async function loadRaceContext() {
     if (!response.ok) throw new Error(String(response.status));
     const data = await response.json();
     const race = data.next_race;
-    if (!race) throw new Error("Calendar unavailable");
+    if (!race || typeof race.name !== "string" || !race.name.trim()) throw new Error("Calendar unavailable");
     els.raceName.textContent = race.name;
     els.raceCode.textContent = race.country_code || "F1";
     els.raceRound.textContent = `ROUND ${race.round} · ${(race.locality || race.country_code || "F1").toUpperCase()}`;
@@ -884,18 +919,19 @@ async function loadRaceContext() {
       const labels = { practice_1: "PRACTICE 1", practice_2: "PRACTICE 2", practice_3: "PRACTICE 3", sprint_qualifying: "SPRINT QUALI", sprint: "SPRINT", qualifying: "QUALIFYING", race: "RACE" };
       els.sessionLabel.textContent = labels[next.key] || next.key.toUpperCase();
       els.sessionTime.textContent = formatSessionTime(next.value);
-      els.composerContext.textContent = `${race.name.replace(" Grand Prix", " GP")} · ${(labels[next.key] || next.key).replace("PRACTICE", "FP")}`;
-      if (!contextDismissed) {
-        contextEnabled = true;
-        els.clearContext.parentElement.hidden = false;
-      }
+      availableRaceContext = Object.freeze({ race: race.name, session: els.sessionLabel.textContent, local_time: els.sessionTime.textContent });
     } else {
       els.sessionLabel.textContent = "赛历暂无后续赛段";
+      els.sessionTime.textContent = "";
+      availableRaceContext = null;
     }
   } catch (_) {
     els.raceName.textContent = "赛历暂不可用";
     els.sessionLabel.textContent = "仍可自由聊天";
+    els.sessionTime.textContent = "";
+    availableRaceContext = null;
   }
+  renderRaceContextSelection();
 }
 
 els.form.addEventListener("submit", (event) => {
@@ -953,11 +989,8 @@ els.evidenceToggle.addEventListener("click", () => {
   els.evidenceToggle.textContent = hidden ? "收起" : "展开";
   els.evidenceToggle.setAttribute("aria-expanded", String(hidden));
 });
-els.clearContext.addEventListener("click", () => {
-  contextEnabled = false;
-  contextDismissed = true;
-  els.clearContext.parentElement.hidden = true;
-});
+els.selectRaceContext.addEventListener("click", selectRaceContext);
+els.clearContext.addEventListener("click", clearRaceContext);
 els.modeButtons.forEach((button) => button.addEventListener("click", () => selectMode(button.dataset.companionMode)));
 // A mode switch applies prospectively, never to an in-flight request or an old reply.
 els.hero.addEventListener("pointermove", (event) => {

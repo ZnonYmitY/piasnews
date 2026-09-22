@@ -47,6 +47,112 @@ async function exercise({ body = {}, clock = CLOCK, feeds = {}, model }) {
   } finally { globalThis.fetch = original.fetch; Date.now = original.now; }
 }
 
+function socialReply(patch = {}) {
+  return reply({ answer_en: "Hey.", answer_zh: "嗨。", route: "fan_light", answer_kind: "social",
+    self_check: { ...check, actual_facts: false, temporal_scope: "none" }, ...patch });
+}
+
+test("pure social turns ignore both ambient and selected race cards in both modes without public fetches", async () => {
+  for (const mode of ["free", "grounded"]) {
+    for (const message of ["你好", "谢谢", "晚安", "在吗"]) {
+      const history = [{ role: "user", content: "今天比赛几点？" }, { role: "assistant", content: "Madrid practice is listed in the calendar." }];
+      const result = await exercise({ body: { message, mode, history,
+        surface_context: { race: "Spanish Grand Prix", provenance: "user_selected" } }, model(runtime, input) {
+        assert.equal(runtime.TURN_POLICY.response_size, "micro");
+        assert.equal(runtime.PAGE_EVENT_FOCUS, null);
+        assert.equal(runtime.TEMPORAL_CONTEXT.next_session, undefined);
+        assert.equal(runtime.TEMPORAL_CONTEXT.today_sessions, undefined);
+        assert.equal(runtime.TEMPORAL_CONTEXT.local_date, "2026-09-11");
+        assert.deepEqual(runtime.RETRIEVED_KNOWLEDGE_CONTEXT.retrieved, { knowledge_fact_ids: [], rumor_item_ids: [], public_source_ids: [] });
+        assert.equal(runtime.RETRIEVED_KNOWLEDGE_CONTEXT.public_lookup_performed, false);
+        assert.deepEqual(input.messages.filter((item) => ["user", "assistant"].includes(item.role)).slice(0, 2), history);
+        assert.match(input.messages[0].content, /STYLE_PACKAGE_JSON/);
+        assert.match(runtime.CONVERSATION_EXAMPLES.usage, /not Oscar quotes/);
+        return socialReply();
+      } });
+      assert.equal(result.status, 200, `${mode}: ${message}`);
+      assert.equal(result.calls.length, 1);
+      assert.equal(result.publicCalls.length, 0);
+      assert.equal(result.data.performance.model_calls, 1);
+      assert.equal(result.data.conversation_policy.page_focus_used, false);
+    }
+  }
+});
+
+test("a greeting plus a schedule question still receives current evidence in both modes", async () => {
+  for (const mode of ["free", "grounded"]) {
+    const result = await exercise({ body: { message: "你好，今天比赛几点？", mode }, model(runtime) {
+      assert.notEqual(runtime.TURN_POLICY.response_size, "micro");
+      assert.equal(runtime.PRODUCT_SCOPE.evidence_need, "day_context");
+      assert.equal(runtime.TEMPORAL_CONTEXT.today_sessions.length, 2);
+      const source = runtime.RETRIEVED_KNOWLEDGE_CONTEXT.public_sources.find((item) => item.kind === "schedule");
+      assert.ok(source);
+      return reply({ public_source_ids: [source.id] });
+    } });
+    assert.equal(result.status, 200);
+    assert.equal(result.calls.length, 1);
+    assert.equal(result.publicCalls.length, 3);
+  }
+});
+
+test("tomorrow followups carry the previous evidence requirement without reviving it on thanks", async () => {
+  const history = [{ role: "user", content: "今天比赛几点？" }, { role: "assistant", content: "今天是两节练习。" }];
+  const result = await exercise({ body: { message: "那明天呢", history }, model(runtime) {
+    assert.equal(runtime.TURN_POLICY.act, "followup");
+    assert.equal(runtime.PRODUCT_SCOPE.evidence_need, "day_context");
+    const source = runtime.RETRIEVED_KNOWLEDGE_CONTEXT.public_sources.find((item) => item.kind === "schedule");
+    assert.ok(source.facts.sessions.qualifying);
+    return reply({ answer_en: "Saturday has qualifying on this calendar.", answer_zh: "这份赛历显示周六有排位。", public_source_ids: [source.id] });
+  } });
+  assert.equal(result.status, 200);
+  assert.equal(result.calls.length, 1);
+});
+
+test("old clients' automatic race cards cannot choose a topic, while explicit selection can", async () => {
+  for (const provenance of [undefined, "page_ambient", "user_selected"]) {
+    const result = await exercise({ body: { message: "聊聊这场比赛", surface_context: { race: "Spanish Grand Prix", provenance, local_time: "FORGED_TIME" } }, model(runtime, input) {
+      const selected = provenance === "user_selected";
+      assert.equal(Boolean(runtime.PAGE_EVENT_FOCUS), selected);
+      assert.doesNotMatch(JSON.stringify(input), /FORGED_TIME/);
+      assert.equal(runtime.RETRIEVED_KNOWLEDGE_CONTEXT.public_sources.some((item) => item.kind === "schedule"), selected);
+      if (!selected) return socialReply({ answer_en: "Which race did you have in mind?", answer_zh: "你想聊哪一场？" });
+      return reply({ public_source_ids: [runtime.PAGE_EVENT_FOCUS.public_source_id] });
+    } });
+    assert.equal(result.status, 200);
+    assert.equal(result.calls.length, 1);
+  }
+});
+
+test("personal choices retain the shared persona knowledge without automatic next-race details", async () => {
+  const result = await exercise({ body: { message: "你喜欢猫还是狗？" }, model(runtime) {
+    assert.notEqual(runtime.TURN_POLICY.response_size, "micro");
+    assert.ok(runtime.RETRIEVED_KNOWLEDGE_CONTEXT.facts.length);
+    assert.equal(runtime.RETRIEVED_KNOWLEDGE_CONTEXT.public_sources.some((item) => item.kind === "schedule"), false);
+    assert.equal(runtime.TEMPORAL_CONTEXT.next_session, undefined);
+    return socialReply({ answer_kind: "fictional", answer_en: "Dogs, probably.", answer_zh: "大概是狗吧。" });
+  } });
+  assert.equal(result.status, 200);
+  assert.equal(result.calls.length, 1);
+});
+
+test("unsolicited facts in a greeting share the existing single repair budget", async () => {
+  const result = await exercise({ body: { message: "你好" }, model(_runtime, input, attempt) {
+    if (attempt === 1) return socialReply({ answer_en: "Practice is on Friday.", self_check: check });
+    assert.match(input.messages[3].content, /brief social move/);
+    return socialReply();
+  } });
+  assert.equal(result.status, 200);
+  assert.equal(result.calls.length, 2);
+  assert.equal(result.data.validation_trace.recovery_reason, "conversation_pacing_mismatch");
+  assert.equal(result.data.performance.model_calls, 2);
+  const persistent = await exercise({ body: { message: "你好" }, model() {
+    return socialReply({ answer_en: Array(30).fill("extra").join(" ") });
+  } });
+  assert.equal(persistent.status, 502);
+  assert.equal(persistent.calls.length, 2, "Never add a separate naturalness judge or a third generation.");
+  assert.equal(persistent.data.answer_en, undefined);
+});
+
 test("both modes receive Friday sessions and timezone in one generation, with no duplicated fact catalog", async () => {
   const selected = [];
   for (const mode of ["free", "grounded"]) {
