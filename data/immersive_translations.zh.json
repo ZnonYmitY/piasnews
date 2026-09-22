@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-22T06:48:14.588804Z",
+  "generated_at": "2026-09-22T09:49:53.192238Z",
   "translations": {
     "items:piasnews-1e349ebc993f7040:title:eb42be63557579e3ed950f9f": {
       "dataset": "items",
@@ -3673,6 +3673,66 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-22T06:48:14.168999Z"
+    },
+    "items:piasnews-ea1898d071e01244:title:ac8d60a056f850a7f00390ef": {
+      "dataset": "items",
+      "item_id": "piasnews-ea1898d071e01244",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Jolyon Palmer claims Oscar Piastri has only looked 'amazing' for 'half a season' in his F1 career",
+      "zh": "Jolyon Palmer 称 Oscar Piastri 在 F1 生涯中只有“半个赛季”看起来“惊艳”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-22T09:49:52.453748Z"
+    },
+    "items:piasnews-ea1898d071e01244:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-ea1898d071e01244",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-22T09:49:52.453755Z"
+    },
+    "social:piasnews-social-5365c6aad8b7640a:summary:46bb1ae577b1896db64df395": {
+      "dataset": "social",
+      "item_id": "piasnews-social-5365c6aad8b7640a",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "let's place our bets on how far into the press conference he'll get the baku25 question i think at around the 30s mark",
+      "zh": "我们来赌一下他在新闻发布会上多久会问到 baku25 的问题，我觉得大概在30秒左右",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-22T09:49:52.453760Z"
+    },
+    "social:piasnews-social-7d18b1fcba839053:summary:da88cae0bb235b55711039de": {
+      "dataset": "social",
+      "item_id": "piasnews-social-7d18b1fcba839053",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar will take part in the second press conference tomorrow alongside checo and george! https://t.co/psnORZTKPR",
+      "zh": "oscar 明天将和 checo 以及 george 一起参加第二场新闻发布会！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-22T09:49:52.453764Z"
+    },
+    "social:piasnews-social-6b96a8395b1705fa:summary:a41a135631f5cad376d7e2c6": {
+      "dataset": "social",
+      "item_id": "piasnews-social-6b96a8395b1705fa",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "STILL MATHEMATICALLY POSSIBLE RAHHHHH 🦅🦅🦅🦅",
+      "zh": "数学上仍然有可能 RAHHHHH 🦅🦅🦅🦅",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-22T09:49:52.453767Z"
     }
   },
   "retention_days": 8

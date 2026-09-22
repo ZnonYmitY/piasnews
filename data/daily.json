@@ -1,9 +1,23 @@
 {
-  "generated_at": "2026-09-22T06:45:53.350119Z",
+  "generated_at": "2026-09-22T09:46:54.636657Z",
   "window_days": 7,
-  "total_items": 40,
-  "latest_date": "2026-09-21",
+  "total_items": 41,
+  "latest_date": "2026-09-22",
   "days": [
+    {
+      "date": "2026-09-22",
+      "total_new_items": 1,
+      "official_new_items": 0,
+      "media_new_items": 1,
+      "x_new_items": 0,
+      "rumor_new_items": 0,
+      "sources": {
+        "F1 Oversteer": 1
+      },
+      "categories": {
+        "team": 1
+      }
+    },
     {
       "date": "2026-09-21",
       "total_new_items": 8,
@@ -36,10 +50,10 @@
       "sources": {
         "F1 Oversteer": 1,
         "Fox Sports": 1,
+        "Indiatimes": 1,
         "MotorBiscuit": 1,
         "SPEEDWEEK.com": 1,
         "Sportscape Magazine": 1,
-        "indiatimes.com": 1,
         "motorcyclesports.net": 1,
         "news.gp": 1,
         "racingnews365.com": 1
@@ -168,14 +182,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 21
+      "items": 22
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 15
+      "items": 16
     },
     {
       "query": "\"OP81\" when:3d",
@@ -208,13 +222,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 21,
-      "kept": 16,
+      "checked": 22,
+      "kept": 17,
       "results": {
         "outside_window": 2,
         "publisher_date_missing": 1,
         "publisher_unavailable": 2,
-        "verified": 16
+        "verified": 17
       }
     },
     {
@@ -222,8 +236,8 @@
       "ok": true,
       "discovery_days": 3,
       "retention_days": 7,
-      "previous_items": 42,
-      "kept": 40
+      "previous_items": 40,
+      "kept": 41
     }
   ]
 }
