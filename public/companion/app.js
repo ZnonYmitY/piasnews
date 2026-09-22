@@ -2,7 +2,7 @@ const DEFAULT_WORKER_URL = "https://piasnews-review.znonymity-piasnews.workers.d
 const MAX_HISTORY_ITEMS = 8;
 const MAX_HISTORY_CHARS = 900;
 const MAX_PROMPT_CHARS = 500;
-const APP_VERSION = "20260912-shared-context-1";
+const APP_VERSION = "20260922-connection-diagnostics-1";
 const MODE_LABELS = { free: "自由演绎", grounded: "强依据" };
 const ANSWER_KIND_LABELS = { fictional: "角色演绎 · 非本人事实", evidence: "有来源的事实", social: "轻松聊天", boundary: "边界答复", insufficient: "依据不足" };
 const FEEDBACK_CATEGORIES = [
@@ -534,7 +534,7 @@ function setModelState(state, status = companionStatus) {
   }
   if (state === "error") {
     els.modelStatusTitle.textContent = "模型服务暂不可用";
-    els.modelStatusDetail.textContent = "未生成角色回复。可重试；不会使用预写回答代替。";
+    els.modelStatusDetail.textContent = "本次未显示角色回复。可重试；不会使用预写回答代替。";
     els.runtimeNote.replaceChildren(
       document.createTextNode(`${packageLabel} · 模型服务异常`),
       document.createElement("br"),
@@ -595,21 +595,32 @@ function modelTrace(payload) {
 }
 
 async function requestModelResponse(prompt, mode, signal, history, surfaceContext) {
-  const response = await fetch(`${companionApiUrl}/companion/chat`, {
-    method: "POST",
-    signal,
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      message: prompt,
-      history,
-      mode,
-      facts_only: mode === "grounded",
-      candidate_mode: true,
-      disclosure_shown: true,
-      time_zone: "Asia/Shanghai",
-      surface_context: surfaceContext,
-    }),
+  // Tag transport failures only at the actual network/body-read boundary.
+  // A TypeError elsewhere can be a local rendering or response-shape bug.
+  const requestBody = JSON.stringify({
+    message: prompt,
+    history,
+    mode,
+    facts_only: mode === "grounded",
+    candidate_mode: true,
+    disclosure_shown: true,
+    time_zone: "Asia/Shanghai",
+    surface_context: surfaceContext,
   });
+  let response;
+  try {
+    response = await fetch(`${companionApiUrl}/companion/chat`, {
+      method: "POST", signal,
+      headers: { "Content-Type": "application/json" },
+      body: requestBody,
+    });
+  } catch (cause) {
+    if (cause?.name !== "TypeError") throw cause;
+    const error = new Error("Companion connection failed");
+    error.serviceReason = "connection_failed";
+    error.diagnosticStage = "request";
+    throw error;
+  }
   if (!response.ok) {
     const error = new Error("Companion service request failed");
     error.status = response.status;
@@ -622,6 +633,10 @@ async function requestModelResponse(prompt, mode, signal, history, surfaceContex
       if (typeof failure?.retryable === "boolean") error.retryable = failure.retryable;
     } catch (bodyError) {
       if (bodyError?.name === "AbortError" || bodyError?.name === "TimeoutError") throw bodyError;
+      if (bodyError?.name === "TypeError") {
+        error.serviceReason = "connection_failed";
+        error.diagnosticStage = "response_body";
+      }
       // Missing / non-JSON error bodies still have a usable HTTP status.
     }
     throw error;
@@ -629,26 +644,38 @@ async function requestModelResponse(prompt, mode, signal, history, surfaceContex
   let payload;
   try {
     payload = await response.json();
+  } catch (bodyError) {
+    if (bodyError?.name === "AbortError" || bodyError?.name === "TimeoutError") throw bodyError;
+    const error = new Error("Companion response body could not be read");
+    error.serviceReason = bodyError?.name === "TypeError" ? "connection_failed" : "invalid_response";
+    error.diagnosticStage = "response_body";
+    throw error;
+  }
+  try {
     if (payload.engine !== "deepseek" || typeof payload.model !== "string" || !payload.model.trim() || typeof payload.answer_en !== "string" || !payload.answer_en.trim()) throw new Error("Missing model response");
     if (payload.answer_zh != null && typeof payload.answer_zh !== "string") throw new Error("Unexpected translation");
     if (payload.mode !== mode || !Object.hasOwn(ANSWER_KIND_LABELS, payload.answer_kind)) throw new Error("Unexpected mode or answer kind");
     if (mode === "grounded" && payload.answer_kind === "fictional") throw new Error("Grounded response cannot be fictional");
-  } catch (bodyError) {
-    if (bodyError?.name === "AbortError" || bodyError?.name === "TimeoutError") throw bodyError;
+    for (const key of ["knowledge_fact_ids", "rumor_item_ids", "public_source_ids", "judgment_rule_ids", "evidence_ids", "retrieved_knowledge_fact_ids", "retrieved_rumor_item_ids", "retrieved_public_source_ids"]) {
+      if (payload[key] != null && (!Array.isArray(payload[key]) || payload[key].some((id) => typeof id !== "string"))) throw new Error("Unexpected reference IDs");
+    }
+    if (payload.sources != null && (!Array.isArray(payload.sources) || payload.sources.some((source) => !source || typeof source !== "object" || ["id", "label", "url"].some((key) => typeof source[key] !== "string")))) throw new Error("Unexpected source records");
+    return {
+      mode: payload.mode,
+      answerKind: payload.answer_kind,
+      model: payload.model,
+      generationKind: "deepseek",
+      en: payload.answer_en,
+      zh: payload.answer_zh || "",
+      trace: modelTrace(payload),
+      metadata: payload,
+    };
+  } catch (_) {
     const error = new Error("Companion response validation failed");
     error.serviceReason = "invalid_response";
+    error.diagnosticStage = "response_validation";
     throw error;
   }
-  return {
-    mode: payload.mode,
-    answerKind: payload.answer_kind,
-    model: payload.model,
-    generationKind: "deepseek",
-    en: payload.answer_en,
-    zh: payload.answer_zh || "",
-    trace: modelTrace(payload),
-    metadata: payload,
-  };
 }
 
 function serviceErrorDescription(error) {
@@ -657,8 +684,9 @@ function serviceErrorDescription(error) {
   const timeoutHint = `等待模型响应超时。${error?.retryable === false ? retryHint : "可以重试这条消息。"}`;
   if (error?.name === "AbortError" || error?.name === "TimeoutError" || error?.status === 504) return timeoutHint;
   if (error?.status === 429) return `请求较多，模型暂时无法响应。${retryLaterHint}`;
-  if (error?.name === "TypeError") return "暂时无法连接模型服务。请检查网络后重试。";
+  if (error?.serviceReason === "connection_failed") return "与对话服务的连接未完成或中断。可能与网络或浏览器拦截有关，请稍后重试。";
   if (error?.serviceReason === "invalid_response") return `模型服务返回的内容未通过校验，因此没有显示为角色回复。${retryHint}`;
+  if (error?.name === "TypeError") return "页面处理回复时出现异常。请刷新页面后重试。";
   switch (error?.errorCode) {
     case "COMPANION_TIMEOUT": return timeoutHint;
     case "COMPANION_INVALID_RESPONSE": return `模型返回格式不完整，这次没有生成可显示的回答。${retryHint}`;
@@ -709,17 +737,20 @@ function showServiceError(error, request, existing = null) {
     note.className = "service-error-note";
     copy.append(title, detail, button, note);
     article.append(meta, copy);
-    record = { request, article, detail, button, note };
+    record = { request, article, title, detail, button, note };
     button.addEventListener("click", () => submitPrompt(request.prompt, record));
     els.messages.append(article);
   }
   record.retryable = error?.retryable !== false;
   const requestId = typeof error?.requestId === "string" && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(error.requestId) ? error.requestId.toLowerCase() : "";
   record.article.dataset.requestId = requestId;
+  record.title.textContent = error?.serviceReason === "connection_failed" ? "这次没有收到回答" : "这次没有生成回答";
   record.detail.textContent = serviceErrorDescription(error);
   record.button.textContent = record.retryable ? `重试这条 · ${MODE_LABELS[request.mode]}` : "需要维护者处理";
   record.button.disabled = isGenerating || !record.retryable;
-  record.note.textContent = (record.retryable ? "沿用本条发送时的模式与上下文；不会重复添加你的消息。" : "此类问题需要服务端处理，暂不提供原样重试。") + (requestId ? ` 排查编号：${requestId.slice(0, 8)}` : "");
+  const stageLabels = { request: "发送请求", response_body: "接收响应", response_validation: "校验响应" };
+  const stage = Object.hasOwn(stageLabels, error?.diagnosticStage) ? stageLabels[error.diagnosticStage] : "";
+  record.note.textContent = (record.retryable ? "沿用本条发送时的模式与上下文；不会重复添加你的消息。" : "此类问题需要服务端处理，暂不提供原样重试。") + (requestId ? ` 排查编号：${requestId.slice(0, 8)}` : "") + (stage ? ` 排查阶段：${stage}` : "");
   retryableFailure = record;
   if (followLatest) scrollToLatest();
   else els.jumpLatest.hidden = false;

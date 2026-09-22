@@ -216,6 +216,71 @@ test("network, timeout, rate-limit and upstream failures never enter model histo
   }
 });
 
+test("only fetch transport failures are described as connection problems, with safe stages", async () => {
+  const h = harness();
+  let attempts = 0;
+  h.context.fetch = async () => { attempts += 1; throw new TypeError("private network details"); };
+  await h.context.submitPrompt("你好");
+  const failure = h.context.retryableFailure;
+  assert.match(failure.detail.textContent, /连接未完成或中断/);
+  assert.equal(failure.title.textContent, "这次没有收到回答");
+  assert.match(failure.note.textContent, /排查阶段：发送请求/);
+  assert.doesNotMatch(failure.detail.textContent + failure.note.textContent, /private/);
+  assert.equal(attempts, 1, "a transport error must not automatically repeat a paid POST");
+  assert.equal(h.context.conversationHistories.free.length, 0);
+});
+
+test("body transport failures retain known HTTP status while malformed JSON remains a validation error", async () => {
+  for (const status of [200, 502, 429, 504]) {
+    const h = harness();
+    const turn = h.context.submitPrompt("你好");
+    h.pending.shift()({ ok: status === 200, status, json: async () => { throw new TypeError("private body transport details"); } });
+    await turn;
+    const failure = h.context.retryableFailure;
+    assert.match(failure.detail.textContent, status === 429 ? /请求较多/ : status === 504 ? /响应超时/ : /连接未完成或中断/);
+    assert.match(failure.note.textContent, /排查阶段：接收响应/);
+    assert.equal(h.context.conversationHistories.free.length, 0);
+  }
+  const h = harness();
+  const turn = h.context.submitPrompt("你好");
+  h.pending.shift()({ ok: true, status: 200, json: async () => { throw new SyntaxError("private malformed JSON"); } });
+  await turn;
+  assert.match(h.context.retryableFailure.detail.textContent, /未通过校验/);
+  assert.doesNotMatch(h.context.retryableFailure.detail.textContent, /连接|private/);
+});
+
+test("malformed trace and feedback reference fields cannot masquerade as network errors", async () => {
+  for (const payload of [
+    { sources: {} }, { sources: [null] }, { sources: ["private"] },
+    { sources: [{ id: "KF-001", label: "incomplete" }] },
+    { knowledge_fact_ids: {} }, { knowledge_fact_ids: [null] },
+    { rumor_item_ids: "RM-001" }, { public_source_ids: {} },
+    { judgment_rule_ids: {} }, { evidence_ids: [42] },
+    { retrieved_knowledge_fact_ids: {} },
+  ]) {
+    const h = harness();
+    const turn = h.context.submitPrompt("你好");
+    h.respond(payload); await turn;
+    const failure = h.context.retryableFailure;
+    assert.match(failure.detail.textContent, /未通过校验/);
+    assert.match(failure.note.textContent, /排查阶段：校验响应/);
+    assert.doesNotMatch(failure.detail.textContent, /连接|网络|private/);
+    assert.equal(h.messages.length, 1);
+    assert.equal(h.context.conversationHistories.free.length, 0);
+  }
+});
+
+test("unrelated local TypeErrors are not blamed on the user's network", async () => {
+  const h = harness();
+  h.context.requestModelResponse = async () => { throw new TypeError("private local processing error"); };
+  await h.context.submitPrompt("你好");
+  const failure = h.context.retryableFailure;
+  assert.match(failure.detail.textContent, /页面处理回复/);
+  assert.doesNotMatch(failure.detail.textContent + failure.note.textContent, /网络|连接|private|排查阶段/);
+  assert.equal(h.posts.length, 0);
+  assert.equal(h.context.conversationHistories.free.length, 0);
+});
+
 test("server failure codes give safe, distinct diagnostics and a validated short request ID", async () => {
   const cases = [
     [502, "COMPANION_UPSTREAM_FAILED", /接口调用未成功/],
@@ -393,7 +458,7 @@ test("chat assets are versioned together and no keyword response module is loade
   assert.doesNotMatch(html, /factsOnlyToggle/);
   for (const text of [html, source]) {
     assert.doesNotMatch(text, /20260910-preferences-1|offline-response|preference-policy|makeOfflineResponse|规则兜底/);
-    assert.match(text, /20260912-shared-context-1/);
+    assert.match(text, /20260922-connection-diagnostics-1/);
   }
   assert.match(html, /styles\.css\?v=20260912-shared-context-1/);
   assert.doesNotMatch(source, /Skill v0\.4\.0/);
