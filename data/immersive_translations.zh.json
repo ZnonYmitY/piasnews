@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-22T04:23:46.136815Z",
+  "generated_at": "2026-09-22T06:48:14.588804Z",
   "translations": {
     "items:piasnews-1e349ebc993f7040:title:eb42be63557579e3ed950f9f": {
       "dataset": "items",
@@ -3661,6 +3661,18 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-22T03:47:28.881007Z"
+    },
+    "social:piasnews-social-1db6d232b079d764:summary:67a5886cf87977d22de782d8": {
+      "dataset": "social",
+      "item_id": "piasnews-social-1db6d232b079d764",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "bumblebeeastri mention in the mclaren azerbaijan preview 🥹🐝 \"our overtaking model said oscar couldn't overtake from that distance behind, but oscar hadn't seen the overtaking model, so he did it anyway\" https://t.co/McWUFu03RY",
+      "zh": "bumblebeeastri 在McLaren阿塞拜疆站前瞻中被提到 🥹🐝 “我们的超车模型说 Oscar 在后方那么远的距离无法超车，但 Oscar 没看过超车模型，所以还是超了”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-22T06:48:14.168999Z"
     }
   },
   "retention_days": 8
