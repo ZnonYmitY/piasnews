@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-21T20:15:44.078837Z",
+  "generated_at": "2026-09-22T00:42:51.615670Z",
   "translations": {
     "items:piasnews-1e349ebc993f7040:title:eb42be63557579e3ed950f9f": {
       "dataset": "items",
@@ -3577,6 +3577,66 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-21T20:15:43.499458Z"
+    },
+    "items:piasnews-89db90429c5dbed7:title:bd2cb29a712c9807c4335b4f": {
+      "dataset": "items",
+      "item_id": "piasnews-89db90429c5dbed7",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "‘A pretty crap way of going racing’: Piastri on F1’s computer-controlled 2026 cars",
+      "zh": "“一种相当糟糕的赛车方式”：Piastri 谈 F1 2026 年电脑控制的赛车",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-22T00:42:50.378677Z"
+    },
+    "items:piasnews-89db90429c5dbed7:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-89db90429c5dbed7",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-22T00:42:50.378681Z"
+    },
+    "items:piasnews-9c5258f38e51c40b:title:6965fbc8280a654c0749435d": {
+      "dataset": "items",
+      "item_id": "piasnews-9c5258f38e51c40b",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "F1 giant seeks knockout blow as Piastri challenge looms: What every team needs most",
+      "zh": "F1 巨头寻求致命一击，Piastri 挑战逼近：每支车队最需要什么",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-22T00:42:50.378684Z"
+    },
+    "items:piasnews-9c5258f38e51c40b:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-9c5258f38e51c40b",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-22T00:42:50.378686Z"
+    },
+    "social:piasnews-social-20b1592c89ba69c5:summary:c6a2645df54cb8c349e0c605": {
+      "dataset": "social",
+      "item_id": "piasnews-social-20b1592c89ba69c5",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @irp13_: I believe https://t.co/wToI1JpqDr",
+      "zh": "RT @irp13_：我相信",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-22T00:42:50.378688Z"
     }
   },
   "retention_days": 8
