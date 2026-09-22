@@ -25,6 +25,7 @@ function reply(patch = {}) {
 async function exercise({ body = {}, clock = CLOCK, feeds = {}, model }) {
   const original = { fetch: globalThis.fetch, now: Date.now };
   const calls = [], publicCalls = [];
+  let modelAssertion;
   Date.now = () => Date.parse(clock);
   globalThis.fetch = async (url, options) => {
     if (String(url) !== "https://model.invalid/chat/completions") {
@@ -35,7 +36,9 @@ async function exercise({ body = {}, clock = CLOCK, feeds = {}, model }) {
     const input = JSON.parse(options.body);
     const runtime = JSON.parse(input.messages[1].content.split("\n").slice(1).join("\n"));
     calls.push({ input, runtime });
-    const raw = await model(runtime, input, calls.length);
+    let raw;
+    try { raw = await model(runtime, input, calls.length); }
+    catch (error) { modelAssertion = error; throw error; }
     return Response.json({ model: "test-model", choices: [{ finish_reason: "stop", message: { content: JSON.stringify(raw) } }] });
   };
   try {
@@ -43,6 +46,7 @@ async function exercise({ body = {}, clock = CLOCK, feeds = {}, model }) {
       method: "POST", headers: { Origin: "https://znonymity.github.io", "Content-Type": "application/json" },
       body: JSON.stringify({ message: "今天算什么日子？有赛事安排吗？", mode: "free", history: [], disclosure_shown: true, ...body }),
     }), env);
+    if (modelAssertion) throw modelAssertion;
     return { status: response.status, data: await response.json(), calls, publicCalls };
   } finally { globalThis.fetch = original.fetch; Date.now = original.now; }
 }
@@ -51,6 +55,91 @@ function socialReply(patch = {}) {
   return reply({ answer_en: "Hey.", answer_zh: "嗨。", route: "fan_light", answer_kind: "social",
     self_check: { ...check, actual_facts: false, temporal_scope: "none" }, ...patch });
 }
+
+const EVENT_CLOCK = "2026-09-22T06:00:00Z";
+const recordedRace = {
+  race_id: "fixture-madrid", session_ref: "fixture-madrid:race", race_name: "Spanish Grand Prix", race_name_zh: "西班牙大奖赛",
+  session: "race", session_key: 1, session_name: "Race", session_start: "2026-09-13T13:00:00Z", session_end: "2026-09-13T15:00:00Z",
+  driver_number: 81, position: 8, number_of_laps: 57, status: "classified", fetched_at: "2026-09-18T06:00:00Z",
+  source_url: "https://api.openf1.org/v1/session_result?driver_number=81&session_key=1",
+};
+const eventFeeds = {
+  "calendar.json": { generated_at: EVENT_CLOCK, races: [calendar.next_race, {
+    id: "fixture-baku", name: "Azerbaijan Grand Prix", name_zh: "阿塞拜疆大奖赛", locality: "Baku", circuit: "Baku City Circuit",
+    official_url: "https://www.formula1.com/en/racing/2026",
+    race_start: "2026-09-26T11:00:00Z", weekend_start: "2026-09-24T08:30:00Z",
+    sessions: { practice_1: "2026-09-24T08:30:00Z", race: "2026-09-26T11:00:00Z" },
+  }] },
+  "session-results.json": { generated_at: "2026-09-18T06:00:00Z", driver_number: 81, result_available: true, attempted_session_ref: recordedRace.session_ref, latest: recordedRace },
+};
+
+test("historical event facts survive the complete pipeline in both modes without refreshing their observation time", async () => {
+  const selected = [];
+  for (const mode of ["free", "grounded"]) {
+    const result = await exercise({ clock: EVENT_CLOCK, feeds: eventFeeds, body: { message: "你的上一场比赛是什么", mode }, model(runtime, input) {
+      const knowledge = runtime.RETRIEVED_KNOWLEDGE_CONTEXT;
+      assert.equal(knowledge.event_context.status, "matched_result");
+      assert.equal(knowledge.event_context.target_session_ref, "fixture-madrid:race");
+      const source = knowledge.public_sources.find(s => s.kind === "session_result");
+      assert.equal(source.facts.position, undefined, "Identity turns do not receive unsolicited finishing statistics.");
+      assert.equal(source.facts.last_observed_at, "2026-09-18T06:00:00.000Z");
+      assert.equal(source.facts.record_freshness, "stale");
+      assert.equal(runtime.CURRENT_PUBLIC_DATA.source_status.session_results.status, "stale");
+      assert.doesNotMatch(JSON.stringify(input), /"event_catalog"|"result_catalog"/);
+      assert.equal(knowledge.public_sources.length, 2);
+      assert.equal(runtime.TEMPORAL_CONTEXT.next_session, undefined);
+      assert.equal(runtime.TEMPORAL_CONTEXT.current_event, undefined);
+      selected.push(knowledge.retrieved.public_source_ids);
+      return reply({ answer_en: "The Spanish Grand Prix in Madrid.", answer_zh: "马德里的西班牙大奖赛。", public_source_ids: [source.id], self_check: { ...check, temporal_scope: "historical" } });
+    } });
+    assert.equal(result.status, 200);
+    assert.equal(result.calls.length, 1);
+    assert.equal(result.data.event_query.target_event_id, "fixture-madrid");
+    assert.equal(result.data.performance.model_calls, 1);
+    assert.equal(result.publicCalls.length, 3);
+  }
+  assert.deepEqual(selected[0], selected[1]);
+});
+
+test("event followups select the same race, a new schedule, or an explicit missing date", async () => {
+  const history = [{ role: "user", content: "你的上一场比赛是什么" }, { role: "assistant", content: "My most recent race was the Spanish Grand Prix on 13 September, where I finished eighth. That's the last recorded result I have — the next one on the calendar is Azerbaijan, with practice on Thursday.\n中文：我最近一场比赛是西班牙大奖赛。" }];
+  for (const [message, target, requested] of [["那场在哪跑的", "fixture-madrid", "identity"], ["你那场第几", "fixture-madrid", "result"], ["接下来呢", "fixture-baku", "schedule"], ["那昨天呢", null, "identity"]]) {
+    const result = await exercise({ clock: EVENT_CLOCK, feeds: eventFeeds, body: { message, history }, model(runtime) {
+      const k = runtime.RETRIEVED_KNOWLEDGE_CONTEXT;
+      assert.equal(k.event_context.target_event_id, target, message);
+      assert.equal(k.event_context.requested, requested, message);
+      if (!target) return reply({ route: "insufficient_current_fact", answer_kind: "insufficient", answer_en: "I don't have a race record for yesterday.", answer_zh: "我没有昨天的比赛记录。", self_check: { ...check, actual_facts: false, temporal_scope: "none" } });
+      const source = k.public_sources.find(s => s.kind === (requested === "result" ? "session_result" : "schedule"));
+      return reply({ answer_en: requested === "result" ? "Eighth in the recorded result." : requested === "schedule" ? "Baku is next on the calendar." : "Madrid.", answer_zh: requested === "result" ? "已收录的成绩是第八。" : requested === "schedule" ? "赛历上的下一站是巴库。" : "马德里。", public_source_ids: [source.id], self_check: { ...check, temporal_scope: requested === "schedule" ? "current" : "historical" } });
+    } });
+    assert.equal(result.status, 200, message);
+    assert.equal(result.calls.length, 1, message);
+  }
+});
+
+test("ignoring an available archived result uses the existing one-repair budget", async () => {
+  const result = await exercise({ clock: EVENT_CLOCK, feeds: eventFeeds, body: { message: "你的上一场比赛是什么" }, model(runtime, input, attempt) {
+    if (attempt === 1) return reply({ route: "insufficient_current_fact", answer_kind: "insufficient", answer_en: "I don't have a usable result.", self_check: { ...check, actual_facts: false, temporal_scope: "none" } });
+    assert.match(input.messages[3].content, /The requested event has/);
+    return reply({ answer_en: "The Spanish Grand Prix in Madrid.", public_source_ids: [runtime.RETRIEVED_KNOWLEDGE_CONTEXT.event_context.result_source_id], self_check: { ...check, temporal_scope: "historical" } });
+  } });
+  assert.equal(result.status, 200);
+  assert.equal(result.calls.length, 2);
+  assert.equal(result.data.validation_trace.recovery_reason, "available_event_context_ignored");
+});
+test("a result followup cannot cite a schedule to repeat an unsupported position from history", async () => {
+  const result = await exercise({ clock: EVENT_CLOCK, feeds: { ...eventFeeds, "session-results.json": {} }, body: {
+    message: "你那场第几", history: [{ role: "user", content: "上一场比赛是什么" }, { role: "assistant", content: "Spanish Grand Prix, eighth." }],
+  }, model(runtime, input, attempt) {
+    assert.equal(runtime.RETRIEVED_KNOWLEDGE_CONTEXT.event_context.status, "missing_result");
+    if (attempt === 1) return reply({ answer_en: "Eighth.", public_source_ids: runtime.RETRIEVED_KNOWLEDGE_CONTEXT.retrieved.public_source_ids });
+    assert.match(input.messages[3].content, /No observed result supports/);
+    return reply({ route: "insufficient_current_fact", answer_kind: "insufficient", answer_en: "I don't have a verified finishing position for that race here.", answer_zh: "我这里缺少那场已核实的完赛名次。", self_check: { ...check, actual_facts: false, temporal_scope: "none" } });
+  } });
+  assert.equal(result.status, 200);
+  assert.equal(result.calls.length, 2);
+  assert.equal(result.data.validation_trace.recovery_reason, "missing_event_result");
+});
 
 test("pure social turns ignore both ambient and selected race cards in both modes without public fetches", async () => {
   for (const mode of ["free", "grounded"]) {

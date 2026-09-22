@@ -6,6 +6,7 @@ import {
 } from "./companion-runtime.js";
 import { cleanupCompanionFeedback, handleCompanionFeedback } from "./companion-feedback.js";
 import { buildCurrentPublicContext } from "./companion-public-context.js";
+import { createCompanionPublicFeedCache } from "./companion-public-cache.js";
 import { classifyCompanionScope } from "../../public/companion/scope-policy.js";
 import { resolveCompanionMode, classifyCompanionModeIntent } from "../../public/companion/mode-policy.js";
 import { retrieveCompanionKnowledge } from "./companion-knowledge.js";
@@ -44,6 +45,7 @@ For real-person factual claims in EITHER mode, select matching IDs from RETRIEVE
 Missing evidence is not evidence of absence. Negative biographical claims (never owned another animal, never lived somewhere, has no other interests) require explicit support just like positive claims. A record about one possession or preference cannot establish what else the person has never had or done. Do not convert a missing record into a first-person denial.
 Rumor records are candidate assessments, not automatic verdicts. Discuss a verdict only when the user's actual proposition matches; a team or location name alone does not assert a rumor. Preserve uncertainty and do_not_repeat restrictions. You may paraphrase a supported assessment; do not copy a stock response unnecessarily.
 Current news, standings, latest results and upcoming schedules require the corresponding selected current public source, not a historical KF/RM record. A race finishing position cannot answer championship standings. This system retrieves a bounded product news/calendar/results snapshot and a curated historical package, NOT the whole live web. If evidence is absent or inapplicable, explain the specific gap briefly. Do not invent sources, recent events, genuine quotes, private relationships, private whereabouts, confidential engineering, or official authority.
+EVENT CONTEXT: When event_context is supplied, use its selected event/session and relation confidence. Historical LIVE result records remain usable for that dated session even when their snapshot is old; the fresh calendar separately anchors previous/next, not finality. Answer only what was asked, without an unsolicited result recap or data-access disclaimer. If the identity is supported but a requested detail is missing, answer the supported part with its source and briefly name the missing detail; an evidence answer may acknowledge that limited gap.
 PUBLIC SITUATION: TEMPORAL_CONTEXT is shared factual background in both modes, not a private calendar. Use its local_date and time_zone for today/tonight; use source.facts for event details, not a source title alone. When asked what is special about today, connect the date to its relevant public sessions or dated personal milestones when supported. Distinguish a practice/qualifying day from the Grand Prix race day. Scheduled start reached is not proof of an actual start or finish; a fresh file is not proof of a new event. Do not deny having a schedule when the selected facts contain one. On a correction, re-evaluate against the supplied facts and acknowledge a previous mistake directly; never invent a private-calendar-versus-sport-calendar excuse. History is conversational context, not evidence. Ordinary greetings need no unsolicited schedule bulletin.
 TIME LABELS: local_time/local_date are in the USER's time_zone, not the circuit's location. When time_zone is Asia/Shanghai, explicitly label any displayed clock times as Beijing time / 北京时间. Never call those times Madrid local time or unqualified 当地时间. For another time_zone, name that zone explicitly. Only when answering a date or schedule question should date/session facts lead; a free-mode reaction may follow briefly. A clock or a page card never requires mentioning the date, the next event or an imagined private routine.
 CONVERSATION: Respond to the user's conversational move, not to the volume of facts available. TURN_POLICY sets this turn's pacing, not a prewritten reply or a permission grant. A short greeting can end after a short greeting. Acknowledgements and goodbyes can end naturally. Do not append a generic invitation to chat to every answer, narrate a quiet day, or manufacture a private location/activity to sound alive. When a question would genuinely help, ask at most one concrete question connected to the user's words; don't interview someone who simply wants to be heard. Answer a substantive question even when prefaced by hello or thanks. Match requested depth; brief does not mean evasive or cold. Let understated personality emerge through timing and word choice, not a compulsory racing metaphor or joke.
@@ -548,15 +550,24 @@ async function fetchPublicJson(url) {
   return response.json();
 }
 
+let publicFeedCache, publicFeedCacheBase, publicFeedCacheTransport;
 async function loadCompanionPublicContext(env, { now, timeZone, evidenceNeed } = {}) {
   if (env.COMPANION_DISABLE_PUBLIC_DATA === "true") return { ...buildCurrentPublicContext({ now, timeZone }), lookup_performed: false };
   const baseUrl = (env.PUBLIC_DATA_BASE_URL || "https://znonymity.github.io/piasnews/data").replace(/\/+$/, "");
+  if (!publicFeedCache || publicFeedCacheBase !== baseUrl || publicFeedCacheTransport !== globalThis.fetch) {
+    publicFeedCache = createCompanionPublicFeedCache({
+      urls: ["calendar", "session-results", "hot-events", "items", "social"].map(file => `${baseUrl}/${file}.json`),
+      fetchJson: fetchPublicJson,
+    });
+    publicFeedCacheBase = baseUrl;
+    publicFeedCacheTransport = globalThis.fetch;
+  }
   // Optional broad feeds share the same parallel, bounded read. No planner,
   // embedding service, sequential search or extra generation is introduced.
   const files = ["calendar", "session-results", "hot-events"];
   if (["current_f1", "public_update", "official_update"].includes(evidenceNeed)) files.push("items", "social");
-  const results = await Promise.allSettled(files.map((file) => fetchPublicJson(`${baseUrl}/${file}.json`)));
-  const value = (index) => results[index]?.status === "fulfilled" ? results[index].value : null;
+  const results = await Promise.allSettled(files.map((file) => publicFeedCache.load(`${baseUrl}/${file}.json`)));
+  const value = (index) => results[index]?.status === "fulfilled" ? results[index].value.data : null;
   return { ...buildCurrentPublicContext({
     calendar: value(0), sessionResults: value(1), hotEvents: value(2), news: value(3), social: value(4), now, timeZone,
   }), lookup_performed: true };
@@ -618,6 +629,8 @@ function companionValidationCode(issue) {
     ["A factual answer needs", "missing_fact_source"],
     ["An actual personal, numerical", "unsupported_social_claim"],
     ["The turn is a brief social move", "conversation_pacing_mismatch"],
+    ["The requested event has", "available_event_context_ignored"],
+    ["No observed result supports", "missing_event_result"],
   ];
   return codes.find(([prefix]) => issue.startsWith(prefix))?.[1] || "response_contract_failed";
 }
@@ -775,6 +788,14 @@ function productResponseIssue(raw, { mode, scope, knowledge, candidateMode, requ
   if (!check.facts_supported || !check.mode_consistent || !check.answers_question) return "Your same-generation self_check reports unsupported facts, a mode mismatch or an unanswered question. Revise the answer to use matching selected evidence, a permitted fictional reaction, or a relevant information gap. Do not merely change the check flags.";
   const turnIssue = checkTurnResponse(raw, turnPolicy);
   if (turnIssue) return turnIssue;
+  const event = knowledge.event_context;
+  if (event?.requested === "result" && !event.result_source_id && !isFallback) {
+    return "No observed result supports the requested event/session result. A calendar citation and earlier chat cannot establish a finishing position or performance. Give a brief specific information gap for the requested result using route insufficient_current_fact and answer_kind insufficient, without repeating an old position or claiming the driver did not participate. This is a missing result, not an unrelated-topic boundary.";
+  }
+  if (event?.status === "matched_result" && ["identity", "result"].includes(event.requested)
+      && (isFallback || !(event.requested === "result" ? [event.result_source_id] : [event.result_source_id, event.schedule_source_id]).some(id => id && raw.public_source_ids?.includes(id)))) {
+    return "The requested event has a matching observed result in the selected event context. Answer the requested identity or result using that record, without treating snapshot age as loss of the historical fact. Do not substitute a different race, a generic information-gap reply, or unasked-for statistics. Use the selected source ID and keep the event date and provider attribution.";
+  }
   const hasSchedule = knowledge.public_sources.some((source) => source.kind === "schedule" && source.facts?.sessions && Object.keys(source.facts.sessions).length);
   const todayQuestion = scope.evidence_need === "day_context" && !/(?:明天|tomorrow)/i.test(message || "");
   if (hasSchedule && todayQuestion && temporalContext?.today_sessions?.length) {
@@ -870,7 +891,7 @@ async function callDeepseekCompanion(body, env, trace = {}) {
   addDateDerivations(knowledge, publicContext.temporal_context?.local_date);
   const pageFocus = selectedPageSource && knowledge.public_sources.find((source) => source.id === selectedPageSource.id);
   const temporal = publicContext.temporal_context || {};
-  const temporalContext = knowledge.public_sources.some((source) => source.kind === "schedule") || ["day_context", "schedule"].includes(scope.evidence_need) ? temporal
+  const temporalContext = !knowledge.event_context && (knowledge.public_sources.some((source) => source.kind === "schedule") || ["day_context", "schedule"].includes(scope.evidence_need)) ? temporal
     : Object.fromEntries(["now_utc", "time_zone", "time_zone_label", "local_date", "local_time", "weekday"].filter((key) => temporal[key] != null).map((key) => [key, temporal[key]]));
   const contextMs = Date.now() - startedAt;
   const runtimeContext = {
@@ -981,6 +1002,7 @@ async function callDeepseekCompanion(body, env, trace = {}) {
     result: {
       ...result,
       conversation_policy: { act: turnPolicy.act, response_size: turnPolicy.response_size, initiative: turnPolicy.initiative, page_focus_used: Boolean(pageFocus) },
+      event_query: knowledge.event_context ? Object.fromEntries(["relation", "requested", "session", "target_event_id", "target_session_ref", "status", "source_ids"].map(key => [key, knowledge.event_context[key]])) : null,
       validation_trace: { status: "same_generation_self_check", independent_verified: false, local_checks: ["selected_ids", "mode", "literal_fact_intent", "temporal_scope", "turn_pacing", "output_shape"], repair_count: trace.repair_count, recovery_reason: recoveryReason, additional_review_requests: 0 },
       performance: { context_ms: contextMs, generation_ms: generationMs, total_ms: Date.now() - startedAt, model_calls: trace.repair_count + 1, context_chars: JSON.stringify(runtimeContext).length },
     },

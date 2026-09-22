@@ -1,5 +1,6 @@
 // One bounded, mode-independent retrieval path. Matching selects evidence; it
 // never selects a prewritten answer or grants permission to answer a request.
+import { resolveCompanionEventQuery } from "./companion-event-query.js";
 const MAX_FACTS = 6;
 const MAX_RUMORS = 3;
 const MAX_PUBLIC_SOURCES = 8;
@@ -190,6 +191,11 @@ export function retrieveCompanionKnowledge({ message, history = [], runtimeData 
     if (record && factPool.has(id)) addFactGroup(factPool.get(id));
   }
   const live = [...new Map((currentPublicContext.public_sources || []).map(safeSource).filter(Boolean).map((item) => [item.id, item])).values()];
+  // Resolve relationships against bounded server catalogs, rather than requiring
+  // a Chinese phrase to overlap an English race title. Preserve dedicated news,
+  // standings and personal-fact requests instead of adding an ambient event.
+  const eventSelection = ["standings", "official_update", "current_f1", "public_update", "day_context", "public_preference"].includes(evidenceNeed) ? null
+    : resolveCompanionEventQuery({ message, history, currentPublicContext, now: clock });
   const temporal = currentPublicContext.temporal_context || {};
   const baselineIds = new Set(temporal.schedule_source_ids || []);
   const currentRequired = CURRENT_NEEDS.has(evidenceNeed);
@@ -207,7 +213,7 @@ export function retrieveCompanionKnowledge({ message, history = [], runtimeData 
   const priorSession = requestedResultSession(resultSelectorMessage);
   const expectedSession = currentSession !== undefined ? currentSession : priorSession !== undefined ? priorSession : "race";
   const resultDates = requestedResultDates(message, temporal) ?? requestedResultDates(resultSelectorMessage, temporal);
-  const applicableLive = live.map((item, index) => ({
+  const applicableLive = eventSelection ? eventSelection.sources.map(safeSource).filter(Boolean).slice(0, MAX_PUBLIC_SOURCES) : live.map((item, index) => ({
     item, index,
     baseline: item.kind === "schedule" && baselineIds.has(item.id),
     focused: item.kind === "schedule" && item.id === focusedPublicSourceId,
@@ -224,6 +230,16 @@ export function retrieveCompanionKnowledge({ message, history = [], runtimeData 
     return focused || baseline && allowBaseline || currentRequired || score >= 1;
   }).sort((a, b) => Number(b.focused) - Number(a.focused) || Number(b.baseline) - Number(a.baseline) || b.score - a.score || a.index - b.index)
     .slice(0, MAX_PUBLIC_SOURCES).map(({ item }) => item);
+  // Identity/location questions need the event observation, not every result
+  // statistic. Keep the same evidence IDs while avoiding an unsolicited recap.
+  if (eventSelection?.query.requested === "identity") {
+    for (let index = 0; index < applicableLive.length; index++) {
+      const source = applicableLive[index];
+      if (source.kind !== "session_result") continue;
+      const { position, number_of_laps, gap_to_leader, duration, ...identityFacts } = source.facts || {};
+      applicableLive[index] = { ...source, facts: identityFacts };
+    }
+  }
   const usedCatalogIds = new Set([...facts, ...rumors].flatMap(sourceIds));
   const sources = [...usedCatalogIds].map((id) => catalog[id]).filter(Boolean);
   const retrieved = { knowledge_fact_ids: facts.map((item) => item.id), rumor_item_ids: rumors.map((item) => item.id), public_source_ids: applicableLive.map((item) => item.id) };
@@ -232,6 +248,7 @@ export function retrieveCompanionKnowledge({ message, history = [], runtimeData 
     facts, rumors, public_sources: applicableLive,
     source_catalog: [...sources, ...applicableLive.map(({ facts: _facts, ...source }) => source)], retrieved,
     current_fact_required: currentRequired,
+    event_context: eventSelection ? { ...eventSelection.query, ...eventSelection.context } : null,
     evidence_need: evidenceNeed,
     as_of: new Date(nowMs).toISOString(),
     coverage: "locked_persona_records_and_product_news_calendar_results_not_whole_web",

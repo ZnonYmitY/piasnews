@@ -24,6 +24,12 @@ OPENF1_BASE_URL = "https://api.openf1.org/v1"
 OPENF1_TOKEN_URL = "https://api.openf1.org/token"
 USER_AGENT = "piasnews/0.8 (+https://github.com/ZnonYmitY/piasnews)"
 DRIVER_NUMBER = 81
+MAX_RESULT_HISTORY = 160
+RESULT_RECORD_FIELDS = (
+    "session_ref", "race_id", "race_name", "race_name_zh", "session", "session_name", "session_key",
+    "session_start", "session_end", "driver_number", "position", "status", "dnf", "dns", "dsq",
+    "number_of_laps", "gap_to_leader", "duration", "source", "source_url", "fetched_at", "first_ranked_at",
+)
 SESSION_NAMES = {
     "practice_1": "Practice 1",
     "practice_2": "Practice 2",
@@ -305,6 +311,90 @@ def fetch_latest_result(
     }, None
 
 
+def history_record(value: Any, *, now: datetime) -> dict[str, Any] | None:
+    """Validate one already collected result; never infer missing session data."""
+    if not isinstance(value, dict) or type(value.get("driver_number")) is not int or value.get("driver_number") != DRIVER_NUMBER:
+        return None
+    ref, session = value.get("session_ref"), value.get("session")
+    if not isinstance(ref, str) or not ref.strip() or len(ref) > 200 or not isinstance(session, str) or session not in SESSION_NAMES:
+        return None
+    if not ref.endswith(f":{session}") or ref == f":{session}":
+        return None
+    start_value, fetched_value = value.get("session_start"), value.get("fetched_at")
+    if not isinstance(start_value, str) or not isinstance(fetched_value, str):
+        return None
+    start, fetched = parse_time(start_value), parse_time(fetched_value)
+    if start is None or fetched is None or not start <= fetched <= now:
+        return None
+    end_value = value.get("session_end")
+    if end_value is not None:
+        end = parse_time(end_value) if isinstance(end_value, str) else None
+        if end is None or not start <= end <= fetched:
+            return None
+    position = value.get("position")
+    if position is not None and (type(position) is not int or not 1 <= position <= 30):
+        return None
+    flags = [value.get(name, False) for name in ("dnf", "dns", "dsq")]
+    if any(type(flag) is not bool for flag in flags) or position is None and not any(flags):
+        return None
+    if value.get("status") != result_status(value):
+        return None
+    laps = value.get("number_of_laps")
+    if laps is not None and (type(laps) is not int or laps < 0):
+        return None
+    source_url = value.get("source_url")
+    if not isinstance(source_url, str) or len(source_url) > 2048:
+        return None
+    try:
+        source = urllib.parse.urlsplit(source_url)
+        query = urllib.parse.parse_qs(source.query)
+        if source.scheme != "https" or source.hostname != "api.openf1.org" or source.path != "/v1/session_result":
+            return None
+        if source.username or source.password or source.port or source.fragment or query.get("driver_number") != ["81"]:
+            return None
+        session_key = value.get("session_key")
+        if type(session_key) is not int or session_key <= 0 or query.get("session_key") != [str(session_key)]:
+            return None
+    except ValueError:
+        return None
+    record = {field: value[field] for field in RESULT_RECORD_FIELDS if field in value}
+    first_value = record.get("first_ranked_at")
+    first = parse_time(first_value) if isinstance(first_value, str) else None
+    # A legacy snapshot can establish only its own collection time, never the
+    # current build time or a conjectured earlier first appearance.
+    if first is None or not start <= first <= fetched:
+        record["first_ranked_at"] = fetched_value
+    return record
+
+
+def merge_result_history(
+    previous: dict[str, Any], latest: dict[str, Any] | None, *, now: datetime
+) -> list[dict[str, Any]]:
+    """Bounded archive of observed records; provider revisions replace by ref."""
+    existing = previous.get("results")
+    candidates = [(record, False) for record in existing] if isinstance(existing, list) else []
+    candidates.extend([(previous.get("latest"), False), (latest, True)])
+    by_ref: dict[str, dict[str, Any]] = {}
+    for candidate, is_current_provider_record in candidates:
+        record = history_record(candidate, now=now)
+        if record is None:
+            continue
+        ref = record["session_ref"]
+        old = by_ref.get(ref)
+        if old is not None:
+            first = min([old, record], key=lambda item: parse_time(item["first_ranked_at"]))["first_ranked_at"]
+            # Archived observations win ties over legacy previous.latest. Only
+            # this run's explicit provider record can revise an equal-time row.
+            observed, old_observed = parse_time(record["fetched_at"]), parse_time(old["fetched_at"])
+            if observed < old_observed or observed == old_observed and not is_current_provider_record:
+                record = dict(old)
+            record["first_ranked_at"] = first
+        by_ref[ref] = record
+    return sorted(
+        by_ref.values(), key=lambda item: (parse_time(item["session_start"]), item["session_ref"]), reverse=True
+    )[:MAX_RESULT_HISTORY]
+
+
 def build_payload(
     calendar: dict[str, Any],
     previous: dict[str, Any],
@@ -319,8 +409,13 @@ def build_payload(
         confirmation_minutes=confirmation_minutes,
         fetcher=fetcher,
     )
+    history = merge_result_history(previous, None, now=now)
     if latest is not None:
         previous_latest = previous.get("latest") or {}
+        if not isinstance(previous_latest, dict):
+            previous_latest = {}
+        if previous_latest.get("session_ref") != latest.get("session_ref"):
+            previous_latest = next((record for record in history if record["session_ref"] == latest.get("session_ref")), {})
         if previous_latest.get("session_ref") == latest.get("session_ref"):
             latest["first_ranked_at"] = (
                 previous_latest.get("first_ranked_at")
@@ -337,6 +432,7 @@ def build_payload(
         "attempted_session_ref": attempted_ref,
         "result_available": latest is not None,
         "latest": latest if latest is not None else previous.get("latest"),
+        "results": merge_result_history({"results": history}, latest, now=now),
     }
     if error:
         payload["last_error"] = error
