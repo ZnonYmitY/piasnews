@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-22T18:31:51.254878Z",
+  "generated_at": "2026-09-22T22:09:51.954449Z",
   "translations": {
     "items:piasnews-1e349ebc993f7040:title:eb42be63557579e3ed950f9f": {
       "dataset": "items",
@@ -3865,6 +3865,42 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-22T18:31:50.476549Z"
+    },
+    "items:piasnews-f9f896356e97fe0e:title:9806168db780a74bfa103d0a": {
+      "dataset": "items",
+      "item_id": "piasnews-f9f896356e97fe0e",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri’s ‘most stressful’ race; Ricciardo pleasure and pain: Baku’s bittersweet Aussie legacy",
+      "zh": "Piastri“压力最大”的一场比赛；Ricciardo的喜悦与痛苦：Baku苦乐参半的澳洲传承",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-22T22:09:51.183381Z"
+    },
+    "items:piasnews-f9f896356e97fe0e:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-f9f896356e97fe0e",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-22T22:09:51.183391Z"
+    },
+    "social:piasnews-social-8be0575f5ea68f23:summary:cdc9afe3febeec0cadc5d83a": {
+      "dataset": "social",
+      "item_id": "piasnews-social-8be0575f5ea68f23",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "a new video of oscar meeting fans in monaco a couple of days ago! https://t.co/MmGNQhNi9b",
+      "zh": "几天前Oscar在摩纳哥与粉丝见面的新视频！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-22T22:09:51.183396Z"
     }
   },
   "retention_days": 8

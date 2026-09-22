@@ -1,91 +1,12 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-22T18:31:52.857328Z",
+  "generated_at": "2026-09-22T22:09:53.471236Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
   "event_count": 10,
   "events": [
-    {
-      "event_id": "evt-2026-09-19-a9755c67177c-2fe08f26",
-      "rule_id": null,
-      "hot_word_zh": "kevin：“那感觉怎么样？” oscar：“吓死我了” *咯咯笑* “我的脚法相当糟糕…",
-      "hot_word_en": "kevin: \"how did that feel?\" oscar: \"scary as fuck\" *giggles* \"my footwork was pretty shocking because i value…",
-      "first_seen_at": "2026-09-19T22:03:51Z",
-      "last_seen_at": "2026-09-20T08:02:21Z",
-      "anchor_item_id": "piasnews-social-ffc20cbe4531cba6",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2101432085613322240/vid/avc1/490x270/wEGLugvHvZWduvej.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2101432085613322240/img/gMERRdww7Kh30fHI.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-ffc20cbe4531cba6",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: kevin: \"how did that feel?\" oscar: \"scary as fuck\" *giggles* \"my footwork was pretty shocking b…",
-          "title_zh": "X 发帖 @laurogeitabat：kevin：“那感觉怎么样？” oscar：“吓死我了” *咯咯笑* “我的脚法相当糟糕，因为我很珍惜我的脚趾，我需要它们来开车” 😭😭😭",
-          "summary": "kevin: \"how did that feel?\" oscar: \"scary as fuck\" *giggles* \"my footwork was pretty shocking because i value my toes and i need them to drive\" 😭😭😭 https://t.co/nY3tNSGm4m",
-          "summary_zh": "kevin：“那感觉怎么样？” oscar：“吓死我了” *咯咯笑* “我的脚法相当糟糕，因为我很珍惜我的脚趾，我需要它们来开车” 😭😭😭",
-          "url": "https://x.com/laurogeitabat/status/2101432106127675575",
-          "published_at": "2026-09-19T22:03:51Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2101432085613322240/vid/avc1/490x270/wEGLugvHvZWduvej.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2101432085613322240/img/gMERRdww7Kh30fHI.jpg",
-          "heat_contribution": 6.1112,
-          "metrics": {
-            "likes": 1821,
-            "retweets": 130,
-            "replies": 1,
-            "quotes": 0,
-            "views": 16538,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-7db938b0ee922f1d",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X repost from @laurogeitabat: RT @laurogeitabat: kevin: \"how did that feel?\" oscar: \"scary as fuck\" *giggles* \"my footwork wa…",
-          "title_zh": "X 转帖 @laurogeitabat：RT @laurogeitabat: Kevin：“那感觉怎么样？” Oscar：“吓死人了” *咯咯笑* “我的步法相当糟糕，因为我很珍惜我的脚趾…”",
-          "summary": "RT @laurogeitabat: kevin: \"how did that feel?\" oscar: \"scary as fuck\" *giggles* \"my footwork was pretty shocking because i value my toes a…",
-          "summary_zh": "RT @laurogeitabat: Kevin：“那感觉怎么样？” Oscar：“吓死人了” *咯咯笑* “我的步法相当糟糕，因为我很珍惜我的脚趾…”",
-          "url": "https://x.com/laurogeitabat/status/2101582723257078224",
-          "published_at": "2026-09-20T08:02:21Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 3.7136,
-          "metrics": {
-            "likes": 0,
-            "retweets": 100,
-            "replies": 0,
-            "quotes": 0,
-            "views": 0,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 40,
-      "heat": 40,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 1
-    },
     {
       "event_id": "evt-2026-09-21-11a097b6b708",
       "rule_id": null,
@@ -114,13 +35,68 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2102022432118747136/vid/avc1/320x426/k8E11AIFhRTckMIy.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2102022432118747136/img/pXo51SJ6MvkW4WWe.jpg",
-          "heat_contribution": 7.5036,
+          "heat_contribution": 7.5152,
           "metrics": {
-            "likes": 3157,
-            "retweets": 223,
+            "likes": 3190,
+            "retweets": 228,
             "replies": 1,
             "quotes": 0,
-            "views": 42434,
+            "views": 42833,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 39,
+      "heat": 39,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 1
+    },
+    {
+      "event_id": "evt-2026-09-22-d90855068575",
+      "rule_id": null,
+      "hot_word_zh": "oscar 明天将和 checo 以及 george 一起参加第二场新闻发布会！",
+      "hot_word_en": "oscar will take part in the second press conference tomorrow alongside checo and george!",
+      "first_seen_at": "2026-09-22T08:42:51Z",
+      "last_seen_at": "2026-09-22T08:42:51Z",
+      "anchor_item_id": "piasnews-social-7d18b1fcba839053",
+      "image_url": "https://pbs.twimg.com/media/HSzuy7HWoAAMpGi.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HSzuy7HWoAAMpGi.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-7d18b1fcba839053",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar will take part in the second press conference tomorrow alongside checo and george!",
+          "title_zh": "X 发帖 @laurogeitabat：oscar 明天将和 checo 以及 george 一起参加第二场新闻发布会！",
+          "summary": "oscar will take part in the second press conference tomorrow alongside checo and george! https://t.co/psnORZTKPR",
+          "summary_zh": "oscar 明天将和 checo 以及 george 一起参加第二场新闻发布会！",
+          "url": "https://x.com/laurogeitabat/status/2102317690287251534",
+          "published_at": "2026-09-22T08:42:51Z",
+          "image_url": "https://pbs.twimg.com/media/HSzuy7HWoAAMpGi.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HSzuy7HWoAAMpGi.jpg",
+          "heat_contribution": 7.5014,
+          "metrics": {
+            "likes": 1074,
+            "retweets": 95,
+            "replies": 8,
+            "quotes": 0,
+            "views": 112476,
             "bookmarks": 0
           }
         }
@@ -237,7 +213,7 @@
           "image_url": "https://motorcyclesports.net/wp-content/uploads/2026/09/ReztVDt7awdT.webp",
           "video_url": null,
           "video_poster_url": "https://motorcyclesports.net/wp-content/uploads/2026/09/ReztVDt7awdT.webp",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -305,7 +281,7 @@
           "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2294669048-scaled.jpg",
           "video_url": null,
           "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2294669048-scaled.jpg",
-          "heat_contribution": 0.2,
+          "heat_contribution": 0.0,
           "metrics": {}
         },
         {
@@ -446,9 +422,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 34,
+      "media_heat": 32,
       "fan_heat": 0,
-      "heat": 34,
+      "heat": 32,
       "source_labels": [
         "媒"
       ],
@@ -479,7 +455,7 @@
           "item_id": "piasnews-ea96ebdf9993a39d",
           "dataset": "items",
           "source_type": "official",
-          "source": "formula1.com",
+          "source": "Formula 1",
           "title": "‘Figure out how to close that gap’ – How can Piastri recover from ‘anonymous’ Madrid weekend?",
           "title_zh": "“想办法缩小差距”——Piastri 如何从“默默无闻”的马德里周末中恢复？",
           "summary": "Oscar Piastri-related item discovered from public news metadata.",
@@ -489,7 +465,7 @@
           "image_url": "https://media.formula1.com/image/upload/c_lfill,w_2048/q_auto/v1740000001/fom-website/2026/Spain%20(Madrid)/Piastri%20Madrid.webp",
           "video_url": null,
           "video_poster_url": "https://media.formula1.com/image/upload/c_lfill,w_2048/q_auto/v1740000001/fom-website/2026/Spain%20(Madrid)/Piastri%20Madrid.webp",
-          "heat_contribution": 3.0,
+          "heat_contribution": 2.25,
           "metrics": {}
         },
         {
@@ -506,14 +482,14 @@
           "image_url": "https://media.formula1.com/image/upload/c_lfill,w_2048/q_auto/v1740000001/fom-website/2026/Spain%20(Madrid)/Piastri%20Madrid.webp",
           "video_url": null,
           "video_poster_url": "https://media.formula1.com/image/upload/c_lfill,w_2048/q_auto/v1740000001/fom-website/2026/Spain%20(Madrid)/Piastri%20Madrid.webp",
-          "heat_contribution": 1.0,
+          "heat_contribution": 0.75,
           "metrics": {}
         }
       ],
-      "official_heat": 22,
-      "media_heat": 15,
+      "official_heat": 18,
+      "media_heat": 13,
       "fan_heat": 0,
-      "heat": 26,
+      "heat": 21,
       "source_labels": [
         "官",
         "媒"
@@ -526,88 +502,6 @@
       "pinned_rank": null,
       "hidden": false,
       "rank": 4
-    },
-    {
-      "event_id": "evt-2026-09-20-f4aaf9d33676",
-      "rule_id": null,
-      "hot_word_zh": "“他是个澳洲击球手”：McLaren F1 明星 Oscar Piastri 挑战 Kev…",
-      "hot_word_en": "'He’s an Aussie batter': Fans stunned as McLaren F1 star Oscar Piastri takes on Kevin Pietersen’s 100 mph cri…",
-      "first_seen_at": "2026-09-20T11:15:27.915000Z",
-      "last_seen_at": "2026-09-20T20:42:46Z",
-      "anchor_item_id": "piasnews-6b4f80add27a6094",
-      "image_url": "https://staticimg.publishstory.co/thumb/134375055.cms?imgsize=127580&width=1280&height=720&resizemode=8",
-      "video_url": "https://www.youtube.com/embed/azMJxl9rKv8",
-      "video_poster_url": "https://staticimg.publishstory.co/thumb/134375055.cms?imgsize=127580&width=1280&height=720&resizemode=8",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-6b4f80add27a6094",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Indiatimes",
-          "title": "'He’s an Aussie batter': Fans stunned as McLaren F1 star Oscar Piastri takes on Kevin Pietersen’s 100 mph cricket challenge",
-          "title_zh": "“他是个澳洲击球手”：McLaren F1 明星 Oscar Piastri 挑战 Kevin Pietersen 的 100 英里每小时板球挑战，粉丝们惊呆了",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与车队或赛车性能相关的条目。",
-          "url": "https://www.indiatimes.com/trending/hes-an-aussie-batter-fans-stunned-as-mclaren-f1-star-oscar-piastri-takes-on-kevin-pietersens-100-mph-cricket-challenge/articleshow/134375031.html",
-          "published_at": "2026-09-20T20:42:46Z",
-          "image_url": "https://staticimg.publishstory.co/thumb/134375055.cms?imgsize=127580&width=1280&height=720&resizemode=8",
-          "video_url": null,
-          "video_poster_url": "https://staticimg.publishstory.co/thumb/134375055.cms?imgsize=127580&width=1280&height=720&resizemode=8",
-          "heat_contribution": 0.45,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-dc205bb6da93c54b",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "MotorBiscuit",
-          "title": "Watch Oscar Piastri Take 100 mph Cricket Challenge with Former English Player",
-          "title_zh": "观看 Oscar Piastri 与前英格兰球员挑战时速100英里板球",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与车队或赛车性能相关的条目。",
-          "url": "https://www.motorbiscuit.com/watch-oscar-piastri-take-100-mph-cricket-challenge-with-former-english-player/",
-          "published_at": "2026-09-20T16:49:53Z",
-          "image_url": "https://www.motorbiscuit.com/wp-content/uploads/2026/09/piastricricket.jpg",
-          "video_url": "https://www.youtube.com/embed/azMJxl9rKv8",
-          "video_poster_url": "https://www.motorbiscuit.com/wp-content/uploads/2026/09/piastricricket.jpg",
-          "heat_contribution": 0.2,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-79a9855139c406fa",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Sportscape Magazine",
-          "title": "F1 Meets Cricket: Watch Oscar Piastri Faces 100 MPH Deliveries With Kevin Pieterson",
-          "title_zh": "F1 遇上板球：观看 Oscar Piastri 面对 Kevin Pieterson 的时速100英里投球",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与车队或赛车性能相关的条目。",
-          "url": "https://www.sportscapemagazine.com/blog/f1-meets-cricket-watch-oscar-piastri-faces-100-mph-deliveries-with-kevin-pieterson",
-          "published_at": "2026-09-20T11:15:27.915000Z",
-          "image_url": "https://www.sportscapemagazine.com/_next/image?url=https%3A%2F%2Fwww.sportscapemagazine.com%2Fstorage%2Fpost-media%2Fraj%2520veer%2F1789900645595-p8h6fp.jpg&w=1200&q=75",
-          "video_url": null,
-          "video_poster_url": "https://www.sportscapemagazine.com/_next/image?url=https%3A%2F%2Fwww.sportscapemagazine.com%2Fstorage%2Fpost-media%2Fraj%2520veer%2F1789900645595-p8h6fp.jpg&w=1200&q=75",
-          "heat_contribution": 0.2,
-          "metrics": {}
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 18,
-      "fan_heat": 0,
-      "heat": 18,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 3,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 5
     },
     {
       "event_id": "evt-2026-09-17-192dcb6c3424-c810e225-2",
@@ -672,7 +566,154 @@
       },
       "pinned_rank": null,
       "hidden": false,
+      "rank": 5
+    },
+    {
+      "event_id": "evt-2026-09-20-f4aaf9d33676",
+      "rule_id": null,
+      "hot_word_zh": "“他是个澳洲击球手”：McLaren F1 明星 Oscar Piastri 挑战 Kev…",
+      "hot_word_en": "'He’s an Aussie batter': Fans stunned as McLaren F1 star Oscar Piastri takes on Kevin Pietersen’s 100 mph cri…",
+      "first_seen_at": "2026-09-20T11:15:27.915000Z",
+      "last_seen_at": "2026-09-20T20:42:46Z",
+      "anchor_item_id": "piasnews-6b4f80add27a6094",
+      "image_url": "https://staticimg.publishstory.co/thumb/134375055.cms?imgsize=127580&width=1280&height=720&resizemode=8",
+      "video_url": "https://www.youtube.com/embed/azMJxl9rKv8",
+      "video_poster_url": "https://staticimg.publishstory.co/thumb/134375055.cms?imgsize=127580&width=1280&height=720&resizemode=8",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-6b4f80add27a6094",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Indiatimes",
+          "title": "'He’s an Aussie batter': Fans stunned as McLaren F1 star Oscar Piastri takes on Kevin Pietersen’s 100 mph cricket challenge",
+          "title_zh": "“他是个澳洲击球手”：McLaren F1 明星 Oscar Piastri 挑战 Kevin Pietersen 的 100 英里每小时板球挑战，粉丝们惊呆了",
+          "summary": "Team or car-performance item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的与车队或赛车性能相关的条目。",
+          "url": "https://www.indiatimes.com/trending/hes-an-aussie-batter-fans-stunned-as-mclaren-f1-star-oscar-piastri-takes-on-kevin-pietersens-100-mph-cricket-challenge/articleshow/134375031.html",
+          "published_at": "2026-09-20T20:42:46Z",
+          "image_url": "https://staticimg.publishstory.co/thumb/134375055.cms?imgsize=127580&width=1280&height=720&resizemode=8",
+          "video_url": null,
+          "video_poster_url": "https://staticimg.publishstory.co/thumb/134375055.cms?imgsize=127580&width=1280&height=720&resizemode=8",
+          "heat_contribution": 0.2,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-dc205bb6da93c54b",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "MotorBiscuit",
+          "title": "Watch Oscar Piastri Take 100 mph Cricket Challenge with Former English Player",
+          "title_zh": "观看 Oscar Piastri 与前英格兰球员挑战时速100英里板球",
+          "summary": "Team or car-performance item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的与车队或赛车性能相关的条目。",
+          "url": "https://www.motorbiscuit.com/watch-oscar-piastri-take-100-mph-cricket-challenge-with-former-english-player/",
+          "published_at": "2026-09-20T16:49:53Z",
+          "image_url": "https://www.motorbiscuit.com/wp-content/uploads/2026/09/piastricricket.jpg",
+          "video_url": "https://www.youtube.com/embed/azMJxl9rKv8",
+          "video_poster_url": "https://www.motorbiscuit.com/wp-content/uploads/2026/09/piastricricket.jpg",
+          "heat_contribution": 0.2,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-79a9855139c406fa",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Sportscape Magazine",
+          "title": "F1 Meets Cricket: Watch Oscar Piastri Faces 100 MPH Deliveries With Kevin Pieterson",
+          "title_zh": "F1 遇上板球：观看 Oscar Piastri 面对 Kevin Pieterson 的时速100英里投球",
+          "summary": "Team or car-performance item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的与车队或赛车性能相关的条目。",
+          "url": "https://www.sportscapemagazine.com/blog/f1-meets-cricket-watch-oscar-piastri-faces-100-mph-deliveries-with-kevin-pieterson",
+          "published_at": "2026-09-20T11:15:27.915000Z",
+          "image_url": "https://www.sportscapemagazine.com/_next/image?url=https%3A%2F%2Fwww.sportscapemagazine.com%2Fstorage%2Fpost-media%2Fraj%2520veer%2F1789900645595-p8h6fp.jpg&w=1200&q=75",
+          "video_url": null,
+          "video_poster_url": "https://www.sportscapemagazine.com/_next/image?url=https%3A%2F%2Fwww.sportscapemagazine.com%2Fstorage%2Fpost-media%2Fraj%2520veer%2F1789900645595-p8h6fp.jpg&w=1200&q=75",
+          "heat_contribution": 0.2,
+          "metrics": {}
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 16,
+      "fan_heat": 0,
+      "heat": 16,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 3,
+        "fan": 0
+      },
+      "pinned_rank": null,
+      "hidden": false,
       "rank": 6
+    },
+    {
+      "event_id": "evt-2026-09-15-eaf2b41d68b2-71ed9b79",
+      "rule_id": null,
+      "hot_word_zh": "Piastri“压力最大”的一场比赛；Ricciardo的喜悦与痛苦：Baku苦乐参半的澳…",
+      "hot_word_en": "Piastri’s ‘most stressful’ race; Ricciardo pleasure and pain: Baku’s bittersweet Aussie legacy",
+      "first_seen_at": "2026-09-16T13:43:00Z",
+      "last_seen_at": "2026-09-22T13:11:58Z",
+      "anchor_item_id": "piasnews-f9f896356e97fe0e",
+      "image_url": "https://content.api.news/v3/images/bin/47b489682a633245270987cb9a48ff30",
+      "video_url": null,
+      "video_poster_url": "https://content.api.news/v3/images/bin/47b489682a633245270987cb9a48ff30",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-f9f896356e97fe0e",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "foxsports.com.au",
+          "title": "Piastri’s ‘most stressful’ race; Ricciardo pleasure and pain: Baku’s bittersweet Aussie legacy",
+          "title_zh": "Piastri“压力最大”的一场比赛；Ricciardo的喜悦与痛苦：Baku苦乐参半的澳洲传承",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+          "url": "https://www.foxsports.com.au/motorsport/formula-one/piastris-most-stressful-race-ricciardo-pleasure-and-pain-bakus-bittersweet-aussie-legacy/news-story/3ff28d6927781c7df9404f0470dff7c7",
+          "published_at": "2026-09-22T13:11:58Z",
+          "image_url": "https://content.api.news/v3/images/bin/47b489682a633245270987cb9a48ff30",
+          "video_url": null,
+          "video_poster_url": "https://content.api.news/v3/images/bin/47b489682a633245270987cb9a48ff30",
+          "heat_contribution": 0.75,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-28965d9539cb3871",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Kalkine",
+          "title": "How Oscar Piastri Raced From Karting to Formula One Success",
+          "title_zh": "Oscar Piastri 如何从卡丁车一路驶向 Formula One 的成功",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+          "url": "https://kalkine.com.au/news/general-news/how-oscar-piastri-raced-from-karting-to-formula-one-success",
+          "published_at": "2026-09-16T13:43:00Z",
+          "image_url": "https://kalkine.com.au/imagefeeds/medium/shutterstock_2593193569_09_16_2026_13_43_38_514456.jpg",
+          "video_url": null,
+          "video_poster_url": "https://kalkine.com.au/imagefeeds/medium/shutterstock_2593193569_09_16_2026_13_43_38_514456.jpg",
+          "heat_contribution": 0.0,
+          "metrics": {}
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 13,
+      "fan_heat": 0,
+      "heat": 13,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 2,
+        "fan": 0
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 7
     },
     {
       "event_id": "evt-2026-09-22-9d82e8faeb81",
@@ -720,7 +761,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 8
     },
     {
       "event_id": "evt-2026-09-15-eaf2b41d68b2",
@@ -768,84 +809,36 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
-    },
-    {
-      "event_id": "evt-2026-09-15-eaf2b41d68b2-71ed9b79",
-      "rule_id": null,
-      "hot_word_zh": "F1历史上的今天：曼塞尔为威廉姆斯锁定冠军，Piastri在Baku折戟",
-      "hot_word_en": "On this Day in Formula 1: Mansell seals Williams crown, Piastri crumbles in Baku",
-      "first_seen_at": "2026-09-21T05:30:00Z",
-      "last_seen_at": "2026-09-21T05:30:00Z",
-      "anchor_item_id": "piasnews-ff86e7cc81adb4e0",
-      "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgrandprix247.com%2Fimages%2F2026-09%2F4onwall-6aafdb167f6fc.jpg",
-      "video_url": null,
-      "video_poster_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgrandprix247.com%2Fimages%2F2026-09%2F4onwall-6aafdb167f6fc.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-ff86e7cc81adb4e0",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "grandprix247",
-          "title": "On this Day in Formula 1: Mansell seals Williams crown, Piastri crumbles in Baku",
-          "title_zh": "F1历史上的今天：曼塞尔为威廉姆斯锁定冠军，Piastri在Baku折戟",
-          "summary": "Oscar Piastri-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
-          "url": "https://www.grandprix247.com/f1-history/on-this-day-in-formula-1-mansell-seals-williams-crown-piastri-crumbles-in-baku",
-          "published_at": "2026-09-21T05:30:00Z",
-          "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgrandprix247.com%2Fimages%2F2026-09%2F4onwall-6aafdb167f6fc.jpg",
-          "video_url": null,
-          "video_poster_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgrandprix247.com%2Fimages%2F2026-09%2F4onwall-6aafdb167f6fc.jpg",
-          "heat_contribution": 0.45,
-          "metrics": {}
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 10,
-      "fan_heat": 0,
-      "heat": 10,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 1,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
       "rank": 9
     },
     {
-      "event_id": "evt-2026-09-20-038a3765b9c0",
+      "event_id": "evt-2026-09-21-428715e305d3",
       "rule_id": null,
-      "hot_word_zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
-      "hot_word_en": "Piastri: F1 drivers sometimes feel like passengers with new energy systems",
-      "first_seen_at": "2026-09-20T20:01:00Z",
-      "last_seen_at": "2026-09-20T20:01:00Z",
-      "anchor_item_id": "piasnews-cfd525cced82d060",
-      "image_url": "https://newsgpcdn.vshcdn.net/i/images/7091/piastri-newsgp-spa_f.jpg",
+      "hot_word_zh": "“一种相当糟糕的赛车方式”：Piastri 谈 F1 2026 年电脑控制的赛车",
+      "hot_word_en": "‘A pretty crap way of going racing’: Piastri on F1’s computer-controlled 2026 cars",
+      "first_seen_at": "2026-09-21T15:45:00Z",
+      "last_seen_at": "2026-09-21T15:45:00Z",
+      "anchor_item_id": "piasnews-89db90429c5dbed7",
+      "image_url": "https://lentedesportiva.com/wp-content/uploads/2026/09/lente-a430ca11-7d6b-47e6-9c98-8dee475aa049.jpg",
       "video_url": null,
-      "video_poster_url": "https://newsgpcdn.vshcdn.net/i/images/7091/piastri-newsgp-spa_f.jpg",
+      "video_poster_url": "https://lentedesportiva.com/wp-content/uploads/2026/09/lente-a430ca11-7d6b-47e6-9c98-8dee475aa049.jpg",
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
         {
-          "item_id": "piasnews-cfd525cced82d060",
+          "item_id": "piasnews-89db90429c5dbed7",
           "dataset": "items",
           "source_type": "media",
-          "source": "news.gp",
-          "title": "Piastri: F1 drivers sometimes feel like passengers with new energy systems",
-          "title_zh": "Piastri：有了新的能量系统，F1 车手有时感觉像乘客",
-          "summary": "Oscar Piastri-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
-          "url": "https://www.news.gp/en/piastri-f1-drivers-sometimes-feel-like-passengers-with-new-energy-systems",
-          "published_at": "2026-09-20T20:01:00Z",
-          "image_url": "https://newsgpcdn.vshcdn.net/i/images/7091/piastri-newsgp-spa_f.jpg",
+          "source": "Lente Desportiva",
+          "title": "‘A pretty crap way of going racing’: Piastri on F1’s computer-controlled 2026 cars",
+          "title_zh": "“一种相当糟糕的赛车方式”：Piastri 谈 F1 2026 年电脑控制的赛车",
+          "summary": "Team or car-performance item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的与车队或赛车性能相关的条目。",
+          "url": "https://lentedesportiva.com/a-pretty-crap-way-of-going-racing-piastri-on-f1s-computer-controlled-2026-cars/",
+          "published_at": "2026-09-21T15:45:00Z",
+          "image_url": "https://lentedesportiva.com/wp-content/uploads/2026/09/lente-a430ca11-7d6b-47e6-9c98-8dee475aa049.jpg",
           "video_url": null,
-          "video_poster_url": "https://newsgpcdn.vshcdn.net/i/images/7091/piastri-newsgp-spa_f.jpg",
+          "video_poster_url": "https://lentedesportiva.com/wp-content/uploads/2026/09/lente-a430ca11-7d6b-47e6-9c98-8dee475aa049.jpg",
           "heat_contribution": 0.45,
           "metrics": {}
         }
@@ -867,7 +860,7 @@
       "rank": 10
     }
   ],
-  "review_needed_count": 31,
+  "review_needed_count": 32,
   "review_needed_events": [
     {
       "event_id": "evt-2026-09-17-2ed5512eef4b",
@@ -1078,64 +1071,6 @@
       "hidden": false
     },
     {
-      "event_id": "evt-2026-09-22-d90855068575",
-      "rule_id": null,
-      "hot_word_zh": "oscar 明天将和 checo 以及 george 一起参加第二场新闻发布会！",
-      "hot_word_en": "oscar will take part in the second press conference tomorrow alongside checo and george!",
-      "first_seen_at": "2026-09-22T08:42:51Z",
-      "last_seen_at": "2026-09-22T08:42:51Z",
-      "anchor_item_id": "piasnews-social-7d18b1fcba839053",
-      "image_url": "https://pbs.twimg.com/media/HSzuy7HWoAAMpGi.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HSzuy7HWoAAMpGi.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-7d18b1fcba839053",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar will take part in the second press conference tomorrow alongside checo and george!",
-          "title_zh": "X 发帖 @laurogeitabat：oscar 明天将和 checo 以及 george 一起参加第二场新闻发布会！",
-          "summary": "oscar will take part in the second press conference tomorrow alongside checo and george! https://t.co/psnORZTKPR",
-          "summary_zh": "oscar 明天将和 checo 以及 george 一起参加第二场新闻发布会！",
-          "url": "https://x.com/laurogeitabat/status/2102317690287251534",
-          "published_at": "2026-09-22T08:42:51Z",
-          "image_url": "https://pbs.twimg.com/media/HSzuy7HWoAAMpGi.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HSzuy7HWoAAMpGi.jpg",
-          "heat_contribution": 7.4257,
-          "metrics": {
-            "likes": 1022,
-            "retweets": 91,
-            "replies": 7,
-            "quotes": 0,
-            "views": 101173,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 39,
-      "heat": 39,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-09-19-6d1ed0e176bc",
       "rule_id": null,
       "hot_word_zh": "*kevin pietersen 做 6 7 手势* oscar：“……oh dear”…",
@@ -1163,13 +1098,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2101446436667682816/vid/avc1/502x270/lDNS0F2DxUQtbMY1.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2101446436667682816/img/KMm30bPo2z7fk-8Y.jpg",
-          "heat_contribution": 5.7173,
+          "heat_contribution": 5.7168,
           "metrics": {
-            "likes": 1112,
+            "likes": 1111,
             "retweets": 96,
             "replies": 0,
             "quotes": 0,
-            "views": 21148,
+            "views": 21158,
             "bookmarks": 0
           }
         },
@@ -1194,64 +1129,6 @@
             "replies": 0,
             "quotes": 0,
             "views": 0,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 38,
-      "heat": 38,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-09-21-d248b89039df",
-      "rule_id": null,
-      "hot_word_zh": "我相信",
-      "hot_word_en": "I believe",
-      "first_seen_at": "2026-09-21T21:12:39Z",
-      "last_seen_at": "2026-09-21T21:12:39Z",
-      "anchor_item_id": "piasnews-social-20b1592c89ba69c5",
-      "image_url": "https://pbs.twimg.com/media/HSrpy9AXYAAL4C1.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HSrpy9AXYAAL4C1.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-20b1592c89ba69c5",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X repost from @laurogeitabat: RT @irp13_: I believe",
-          "title_zh": "X 转帖 @laurogeitabat：RT @irp13_：我相信",
-          "summary": "RT @irp13_: I believe https://t.co/wToI1JpqDr",
-          "summary_zh": "RT @irp13_：我相信",
-          "url": "https://x.com/laurogeitabat/status/2102143997531836873",
-          "published_at": "2026-09-21T21:12:39Z",
-          "image_url": "https://pbs.twimg.com/media/HSrpy9AXYAAL4C1.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HSrpy9AXYAAL4C1.jpg",
-          "heat_contribution": 7.3168,
-          "metrics": {
-            "likes": 0,
-            "retweets": 1002,
-            "replies": 0,
-            "quotes": 0,
-            "views": 190,
             "bookmarks": 0
           }
         }
@@ -1303,13 +1180,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2101449848314634240/vid/avc1/502x270/lSSVM3du6e39D0t5.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2101449848314634240/img/V8LLvXeA6XylUoxQ.jpg",
-          "heat_contribution": 5.5422,
+          "heat_contribution": 5.5417,
           "metrics": {
-            "likes": 825,
+            "likes": 824,
             "retweets": 111,
             "replies": 0,
             "quotes": 0,
-            "views": 22423,
+            "views": 22457,
             "bookmarks": 0
           }
         },
@@ -1385,13 +1262,13 @@
           "image_url": "https://pbs.twimg.com/media/HSzKLTbXQAANkyJ.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HSzKLTbXQAANkyJ.jpg",
-          "heat_contribution": 6.9719,
+          "heat_contribution": 7.0111,
           "metrics": {
-            "likes": 997,
-            "retweets": 129,
+            "likes": 1040,
+            "retweets": 131,
             "replies": 0,
             "quotes": 0,
-            "views": 16540,
+            "views": 17519,
             "bookmarks": 0
           }
         }
@@ -1400,6 +1277,64 @@
       "media_heat": 0,
       "fan_heat": 37,
       "heat": 37,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-09-21-d248b89039df",
+      "rule_id": null,
+      "hot_word_zh": "我相信",
+      "hot_word_en": "I believe",
+      "first_seen_at": "2026-09-21T21:12:39Z",
+      "last_seen_at": "2026-09-21T21:12:39Z",
+      "anchor_item_id": "piasnews-social-20b1592c89ba69c5",
+      "image_url": "https://pbs.twimg.com/media/HSrpy9AXYAAL4C1.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HSrpy9AXYAAL4C1.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-20b1592c89ba69c5",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: RT @irp13_: I believe",
+          "title_zh": "X 转帖 @laurogeitabat：RT @irp13_：我相信",
+          "summary": "RT @irp13_: I believe https://t.co/wToI1JpqDr",
+          "summary_zh": "RT @irp13_：我相信",
+          "url": "https://x.com/laurogeitabat/status/2102143997531836873",
+          "published_at": "2026-09-21T21:12:39Z",
+          "image_url": "https://pbs.twimg.com/media/HSrpy9AXYAAL4C1.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HSrpy9AXYAAL4C1.jpg",
+          "heat_contribution": 6.8085,
+          "metrics": {
+            "likes": 0,
+            "retweets": 1004,
+            "replies": 0,
+            "quotes": 0,
+            "views": 193,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 36,
+      "heat": 36,
       "source_labels": [
         "粉"
       ],
@@ -1443,13 +1378,13 @@
           "image_url": "https://pbs.twimg.com/media/HSv4tfWXAAAbyG3.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HSv4tfWXAAAbyG3.jpg",
-          "heat_contribution": 6.8759,
+          "heat_contribution": 6.8779,
           "metrics": {
-            "likes": 1693,
+            "likes": 1696,
             "retweets": 124,
             "replies": 6,
             "quotes": 0,
-            "views": 19138,
+            "views": 19270,
             "bookmarks": 0
           }
         }
@@ -1458,204 +1393,6 @@
       "media_heat": 0,
       "fan_heat": 36,
       "heat": 36,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-09-20-5df3eef8c7bb",
-      "rule_id": null,
-      "hot_word_zh": "Oscar和Pedro拍摄黄蜂🐝和鲨鱼🦈的新照片",
-      "hot_word_en": "new pic of oscar and pedro filming as the wasp 🐝 and the shark 🦈",
-      "first_seen_at": "2026-09-20T21:03:30Z",
-      "last_seen_at": "2026-09-20T21:03:30Z",
-      "anchor_item_id": "piasnews-social-cef664d164c9b189",
-      "image_url": "https://pbs.twimg.com/media/HSsFIv7WMAA-Ur8.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HSsFIv7WMAA-Ur8.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-cef664d164c9b189",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: new pic of oscar and pedro filming as the wasp 🐝 and the shark 🦈 📸: domstorey",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar和Pedro拍摄黄蜂🐝和鲨鱼🦈的新照片 📸: domstorey",
-          "summary": "new pic of oscar and pedro filming as the wasp 🐝 and the shark 🦈 📸: domstorey https://t.co/ZqBIJDc9Ds",
-          "summary_zh": "Oscar和Pedro拍摄黄蜂🐝和鲨鱼🦈的新照片 📸: domstorey",
-          "url": "https://x.com/laurogeitabat/status/2101779308414943534",
-          "published_at": "2026-09-20T21:03:30Z",
-          "image_url": "https://pbs.twimg.com/media/HSsFIv7WMAA-Ur8.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HSsFIv7WMAA-Ur8.jpg",
-          "heat_contribution": 6.5255,
-          "metrics": {
-            "likes": 1103,
-            "retweets": 103,
-            "replies": 1,
-            "quotes": 0,
-            "views": 20207,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 35,
-      "heat": 35,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-09-19-15b646ca2cbe",
-      "rule_id": null,
-      "hot_word_zh": "认识一下板球手 OSCAR PIASTRI",
-      "hot_word_en": "MEET CRICKETER OSCAR PIASTRI",
-      "first_seen_at": "2026-09-19T23:25:00Z",
-      "last_seen_at": "2026-09-20T08:01:09Z",
-      "anchor_item_id": "piasnews-social-642296fc2266ded6",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2101452507834667008/vid/avc1/414x270/Cb3oRQHngY2QuELE.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2101452507834667008/img/rmqIxVYfkO-G2RPD.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-642296fc2266ded6",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: MEET CRICKETER OSCAR PIASTRI",
-          "title_zh": "X 发帖 @laurogeitabat：认识一下板球手 OSCAR PIASTRI",
-          "summary": "MEET CRICKETER OSCAR PIASTRI https://t.co/4LDo5z42Im",
-          "summary_zh": "认识一下板球手 OSCAR PIASTRI",
-          "url": "https://x.com/laurogeitabat/status/2101452527522967657",
-          "published_at": "2026-09-19T23:25:00Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2101452507834667008/vid/avc1/414x270/Cb3oRQHngY2QuELE.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2101452507834667008/img/rmqIxVYfkO-G2RPD.jpg",
-          "heat_contribution": 4.8838,
-          "metrics": {
-            "likes": 438,
-            "retweets": 55,
-            "replies": 0,
-            "quotes": 0,
-            "views": 10769,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-1fa9d3ac34bd007c",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X repost from @laurogeitabat: RT @laurogeitabat: MEET CRICKETER OSCAR PIASTRI",
-          "title_zh": "X 转帖 @laurogeitabat：RT @laurogeitabat: 认识一下板球运动员OSCAR PIASTRI",
-          "summary": "RT @laurogeitabat: MEET CRICKETER OSCAR PIASTRI https://t.co/4LDo5z42Im",
-          "summary_zh": "RT @laurogeitabat: 认识一下板球运动员OSCAR PIASTRI",
-          "url": "https://x.com/laurogeitabat/status/2101582423041429562",
-          "published_at": "2026-09-20T08:01:09Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2101452507834667008/vid/avc1/414x270/Cb3oRQHngY2QuELE.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2101452507834667008/img/rmqIxVYfkO-G2RPD.jpg",
-          "heat_contribution": 2.9653,
-          "metrics": {
-            "likes": 0,
-            "retweets": 46,
-            "replies": 0,
-            "quotes": 0,
-            "views": 0,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 33,
-      "heat": 33,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-09-20-e63cc0e166bc",
-      "rule_id": null,
-      "hot_word_zh": "oscar 今天在 monaco 停下来为粉丝签了一些东西！",
-      "hot_word_en": "oscar stopped to sign some stuff for fans in monaco today!",
-      "first_seen_at": "2026-09-20T18:33:11Z",
-      "last_seen_at": "2026-09-20T18:33:11Z",
-      "anchor_item_id": "piasnews-social-e4e9a68ca6d54fd5",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2101741457002450944/vid/avc1/320x426/KnIdCUotUqB0JRfH.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2101741457002450944/img/XqsnVizmhuln28Fg.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-e4e9a68ca6d54fd5",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar stopped to sign some stuff for fans in monaco today!",
-          "title_zh": "X 发帖 @laurogeitabat：oscar 今天在 monaco 停下来为粉丝签了一些东西！",
-          "summary": "oscar stopped to sign some stuff for fans in monaco today! https://t.co/SGjhRmmUWw",
-          "summary_zh": "oscar 今天在 monaco 停下来为粉丝签了一些东西！",
-          "url": "https://x.com/laurogeitabat/status/2101741478292636019",
-          "published_at": "2026-09-20T18:33:11Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2101741457002450944/vid/avc1/320x426/KnIdCUotUqB0JRfH.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2101741457002450944/img/XqsnVizmhuln28Fg.jpg",
-          "heat_contribution": 6.1766,
-          "metrics": {
-            "likes": 855,
-            "retweets": 43,
-            "replies": 0,
-            "quotes": 0,
-            "views": 12646,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 33,
-      "heat": 33,
       "source_labels": [
         "粉"
       ],
@@ -1699,13 +1436,95 @@
           "image_url": "https://pbs.twimg.com/media/HSwAP_MW4AA3OWU.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HSwAP_MW4AA3OWU.jpg",
-          "heat_contribution": 6.2853,
+          "heat_contribution": 6.2877,
           "metrics": {
-            "likes": 948,
+            "likes": 950,
             "retweets": 65,
             "replies": 1,
             "quotes": 0,
-            "views": 10931,
+            "views": 11010,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 34,
+      "heat": 34,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-09-19-15b646ca2cbe",
+      "rule_id": null,
+      "hot_word_zh": "认识一下板球手 OSCAR PIASTRI",
+      "hot_word_en": "MEET CRICKETER OSCAR PIASTRI",
+      "first_seen_at": "2026-09-19T23:25:00Z",
+      "last_seen_at": "2026-09-20T08:01:09Z",
+      "anchor_item_id": "piasnews-social-642296fc2266ded6",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2101452507834667008/vid/avc1/414x270/Cb3oRQHngY2QuELE.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2101452507834667008/img/rmqIxVYfkO-G2RPD.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-642296fc2266ded6",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: MEET CRICKETER OSCAR PIASTRI",
+          "title_zh": "X 发帖 @laurogeitabat：认识一下板球手 OSCAR PIASTRI",
+          "summary": "MEET CRICKETER OSCAR PIASTRI https://t.co/4LDo5z42Im",
+          "summary_zh": "认识一下板球手 OSCAR PIASTRI",
+          "url": "https://x.com/laurogeitabat/status/2101452527522967657",
+          "published_at": "2026-09-19T23:25:00Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2101452507834667008/vid/avc1/414x270/Cb3oRQHngY2QuELE.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2101452507834667008/img/rmqIxVYfkO-G2RPD.jpg",
+          "heat_contribution": 4.8842,
+          "metrics": {
+            "likes": 438,
+            "retweets": 55,
+            "replies": 0,
+            "quotes": 0,
+            "views": 10792,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-1fa9d3ac34bd007c",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: RT @laurogeitabat: MEET CRICKETER OSCAR PIASTRI",
+          "title_zh": "X 转帖 @laurogeitabat：RT @laurogeitabat: 认识一下板球运动员OSCAR PIASTRI",
+          "summary": "RT @laurogeitabat: MEET CRICKETER OSCAR PIASTRI https://t.co/4LDo5z42Im",
+          "summary_zh": "RT @laurogeitabat: 认识一下板球运动员OSCAR PIASTRI",
+          "url": "https://x.com/laurogeitabat/status/2101582423041429562",
+          "published_at": "2026-09-20T08:01:09Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2101452507834667008/vid/avc1/414x270/Cb3oRQHngY2QuELE.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2101452507834667008/img/rmqIxVYfkO-G2RPD.jpg",
+          "heat_contribution": 2.9653,
+          "metrics": {
+            "likes": 0,
+            "retweets": 46,
+            "replies": 0,
+            "quotes": 0,
+            "views": 0,
             "bookmarks": 0
           }
         }
@@ -1757,13 +1576,13 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 6.0914,
+          "heat_contribution": 6.1503,
           "metrics": {
-            "likes": 471,
+            "likes": 500,
             "retweets": 11,
             "replies": 3,
             "quotes": 0,
-            "views": 8605,
+            "views": 9283,
             "bookmarks": 0
           }
         }
@@ -1821,7 +1640,7 @@
             "retweets": 42,
             "replies": 0,
             "quotes": 0,
-            "views": 6305,
+            "views": 6309,
             "bookmarks": 0
           }
         },
@@ -1897,13 +1716,13 @@
           "image_url": "https://pbs.twimg.com/media/HSngCWOXAAA_HDi.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HSngCWOXAAA_HDi.jpg",
-          "heat_contribution": 5.9492,
+          "heat_contribution": 5.9501,
           "metrics": {
-            "likes": 1394,
+            "likes": 1395,
             "retweets": 95,
             "replies": 2,
             "quotes": 0,
-            "views": 32224,
+            "views": 32291,
             "bookmarks": 0
           }
         }
@@ -1928,40 +1747,40 @@
       }
     },
     {
-      "event_id": "evt-2026-09-22-a0c9a690e6a9",
+      "event_id": "evt-2026-09-22-8d146ba38142",
       "rule_id": null,
-      "hot_word_zh": "用 OP 回顾 2024 🏆 #McLarenF1 | #AzerbaijanGP🇦🇿",
-      "hot_word_en": "Throwing it back to 2024 with OP 🏆 #McLarenF1 | #AzerbaijanGP🇦🇿",
-      "first_seen_at": "2026-09-22T14:20:10Z",
-      "last_seen_at": "2026-09-22T14:20:10Z",
-      "anchor_item_id": "piasnews-social-5bbbb6c77ef91b4f",
+      "hot_word_zh": "几天前Oscar在摩纳哥与粉丝见面的新视频！",
+      "hot_word_en": "a new video of oscar meeting fans in monaco a couple of days ago!",
+      "first_seen_at": "2026-09-22T19:25:54Z",
+      "last_seen_at": "2026-09-22T19:25:54Z",
+      "anchor_item_id": "piasnews-social-8be0575f5ea68f23",
       "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2102382429797597185/vid/avc1/320x568/rQlOGcbbcDRt2FNd.mp4?tag=16",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2102382429797597185/img/BJfont-rPVS1bUxT.jpg",
+      "video_url": "https://video.twimg.com/amplify_video/2102479502039306240/vid/avc1/320x538/9ImiTpd6By35KSsO.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2102479502039306240/img/S3nQhwWybUbamLvE.jpg",
       "review_needed": true,
       "review_needed_reason": "fan_account_public_cap",
       "items": [
         {
-          "item_id": "piasnews-social-5bbbb6c77ef91b4f",
+          "item_id": "piasnews-social-8be0575f5ea68f23",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X repost from @laurogeitabat: RT @McLarenF1: Throwing it back to 2024 with OP 🏆 #McLarenF1 | #AzerbaijanGP🇦🇿",
-          "title_zh": "X 转帖 @laurogeitabat：RT @McLarenF1：用 OP 回顾 2024 🏆 #McLarenF1 | #AzerbaijanGP🇦🇿",
-          "summary": "RT @McLarenF1: Throwing it back to 2024 with OP 🏆 #McLarenF1 | #AzerbaijanGP🇦🇿 https://t.co/Z2rbKm4A1B",
-          "summary_zh": "RT @McLarenF1：用 OP 回顾 2024 🏆 #McLarenF1 | #AzerbaijanGP🇦🇿",
-          "url": "https://x.com/laurogeitabat/status/2102402578055110877",
-          "published_at": "2026-09-22T14:20:10Z",
+          "title": "X post from @laurogeitabat: a new video of oscar meeting fans in monaco a couple of days ago!",
+          "title_zh": "X 发帖 @laurogeitabat：几天前Oscar在摩纳哥与粉丝见面的新视频！",
+          "summary": "a new video of oscar meeting fans in monaco a couple of days ago! https://t.co/MmGNQhNi9b",
+          "summary_zh": "几天前Oscar在摩纳哥与粉丝见面的新视频！",
+          "url": "https://x.com/laurogeitabat/status/2102479520469336295",
+          "published_at": "2026-09-22T19:25:54Z",
           "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2102382429797597185/vid/avc1/320x568/rQlOGcbbcDRt2FNd.mp4?tag=16",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2102382429797597185/img/BJfont-rPVS1bUxT.jpg",
-          "heat_contribution": 5.9612,
+          "video_url": "https://video.twimg.com/amplify_video/2102479502039306240/vid/avc1/320x538/9ImiTpd6By35KSsO.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2102479502039306240/img/S3nQhwWybUbamLvE.jpg",
+          "heat_contribution": 5.889,
           "metrics": {
-            "likes": 0,
-            "retweets": 193,
+            "likes": 298,
+            "retweets": 12,
             "replies": 0,
             "quotes": 0,
-            "views": 108,
+            "views": 3806,
             "bookmarks": 0
           }
         }
@@ -2013,13 +1832,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2102423443022942208/vid/avc1/320x568/T_6lsIzZHe3pryRS.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2102423443022942208/img/kXGlZ-IpkfiltgvK.jpg",
-          "heat_contribution": 6.0236,
+          "heat_contribution": 6.017,
           "metrics": {
-            "likes": 320,
-            "retweets": 21,
+            "likes": 421,
+            "retweets": 27,
             "replies": 0,
             "quotes": 0,
-            "views": 5005,
+            "views": 7081,
             "bookmarks": 0
           }
         }
@@ -2028,6 +1847,64 @@
       "media_heat": 0,
       "fan_heat": 32,
       "heat": 32,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-09-20-5df3eef8c7bb",
+      "rule_id": null,
+      "hot_word_zh": "Oscar和Pedro拍摄黄蜂🐝和鲨鱼🦈的新照片",
+      "hot_word_en": "new pic of oscar and pedro filming as the wasp 🐝 and the shark 🦈",
+      "first_seen_at": "2026-09-20T21:03:30Z",
+      "last_seen_at": "2026-09-20T21:03:30Z",
+      "anchor_item_id": "piasnews-social-cef664d164c9b189",
+      "image_url": "https://pbs.twimg.com/media/HSsFIv7WMAA-Ur8.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HSsFIv7WMAA-Ur8.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-cef664d164c9b189",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: new pic of oscar and pedro filming as the wasp 🐝 and the shark 🦈 📸: domstorey",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar和Pedro拍摄黄蜂🐝和鲨鱼🦈的新照片 📸: domstorey",
+          "summary": "new pic of oscar and pedro filming as the wasp 🐝 and the shark 🦈 📸: domstorey https://t.co/ZqBIJDc9Ds",
+          "summary_zh": "Oscar和Pedro拍摄黄蜂🐝和鲨鱼🦈的新照片 📸: domstorey",
+          "url": "https://x.com/laurogeitabat/status/2101779308414943534",
+          "published_at": "2026-09-20T21:03:30Z",
+          "image_url": "https://pbs.twimg.com/media/HSsFIv7WMAA-Ur8.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HSsFIv7WMAA-Ur8.jpg",
+          "heat_contribution": 5.7168,
+          "metrics": {
+            "likes": 1103,
+            "retweets": 103,
+            "replies": 1,
+            "quotes": 0,
+            "views": 20262,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 31,
+      "heat": 31,
       "source_labels": [
         "粉"
       ],
@@ -2071,13 +1948,129 @@
           "image_url": "https://pbs.twimg.com/media/HSqsLFYXoAA1h9r.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HSqsLFYXoAA1h9r.jpg",
-          "heat_contribution": 5.7292,
+          "heat_contribution": 5.7295,
           "metrics": {
             "likes": 1122,
             "retweets": 133,
             "replies": 0,
             "quotes": 0,
-            "views": 14567,
+            "views": 14615,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 31,
+      "heat": 31,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-09-22-a0c9a690e6a9",
+      "rule_id": null,
+      "hot_word_zh": "用 OP 回顾 2024 🏆 #McLarenF1 | #AzerbaijanGP🇦🇿",
+      "hot_word_en": "Throwing it back to 2024 with OP 🏆 #McLarenF1 | #AzerbaijanGP🇦🇿",
+      "first_seen_at": "2026-09-22T14:20:10Z",
+      "last_seen_at": "2026-09-22T14:20:10Z",
+      "anchor_item_id": "piasnews-social-5bbbb6c77ef91b4f",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2102382429797597185/vid/avc1/320x568/rQlOGcbbcDRt2FNd.mp4?tag=16",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2102382429797597185/img/BJfont-rPVS1bUxT.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-5bbbb6c77ef91b4f",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: RT @McLarenF1: Throwing it back to 2024 with OP 🏆 #McLarenF1 | #AzerbaijanGP🇦🇿",
+          "title_zh": "X 转帖 @laurogeitabat：RT @McLarenF1：用 OP 回顾 2024 🏆 #McLarenF1 | #AzerbaijanGP🇦🇿",
+          "summary": "RT @McLarenF1: Throwing it back to 2024 with OP 🏆 #McLarenF1 | #AzerbaijanGP🇦🇿 https://t.co/Z2rbKm4A1B",
+          "summary_zh": "RT @McLarenF1：用 OP 回顾 2024 🏆 #McLarenF1 | #AzerbaijanGP🇦🇿",
+          "url": "https://x.com/laurogeitabat/status/2102402578055110877",
+          "published_at": "2026-09-22T14:20:10Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2102382429797597185/vid/avc1/320x568/rQlOGcbbcDRt2FNd.mp4?tag=16",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2102382429797597185/img/BJfont-rPVS1bUxT.jpg",
+          "heat_contribution": 5.8002,
+          "metrics": {
+            "likes": 0,
+            "retweets": 219,
+            "replies": 0,
+            "quotes": 0,
+            "views": 117,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 31,
+      "heat": 31,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-09-22-c44eb5df7700",
+      "rule_id": null,
+      "hot_word_zh": "数学上仍然有可能 RAHHHHH 🦅🦅🦅🦅",
+      "hot_word_en": "STILL MATHEMATICALLY POSSIBLE RAHHHHH 🦅🦅🦅🦅",
+      "first_seen_at": "2026-09-22T06:50:00Z",
+      "last_seen_at": "2026-09-22T06:50:00Z",
+      "anchor_item_id": "piasnews-social-6b96a8395b1705fa",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-6b96a8395b1705fa",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: STILL MATHEMATICALLY POSSIBLE RAHHHHH 🦅🦅🦅🦅",
+          "title_zh": "X 发帖 @laurogeitabat：数学上仍然有可能 RAHHHHH 🦅🦅🦅🦅",
+          "summary": "STILL MATHEMATICALLY POSSIBLE RAHHHHH 🦅🦅🦅🦅",
+          "summary_zh": "数学上仍然有可能 RAHHHHH 🦅🦅🦅🦅",
+          "url": "https://x.com/laurogeitabat/status/2102289292928205106",
+          "published_at": "2026-09-22T06:50:00Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 5.7001,
+          "metrics": {
+            "likes": 306,
+            "retweets": 21,
+            "replies": 0,
+            "quotes": 0,
+            "views": 4921,
             "bookmarks": 0
           }
         }
@@ -2129,13 +2122,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2101450503154536448/vid/avc1/502x270/cOZkulShPHcK1gGL.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2101450503154536448/img/MuJv0m6SoWbzmKug.jpg",
-          "heat_contribution": 4.6542,
+          "heat_contribution": 4.6544,
           "metrics": {
             "likes": 405,
             "retweets": 25,
             "replies": 0,
             "quotes": 0,
-            "views": 6512,
+            "views": 6525,
             "bookmarks": 0
           }
         },
@@ -2211,13 +2204,13 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 5.5678,
+          "heat_contribution": 5.5679,
           "metrics": {
             "likes": 1020,
             "retweets": 88,
             "replies": 1,
             "quotes": 0,
-            "views": 10528,
+            "views": 10539,
             "bookmarks": 0
           }
         }
@@ -2269,13 +2262,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2101918770759442432/vid/avc1/320x568/gOs2BOSMo_lxXqKg.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2101918770759442432/img/dP5IlbZMRempLN8o.jpg",
-          "heat_contribution": 5.6428,
+          "heat_contribution": 5.6448,
           "metrics": {
-            "likes": 480,
+            "likes": 481,
             "retweets": 35,
             "replies": 1,
             "quotes": 0,
-            "views": 7198,
+            "views": 7223,
             "bookmarks": 0
           }
         }
@@ -2327,13 +2320,13 @@
           "image_url": "https://pbs.twimg.com/media/HSwPET3WYAAZv65.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HSwPET3WYAAZv65.jpg",
-          "heat_contribution": 5.5576,
+          "heat_contribution": 5.5637,
           "metrics": {
-            "likes": 453,
+            "likes": 456,
             "retweets": 27,
             "replies": 2,
             "quotes": 0,
-            "views": 6075,
+            "views": 6131,
             "bookmarks": 0
           }
         }
@@ -2358,106 +2351,48 @@
       }
     },
     {
-      "event_id": "evt-2026-09-22-c44eb5df7700",
+      "event_id": "evt-2026-09-20-e63cc0e166bc",
       "rule_id": null,
-      "hot_word_zh": "数学上仍然有可能 RAHHHHH 🦅🦅🦅🦅",
-      "hot_word_en": "STILL MATHEMATICALLY POSSIBLE RAHHHHH 🦅🦅🦅🦅",
-      "first_seen_at": "2026-09-22T06:50:00Z",
-      "last_seen_at": "2026-09-22T06:50:00Z",
-      "anchor_item_id": "piasnews-social-6b96a8395b1705fa",
+      "hot_word_zh": "oscar 今天在 monaco 停下来为粉丝签了一些东西！",
+      "hot_word_en": "oscar stopped to sign some stuff for fans in monaco today!",
+      "first_seen_at": "2026-09-20T18:33:11Z",
+      "last_seen_at": "2026-09-20T18:33:11Z",
+      "anchor_item_id": "piasnews-social-e4e9a68ca6d54fd5",
       "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2101741457002450944/vid/avc1/320x426/KnIdCUotUqB0JRfH.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2101741457002450944/img/XqsnVizmhuln28Fg.jpg",
       "review_needed": true,
       "review_needed_reason": "fan_account_public_cap",
       "items": [
         {
-          "item_id": "piasnews-social-6b96a8395b1705fa",
+          "item_id": "piasnews-social-e4e9a68ca6d54fd5",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: STILL MATHEMATICALLY POSSIBLE RAHHHHH 🦅🦅🦅🦅",
-          "title_zh": "X 发帖 @laurogeitabat：数学上仍然有可能 RAHHHHH 🦅🦅🦅🦅",
-          "summary": "STILL MATHEMATICALLY POSSIBLE RAHHHHH 🦅🦅🦅🦅",
-          "summary_zh": "数学上仍然有可能 RAHHHHH 🦅🦅🦅🦅",
-          "url": "https://x.com/laurogeitabat/status/2102289292928205106",
-          "published_at": "2026-09-22T06:50:00Z",
+          "title": "X post from @laurogeitabat: oscar stopped to sign some stuff for fans in monaco today!",
+          "title_zh": "X 发帖 @laurogeitabat：oscar 今天在 monaco 停下来为粉丝签了一些东西！",
+          "summary": "oscar stopped to sign some stuff for fans in monaco today! https://t.co/SGjhRmmUWw",
+          "summary_zh": "oscar 今天在 monaco 停下来为粉丝签了一些东西！",
+          "url": "https://x.com/laurogeitabat/status/2101741478292636019",
+          "published_at": "2026-09-20T18:33:11Z",
           "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 5.5707,
+          "video_url": "https://video.twimg.com/amplify_video/2101741457002450944/vid/avc1/320x426/KnIdCUotUqB0JRfH.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2101741457002450944/img/XqsnVizmhuln28Fg.jpg",
+          "heat_contribution": 5.3688,
           "metrics": {
-            "likes": 267,
-            "retweets": 18,
+            "likes": 855,
+            "retweets": 43,
             "replies": 0,
             "quotes": 0,
-            "views": 4583,
+            "views": 12706,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 30,
-      "heat": 30,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-09-22-6fa5d207e256",
-      "rule_id": null,
-      "hot_word_zh": "oscar 说 2024 年Baku站是他自己的比赛中他最想重温的一场 🥹🫶🏻 “那真是一…",
-      "hot_word_en": "oscar said baku 2024 is the race he'd most like to relive among his own races 🥹🫶🏻 \"it was a really exciting…",
-      "first_seen_at": "2026-09-22T14:40:37Z",
-      "last_seen_at": "2026-09-22T14:40:37Z",
-      "anchor_item_id": "piasnews-social-03701a338c90331f",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-03701a338c90331f",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X repost from @laurogeitabat: RT @laurogeitabat: oscar said baku 2024 is the race he'd most like to relive among his own race…",
-          "title_zh": "X 转帖 @laurogeitabat：RT @laurogeitabat：oscar 说 2024 年Baku站是他自己的比赛中他最想重温的一场 🥹🫶🏻 “那真是一场非常激动人心、非常紧张……”",
-          "summary": "RT @laurogeitabat: oscar said baku 2024 is the race he'd most like to relive among his own races 🥹🫶🏻 \"it was a really exciting, very nerve…",
-          "summary_zh": "RT @laurogeitabat：oscar 说 2024 年Baku站是他自己的比赛中他最想重温的一场 🥹🫶🏻 “那真是一场非常激动人心、非常紧张……”",
-          "url": "https://x.com/laurogeitabat/status/2102407728454832448",
-          "published_at": "2026-09-22T14:40:37Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 5.1985,
-          "metrics": {
-            "likes": 0,
-            "retweets": 90,
-            "replies": 0,
-            "quotes": 0,
-            "views": 0,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 28,
-      "heat": 28,
+      "fan_heat": 29,
+      "heat": 29,
       "source_labels": [
         "粉"
       ],
@@ -2501,13 +2436,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2101445389911982080/vid/avc1/502x270/epl2zbU8GlP7y7_d.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2101445389911982080/img/DSaVthR5dYVRiTCX.jpg",
-          "heat_contribution": 4.1628,
+          "heat_contribution": 4.1629,
           "metrics": {
             "likes": 250,
             "retweets": 15,
             "replies": 0,
             "quotes": 0,
-            "views": 3624,
+            "views": 3628,
             "bookmarks": 0
           }
         },
@@ -2583,13 +2518,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2101453312662851584/vid/avc1/320x368/mDuT3DPoDw_G-jCq.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2101453312662851584/img/bLZ7tYA5pqeO9Gp4.jpg",
-          "heat_contribution": 4.1075,
+          "heat_contribution": 4.1079,
           "metrics": {
             "likes": 188,
             "retweets": 19,
             "replies": 0,
             "quotes": 0,
-            "views": 7296,
+            "views": 7308,
             "bookmarks": 0
           }
         },
@@ -2611,6 +2546,64 @@
           "metrics": {
             "likes": 0,
             "retweets": 18,
+            "replies": 0,
+            "quotes": 0,
+            "views": 0,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 27,
+      "heat": 27,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-09-22-6fa5d207e256",
+      "rule_id": null,
+      "hot_word_zh": "oscar 说 2024 年Baku站是他自己的比赛中他最想重温的一场 🥹🫶🏻 “那真是一…",
+      "hot_word_en": "oscar said baku 2024 is the race he'd most like to relive among his own races 🥹🫶🏻 \"it was a really exciting…",
+      "first_seen_at": "2026-09-22T14:40:37Z",
+      "last_seen_at": "2026-09-22T14:40:37Z",
+      "anchor_item_id": "piasnews-social-03701a338c90331f",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-03701a338c90331f",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: RT @laurogeitabat: oscar said baku 2024 is the race he'd most like to relive among his own race…",
+          "title_zh": "X 转帖 @laurogeitabat：RT @laurogeitabat：oscar 说 2024 年Baku站是他自己的比赛中他最想重温的一场 🥹🫶🏻 “那真是一场非常激动人心、非常紧张……”",
+          "summary": "RT @laurogeitabat: oscar said baku 2024 is the race he'd most like to relive among his own races 🥹🫶🏻 \"it was a really exciting, very nerve…",
+          "summary_zh": "RT @laurogeitabat：oscar 说 2024 年Baku站是他自己的比赛中他最想重温的一场 🥹🫶🏻 “那真是一场非常激动人心、非常紧张……”",
+          "url": "https://x.com/laurogeitabat/status/2102407728454832448",
+          "published_at": "2026-09-22T14:40:37Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 4.9236,
+          "metrics": {
+            "likes": 0,
+            "retweets": 91,
             "replies": 0,
             "quotes": 0,
             "views": 0,
@@ -2722,6 +2715,88 @@
     {
       "event_id": "evt-2026-09-19-a9755c67177c",
       "rule_id": null,
+      "hot_word_zh": "kevin：“那感觉怎么样？” oscar：“吓死我了” *咯咯笑* “我的脚法相当糟糕…",
+      "hot_word_en": "kevin: \"how did that feel?\" oscar: \"scary as fuck\" *giggles* \"my footwork was pretty shocking because i value…",
+      "first_seen_at": "2026-09-19T22:03:51Z",
+      "last_seen_at": "2026-09-20T08:02:21Z",
+      "anchor_item_id": "piasnews-social-ffc20cbe4531cba6",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2101432085613322240/vid/avc1/490x270/wEGLugvHvZWduvej.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2101432085613322240/img/gMERRdww7Kh30fHI.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-7db938b0ee922f1d",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: RT @laurogeitabat: kevin: \"how did that feel?\" oscar: \"scary as fuck\" *giggles* \"my footwork wa…",
+          "title_zh": "X 转帖 @laurogeitabat：RT @laurogeitabat: Kevin：“那感觉怎么样？” Oscar：“吓死人了” *咯咯笑* “我的步法相当糟糕，因为我很珍惜我的脚趾…”",
+          "summary": "RT @laurogeitabat: kevin: \"how did that feel?\" oscar: \"scary as fuck\" *giggles* \"my footwork was pretty shocking because i value my toes a…",
+          "summary_zh": "RT @laurogeitabat: Kevin：“那感觉怎么样？” Oscar：“吓死人了” *咯咯笑* “我的步法相当糟糕，因为我很珍惜我的脚趾…”",
+          "url": "https://x.com/laurogeitabat/status/2101582723257078224",
+          "published_at": "2026-09-20T08:02:21Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 3.7136,
+          "metrics": {
+            "likes": 0,
+            "retweets": 100,
+            "replies": 0,
+            "quotes": 0,
+            "views": 0,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-ffc20cbe4531cba6",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: kevin: \"how did that feel?\" oscar: \"scary as fuck\" *giggles* \"my footwork was pretty shocking b…",
+          "title_zh": "X 发帖 @laurogeitabat：kevin：“那感觉怎么样？” oscar：“吓死我了” *咯咯笑* “我的脚法相当糟糕，因为我很珍惜我的脚趾，我需要它们来开车” 😭😭😭",
+          "summary": "kevin: \"how did that feel?\" oscar: \"scary as fuck\" *giggles* \"my footwork was pretty shocking because i value my toes and i need them to drive\" 😭😭😭 https://t.co/nY3tNSGm4m",
+          "summary_zh": "kevin：“那感觉怎么样？” oscar：“吓死我了” *咯咯笑* “我的脚法相当糟糕，因为我很珍惜我的脚趾，我需要它们来开车” 😭😭😭",
+          "url": "https://x.com/laurogeitabat/status/2101432106127675575",
+          "published_at": "2026-09-19T22:03:51Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2101432085613322240/vid/avc1/490x270/wEGLugvHvZWduvej.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2101432085613322240/img/gMERRdww7Kh30fHI.jpg",
+          "heat_contribution": 0.0,
+          "metrics": {
+            "likes": 1821,
+            "retweets": 130,
+            "replies": 1,
+            "quotes": 0,
+            "views": 16538,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 21,
+      "heat": 21,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-09-19-a9755c67177c-2fe08f26",
+      "rule_id": null,
       "hot_word_zh": "kevin：“你打过最高水平的板球是什么？” oscar：“我在板球上最出名的是我在学校一…",
       "hot_word_en": "kevin: \"what is the highest level you've played cricket at?",
       "first_seen_at": "2026-09-19T17:42:37Z",
@@ -2829,21 +2904,21 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 3.3696,
+          "heat_contribution": 2.6042,
           "metrics": {
             "likes": 40,
             "retweets": 0,
             "replies": 1,
             "quotes": 0,
-            "views": 1937,
+            "views": 1960,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 20,
-      "heat": 20,
+      "fan_heat": 16,
+      "heat": 16,
       "source_labels": [
         "粉"
       ],
