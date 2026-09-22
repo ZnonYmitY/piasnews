@@ -138,3 +138,103 @@ test("only up to five configured public feed URLs can allocate entries or trigge
     assert.throws(() => createCompanionPublicFeedCache({ urls, fetchJson: async () => calendar() }), TypeError);
   }
 });
+
+test("a fresh shared snapshot warms a cold instance without fetching or resetting source and cache clocks", async () => {
+  let current = START;
+  let calls = 0;
+  const shared = new Map();
+  const store = { read: async url => shared.get(url) || null, write: async (url, snapshot) => { shared.set(url, snapshot); } };
+  const payload = { generated_at: "2026-09-18T06:15:23.161902Z", result_available: true, latest: { fetched_at: "2026-09-18T06:15:23.161902Z" } };
+  const first = createCompanionPublicFeedCache({ urls: [URLS[1]], store, now: () => current, fetchJson: async () => { calls++; return payload; } });
+  const network = await first.load(URLS[1]);
+  current += 30000;
+  const second = createCompanionPublicFeedCache({ urls: [URLS[1]], store, now: () => current, fetchJson: async () => { calls++; throw new Error("unavailable"); } });
+  const cached = await second.load(URLS[1]);
+  assert.equal(calls, 1);
+  assert.equal(cached.delivery.status, "shared_cache_hit");
+  assert.equal(cached.delivery.refresh_attempted, false);
+  assert.equal(cached.delivery.cache_age_ms, 30000);
+  assert.equal(cached.delivery.cache_stored_at, network.delivery.cache_stored_at);
+  assert.deepEqual(cached.data, payload);
+  cached.data.latest.fetched_at = "consumer-edit";
+  assert.deepEqual(shared.get(URLS[1]).data, payload);
+  assert.equal((await second.load(URLS[1])).delivery.status, "cache_hit");
+});
+
+test("stale shared snapshots can survive a failed refresh only within their original six-hour age", async () => {
+  let current = START + 60000;
+  let writes = 0;
+  const shared = { data: calendar(), storedAt: START };
+  const store = { read: async () => shared, write: async () => { writes++; } };
+  const make = () => createCompanionPublicFeedCache({ urls: [URLS[0]], store, now: () => current, fetchJson: async () => { throw new Error("timeout"); } });
+  const fallback = await make().load(URLS[0]);
+  assert.equal(fallback.delivery.status, "stale_if_error");
+  assert.equal(fallback.delivery.cache_stored_at, new Date(START).toISOString());
+  current = START + 6 * 3600000;
+  assert.equal((await make().load(URLS[0])).delivery.cache_age_ms, 6 * 3600000);
+  current++;
+  await assert.rejects(make().load(URLS[0]), { code: "COMPANION_PUBLIC_FEED_FETCH_FAILED" });
+  assert.equal(writes, 0, "Reading or serving a fallback must not renew the shared success clock.");
+});
+
+test("invalid or future shared snapshots cannot become fallbacks when the network fails", async () => {
+  for (const snapshot of [
+    null, {}, { data: calendar(), storedAt: "2026-09-22T06:00:00Z" },
+    { data: calendar(), storedAt: START + 1 }, { data: calendar(), storedAt: START - 6 * 3600000 - 1 },
+    { data: {}, storedAt: START }, { data: calendar("2026-09-23T06:00:00Z"), storedAt: START },
+  ]) {
+    const cache = createCompanionPublicFeedCache({ urls: [URLS[0]], now: () => START,
+      store: { read: async () => snapshot, write: async () => {} }, fetchJson: async () => { throw new Error("timeout"); } });
+    await assert.rejects(cache.load(URLS[0]), { code: "COMPANION_PUBLIC_FEED_FETCH_FAILED" });
+  }
+});
+
+test("shared reads are single-flight and unknown URLs never reach either store operation", async () => {
+  let reads = 0;
+  let calls = 0;
+  let release;
+  const wait = new Promise(resolve => { release = resolve; });
+  const cache = createCompanionPublicFeedCache({ urls: [URLS[0]], now: () => START,
+    store: { read: async () => { reads++; await wait; return { data: calendar(), storedAt: START }; }, write: async () => assert.fail("No write expected") },
+    fetchJson: async () => { calls++; return calendar(); } });
+  const a = cache.load(URLS[0]);
+  const b = cache.load(URLS[0]);
+  release();
+  const values = await Promise.all([a, b]);
+  assert.equal(reads, 1);
+  assert.equal(calls, 0);
+  assert.ok(values.every(value => value.delivery.status === "shared_cache_hit"));
+  await assert.rejects(cache.load(URLS[1]), /not configured/);
+  assert.equal(reads, 1);
+});
+
+test("a shared older publication cannot overwrite a newer local snapshot despite a newer shared storage time", async () => {
+  let current = START;
+  let shared = null;
+  let fail = false;
+  const cache = createCompanionPublicFeedCache({ urls: [URLS[0]], now: () => current,
+    store: { read: async () => shared, write: async () => {} },
+    fetchJson: async () => { if (fail) throw new Error("timeout"); return calendar(); } });
+  await cache.load(URLS[0]);
+  current += 60000;
+  fail = true;
+  shared = { data: calendar("2026-09-21T06:00:00Z"), storedAt: current };
+  const fallback = await cache.load(URLS[0]);
+  assert.equal(fallback.delivery.status, "stale_if_error");
+  assert.equal(fallback.delivery.cache_stored_at, new Date(START).toISOString());
+  assert.equal(fallback.data.generated_at, calendar().generated_at);
+});
+
+test("store exceptions and bounded timeouts do not block a successful public fetch", async () => {
+  for (const operation of [() => { throw new Error("store-failure"); }, () => new Promise(() => {})]) {
+    let calls = 0;
+    const cache = createCompanionPublicFeedCache({ urls: [URLS[0]], now: () => START,
+      store: { read: operation, write: operation }, fetchJson: async () => { calls++; return calendar(); } });
+    const started = performance.now();
+    const value = await cache.load(URLS[0]);
+    assert.equal(value.delivery.status, "network");
+    assert.equal(calls, 1);
+    assert.ok(performance.now() - started < 1500, "Both optional store operations have bounded waits.");
+    assert.equal((await cache.load(URLS[0])).delivery.status, "cache_hit");
+  }
+});

@@ -3,7 +3,7 @@ import test from "node:test";
 import worker from "../src/index.js";
 import { resolveCompanionMode } from "../../public/companion/mode-policy.js";
 
-const env = { ADMIN_ALLOWED_ORIGINS: "https://znonymity.github.io", DEEPSEEK_API_KEY: "test-key", DEEPSEEK_MODEL: "test-model", COMPANION_DISABLE_PUBLIC_DATA: "true" };
+const env = { ADMIN_ALLOWED_ORIGINS: "https://znonymity.github.io", DEEPSEEK_API_KEY: "test-key", DEEPSEEK_MODEL: "test-model", COMPANION_DISABLE_PUBLIC_DATA: "true", COMPANION_DISABLE_PUBLIC_CACHE: "true" };
 function request(message, mode, extra = {}) {
   return new Request("https://worker.example/companion/chat", { method: "POST", headers: { Origin: "https://znonymity.github.io", "Content-Type": "application/json" }, body: JSON.stringify({ message, mode, history: [], disclosure_shown: true, ...extra }) });
 }

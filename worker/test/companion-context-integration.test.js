@@ -15,7 +15,7 @@ const calendar = {
     sessions: { practice_1: "2026-09-11T11:30:00Z", practice_2: "2026-09-11T15:00:00Z", qualifying: "2026-09-12T14:00:00Z", race: "2026-09-13T13:00:00Z" },
   },
 };
-const env = { DEEPSEEK_API_KEY: "synthetic-placeholder", DEEPSEEK_BASE_URL: "https://model.invalid", DEEPSEEK_MODEL: "test-model" };
+const env = { DEEPSEEK_API_KEY: "synthetic-placeholder", DEEPSEEK_BASE_URL: "https://model.invalid", DEEPSEEK_MODEL: "test-model", COMPANION_DISABLE_PUBLIC_CACHE: "true" };
 const check = { actual_facts: true, facts_supported: true, temporal_scope: "current", mode_consistent: true, answers_question: true };
 function reply(patch = {}) {
   return { answer_en: "Friday practice in Madrid, with two sessions scheduled.", answer_zh: "周五是马德里练习赛日，安排了两节练习。",

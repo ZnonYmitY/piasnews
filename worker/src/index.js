@@ -551,27 +551,40 @@ async function fetchPublicJson(url) {
   return response.json();
 }
 
-let publicFeedCache, publicFeedCacheBase, publicFeedCacheTransport;
+function sharedPublicFeedStore() {
+  const cache = globalThis.caches?.default;
+  if (!cache) return undefined;
+  // Only server-configured public feed URLs reach this adapter. This key is
+  // separate from browser responses; no chat, credential or user ID is stored.
+  const key = url => new Request(`https://piasnews-review.znonymity-piasnews.workers.dev/__companion-public-cache/v1/${encodeURIComponent(url)}`);
+  return {
+    async read(url) { const response = await cache.match(key(url)); return response ? response.json() : null; },
+    async write(url, snapshot) { await cache.put(key(url), Response.json(snapshot, { headers: { "Cache-Control": "public, max-age=21600" } })); },
+  };
+}
+let publicFeedCache, publicFeedCacheBase;
 async function loadCompanionPublicContext(env, { now, timeZone, evidenceNeed } = {}) {
   if (env.COMPANION_DISABLE_PUBLIC_DATA === "true") return { ...buildCurrentPublicContext({ now, timeZone }), lookup_performed: false };
   const baseUrl = (env.PUBLIC_DATA_BASE_URL || "https://znonymity.github.io/piasnews/data").replace(/\/+$/, "");
-  if (!publicFeedCache || publicFeedCacheBase !== baseUrl || publicFeedCacheTransport !== globalThis.fetch) {
+  if (!publicFeedCache || publicFeedCacheBase !== baseUrl) {
     publicFeedCache = createCompanionPublicFeedCache({
       urls: ["calendar", "session-results", "hot-events", "items", "social"].map(file => `${baseUrl}/${file}.json`),
       fetchJson: fetchPublicJson,
+      store: sharedPublicFeedStore(),
     });
     publicFeedCacheBase = baseUrl;
-    publicFeedCacheTransport = globalThis.fetch;
   }
   // Optional broad feeds share the same parallel, bounded read. No planner,
   // embedding service, sequential search or extra generation is introduced.
   const files = ["calendar", "session-results", "hot-events"];
   if (["current_f1", "public_update", "official_update"].includes(evidenceNeed)) files.push("items", "social");
-  const results = await Promise.allSettled(files.map((file) => publicFeedCache.load(`${baseUrl}/${file}.json`)));
+  const results = await Promise.allSettled(files.map((file) => env.COMPANION_DISABLE_PUBLIC_CACHE === "true"
+    ? fetchPublicJson(`${baseUrl}/${file}.json`).then(data => ({ data })) : publicFeedCache.load(`${baseUrl}/${file}.json`)));
   const value = (index) => results[index]?.status === "fulfilled" ? results[index].value.data : null;
   return { ...buildCurrentPublicContext({
     calendar: value(0), sessionResults: value(1), hotEvents: value(2), news: value(3), social: value(4), now, timeZone,
-  }), lookup_performed: true };
+  }), lookup_performed: true, delivery_status: Object.fromEntries(files.map((file, index) => [file,
+    results[index]?.status === "fulfilled" ? results[index].value.delivery?.status || "network" : "unavailable"])) };
 }
 
 function validIds(value, index, limit) {
@@ -890,6 +903,8 @@ async function callDeepseekCompanion(body, env, trace = {}) {
     currentPublicContext: boundary ? {} : publicContext, evidenceNeed: scope.evidence_need, focusedPublicSourceId: selectedPageSource?.id, resultSelectorMessage, now,
   });
   addDateDerivations(knowledge, publicContext.temporal_context?.local_date);
+  trace.context_status = { event_status: knowledge.event_context?.status || null, selected_source_count: knowledge.public_sources.length,
+    delivery: publicContext.delivery_status || {} };
   const pageFocus = selectedPageSource && knowledge.public_sources.find((source) => source.id === selectedPageSource.id);
   const temporal = publicContext.temporal_context || {};
   const temporalContext = !knowledge.event_context && (knowledge.public_sources.some((source) => source.kind === "schedule") || ["day_context", "schedule"].includes(scope.evidence_need)) ? temporal
@@ -1002,6 +1017,7 @@ async function callDeepseekCompanion(body, env, trace = {}) {
   return {
     result: {
       ...result,
+      evidence_status: { ...result.evidence_status, public_delivery: publicContext.delivery_status || {} },
       conversation_policy: { act: turnPolicy.act, response_size: turnPolicy.response_size, initiative: turnPolicy.initiative, page_focus_used: Boolean(pageFocus) },
       event_query: knowledge.event_context ? Object.fromEntries(["relation", "requested", "session", "target_event_id", "target_session_ref", "status", "source_ids"].map(key => [key, knowledge.event_context[key]])) : null,
       validation_trace: { status: "same_generation_self_check", independent_verified: false, local_checks: ["selected_ids", "mode", "literal_fact_intent", "temporal_scope", "turn_pacing", "output_shape"], repair_count: trace.repair_count, recovery_reason: recoveryReason, additional_review_requests: 0 },
@@ -1088,6 +1104,7 @@ export default {
           model_finish_reason: trace.model_finish_reason || null,
           repair_count: trace.repair_count,
           elapsed_ms: Date.now() - startedAt,
+          context: trace.context_status || null,
         };
         console.error(JSON.stringify({ event: "companion_generation_failed", request_id: requestId, error_code: failure.code, ...diagnostic }));
         return jsonResponse({ error: "The model could not complete a validated response. Please retry.", error_code: failure.code, request_id: requestId, diagnostic, retryable: !trace.model_refusal }, failure.code === "COMPANION_TIMEOUT" ? 504 : 502, origin);
