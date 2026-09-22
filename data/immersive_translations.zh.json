@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-22T14:42:10.558963Z",
+  "generated_at": "2026-09-22T18:31:51.254878Z",
   "translations": {
     "items:piasnews-1e349ebc993f7040:title:eb42be63557579e3ed950f9f": {
       "dataset": "items",
@@ -3793,6 +3793,78 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-22T14:42:10.042462Z"
+    },
+    "items:piasnews-0255dff3efdc1126:title:828213507ae24fdc1166db49": {
+      "dataset": "items",
+      "item_id": "piasnews-0255dff3efdc1126",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "How can Piastri recover from ‘anonymous’ Madrid weekend?",
+      "zh": "Piastri 如何从“默默无闻”的马德里周末中恢复？",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-22T18:31:50.476522Z"
+    },
+    "items:piasnews-0255dff3efdc1126:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-0255dff3efdc1126",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-22T18:31:50.476531Z"
+    },
+    "items:piasnews-990dddb6c5963f59:title:0e830e31f8758600e85df189": {
+      "dataset": "items",
+      "item_id": "piasnews-990dddb6c5963f59",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Lando Norris rejects excuses for Oscar Piastri’s 2026 struggles at McLaren",
+      "zh": "Lando Norris 拒绝为 Oscar Piastri 在 McLaren 的 2026 年困境找借口",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-22T18:31:50.476536Z"
+    },
+    "items:piasnews-990dddb6c5963f59:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-990dddb6c5963f59",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与车队或赛车性能相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-22T18:31:50.476541Z"
+    },
+    "social:piasnews-social-8487c7c473aa43f5:summary:87d7c5f0b3c9919c569fd62d": {
+      "dataset": "social",
+      "item_id": "piasnews-social-8487c7c473aa43f5",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar reacting to a 100mph ball 😭 oscar: \"i'm glad i'm stading here and not there\" kevin: \"you reckon you got that in you?\" oscar: \"no\" kevin: \"no chance?\" oscar: \"nah\" https://t.co/TFwwjTaM5K",
+      "zh": "oscar 对时速 100 英里的球做出反应 😭 oscar：“我很高兴我站在这里而不是那里” kevin：“你觉得你能接住吗？” oscar：“不能” kevin：“完全没机会？” oscar：“没有”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-22T18:31:50.476545Z"
+    },
+    "social:piasnews-social-03701a338c90331f:summary:7457fb9158ea488f79cebb98": {
+      "dataset": "social",
+      "item_id": "piasnews-social-03701a338c90331f",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @laurogeitabat: oscar said baku 2024 is the race he'd most like to relive among his own races 🥹🫶🏻 \"it was a really exciting, very nerve…",
+      "zh": "RT @laurogeitabat：oscar 说 2024 年Baku站是他自己的比赛中他最想重温的一场 🥹🫶🏻 “那真是一场非常激动人心、非常紧张……”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-22T18:31:50.476549Z"
     }
   },
   "retention_days": 8
