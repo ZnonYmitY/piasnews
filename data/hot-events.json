@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-23T03:20:17.962513Z",
+  "generated_at": "2026-09-23T06:21:35.857293Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -35,13 +35,13 @@
           "image_url": "https://pbs.twimg.com/media/HSzuy7HWoAAMpGi.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HSzuy7HWoAAMpGi.jpg",
-          "heat_contribution": 7.5553,
+          "heat_contribution": 7.5824,
           "metrics": {
-            "likes": 1114,
-            "retweets": 99,
+            "likes": 1127,
+            "retweets": 101,
             "replies": 8,
             "quotes": 0,
-            "views": 121054,
+            "views": 126341,
             "bookmarks": 0
           }
         }
@@ -90,13 +90,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2102022432118747136/vid/avc1/320x426/k8E11AIFhRTckMIy.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2102022432118747136/img/pXo51SJ6MvkW4WWe.jpg",
-          "heat_contribution": 7.5204,
+          "heat_contribution": 7.5223,
           "metrics": {
-            "likes": 3207,
-            "retweets": 229,
+            "likes": 3212,
+            "retweets": 230,
             "replies": 1,
             "quotes": 0,
-            "views": 43049,
+            "views": 43134,
             "bookmarks": 0
           }
         }
@@ -122,7 +122,7 @@
       "rule_id": null,
       "hot_word_zh": "Stella 证实 McLaren 正把 2025 年针对 Norris 的解决方案复制到…",
       "hot_word_en": "Stella confirms McLaren is repeating its 2025 Norris fix on Piastri, who can't stop 'driving and thinking'",
-      "first_seen_at": "2026-09-16T05:06:53.144000Z",
+      "first_seen_at": "2026-09-16T08:00:00Z",
       "last_seen_at": "2026-09-22T10:55:00Z",
       "anchor_item_id": "piasnews-e77fc8b5a2066e33",
       "image_url": "https://cdn.racingnews365.com/2024/Norris/XPB_1296653_HiRes.jpg?v=1728044527&width=1800&height=945&quality=75&crop=3888%2C2042%2C0%2C275",
@@ -196,7 +196,7 @@
           "image_url": "https://www.motorsportweek.com/wp-content/uploads/2026/09/Oscar-Piastri-F1-Spanish-GP.webp",
           "video_url": null,
           "video_poster_url": "https://www.motorsportweek.com/wp-content/uploads/2026/09/Oscar-Piastri-F1-Spanish-GP.webp",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -385,35 +385,18 @@
           "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2286604878-scaled.jpg",
           "heat_contribution": 0.0,
           "metrics": {}
-        },
-        {
-          "item_id": "piasnews-b685c971f208a1cf",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Read Motorsport",
-          "title": "McLaren Recalibrate 2026 Setup To Fix Piastri Driving Deficit",
-          "title_zh": "McLaren重新校准2026年设定以解决Piastri驾驶劣势",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与车队或赛车性能相关的条目。",
-          "url": "https://readmotorsport.com/2026/09/16/mclaren-recalibrate-2026-setup-to-fix-piastri-driving-deficit/",
-          "published_at": "2026-09-16T05:06:53.144000Z",
-          "image_url": "https://media.readmotorsport.com/readmotorsport/sites/10/2026/09/WmOBWY31kom1.webp",
-          "video_url": null,
-          "video_poster_url": "https://media.readmotorsport.com/readmotorsport/sites/10/2026/09/WmOBWY31kom1.webp",
-          "heat_contribution": 0.0,
-          "metrics": {}
         }
       ],
       "official_heat": 0,
-      "media_heat": 32,
+      "media_heat": 31,
       "fan_heat": 0,
-      "heat": 32,
+      "heat": 31,
       "source_labels": [
         "媒"
       ],
       "source_counts": {
         "official": 0,
-        "media": 10,
+        "media": 9,
         "fan": 0
       },
       "pinned_rank": null,
@@ -438,7 +421,7 @@
           "item_id": "piasnews-ea96ebdf9993a39d",
           "dataset": "items",
           "source_type": "official",
-          "source": "Formula 1",
+          "source": "formula1.com",
           "title": "‘Figure out how to close that gap’ – How can Piastri recover from ‘anonymous’ Madrid weekend?",
           "title_zh": "“想办法缩小差距”——Piastri 如何从“默默无闻”的马德里周末中恢复？",
           "summary": "Oscar Piastri-related item discovered from public news metadata.",
@@ -485,71 +468,6 @@
       "pinned_rank": null,
       "hidden": false,
       "rank": 4
-    },
-    {
-      "event_id": "evt-2026-09-17-192dcb6c3424-c810e225-2",
-      "rule_id": null,
-      "hot_word_zh": "Toto Wolff“独一档”的评论凸显了为什么Lando Norris正在击败Oscar…",
-      "hot_word_en": "Toto Wolff's 'league of his own' comments highlight why Lando Norris is beating Oscar Piastri",
-      "first_seen_at": "2026-09-21T06:00:00Z",
-      "last_seen_at": "2026-09-21T08:57:00Z",
-      "anchor_item_id": "piasnews-9a4f07674e8f4957",
-      "image_url": "https://sportsbase.io/images/gpfans/copy_1200x800/c264f033eaec4afb5bcc6f28e92fd92c719a98b2.jpg",
-      "video_url": null,
-      "video_poster_url": "https://sportsbase.io/images/gpfans/copy_1200x800/c264f033eaec4afb5bcc6f28e92fd92c719a98b2.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-6eee3975edd548b9",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "gpfans.com",
-          "title": "F1 News: Oscar Piastri nightmare in focus as Lando Norris says: 'I disagree with all of that'",
-          "title_zh": "F1新闻：Oscar Piastri的噩梦成为焦点，Lando Norris表示：“我完全不同意那一切”",
-          "summary": "Quote or interview-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与引述或采访相关的条目。",
-          "url": "https://www.gpfans.com/en/f1-news/1090491/oscar-piastri-2026-f1-struggles-lando-norris-comments-drivers-adapt/",
-          "published_at": "2026-09-21T08:57:00Z",
-          "image_url": "https://sportsbase.io/images/gpfans/copy_1200x800/c264f033eaec4afb5bcc6f28e92fd92c719a98b2.jpg",
-          "video_url": null,
-          "video_poster_url": "https://sportsbase.io/images/gpfans/copy_1200x800/c264f033eaec4afb5bcc6f28e92fd92c719a98b2.jpg",
-          "heat_contribution": 0.45,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-9a4f07674e8f4957",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "F1 Oversteer",
-          "title": "Toto Wolff's 'league of his own' comments highlight why Lando Norris is beating Oscar Piastri",
-          "title_zh": "Toto Wolff“独一档”的评论凸显了为什么Lando Norris正在击败Oscar Piastri",
-          "summary": "Quote or interview-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与引述或采访相关的条目。",
-          "url": "https://www.f1oversteer.com/news/toto-wolffs-league-of-his-own-comments-highlight-why-lando-norris-is-beating-oscar-piastri/",
-          "published_at": "2026-09-21T06:00:00Z",
-          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2294631833-scaled.jpg",
-          "video_url": null,
-          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2294631833-scaled.jpg",
-          "heat_contribution": 0.45,
-          "metrics": {}
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 16,
-      "fan_heat": 0,
-      "heat": 16,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 2,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 5
     },
     {
       "event_id": "evt-2026-09-20-f4aaf9d33676",
@@ -603,7 +521,7 @@
           "item_id": "piasnews-79a9855139c406fa",
           "dataset": "items",
           "source_type": "media",
-          "source": "sportscapemagazine.com",
+          "source": "Sportscape Magazine",
           "title": "F1 Meets Cricket: Watch Oscar Piastri Faces 100 MPH Deliveries With Kevin Pieterson",
           "title_zh": "F1 遇上板球：观看 Oscar Piastri 面对 Kevin Pieterson 的时速100英里投球",
           "summary": "Team or car-performance item discovered from public news metadata.",
@@ -627,6 +545,71 @@
       "source_counts": {
         "official": 0,
         "media": 3,
+        "fan": 0
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "event_id": "evt-2026-09-17-192dcb6c3424-c810e225-2",
+      "rule_id": null,
+      "hot_word_zh": "Toto Wolff“独一档”的评论凸显了为什么Lando Norris正在击败Oscar…",
+      "hot_word_en": "Toto Wolff's 'league of his own' comments highlight why Lando Norris is beating Oscar Piastri",
+      "first_seen_at": "2026-09-21T06:00:00Z",
+      "last_seen_at": "2026-09-21T08:57:00Z",
+      "anchor_item_id": "piasnews-9a4f07674e8f4957",
+      "image_url": "https://sportsbase.io/images/gpfans/copy_1200x800/c264f033eaec4afb5bcc6f28e92fd92c719a98b2.jpg",
+      "video_url": null,
+      "video_poster_url": "https://sportsbase.io/images/gpfans/copy_1200x800/c264f033eaec4afb5bcc6f28e92fd92c719a98b2.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-6eee3975edd548b9",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "gpfans.com",
+          "title": "F1 News: Oscar Piastri nightmare in focus as Lando Norris says: 'I disagree with all of that'",
+          "title_zh": "F1新闻：Oscar Piastri的噩梦成为焦点，Lando Norris表示：“我完全不同意那一切”",
+          "summary": "Quote or interview-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的与引述或采访相关的条目。",
+          "url": "https://www.gpfans.com/en/f1-news/1090491/oscar-piastri-2026-f1-struggles-lando-norris-comments-drivers-adapt/",
+          "published_at": "2026-09-21T08:57:00Z",
+          "image_url": "https://sportsbase.io/images/gpfans/copy_1200x800/c264f033eaec4afb5bcc6f28e92fd92c719a98b2.jpg",
+          "video_url": null,
+          "video_poster_url": "https://sportsbase.io/images/gpfans/copy_1200x800/c264f033eaec4afb5bcc6f28e92fd92c719a98b2.jpg",
+          "heat_contribution": 0.45,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-9a4f07674e8f4957",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "F1 Oversteer",
+          "title": "Toto Wolff's 'league of his own' comments highlight why Lando Norris is beating Oscar Piastri",
+          "title_zh": "Toto Wolff“独一档”的评论凸显了为什么Lando Norris正在击败Oscar Piastri",
+          "summary": "Quote or interview-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的与引述或采访相关的条目。",
+          "url": "https://www.f1oversteer.com/news/toto-wolffs-league-of-his-own-comments-highlight-why-lando-norris-is-beating-oscar-piastri/",
+          "published_at": "2026-09-21T06:00:00Z",
+          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2294631833-scaled.jpg",
+          "video_url": null,
+          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2294631833-scaled.jpg",
+          "heat_contribution": 0.2,
+          "metrics": {}
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 15,
+      "fan_heat": 0,
+      "heat": 15,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 2,
         "fan": 0
       },
       "pinned_rank": null,
@@ -1054,64 +1037,6 @@
       "hidden": false
     },
     {
-      "event_id": "evt-2026-09-22-a39dd40a131d",
-      "rule_id": null,
-      "hot_word_zh": "bumblebeeastri 在McLaren阿塞拜疆站前瞻中被提到 🥹🐝 “我们的超车模…",
-      "hot_word_en": "bumblebeeastri mention in the mclaren azerbaijan preview 🥹🐝 \"our overtaking model said oscar couldn't overtak…",
-      "first_seen_at": "2026-09-22T06:02:52Z",
-      "last_seen_at": "2026-09-22T06:02:52Z",
-      "anchor_item_id": "piasnews-social-1db6d232b079d764",
-      "image_url": "https://pbs.twimg.com/media/HSzKLTbXQAANkyJ.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HSzKLTbXQAANkyJ.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-1db6d232b079d764",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: bumblebeeastri mention in the mclaren azerbaijan preview 🥹🐝 \"our overtaking model said oscar co…",
-          "title_zh": "X 发帖 @laurogeitabat：bumblebeeastri 在McLaren阿塞拜疆站前瞻中被提到 🥹🐝 “我们的超车模型说 Oscar 在后方那么远的距离无法超车，但 Oscar 没看过超车模型，所以还是超了”",
-          "summary": "bumblebeeastri mention in the mclaren azerbaijan preview 🥹🐝 \"our overtaking model said oscar couldn't overtake from that distance behind, but oscar hadn't seen the overtaking model, so he did it anyway\" https://t.co/McWUFu03RY",
-          "summary_zh": "bumblebeeastri 在McLaren阿塞拜疆站前瞻中被提到 🥹🐝 “我们的超车模型说 Oscar 在后方那么远的距离无法超车，但 Oscar 没看过超车模型，所以还是超了”",
-          "url": "https://x.com/laurogeitabat/status/2102277428940833235",
-          "published_at": "2026-09-22T06:02:52Z",
-          "image_url": "https://pbs.twimg.com/media/HSzKLTbXQAANkyJ.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HSzKLTbXQAANkyJ.jpg",
-          "heat_contribution": 7.0405,
-          "metrics": {
-            "likes": 1071,
-            "retweets": 134,
-            "replies": 0,
-            "quotes": 0,
-            "views": 18231,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 37,
-      "heat": 37,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-09-21-d248b89039df",
       "rule_id": null,
       "hot_word_zh": "我相信",
@@ -1139,13 +1064,13 @@
           "image_url": "https://pbs.twimg.com/media/HSrpy9AXYAAL4C1.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HSrpy9AXYAAL4C1.jpg",
-          "heat_contribution": 6.8085,
+          "heat_contribution": 6.8095,
           "metrics": {
             "likes": 0,
-            "retweets": 1004,
+            "retweets": 1005,
             "replies": 0,
             "quotes": 0,
-            "views": 193,
+            "views": 195,
             "bookmarks": 0
           }
         }
@@ -1197,13 +1122,13 @@
           "image_url": "https://pbs.twimg.com/media/HSv4tfWXAAAbyG3.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HSv4tfWXAAAbyG3.jpg",
-          "heat_contribution": 6.8794,
+          "heat_contribution": 6.8819,
           "metrics": {
-            "likes": 1698,
+            "likes": 1703,
             "retweets": 124,
             "replies": 6,
             "quotes": 0,
-            "views": 19383,
+            "views": 19430,
             "bookmarks": 0
           }
         }
@@ -1212,6 +1137,64 @@
       "media_heat": 0,
       "fan_heat": 36,
       "heat": 36,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-09-22-a39dd40a131d",
+      "rule_id": null,
+      "hot_word_zh": "bumblebeeastri 在McLaren阿塞拜疆站前瞻中被提到 🥹🐝 “我们的超车模…",
+      "hot_word_en": "bumblebeeastri mention in the mclaren azerbaijan preview 🥹🐝 \"our overtaking model said oscar couldn't overtak…",
+      "first_seen_at": "2026-09-22T06:02:52Z",
+      "last_seen_at": "2026-09-22T06:02:52Z",
+      "anchor_item_id": "piasnews-social-1db6d232b079d764",
+      "image_url": "https://pbs.twimg.com/media/HSzKLTbXQAANkyJ.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HSzKLTbXQAANkyJ.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-1db6d232b079d764",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: bumblebeeastri mention in the mclaren azerbaijan preview 🥹🐝 \"our overtaking model said oscar co…",
+          "title_zh": "X 发帖 @laurogeitabat：bumblebeeastri 在McLaren阿塞拜疆站前瞻中被提到 🥹🐝 “我们的超车模型说 Oscar 在后方那么远的距离无法超车，但 Oscar 没看过超车模型，所以还是超了”",
+          "summary": "bumblebeeastri mention in the mclaren azerbaijan preview 🥹🐝 \"our overtaking model said oscar couldn't overtake from that distance behind, but oscar hadn't seen the overtaking model, so he did it anyway\" https://t.co/McWUFu03RY",
+          "summary_zh": "bumblebeeastri 在McLaren阿塞拜疆站前瞻中被提到 🥹🐝 “我们的超车模型说 Oscar 在后方那么远的距离无法超车，但 Oscar 没看过超车模型，所以还是超了”",
+          "url": "https://x.com/laurogeitabat/status/2102277428940833235",
+          "published_at": "2026-09-22T06:02:52Z",
+          "image_url": "https://pbs.twimg.com/media/HSzKLTbXQAANkyJ.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HSzKLTbXQAANkyJ.jpg",
+          "heat_contribution": 6.5491,
+          "metrics": {
+            "likes": 1093,
+            "retweets": 136,
+            "replies": 0,
+            "quotes": 0,
+            "views": 18527,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 35,
+      "heat": 35,
       "source_labels": [
         "粉"
       ],
@@ -1255,13 +1238,13 @@
           "image_url": "https://pbs.twimg.com/media/HSwAP_MW4AA3OWU.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HSwAP_MW4AA3OWU.jpg",
-          "heat_contribution": 6.294,
+          "heat_contribution": 6.2959,
           "metrics": {
-            "likes": 955,
+            "likes": 957,
             "retweets": 66,
             "replies": 1,
             "quotes": 0,
-            "views": 11070,
+            "views": 11098,
             "bookmarks": 0
           }
         }
@@ -1313,71 +1296,13 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 6.1896,
+          "heat_contribution": 6.214,
           "metrics": {
-            "likes": 518,
+            "likes": 531,
             "retweets": 11,
             "replies": 4,
             "quotes": 0,
-            "views": 9686,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 33,
-      "heat": 33,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-09-22-a338c922fc9e",
-      "rule_id": null,
-      "hot_word_zh": "oscar 对时速 100 英里的球做出反应 😭 oscar：“我很高兴我站在这里而不是那…",
-      "hot_word_en": "oscar reacting to a 100mph ball 😭 oscar: \"i'm glad i'm stading here and not there\" kevin: \"you reckon you got…",
-      "first_seen_at": "2026-09-22T15:43:20Z",
-      "last_seen_at": "2026-09-22T15:43:20Z",
-      "anchor_item_id": "piasnews-social-8487c7c473aa43f5",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2102423443022942208/vid/avc1/320x568/T_6lsIzZHe3pryRS.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2102423443022942208/img/kXGlZ-IpkfiltgvK.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-8487c7c473aa43f5",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar reacting to a 100mph ball 😭 oscar: \"i'm glad i'm stading here and not there\" kevin: \"you…",
-          "title_zh": "X 发帖 @laurogeitabat：oscar 对时速 100 英里的球做出反应 😭 oscar：“我很高兴我站在这里而不是那里” kevin：“你觉得你能接住吗？” oscar：“不能” kevin：“完全没机会？” oscar：“没有”",
-          "summary": "oscar reacting to a 100mph ball 😭 oscar: \"i'm glad i'm stading here and not there\" kevin: \"you reckon you got that in you?\" oscar: \"no\" kevin: \"no chance?\" oscar: \"nah\" https://t.co/TFwwjTaM5K",
-          "summary_zh": "oscar 对时速 100 英里的球做出反应 😭 oscar：“我很高兴我站在这里而不是那里” kevin：“你觉得你能接住吗？” oscar：“不能” kevin：“完全没机会？” oscar：“没有”",
-          "url": "https://x.com/laurogeitabat/status/2102423509536301205",
-          "published_at": "2026-09-22T15:43:20Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2102423443022942208/vid/avc1/320x568/T_6lsIzZHe3pryRS.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2102423443022942208/img/kXGlZ-IpkfiltgvK.jpg",
-          "heat_contribution": 6.1945,
-          "metrics": {
-            "likes": 501,
-            "retweets": 34,
-            "replies": 0,
-            "quotes": 0,
-            "views": 8307,
+            "views": 9990,
             "bookmarks": 0
           }
         }
@@ -1429,21 +1354,79 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2102479502039306240/vid/avc1/320x538/9ImiTpd6By35KSsO.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2102479502039306240/img/S3nQhwWybUbamLvE.jpg",
-          "heat_contribution": 5.9964,
+          "heat_contribution": 6.1068,
           "metrics": {
-            "likes": 433,
-            "retweets": 21,
+            "likes": 482,
+            "retweets": 24,
             "replies": 0,
             "quotes": 0,
-            "views": 5966,
+            "views": 6717,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 32,
-      "heat": 32,
+      "fan_heat": 33,
+      "heat": 33,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-09-22-a338c922fc9e",
+      "rule_id": null,
+      "hot_word_zh": "oscar 对时速 100 英里的球做出反应 😭 oscar：“我很高兴我站在这里而不是那…",
+      "hot_word_en": "oscar reacting to a 100mph ball 😭 oscar: \"i'm glad i'm stading here and not there\" kevin: \"you reckon you got…",
+      "first_seen_at": "2026-09-22T15:43:20Z",
+      "last_seen_at": "2026-09-22T15:43:20Z",
+      "anchor_item_id": "piasnews-social-8487c7c473aa43f5",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2102423443022942208/vid/avc1/320x568/T_6lsIzZHe3pryRS.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2102423443022942208/img/kXGlZ-IpkfiltgvK.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-8487c7c473aa43f5",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar reacting to a 100mph ball 😭 oscar: \"i'm glad i'm stading here and not there\" kevin: \"you…",
+          "title_zh": "X 发帖 @laurogeitabat：oscar 对时速 100 英里的球做出反应 😭 oscar：“我很高兴我站在这里而不是那里” kevin：“你觉得你能接住吗？” oscar：“不能” kevin：“完全没机会？” oscar：“没有”",
+          "summary": "oscar reacting to a 100mph ball 😭 oscar: \"i'm glad i'm stading here and not there\" kevin: \"you reckon you got that in you?\" oscar: \"no\" kevin: \"no chance?\" oscar: \"nah\" https://t.co/TFwwjTaM5K",
+          "summary_zh": "oscar 对时速 100 英里的球做出反应 😭 oscar：“我很高兴我站在这里而不是那里” kevin：“你觉得你能接住吗？” oscar：“不能” kevin：“完全没机会？” oscar：“没有”",
+          "url": "https://x.com/laurogeitabat/status/2102423509536301205",
+          "published_at": "2026-09-22T15:43:20Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2102423443022942208/vid/avc1/320x568/T_6lsIzZHe3pryRS.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2102423443022942208/img/kXGlZ-IpkfiltgvK.jpg",
+          "heat_contribution": 6.2264,
+          "metrics": {
+            "likes": 519,
+            "retweets": 34,
+            "replies": 0,
+            "quotes": 0,
+            "views": 8622,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 33,
+      "heat": 33,
       "source_labels": [
         "粉"
       ],
@@ -1487,13 +1470,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2102382429797597185/vid/avc1/320x568/rQlOGcbbcDRt2FNd.mp4?tag=16",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2102382429797597185/img/BJfont-rPVS1bUxT.jpg",
-          "heat_contribution": 5.8872,
+          "heat_contribution": 5.928,
           "metrics": {
             "likes": 0,
-            "retweets": 239,
+            "retweets": 249,
             "replies": 0,
             "quotes": 0,
-            "views": 118,
+            "views": 122,
             "bookmarks": 0
           }
         }
@@ -1551,7 +1534,7 @@
             "retweets": 103,
             "replies": 1,
             "quotes": 0,
-            "views": 20289,
+            "views": 20303,
             "bookmarks": 0
           }
         }
@@ -1603,13 +1586,13 @@
           "image_url": "https://pbs.twimg.com/media/HSqsLFYXoAA1h9r.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HSqsLFYXoAA1h9r.jpg",
-          "heat_contribution": 5.7298,
+          "heat_contribution": 5.7299,
           "metrics": {
             "likes": 1122,
             "retweets": 133,
             "replies": 0,
             "quotes": 0,
-            "views": 14659,
+            "views": 14669,
             "bookmarks": 0
           }
         }
@@ -1661,13 +1644,13 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 5.7921,
+          "heat_contribution": 5.8058,
           "metrics": {
-            "likes": 335,
+            "likes": 340,
             "retweets": 24,
             "replies": 0,
             "quotes": 0,
-            "views": 5261,
+            "views": 5363,
             "bookmarks": 0
           }
         }
@@ -1719,71 +1702,13 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 5.568,
+          "heat_contribution": 5.5681,
           "metrics": {
             "likes": 1020,
             "retweets": 88,
             "replies": 1,
             "quotes": 0,
-            "views": 10557,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 30,
-      "heat": 30,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-09-21-c1f97bfc189c",
-      "rule_id": null,
-      "hot_word_zh": "2023年：对Baku评价极低，未能得分（视频#1）2024年：称Baku是他在赛车上感觉…",
-      "hot_word_en": "2023: rates baku very low, doesn't score points (vid #1) 2024: says baku is the happiest he's ever felt on a…",
-      "first_seen_at": "2026-09-21T06:18:01Z",
-      "last_seen_at": "2026-09-21T06:18:01Z",
-      "anchor_item_id": "piasnews-social-6b2e72cc446e7009",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2101918770759442432/vid/avc1/320x568/gOs2BOSMo_lxXqKg.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2101918770759442432/img/dP5IlbZMRempLN8o.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-6b2e72cc446e7009",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: 2023: rates baku very low, doesn't score points (vid #1) 2024: says baku is the happiest he's e…",
-          "title_zh": "X 发帖 @laurogeitabat：2023年：对Baku评价极低，未能得分（视频#1）2024年：称Baku是他在赛车上感觉最快乐的一次（视频#2）2025年：经历了人生中最糟糕的比赛周末 2026年：*待定* 模式识别表明，是时候让Baku再次对我们温柔以待了。比赛周快乐！✨",
-          "summary": "2023: rates baku very low, doesn't score points (vid #1) 2024: says baku is the happiest he's ever felt on a race car (vid #2) 2025: has the worst race weekend of his life 2026: *pending* pattern recognition says it's time for baku to be kind to us again. happy race week! ✨ https://t.co/8vrI0CU0bx",
-          "summary_zh": "2023年：对Baku评价极低，未能得分（视频#1）2024年：称Baku是他在赛车上感觉最快乐的一次（视频#2）2025年：经历了人生中最糟糕的比赛周末 2026年：*待定* 模式识别表明，是时候让Baku再次对我们温柔以待了。比赛周快乐！✨",
-          "url": "https://x.com/laurogeitabat/status/2101918855610151313",
-          "published_at": "2026-09-21T06:18:01Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2101918770759442432/vid/avc1/320x568/gOs2BOSMo_lxXqKg.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2101918770759442432/img/dP5IlbZMRempLN8o.jpg",
-          "heat_contribution": 5.655,
-          "metrics": {
-            "likes": 485,
-            "retweets": 36,
-            "replies": 1,
-            "quotes": 0,
-            "views": 7271,
+            "views": 10562,
             "bookmarks": 0
           }
         }
@@ -1835,13 +1760,13 @@
           "image_url": "https://pbs.twimg.com/media/HSwPET3WYAAZv65.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HSwPET3WYAAZv65.jpg",
-          "heat_contribution": 5.5698,
+          "heat_contribution": 5.5736,
           "metrics": {
-            "likes": 459,
+            "likes": 461,
             "retweets": 27,
             "replies": 2,
             "quotes": 0,
-            "views": 6182,
+            "views": 6207,
             "bookmarks": 0
           }
         }
@@ -1893,13 +1818,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2101741457002450944/vid/avc1/320x426/KnIdCUotUqB0JRfH.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2101741457002450944/img/XqsnVizmhuln28Fg.jpg",
-          "heat_contribution": 5.3693,
+          "heat_contribution": 5.3695,
           "metrics": {
             "likes": 855,
             "retweets": 43,
             "replies": 0,
             "quotes": 0,
-            "views": 12751,
+            "views": 12774,
             "bookmarks": 0
           }
         }
@@ -1908,6 +1833,64 @@
       "media_heat": 0,
       "fan_heat": 29,
       "heat": 29,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-09-21-c1f97bfc189c",
+      "rule_id": null,
+      "hot_word_zh": "2023年：对Baku评价极低，未能得分（视频#1）2024年：称Baku是他在赛车上感觉…",
+      "hot_word_en": "2023: rates baku very low, doesn't score points (vid #1) 2024: says baku is the happiest he's ever felt on a…",
+      "first_seen_at": "2026-09-21T06:18:01Z",
+      "last_seen_at": "2026-09-21T06:18:01Z",
+      "anchor_item_id": "piasnews-social-6b2e72cc446e7009",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2101918770759442432/vid/avc1/320x568/gOs2BOSMo_lxXqKg.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2101918770759442432/img/dP5IlbZMRempLN8o.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-6b2e72cc446e7009",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: 2023: rates baku very low, doesn't score points (vid #1) 2024: says baku is the happiest he's e…",
+          "title_zh": "X 发帖 @laurogeitabat：2023年：对Baku评价极低，未能得分（视频#1）2024年：称Baku是他在赛车上感觉最快乐的一次（视频#2）2025年：经历了人生中最糟糕的比赛周末 2026年：*待定* 模式识别表明，是时候让Baku再次对我们温柔以待了。比赛周快乐！✨",
+          "summary": "2023: rates baku very low, doesn't score points (vid #1) 2024: says baku is the happiest he's ever felt on a race car (vid #2) 2025: has the worst race weekend of his life 2026: *pending* pattern recognition says it's time for baku to be kind to us again. happy race week! ✨ https://t.co/8vrI0CU0bx",
+          "summary_zh": "2023年：对Baku评价极低，未能得分（视频#1）2024年：称Baku是他在赛车上感觉最快乐的一次（视频#2）2025年：经历了人生中最糟糕的比赛周末 2026年：*待定* 模式识别表明，是时候让Baku再次对我们温柔以待了。比赛周快乐！✨",
+          "url": "https://x.com/laurogeitabat/status/2101918855610151313",
+          "published_at": "2026-09-21T06:18:01Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2101918770759442432/vid/avc1/320x568/gOs2BOSMo_lxXqKg.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2101918770759442432/img/dP5IlbZMRempLN8o.jpg",
+          "heat_contribution": 4.8503,
+          "metrics": {
+            "likes": 486,
+            "retweets": 36,
+            "replies": 1,
+            "quotes": 0,
+            "views": 7292,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 27,
+      "heat": 27,
       "source_labels": [
         "粉"
       ],
@@ -2583,13 +2566,13 @@
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 2.6059,
+          "heat_contribution": 2.6067,
           "metrics": {
             "likes": 40,
             "retweets": 0,
             "replies": 1,
             "quotes": 0,
-            "views": 1972,
+            "views": 1977,
             "bookmarks": 0
           }
         }
