@@ -3,6 +3,7 @@ import test from "node:test";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import { fileURLToPath } from "node:url";
+import { INTERVIEW_SCENARIOS, INTERVIEW_VERSION, INTERVIEW_HASH } from "../../scripts/companion_interview_scenarios.mjs";
 import {
   BATCH_SIZE, HOLDOUT_HASH, MAX_REQUESTS, RATE_WINDOW_MS, REGRESSION_HASH, REGRESSION_SCENARIOS, REVIEW_DIMENSIONS,
   SCENARIO_HASH, SCENARIO_VERSION, SELF_EVOLUTION_SCENARIOS,
@@ -18,7 +19,7 @@ const sample = (overrides = {}) => ({
   validation_trace: { repair_count: 0, additional_review_requests: 0 }, ...overrides,
 });
 const responseFor = (payload, overrides = {}) => {
-  const testCase = [...allCases, ...REGRESSION_SCENARIOS.flatMap((item) => item.turns)].find((item) => item.message === payload.message);
+  const testCase = [...allCases, ...REGRESSION_SCENARIOS.flatMap((item) => item.turns), ...INTERVIEW_SCENARIOS.flatMap((item) => item.turns)].find((item) => item.message === payload.message);
   const kind = testCase.kinds.includes("social") ? "social" : testCase.kinds.includes("insufficient") ? "insufficient" : testCase.kinds[0];
   return sample({ mode: payload.mode, answer_kind: kind, route: kind === "insufficient" ? "insufficient_current_fact" : kind === "boundary" ? "private_or_inner_state_unverified" : "fan_light", ...overrides });
 };
@@ -86,6 +87,50 @@ test("programmatic callers cannot bypass explicit run or request budgets", async
   await assert.rejects(runSelfEvolution({ ...single(), budget: 5 }, deps), /needs 6 requests/);
   await assert.rejects(runSelfEvolution({ ...single(), budget: 25 }, deps), /1 to 24/);
   assert.equal(calls, 0);
+});
+
+test("interview suite is separately budgeted and preserves three actual turns per family", async () => {
+  assert.throws(() => parseSelfEvolutionArgs(["--suite", "interview"]), /needs 18 requests/);
+  assert.equal(planSelfEvolution(parseSelfEvolutionArgs(["--suite", "all", "--budget", "24"])).planned, 24, "Existing all never silently adds new suites");
+  for (const shard of ["1", "2", "3"]) {
+    const plan = planSelfEvolution(parseSelfEvolutionArgs(["--suite", "interview", "--shard", shard, "--budget", "6"]));
+    assert.equal(plan.planned, 6);
+    assert.equal(plan.batches[0].families.length, 2);
+  }
+  let clock = 0;
+  const payloads = [];
+  const { results, summary } = await runSelfEvolution(parseSelfEvolutionArgs(["--run", "--suite", "interview", "--budget", "18"]), {
+    ...silent, now: () => clock, sleep: async ms => { clock += ms; },
+    request: async ({ payload }) => {
+      payloads.push(payload); clock += 100;
+      return { status: 200, body: responseFor(payload, { answer_en: `Interview output ${payloads.length}.`, answer_zh: /[\u3400-\u9fff]/.test(payload.message) ? "合成采访回答。" : "" }) };
+    },
+  });
+  assert.equal(summary.attempted, 18);
+  assert.equal(summary.contract_failed, 0);
+  assert.equal(summary.interview_hash, INTERVIEW_HASH);
+  assert.equal(summary.scenario_version, INTERVIEW_VERSION);
+  assert.deepEqual(payloads.map(p => p.history.length), Array.from({ length: 6 }, () => [0, 2, 4]).flat());
+  assert.ok(results.every(r => r.history_origin === "generated_family_history" && r.scenario_review_rubric.length > 0));
+  assert.ok(results.every(r => r.semantic_status === "needs_independent_review"));
+  for (let index = 2; index < payloads.length; index += 3) {
+    assert.match(payloads[index].history.at(-1).content, new RegExp(`Interview output ${index}\\.`));
+    assert.ok(payloads.slice(index - 2, index + 1).every(p => p.mode === payloads[index].mode));
+  }
+});
+
+test("an interview failure skips both dependent questions without replacing the answer", async () => {
+  let count = 0;
+  const { results, summary } = await runSelfEvolution(parseSelfEvolutionArgs(["--run", "--suite", "interview", "--shard", "1", "--budget", "6"]), {
+    ...silent, request: async ({ payload }) => {
+      count += 1;
+      return count === 1 ? { status: 502, body: {} } : { status: 200, body: responseFor(payload) };
+    },
+  });
+  assert.equal(summary.attempted, 4);
+  assert.equal(summary.skipped, 2);
+  assert.ok(results[1].skipped && results[2].skipped);
+  assert.equal(results[3].history_messages, 0);
 });
 
 test("each family carries actual replies, then resets history for the next family", async () => {

@@ -5,6 +5,7 @@ import { createHash } from "node:crypto";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import { pathToFileURL } from "node:url";
+import { INTERVIEW_SCENARIOS, INTERVIEW_VERSION, INTERVIEW_HASH } from "./companion_interview_scenarios.mjs";
 import {
   AMBIENT_BAKU, DEFAULT_BASE_URL, ORIGIN, appendGeneratedTurn,
   buildConversationPayload, buildCurlArgs, checkConversationResponse,
@@ -105,17 +106,19 @@ export const REGRESSION_SCENARIOS = deepFreeze([
   replay("regression_no_advice_memory", "我一直在想刚才那十秒。", "刚才面试卡壳了十秒，别给建议，也别反问。", "That sounds uncomfortable. I'm here.\n听起来挺难受。我在这儿。", { no_advice: true, no_question: true, max_en_words: 40 }),
 ]);
 export const REGRESSION_HASH = digest(REGRESSION_SCENARIOS);
-export const SCENARIO_HASH = digest({ ...SELF_EVOLUTION_SCENARIOS, regression: REGRESSION_SCENARIOS });
+export const SCENARIO_HASH = digest({ ...SELF_EVOLUTION_SCENARIOS, regression: REGRESSION_SCENARIOS, interview: INTERVIEW_SCENARIOS });
 
 export function planSelfEvolution(options) {
   const suite = options.suite ?? "discover", shard = options.shard ?? "all", budget = options.budget ?? 12;
-  if (!["discover", "holdout", "regression", "all"].includes(suite)) throw new Error("Unknown suite: use discover, holdout, regression or all");
-  if (!["1", "2", "all"].includes(shard)) throw new Error("Unknown shard: use 1, 2 or all");
+  if (!["discover", "holdout", "regression", "interview", "all"].includes(suite)) throw new Error("Unknown suite: use discover, holdout, regression, interview or all");
+  if (!(suite === "interview" ? ["1", "2", "3", "all"] : ["1", "2", "all"]).includes(shard)) throw new Error("Invalid shard for this suite");
   if (suite === "regression" && shard === "2") throw new Error("Regression has only shard 1");
   if (!Number.isInteger(budget) || budget < 1 || budget > MAX_REQUESTS) throw new Error("Request budget must be an integer from 1 to 24");
   if (options.run !== undefined && typeof options.run !== "boolean") throw new Error("run must be a boolean");
   const connection = parseConversationArgs(["--base-url", options.baseUrl ?? DEFAULT_BASE_URL, "--transport", options.transport ?? "curl"]);
-  const batches = suite === "regression" ? [{ suite, shard: 1, families: REGRESSION_SCENARIOS }] : (suite === "all" ? ["discover", "holdout"] : [suite]).flatMap((name) =>
+  const batches = suite === "interview"
+    ? (shard === "all" ? [1, 2, 3] : [Number(shard)]).map(index => ({ suite, shard: index, families: INTERVIEW_SCENARIOS.slice((index - 1) * 2, index * 2) }))
+    : suite === "regression" ? [{ suite, shard: 1, families: REGRESSION_SCENARIOS }] : (suite === "all" ? ["discover", "holdout"] : [suite]).flatMap((name) =>
     (shard === "all" ? [1, 2] : [Number(shard)]).map((index) => ({
       suite: name, shard: index, families: SELF_EVOLUTION_SCENARIOS[name].slice((index - 1) * 3, index * 3),
     })));
@@ -207,7 +210,9 @@ export async function runSelfEvolution(options, { request = requestSynthetic, em
     for (const scenario of batch.families) {
       let history = (scenario.seed_history || []).map((item) => ({ ...item })), dependentFailure = false;
       for (const testCase of scenario.turns) {
-        const identity = { type: "case", scenario_version: SCENARIO_VERSION, suite: batch.suite, shard: batch.shard, family: scenario.id, id: testCase.id, mode: testCase.mode, intent: testCase.intent, message: testCase.message };
+        const identity = { type: "case", scenario_version: batch.suite === "interview" ? INTERVIEW_VERSION : SCENARIO_VERSION, suite: batch.suite, shard: batch.shard, family: scenario.id, id: testCase.id, mode: testCase.mode, intent: testCase.intent, message: testCase.message,
+          ...(batch.suite === "interview" ? { interview_hash: INTERVIEW_HASH, setting: scenario.setting, scenario_review_rubric: scenario.review_rubric } : {}),
+        };
         if (halted || dependentFailure) {
           const skipped = { ...identity, skipped: true, reason: halted ? "rate_limit_stopped_run" : "previous_family_turn_failed_no_fabricated_history" };
           results.push(skipped); emit(skipped); continue;
@@ -253,7 +258,7 @@ export async function runSelfEvolution(options, { request = requestSynthetic, em
   const knownCalls = attempted.filter((item) => Number.isInteger(item.model_calls));
   const knownModelCalls = knownCalls.reduce((sum, item) => sum + item.model_calls, 0);
   const summary = {
-    type: "summary", scenario_version: SCENARIO_VERSION, scenario_hash: SCENARIO_HASH, holdout_hash: HOLDOUT_HASH, regression_hash: REGRESSION_HASH,
+    type: "summary", scenario_version: plan.suite === "interview" ? INTERVIEW_VERSION : SCENARIO_VERSION, scenario_hash: SCENARIO_HASH, holdout_hash: HOLDOUT_HASH, regression_hash: REGRESSION_HASH, interview_hash: INTERVIEW_HASH,
     suite: plan.suite, shard: plan.shard, request_budget: plan.budget, planned: plan.planned, attempted: attempted.length,
     contract_passed: attempted.filter((item) => item.contract_passed).length, contract_failed: attempted.filter((item) => !item.contract_passed).length,
     heuristic_flagged: attempted.filter((item) => item.heuristic_flags.length).length, skipped: results.length - attempted.length,
@@ -271,7 +276,7 @@ export async function runSelfEvolution(options, { request = requestSynthetic, em
 async function main() {
   const options = parseSelfEvolutionArgs(process.argv.slice(2)), plan = planSelfEvolution(options);
   if (!options.run) {
-    console.log(JSON.stringify({ type: "dry_run", note: "No requests. --run opts in. --suite discover|holdout|regression|all --shard 1|2|all --budget 1..24 --transport curl|fetch --base-url HTTPS_ORIGIN. JSONL stdout; no keys or feedback writes. Default budget 12; six requests per rolling 65 seconds. all means discovery plus holdout (24), not regression. Regression is six explicit synthetic-seed replays. Separate invocations share no rate-limit state: schedule them at least 65 seconds apart or use one combined run. Never use held-out failures to rewrite the holdout.", scenario_version: SCENARIO_VERSION, scenario_hash: SCENARIO_HASH, holdout_hash: HOLDOUT_HASH, regression_hash: REGRESSION_HASH, planned: plan.planned, request_budget: plan.budget, batches: plan.batches.map(({ suite, shard, families }) => ({ suite, shard, families })) }));
+    console.log(JSON.stringify({ type: "dry_run", note: "No requests. --run opts in. --suite discover|holdout|regression|interview|all --shard 1|2|all (interview also supports 3) --budget 1..24 --transport curl|fetch --base-url HTTPS_ORIGIN. JSONL stdout; no keys or feedback writes. Default budget 12; six requests per rolling 65 seconds. all means discovery plus holdout (24), not regression/interview. Regression is six explicit synthetic-seed replays. Interview has six three-turn families (18 requests); use --budget 18 or choose a six-request shard. Separate invocations share no rate-limit state: schedule them at least 65 seconds apart or use one combined run. Never use held-out failures to rewrite the holdout.", scenario_version: plan.suite === "interview" ? INTERVIEW_VERSION : SCENARIO_VERSION, scenario_hash: SCENARIO_HASH, holdout_hash: HOLDOUT_HASH, regression_hash: REGRESSION_HASH, interview_hash: INTERVIEW_HASH, planned: plan.planned, request_budget: plan.budget, batches: plan.batches.map(({ suite, shard, families }) => ({ suite, shard, families })) }));
     return;
   }
   const { summary } = await runSelfEvolution(options);

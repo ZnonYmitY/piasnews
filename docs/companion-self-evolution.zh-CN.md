@@ -1,6 +1,6 @@
 # Companion 有边界的自进化
 
-状态：2026-09-23，局部修复已部署并完成线上抽样，30 题测试池与每日任务已启用。主要失败点已改善，但留出评审仍有明确未解决项；不把“生成成功”当作全部质量通过。
+状态：2026-09-23，局部修复已部署并完成线上抽样，每日任务已启用。测试池现为 48 题，新增 18 题三轮采访测试；本次只扩测试和记录，未改线上模型、提示词或人格包。主要失败点已改善，但留出及采访评审仍有明确未解决项；不把“生成成功”当作全部质量通过。
 
 ## 目标与边界
 
@@ -20,15 +20,16 @@
 
 ## 测试池与运行
 
-入口：`scripts/eval_companion_self_evolution.mjs`。目前 30 个测试请求：
+入口：`scripts/eval_companion_self_evolution.mjs`。目前 48 个测试请求，分集合运行，不在单轮全部调用：
 
 | 集合 | 数量 | 用途 |
 | --- | ---: | --- |
 | `discover` | 12 | 6 组真实生成历史的两轮对话：问候、选择、情绪、用户称呼、赛事、事实与推断 |
 | `holdout` | 12 | 独立场景的两轮测试：收尾、约束、用户更正、动物比喻、强依据、隐私拒答后的恢复 |
 | `regression` | 6 | 对已知失败点使用明确标记的固定合成历史，保证可复现 |
+| `interview` | 18 | 6 组三轮连续采访：围场闲聊、粉丝快问快答、假设领奖台、假设失利、媒体诱导、历史采访 |
 
-`discover` / `holdout` 可选 `--shard 1` 或 `2`，每片 6 请求；`regression` 只有一片。固定合成历史不是用户记录，也不是声称此前模型实际说过该句。
+`discover` / `holdout` 可选 `--shard 1` 或 `2`，每片 6 请求；`regression` 只有一片；`interview` 有 `1` / `2` / `3` 三片，每片两组三轮。采访题使用实际生成的前文，不预填示范答案；固定回归合成历史不是用户记录，也不是声称此前模型实际说过该句。
 
 ```sh
 # 默认 dry-run：只打印计划，不调用模型
@@ -43,11 +44,17 @@ node scripts/eval_companion_self_evolution.mjs --run --suite regression --budget
 # 留出验证：6 请求；第二片改为 --shard 2
 node scripts/eval_companion_self_evolution.mjs --run --suite holdout --shard 1 --budget 6
 
-# 明确申请整组预算：24 请求；all 不包含 regression
+# 采访抽样：6 请求；另两片改为 --shard 2 或 3
+node scripts/eval_companion_self_evolution.mjs --run --suite interview --shard 1 --budget 6
+
+# 完整采访组：18 请求，必须显式提高默认预算
+node scripts/eval_companion_self_evolution.mjs --run --suite interview --budget 18
+
+# 明确申请原整组预算：24 请求；all 仅 discover + holdout，不包含 regression/interview
 node scripts/eval_companion_self_evolution.mjs --run --suite all --budget 24
 
 # 本地确定性测试，不调用线上模型
-node --test worker/test/companion-self-evolution-eval.test.js
+node --test worker/test/companion-self-evolution-eval.test.js worker/test/companion-interview-scenarios.test.js
 ```
 
 默认预算 12，单次硬上限 24；日常每轮默认 12、最多 24，请把发现、复现、候选验证合计计入，不能通过反复启动绕过预算。每个滚动 65 秒最多 6 次请求；不同进程不共享限流状态，分开启动至少间隔 65 秒，禁止并发跑线上批次。429 立即停止，无自动重试；失败或契约无效时跳过依赖该回答的后续问题，不编造替代历史。
@@ -102,6 +109,14 @@ node --test worker/test/companion-self-evolution-eval.test.js
 | 中文自然度 | “坐在里面的人”等直译、澄清重复、拒绝尾部泛化邀聊 | 表达层复核，不触发全局人格改变 |
 
 因此本次交付是经验证的局部改善与可持续发现问题的循环，不是全部聊天质量通过。上述残余问题在修复前已存在或尚待归因；未作为本次成功项。下一轮如用留出失败设计修复，必须把相应条目标为已知回归并补新的独立场景。
+
+## 采访轮次（2026-09-23，未部署改动）
+
+[完整题目、实际回答摘录与独立评审](companion-interview-evaluation-2026-09-23.zh-CN.md)。计划 18 问，实际 16 次请求，14 次生成、2 次验证失败，2 个依赖后继跳过。14 条可见回答的独立语义评审为 **9 pass、2 review、3 fail**；不能把 14 次生成都算质量通过。
+
+主要新问题是：假设采访自行增补因果、历史公开感受被风格观察替代，以及两次 `boundary_fact_claim` 服务错误。采访题库已冻结，未因这些结果改题或放宽检查。仅测试工具与记录发生变更；人物包、线上提示词/校验器及每日任务配置未改。
+
+后续轮次可以选一个采访分片加入抽样，但须与该轮其他请求合计预算，不能在日常 12/最多 24 次之外额外叠加 18 次。新案例不是新训练材料，也不自动更新人格。
 
 ## 每轮执行闭环
 
