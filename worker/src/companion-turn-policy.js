@@ -17,6 +17,24 @@ const ACKNOWLEDGEMENT = /^(?:谢谢(?:你)?[啦呀啊]?|谢啦|多谢|感谢|好
 const CHECKIN = /^(?:(?:你|您)?(?:最近|近来|这几天)?(?:怎么样|还好吗|好吗|过得怎么样|忙什么|忙啥|在忙什么)(?:呢|呀|啊|嘛|吗)?|最近还好吗|how are you(?: doing)?|how have you been|how(?:'s| is) it going|what(?:'s| is) up|what are you up to)$/;
 const OPEN_CHAT = /^(?:陪我聊聊(?:天)?|聊会儿(?:天)?|聊聊天|随便聊聊|说点什么|你找个话题|我(?:有点|好|很)?无聊|无聊|let's chat|let us chat|talk to me|keep me company|i(?:'m| am) bored)$/;
 
+// Only explicit, complete conversational opt-out clauses retire the old topic.
+// This is query shaping, never a safety permission or a replacement user turn.
+// Keep both sides of an inline opt-out: a correction before it still matters.
+const TOPIC_RESET_CLAUSE = /^(?:(?:这个(?:话题)?|这件事)(?:先)?不聊了|换个话题(?:吧)?|(?:那|我们)?(?:先)?(?:别聊|不聊)(?:比赛|赛果|赛车|这个(?:话题|问题)?|刚才(?:的)?(?:话题|问题))(?:了|吧)?|let(?:'s| us) (?:change the subject|leave that))$/i;
+
+export function extractCompanionTopicReset(message) {
+  if (typeof message !== "string") return null;
+  const clauses = message.normalize("NFKC").replace(/[’‘]/g, "'").split(/([，,。.!！;；:：]+)/);
+  let changed = false;
+  for (let index = 0; index < clauses.length; index += 2) {
+    if (!TOPIC_RESET_CLAUSE.test(clauses[index].trim())) continue;
+    clauses[index] = "";
+    if (index + 1 < clauses.length) clauses[index + 1] = "";
+    changed = true;
+  }
+  return changed ? clauses.join("").trim() : null;
+}
+
 function wantsDetail(value) {
   return /(?:详细(?:说|讲|解释|分析|介绍|一点)?|展开(?:说|讲)|深入|完整(?:解释|介绍)|多讲讲|长一点|\bin detail\b|\bmore detail\b|\bin depth\b|\bstep by step\b|\belaborate\b)/i.test(value)
     && !/(?:不用|不必|无需|不要|别)\s*(?:太|那么|很|这么)?(?:详细|展开|长篇)|\b(?:don't|do not|no need to)\s*(?:go into detail|elaborate|be detailed)\b/i.test(value);
@@ -42,16 +60,29 @@ function micro(act) {
     "Reciprocate this brief social move in one short natural sentence, targeting at most 12 English words plus a faithful translation when required. No unsolicited facts, calendar or news recap, invented private state, new topic, service-menu invitation or default follow-up question. Let the turn end naturally. Assess only the new reply, not facts in earlier conversation: a claim-free greeting, thanks or goodbye has actual_facts=false, temporal_scope=none and no factual citation IDs. These are expression constraints, not prescribed wording.");
 }
 
-export function buildCompanionTurnPolicy({ message, history = [], scope = {}, modeIntent = {}, boundary = false } = {}) {
+export function buildCompanionTurnPolicy(options = {}) {
+  // The caller still owns scope and evidence classification of the remaining
+  // query, and must check safety against the complete original message first.
+  const nextTopic = options.boundary ? null : extractCompanionTopicReset(options.message);
+  const topicReset = nextTopic !== null;
+  return {
+    ...shapeCompanionTurnPolicy({ ...options, message: topicReset ? nextTopic : options.message, topicReset }),
+    topic_reset: topicReset,
+  };
+}
+
+function shapeCompanionTurnPolicy({ message, history = [], scope = {}, modeIntent = {}, boundary = false, topicReset = false } = {}) {
   const value = directText(message);
   if (boundary) return {
     ...policy("answer", "brief", "respond_only", 45, "Follow the existing safety or task boundary in concise natural language. This turn policy grants no new permissions and does not reinterpret the boundary."),
     suppress_ambient_context: true,
   };
 
+  if (topicReset && !value) return policy("open_chat", "brief", "one_relevant_question_optional", 35,
+    "Acknowledge the user's explicit change of subject without continuing the retired topic. Take at most one small conversational step, without a service menu or an unsolicited factual bulletin. Existing safety, evidence and mode rules still apply.");
   const detailed = wantsDetail(value);
   const hasHistory = Array.isArray(history) && history.some((item) => item?.role === "user" && typeof item.content === "string" && item.content.trim());
-  const followup = hasHistory && (/followup|contextual_public_topic/.test(scope.reason || "")
+  const followup = !topicReset && hasHistory && (/followup|contextual_public_topic/.test(scope.reason || "")
     || /^(?:那(?:它|他|这|个|么|明天|后来|为什么|然后|呢)|这(?:个|些)|它|他呢|刚才|之前|继续|接着说|然后呢|后来呢|还有(?:呢|吗)|为什么|为何|\b(?:why|what about|how about|and then|go on|anything else|that|those|it)\b)/i.test(value));
   // A factual request or a contextual follow-up must keep its evidence, even
   // when it starts with a greeting or is only a few words long.

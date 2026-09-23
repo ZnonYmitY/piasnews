@@ -10,7 +10,7 @@ import { createCompanionPublicFeedCache } from "./companion-public-cache.js";
 import { classifyCompanionScope } from "../../public/companion/scope-policy.js";
 import { resolveCompanionMode, classifyCompanionModeIntent } from "../../public/companion/mode-policy.js";
 import { retrieveCompanionKnowledge } from "./companion-knowledge.js";
-import { buildCompanionTurnPolicy, checkTurnResponse } from "./companion-turn-policy.js";
+import { buildCompanionTurnPolicy, checkTurnResponse, extractCompanionTopicReset } from "./companion-turn-policy.js";
 
 const DEFAULT_ORIGIN = "https://znonymity.github.io";
 const MAX_BODY_BYTES = 64 * 1024;
@@ -56,7 +56,7 @@ Every answer, including a boundary or information gap, must be generated for thi
 Canonical routes: ${[...COMPANION_ROUTES].join(", ")}.
 Use fan_light for casual chat, f1_grounded for race discussion, public_fact for sourced real facts, public_adjacent for other public topics, rumor_check for a matching actual rumor proposition. Use the appropriate safety route or insufficient_current_fact/unverified_rumor_source where warranted.
 Return JSON only: answer_en, answer_zh, route, answer_kind (fictional|evidence|social|boundary|insufficient), knowledge_fact_ids (max 4), rumor_item_ids (max 1), public_source_ids (max 4), judgment_rule_ids (max 1), style_card_id, evidence_ids (max 8), notes, self_check. Include IDs only when actually used. Style observations are not proof that Oscar said or thought your generated sentence. Candidate judgment rules may be used only when CANDIDATE_MODE=true; no candidate rules in grounded mode.
-self_check is a compact same-generation assessment, NOT a second review or independent verification: {actual_facts:boolean, facts_supported:boolean, temporal_scope:"none"|"historical"|"current", mode_consistent:boolean, answers_question:boolean}. Assess both language versions of the final answer. actual_facts includes real biography, ownership, genuine quotes and actual activities even inside a fictional/social-labelled reply; ordinary imagined reactions or suggestions are not actual facts. facts_supported requires that every actual claim is supported by its selected IDs, including attribution, answer_limits and related updates. temporal_scope=current if any actual claim describes recent/current activities, news, ownership state or a future schedule; historical interviews or interests alone cannot establish these. Repair your answer before returning when its self_check would be false. Return only the assessment, no reasoning or private chain of thought.
+self_check is a compact same-generation assessment, NOT a second review or independent verification: {actual_facts:boolean, facts_supported:boolean, temporal_scope:"none"|"historical"|"current", mode_consistent:boolean, answers_question:boolean}. Assess both language versions of the NEW answer, not assertions in earlier turns. actual_facts means externally verifiable claims, including real biography, ownership, genuine quotes and actual activities even inside a fictional/social-labelled reply. Acknowledging the user's stated feeling, agreeing to reply briefly, and explaining that this chat's previous hypothetical answer was a performance are conversational acts, not external facts needing a source. Do not use that distinction to claim any real activity, habit or private state. Ordinary imagined reactions or suggestions are not actual facts. facts_supported requires that every actual claim is supported by its selected IDs, including attribution, answer_limits and related updates. temporal_scope=current if any actual claim describes recent/current activities, news, ownership state or a future schedule; historical interviews or interests alone cannot establish these. Repair your answer before returning when its self_check would be false. Return only the assessment, no reasoning or private chain of thought.
 English input: answer_en only, answer_zh empty. Chinese input: a natural faithful Chinese answer plus its English equivalent. TURN_POLICY sets an appropriate soft length target inside the general ceiling of 90 English words plus translation. Don't pad a complete answer to reach a word count. A public update overview needs at most 2–3 supported items. Do not add unrelated facts or an unselected schedule.
 STYLE_PACKAGE_JSON:
 ${JSON.stringify({ package_version: COMPANION_PACKAGE_VERSION, styles: COMPANION_RUNTIME_DATA.styles, expression_observations: COMPANION_RUNTIME_DATA.evidence.map(({ id, observation, supports, context, period, counterevidence_for, review_status }) => ({ id, observation, supports, context: compactText(context, 160), period, counterevidence_for, review_status })) })}
@@ -869,19 +869,30 @@ async function callDeepseekCompanion(body, env, trace = {}) {
   const filteredHistory = safeCompanionHistory(rawHistory);
   const historyFlagged = filteredHistory.length !== rawHistory.length;
   const safeHistory = boundary ? [] : filteredHistory;
-  const modeIntent = classifyCompanionModeIntent(boundary ? "" : body.message, safeHistory, { mode });
+  // Explicitly retiring a topic ends its evidence inheritance, not the whole
+  // conversation. Safety is still classified against the untouched request.
+  const resetMessage = boundary ? null : extractCompanionTopicReset(body.message);
+  const evidenceMessage = resetMessage ?? body.message;
+  const evidenceHistory = resetMessage !== null ? [] : safeHistory;
+  if (resetMessage !== null) {
+    const nextScope = classifyCompanionScope(evidenceMessage, [], { mode: "free" });
+    scope.evidence_need = nextScope.evidence_need;
+    scope.kind = nextScope.kind;
+    scope.reason = "explicit_topic_reset";
+  }
+  const modeIntent = classifyCompanionModeIntent(boundary ? "" : evidenceMessage, evidenceHistory, { mode });
   const turnPolicy = buildCompanionTurnPolicy({ message: boundary ? "" : body.message, history: safeHistory, scope, modeIntent, boundary });
   let resultSelectorMessage = null;
   // Carry only the evidence requirement of an actual follow-up. Never inherit
   // a safety permission or let a new hello revive the previous factual topic.
-  if (!boundary && !scope.evidence_need && turnPolicy.act === "followup") {
+  if (!boundary && resetMessage === null && !scope.evidence_need && turnPolicy.act === "followup") {
     const previous = [...safeHistory].reverse().find((item) => item.role === "user");
     if (previous) {
       scope.evidence_need = classifyCompanionScope(previous.content, [], { mode: "free" }).evidence_need;
       if (scope.evidence_need === "recent_result") resultSelectorMessage = previous.content;
     }
   }
-  const requestPolicy = requestEvidencePolicy(boundary ? "" : body.message, safeHistory);
+  const requestPolicy = requestEvidencePolicy(boundary ? "" : evidenceMessage, evidenceHistory);
   const modelMessage = boundary
     ? `The user's original request was withheld locally for the ${scope.route} boundary. Explain this boundary briefly and naturally without guessing the withheld details. Return route ${scope.route} and answer_kind boundary.`
     : body.message.trim();
@@ -898,7 +909,7 @@ async function callDeepseekCompanion(body, env, trace = {}) {
   const selectedPageSource = pageRace ? publicContext.public_sources.find((source) => source.kind === "schedule"
     && [source.facts?.name, source.facts?.name_zh].includes(pageRace)) : null;
   const knowledge = retrieveCompanionKnowledge({
-    message: boundary || socialOnly ? "" : modelMessage, history: socialOnly ? [] : safeHistory,
+    message: boundary || socialOnly ? "" : evidenceMessage, history: socialOnly ? [] : evidenceHistory,
     runtimeData: COMPANION_RUNTIME_DATA, sourceCatalog: COMPANION_SOURCE_CATALOG,
     currentPublicContext: boundary ? {} : publicContext, evidenceNeed: scope.evidence_need, focusedPublicSourceId: selectedPageSource?.id, resultSelectorMessage, now,
   });
@@ -943,6 +954,8 @@ async function callDeepseekCompanion(body, env, trace = {}) {
       : "OUTPUT LANGUAGE: Return non-empty answer_en and an empty answer_zh.") + `\nFINAL ANSWER ASSEMBLY: First perform the action the user requested within mode ${mode}. In free mode, a clear harmless choice calls for a direct character choice, not an audit of whether Oscar published a ranking. Relevant facts constrain that choice but do not replace it. In grounded mode, give the supported answer or the specific evidence gap. answer_limits and limitations are editorial constraints, NOT biographical facts or sentences to recite. Missing documentation must not become a claim of never having or doing something. Do not append unasked-for unknowns. Distinguish a temporary hypothetical reaction from an autobiographical experience or routine; a fictional label does not permit invented biographical justification or a factual premise followed by a made-up daily habit. Before finalizing, self_check.answers_question means the requested answer action was actually completed, not merely that the same topic was mentioned. Keep the final reply brief and natural; citations are attached separately.` },
     ...safeHistory.map((item) => ({ role: item.role, content: item.content.trim() })),
     { role: "system", content: "RESPONSE SERIALIZATION FOR THIS TURN: Earlier assistant messages are rendered conversation text, not examples of the required output format or proof of personal facts. Preserve their conversational context, but return ONE non-empty JSON object for the new question, never a blank response or plain prose. Populate answer_en, answer_zh, route, answer_kind, the selected ID arrays, style_card_id, notes and self_check using the contracts above. answer_en contains English only; put the faithful Chinese translation only in answer_zh, never append a Chinese label or translation inside answer_en even if old history did so. Start with { and finish with }. Do not copy the old answer or its unsupported claims."
+      + "\nCONVERSATIONAL CONSTRAINTS: Honor the user's latest harmless corrections and still-relevant preferences in the supplied history. If they ask for one choice, give exactly one activity/option, not a sequence joined by 'then'; respect any options they supplied. If they ask for brief company without advice or questions, respond briefly without advice or a question. A request to change your reply length can be acknowledged without re-answering the previous topic. You can recall a name or detail the user explicitly supplied as their statement, without a biography citation; do not transfer it to Oscar or treat it as independently verified. If asked whether a previous hypothetical reply was real, explain its conversational provenance directly; this clarification is normally fan_light/social, not a privacy refusal. Deny only that the invented reply was a verified plan, never assert that Oscar has no real plans or habits. Do not convert roleplay into real plans or habits, or treat the clarification itself as an external biographical claim. These constraints never override factual, mode or safety rules."
+      + (resetMessage !== null ? "\nTOPIC RESET: The user explicitly retired an earlier topic. Address the new message; do not revive that topic or its factual requirements. Retained history still supplies conversational preferences and context, not evidence for the new topic." : "")
       + (socialOnly ? `\nCURRENT SOCIAL TURN (${turnPolicy.act}): ${turnPolicy.instruction} Generate a claim-free social reply with route fan_light and answer_kind social; do not mistake the conversation act for a route. Leave knowledge_fact_ids, rumor_item_ids and public_source_ids empty. The history is retained for conversational continuity, not to re-answer an earlier factual question.` : "") },
     { role: "user", content: modelMessage },
   ];
@@ -1018,7 +1031,7 @@ async function callDeepseekCompanion(body, env, trace = {}) {
     result: {
       ...result,
       evidence_status: { ...result.evidence_status, public_delivery: publicContext.delivery_status || {} },
-      conversation_policy: { act: turnPolicy.act, response_size: turnPolicy.response_size, initiative: turnPolicy.initiative, page_focus_used: Boolean(pageFocus) },
+      conversation_policy: { act: turnPolicy.act, response_size: turnPolicy.response_size, initiative: turnPolicy.initiative, page_focus_used: Boolean(pageFocus), topic_reset: resetMessage !== null },
       event_query: knowledge.event_context ? Object.fromEntries(["relation", "requested", "session", "target_event_id", "target_session_ref", "status", "source_ids"].map(key => [key, knowledge.event_context[key]])) : null,
       validation_trace: { status: "same_generation_self_check", independent_verified: false, local_checks: ["selected_ids", "mode", "literal_fact_intent", "temporal_scope", "turn_pacing", "output_shape"], repair_count: trace.repair_count, recovery_reason: recoveryReason, additional_review_requests: 0 },
       performance: { context_ms: contextMs, generation_ms: generationMs, total_ms: Date.now() - startedAt, model_calls: trace.repair_count + 1, context_chars: JSON.stringify(runtimeContext).length },

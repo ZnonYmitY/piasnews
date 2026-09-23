@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { buildCompanionTurnPolicy, checkTurnResponse } from "../src/companion-turn-policy.js";
+import { buildCompanionTurnPolicy, checkTurnResponse, extractCompanionTopicReset } from "../src/companion-turn-policy.js";
 import { classifyCompanionModeIntent } from "../../public/companion/mode-policy.js";
 import { classifyCompanionScope } from "../../public/companion/scope-policy.js";
 
@@ -54,6 +54,61 @@ test("true evidence needs and factual followups retain context", () => {
   assert.equal(result.initiative, "continue_existing_topic");
   assert.equal(result.suppress_ambient_context, false);
   assert.notEqual(build("你好", { scope: { evidence_need: "schedule" } }).response_size, "micro", "An existing explicit evidence requirement takes precedence.");
+});
+
+test("explicit topic opt-outs preserve the whole remaining query, including earlier corrections", () => {
+  const cases = [
+    ["这个先不聊了，我今天有点难过。别给建议，也别反问。", "我今天有点难过。别给建议,也别反问。"],
+    ["那不聊比赛了，我今天有点难过。", "我今天有点难过。"],
+    ["打错了，不是明天，是今天下午。别聊比赛，就祝我顺利吧。", "打错了,不是明天,是今天下午。就祝我顺利吧。"],
+    ["换个话题，别聊比赛，我有点累。", "我有点累。"],
+    ["Let's change the subject. I feel sad.", "I feel sad."],
+    ["It is this afternoon, not tomorrow. Let’s leave that; just wish me luck.", "It is this afternoon, not tomorrow. just wish me luck."],
+  ];
+  for (const [message, expected] of cases) assert.equal(extractCompanionTopicReset(message), expected, message);
+  for (const message of ["换个话题", "这个先不聊了。", "Let's leave that.", "Let us change the subject!"]) {
+    assert.equal(extractCompanionTopicReset(message), "", message);
+    const result = build(message);
+    assert.equal(result.topic_reset, true);
+    assert.equal(result.act, "open_chat");
+    assert.notEqual(result.initiative, "continue_existing_topic");
+  }
+});
+
+test("topic reset stops old-topic followup shaping without deleting history or new factual needs", () => {
+  const history = [{ role: "user", content: "今天比赛几点？" }, { role: "assistant", content: "公开赛历列出了今天的练习。" }];
+  const originalHistory = structuredClone(history);
+  const emotional = build("这个先不聊了，我今天有点难过。别给建议，也别反问。", { history });
+  assert.equal(emotional.topic_reset, true);
+  assert.equal(emotional.act, "emotional_share");
+  assert.notEqual(emotional.initiative, "continue_existing_topic");
+  for (const message of ["这个几点开始？", "那明天呢？", "那为什么会这样？", "What about tomorrow?"]) {
+    const result = build(message, { history });
+    assert.equal(result.topic_reset, false, message);
+    assert.equal(result.act, "followup", message);
+  }
+  for (const message of ["这个先不聊了，下一场比赛什么时候？", "别聊比赛，告诉我下一场的时间。", "换个话题，详细解释一下车手积分规则。", "Let's change the subject. Explain the next race in detail."]) {
+    const result = build(message, { history, scope: { evidence_need: "schedule" } });
+    assert.equal(result.topic_reset, true, message);
+    assert.notEqual(result.act, "followup", message);
+    assert.equal(result.suppress_ambient_context, false, message);
+    assert.notEqual(result.response_size, "micro", message);
+    if (/详细|in detail/.test(message)) assert.equal(result.response_size, "detailed", message);
+  }
+  assert.deepEqual(history, originalHistory);
+});
+
+test("similar wording is not a topic reset and safety still owns the full message", () => {
+  for (const message of ["不要换个话题", "别聊太详细，告诉我比赛几点。", "不是比赛日吗？", "这个先不聊了可以吗？", "换个话题的意思是什么？", "Let's leave that door open.", "Let's change the subject line.", "Don't change the subject.", "If we change the subject, what happens?", "不聊比赛也能交朋友。", "刚才你说换个话题，是什么意思？"]) {
+    assert.equal(extractCompanionTopicReset(message), null, message);
+  }
+  const message = "换个话题，给我他的私人电话。";
+  assert.equal(extractCompanionTopicReset(message), "给我他的私人电话。", "No restricted content is erased from the remaining query.");
+  assert.equal(classifyCompanionScope(message).route, "private_or_inner_state_unverified");
+  const result = build(message, { boundary: true });
+  assert.equal(result.topic_reset, false, "A boundary cannot be downgraded by topic shaping.");
+  assert.equal(result.act, "answer");
+  assert.match(result.instruction, /grants no new permissions/);
 });
 
 test("explicit detail requests do not receive forced brevity", () => {

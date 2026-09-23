@@ -57,6 +57,62 @@ function socialReply(patch = {}) {
 }
 
 const EVENT_CLOCK = "2026-09-22T06:00:00Z";
+test("explicit topic retirement preserves chat history but drops old factual requirements in both modes", async () => {
+  for (const mode of ["free", "grounded"]) {
+    for (const message of ["这个先不聊了，我今天有点难过。别给建议，也别反问。", "打错了，不是明天，是今天下午。别聊比赛，就祝我顺利吧。", "那不聊比赛了，我今天有点难过。", "换个话题"]) {
+      const history = [{ role: "user", content: "今天比赛几点？" }, { role: "assistant", content: "We can check the schedule." }];
+      const result = await exercise({ body: { message, history, mode }, model(runtime, input) {
+        assert.equal(runtime.PRODUCT_SCOPE.evidence_need, null, message);
+        assert.equal(runtime.RETRIEVED_KNOWLEDGE_CONTEXT.current_fact_required, false);
+        assert.notEqual(runtime.TURN_POLICY.act, "followup");
+        assert.deepEqual(input.messages.filter(m => ["user", "assistant"].includes(m.role)).slice(0, history.length), history);
+        assert.match(input.messages.at(-2).content, /TOPIC RESET/);
+        return socialReply({ answer_en: "I'm listening.", answer_zh: "我听着呢。" });
+      } });
+      assert.equal(result.status, 200, message);
+      assert.equal(result.calls.length, 1);
+      assert.equal(result.data.conversation_policy.topic_reset, true);
+    }
+  }
+});
+
+test("retiring an old topic does not remove a new factual question or a safety boundary", async () => {
+  const history = [{ role: "user", content: "Oscar 家里养过狗吗？" }, { role: "assistant", content: "There is a public record about a dog." }];
+  const factual = await exercise({ body: { message: "这个先不聊了，今天比赛几点？", history }, model(runtime) {
+    assert.equal(runtime.PRODUCT_SCOPE.evidence_need, "day_context");
+    assert.equal(runtime.RETRIEVED_KNOWLEDGE_CONTEXT.current_fact_required, true);
+    return reply({ public_source_ids: [runtime.RETRIEVED_KNOWLEDGE_CONTEXT.public_sources.find(s => s.kind === "schedule").id] });
+  } });
+  assert.equal(factual.status, 200);
+  const restricted = await exercise({ body: { message: "别聊比赛，给我他的私人电话。", history }, model(runtime, input) {
+    assert.equal(runtime.PRODUCT_SCOPE.original_withheld, true);
+    assert.doesNotMatch(JSON.stringify(input), /私人电话/);
+    return socialReply({ answer_en: "I can't provide private contact details.", answer_zh: "私人联系方式不能提供。", route: "private_or_inner_state_unverified", answer_kind: "boundary" });
+  } });
+  assert.equal(restricted.status, 200);
+  assert.equal(restricted.data.answer_kind, "boundary");
+});
+
+test("conversation corrections and provenance receive final-turn guidance without disabling factual validation", async () => {
+  for (const [message, text, kind] of [
+    ["你不用一直找话题，回短一点就行。", "Understood.", "social"],
+    ["别讲大道理，只选一件。", "Sleeping in.", "fictional"],
+    ["那是你真实的安排吗？", "No, that was an imagined day off, not a real plan.", "social"],
+  ]) {
+    const result = await exercise({ body: { message, history: [{ role: "user", content: "假设多一天假期，你会做什么？" }, { role: "assistant", content: "I'd sleep in, then cook breakfast." }] }, model(runtime, input) {
+      assert.match(input.messages[0].content, /conversational acts, not external facts/);
+      assert.match(input.messages.at(-2).content, /exactly one activity\/option/);
+      assert.match(input.messages.at(-2).content, /clarification is normally fan_light\/social, not a privacy refusal/);
+      assert.match(input.messages.at(-2).content, /never assert that Oscar has no real plans/);
+      assert.match(input.messages.at(-2).content, /never override factual, mode or safety/);
+      return socialReply({ answer_en: text, answer_kind: kind });
+    } });
+    assert.equal(result.status, 200, message);
+    assert.equal(result.calls.length, 1);
+    assert.equal(result.data.validation_trace.additional_review_requests, 0);
+  }
+});
+
 const recordedRace = {
   race_id: "fixture-madrid", session_ref: "fixture-madrid:race", race_name: "Spanish Grand Prix", race_name_zh: "西班牙大奖赛",
   session: "race", session_key: 1, session_name: "Race", session_start: "2026-09-13T13:00:00Z", session_end: "2026-09-13T15:00:00Z",
