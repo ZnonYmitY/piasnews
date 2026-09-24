@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-24T10:11:49.683125Z",
+  "generated_at": "2026-09-24T13:51:04.792206Z",
   "translations": {
     "items:piasnews-7eab818b31b6d3a3:title:bbf344283fb3c94279dc2357": {
       "dataset": "items",
@@ -3313,6 +3313,66 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-24T10:11:49.156455Z"
+    },
+    "items:piasnews-38996b46958a3dc9:title:409283fc08b7e4b74378ba43": {
+      "dataset": "items",
+      "item_id": "piasnews-38996b46958a3dc9",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri’s ‘love-hate’ bond with Baku torn open after rocky practice",
+      "zh": "Piastri与Baku的“爱恨”情结在艰难练习赛后爆发",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-24T13:51:04.102536Z"
+    },
+    "items:piasnews-38996b46958a3dc9:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-38996b46958a3dc9",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-24T13:51:04.102544Z"
+    },
+    "items:piasnews-5503d88ae276bf92:title:5d9b240e0f0cdd1a7a5d4659": {
+      "dataset": "items",
+      "item_id": "piasnews-5503d88ae276bf92",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "F1-Oscar Piastri-Thursday-2026-Azerbaijan GP-GettyImages-2296715261",
+      "zh": "F1-Oscar Piastri-周四-2026-阿塞拜疆大奖赛-GettyImages-2296715261",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-24T13:51:04.102550Z"
+    },
+    "items:piasnews-5503d88ae276bf92:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-5503d88ae276bf92",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-24T13:51:04.102554Z"
+    },
+    "social:piasnews-social-2e552efaec758d4c:summary:b790892a723ccfe25defe26d": {
+      "dataset": "social",
+      "item_id": "piasnews-social-2e552efaec758d4c",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @PIZZAPIASTRI: 🐝❤️ https://t.co/nsWyoy5tLD",
+      "zh": "转发 @PIZZAPIASTRI: 🐝❤️",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-24T13:51:04.102558Z"
     }
   },
   "retention_days": 8
