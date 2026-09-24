@@ -1,31 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-24T03:52:03.354742Z",
+  "generated_at": "2026-09-24T06:56:36.291867Z",
   "translations": {
-    "items:piasnews-b685c971f208a1cf:title:ee1a4b59960af5bd0cbad607": {
-      "dataset": "items",
-      "item_id": "piasnews-b685c971f208a1cf",
-      "field": "title",
-      "target_field": "title_zh",
-      "source_text": "McLaren Recalibrate 2026 Setup To Fix Piastri Driving Deficit",
-      "zh": "McLaren重新校准2026年设定以解决Piastri驾驶劣势",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-09-16T06:18:26.312063Z"
-    },
-    "items:piasnews-b685c971f208a1cf:summary:26b5911fbd1b8158d42ac2a8": {
-      "dataset": "items",
-      "item_id": "piasnews-b685c971f208a1cf",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "Team or car-performance item discovered from public news metadata.",
-      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-09-16T06:18:26.312071Z"
-    },
     "items:piasnews-037cb437bc9152eb:title:36d0dca6ce4ed6f284f09e29": {
       "dataset": "items",
       "item_id": "piasnews-037cb437bc9152eb",
@@ -3109,6 +3085,42 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-24T03:52:02.848274Z"
+    },
+    "items:piasnews-33895254ad58ea77:title:5ed65fa8beb8eca836b6169b": {
+      "dataset": "items",
+      "item_id": "piasnews-33895254ad58ea77",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "F1 crossroads could spark chilling endgame; missing piece to re-ignite Piastri — Talking Pts",
+      "zh": "F1十字路口可能引发令人胆寒的终局；重燃Piastri所需的缺失拼图——热议焦点",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-24T06:56:35.785629Z"
+    },
+    "items:piasnews-33895254ad58ea77:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-33895254ad58ea77",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-24T06:56:35.785656Z"
+    },
+    "social:piasnews-social-602b26fe6b17b409:summary:72e84993269db0afb9ffa992": {
+      "dataset": "social",
+      "item_id": "piasnews-social-602b26fe6b17b409",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "MCLAREN HAVE BROUGHT EIGHT UPGRADES TO BAKU !! https://t.co/cCVpWFhnxa",
+      "zh": "MCLAREN为BAKU带来了八项升级！！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-24T06:56:35.785660Z"
     }
   },
   "retention_days": 8
