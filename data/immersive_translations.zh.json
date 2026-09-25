@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-25T11:55:06.145570Z",
+  "generated_at": "2026-09-25T13:00:13.243191Z",
   "translations": {
     "items:piasnews-a07a1f95cae797db:title:312dcde6a6199661e1efdf36": {
       "dataset": "items",
@@ -3121,6 +3121,18 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-25T11:55:05.432903Z"
+    },
+    "items:piasnews-dbe35d02e156db23:title:a690a34d588e1457d9eaad97": {
+      "dataset": "items",
+      "item_id": "piasnews-dbe35d02e156db23",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri, McLaren, Baku City Circuit, 2026",
+      "zh": "Oscar Piastri，McLaren，Baku城市赛道，2026",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-25T13:00:12.577704Z"
     }
   },
   "retention_days": 8
