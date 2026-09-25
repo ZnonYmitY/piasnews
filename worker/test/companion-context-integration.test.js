@@ -319,7 +319,8 @@ test("both modes receive Friday sessions and timezone in one generation, with no
       assert.equal(knowledge.source_catalog.find((s) => s.id === source.id).facts, undefined);
       assert.equal(runtime.CURRENT_PUBLIC_DATA.public_sources, undefined);
       assert.equal(runtime.PRODUCT_SCOPE.evidence_need, "day_context");
-      assert.match(input.messages[0].content, /counterevidence_for/);
+      assert.match(input.messages[0].content, /STYLE_PACKAGE_JSON/);
+      assert.doesNotMatch(input.messages[0].content, /expression_observations/);
       selected.push(knowledge.retrieved);
       return reply({ public_source_ids: [source.id] });
     } });

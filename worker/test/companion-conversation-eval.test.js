@@ -182,6 +182,16 @@ test("failed multi turn stops dependent requests instead of fabricating history 
   assert.ok(results.slice(1).every((item) => item.skipped));
 });
 
+test("validation diagnostics retain only controlled assessment enums and counts, never text", () => {
+  assert.deepEqual(sanitizeConversationDiagnostic({ validation_route: "insufficient_current_fact", validation_answer_kind: "insufficient",
+    validation_actual_facts: true, validation_temporal_scope: "none", selected_factual_id_count: 0, rejected_text: "PRIVATE_TEXT" }), {
+    validation_route: "insufficient_current_fact", validation_answer_kind: "insufficient", validation_actual_facts: true,
+    validation_temporal_scope: "none", selected_factual_id_count: 0,
+  });
+  assert.deepEqual(sanitizeConversationDiagnostic({ validation_route: "PRIVATE_TEXT", validation_answer_kind: "PRIVATE_TEXT",
+    validation_actual_facts: "PRIVATE_TEXT", validation_temporal_scope: "PRIVATE_TEXT", selected_factual_id_count: -1 }), null);
+});
+
 test("an HTTP 502 retains safe diagnostics without guessing failed model-call counts", async () => {
   const diagnostic = { stage: "validation", reason: "conversation_pacing_mismatch", upstream_status: 200, model_finish_reason: "stop", repair_count: 1, elapsed_ms: 2134 };
   const { summary, results } = await runConversationSuite(parseConversationArgs(["--run", "--suite", "multi"]), {

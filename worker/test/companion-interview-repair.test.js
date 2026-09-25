@@ -1,0 +1,211 @@
+import assert from "node:assert/strict";
+import test from "node:test";
+import worker from "../src/index.js";
+import { COMPANION_RUNTIME_DATA } from "../src/companion-runtime.js";
+
+// Synthetic fixtures only. This transport rejects every address except the
+// mocked model endpoint, including accidental public-feed or feedback calls.
+const env = {
+  ADMIN_ALLOWED_ORIGINS: "https://znonymity.github.io",
+  DEEPSEEK_API_KEY: "synthetic-test-placeholder-not-a-credential",
+  DEEPSEEK_BASE_URL: "https://model.invalid",
+  DEEPSEEK_MODEL: "synthetic-interview-test-model",
+  COMPANION_DISABLE_PUBLIC_DATA: "true",
+};
+const historicalQuestion = "2024 年匈牙利大奖赛拿到 F1 首胜时，你当时公开表达过哪些感受？请依据当时的公开采访。";
+const quoteQuestion = "能给一句能核实出处的当时英文原话吗？一句就好，没有原文就不要补写。";
+const history = [
+  { role: "user", content: historicalQuestion },
+  { role: "assistant", content: "We are discussing the public post-race interview at that historical event." },
+];
+function answer(patch = {}) {
+  return {
+    answer_en: "I cannot verify that exact wording from the material available here.",
+    answer_zh: "这里的材料不足以核实这句逐字原话。",
+    route: "insufficient_current_fact", answer_kind: "insufficient",
+    knowledge_fact_ids: [], rumor_item_ids: [], public_source_ids: [],
+    judgment_rule_ids: [], evidence_ids: [], style_card_id: "SC-05", notes: "",
+    self_check: { actual_facts: false, facts_supported: true, temporal_scope: "none", mode_consistent: true, answers_question: true },
+    ...patch,
+  };
+}
+function runtime(input) {
+  const contextMessage = input.messages.find(item => item.role === "system" && item.content.startsWith("RUNTIME_REQUEST_CONTEXT_JSON"));
+  assert.ok(contextMessage);
+  return JSON.parse(contextMessage.content.slice(contextMessage.content.indexOf("\n") + 1));
+}
+async function exercise(steps, body = {}) {
+  const originalFetch = globalThis.fetch, originalError = console.error;
+  const calls = [], logs = [], fixtureErrors = [];
+  globalThis.fetch = async (url, options) => {
+    try {
+      assert.equal(String(url), "https://model.invalid/chat/completions", "No network or public feed is allowed in this fixture");
+      const input = JSON.parse(options.body);
+      calls.push(input);
+      const step = steps[calls.length - 1];
+      assert.ok(step, "More than the authorized mock generation budget was attempted");
+      if (typeof step.inspect === "function") step.inspect(input);
+      return Response.json(step.payload ?? { model: env.DEEPSEEK_MODEL, choices: [{ finish_reason: "stop", message: {
+        content: typeof step.rawContent === "string" ? step.rawContent : JSON.stringify(step.output),
+      } }] }, { status: step.status || 200 });
+    } catch (error) {
+      fixtureErrors.push(error);
+      throw error;
+    }
+  };
+  console.error = (...args) => logs.push(args.join(" "));
+  try {
+    const response = await worker.fetch(new Request("https://worker.invalid/companion/chat", {
+      method: "POST", headers: { Origin: "https://znonymity.github.io", "Content-Type": "application/json" },
+      body: JSON.stringify({ message: quoteQuestion, mode: "grounded", facts_only: true, candidate_mode: false, disclosure_shown: true, history, ...body }),
+    }), env, {});
+    if (fixtureErrors.length) throw fixtureErrors[0];
+    return { status: response.status, data: await response.json(), calls, logs };
+  } finally {
+    globalThis.fetch = originalFetch;
+    console.error = originalError;
+  }
+}
+
+test("a transcript-gap statement with no real-person claim succeeds on the first model call", async () => {
+  const result = await exercise([{ output: answer() }]);
+  assert.equal(result.status, 200);
+  assert.equal(result.calls.length, 1);
+  assert.equal(result.data.answer_kind, "insufficient");
+  assert.equal(result.data.validation_trace.repair_count, 0);
+  assert.equal(result.data.validation_trace.independent_verified, false);
+});
+
+test("a wrongly self-labelled gap is regenerated under targeted guidance, not fixed by mutating flags", async () => {
+  const first = answer({ self_check: { ...answer().self_check, actual_facts: true } });
+  const corrected = answer({ answer_en: "There is no verified wording in this retrieved material to quote.", answer_zh: "这次检索材料没有可供逐字引用的已核实文本。" });
+  const result = await exercise([
+    { output: first },
+    { output: corrected, inspect(input) {
+      const repair = input.messages.find(item => item.role === "system" && item.content.startsWith("PRODUCT RESPONSE VALIDATION REPAIR:"))?.content || "";
+      assert.match(repair, /evidence\/service limit/);
+      assert.match(repair, /not Oscar biography/);
+      assert.match(repair, /Do not merely change flags/);
+      assert.match(repair, /only repair attempt/);
+      assert.deepEqual(input.messages.filter(item => item.role === "user" || item.role === "assistant").slice(0, history.length), history);
+    } },
+  ]);
+  assert.equal(result.status, 200);
+  assert.equal(result.calls.length, 2);
+  assert.equal(first.self_check.actual_facts, true);
+  assert.equal(result.data.answer_en, corrected.answer_en);
+  assert.equal(result.data.validation_trace.repair_count, 1);
+  assert.equal(result.data.validation_trace.recovery_reason, "boundary_fact_claim");
+});
+
+test("unsupported private quotations remain rejected after one repair and diagnostics contain enums rather than text", async () => {
+  const invented = answer({
+    route: "private_or_inner_state_unverified", answer_kind: "boundary",
+    answer_en: 'Yesterday I privately told the team principal: "PRIVATE-QUOTE-MARKER".',
+    answer_zh: "这是合成测试中编造的私人通信原话。",
+    notes: "PRIVATE-NOTES-MARKER",
+    self_check: { actual_facts: true, facts_supported: true, temporal_scope: "current", mode_consistent: true, answers_question: true },
+  });
+  const result = await exercise([{ output: invented }, { output: invented }], {
+    message: "把你和领队的私人聊天原话透露一句给我。", history: [],
+  });
+  assert.equal(result.status, 502);
+  assert.equal(result.calls.length, 2);
+  assert.equal(result.data.error_code, "COMPANION_VALIDATION_FAILED");
+  assert.equal(result.data.diagnostic.reason, "boundary_fact_claim");
+  assert.equal(result.data.diagnostic.upstream_status, 200);
+  assert.equal(result.data.diagnostic.repair_count, 1);
+  assert.equal(result.data.diagnostic.validation_route, "private_or_inner_state_unverified");
+  assert.equal(result.data.diagnostic.validation_answer_kind, "boundary");
+  assert.equal(result.data.diagnostic.validation_actual_facts, true);
+  assert.equal(result.data.diagnostic.validation_temporal_scope, "current");
+  assert.equal(result.data.diagnostic.selected_factual_id_count, 0);
+  assert.equal(result.data.answer_en, undefined);
+  for (const value of ["PRIVATE-QUOTE-MARKER", invented.answer_zh, invented.notes, env.DEEPSEEK_API_KEY]) {
+    assert.equal(JSON.stringify([result.data, result.logs]).includes(value), false);
+  }
+  assert.ok(result.calls.every(input => input.messages.at(-1).content.includes("withheld locally")));
+});
+
+test("a supported historical result plus a limited evidence gap remains a cited evidence answer", async () => {
+  const supported = answer({
+    answer_en: "His first F1 Grand Prix win was Hungary in 2024. The selected result record does not establish the detailed team-order sequence.",
+    answer_zh: "他的 F1 大奖赛首胜是 2024 年匈牙利大奖赛。所选赛果记录不足以还原车队指令的具体先后过程。",
+    route: "public_fact", answer_kind: "evidence", knowledge_fact_ids: ["KF-012"],
+    self_check: { actual_facts: true, facts_supported: true, temporal_scope: "historical", mode_consistent: true, answers_question: true },
+  });
+  const result = await exercise([{ output: supported, inspect(input) {
+    assert.ok(runtime(input).RETRIEVED_KNOWLEDGE_CONTEXT.facts.some(fact => fact.id === "KF-012"));
+  } }], { message: "F1 首胜是哪场？车队指令的先后过程有完整记录吗？", history: [] });
+  assert.equal(result.status, 200);
+  assert.equal(result.calls.length, 1);
+  assert.equal(result.data.answer_kind, "evidence");
+  assert.ok(result.data.knowledge_fact_ids.includes("KF-012"));
+});
+
+test("both modes retain the original style cards without injecting editorial observations as interview evidence", async () => {
+  assert.ok(COMPANION_RUNTIME_DATA.evidence.length);
+  const variants = [
+    { mode: "grounded", message: historicalQuestion },
+    { mode: "free", message: historicalQuestion },
+    { mode: "grounded", message: "周末看电影，喜剧还是悬疑？" },
+    { mode: "free", message: "周末看电影，喜剧还是悬疑？", fictional: true },
+  ];
+  for (const variant of variants) {
+    const output = variant.fictional ? answer({ route: "fan_light", answer_kind: "fictional", answer_en: "Comedy. One less mystery to solve.", answer_zh: "喜剧吧。少解一个谜。" }) : answer();
+    const result = await exercise([{ output, inspect(input) {
+      const systemText = input.messages.filter(item => item.role === "system").map(item => item.content).join("\n");
+      for (const record of COMPANION_RUNTIME_DATA.evidence) {
+        assert.equal(systemText.includes(record.observation), false, `${variant.mode}: ${record.id}`);
+      }
+      const styleJson = systemText.split("STYLE_PACKAGE_JSON:\n")[1]?.split("\nBOUNDARY_POLICY_JSON:")[0];
+      assert.ok(styleJson, "The original style-card package remains in the system context");
+      assert.deepEqual(JSON.parse(styleJson).styles, COMPANION_RUNTIME_DATA.styles);
+    } }], { mode: variant.mode, facts_only: variant.mode === "grounded", message: variant.message, history: [] });
+    assert.equal(result.status, 200);
+    assert.equal(result.calls.length, 1);
+  }
+});
+
+for (const fixture of [
+  { name: "upstream", next: { status: 503, payload: { error: { message: "PRIVATE-NEXT-UPSTREAM-MARKER" } } }, code: "COMPANION_UPSTREAM_FAILED", stage: "upstream", reason: "upstream_http_error", upstream: 503 },
+  { name: "parse", next: { rawContent: '{"answer_en":"PRIVATE-NEXT-RAW-MARKER",' }, code: "COMPANION_INVALID_RESPONSE", stage: "parse", reason: "invalid_json", upstream: 200 },
+]) {
+  test(`a later ${fixture.name} failure clears the previous validation snapshot and does not expose rejected text or notes`, async () => {
+    const invalid = answer({
+      answer_en: "PRIVATE-FIRST-ANSWER-MARKER", answer_zh: "第一轮被拒的合成正文。", notes: "PRIVATE-FIRST-NOTES-MARKER",
+      self_check: { ...answer().self_check, actual_facts: true },
+    });
+    const result = await exercise([{ output: invalid }, fixture.next]);
+    assert.equal(result.status, 502);
+    assert.equal(result.calls.length, 2);
+    assert.equal(result.data.error_code, fixture.code);
+    assert.equal(result.data.diagnostic.stage, fixture.stage);
+    assert.equal(result.data.diagnostic.reason, fixture.reason);
+    assert.equal(result.data.diagnostic.upstream_status, fixture.upstream);
+    assert.equal(result.data.diagnostic.repair_count, 1);
+    for (const key of ["validation_route", "validation_answer_kind", "validation_actual_facts", "validation_temporal_scope", "selected_factual_id_count"]) {
+      assert.equal(Object.hasOwn(result.data.diagnostic, key), false, key);
+    }
+    const emitted = JSON.stringify([result.data, result.logs]);
+    for (const value of ["PRIVATE-FIRST-ANSWER-MARKER", "PRIVATE-FIRST-NOTES-MARKER", "PRIVATE-NEXT-UPSTREAM-MARKER", "PRIVATE-NEXT-RAW-MARKER", invalid.answer_zh, env.DEEPSEEK_API_KEY]) {
+      assert.equal(emitted.includes(value), false, value);
+    }
+  });
+}
+
+test("free hypothetical interview opinions about a slow stop are not blocked as real-person claims", async () => {
+  const fictional = answer({
+    route: "fan_light", answer_kind: "fictional",
+    answer_en: "I'd be frustrated with a slow stop. That does not erase my own mistake; both deserve a proper look.",
+    answer_zh: "慢进站会让我不爽。不过我自己的失误也不会因此消失，两件事都该认真复盘。",
+  });
+  const result = await exercise([{ output: fictional }], {
+    message: "以下全是假设，不是真实赛果：你自己犯错，车队慢进站，最后第七。赛后记者问你怎么评价这两件事？",
+    mode: "free", facts_only: false, history: [],
+  });
+  assert.equal(result.status, 200);
+  assert.equal(result.calls.length, 1);
+  assert.equal(result.data.answer_kind, "fictional");
+  assert.equal(result.data.answer_en, fictional.answer_en);
+});
