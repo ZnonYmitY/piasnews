@@ -190,10 +190,22 @@ function validatedResultState(item) {
 function validatedResultUrl(item) {
   const url = safeUrl(item.source_url);
   const parsed = url ? new URL(url) : null;
-  if (!parsed || parsed.hostname !== "api.openf1.org" || parsed.pathname !== "/v1/session_result"
-      || parsed.searchParams.getAll("driver_number").length !== 1 || parsed.searchParams.get("driver_number") !== "81") return null;
-  if (item.session_key != null && (!Number.isSafeInteger(item.session_key) || item.session_key <= 0
-      || parsed.searchParams.getAll("session_key").length !== 1 || parsed.searchParams.get("session_key") !== String(item.session_key))) return null;
+  if (!parsed) return null;
+  if (item.source === "Formula 1 Live Timing") {
+    if (!Number.isSafeInteger(item.session_key) || item.session_key <= 0 || item.provisional !== true
+        || parsed.hostname !== "livetiming.formula1.com" || parsed.search || parsed.hash
+        || !/^\/static\/\d{4}\/[A-Za-z0-9_-]+\/[A-Za-z0-9_-]+\/TimingData\.jsonStream$/.test(parsed.pathname)) return null;
+    return url;
+  }
+  // Older published OpenF1 records predate the explicit `source` field. Keep
+  // those records readable when their URL and query bind them to OpenF1 and
+  // Oscar, while rejecting every explicitly supplied non-OpenF1 source.
+  const declaredSource = item.source == null ? null : text(item.source, 60);
+  if ((item.source != null && declaredSource !== "OpenF1") || (item.provisional != null && item.provisional !== false)
+      || parsed.hostname !== "api.openf1.org" || parsed.pathname !== "/v1/session_result"
+      || parsed.searchParams.getAll("driver_number").length !== 1 || parsed.searchParams.get("driver_number") !== "81"
+      || (item.session_key != null && (!Number.isSafeInteger(item.session_key) || item.session_key <= 0
+        || parsed.searchParams.getAll("session_key").length !== 1 || parsed.searchParams.get("session_key") !== String(item.session_key)))) return null;
   return url;
 }
 
@@ -219,12 +231,15 @@ function buildSession(data, sourceStatus, nowMs, publicSources) {
   const eventTime = new Date(startMs).toISOString();
   const raceName = text(latest.race_name, 100);
   const sessionName = text(latest.session_name, 60);
+  const provisional = latest.provisional === true;
+  const provider = provisional ? "Formula 1 Live Timing" : "OpenF1";
   let publicSource = null;
   if (resultAvailable) {
     publicSource = sourceEntry({
       kind: "session_result", url: sourceUrl, date: eventTime, title: `${raceName || "F1"} ${sessionName || "session"} — Oscar Piastri result`,
       title_zh: `${text(latest.race_name_zh, 100) || raceName || "F1"} ${sessionName || "赛段"} — 皮亚斯特里成绩`,
-      source: "OpenF1 session_result", data_provider: "OpenF1", sourceType: "official", evidenceTier: "public_results_provider",
+      source: provisional ? "Formula 1 Live Timing provisional result" : "OpenF1 session_result", data_provider: provider,
+      sourceType: "official", evidenceTier: provisional ? "official_live_timing_archive" : "public_results_provider",
       retrieval_terms: [raceName, text(latest.race_name_zh, 100), sessionName, text(latest.session, 40), "result", "赛果", "成绩"].filter(Boolean),
       facts: {
         generated_at: sourceStatus.generated_at, session_ref: sessionRef, race_name: raceName, race_name_zh: text(latest.race_name_zh, 100),
@@ -233,9 +248,13 @@ function buildSession(data, sourceStatus, nowMs, publicSources) {
         status: classifiedStatus, dnf: latest.dnf === true, dns: latest.dns === true, dsq: latest.dsq === true,
         number_of_laps: Number.isInteger(latest.number_of_laps) && latest.number_of_laps >= 0 ? latest.number_of_laps : null,
         gap_to_leader: text(String(latest.gap_to_leader ?? ""), 50), result_available: true, pending_newer_result: false,
-        temporal_scope: "Latest result available in this snapshot for this named session, not live timing or championship standings. Generated time is not the session date.",
+        provisional,
+        temporal_scope: provisional
+          ? "Latest provisional result in this snapshot from the finished live-timing archive; later confirmed classification may change it."
+          : "Latest result available in this snapshot for this named session, not live timing or championship standings. Generated time is not the session date.",
       },
-      answer_limits: ["Match the requested race and session type; a practice result is not the previous Grand Prix result.", "A result-provider snapshot is not a championship table or proof of live progress."],
+      answer_limits: ["Match the requested race and session type; a practice result is not the previous Grand Prix result.",
+        provisional ? "Label this result as provisional; it is not the confirmed classification." : "A result-provider snapshot is not a championship table or proof of live progress."],
     });
     publicSources.push(publicSource);
   }
@@ -251,6 +270,7 @@ function buildSession(data, sourceStatus, nowMs, publicSources) {
       status: classifiedStatus, dnf: latest.dnf === true, dns: latest.dns === true, dsq: latest.dsq === true,
       number_of_laps: Number.isInteger(latest.number_of_laps) && latest.number_of_laps >= 0 ? latest.number_of_laps : null,
       gap_to_leader: text(String(latest.gap_to_leader ?? ""), 50), source: text(latest.source, 40), source_url: sourceUrl,
+      provisional,
       fetched_at: timestamp(latest.fetched_at) !== null && timestamp(latest.fetched_at) <= nowMs + FUTURE_TOLERANCE_MS ? new Date(timestamp(latest.fetched_at)).toISOString() : null,
       public_source_id: publicSource?.id || null,
     },
@@ -282,11 +302,14 @@ function normalizeRecordedResult(item, data, sourceStatus, nowMs) {
   const raceName = text(item.race_name, 100);
   const raceNameZh = text(item.race_name_zh, 100);
   const sessionName = text(item.session_name, 60);
+  const provisional = item.provisional === true;
+  const provider = provisional ? "Formula 1 Live Timing" : "OpenF1";
   const recordFreshness = observedMs === null ? "unknown" : nowMs - observedMs > SOURCE_MAX_AGE_MS ? "stale" : "fresh";
   return sourceEntry({
     kind: "session_result", url, date: eventTime, title: `${raceName || "F1"} ${sessionName || "session"} — Oscar Piastri result`,
     title_zh: `${raceNameZh || raceName || "F1"} ${sessionName || "赛段"} — 皮亚斯特里成绩`,
-    source: "OpenF1 session_result", data_provider: "OpenF1", sourceType: "official", evidenceTier: "public_results_provider",
+    source: provisional ? "Formula 1 Live Timing provisional result" : "OpenF1 session_result", data_provider: provider,
+    sourceType: "official", evidenceTier: provisional ? "official_live_timing_archive" : "public_results_provider",
     retrieval_terms: [raceName, raceNameZh, sessionName, session, "result", "赛果", "成绩"].filter(Boolean),
     facts: {
       generated_at: sourceStatus.generated_at, snapshot_freshness: sourceStatus.status,
@@ -295,16 +318,19 @@ function normalizeRecordedResult(item, data, sourceStatus, nowMs) {
       driver_number: 81, position, status, dnf: item.dnf === true, dns: item.dns === true, dsq: item.dsq === true,
       number_of_laps: Number.isInteger(item.number_of_laps) && item.number_of_laps >= 0 ? item.number_of_laps : null,
       gap_to_leader: text(String(item.gap_to_leader ?? ""), 50),
+      provisional,
       // Preserve the record's observation clock; rebuilding the surrounding file
       // cannot turn an old observation into a freshly checked result.
       fetched_at: observedMs === null ? null : item.fetched_at,
       last_observed_at: observedMs === null ? null : new Date(observedMs).toISOString(),
       record_freshness: recordFreshness, historical_record: true, result_available: true,
-      temporal_scope: "Recorded OpenF1 result for this named session as last observed. Not proof it remains the latest session or race, not live timing, and not final FIA classification.",
+      temporal_scope: provisional
+        ? "Recorded provisional F1 Live Timing result for this named session as last observed; later confirmed classification may change it."
+        : "Recorded OpenF1 result for this named session as last observed. Not proof it remains the latest session or race, not live timing, and not final FIA classification.",
     },
     answer_limits: ["Match the requested event and session type; a practice result is not a Grand Prix race result.",
       "An older recorded result remains a dated observation, not a freshly verified latest result. Later corrections may exist.",
-      "A recorded result is not final FIA classification or a championship table. A fresh calendar may help resolve event order but cannot establish participation or completion."],
+      provisional ? "This live-timing archive result must be labelled provisional." : "A recorded result is not final FIA classification or a championship table. A fresh calendar may help resolve event order but cannot establish participation or completion."],
   });
 }
 

@@ -45,6 +45,47 @@ def successful_practice_fetch(url):
     return [{"position": 11, "driver_number": 81, "number_of_laps": 26}]
 
 
+STATIC_SESSION_PATH = "2026/2026-09-06_Italian_Grand_Prix/2026-09-04_Practice_1/"
+
+
+def json_stream(*messages):
+    return "\n".join(f"00:00:{index:02d}.000{json.dumps(message)}" for index, message in enumerate(messages))
+
+
+def static_timing_fetch(url, *, finished=True, positions=None):
+    positions = positions or {"4": "1", "81": "2", "1": "3"}
+    if url.endswith("/Index.json"):
+        return {"Year": 2026, "Meetings": [{"Sessions": [{
+            "Key": 11354,
+            "Name": "Practice 1",
+            "StartDate": "2026-09-04T12:30:00",
+            "EndDate": "2026-09-04T13:30:00",
+            "GmtOffset": "02:00:00",
+            "Path": STATIC_SESSION_PATH,
+        }]}]}
+    if url.endswith("/SessionStatus.jsonStream"):
+        return json_stream(
+            {"Status": "Started", "Started": "Started"},
+            {"Status": "Finished", "Started": "Finished" if finished else "Started"},
+        )
+    if url.endswith("/DriverList.jsonStream"):
+        return json_stream({
+            "1": {"RacingNumber": "1", "Tla": "NOR"},
+            "4": {"RacingNumber": "4", "Tla": "VER"},
+            "81": {"RacingNumber": "81", "Tla": "PIA"},
+        })
+    if url.endswith("/TimingData.jsonStream"):
+        return json_stream({"Lines": {
+            number: {
+                "RacingNumber": number,
+                "Position": position,
+                "NumberOfLaps": "24" if number == "81" else "25",
+            }
+            for number, position in positions.items()
+        }})
+    raise AssertionError(f"Unexpected URL: {url}")
+
+
 class FakeResponse:
     def __init__(self, payload):
         self.body = json.dumps(payload).encode("utf-8")
@@ -239,6 +280,88 @@ class SessionResultFetchTests(unittest.TestCase):
         self.assertEqual(payload["latest"]["first_ranked_at"], "2026-09-04T12:00:00Z")
         self.assertIn("session_name=Practice+1", seen[0])
         self.assertIn("driver_number=81", seen[1])
+
+    def test_falls_back_to_finished_f1_static_timing_after_openf1_401(self):
+        seen = []
+
+        def fake_fetch(url):
+            seen.append(url)
+            if url.startswith(fetcher.OPENF1_BASE_URL):
+                raise fetcher.OpenF1RequestError("openf1_http_401_live_access_requires_auth", status=401)
+            return static_timing_fetch(url)
+
+        payload = fetcher.build_payload(CALENDAR, {}, now=NOW, fetcher=fake_fetch)
+
+        self.assertTrue(payload["result_available"])
+        self.assertEqual(payload["latest"]["source"], "Formula 1 Live Timing")
+        self.assertTrue(payload["latest"]["provisional"])
+        self.assertEqual(payload["latest"]["position"], 2)
+        self.assertEqual(payload["latest"]["number_of_laps"], 24)
+        self.assertEqual(payload["latest"]["session_key"], 11354)
+        self.assertEqual(payload["latest"]["session_end"], "2026-09-04T11:30:00Z")
+        self.assertEqual(payload["results"], [payload["latest"]], "The fallback URL must pass history validation.")
+        self.assertIn(f"{fetcher.F1_STATIC_BASE_URL}/2026/Index.json", seen)
+        self.assertTrue(payload["latest"]["source_url"].endswith("/TimingData.jsonStream"))
+
+    def test_falls_back_when_openf1_result_is_still_missing(self):
+        def fake_fetch(url):
+            if "/sessions?" in url:
+                return [{"session_key": 11354, "date_start": "2026-09-04T10:30:00Z"}]
+            if "/session_result?" in url:
+                return []
+            return static_timing_fetch(url)
+
+        payload = fetcher.build_payload(CALENDAR, {}, now=NOW, fetcher=fake_fetch)
+
+        self.assertTrue(payload["result_available"])
+        self.assertEqual(payload["latest"]["source"], "Formula 1 Live Timing")
+        self.assertTrue(payload["latest"]["provisional"])
+
+    def test_f1_static_rejects_unfinished_or_inconsistent_timing(self):
+        race = CALENDAR["races"][0]
+        expected_start = fetcher.parse_time(race["sessions"]["practice_1"])
+        cases = {
+            "unfinished": lambda url: static_timing_fetch(url, finished=False),
+            "duplicate_positions": lambda url: static_timing_fetch(
+                url, positions={"4": "1", "81": "1", "1": "3"}
+            ),
+            "gapped_positions": lambda url: static_timing_fetch(
+                url, positions={"4": "1", "81": "2", "1": "4"}
+            ),
+        }
+        expected_errors = {
+            "unfinished": "f1_static_session_not_finished",
+            "duplicate_positions": "f1_static_result_invalid",
+            "gapped_positions": "f1_static_result_invalid",
+        }
+        for name, static_fetch in cases.items():
+            with self.subTest(name=name):
+                result, error = fetcher.fetch_f1_static_result(
+                    race,
+                    "practice_1",
+                    ref="2026-round-13:practice_1",
+                    expected_start=expected_start,
+                    now=NOW,
+                    fetcher=static_fetch,
+                )
+                self.assertIsNone(result)
+                self.assertEqual(error, expected_errors[name])
+
+    def test_openf1_result_wins_without_requesting_static_fallback(self):
+        seen = []
+
+        def fake_fetch(url):
+            seen.append(url)
+            if url.startswith(fetcher.F1_STATIC_BASE_URL):
+                self.fail("Formula 1 fallback must not be queried after an OpenF1 success.")
+            return successful_practice_fetch(url)
+
+        payload = fetcher.build_payload(CALENDAR, {}, now=NOW, fetcher=fake_fetch)
+
+        self.assertTrue(payload["result_available"])
+        self.assertEqual(payload["latest"]["source"], "OpenF1")
+        self.assertFalse(payload["latest"]["provisional"])
+        self.assertEqual(len(seen), 2)
 
     def test_pending_result_keeps_previous_and_can_be_retried(self):
         previous = {"latest": {"session_ref": "2026-round-12:race", "position": 6}}

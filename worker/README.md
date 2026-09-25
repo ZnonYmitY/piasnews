@@ -1,12 +1,13 @@
 # Piasnews Worker
 
-This Cloudflare Worker provides five narrowly scoped services:
+This Cloudflare Worker provides six narrowly scoped services:
 
 - authenticated GitHub workflow dispatch for the history review console;
 - anonymous page-view collection and authenticated aggregate analytics for the admin dashboard;
 - role-aware hot-event workbench reads and workflow dispatches;
 - a rate-limited DeepSeek gateway for the public Piastri Companion;
 - explicitly consented Companion feedback, with private administrator review and export.
+- a session-aware refresh heartbeat that dispatches GitHub Actions only when the 07:00 daily build is overdue or a completed race-weekend session is still unhandled.
 
 The Companion product and the persona distillation source are separate. Distillation evidence, facts, rumor checks, judgment rules, style cards, boundaries, and evals live in [piastri-persona-distillation](https://github.com/ZnonYmitY/piastri-persona-distillation). This repository stores only a pinned generated snapshot plus a product adapter; `worker/companion-runtime.lock.json` records the upstream tag, package version, source hash, and artifact checksum. DeepSeek generates all conversational answers, including boundaries and evidence gaps; the Worker checks selected IDs and the mode/output contract without replacing replies with canned character wording. Current race context remains a Piasnews product responsibility and is reduced to an allow-listed shape before it reaches the model.
 
@@ -54,7 +55,7 @@ Latency remains one normal generation with at most one shared format/content rep
 
 The product gateway supplies all 14 canonical routes to the model. Simple greetings belong to `fan_light`; unknown routes are never silently converted into an unrelated-topic fallback. Public-data requests time out after 8 seconds; each model generation is limited to 35 seconds inside one 45-second request budget. Empty content (including upstream HTTP 200), malformed/truncated JSON, invalid routes, missing response languages, and content-contract violations share **one** repair attempt. The repair preserves the allowed conversation and the same retrieved evidence; a second invalid output fails closed. Upstream refusals/content filtering, HTTP failures and timeouts are not bypassed with a format repair. Returned source IDs are checked against the pinned catalog; this is not independent verification of every generated claim.
 
-Feedback uses dedicated `COMPANION_FEEDBACK_RATE_LIMITER` and `COMPANION_FEEDBACK_GLOBAL_LIMITER` bindings, so submitting an answer review does not consume normal chat quota. Development deployments may fall back to the existing Companion bindings with separate prefixed keys. Cloudflare origin checks and traffic limits are abuse controls, not proof that anonymous client-reported data is genuine. Configure the daily Worker cron (currently `17 3 * * *`, UTC) to delete expired feedback even when the app has no visitors.
+Feedback uses dedicated `COMPANION_FEEDBACK_RATE_LIMITER` and `COMPANION_FEEDBACK_GLOBAL_LIMITER` bindings, so submitting an answer review does not consume normal chat quota. Development deployments may fall back to the existing Companion bindings with separate prefixed keys. Cloudflare origin checks and traffic limits are abuse controls, not proof that anonymous client-reported data is genuine. The `17 3 * * *` UTC cron deletes expired feedback even when the app has no visitors. The separate `5,20,35,50 * * * *` heartbeat reads only the three published state files; it does not dispatch GitHub or call a result provider unless a daily or session refresh is actually due. `UPDATE_WORKFLOW` defaults to `update-piasnews.yml`, and the existing `GITHUB_TOKEN` needs repository Actions write permission.
 
 In the GitHub repository, add an Actions variable named `PIASNEWS_WORKER_URL` containing the deployed Worker base URL, without a trailing slash. The Pages workflows write that public URL to `data/runtime-config.json`; it is not a secret. Trigger **Update Piasnews Data** once so the fan page starts reporting views.
 

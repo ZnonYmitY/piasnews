@@ -2,14 +2,18 @@ name: Update Piasnews Data
 
 on:
   schedule:
-    # 23:00 UTC is 07:00 Asia/Shanghai. The offset watcher avoids colliding with
-    # the daily run while still checking for newly completed sessions every 15m.
+    # 23:00 UTC is 07:00 Asia/Shanghai. Cloudflare supplies the session-aware
+    # 15-minute backstop without running Actions continuously on non-race days.
     - cron: "0 23 * * *"
-    - cron: "5,20,35,50 * * * *"
   workflow_dispatch:
     inputs:
       apply_only:
         description: "Apply committed translation mappings without fetching fresh data"
+        required: false
+        type: boolean
+        default: false
+      scheduled_check:
+        description: "Run the calendar/daily gate without forcing a refresh"
         required: false
         type: boolean
         default: false
@@ -37,6 +41,7 @@ jobs:
         id: refresh
         env:
           GITHUB_EVENT_NAME: ${{ github.event_name }}
+          PIASNEWS_SCHEDULED_CHECK: ${{ inputs.scheduled_check }}
         run: python scripts/should_refresh.py
 
   update:
@@ -74,7 +79,7 @@ jobs:
         run: python scripts/fetch_f1_calendar.py --output data/calendar.json
 
       - name: Fetch latest Oscar session result
-        if: ${{ inputs.apply_only != true && startsWith(needs.gate.outputs.reason, 'session_completed:') }}
+        if: ${{ inputs.apply_only != true && (startsWith(needs.gate.outputs.reason, 'session_completed:') || needs.gate.outputs.reason == 'daily_refresh_due') }}
         env:
           PIASNEWS_OPENF1_USERNAME: ${{ secrets.PIASNEWS_OPENF1_USERNAME }}
           PIASNEWS_OPENF1_PASSWORD: ${{ secrets.PIASNEWS_OPENF1_PASSWORD }}

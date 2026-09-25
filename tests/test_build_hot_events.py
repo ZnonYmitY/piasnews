@@ -485,6 +485,33 @@ class HotEventBuildTest(unittest.TestCase):
 
         self.assertIsNone(event)
 
+    def test_f1_timing_fallback_is_clearly_labelled_provisional(self):
+        event = builder.structured_session_result_event(
+            {
+                "result_available": True,
+                "latest": {
+                    "session_ref": "race-1:practice_3",
+                    "race_id": "race-1",
+                    "race_name": "Azerbaijan Grand Prix",
+                    "race_name_zh": "阿塞拜疆大奖赛",
+                    "session": "practice_3",
+                    "status": "classified",
+                    "position": 7,
+                    "session_end": "2026-08-25T12:00:00Z",
+                    "source": "Formula 1 Live Timing",
+                    "source_url": "https://livetiming.formula1.com/static/2026/example/TimingData.json",
+                    "provisional": True,
+                },
+            },
+            {"races": []},
+            "session_completed:race-1:practice_3",
+            builder.now_time(NOW),
+        )
+
+        self.assertEqual(event["hot_word_zh"], "Oscar 在阿塞拜疆站三练获得第7名（暂定）")
+        self.assertTrue(event["hard_rule"]["provisional"])
+        self.assertIn("暂定", event["items"][0]["summary_zh"])
+
     def test_previous_valid_result_is_not_ranked_as_latest_while_new_result_is_pending(self):
         event = builder.structured_session_result_event(
             {

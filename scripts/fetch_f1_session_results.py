@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -22,6 +23,7 @@ except ModuleNotFoundError:  # Imported as scripts.fetch_f1_session_results in t
 ROOT = Path(__file__).resolve().parents[1]
 OPENF1_BASE_URL = "https://api.openf1.org/v1"
 OPENF1_TOKEN_URL = "https://api.openf1.org/token"
+F1_STATIC_BASE_URL = "https://livetiming.formula1.com/static"
 USER_AGENT = "piasnews/0.8 (+https://github.com/ZnonYmitY/piasnews)"
 DRIVER_NUMBER = 81
 MAX_RESULT_HISTORY = 160
@@ -29,6 +31,7 @@ RESULT_RECORD_FIELDS = (
     "session_ref", "race_id", "race_name", "race_name_zh", "session", "session_name", "session_key",
     "session_start", "session_end", "driver_number", "position", "status", "dnf", "dns", "dsq",
     "number_of_laps", "gap_to_leader", "duration", "source", "source_url", "fetched_at", "first_ranked_at",
+    "provisional",
 )
 SESSION_NAMES = {
     "practice_1": "Practice 1",
@@ -48,6 +51,14 @@ class OpenF1RequestError(RuntimeError):
         super().__init__(code)
         self.code = code
         self.status = status
+
+
+class F1StaticRequestError(RuntimeError):
+    """A safe Formula 1 static timing error suitable for fallback handling."""
+
+    def __init__(self, code: str) -> None:
+        super().__init__(code)
+        self.code = code
 
 
 def safe_http_error(error: urllib.error.HTTPError, *, prefix: str = "openf1") -> OpenF1RequestError:
@@ -178,6 +189,38 @@ def fetch_json(url: str) -> Any:
     return OpenF1Client().fetch_json(url)
 
 
+def fetch_f1_resource(url: str) -> Any:
+    """Fetch a trusted Formula 1 static JSON document or JSON stream."""
+    parsed_url = urllib.parse.urlsplit(url)
+    if (
+        parsed_url.scheme != "https"
+        or parsed_url.hostname != "livetiming.formula1.com"
+        or parsed_url.username
+        or parsed_url.password
+        or parsed_url.port
+        or parsed_url.query
+        or parsed_url.fragment
+        or not parsed_url.path.startswith("/static/")
+    ):
+        raise F1StaticRequestError("f1_static_target_rejected")
+    request = urllib.request.Request(url, headers={"Accept": "application/json", "User-Agent": USER_AGENT})
+    try:
+        with urllib.request.urlopen(request, timeout=20) as response:
+            body = response.read().decode("utf-8-sig")
+    except urllib.error.HTTPError as error:
+        raise F1StaticRequestError(f"f1_static_http_{int(error.code)}") from None
+    except (urllib.error.URLError, TimeoutError, OSError):
+        raise F1StaticRequestError("f1_static_network_unavailable") from None
+    except UnicodeDecodeError:
+        raise F1StaticRequestError("f1_static_invalid_text") from None
+    if parsed_url.path.endswith(".jsonStream"):
+        return body
+    try:
+        return json.loads(body)
+    except (json.JSONDecodeError, TypeError):
+        raise F1StaticRequestError("f1_static_invalid_json") from None
+
+
 def latest_completed_session(
     calendar: dict[str, Any], now: datetime, confirmation_minutes: int
 ) -> tuple[dict[str, Any], str, datetime] | None:
@@ -245,12 +288,255 @@ def result_position(result: dict[str, Any]) -> int | None:
     return None
 
 
+def nonnegative_int(value: Any) -> int | None:
+    if isinstance(value, bool):
+        return None
+    if isinstance(value, int):
+        return value if value >= 0 else None
+    if isinstance(value, float) and value.is_integer():
+        return int(value) if value >= 0 else None
+    if isinstance(value, str) and value.strip().isdigit():
+        return int(value.strip())
+    return None
+
+
+def f1_static_url(year: int, path: str = "") -> str:
+    """Build only same-origin Formula 1 static URLs from an Index.json path."""
+    year_text = str(year)
+    if not path:
+        return f"{F1_STATIC_BASE_URL}/{year_text}/Index.json"
+    if (
+        path.startswith("/")
+        or not path.startswith(f"{year_text}/")
+        or ".." in path.split("/")
+        or "\\" in path
+        or "?" in path
+        or "#" in path
+        or "//" in path
+        or not re.fullmatch(r"[A-Za-z0-9_./-]+", path)
+    ):
+        raise F1StaticRequestError("f1_static_path_rejected")
+    return f"{F1_STATIC_BASE_URL}/{urllib.parse.quote(path, safe='/-_.')}"
+
+
+def parse_gmt_offset(value: Any) -> timedelta | None:
+    if not isinstance(value, str):
+        return None
+    matched = re.fullmatch(r"([+-]?)(\d{2}):(\d{2}):(\d{2})", value.strip())
+    if not matched:
+        return None
+    sign, hours, minutes, seconds = matched.groups()
+    if int(minutes) > 59 or int(seconds) > 59:
+        return None
+    offset = timedelta(hours=int(hours), minutes=int(minutes), seconds=int(seconds))
+    return -offset if sign == "-" else offset
+
+
+def f1_session_time(row: dict[str, Any], field: str) -> datetime | None:
+    value = row.get(field)
+    if not isinstance(value, str):
+        return None
+    try:
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if parsed.tzinfo is not None:
+        return parsed.astimezone(timezone.utc)
+    offset = parse_gmt_offset(row.get("GmtOffset"))
+    if offset is None:
+        return None
+    return parsed.replace(tzinfo=timezone.utc) - offset
+
+
+def choose_f1_static_session(
+    index: Any, *, expected_start: datetime, expected_name: str
+) -> dict[str, Any] | None:
+    if not isinstance(index, dict) or not isinstance(index.get("Meetings"), list):
+        return None
+    expected_normalized = " ".join(expected_name.casefold().split())
+    candidates: list[tuple[float, dict[str, Any]]] = []
+    for meeting in index["Meetings"]:
+        if not isinstance(meeting, dict) or not isinstance(meeting.get("Sessions"), list):
+            continue
+        for row in meeting["Sessions"]:
+            if not isinstance(row, dict) or not isinstance(row.get("Path"), str):
+                continue
+            name = row.get("Name")
+            if not isinstance(name, str) or " ".join(name.casefold().split()) != expected_normalized:
+                continue
+            started = f1_session_time(row, "StartDate")
+            if started is None:
+                continue
+            candidates.append((abs((started - expected_start).total_seconds()), row))
+    if not candidates:
+        return None
+    distance, selected = min(candidates, key=lambda candidate: candidate[0])
+    return selected if distance <= 24 * 3600 else None
+
+
+def parse_json_stream(value: Any) -> list[dict[str, Any]] | None:
+    if not isinstance(value, str):
+        return None
+    messages: list[dict[str, Any]] = []
+    for raw_line in value.lstrip("\ufeff").splitlines():
+        line = raw_line.strip()
+        if not line:
+            continue
+        start = line.find("{")
+        if start < 0:
+            return None
+        try:
+            message = json.loads(line[start:])
+        except (json.JSONDecodeError, TypeError):
+            return None
+        if not isinstance(message, dict):
+            return None
+        messages.append(message)
+    return messages or None
+
+
+def merge_stream(messages: list[dict[str, Any]]) -> dict[str, Any]:
+    """Apply the nested object patches used by F1's jsonStream resources."""
+    state: dict[str, Any] = {}
+
+    def merge(target: dict[str, Any], patch: dict[str, Any]) -> None:
+        for key, value in patch.items():
+            if isinstance(value, dict):
+                if value.get("_deleted") is True:
+                    target.pop(key, None)
+                    continue
+                child = target.get(key)
+                if not isinstance(child, dict):
+                    child = {}
+                    target[key] = child
+                merge(child, value)
+            else:
+                target[key] = value
+
+    for message in messages:
+        merge(state, message)
+    return state
+
+
+def validated_f1_timing_result(
+    driver_stream: Any, timing_stream: Any
+) -> tuple[dict[str, Any], dict[str, Any]] | None:
+    driver_messages, timing_messages = parse_json_stream(driver_stream), parse_json_stream(timing_stream)
+    if driver_messages is None or timing_messages is None:
+        return None
+    drivers, timing = merge_stream(driver_messages), merge_stream(timing_messages).get("Lines")
+    if not isinstance(timing, dict) or not drivers or not timing:
+        return None
+
+    driver_by_number: dict[str, dict[str, Any]] = {}
+    for key, driver in drivers.items():
+        if not isinstance(key, str) or not isinstance(driver, dict):
+            return None
+        racing_number = str(driver.get("RacingNumber") or "").strip()
+        tla = driver.get("Tla")
+        if not racing_number.isdigit() or key != racing_number or not isinstance(tla, str) or len(tla.strip()) != 3:
+            return None
+        if racing_number in driver_by_number:
+            return None
+        driver_by_number[racing_number] = driver
+    piastri = driver_by_number.get(str(DRIVER_NUMBER))
+    if piastri is None or piastri.get("Tla") != "PIA":
+        return None
+
+    positioned: dict[str, tuple[int, dict[str, Any]]] = {}
+    for key, row in timing.items():
+        if not isinstance(key, str) or not isinstance(row, dict) or key not in driver_by_number:
+            return None
+        row_number = row.get("RacingNumber")
+        if row_number is not None and str(row_number).strip() != key:
+            return None
+        position = result_position({"position": row.get("Position")})
+        if position is None:
+            return None
+        positioned[key] = (position, row)
+    positions = [position for position, _row in positioned.values()]
+    if len(positioned) != len(driver_by_number) or sorted(positions) != list(range(1, len(positions) + 1)):
+        return None
+    piastri_timing = positioned.get(str(DRIVER_NUMBER))
+    if piastri_timing is None:
+        return None
+    return piastri_timing[1], piastri
+
+
+def fetch_f1_static_result(
+    race: dict[str, Any],
+    session: str,
+    *,
+    ref: str,
+    expected_start: datetime,
+    now: datetime,
+    fetcher: Callable[[str], Any],
+) -> tuple[dict[str, Any] | None, str | None]:
+    year = race.get("season") or expected_start.year
+    if type(year) is not int or year < 1950 or year > 2200:
+        return None, "f1_static_year_invalid"
+    try:
+        index = fetcher(f1_static_url(year))
+        selected = choose_f1_static_session(
+            index, expected_start=expected_start, expected_name=SESSION_NAMES[session]
+        )
+        if selected is None:
+            return None, "f1_static_session_missing"
+        session_key = selected.get("Key")
+        if type(session_key) is not int or session_key <= 0:
+            return None, "f1_static_session_invalid"
+        path = selected.get("Path")
+        status_messages = parse_json_stream(fetcher(f1_static_url(year, f"{path}SessionStatus.jsonStream")))
+        if status_messages is None or merge_stream(status_messages).get("Started") != "Finished":
+            return None, "f1_static_session_not_finished"
+        timing_url = f1_static_url(year, f"{path}TimingData.jsonStream")
+        result = validated_f1_timing_result(
+            fetcher(f1_static_url(year, f"{path}DriverList.jsonStream")),
+            fetcher(timing_url),
+        )
+        if result is None:
+            return None, "f1_static_result_invalid"
+    except (F1StaticRequestError, OpenF1RequestError) as exc:
+        return None, exc.code
+
+    timing, _driver = result
+    position = result_position({"position": timing.get("Position")})
+    retired = timing.get("Retired") is True
+    laps = nonnegative_int(timing.get("NumberOfLaps"))
+    end = f1_session_time(selected, "EndDate")
+    return {
+        "session_ref": ref,
+        "race_id": race.get("id"),
+        "race_name": race.get("name"),
+        "race_name_zh": race.get("name_zh"),
+        "session": session,
+        "session_name": SESSION_NAMES[session],
+        "session_key": session_key,
+        "session_start": isoformat(expected_start),
+        "session_end": isoformat(end) if end else None,
+        "driver_number": DRIVER_NUMBER,
+        "position": position,
+        "status": "DNF" if retired else "classified",
+        "dnf": retired,
+        "dns": False,
+        "dsq": False,
+        "number_of_laps": laps,
+        "gap_to_leader": timing.get("GapToLeader"),
+        "duration": None,
+        "source": "Formula 1 Live Timing",
+        "source_url": timing_url,
+        "provisional": True,
+        "fetched_at": isoformat(now),
+    }, None
+
+
 def fetch_latest_result(
     calendar: dict[str, Any],
     *,
     now: datetime,
     confirmation_minutes: int = 15,
     fetcher: Callable[[str], Any] = fetch_json,
+    f1_fetcher: Callable[[str], Any] | None = None,
 ) -> tuple[str | None, dict[str, Any] | None, str | None]:
     completed = latest_completed_session(calendar, now, confirmation_minutes)
     if not completed:
@@ -267,48 +553,72 @@ def fetch_latest_result(
         country_name=race.get("country"),
         session_name=SESSION_NAMES[session],
     )
+    openf1_error: str | None = None
+    should_try_fallback = False
     try:
         session_rows = fetcher(sessions_url)
         openf1_session = choose_session(session_rows if isinstance(session_rows, list) else [], expected_start)
         if not openf1_session:
-            return ref, None, "openf1_session_missing"
-        session_key = openf1_session.get("session_key")
-        result_url = openf1_url("session_result", session_key=session_key, driver_number=DRIVER_NUMBER)
-        result_rows = fetcher(result_url)
-        result = (result_rows or [None])[0] if isinstance(result_rows, list) else None
-        if not isinstance(result, dict):
-            return ref, None, "openf1_result_pending"
+            openf1_error = "openf1_session_missing"
+            should_try_fallback = True
+        else:
+            session_key = openf1_session.get("session_key")
+            result_url = openf1_url("session_result", session_key=session_key, driver_number=DRIVER_NUMBER)
+            result_rows = fetcher(result_url)
+            result = (result_rows or [None])[0] if isinstance(result_rows, list) else None
+            if not isinstance(result, dict):
+                openf1_error = "openf1_result_pending"
+                should_try_fallback = True
     except OpenF1RequestError as exc:
-        return ref, None, exc.code
+        openf1_error = exc.code
+        should_try_fallback = True
 
-    position = result_position(result)
-    status = result_status(result)
-    if status == "classified" and not isinstance(position, int):
-        return ref, None, "openf1_result_incomplete"
-    source_url = openf1_url("session_result", session_key=session_key, driver_number=DRIVER_NUMBER)
-    return ref, {
-        "session_ref": ref,
-        "race_id": race.get("id"),
-        "race_name": race.get("name"),
-        "race_name_zh": race.get("name_zh"),
-        "session": session,
-        "session_name": SESSION_NAMES[session],
-        "session_key": session_key,
-        "session_start": isoformat(expected_start),
-        "session_end": openf1_session.get("date_end"),
-        "driver_number": DRIVER_NUMBER,
-        "position": position,
-        "status": status,
-        "dnf": bool(result.get("dnf")),
-        "dns": bool(result.get("dns")),
-        "dsq": bool(result.get("dsq")),
-        "number_of_laps": result.get("number_of_laps"),
-        "gap_to_leader": result.get("gap_to_leader"),
-        "duration": result.get("duration"),
-        "source": "OpenF1",
-        "source_url": source_url,
-        "fetched_at": isoformat(now),
-    }, None
+    if openf1_error is None:
+        position = result_position(result)
+        status = result_status(result)
+        if status == "classified" and not isinstance(position, int):
+            openf1_error = "openf1_result_incomplete"
+            should_try_fallback = True
+        else:
+            source_url = openf1_url("session_result", session_key=session_key, driver_number=DRIVER_NUMBER)
+            return ref, {
+                "session_ref": ref,
+                "race_id": race.get("id"),
+                "race_name": race.get("name"),
+                "race_name_zh": race.get("name_zh"),
+                "session": session,
+                "session_name": SESSION_NAMES[session],
+                "session_key": session_key,
+                "session_start": isoformat(expected_start),
+                "session_end": openf1_session.get("date_end"),
+                "driver_number": DRIVER_NUMBER,
+                "position": position,
+                "status": status,
+                "dnf": bool(result.get("dnf")),
+                "dns": bool(result.get("dns")),
+                "dsq": bool(result.get("dsq")),
+                "number_of_laps": result.get("number_of_laps"),
+                "gap_to_leader": result.get("gap_to_leader"),
+                "duration": result.get("duration"),
+                "source": "OpenF1",
+                "source_url": source_url,
+                "provisional": False,
+                "fetched_at": isoformat(now),
+            }, None
+
+    if should_try_fallback:
+        fallback_fetcher = f1_fetcher or (fetch_f1_resource if fetcher is fetch_json else fetcher)
+        fallback, _fallback_error = fetch_f1_static_result(
+            race,
+            session,
+            ref=ref,
+            expected_start=expected_start,
+            now=now,
+            fetcher=fallback_fetcher,
+        )
+        if fallback is not None:
+            return ref, fallback, None
+    return ref, None, openf1_error
 
 
 def history_record(value: Any, *, now: datetime) -> dict[str, Any] | None:
@@ -346,14 +656,37 @@ def history_record(value: Any, *, now: datetime) -> dict[str, Any] | None:
     if not isinstance(source_url, str) or len(source_url) > 2048:
         return None
     try:
-        source = urllib.parse.urlsplit(source_url)
-        query = urllib.parse.parse_qs(source.query)
-        if source.scheme != "https" or source.hostname != "api.openf1.org" or source.path != "/v1/session_result":
-            return None
-        if source.username or source.password or source.port or source.fragment or query.get("driver_number") != ["81"]:
+        parsed_source = urllib.parse.urlsplit(source_url)
+        if parsed_source.scheme != "https" or parsed_source.username or parsed_source.password or parsed_source.port:
             return None
         session_key = value.get("session_key")
-        if type(session_key) is not int or session_key <= 0 or query.get("session_key") != [str(session_key)]:
+        if type(session_key) is not int or session_key <= 0:
+            return None
+        provider, provisional = value.get("source"), value.get("provisional")
+        if provider == "OpenF1":
+            query = urllib.parse.parse_qs(parsed_source.query)
+            if provisional not in (None, False):
+                return None
+            if (
+                parsed_source.hostname != "api.openf1.org"
+                or parsed_source.path != "/v1/session_result"
+                or parsed_source.fragment
+                or query.get("driver_number") != ["81"]
+                or query.get("session_key") != [str(session_key)]
+            ):
+                return None
+        elif provider == "Formula 1 Live Timing":
+            if provisional is not True or parsed_source.hostname != "livetiming.formula1.com":
+                return None
+            if parsed_source.query or parsed_source.fragment or not re.fullmatch(
+                r"/static/(\d{4})/[A-Za-z0-9_-]+/[A-Za-z0-9_-]+/TimingData\.jsonStream",
+                parsed_source.path,
+            ):
+                return None
+            source_year = int(parsed_source.path.split("/", 4)[2])
+            if source_year != start.year:
+                return None
+        else:
             return None
     except ValueError:
         return None
@@ -402,12 +735,14 @@ def build_payload(
     now: datetime,
     confirmation_minutes: int = 15,
     fetcher: Callable[[str], Any] = fetch_json,
+    f1_fetcher: Callable[[str], Any] | None = None,
 ) -> dict[str, Any]:
     attempted_ref, latest, error = fetch_latest_result(
         calendar,
         now=now,
         confirmation_minutes=confirmation_minutes,
         fetcher=fetcher,
+        f1_fetcher=f1_fetcher,
     )
     history = merge_result_history(previous, None, now=now)
     if latest is not None:
@@ -428,7 +763,7 @@ def build_payload(
         "schema_version": 1,
         "generated_at": isoformat(now),
         "driver_number": DRIVER_NUMBER,
-        "source": "OpenF1 session_result",
+        "source": "OpenF1 session_result with Formula 1 Live Timing fallback",
         "attempted_session_ref": attempted_ref,
         "result_available": latest is not None,
         "latest": latest if latest is not None else previous.get("latest"),
@@ -450,6 +785,7 @@ def main() -> int:
         now=utc_now(args.now),
         confirmation_minutes=args.confirmation_minutes,
         fetcher=client.fetch_json,
+        f1_fetcher=fetch_f1_resource,
     )
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

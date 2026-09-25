@@ -47,6 +47,49 @@ test("real data field shapes preserve future schedule, old event date and exact 
   assert.equal(result.public_sources.length, 3);
 });
 
+test("legacy OpenF1 results without a source field remain valid, but an explicit wrong source fails closed", () => {
+  const legacyLatest = { ...session().latest };
+  delete legacyLatest.source;
+  const legacy = build({ sessionResults: session({ latest: legacyLatest }) });
+  assert.equal(legacy.latest_session.result_available, true);
+  assert.equal(legacy.latest_session.latest.position, 5);
+  assert.equal(legacy.public_sources.find((item) => item.kind === "session_result").data_provider, "OpenF1");
+
+  for (const source of ["Example Results", "Formula 1 Live Timing", "", 81]) {
+    const rejected = build({ sessionResults: session({ latest: { ...session().latest, source } }) });
+    assert.equal(rejected.latest_session.result_available, false);
+    assert.equal(rejected.latest_session.latest, null);
+    assert.equal(rejected.public_sources.length, 0);
+  }
+});
+
+test("validated F1 timing fallback remains available but explicitly provisional", () => {
+  const latest = {
+    ...session().latest,
+    session_ref: "2026-round-15:practice_3",
+    race_name: "Azerbaijan Grand Prix",
+    race_name_zh: "阿塞拜疆大奖赛",
+    session: "practice_3",
+    session_name: "Practice 3",
+    session_key: 11372,
+    session_start: "2026-09-10T08:30:00Z",
+    session_end: "2026-09-10T09:30:00Z",
+    position: 7,
+    number_of_laps: 20,
+    source: "Formula 1 Live Timing",
+    source_url: "https://livetiming.formula1.com/static/2026/2026-09-13_Azerbaijan_Grand_Prix/2026-09-10_Practice_3/TimingData.jsonStream",
+    provisional: true,
+  };
+  const result = build({ sessionResults: session({ attempted_session_ref: latest.session_ref, latest }) });
+  const source = result.public_sources.find((item) => item.id === result.latest_session.latest.public_source_id);
+
+  assert.equal(result.latest_session.result_available, true);
+  assert.equal(result.latest_session.latest.provisional, true);
+  assert.equal(source.data_provider, "Formula 1 Live Timing");
+  assert.equal(source.facts.provisional, true);
+  assert.match(source.answer_limits.join(" "), /provisional/i);
+});
+
 test("expired next-race and contradictory session timing cannot be upcoming schedule evidence", () => {
   for (const invalid of [
     calendar({ race_start: "2026-09-06T13:00:00Z" }),

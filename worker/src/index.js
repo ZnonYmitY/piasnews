@@ -15,6 +15,19 @@ import { buildCompanionTurnPolicy, checkTurnResponse, extractCompanionTopicReset
 const DEFAULT_ORIGIN = "https://znonymity.github.io";
 const MAX_BODY_BYTES = 64 * 1024;
 const ANALYTICS_RETENTION_DAYS = 90;
+const REFRESH_HEARTBEAT_CRON = "5,20,35,50 * * * *";
+const FEEDBACK_CLEANUP_CRON = "17 3 * * *";
+const SESSION_CONFIRMATION_MINUTES = 15;
+const SESSION_RETRY_WINDOW_MS = 18 * 60 * 60 * 1000;
+const SESSION_DURATIONS_MINUTES = {
+  practice_1: 60,
+  practice_2: 60,
+  practice_3: 60,
+  sprint_qualifying: 60,
+  sprint: 60,
+  qualifying: 60,
+  race: 120,
+};
 const ROLE_LEVEL = { viewer: 1, editor: 2, publisher: 3, admin: 4 };
 const DEFAULT_COMPANION_MODEL = "deepseek-v4-flash";
 const DEFAULT_DEEPSEEK_BASE_URL = "https://api.deepseek.com";
@@ -449,6 +462,95 @@ function repositoryDetails(env) {
     repository: env.GITHUB_REPOSITORY || "piasnews",
     gitRef: env.GITHUB_REF || "main",
   };
+}
+
+async function scheduledPublicJson(filename, env) {
+  const base = String(env.PUBLIC_DATA_BASE_URL || "https://znonymity.github.io/piasnews/data").replace(/\/+$/, "");
+  const response = await fetch(`${base}/${filename}`, {
+    headers: { Accept: "application/json", "User-Agent": "piasnews-scheduler/1.0" },
+  });
+  if (!response.ok) throw new Error(`Unable to read scheduled state ${filename} (${response.status}).`);
+  const payload = await response.json();
+  if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+    throw new Error(`Invalid scheduled state ${filename}.`);
+  }
+  return payload;
+}
+
+function latestBeijingDailySlot(nowMs) {
+  const local = new Date(nowMs + 8 * 60 * 60 * 1000);
+  let slot = Date.UTC(local.getUTCFullYear(), local.getUTCMonth(), local.getUTCDate(), 7) - 8 * 60 * 60 * 1000;
+  if (nowMs < slot) slot -= 24 * 60 * 60 * 1000;
+  return slot;
+}
+
+function latestReadySession(calendar, nowMs) {
+  let latest = null;
+  for (const race of calendar.races || []) {
+    const sessions = { ...(race.sessions || {}) };
+    if (race.race_start && !sessions.race) sessions.race = race.race_start;
+    for (const [session, duration] of Object.entries(SESSION_DURATIONS_MINUTES)) {
+      const startedAt = Date.parse(sessions[session] || "");
+      if (!Number.isFinite(startedAt)) continue;
+      const readyAt = startedAt + (duration + SESSION_CONFIRMATION_MINUTES) * 60 * 1000;
+      if (readyAt > nowMs || nowMs - readyAt > SESSION_RETRY_WINDOW_MS) continue;
+      const candidate = {
+        readyAt,
+        ref: `${race.id || race.name || "race"}:${session}`,
+      };
+      if (!latest || candidate.readyAt > latest.readyAt) latest = candidate;
+    }
+  }
+  return latest;
+}
+
+async function scheduledRefreshDecision(env, nowMs = Date.now()) {
+  try {
+    const [calendar, daily, sessionResults] = await Promise.all([
+      scheduledPublicJson("calendar.json", env),
+      scheduledPublicJson("daily.json", env),
+      scheduledPublicJson("session-results.json", env),
+    ]);
+    const generatedAt = Date.parse(daily.generated_at || "");
+    if (!Number.isFinite(generatedAt) || generatedAt < latestBeijingDailySlot(nowMs)) {
+      return { shouldDispatch: true, reason: "daily_refresh_due" };
+    }
+    const ready = latestReadySession(calendar, nowMs);
+    const handledRef = sessionResults.latest && sessionResults.latest.session_ref;
+    if (ready && ready.ref !== handledRef) {
+      return { shouldDispatch: true, reason: `session_completed:${ready.ref}` };
+    }
+    return { shouldDispatch: false, reason: "no_refresh_due" };
+  } catch (_error) {
+    // Fail open into the repository-side gate. That gate reads checked-in state
+    // and remains the authority; a transient Pages read must not lose a session.
+    return { shouldDispatch: true, reason: "public_state_unavailable" };
+  }
+}
+
+async function dispatchScheduledRefresh(env) {
+  if (!env.GITHUB_TOKEN) throw new Error("Worker is missing GITHUB_TOKEN.");
+  const { owner, repository, gitRef } = repositoryDetails(env);
+  const workflow = env.UPDATE_WORKFLOW || "update-piasnews.yml";
+  const endpoint = `https://api.github.com/repos/${owner}/${repository}/actions/workflows/${workflow}/dispatches`;
+  const githubResponse = await fetch(endpoint, {
+    method: "POST",
+    headers: {
+      Accept: "application/vnd.github+json",
+      Authorization: `Bearer ${env.GITHUB_TOKEN}`,
+      "Content-Type": "application/json",
+      "User-Agent": "piasnews-scheduler/1.0",
+      "X-GitHub-Api-Version": "2022-11-28",
+    },
+    body: JSON.stringify({
+      ref: gitRef,
+      inputs: { scheduled_check: "true", apply_only: "false" },
+    }),
+  });
+  if (!githubResponse.ok) {
+    const detail = (await githubResponse.text()).slice(0, 500);
+    throw new Error(`GitHub refresh dispatch failed (${githubResponse.status}): ${detail}`);
+  }
 }
 
 async function repositoryJson(path, env) {
@@ -1101,8 +1203,13 @@ async function readJson(request, origin) {
 }
 
 export default {
-  async scheduled(_event, env) {
-    await cleanupCompanionFeedback(env);
+  async scheduled(event, env) {
+    const cron = event && event.cron;
+    if (!cron || cron === FEEDBACK_CLEANUP_CRON) await cleanupCompanionFeedback(env);
+    if (cron === REFRESH_HEARTBEAT_CRON) {
+      const decision = await scheduledRefreshDecision(env);
+      if (decision.shouldDispatch) await dispatchScheduledRefresh(env);
+    }
   },
   async fetch(request, env, context) {
     const url = new URL(request.url);

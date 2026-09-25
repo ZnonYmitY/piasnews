@@ -1,5 +1,6 @@
 import sys
 import unittest
+from unittest import mock
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -11,6 +12,17 @@ import should_refresh  # noqa: E402
 
 
 class RefreshGateTest(unittest.TestCase):
+    def test_worker_scheduled_dispatch_uses_the_normal_gate(self):
+        with mock.patch.dict("os.environ", {
+            "GITHUB_EVENT_NAME": "workflow_dispatch",
+            "PIASNEWS_SCHEDULED_CHECK": "true",
+        }, clear=True):
+            self.assertFalse(should_refresh.manual_force_requested())
+
+    def test_human_workflow_dispatch_still_forces_a_refresh(self):
+        with mock.patch.dict("os.environ", {"GITHUB_EVENT_NAME": "workflow_dispatch"}, clear=True):
+            self.assertTrue(should_refresh.manual_force_requested())
+
     def test_refreshes_after_a_session_confirmation_window(self):
         now = datetime(2026, 8, 26, 12, 20, tzinfo=timezone.utc)
         calendar = {"races": [{

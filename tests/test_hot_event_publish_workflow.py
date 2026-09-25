@@ -74,13 +74,16 @@ class HotEventPublishWorkflowTests(unittest.TestCase):
         review_workflow = (ROOT / ".github/workflows" / "review-history.yml").read_text(encoding="utf-8")
 
         self.assertIn('cron: "0 23 * * *"', workflow)
-        self.assertIn('cron: "5,20,35,50 * * * *"', workflow)
+        self.assertNotIn('cron: "5,20,35,50 * * * *"', workflow)
+        self.assertIn("scheduled_check:", workflow)
+        self.assertIn("PIASNEWS_SCHEDULED_CHECK: ${{ inputs.scheduled_check }}", workflow)
         self.assertIn("Fetch latest Oscar session result", workflow)
         self.assertIn("scripts/fetch_f1_session_results.py", workflow)
         self.assertIn(
             "startsWith(needs.gate.outputs.reason, 'session_completed:')",
             workflow,
         )
+        self.assertIn("needs.gate.outputs.reason == 'daily_refresh_due'", workflow)
         self.assertIn("PIASNEWS_OPENF1_USERNAME: ${{ secrets.PIASNEWS_OPENF1_USERNAME }}", workflow)
         self.assertIn("PIASNEWS_OPENF1_PASSWORD: ${{ secrets.PIASNEWS_OPENF1_PASSWORD }}", workflow)
         self.assertIn("data/session-results.json", workflow)

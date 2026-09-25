@@ -487,6 +487,7 @@ def structured_session_result_event(
     race_en = clean(result.get("race_name") or race.get("name") or "the latest Grand Prix")
     status = clean(result.get("status")) or "classified"
     position = result.get("position")
+    provisional = result.get("provisional") is True
     if status == "DSQ":
         hot_word_zh = f"Oscar 在{race_zh}{session_zh}被取消成绩（DSQ）"
         hot_word_en = f"Oscar is disqualified from {race_en} {session_en}"
@@ -506,6 +507,9 @@ def structured_session_result_event(
             hot_word_en = f"Oscar finishes P{position} in {race_en} {session_en}"
     else:
         return None
+    if provisional:
+        hot_word_zh = f"{hot_word_zh}（暂定）"
+        hot_word_en = f"Provisional: {hot_word_en}"
 
     source_url = clean(result.get("source_url"))
     published_at = isoformat(ranked_at)
@@ -516,6 +520,7 @@ def structured_session_result_event(
         "session": session,
         "position": position,
         "status": status,
+        "provisional": provisional,
         "source_item_id": item_id,
         "source": clean(result.get("source")) or "OpenF1",
     }
@@ -548,8 +553,8 @@ def structured_session_result_event(
             "source": clean(result.get("source")) or "OpenF1",
             "title": hot_word_en,
             "title_zh": hot_word_zh,
-            "summary": "Structured session result for Oscar Piastri.",
-            "summary_zh": "Oscar Piastri 的结构化场次成绩。",
+            "summary": "Provisional structured session result for Oscar Piastri." if provisional else "Structured session result for Oscar Piastri.",
+            "summary_zh": "Oscar Piastri 的暂定结构化场次成绩。" if provisional else "Oscar Piastri 的结构化场次成绩。",
             "url": source_url,
             "published_at": published_at,
             "image_url": None,

@@ -54,6 +54,17 @@ def read_json(path: Path, fallback: dict[str, Any]) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def environment_flag(name: str) -> bool:
+    return os.environ.get(name, "").strip().lower() in {"1", "true", "yes", "on"}
+
+
+def manual_force_requested() -> bool:
+    return (
+        os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch"
+        and not environment_flag("PIASNEWS_SCHEDULED_CHECK")
+    )
+
+
 def session_ready_times(calendar: dict[str, Any], confirmation_minutes: int) -> list[tuple[datetime, str]]:
     result = []
     for race in calendar.get("races") or []:
@@ -124,7 +135,7 @@ def main() -> int:
     calendar = read_json(Path(args.calendar), {"races": []})
     session_results = read_json(Path(args.session_results), {"latest": None})
     latest_result = session_results.get("latest") or {}
-    force = args.force or os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch"
+    force = args.force or manual_force_requested()
     should_run, reason = decision(
         now=now,
         last_generated=parse_time(daily.get("generated_at")),
