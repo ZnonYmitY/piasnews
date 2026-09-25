@@ -86,6 +86,8 @@ class HotEventPublishWorkflowTests(unittest.TestCase):
         self.assertIn("needs.gate.outputs.reason == 'daily_refresh_due'", workflow)
         self.assertIn("PIASNEWS_OPENF1_USERNAME: ${{ secrets.PIASNEWS_OPENF1_USERNAME }}", workflow)
         self.assertIn("PIASNEWS_OPENF1_PASSWORD: ${{ secrets.PIASNEWS_OPENF1_PASSWORD }}", workflow)
+        self.assertIn("PIASNEWS_F1_STATIC_PROXY_URL: ${{ vars.PIASNEWS_WORKER_URL }}/scheduler/f1-static", workflow)
+        self.assertIn("PIASNEWS_F1_STATIC_PROXY_TOKEN: ${{ secrets.PIASNEWS_F1_STATIC_PROXY_TOKEN }}", workflow)
         self.assertIn("data/session-results.json", workflow)
         self.assertIn("data/session-results.json", review_workflow)
         self.assertIn(

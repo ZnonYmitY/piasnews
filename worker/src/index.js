@@ -14,6 +14,8 @@ import { buildCompanionTurnPolicy, checkTurnResponse, extractCompanionTopicReset
 
 const DEFAULT_ORIGIN = "https://znonymity.github.io";
 const MAX_BODY_BYTES = 64 * 1024;
+const MAX_F1_STATIC_RESPONSE_BYTES = 8 * 1024 * 1024;
+const F1_STATIC_ORIGIN = "https://livetiming.formula1.com";
 const ANALYTICS_RETENTION_DAYS = 90;
 const REFRESH_HEARTBEAT_CRON = "5,20,35,50 * * * *";
 const FEEDBACK_CLEANUP_CRON = "17 3 * * *";
@@ -1202,6 +1204,129 @@ async function readJson(request, origin) {
   }
 }
 
+function validatedF1StaticUrl(value) {
+  if (typeof value !== "string" || value.length > 2048) return null;
+  const indexMatch = value.match(
+    /^https:\/\/livetiming\.formula1\.com(?::443)?\/static\/(20\d{2})\/Index\.json$/,
+  );
+  const streamMatch = value.match(
+    /^https:\/\/livetiming\.formula1\.com(?::443)?\/static\/(20\d{2})\/(20\d{2}-[A-Za-z0-9][A-Za-z0-9_-]{0,159})\/(20\d{2}-[A-Za-z0-9][A-Za-z0-9_-]{0,159})\/(SessionStatus|DriverList|TimingData)\.jsonStream$/,
+  );
+  if (!indexMatch && !streamMatch) return null;
+  if (streamMatch && (!streamMatch[2].startsWith(`${streamMatch[1]}-`) || !streamMatch[3].startsWith(`${streamMatch[1]}-`))) {
+    return null;
+  }
+  try {
+    const parsed = new URL(value);
+    if (
+      parsed.origin !== F1_STATIC_ORIGIN
+      || parsed.username
+      || parsed.password
+      || parsed.port
+      || parsed.search
+      || parsed.hash
+    ) return null;
+    return parsed;
+  } catch {
+    return null;
+  }
+}
+
+async function authorizedF1StaticProxy(request, env) {
+  const supplied = suppliedAdminKey(request);
+  const expected = typeof env.F1_STATIC_PROXY_TOKEN === "string" ? env.F1_STATIC_PROXY_TOKEN : "";
+  const equal = await safeEqual(supplied || "\u0000", expected || "\u0001");
+  return Boolean(supplied && expected && equal);
+}
+
+async function limitedResponseBody(response, maximumBytes) {
+  const declaredLength = Number(response.headers.get("Content-Length"));
+  if (Number.isFinite(declaredLength) && declaredLength > maximumBytes) return null;
+  if (!response.body) return new Uint8Array();
+
+  const reader = response.body.getReader();
+  const chunks = [];
+  let totalBytes = 0;
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    totalBytes += value.byteLength;
+    if (totalBytes > maximumBytes) {
+      await reader.cancel();
+      return null;
+    }
+    chunks.push(value);
+  }
+
+  const combined = new Uint8Array(totalBytes);
+  let offset = 0;
+  for (const chunk of chunks) {
+    combined.set(chunk, offset);
+    offset += chunk.byteLength;
+  }
+  return combined;
+}
+
+async function handleF1StaticProxy(request, env, origin) {
+  if (request.method !== "POST") {
+    return jsonResponse({ error: "Method not allowed." }, 405, origin);
+  }
+  if (!env.F1_STATIC_PROXY_TOKEN) {
+    return jsonResponse({ error: "F1 static proxy is unavailable." }, 503, origin);
+  }
+  if (!await authorizedF1StaticProxy(request, env)) {
+    return jsonResponse({ error: "Unauthorized." }, 401, origin);
+  }
+  if (!(request.headers.get("Content-Type") || "").toLowerCase().startsWith("application/json")) {
+    return jsonResponse({ error: "Content-Type must be application/json." }, 415, origin);
+  }
+
+  const parsed = await readJson(request, origin);
+  if (parsed.response) return parsed.response;
+  if (
+    !parsed.body
+    || typeof parsed.body !== "object"
+    || Array.isArray(parsed.body)
+    || Object.keys(parsed.body).length !== 1
+    || !Object.hasOwn(parsed.body, "url")
+  ) {
+    return jsonResponse({ error: "Request body must contain only url." }, 400, origin);
+  }
+  const target = validatedF1StaticUrl(parsed.body.url);
+  if (!target) return jsonResponse({ error: "URL is not allowed." }, 400, origin);
+
+  try {
+    const upstream = await fetch(target.href, {
+      method: "GET",
+      headers: {
+        Accept: target.pathname.endsWith("/Index.json") ? "application/json" : "application/octet-stream",
+        "User-Agent": "piasnews-f1-static-proxy/1.0",
+      },
+      redirect: "manual",
+      cf: { cacheTtl: 0 },
+    });
+    if (!upstream.ok) {
+      return jsonResponse({ error: "F1 static upstream request failed.", upstream_status: upstream.status }, 502, origin);
+    }
+    const body = await limitedResponseBody(upstream, MAX_F1_STATIC_RESPONSE_BYTES);
+    if (body === null) {
+      return jsonResponse({ error: "F1 static upstream response is too large." }, 502, origin);
+    }
+    return new Response(body, {
+      status: 200,
+      headers: {
+        "Cache-Control": "no-store",
+        "Content-Type": target.pathname.endsWith("/Index.json")
+          ? "application/json; charset=utf-8"
+          : "application/octet-stream",
+        "X-Content-Type-Options": "nosniff",
+      },
+    });
+  } catch {
+    return jsonResponse({ error: "F1 static upstream request failed." }, 502, origin);
+  }
+}
+
 export default {
   async scheduled(event, env) {
     const cron = event && event.cron;
@@ -1218,6 +1343,10 @@ export default {
 
     if (request.method === "OPTIONS") {
       return new Response(null, { status: 204, headers: responseHeaders(origin) });
+    }
+
+    if (url.pathname === "/scheduler/f1-static") {
+      return handleF1StaticProxy(request, env, origin);
     }
 
     if (["/companion/feedback", "/companion/feedback/review", "/companion/feedback/export"].includes(url.pathname)) {

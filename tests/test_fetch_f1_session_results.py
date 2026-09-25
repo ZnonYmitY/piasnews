@@ -3,6 +3,7 @@ import json
 import unittest
 import urllib.error
 from datetime import datetime, timedelta, timezone
+from unittest import mock
 
 from scripts import fetch_f1_session_results as fetcher
 
@@ -100,7 +101,56 @@ class FakeResponse:
         return self.body
 
 
+class FakeRawResponse:
+    def __init__(self, body):
+        self.body = body
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *_args):
+        return False
+
+    def read(self, size=-1):
+        return self.body if size < 0 else self.body[:size]
+
+
 class SessionResultFetchTests(unittest.TestCase):
+    def test_f1_static_uses_authenticated_worker_relay_after_direct_403(self):
+        target = f"{fetcher.F1_STATIC_BASE_URL}/2026/Index.json"
+        proxy = "https://piasnews-review.example.workers.dev/scheduler/f1-static"
+        requests = []
+
+        def fake_open(request, timeout):
+            self.assertEqual(timeout, 20)
+            requests.append(request)
+            if request.full_url == target:
+                raise urllib.error.HTTPError(target, 403, "Forbidden", None, io.BytesIO())
+            self.assertEqual(request.full_url, proxy)
+            self.assertEqual(request.get_header("Authorization"), "Bearer relay-secret")
+            self.assertEqual(json.loads(request.data), {"url": target})
+            return FakeRawResponse(b'{"Year":2026,"Meetings":[]}')
+
+        with mock.patch.dict("os.environ", {
+            "PIASNEWS_F1_STATIC_PROXY_URL": proxy,
+            "PIASNEWS_F1_STATIC_PROXY_TOKEN": "relay-secret",
+        }, clear=False), mock.patch.object(fetcher.urllib.request, "urlopen", side_effect=fake_open):
+            payload = fetcher.fetch_f1_resource(target)
+
+        self.assertEqual(payload, {"Year": 2026, "Meetings": []})
+        self.assertEqual(len(requests), 2)
+
+    def test_f1_static_relay_configuration_fails_closed(self):
+        target = f"{fetcher.F1_STATIC_BASE_URL}/2026/Index.json"
+        direct_403 = urllib.error.HTTPError(target, 403, "Forbidden", None, io.BytesIO())
+        with mock.patch.dict("os.environ", {
+            "PIASNEWS_F1_STATIC_PROXY_URL": "https://example.workers.dev/scheduler/f1-static",
+            "PIASNEWS_F1_STATIC_PROXY_TOKEN": "",
+        }, clear=False), mock.patch.object(fetcher.urllib.request, "urlopen", side_effect=direct_403):
+            with self.assertRaises(fetcher.F1StaticRequestError) as raised:
+                fetcher.fetch_f1_resource(target)
+        self.assertEqual(raised.exception.code, "f1_static_proxy_config_incomplete")
+
     def test_client_keeps_anonymous_mode_when_public_request_succeeds(self):
         requests = []
 

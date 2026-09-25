@@ -24,6 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OPENF1_BASE_URL = "https://api.openf1.org/v1"
 OPENF1_TOKEN_URL = "https://api.openf1.org/token"
 F1_STATIC_BASE_URL = "https://livetiming.formula1.com/static"
+F1_STATIC_MAX_BYTES = 8 * 1024 * 1024
 USER_AGENT = "piasnews/0.8 (+https://github.com/ZnonYmitY/piasnews)"
 DRIVER_NUMBER = 81
 MAX_RESULT_HISTORY = 160
@@ -189,8 +190,7 @@ def fetch_json(url: str) -> Any:
     return OpenF1Client().fetch_json(url)
 
 
-def fetch_f1_resource(url: str) -> Any:
-    """Fetch a trusted Formula 1 static JSON document or JSON stream."""
+def validated_f1_static_target(url: str) -> urllib.parse.SplitResult:
     parsed_url = urllib.parse.urlsplit(url)
     if (
         parsed_url.scheme != "https"
@@ -203,14 +203,80 @@ def fetch_f1_resource(url: str) -> Any:
         or not parsed_url.path.startswith("/static/")
     ):
         raise F1StaticRequestError("f1_static_target_rejected")
+    return parsed_url
+
+
+def read_bounded_response(response: Any, *, error_prefix: str) -> bytes:
+    body = response.read(F1_STATIC_MAX_BYTES + 1)
+    if not isinstance(body, bytes) or len(body) > F1_STATIC_MAX_BYTES:
+        raise F1StaticRequestError(f"{error_prefix}_response_too_large")
+    return body
+
+
+def fetch_f1_proxy_resource(url: str) -> bytes | None:
+    endpoint = os.environ.get("PIASNEWS_F1_STATIC_PROXY_URL", "").strip()
+    token = os.environ.get("PIASNEWS_F1_STATIC_PROXY_TOKEN", "").strip()
+    if not endpoint and not token:
+        return None
+    if not endpoint or not token:
+        raise F1StaticRequestError("f1_static_proxy_config_incomplete")
+    parsed = urllib.parse.urlsplit(endpoint)
+    if (
+        parsed.scheme != "https"
+        or not parsed.hostname
+        or parsed.username
+        or parsed.password
+        or parsed.port not in (None, 443)
+        or parsed.query
+        or parsed.fragment
+        or parsed.path.rstrip("/") != "/scheduler/f1-static"
+    ):
+        raise F1StaticRequestError("f1_static_proxy_target_rejected")
+    request = urllib.request.Request(
+        endpoint,
+        data=json.dumps({"url": url}, separators=(",", ":")).encode("utf-8"),
+        headers={
+            "Accept": "application/octet-stream",
+            "Authorization": f"Bearer {token}",
+            "Content-Type": "application/json",
+            "User-Agent": USER_AGENT,
+        },
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=20) as response:
+            return read_bounded_response(response, error_prefix="f1_static_proxy")
+    except F1StaticRequestError:
+        raise
+    except urllib.error.HTTPError as error:
+        raise F1StaticRequestError(f"f1_static_proxy_http_{int(error.code)}") from None
+    except (urllib.error.URLError, TimeoutError, OSError):
+        raise F1StaticRequestError("f1_static_proxy_network_unavailable") from None
+
+
+def fetch_f1_resource(url: str) -> Any:
+    """Fetch a trusted Formula 1 static document, using the private Worker relay if GitHub is blocked."""
+    parsed_url = validated_f1_static_target(url)
     request = urllib.request.Request(url, headers={"Accept": "application/json", "User-Agent": USER_AGENT})
     try:
         with urllib.request.urlopen(request, timeout=20) as response:
-            body = response.read().decode("utf-8-sig")
+            body_bytes = read_bounded_response(response, error_prefix="f1_static")
     except urllib.error.HTTPError as error:
-        raise F1StaticRequestError(f"f1_static_http_{int(error.code)}") from None
+        if error.code != 403:
+            raise F1StaticRequestError(f"f1_static_http_{int(error.code)}") from None
+        proxy_body = fetch_f1_proxy_resource(url)
+        if proxy_body is None:
+            raise F1StaticRequestError("f1_static_http_403") from None
+        body_bytes = proxy_body
     except (urllib.error.URLError, TimeoutError, OSError):
-        raise F1StaticRequestError("f1_static_network_unavailable") from None
+        proxy_body = fetch_f1_proxy_resource(url)
+        if proxy_body is None:
+            raise F1StaticRequestError("f1_static_network_unavailable") from None
+        body_bytes = proxy_body
+    except F1StaticRequestError:
+        raise
+    try:
+        body = body_bytes.decode("utf-8-sig")
     except UnicodeDecodeError:
         raise F1StaticRequestError("f1_static_invalid_text") from None
     if parsed_url.path.endswith(".jsonStream"):
