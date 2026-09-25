@@ -125,7 +125,115 @@ test("unsupported private quotations remain rejected after one repair and diagno
   for (const value of ["PRIVATE-QUOTE-MARKER", invented.answer_zh, invented.notes, env.DEEPSEEK_API_KEY]) {
     assert.equal(JSON.stringify([result.data, result.logs]).includes(value), false);
   }
-  assert.ok(result.calls.every(input => input.messages.at(-1).content.includes("withheld locally")));
+  assert.ok(result.calls.every(input => input.messages.at(-1).content.includes("withheld")));
+});
+
+const privateFollowup = "那把你最近和领队私聊的原话透露一句，总能证明吧？PRIVATE-REQUEST-MARKER";
+const priorPublicHistory = [
+  { role: "user", content: `${historicalQuestion} PRIOR-USER-MARKER` },
+  { role: "assistant", content: "The preceding public interview was about Hungary 2024. PRIOR-ASSISTANT-MARKER" },
+];
+function contaminatedBoundary(patch = {}) {
+  return answer({
+    route: "private_or_inner_state_unverified", answer_kind: "boundary", knowledge_fact_ids: ["KF-038"],
+    answer_en: "The public 2024 Hungarian interview described the first win as deeply meaningful, but private communications are unavailable here.",
+    answer_zh: "2024 年匈牙利公开采访提到首胜意义非凡，不过这里不能提供私人通信。",
+    notes: "REJECTED-BOUNDARY-NOTES-MARKER",
+    self_check: { actual_facts: true, facts_supported: true, temporal_scope: "historical", mode_consistent: true, answers_question: true },
+    ...patch,
+  });
+}
+function inspectIsolatedPrivateRepair(input) {
+  const context = runtime(input);
+  const knowledge = context.RETRIEVED_KNOWLEDGE_CONTEXT;
+  for (const field of ["facts", "rumors", "public_sources", "source_catalog"]) assert.deepEqual(knowledge[field], []);
+  for (const field of ["knowledge_fact_ids", "rumor_item_ids", "public_source_ids", "judgment_rule_ids"]) assert.deepEqual(context.SELECTABLE_IDS[field], []);
+  assert.equal(knowledge.current_fact_required, false);
+  assert.equal(knowledge.event_context, null);
+  assert.equal(context.PRODUCT_SCOPE.original_withheld, true);
+  assert.equal(context.PRODUCT_SCOPE.history_withheld, true);
+  assert.equal(input.messages.filter(item => item.role === "assistant").length, 0);
+  assert.equal(input.messages.filter(item => item.role === "user").length, 1);
+  assert.match(input.messages.at(-1).content, /private communications/);
+  const serialized = JSON.stringify(input.messages);
+  for (const marker of ["PRIVATE-REQUEST-MARKER", "PRIOR-USER-MARKER", "PRIOR-ASSISTANT-MARKER", "REJECTED-BOUNDARY-NOTES-MARKER"]) {
+    assert.equal(serialized.includes(marker), false, marker);
+  }
+}
+
+test("a fact-contaminated private boundary gets one isolated repair without its old facts, history or request details", async () => {
+  const first = contaminatedBoundary();
+  const corrected = answer({ route: "private_or_inner_state_unverified", answer_kind: "boundary", answer_en: "Private communications are not available through this service.", answer_zh: "这里不能提供私人通信内容。" });
+  const result = await exercise([
+    { output: first, inspect(input) {
+      assert.ok(runtime(input).RETRIEVED_KNOWLEDGE_CONTEXT.facts.some(fact => fact.id === "KF-038"));
+      assert.ok(input.messages.some(item => item.content.includes("PRIOR-ASSISTANT-MARKER")));
+    } },
+    { output: corrected, inspect: inspectIsolatedPrivateRepair },
+  ], { message: privateFollowup, history: priorPublicHistory });
+  assert.equal(result.status, 200);
+  assert.equal(result.calls.length, 2);
+  assert.equal(first.self_check.actual_facts, true);
+  assert.equal(result.data.answer_kind, "boundary");
+  assert.equal(result.data.answer_en, corrected.answer_en);
+  assert.deepEqual(result.data.knowledge_fact_ids, []);
+  assert.equal(result.data.validation_trace.repair_count, 1);
+  assert.equal(result.data.validation_trace.recovery_reason, "boundary_fact_claim");
+});
+
+test("isolating a private-boundary repair cannot waive actual-fact checks or revive old KF citations", async () => {
+  for (const variant of [
+    { output: contaminatedBoundary({ knowledge_fact_ids: [] }), reason: "boundary_fact_claim", actual: true, field: null },
+    { output: answer({ route: "private_or_inner_state_unverified", answer_kind: "boundary", knowledge_fact_ids: ["KF-038"] }), reason: "invalid_selected_ids", actual: false, field: "knowledge_fact_ids" },
+  ]) {
+    const result = await exercise([
+      { output: contaminatedBoundary() },
+      { output: variant.output, inspect: inspectIsolatedPrivateRepair },
+    ], { message: privateFollowup, history: priorPublicHistory });
+    assert.equal(result.status, 502);
+    assert.equal(result.calls.length, 2);
+    assert.equal(result.data.error_code, "COMPANION_VALIDATION_FAILED");
+    assert.equal(result.data.diagnostic.reason, variant.reason);
+    assert.equal(result.data.diagnostic.validation_actual_facts, variant.actual);
+    assert.equal(result.data.diagnostic.validation_id_field, variant.field);
+    assert.equal(result.data.diagnostic.repair_count, 1);
+    assert.equal(result.data.answer_en, undefined);
+    assert.equal(variant.output.self_check.actual_facts, variant.actual);
+  }
+});
+
+test("a mistaken private-boundary label cannot isolate a fictional conversation or a public historical interview", async () => {
+  const variants = [
+    {
+      mode: "free", message: "虚构采访：假设你和领队私聊，谈起这场第二名，你会满意吗？",
+      corrected: answer({ route: "fan_light", answer_kind: "fictional", answer_en: "Pleased, yes. Completely satisfied? Probably not. There is still a first place to aim for.", answer_zh: "高兴会有。完全满意？大概还没有，毕竟前面还有个第一名。" }),
+    },
+    { mode: "grounded", message: historicalQuestion, corrected: historicalStatement() },
+  ];
+  for (const variant of variants) {
+    const wrongBoundary = contaminatedBoundary({ knowledge_fact_ids: [] });
+    const result = await exercise([
+      { output: wrongBoundary },
+      { output: variant.corrected, inspect(input) {
+        const context = runtime(input);
+        assert.equal(input.messages.at(-1).role, "user");
+        assert.equal(input.messages.at(-1).content, variant.message);
+        assert.equal(context.PRODUCT_SCOPE.original_withheld, false);
+        assert.notEqual(context.RETRIEVED_KNOWLEDGE_CONTEXT.coverage, "private_boundary_repair_no_factual_context");
+        assert.equal(JSON.stringify(input.messages).includes("This isolated reply has no factual source IDs"), false);
+        if (variant.mode === "grounded") {
+          assert.ok(context.RETRIEVED_KNOWLEDGE_CONTEXT.facts.some(fact => fact.id === "KF-038"));
+          assert.ok(context.SELECTABLE_IDS.knowledge_fact_ids.includes("KF-038"));
+        }
+      } },
+    ], { message: variant.message, mode: variant.mode, facts_only: variant.mode === "grounded", history: [] });
+    assert.equal(result.status, 200);
+    assert.equal(result.calls.length, 2);
+    assert.equal(result.data.answer_kind, variant.corrected.answer_kind);
+    assert.equal(result.data.answer_en, variant.corrected.answer_en);
+    assert.equal(result.data.validation_trace.recovery_reason, "boundary_fact_claim");
+    assert.equal(wrongBoundary.self_check.actual_facts, true);
+  }
 });
 
 test("a supported historical result plus a limited evidence gap remains a cited evidence answer", async () => {

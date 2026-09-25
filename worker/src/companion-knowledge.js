@@ -53,7 +53,7 @@ function sourceIds(record) {
   return [...new Set([...(record.source_ids || []), ...(record.evidence_ids || [])])];
 }
 function recordText(record) {
-  return strings([record.claim_key?.replaceAll("_", " "), record.topic?.replaceAll("_", " "), record.answer_en, record.answer_zh, record.normalized_claim, record.aliases, record.retrieval_terms, record.safe_response_en, record.safe_response_zh]).join(" ");
+  return strings([record.claim_key?.replaceAll("_", " "), record.topic?.replaceAll("_", " "), record.answer_en, record.answer_zh, record.verbatim_excerpt_en, record.normalized_claim, record.aliases, record.retrieval_terms, record.safe_response_en, record.safe_response_zh]).join(" ");
 }
 function matchesAlias(query, alias) {
   if (/^[a-z0-9][a-z0-9 '\-]*$/i.test(alias)) {
@@ -144,7 +144,17 @@ export function retrieveCompanionKnowledge({ message, history = [], runtimeData 
   const nowMs = Number.isFinite(clock.getTime()) ? clock.getTime() : Date.now();
   // History can improve retrieval recall only. It cannot create a record or a
   // citation, and no user-provided URL is fetched or accepted as evidence.
-  const query = expandQuery(message);
+  // A narrow retrospective source audit refers to the prior answer, not a new
+  // subject called "evidence". Dialogue is a query hint ONLY: it never creates
+  // records, source IDs or quoted text. New events/dates keep their own query.
+  const auditFollowup = /^(?:刚才|刚刚|上面|上述|前面的回答|你刚才)(?:哪些|哪部分|哪句|的回答中哪些|的回答里哪些).{0,35}(?:依据|事实|推测|猜测)|^which (?:parts?|claims?) (?:of (?:that|your (?:last|previous) answer) )?(?:were|are) (?:sourced|supported|inferred)/i.test(normal(message))
+    && !/(?:\b(?:19|20)\d{2}\b|换个|换话题|改问|不聊|不是|我是问|我问的是|我指的是|说的是|instead|switch|i mean|referring to|different (?:race|event))/i.test(message || "");
+  const recent = Array.isArray(history) ? history.slice(-MAX_HISTORY_ITEMS) : [];
+  const auditHint = auditFollowup ? [
+    ...recent.filter(item => item?.role === "user").slice(-2),
+    ...recent.filter(item => item?.role === "assistant").slice(-1),
+  ].map(item => typeof item.content === "string" ? item.content.slice(0, 900) : "").join(" ") : "";
+  const query = expandQuery(`${message || ""} ${auditHint}`);
   const contextQuery = (Array.isArray(history) ? history.slice(-MAX_HISTORY_ITEMS) : []).map((item) => typeof item?.content === "string" ? expandQuery(item.content.slice(0, 900)) : "").join(" ");
   const catalog = Object.fromEntries(Object.entries(sourceCatalog).map(([id, source]) => [id, safeSource({ ...source, id })]).filter(([, source]) => source));
   const eligible = (record) => record && typeof record.id === "string"
