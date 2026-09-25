@@ -537,15 +537,15 @@ def fetch_latest_result(
     confirmation_minutes: int = 15,
     fetcher: Callable[[str], Any] = fetch_json,
     f1_fetcher: Callable[[str], Any] | None = None,
-) -> tuple[str | None, dict[str, Any] | None, str | None]:
+) -> tuple[str | None, dict[str, Any] | None, str | None, str | None]:
     completed = latest_completed_session(calendar, now, confirmation_minutes)
     if not completed:
-        return None, None, None
+        return None, None, None, None
     race, session, _ready = completed
     ref = session_ref(race, session)
     expected_start = parse_time((race.get("sessions") or {}).get(session) or race.get("race_start"))
     if not expected_start:
-        return ref, None, "calendar_session_start_missing"
+        return ref, None, "calendar_session_start_missing", None
 
     sessions_url = openf1_url(
         "sessions",
@@ -604,11 +604,12 @@ def fetch_latest_result(
                 "source_url": source_url,
                 "provisional": False,
                 "fetched_at": isoformat(now),
-            }, None
+            }, None, None
 
+    fallback_error: str | None = None
     if should_try_fallback:
         fallback_fetcher = f1_fetcher or (fetch_f1_resource if fetcher is fetch_json else fetcher)
-        fallback, _fallback_error = fetch_f1_static_result(
+        fallback, fallback_error = fetch_f1_static_result(
             race,
             session,
             ref=ref,
@@ -617,8 +618,8 @@ def fetch_latest_result(
             fetcher=fallback_fetcher,
         )
         if fallback is not None:
-            return ref, fallback, None
-    return ref, None, openf1_error
+            return ref, fallback, None, None
+    return ref, None, openf1_error, fallback_error
 
 
 def history_record(value: Any, *, now: datetime) -> dict[str, Any] | None:
@@ -737,7 +738,7 @@ def build_payload(
     fetcher: Callable[[str], Any] = fetch_json,
     f1_fetcher: Callable[[str], Any] | None = None,
 ) -> dict[str, Any]:
-    attempted_ref, latest, error = fetch_latest_result(
+    attempted_ref, latest, error, fallback_error = fetch_latest_result(
         calendar,
         now=now,
         confirmation_minutes=confirmation_minutes,
@@ -771,6 +772,8 @@ def build_payload(
     }
     if error:
         payload["last_error"] = error
+    if fallback_error:
+        payload["last_fallback_error"] = fallback_error
     return payload
 
 
@@ -794,7 +797,9 @@ def main() -> int:
         print(f"Fetched session result {latest['session_ref']}: {latest['status']} position={latest.get('position')}")
     else:
         error = payload.get("last_error") or "none"
-        print(f"Session result pending for {payload.get('attempted_session_ref')}: {error}")
+        fallback_error = payload.get("last_fallback_error")
+        detail = f"; fallback={fallback_error}" if fallback_error else ""
+        print(f"Session result pending for {payload.get('attempted_session_ref')}: {error}{detail}")
         if os.environ.get("GITHUB_ACTIONS") == "true" and error != "none":
             print(f"::warning title=OpenF1 session result unavailable::{error}")
             summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
@@ -803,6 +808,8 @@ def main() -> int:
                     summary.write("## OpenF1 session result pending\n\n")
                     summary.write(f"- Session: `{payload.get('attempted_session_ref') or 'unknown'}`\n")
                     summary.write(f"- Safe error code: `{error}`\n")
+                    if fallback_error:
+                        summary.write(f"- Fallback error code: `{fallback_error}`\n")
                     summary.write("- The session remains unhandled and will be retried.\n")
     return 0
 

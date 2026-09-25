@@ -383,6 +383,7 @@ class SessionResultFetchTests(unittest.TestCase):
 
         self.assertFalse(payload["result_available"])
         self.assertEqual(payload["last_error"], "openf1_http_401_live_access_requires_auth")
+        self.assertEqual(payload["last_fallback_error"], "openf1_http_401_live_access_requires_auth")
         self.assertEqual(payload["latest"], previous["latest"])
 
     def test_status_flags_take_precedence_over_position(self):
@@ -498,6 +499,7 @@ class SessionResultFetchTests(unittest.TestCase):
         self.assertEqual(payload["results"], [old])
         self.assertEqual(payload["latest"], old)
         self.assertEqual(payload["last_error"], "openf1_network_unavailable")
+        self.assertEqual(payload["last_fallback_error"], "openf1_network_unavailable")
         self.assertNotIn(payload["attempted_session_ref"], [record["session_ref"] for record in payload["results"]])
         empty = fetcher.build_payload(CALENDAR, {}, now=NOW, fetcher=failed)
         self.assertEqual(empty["results"], [])
