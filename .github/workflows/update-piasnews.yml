@@ -131,7 +131,6 @@ jobs:
         run: python scripts/build_translation_fallback_status.py
 
       - name: Audit translation badcases
-        if: ${{ !startsWith(needs.gate.outputs.reason, 'session_completed:') }}
         run: |
           python scripts/audit_translations.py \
             --items data/items.json \

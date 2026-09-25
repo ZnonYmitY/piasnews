@@ -103,7 +103,6 @@ class HotEventPublishWorkflowTests(unittest.TestCase):
             "Fetch Formula 1 calendar",
             "Fetch optional X and Instagram social data",
             "Install offline Chinese translation fallback",
-            "Audit translation badcases",
             "Build history-review candidates",
             "Notify Feishu translation badcases",
         ):
