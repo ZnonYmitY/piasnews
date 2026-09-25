@@ -1,11 +1,21 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-24T13:51:04.905472Z",
+  "generated_at": "2026-09-25T11:55:06.260879Z",
   "status": "action_required",
   "pending_count": 2,
   "ignored_non_text_count": 0,
   "workbench_path": "../immersive/translation-workbench.html",
   "items": [
+    {
+      "key": "items:piasnews-dbe35d02e156db23:title:a690a34d588e1457d9eaad97",
+      "dataset": "items",
+      "item_id": "piasnews-dbe35d02e156db23",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri, McLaren, Baku City Circuit, 2026",
+      "source_url": "https://www.racefans.net/2026/09/24/2026-azerbaijan-grand-prix-practice-in-pictures/f1-grand-prix-of-azerbaijan-practice-83/",
+      "source_name": "RaceFans",
+      "reason": "llm_mapping_missing"
+    },
     {
       "key": "social:piasnews-social-9c071cc3d555670d:summary:c0bdb225a7ecbd0ae1b1a145",
       "dataset": "social",
@@ -14,16 +24,6 @@
       "source_text": "OSCAR 😭 https://t.co/PlJ3OTbJEC",
       "source_url": "https://x.com/laurogeitabat/status/2102758547553439917",
       "source_name": "@laurogeitabat",
-      "reason": "llm_mapping_missing"
-    },
-    {
-      "key": "social:piasnews-social-09b562563fe945bb:summary:663e024a90d8306a9f59d8d7",
-      "dataset": "social",
-      "item_id": "piasnews-social-09b562563fe945bb",
-      "target_field": "summary_zh",
-      "source_text": "@teamopeightyone https://t.co/qe1Rh34jPC",
-      "source_url": "https://x.com/OscarPiastri/status/2100858947234119996",
-      "source_name": "@OscarPiastri",
       "reason": "llm_mapping_missing"
     }
   ]
