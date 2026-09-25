@@ -485,7 +485,7 @@ class HotEventBuildTest(unittest.TestCase):
 
         self.assertIsNone(event)
 
-    def test_f1_timing_fallback_is_clearly_labelled_provisional(self):
+    def test_finished_f1_timing_result_is_published_without_a_provisional_label(self):
         event = builder.structured_session_result_event(
             {
                 "result_available": True,
@@ -500,7 +500,7 @@ class HotEventBuildTest(unittest.TestCase):
                     "session_end": "2026-08-25T12:00:00Z",
                     "source": "Formula 1 Live Timing",
                     "source_url": "https://livetiming.formula1.com/static/2026/example/TimingData.json",
-                    "provisional": True,
+                    "provisional": False,
                 },
             },
             {"races": []},
@@ -508,9 +508,9 @@ class HotEventBuildTest(unittest.TestCase):
             builder.now_time(NOW),
         )
 
-        self.assertEqual(event["hot_word_zh"], "Oscar 在阿塞拜疆站三练获得第7名（暂定）")
-        self.assertTrue(event["hard_rule"]["provisional"])
-        self.assertIn("暂定", event["items"][0]["summary_zh"])
+        self.assertEqual(event["hot_word_zh"], "Oscar 在阿塞拜疆站三练获得第7名")
+        self.assertFalse(event["hard_rule"]["provisional"])
+        self.assertNotIn("暂定", event["items"][0]["summary_zh"])
 
     def test_previous_valid_result_is_not_ranked_as_latest_while_new_result_is_pending(self):
         event = builder.structured_session_result_event(

@@ -591,7 +591,9 @@ def fetch_f1_static_result(
         "duration": None,
         "source": "Formula 1 Live Timing",
         "source_url": timing_url,
-        "provisional": True,
+        # A fully ranked timing archive with SessionStatus=Finished is publishable.
+        # Provider revisions can still replace this record later by session_ref.
+        "provisional": False,
         "fetched_at": isoformat(now),
     }, None
 
@@ -743,7 +745,7 @@ def history_record(value: Any, *, now: datetime) -> dict[str, Any] | None:
             ):
                 return None
         elif provider == "Formula 1 Live Timing":
-            if provisional is not True or parsed_source.hostname != "livetiming.formula1.com":
+            if (provisional is not None and type(provisional) is not bool) or parsed_source.hostname != "livetiming.formula1.com":
                 return None
             if parsed_source.query or parsed_source.fragment or not re.fullmatch(
                 r"/static/(\d{4})/[A-Za-z0-9_-]+/[A-Za-z0-9_-]+/TimingData\.jsonStream",

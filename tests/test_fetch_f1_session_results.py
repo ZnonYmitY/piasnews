@@ -344,7 +344,7 @@ class SessionResultFetchTests(unittest.TestCase):
 
         self.assertTrue(payload["result_available"])
         self.assertEqual(payload["latest"]["source"], "Formula 1 Live Timing")
-        self.assertTrue(payload["latest"]["provisional"])
+        self.assertFalse(payload["latest"]["provisional"])
         self.assertEqual(payload["latest"]["position"], 2)
         self.assertEqual(payload["latest"]["number_of_laps"], 24)
         self.assertEqual(payload["latest"]["session_key"], 11354)
@@ -365,7 +365,7 @@ class SessionResultFetchTests(unittest.TestCase):
 
         self.assertTrue(payload["result_available"])
         self.assertEqual(payload["latest"]["source"], "Formula 1 Live Timing")
-        self.assertTrue(payload["latest"]["provisional"])
+        self.assertFalse(payload["latest"]["provisional"])
 
     def test_f1_static_rejects_unfinished_or_inconsistent_timing(self):
         race = CALENDAR["races"][0]

@@ -63,7 +63,7 @@ test("legacy OpenF1 results without a source field remain valid, but an explicit
   }
 });
 
-test("validated F1 timing fallback remains available but explicitly provisional", () => {
+test("validated finished F1 timing result remains available without a provisional label", () => {
   const latest = {
     ...session().latest,
     session_ref: "2026-round-15:practice_3",
@@ -78,16 +78,17 @@ test("validated F1 timing fallback remains available but explicitly provisional"
     number_of_laps: 20,
     source: "Formula 1 Live Timing",
     source_url: "https://livetiming.formula1.com/static/2026/2026-09-13_Azerbaijan_Grand_Prix/2026-09-10_Practice_3/TimingData.jsonStream",
-    provisional: true,
+    provisional: false,
   };
   const result = build({ sessionResults: session({ attempted_session_ref: latest.session_ref, latest }) });
   const source = result.public_sources.find((item) => item.id === result.latest_session.latest.public_source_id);
 
   assert.equal(result.latest_session.result_available, true);
-  assert.equal(result.latest_session.latest.provisional, true);
+  assert.equal(result.latest_session.latest.provisional, false);
   assert.equal(source.data_provider, "Formula 1 Live Timing");
-  assert.equal(source.facts.provisional, true);
-  assert.match(source.answer_limits.join(" "), /provisional/i);
+  assert.equal(source.facts.provisional, false);
+  assert.doesNotMatch(source.answer_limits.join(" "), /provisional/i);
+  assert.equal(source.evidence_tier, "official_live_timing_archive");
 });
 
 test("expired next-race and contradictory session timing cannot be upcoming schedule evidence", () => {
