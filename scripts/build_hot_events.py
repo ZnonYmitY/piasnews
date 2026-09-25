@@ -564,6 +564,56 @@ def structured_session_result_event(
     }
 
 
+def structured_session_result_events(
+    session_results: dict[str, Any],
+    calendar: dict[str, Any],
+    refresh_reason: str,
+    now: datetime,
+    max_age_hours: int = 24,
+) -> list[dict[str, Any]]:
+    """Return every still-live validated result, newest first.
+
+    `latest` controls the absolute rank-one result. Older validated records stay
+    visible for their own lifetime instead of disappearing when a later session
+    is attempted or successfully fetched.
+    """
+    latest = session_results.get("latest") or {}
+    latest_ref = clean(latest.get("session_ref"))
+    candidates = [latest, *(session_results.get("results") or [])]
+    events: list[dict[str, Any]] = []
+    seen_refs: set[str] = set()
+    for result in candidates:
+        if not isinstance(result, dict):
+            continue
+        result_ref = clean(result.get("session_ref"))
+        if not result_ref or result_ref in seen_refs:
+            continue
+        seen_refs.add(result_ref)
+        event = structured_session_result_event(
+            {"latest": result},
+            calendar,
+            refresh_reason,
+            now,
+            max_age_hours,
+        )
+        if not event:
+            continue
+        is_latest = result_ref == latest_ref
+        event["pinned_rank"] = 1 if is_latest else None
+        event["hard_rule"]["latest"] = is_latest
+        events.append(event)
+
+    def priority(event: dict[str, Any]) -> tuple[int, float, str]:
+        ranked_at = parse_time(clean(event.get("first_seen_at")))
+        return (
+            0 if (event.get("hard_rule") or {}).get("latest") else 1,
+            -(ranked_at.timestamp() if ranked_at else 0.0),
+            clean(event.get("event_id")),
+        )
+
+    return sorted(events, key=priority)
+
+
 def media_fields(item: dict[str, Any]) -> tuple[str | None, str | None, str | None]:
     image = clean(item.get("image_url") or item.get("thumbnail_url") or item.get("og_image")) or None
     video = clean(item.get("video_url")) or None
@@ -705,9 +755,20 @@ def rank_events(events: list[dict[str, Any]], maximum_events: int) -> list[dict[
         updated = parse_time((event.get("override") or {}).get("updated_at"))
         return updated.timestamp() if updated else 0.0
 
+    def is_session_result(event: dict[str, Any]) -> bool:
+        return (event.get("hard_rule") or {}).get("type") == "session_result"
+
+    def session_result_recency(event: dict[str, Any]) -> float:
+        ranked_at = parse_time(clean(event.get("first_seen_at")))
+        return ranked_at.timestamp() if ranked_at else 0.0
+
     hard_rules = sorted(
-        (event for event in remaining if (event.get("hard_rule") or {}).get("type") == "session_result"),
-        key=lambda event: (-event["heat"], event["event_id"]),
+        (event for event in remaining if is_session_result(event)),
+        key=lambda event: (
+            0 if (event.get("hard_rule") or {}).get("latest") else 1,
+            -session_result_recency(event),
+            event["event_id"],
+        ),
     )
     if hard_rules and slots:
         slots[0] = hard_rules[0]
@@ -716,7 +777,7 @@ def rank_events(events: list[dict[str, Any]], maximum_events: int) -> list[dict[
     pinned = sorted(
         (
             event for event in remaining
-            if event.get("pinned_rank") and (event.get("hard_rule") or {}).get("type") != "session_result"
+            if event.get("pinned_rank") and not is_session_result(event)
         ),
         key=lambda event: (
             int(event["pinned_rank"]),
@@ -734,7 +795,12 @@ def rank_events(events: list[dict[str, Any]], maximum_events: int) -> list[dict[
     remaining = [event for event in remaining if event["event_id"] not in placed_ids]
     remaining = sorted(
         (event for event in remaining if event["event_id"] not in placed_ids),
-        key=lambda event: (-event["heat"], event["event_id"]),
+        key=lambda event: (
+            0 if is_session_result(event) else 1,
+            -session_result_recency(event) if is_session_result(event) else 0,
+            -event["heat"],
+            event["event_id"],
+        ),
     )
     for event in remaining:
         free_slot = next((index for index, value in enumerate(slots) if value is None), None)
@@ -964,16 +1030,17 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
             events.append(manual_event)
 
     refresh_reason = clean(getattr(args, "refresh_reason", ""))
-    structured_result = structured_session_result_event(
+    structured_results = structured_session_result_events(
         session_results,
         calendar,
         refresh_reason,
         now,
         int(config.get("session_result_max_age_hours") or 24),
     )
-    if structured_result:
-        events = [event for event in events if event["event_id"] != structured_result["event_id"]]
-        events.append(structured_result)
+    if structured_results:
+        structured_ids = {event["event_id"] for event in structured_results}
+        events = [event for event in events if event["event_id"] not in structured_ids]
+        events.extend(structured_results)
     else:
         apply_session_result_hard_rule(events, records, calendar, refresh_reason, now)
     events, source_suppressed = rank_public_events(

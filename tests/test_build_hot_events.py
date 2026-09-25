@@ -592,6 +592,46 @@ class HotEventBuildTest(unittest.TestCase):
 
         self.assertEqual(event["hot_word_zh"], "Oscar 在意大利站二练获得第6名")
 
+    def test_each_valid_session_result_stays_ranked_for_its_own_24_hour_lifetime(self):
+        def result(session, position, first_ranked_at):
+            return {
+                "session_ref": f"race-1:{session}",
+                "race_id": "race-1",
+                "race_name": "Italian Grand Prix",
+                "race_name_zh": "意大利大奖赛",
+                "session": session,
+                "status": "classified",
+                "position": position,
+                "session_end": first_ranked_at,
+                "first_ranked_at": first_ranked_at,
+                "source": "OpenF1",
+            }
+
+        qualifying = result("qualifying", 3, "2026-08-25T11:50:00Z")
+        practice_3 = result("practice_3", 7, "2026-08-25T11:00:00Z")
+        practice_2 = result("practice_2", 6, "2026-08-24T12:01:00Z")
+        expired_practice_1 = result("practice_1", 5, "2026-08-24T11:59:00Z")
+
+        events = builder.structured_session_result_events(
+            {
+                "latest": qualifying,
+                "results": [qualifying, practice_3, practice_2, expired_practice_1],
+            },
+            {"races": []},
+            "session_completed:race-1:qualifying",
+            builder.now_time(NOW),
+            24,
+        )
+        ranked = builder.rank_events(events, 10)
+
+        self.assertEqual(
+            [event["hard_rule"]["session"] for event in ranked],
+            ["qualifying", "practice_3", "practice_2"],
+        )
+        self.assertTrue(ranked[0]["hard_rule"]["latest"])
+        self.assertFalse(ranked[1]["hard_rule"]["latest"])
+        self.assertNotIn("practice_1", [event["hard_rule"]["session"] for event in ranked])
+
     def test_structured_session_result_supports_dnf(self):
         event = builder.structured_session_result_event(
             {

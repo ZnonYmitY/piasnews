@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-25T13:33:17.918055Z",
+  "generated_at": "2026-09-25T13:38:35.592786Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -42,7 +42,8 @@
         "status": "classified",
         "provisional": false,
         "source_item_id": "session-result-2026-round-15-qualifying",
-        "source": "OpenF1"
+        "source": "OpenF1",
+        "latest": true
       },
       "items": [
         {
@@ -66,7 +67,125 @@
       "rank": 1
     },
     {
-      "event_id": "evt-2026-09-23-b8fcee29b974-b8fcee29",
+      "event_id": "evt-session-result-2026-round-15-practice_3",
+      "rule_id": null,
+      "hot_word_zh": "Oscar 在阿塞拜疆站三练获得第7名",
+      "hot_word_en": "Oscar finishes P7 in Azerbaijan Grand Prix Practice 3",
+      "first_seen_at": "2026-09-25T12:43:53.202611Z",
+      "last_seen_at": "2026-09-25T12:43:53.202611Z",
+      "anchor_item_id": "session-result-2026-round-15-practice_3",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "official_heat": 0,
+      "media_heat": 100,
+      "fan_heat": 0,
+      "heat": 100,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 1,
+        "fan": 0
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "hard_rule": {
+        "type": "session_result",
+        "race_id": "2026-round-15",
+        "session": "practice_3",
+        "position": 7,
+        "status": "classified",
+        "provisional": false,
+        "source_item_id": "session-result-2026-round-15-practice_3",
+        "source": "Formula 1 Live Timing",
+        "latest": false
+      },
+      "items": [
+        {
+          "item_id": "session-result-2026-round-15-practice_3",
+          "dataset": "session_result",
+          "source_type": "media",
+          "source": "Formula 1 Live Timing",
+          "title": "Oscar finishes P7 in Azerbaijan Grand Prix Practice 3",
+          "title_zh": "Oscar 在阿塞拜疆站三练获得第7名",
+          "summary": "Structured session result for Oscar Piastri.",
+          "summary_zh": "Oscar Piastri 的结构化场次成绩。",
+          "url": "https://livetiming.formula1.com/static/2026/2026-09-26_Azerbaijan_Grand_Prix/2026-09-25_Practice_3/TimingData.jsonStream",
+          "published_at": "2026-09-25T12:43:53.202611Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 100,
+          "metrics": {}
+        }
+      ],
+      "rank": 2
+    },
+    {
+      "event_id": "evt-session-result-2026-round-15-practice_2",
+      "rule_id": null,
+      "hot_word_zh": "Oscar 在阿塞拜疆站二练获得第8名",
+      "hot_word_en": "Oscar finishes P8 in Azerbaijan Grand Prix Practice 2",
+      "first_seen_at": "2026-09-24T13:48:12.702053Z",
+      "last_seen_at": "2026-09-24T13:48:12.702053Z",
+      "anchor_item_id": "session-result-2026-round-15-practice_2",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "official_heat": 0,
+      "media_heat": 100,
+      "fan_heat": 0,
+      "heat": 100,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 1,
+        "fan": 0
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "hard_rule": {
+        "type": "session_result",
+        "race_id": "2026-round-15",
+        "session": "practice_2",
+        "position": 8,
+        "status": "classified",
+        "provisional": false,
+        "source_item_id": "session-result-2026-round-15-practice_2",
+        "source": "OpenF1",
+        "latest": false
+      },
+      "items": [
+        {
+          "item_id": "session-result-2026-round-15-practice_2",
+          "dataset": "session_result",
+          "source_type": "media",
+          "source": "OpenF1",
+          "title": "Oscar finishes P8 in Azerbaijan Grand Prix Practice 2",
+          "title_zh": "Oscar 在阿塞拜疆站二练获得第8名",
+          "summary": "Structured session result for Oscar Piastri.",
+          "summary_zh": "Oscar Piastri 的结构化场次成绩。",
+          "url": "https://api.openf1.org/v1/session_result?session_key=11371&driver_number=81",
+          "published_at": "2026-09-24T13:48:12.702053Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 100,
+          "metrics": {}
+        }
+      ],
+      "rank": 3
+    },
+    {
+      "event_id": "evt-2026-09-23-b8fcee29b974",
       "rule_id": null,
       "hot_word_zh": "Oscar直言不讳！😄 2024 🏆🎉 2025 💥❌ #F1 #AzerbaijanGP",
       "hot_word_en": "Oscar telling it straight! 😄 2024 🏆🎉 2025 💥❌ #F1 #AzerbaijanGP",
@@ -118,10 +237,10 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 2
+      "rank": 4
     },
     {
-      "event_id": "evt-2026-09-23-c1d86dffbbb0-986dcbae",
+      "event_id": "evt-2026-09-23-c1d86dffbbb0",
       "rule_id": null,
       "hot_word_zh": "George在解说Lando和Oscar的媒体内容拍摄环节 😭😭",
       "hot_word_en": "george giving commentary on lando and oscar's media content filming session 😭😭",
@@ -197,10 +316,10 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 3
+      "rank": 5
     },
     {
-      "event_id": "evt-2026-09-24-23eb408405cf",
+      "event_id": "evt-2026-09-24-23eb408405cf-23eb4084",
       "rule_id": null,
       "hot_word_zh": "两辆McLaren都回到车库了。机械师一直在检查Norris的赛车是否有损伤，现在Pias…",
       "hot_word_en": "Both McLarens are back in the garage Mechanics have been checking Norris' car for damage and now Piastri is c…",
@@ -252,7 +371,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 4
+      "rank": 6
     },
     {
       "event_id": "evt-2026-09-23-62f576cfac15",
@@ -307,7 +426,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 5
+      "rank": 7
     },
     {
       "event_id": "evt-2026-09-16-6b88658daa0f",
@@ -559,7 +678,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 8
     },
     {
       "event_id": "evt-2026-09-23-1617d1844c63",
@@ -638,7 +757,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 9
     },
     {
       "event_id": "evt-2026-09-24-8261b5c33dac",
@@ -754,174 +873,10 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
-    },
-    {
-      "event_id": "evt-2026-09-17-192dcb6c3424-c810e225-2",
-      "rule_id": null,
-      "hot_word_zh": "Audi 为 McLaren 的 Lando Norris 和 Oscar Piastri…",
-      "hot_word_en": "Audi inspired McLaren for Lando Norris and Oscar Piastri’s ‘dramatically revised’ Baku upgrade",
-      "first_seen_at": "2026-09-22T10:55:00Z",
-      "last_seen_at": "2026-09-25T07:08:12Z",
-      "anchor_item_id": "piasnews-25838b66af244d25",
-      "image_url": "https://lentedesportiva.com/wp-content/uploads/2026/09/lente-af2ae79d-3594-470e-84ae-5ca94a044bd2.jpg",
-      "video_url": null,
-      "video_poster_url": "https://lentedesportiva.com/wp-content/uploads/2026/09/lente-af2ae79d-3594-470e-84ae-5ca94a044bd2.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-64344742289afe88",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Lente Desportiva",
-          "title": "McLaren’s Baku nightmare explained: why Norris and Piastri may not recover this weekend",
-          "title_zh": "McLaren 的 Baku 噩梦解析：为什么 Norris 和 Piastri 本周末可能无法恢复",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
-          "url": "https://lentedesportiva.com/mclarens-baku-nightmare-explained-why-norris-and-piastri-may-not-recover-this-weekend/",
-          "published_at": "2026-09-25T07:08:12Z",
-          "image_url": "https://lentedesportiva.com/wp-content/uploads/2026/09/lente-af2ae79d-3594-470e-84ae-5ca94a044bd2.jpg",
-          "video_url": null,
-          "video_poster_url": "https://lentedesportiva.com/wp-content/uploads/2026/09/lente-af2ae79d-3594-470e-84ae-5ca94a044bd2.jpg",
-          "heat_contribution": 0.75,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-25838b66af244d25",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "F1 Oversteer",
-          "title": "Audi inspired McLaren for Lando Norris and Oscar Piastri’s ‘dramatically revised’ Baku upgrade",
-          "title_zh": "Audi 为 McLaren 的 Lando Norris 和 Oscar Piastri 的Baku“大幅修改”升级提供了灵感",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
-          "url": "https://www.f1oversteer.com/news/audi-inspired-mclaren-for-lando-norris-and-oscar-piastris-dramatically-revised-baku-upgrade/",
-          "published_at": "2026-09-24T07:00:00Z",
-          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2296151999-scaled.jpg",
-          "video_url": null,
-          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2296151999-scaled.jpg",
-          "heat_contribution": 0.45,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-c1e2389061150648",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "SPEEDWEEK.com",
-          "title": "Lando Norris (McLaren): Has the cause of Oscar Piastri’s slump finally been identified?",
-          "title_zh": "Lando Norris（McLaren）：Oscar Piastri 状态低迷的原因终于找到了吗？",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
-          "url": "https://www.speedweek.com/en/a/formula-1/lando-norris-mclaren-has-the-oscar-piastri-slump-finally-been-got-to-the-bottom-of",
-          "published_at": "2026-09-23T06:30:02.308000Z",
-          "image_url": "https://files.speedweek.com/images/c_crop,x_0,y_60,w_5185,h_2592/c_fill,f_auto,q_auto,w_1200,h_630/2026/9/23/g3t2wp0xmfofyiigizl2/0830-norris-xpb",
-          "video_url": null,
-          "video_poster_url": "https://files.speedweek.com/images/c_crop,x_0,y_60,w_5185,h_2592/c_fill,f_auto,q_auto,w_1200,h_630/2026/9/23/g3t2wp0xmfofyiigizl2/0830-norris-xpb",
-          "heat_contribution": 0.2,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-b12f0a1e35cd3a30",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "racingnews365.com",
-          "title": "McLaren call on Lando Norris and Oscar Piastri to execute three 'essentials' in Baku",
-          "title_zh": "McLaren 要求 Lando Norris 和 Oscar Piastri 在Baku执行三项“要点”",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
-          "url": "https://racingnews365.com/mclaren-call-on-lando-norris-and-oscar-piastri-to-execute-three-essentials-in-baku",
-          "published_at": "2026-09-22T10:55:00Z",
-          "image_url": "https://cdn.racingnews365.com/2024/Norris/XPB_1296653_HiRes.jpg?v=1728044527&width=1800&height=945&quality=75&crop=3888%2C2042%2C0%2C275",
-          "video_url": null,
-          "video_poster_url": "https://cdn.racingnews365.com/2024/Norris/XPB_1296653_HiRes.jpg?v=1728044527&width=1800&height=945&quality=75&crop=3888%2C2042%2C0%2C275",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 22,
-      "fan_heat": 0,
-      "heat": 22,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 4,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 9
-    },
-    {
-      "event_id": "evt-mclaren-title-fight",
-      "rule_id": "mclaren-title-fight",
-      "hot_word_zh": "诺里斯追分改变 McLaren 车手争冠形势",
-      "hot_word_en": "Norris's recovery changes McLaren's drivers' title fight",
-      "first_seen_at": "2026-09-24T08:19:47Z",
-      "last_seen_at": "2026-09-25T06:30:00Z",
-      "anchor_item_id": "piasnews-ffdfd0e3fec24fba",
-      "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgrandprix247.com%2Fimages%2F2025-11%2Fpiastri-baku-2-2025.jpg",
-      "video_url": null,
-      "video_poster_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgrandprix247.com%2Fimages%2F2025-11%2Fpiastri-baku-2-2025.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-23dc9c75040177a8",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "grandprix247",
-          "title": "What happened since Baku 2025 when Oscar Piastri's Formula 1 title charge derailed?",
-          "title_zh": "自 2025 年 Baku 以来，Oscar Piastri 的 Formula 1 冠军争夺脱轨后发生了什么？",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
-          "url": "https://www.grandprix247.com/f1-opinion/what-happened-since-baku-2025-when-oscar-piastris-formula-1-title-charge-derailed",
-          "published_at": "2026-09-25T06:30:00Z",
-          "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgrandprix247.com%2Fimages%2F2025-11%2Fpiastri-baku-2-2025.jpg",
-          "video_url": null,
-          "video_poster_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgrandprix247.com%2Fimages%2F2025-11%2Fpiastri-baku-2-2025.jpg",
-          "heat_contribution": 0.75,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-ffdfd0e3fec24fba",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Bozeman Daily Chronicle",
-          "title": "Antonelli aims to stay on target for F1 title in Baku a year after Piastri's challenge crumbled",
-          "title_zh": "在 Piastri 的挑战崩盘一年后，Antonelli 力争在Baku保持 F1 冠军争夺的势头",
-          "summary": "Rumor or speculative report; treat as unverified unless confirmed by official sources.",
-          "summary_zh": "传闻或推测性报道；除非官方消息源确认，否则视为未经证实。",
-          "url": "https://www.bozemandailychronicle.com/wire/sports/antonelli-aims-to-stay-on-target-for-f1-title-in-baku-a-year-after-piastris/article_6fdf1fa4-c0df-582d-bf4c-d3e7be7526fb.html",
-          "published_at": "2026-09-24T08:19:47Z",
-          "image_url": "https://bloximages.chicago2.vip.townnews.com/bozemandailychronicle.com/content/tncms/assets/v3/editorial/9/0e/90ea323a-f5bc-5a4b-8771-4c5faf9987c7/6ab4e07cadaf9.image.jpg?crop=1763%2C926%2C0%2C124&resize=1200%2C630&order=crop%2Cresize",
-          "video_url": null,
-          "video_poster_url": "https://bloximages.chicago2.vip.townnews.com/bozemandailychronicle.com/content/tncms/assets/v3/editorial/9/0e/90ea323a-f5bc-5a4b-8771-4c5faf9987c7/6ab4e07cadaf9.image.jpg?crop=1763%2C926%2C0%2C124&resize=1200%2C630&order=crop%2Cresize",
-          "heat_contribution": 0.45,
-          "metrics": {}
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 18,
-      "fan_heat": 0,
-      "heat": 18,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 2,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
       "rank": 10
     }
   ],
-  "review_needed_count": 37,
+  "review_needed_count": 27,
   "review_needed_events": [
     {
       "event_id": "evt-2026-09-23-7c63c964255a",
@@ -1732,7 +1687,7 @@
       }
     },
     {
-      "event_id": "evt-2026-09-23-b8fcee29b974",
+      "event_id": "evt-2026-09-23-b8fcee29b974-b8fcee29",
       "rule_id": null,
       "hot_word_zh": "稳定与氛围 🤝 #McLarenF1 | #AzerbaijanGP🇦🇿",
       "hot_word_en": "Stability and vibes 🤝 #McLarenF1 | #AzerbaijanGP🇦🇿",
@@ -2470,586 +2425,6 @@
       "media_heat": 0,
       "fan_heat": 27,
       "heat": 27,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-09-24-e97a906eaaa3",
-      "rule_id": null,
-      "hot_word_zh": "Oscar、Lando、Gabi和Nico在粉丝舞台！",
-      "hot_word_en": "oscar, lando, gabi and nico at the fan stage!",
-      "first_seen_at": "2026-09-24T07:01:30Z",
-      "last_seen_at": "2026-09-24T07:01:30Z",
-      "anchor_item_id": "piasnews-social-53691cbc64c612b2",
-      "image_url": "https://pbs.twimg.com/media/HS9qxu1XUAAF5xG.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HS9qxu1XUAAF5xG.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-53691cbc64c612b2",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar, lando, gabi and nico at the fan stage! 📸: @CL16_Atleti",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar、Lando、Gabi和Nico在粉丝舞台！📸：@CL16_Atleti",
-          "summary": "oscar, lando, gabi and nico at the fan stage! 📸: @CL16_Atleti https://t.co/wgbm1yUW4B",
-          "summary_zh": "Oscar、Lando、Gabi和Nico在粉丝舞台！📸：@CL16_Atleti",
-          "url": "https://x.com/laurogeitabat/status/2103016959830794357",
-          "published_at": "2026-09-24T07:01:30Z",
-          "image_url": "https://pbs.twimg.com/media/HS9qxu1XUAAF5xG.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HS9qxu1XUAAF5xG.jpg",
-          "heat_contribution": 4.8402,
-          "metrics": {
-            "likes": 221,
-            "retweets": 14,
-            "replies": 0,
-            "quotes": 0,
-            "views": 2988,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 27,
-      "heat": 27,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-09-22-a0c9a690e6a9",
-      "rule_id": null,
-      "hot_word_zh": "用 OP 回顾 2024 🏆 #McLarenF1 | #AzerbaijanGP🇦🇿",
-      "hot_word_en": "Throwing it back to 2024 with OP 🏆 #McLarenF1 | #AzerbaijanGP🇦🇿",
-      "first_seen_at": "2026-09-22T14:20:10Z",
-      "last_seen_at": "2026-09-22T14:20:10Z",
-      "anchor_item_id": "piasnews-social-5bbbb6c77ef91b4f",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2102382429797597185/vid/avc1/320x568/rQlOGcbbcDRt2FNd.mp4?tag=16",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2102382429797597185/img/BJfont-rPVS1bUxT.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-5bbbb6c77ef91b4f",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X repost from @laurogeitabat: RT @McLarenF1: Throwing it back to 2024 with OP 🏆 #McLarenF1 | #AzerbaijanGP🇦🇿",
-          "title_zh": "X 转帖 @laurogeitabat：RT @McLarenF1：用 OP 回顾 2024 🏆 #McLarenF1 | #AzerbaijanGP🇦🇿",
-          "summary": "RT @McLarenF1: Throwing it back to 2024 with OP 🏆 #McLarenF1 | #AzerbaijanGP🇦🇿 https://t.co/Z2rbKm4A1B",
-          "summary_zh": "RT @McLarenF1：用 OP 回顾 2024 🏆 #McLarenF1 | #AzerbaijanGP🇦🇿",
-          "url": "https://x.com/laurogeitabat/status/2102402578055110877",
-          "published_at": "2026-09-22T14:20:10Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2102382429797597185/vid/avc1/320x568/rQlOGcbbcDRt2FNd.mp4?tag=16",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2102382429797597185/img/BJfont-rPVS1bUxT.jpg",
-          "heat_contribution": 4.719,
-          "metrics": {
-            "likes": 0,
-            "retweets": 277,
-            "replies": 0,
-            "quotes": 0,
-            "views": 126,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 26,
-      "heat": 26,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-09-23-4956a5369592",
-      "rule_id": null,
-      "hot_word_zh": "他为什么在玩你画我猜 😭😭",
-      "hot_word_en": "why was he playing charades 😭😭",
-      "first_seen_at": "2026-09-23T11:51:50Z",
-      "last_seen_at": "2026-09-23T11:51:50Z",
-      "anchor_item_id": "piasnews-social-8ec14e8af56951cb",
-      "image_url": "https://pbs.twimg.com/media/HS5jnjHXAAAhr4n.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HS5jnjHXAAAhr4n.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-8ec14e8af56951cb",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: why was he playing charades 😭😭",
-          "title_zh": "X 发帖 @laurogeitabat：他为什么在玩你画我猜 😭😭",
-          "summary": "why was he playing charades 😭😭 https://t.co/reF9i65IYH",
-          "summary_zh": "他为什么在玩你画我猜 😭😭",
-          "url": "https://x.com/laurogeitabat/status/2102727640264138972",
-          "published_at": "2026-09-23T11:51:50Z",
-          "image_url": "https://pbs.twimg.com/media/HS5jnjHXAAAhr4n.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HS5jnjHXAAAhr4n.jpg",
-          "heat_contribution": 4.671,
-          "metrics": {
-            "likes": 400,
-            "retweets": 41,
-            "replies": 0,
-            "quotes": 0,
-            "views": 4703,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 26,
-      "heat": 26,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-09-23-cc6effe3ebb3",
-      "rule_id": null,
-      "hot_word_zh": "关于理解新车和新规：“我开过的每辆F1赛车都略有不同。事情总是在变，即使规则相同。",
-      "hot_word_en": "on understanding the new cars & regs: \"every f1 car i've driven is a bit different.",
-      "first_seen_at": "2026-09-23T11:36:44Z",
-      "last_seen_at": "2026-09-23T11:36:44Z",
-      "anchor_item_id": "piasnews-social-f53e9de9e89e51e0",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2102723503346651136/vid/avc1/336x270/Yla-WzzhJH8Cci-O.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2102723503346651136/img/Ib4I6tIopIBzwSfi.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-f53e9de9e89e51e0",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: on understanding the new cars &amp; regs: \"every f1 car i've driven is a bit different. things…",
-          "title_zh": "X 发帖 @laurogeitabat：关于理解新车和新规：“我开过的每辆F1赛车都略有不同。事情总是在变，即使规则相同。你要在学习与拿分之间找平衡，所以很难，但我有信心我们能找到办法。”",
-          "summary": "on understanding the new cars &amp; regs: \"every f1 car i've driven is a bit different. things are always changing, even with the same regs. you try to balance learning with scoring points, so it's tricky, but i've got confidence we can find a way.\" https://t.co/91E4VHP9KU",
-          "summary_zh": "关于理解新车和新规：“我开过的每辆F1赛车都略有不同。事情总是在变，即使规则相同。你要在学习与拿分之间找平衡，所以很难，但我有信心我们能找到办法。”",
-          "url": "https://x.com/laurogeitabat/status/2102723836772851818",
-          "published_at": "2026-09-23T11:36:44Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2102723503346651136/vid/avc1/336x270/Yla-WzzhJH8Cci-O.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2102723503346651136/img/Ib4I6tIopIBzwSfi.jpg",
-          "heat_contribution": 4.6526,
-          "metrics": {
-            "likes": 350,
-            "retweets": 45,
-            "replies": 1,
-            "quotes": 0,
-            "views": 7627,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 26,
-      "heat": 26,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-09-23-7be29fa7b30f",
-      "rule_id": null,
-      "hot_word_zh": "可怜的家伙看起来好累 ☹️",
-      "hot_word_en": "poor guy looks so tired ☹️",
-      "first_seen_at": "2026-09-23T13:06:49Z",
-      "last_seen_at": "2026-09-23T13:06:49Z",
-      "anchor_item_id": "piasnews-social-a81df1702f04fec3",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2102746487662747648/vid/avc1/320x568/tiRvEwNr63txPz1B.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2102746487662747648/img/NYPh_Hf4wIVAvu2R.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-a81df1702f04fec3",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: poor guy looks so tired ☹️",
-          "title_zh": "X 发帖 @laurogeitabat：可怜的家伙看起来好累 ☹️",
-          "summary": "poor guy looks so tired ☹️ https://t.co/Sontit3a41",
-          "summary_zh": "可怜的家伙看起来好累 ☹️",
-          "url": "https://x.com/laurogeitabat/status/2102746508768547070",
-          "published_at": "2026-09-23T13:06:49Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2102746487662747648/vid/avc1/320x568/tiRvEwNr63txPz1B.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2102746487662747648/img/NYPh_Hf4wIVAvu2R.jpg",
-          "heat_contribution": 4.4179,
-          "metrics": {
-            "likes": 339,
-            "retweets": 13,
-            "replies": 0,
-            "quotes": 0,
-            "views": 4462,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 25,
-      "heat": 25,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-09-24-c76866a3da56",
-      "rule_id": null,
-      "hot_word_zh": "Pialbon今年给我们喂的糖也太好了吧！！",
-      "hot_word_en": "pialbon is feeding us so well this year !!",
-      "first_seen_at": "2026-09-24T09:17:32Z",
-      "last_seen_at": "2026-09-24T09:17:32Z",
-      "anchor_item_id": "piasnews-social-2aac7a796899efe7",
-      "image_url": "https://pbs.twimg.com/media/HS-J4vJWIAAFEEE.jpg",
-      "video_url": "https://video.twimg.com/amplify_video/2103051168427458560/vid/avc1/320x568/hkH5KL815OPiPVJL.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2103051168427458560/img/K-HkS97-aGiBgsoj.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-2aac7a796899efe7",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: pialbon is feeding us so well this year !!",
-          "title_zh": "X 发帖 @laurogeitabat：Pialbon今年给我们喂的糖也太好了吧！！",
-          "summary": "pialbon is feeding us so well this year !! https://t.co/OzTA7YfUPG",
-          "summary_zh": "Pialbon今年给我们喂的糖也太好了吧！！",
-          "url": "https://x.com/laurogeitabat/status/2103051196130836604",
-          "published_at": "2026-09-24T09:17:32Z",
-          "image_url": "https://pbs.twimg.com/media/HS-J4vJWIAAFEEE.jpg",
-          "video_url": "https://video.twimg.com/amplify_video/2103051168427458560/vid/avc1/320x568/hkH5KL815OPiPVJL.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2103051168427458560/img/K-HkS97-aGiBgsoj.jpg",
-          "heat_contribution": 4.3737,
-          "metrics": {
-            "likes": 128,
-            "retweets": 15,
-            "replies": 0,
-            "quotes": 0,
-            "views": 1608,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 24,
-      "heat": 24,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-09-23-4bb85aa9e658",
-      "rule_id": null,
-      "hot_word_zh": "Oscar 看起来还是很痛苦，今天还没见他笑过 😭",
-      "hot_word_en": "oscar still looks distressed we've yet to see him smile today 😭",
-      "first_seen_at": "2026-09-23T10:00:50Z",
-      "last_seen_at": "2026-09-23T10:00:50Z",
-      "anchor_item_id": "piasnews-social-67218ae88ef3d64a",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-67218ae88ef3d64a",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar still looks distressed we've yet to see him smile today 😭",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar 看起来还是很痛苦，今天还没见他笑过 😭",
-          "summary": "oscar still looks distressed we've yet to see him smile today 😭",
-          "summary_zh": "Oscar 看起来还是很痛苦，今天还没见他笑过 😭",
-          "url": "https://x.com/laurogeitabat/status/2102699705952035107",
-          "published_at": "2026-09-23T10:00:50Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 3.9364,
-          "metrics": {
-            "likes": 201,
-            "retweets": 0,
-            "replies": 1,
-            "quotes": 0,
-            "views": 4718,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 22,
-      "heat": 22,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-09-24-586f787e1003",
-      "rule_id": null,
-      "hot_word_zh": "我刚才在开会，抱歉发晚了，但这次练习赛Oscar用的是H翼（也就是Macarena翼），而…",
-      "hot_word_en": "i was in a meeting so sorry that this is late but oscar is running the h-wing (i.e.",
-      "first_seen_at": "2026-09-24T09:22:34Z",
-      "last_seen_at": "2026-09-24T09:22:34Z",
-      "anchor_item_id": "piasnews-social-dd444749609b0747",
-      "image_url": "https://pbs.twimg.com/media/HS-LELcW8AAuL3B.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HS-LELcW8AAuL3B.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-dd444749609b0747",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: i was in a meeting so sorry that this is late but oscar is running the h-wing (i.e. macarena wi…",
-          "title_zh": "X 发帖 @laurogeitabat：我刚才在开会，抱歉发晚了，但这次练习赛Oscar用的是H翼（也就是Macarena翼），而Lando用的是普通版！",
-          "summary": "i was in a meeting so sorry that this is late but oscar is running the h-wing (i.e. macarena wing) this session while lando is running the normal one! https://t.co/HNoDSFicVj",
-          "summary_zh": "我刚才在开会，抱歉发晚了，但这次练习赛Oscar用的是H翼（也就是Macarena翼），而Lando用的是普通版！",
-          "url": "https://x.com/laurogeitabat/status/2103052460977791463",
-          "published_at": "2026-09-24T09:22:34Z",
-          "image_url": "https://pbs.twimg.com/media/HS-LELcW8AAuL3B.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HS-LELcW8AAuL3B.jpg",
-          "heat_contribution": 3.925,
-          "metrics": {
-            "likes": 81,
-            "retweets": 4,
-            "replies": 0,
-            "quotes": 0,
-            "views": 2134,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 22,
-      "heat": 22,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-09-22-6fa5d207e256",
-      "rule_id": null,
-      "hot_word_zh": "oscar 说 2024 年Baku站是他自己的比赛中他最想重温的一场 🥹🫶🏻 “那真是一…",
-      "hot_word_en": "oscar said baku 2024 is the race he'd most like to relive among his own races 🥹🫶🏻 \"it was a really exciting…",
-      "first_seen_at": "2026-09-22T14:40:37Z",
-      "last_seen_at": "2026-09-22T14:40:37Z",
-      "anchor_item_id": "piasnews-social-03701a338c90331f",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-03701a338c90331f",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X repost from @laurogeitabat: RT @laurogeitabat: oscar said baku 2024 is the race he'd most like to relive among his own race…",
-          "title_zh": "X 转帖 @laurogeitabat：RT @laurogeitabat：oscar 说 2024 年Baku站是他自己的比赛中他最想重温的一场 🥹🫶🏻 “那真是一场非常激动人心、非常紧张……”",
-          "summary": "RT @laurogeitabat: oscar said baku 2024 is the race he'd most like to relive among his own races 🥹🫶🏻 \"it was a really exciting, very nerve…",
-          "summary_zh": "RT @laurogeitabat：oscar 说 2024 年Baku站是他自己的比赛中他最想重温的一场 🥹🫶🏻 “那真是一场非常激动人心、非常紧张……”",
-          "url": "https://x.com/laurogeitabat/status/2102407728454832448",
-          "published_at": "2026-09-22T14:40:37Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 3.6217,
-          "metrics": {
-            "likes": 0,
-            "retweets": 91,
-            "replies": 0,
-            "quotes": 0,
-            "views": 0,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 21,
-      "heat": 21,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-09-24-9e4bb717c853",
-      "rule_id": null,
-      "hot_word_zh": "oscar 和 ariana 拌嘴 😭😭 ariana：“太热了” oscar：“你就站在…",
-      "hot_word_en": "oscar and ariana bickering 😭😭 ariana: \"it's so hot\" oscar: \"you're standing in the one bit of sun!",
-      "first_seen_at": "2026-09-24T10:02:38Z",
-      "last_seen_at": "2026-09-24T10:02:38Z",
-      "anchor_item_id": "piasnews-social-5427fe1954aa0e57",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2103062512006561793/vid/avc1/320x362/s4pvM5QI9guwBqYx.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2103062512006561793/img/F5_FEd-VXN9jcUbS.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-5427fe1954aa0e57",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar and ariana bickering 😭😭 ariana: \"it's so hot\" oscar: \"you're standing in the one bit of s…",
-          "title_zh": "X 发帖 @laurogeitabat：oscar 和 ariana 拌嘴 😭😭 ariana：“太热了” oscar：“你就站在那唯一一块太阳地里！” ariana：“你回去太阳也会晒到你那儿！” oscar：“不，回这儿就行！” ariana：“可你看你离人群多远！” oscar：“那你上前边去！” 🎥：@nad16cl",
-          "summary": "oscar and ariana bickering 😭😭 ariana: \"it's so hot\" oscar: \"you're standing in the one bit of sun!\" ariana: \"if you go back the sun gets you there!\" oscar: \"no, back here is fine!\" ariana: \"but look how far you are from the crowd!\" oscar: \"go on the front then!\" 🎥: @nad16cl https://t.co/ftm48RPWqk",
-          "summary_zh": "oscar 和 ariana 拌嘴 😭😭 ariana：“太热了” oscar：“你就站在那唯一一块太阳地里！” ariana：“你回去太阳也会晒到你那儿！” oscar：“不，回这儿就行！” ariana：“可你看你离人群多远！” oscar：“那你上前边去！” 🎥：@nad16cl",
-          "url": "https://x.com/laurogeitabat/status/2103062543644180484",
-          "published_at": "2026-09-24T10:02:38Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2103062512006561793/vid/avc1/320x362/s4pvM5QI9guwBqYx.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2103062512006561793/img/F5_FEd-VXN9jcUbS.jpg",
-          "heat_contribution": 3.2179,
-          "metrics": {
-            "likes": 32,
-            "retweets": 8,
-            "replies": 0,
-            "quotes": 0,
-            "views": 528,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 19,
-      "heat": 19,
       "source_labels": [
         "粉"
       ],
