@@ -512,7 +512,7 @@ class HotEventBuildTest(unittest.TestCase):
         self.assertFalse(event["hard_rule"]["provisional"])
         self.assertNotIn("暂定", event["items"][0]["summary_zh"])
 
-    def test_previous_valid_result_is_not_ranked_as_latest_while_new_result_is_pending(self):
+    def test_previous_valid_result_stays_ranked_while_new_result_is_pending(self):
         event = builder.structured_session_result_event(
             {
                 "result_available": False,
@@ -536,9 +536,10 @@ class HotEventBuildTest(unittest.TestCase):
             24,
         )
 
-        self.assertIsNone(event)
+        self.assertEqual(event["hot_word_zh"], "Oscar 在意大利站二练获得第6名")
+        self.assertEqual(event["hard_rule"]["session"], "practice_2")
 
-    def test_new_session_refresh_reason_suppresses_old_result_before_fetch_runs(self):
+    def test_new_session_refresh_reason_keeps_old_result_before_fetch_runs(self):
         event = builder.structured_session_result_event(
             {
                 "result_available": True,
@@ -562,7 +563,8 @@ class HotEventBuildTest(unittest.TestCase):
             24,
         )
 
-        self.assertIsNone(event)
+        self.assertEqual(event["hot_word_zh"], "Oscar 在意大利站二练获得第6名")
+        self.assertEqual(event["hard_rule"]["session"], "practice_2")
 
     def test_previous_valid_result_stays_visible_when_same_session_retry_is_pending(self):
         event = builder.structured_session_result_event(

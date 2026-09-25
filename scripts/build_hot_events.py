@@ -456,11 +456,9 @@ def structured_session_result_event(
     latest_ref = clean(result.get("session_ref"))
     if not latest_ref:
         return None
-    attempted_ref = clean(session_results.get("attempted_session_ref"))
-    completed_prefix = "session_completed:"
-    completed_ref = refresh_reason[len(completed_prefix):] if refresh_reason.startswith(completed_prefix) else ""
-    if (attempted_ref and attempted_ref != latest_ref) or (completed_ref and completed_ref != latest_ref):
-        return None
+    # Keep the last validated result visible while a newer session is pending.
+    # The collector replaces `latest` only after the new result passes validation;
+    # an attempted session or refresh trigger alone must not create a ranking gap.
 
     race_id = clean(result.get("race_id"))
     race = next((row for row in calendar.get("races") or [] if clean(row.get("id")) == race_id), {})

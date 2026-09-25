@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-25T13:20:27.239501Z",
+  "generated_at": "2026-09-25T13:32:02.872062Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -8,7 +8,65 @@
   "event_count": 10,
   "events": [
     {
-      "event_id": "evt-2026-09-23-b8fcee29b974-b8fcee29",
+      "event_id": "evt-session-result-2026-round-15-practice_3",
+      "rule_id": null,
+      "hot_word_zh": "Oscar 在阿塞拜疆站三练获得第7名",
+      "hot_word_en": "Oscar finishes P7 in Azerbaijan Grand Prix Practice 3",
+      "first_seen_at": "2026-09-25T12:43:53.202611Z",
+      "last_seen_at": "2026-09-25T12:43:53.202611Z",
+      "anchor_item_id": "session-result-2026-round-15-practice_3",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "official_heat": 0,
+      "media_heat": 100,
+      "fan_heat": 0,
+      "heat": 100,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 1,
+        "fan": 0
+      },
+      "pinned_rank": 1,
+      "hidden": false,
+      "hard_rule": {
+        "type": "session_result",
+        "race_id": "2026-round-15",
+        "session": "practice_3",
+        "position": 7,
+        "status": "classified",
+        "provisional": false,
+        "source_item_id": "session-result-2026-round-15-practice_3",
+        "source": "Formula 1 Live Timing"
+      },
+      "items": [
+        {
+          "item_id": "session-result-2026-round-15-practice_3",
+          "dataset": "session_result",
+          "source_type": "media",
+          "source": "Formula 1 Live Timing",
+          "title": "Oscar finishes P7 in Azerbaijan Grand Prix Practice 3",
+          "title_zh": "Oscar 在阿塞拜疆站三练获得第7名",
+          "summary": "Structured session result for Oscar Piastri.",
+          "summary_zh": "Oscar Piastri 的结构化场次成绩。",
+          "url": "https://livetiming.formula1.com/static/2026/2026-09-26_Azerbaijan_Grand_Prix/2026-09-25_Practice_3/TimingData.jsonStream",
+          "published_at": "2026-09-25T12:43:53.202611Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 100,
+          "metrics": {}
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "event_id": "evt-2026-09-23-b8fcee29b974",
       "rule_id": null,
       "hot_word_zh": "Oscar直言不讳！😄 2024 🏆🎉 2025 💥❌ #F1 #AzerbaijanGP",
       "hot_word_en": "Oscar telling it straight! 😄 2024 🏆🎉 2025 💥❌ #F1 #AzerbaijanGP",
@@ -60,10 +118,10 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 1
+      "rank": 2
     },
     {
-      "event_id": "evt-2026-09-23-c1d86dffbbb0-986dcbae",
+      "event_id": "evt-2026-09-23-c1d86dffbbb0",
       "rule_id": null,
       "hot_word_zh": "George在解说Lando和Oscar的媒体内容拍摄环节 😭😭",
       "hot_word_en": "george giving commentary on lando and oscar's media content filming session 😭😭",
@@ -139,10 +197,10 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 2
+      "rank": 3
     },
     {
-      "event_id": "evt-2026-09-24-23eb408405cf",
+      "event_id": "evt-2026-09-24-23eb408405cf-23eb4084-2",
       "rule_id": null,
       "hot_word_zh": "两辆McLaren都回到车库了。机械师一直在检查Norris的赛车是否有损伤，现在Pias…",
       "hot_word_en": "Both McLarens are back in the garage Mechanics have been checking Norris' car for damage and now Piastri is c…",
@@ -194,7 +252,62 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 3
+      "rank": 4
+    },
+    {
+      "event_id": "evt-2026-09-23-62f576cfac15",
+      "rule_id": null,
+      "hot_word_zh": "Oscar会接起电话的5个人！“当然是我妈妈和我爸爸。还有我女朋友，这个很重要。",
+      "hot_word_en": "5 people oscar would pick up the phone for! \"obviously my mum and my dad.",
+      "first_seen_at": "2026-09-23T19:36:21Z",
+      "last_seen_at": "2026-09-23T19:36:21Z",
+      "anchor_item_id": "piasnews-social-b25e284f9793b3af",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2102844510753439745/vid/avc1/320x568/CWAqQ4Vaxg5cNTy6.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2102844510753439745/img/VxrY6-3t7cI1DYHl.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-b25e284f9793b3af",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: 5 people oscar would pick up the phone for! \"obviously my mum and my dad. my girlfriend as well…",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar会接起电话的5个人！“当然是我妈妈和我爸爸。还有我女朋友，这个很重要。Zak，我的老板；接老板的电话总是个好主意。我也会接Lando的电话，为什么不呢。”",
+          "summary": "5 people oscar would pick up the phone for! \"obviously my mum and my dad. my girlfriend as well, that one's important. zak, my boss; always a good idea to pick up your boss' calls. i'll pick up for lando as well, why not.\" https://t.co/kOqo3faOHy",
+          "summary_zh": "Oscar会接起电话的5个人！“当然是我妈妈和我爸爸。还有我女朋友，这个很重要。Zak，我的老板；接老板的电话总是个好主意。我也会接Lando的电话，为什么不呢。”",
+          "url": "https://x.com/laurogeitabat/status/2102844538863661195",
+          "published_at": "2026-09-23T19:36:21Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2102844510753439745/vid/avc1/320x568/CWAqQ4Vaxg5cNTy6.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2102844510753439745/img/VxrY6-3t7cI1DYHl.jpg",
+          "heat_contribution": 8.3107,
+          "metrics": {
+            "likes": 6404,
+            "retweets": 488,
+            "replies": 13,
+            "quotes": 0,
+            "views": 161695,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 43,
+      "heat": 43,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 5
     },
     {
       "event_id": "evt-2026-09-16-6b88658daa0f",
@@ -343,7 +456,7 @@
           "image_url": "https://files.speedweek.com/images/c_crop,x_0,y_0,w_5185,h_2593/c_fill,f_auto,q_auto,w_1200,h_630/2026/9/23/nvslvws0anmruthcw2bq/mclaren-pilot-oscar-piastri-mit-seinem-teamkollegen-lando-norris",
           "video_url": null,
           "video_poster_url": "https://files.speedweek.com/images/c_crop,x_0,y_0,w_5185,h_2593/c_fill,f_auto,q_auto,w_1200,h_630/2026/9/23/nvslvws0anmruthcw2bq/mclaren-pilot-oscar-piastri-mit-seinem-teamkollegen-lando-norris",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -433,9 +546,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 43,
+      "media_heat": 42,
       "fan_heat": 0,
-      "heat": 43,
+      "heat": 42,
       "source_labels": [
         "媒"
       ],
@@ -446,62 +559,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 4
-    },
-    {
-      "event_id": "evt-2026-09-23-62f576cfac15",
-      "rule_id": null,
-      "hot_word_zh": "Oscar会接起电话的5个人！“当然是我妈妈和我爸爸。还有我女朋友，这个很重要。",
-      "hot_word_en": "5 people oscar would pick up the phone for! \"obviously my mum and my dad.",
-      "first_seen_at": "2026-09-23T19:36:21Z",
-      "last_seen_at": "2026-09-23T19:36:21Z",
-      "anchor_item_id": "piasnews-social-b25e284f9793b3af",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2102844510753439745/vid/avc1/320x568/CWAqQ4Vaxg5cNTy6.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2102844510753439745/img/VxrY6-3t7cI1DYHl.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-b25e284f9793b3af",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: 5 people oscar would pick up the phone for! \"obviously my mum and my dad. my girlfriend as well…",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar会接起电话的5个人！“当然是我妈妈和我爸爸。还有我女朋友，这个很重要。Zak，我的老板；接老板的电话总是个好主意。我也会接Lando的电话，为什么不呢。”",
-          "summary": "5 people oscar would pick up the phone for! \"obviously my mum and my dad. my girlfriend as well, that one's important. zak, my boss; always a good idea to pick up your boss' calls. i'll pick up for lando as well, why not.\" https://t.co/kOqo3faOHy",
-          "summary_zh": "Oscar会接起电话的5个人！“当然是我妈妈和我爸爸。还有我女朋友，这个很重要。Zak，我的老板；接老板的电话总是个好主意。我也会接Lando的电话，为什么不呢。”",
-          "url": "https://x.com/laurogeitabat/status/2102844538863661195",
-          "published_at": "2026-09-23T19:36:21Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2102844510753439745/vid/avc1/320x568/CWAqQ4Vaxg5cNTy6.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2102844510753439745/img/VxrY6-3t7cI1DYHl.jpg",
-          "heat_contribution": 8.3107,
-          "metrics": {
-            "likes": 6404,
-            "retweets": 488,
-            "replies": 13,
-            "quotes": 0,
-            "views": 161695,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 43,
-      "heat": 43,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 5
+      "rank": 6
     },
     {
       "event_id": "evt-2026-09-23-1617d1844c63",
@@ -580,7 +638,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 7
     },
     {
       "event_id": "evt-2026-09-24-8261b5c33dac",
@@ -696,7 +754,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 8
     },
     {
       "event_id": "evt-2026-09-17-192dcb6c3424-c810e225-2",
@@ -795,7 +853,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 9
     },
     {
       "event_id": "evt-mclaren-title-fight",
@@ -856,88 +914,6 @@
       "source_counts": {
         "official": 0,
         "media": 2,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 9
-    },
-    {
-      "event_id": "evt-2026-09-24-23eb408405cf-23eb4084",
-      "rule_id": null,
-      "hot_word_zh": "F1新闻：Oscar Piastri的噩梦成为焦点，Lando Norris表示：“我完全…",
-      "hot_word_en": "F1 News: Oscar Piastri nightmare in focus as Lando Norris says: 'I disagree with all of that'",
-      "first_seen_at": "2026-09-21T08:57:00Z",
-      "last_seen_at": "2026-09-24T00:48:18Z",
-      "anchor_item_id": "piasnews-6eee3975edd548b9",
-      "image_url": "https://media.readmotorsport.com/readmotorsport/sites/10/2026/09/df-5426f1e8107f.jpg",
-      "video_url": null,
-      "video_poster_url": "https://media.readmotorsport.com/readmotorsport/sites/10/2026/09/df-5426f1e8107f.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-190e24a74175aa96",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Read Motorsport",
-          "title": "Piastri Needs Winter Reset After Slump, Says Palmer",
-          "title_zh": "Palmer称Piastri在低迷后需要冬歇期重整旗鼓",
-          "summary": "Quote or interview-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的引语或采访相关条目。",
-          "url": "https://readmotorsport.com/2026/09/24/piastri-needs-winter-reset-says-palmer/",
-          "published_at": "2026-09-24T00:48:18Z",
-          "image_url": "https://media.readmotorsport.com/readmotorsport/sites/10/2026/09/df-5426f1e8107f.jpg",
-          "video_url": null,
-          "video_poster_url": "https://media.readmotorsport.com/readmotorsport/sites/10/2026/09/df-5426f1e8107f.jpg",
-          "heat_contribution": 0.45,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-9842f5896d44be57",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Auto Action",
-          "title": "Piastri says McLaren ‘throwing everything’ at 2026 struggles",
-          "title_zh": "Piastri 表示 McLaren 在 2026 年的困境中“倾尽全力”",
-          "summary": "Quote or interview-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的引语或采访相关条目。",
-          "url": "https://autoaction.com.au/2026/09/24/oscar-piastri-mclaren-2026-f1-car-struggles",
-          "published_at": "2026-09-23T20:57:42Z",
-          "image_url": "https://autoaction.com.au/wp-content/uploads/2026/09/F1-Oscar-Piastri-Thursday-2026-Azerbaijan-GP-GettyImages-2296715261.webp",
-          "video_url": null,
-          "video_poster_url": "https://autoaction.com.au/wp-content/uploads/2026/09/F1-Oscar-Piastri-Thursday-2026-Azerbaijan-GP-GettyImages-2296715261.webp",
-          "heat_contribution": 0.45,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-6eee3975edd548b9",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "gpfans.com",
-          "title": "F1 News: Oscar Piastri nightmare in focus as Lando Norris says: 'I disagree with all of that'",
-          "title_zh": "F1新闻：Oscar Piastri的噩梦成为焦点，Lando Norris表示：“我完全不同意那一切”",
-          "summary": "Quote or interview-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的引语或采访相关条目。",
-          "url": "https://www.gpfans.com/en/f1-news/1090491/oscar-piastri-2026-f1-struggles-lando-norris-comments-drivers-adapt/",
-          "published_at": "2026-09-21T08:57:00Z",
-          "image_url": "https://sportsbase.io/images/gpfans/copy_1200x800/c264f033eaec4afb5bcc6f28e92fd92c719a98b2.jpg",
-          "video_url": null,
-          "video_poster_url": "https://sportsbase.io/images/gpfans/copy_1200x800/c264f033eaec4afb5bcc6f28e92fd92c719a98b2.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 16,
-      "fan_heat": 0,
-      "heat": 16,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 3,
         "fan": 0
       },
       "pinned_rank": null,
@@ -1756,7 +1732,7 @@
       }
     },
     {
-      "event_id": "evt-2026-09-23-b8fcee29b974",
+      "event_id": "evt-2026-09-23-b8fcee29b974-b8fcee29",
       "rule_id": null,
       "hot_word_zh": "稳定与氛围 🤝 #McLarenF1 | #AzerbaijanGP🇦🇿",
       "hot_word_en": "Stability and vibes 🤝 #McLarenF1 | #AzerbaijanGP🇦🇿",
