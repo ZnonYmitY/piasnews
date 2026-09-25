@@ -88,6 +88,31 @@ class HotEventPublishWorkflowTests(unittest.TestCase):
         self.assertIn("PIASNEWS_OPENF1_PASSWORD: ${{ secrets.PIASNEWS_OPENF1_PASSWORD }}", workflow)
         self.assertIn("data/session-results.json", workflow)
         self.assertIn("data/session-results.json", review_workflow)
+        self.assertIn(
+            "inputs.apply_only != true && !startsWith(needs.gate.outputs.reason, 'session_completed:')",
+            workflow,
+        )
+
+    def test_session_result_refresh_is_not_blocked_by_unrelated_feed_collection(self):
+        workflow = (ROOT / ".github/workflows" / "update-piasnews.yml").read_text(encoding="utf-8")
+
+        result_step = workflow.index("- name: Fetch latest Oscar session result")
+        hot_step = workflow.index("- name: Build merged hot-event ranking")
+        for step_name in (
+            "Fetch latest Piasnews data",
+            "Fetch Formula 1 calendar",
+            "Fetch optional X and Instagram social data",
+            "Install offline Chinese translation fallback",
+            "Audit translation badcases",
+            "Build history-review candidates",
+            "Notify Feishu translation badcases",
+        ):
+            start = workflow.index(f"- name: {step_name}")
+            end = workflow.find("\n      - name:", start + 1)
+            if end == -1:
+                end = len(workflow)
+            self.assertIn("!startsWith(needs.gate.outputs.reason, 'session_completed:')", workflow[start:end])
+        self.assertLess(result_step, hot_step)
 
     def test_data_refresh_rejects_retained_media_regressions(self):
         workflow = (ROOT / ".github/workflows" / "update-piasnews.yml").read_text(encoding="utf-8")

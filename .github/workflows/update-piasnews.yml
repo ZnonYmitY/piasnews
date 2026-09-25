@@ -71,11 +71,11 @@ jobs:
           cp data/items.json data/daily.json data/social.json data/calendar.json data/session-results.json data/immersive_translations.zh.json data/history-candidates.json "$RUNNER_TEMP/piasnews-before-data/" 2>/dev/null || true
 
       - name: Fetch latest Piasnews data
-        if: ${{ inputs.apply_only != true }}
+        if: ${{ inputs.apply_only != true && !startsWith(needs.gate.outputs.reason, 'session_completed:') }}
         run: python scripts/fetch_piasnews.py --days 3 --retention-days 7 --limit 200 --output-dir data
 
       - name: Fetch Formula 1 calendar
-        if: ${{ inputs.apply_only != true }}
+        if: ${{ inputs.apply_only != true && !startsWith(needs.gate.outputs.reason, 'session_completed:') }}
         run: python scripts/fetch_f1_calendar.py --output data/calendar.json
 
       - name: Fetch latest Oscar session result
@@ -86,11 +86,11 @@ jobs:
         run: python scripts/fetch_f1_session_results.py --calendar data/calendar.json --output data/session-results.json
 
       - name: Build Formula 1 calendar files
-        if: ${{ inputs.apply_only != true }}
+        if: ${{ inputs.apply_only != true && !startsWith(needs.gate.outputs.reason, 'session_completed:') }}
         run: python scripts/build_f1_calendar_ics.py --calendar data/calendar.json --race-output data/next-race.ics --weekend-output data/next-weekend.ics --season-output data/full-season.ics
 
       - name: Fetch optional X and Instagram social data
-        if: ${{ inputs.apply_only != true }}
+        if: ${{ inputs.apply_only != true && !startsWith(needs.gate.outputs.reason, 'session_completed:') }}
         env:
           PIASNEWS_X_BEARER_TOKEN: ${{ secrets.PIASNEWS_X_BEARER_TOKEN }}
           PIASNEWS_SOCIAL_INPUT_JSON: ${{ vars.PIASNEWS_SOCIAL_INPUT_JSON }}
@@ -99,16 +99,19 @@ jobs:
         run: python scripts/fetch_social_sources.py --days 3 --retention-days 7 --limit 300 --output data/social.json
 
       - name: Validate retained social media
-        if: ${{ inputs.apply_only != true }}
+        if: ${{ inputs.apply_only != true && !startsWith(needs.gate.outputs.reason, 'session_completed:') }}
         run: python scripts/validate_social_media.py --before "$RUNNER_TEMP/piasnews-before-data/social.json" --after data/social.json
 
       - name: Install offline Chinese translation fallback
+        if: ${{ !startsWith(needs.gate.outputs.reason, 'session_completed:') }}
         run: python -m pip install argostranslate
 
       - name: Apply offline Chinese translation fallback
+        if: ${{ !startsWith(needs.gate.outputs.reason, 'session_completed:') }}
         run: python scripts/translate_zh_argos.py --items data/items.json --social data/social.json --strict-argos
 
       - name: Generate LLM Chinese translation mappings
+        if: ${{ !startsWith(needs.gate.outputs.reason, 'session_completed:') }}
         env:
           PIASNEWS_LLM_TRANSLATION_API_KEY: ${{ secrets.PIASNEWS_LLM_TRANSLATION_API_KEY }}
           PIASNEWS_LLM_TRANSLATION_BASE_URL: ${{ vars.PIASNEWS_LLM_TRANSLATION_BASE_URL }}
@@ -116,15 +119,19 @@ jobs:
         run: python scripts/translate_zh_llm_mapping.py --items data/items.json --social data/social.json --mapping data/immersive_translations.zh.json --limit 80
 
       - name: Apply Chinese translation mappings
+        if: ${{ !startsWith(needs.gate.outputs.reason, 'session_completed:') }}
         run: python scripts/apply_immersive_translations.py --mapping data/immersive_translations.zh.json --items data/items.json --social data/social.json --engine piasnews_llm_translation --engine immersive_translate_chrome
 
       - name: Prune inactive translation cache
+        if: ${{ !startsWith(needs.gate.outputs.reason, 'session_completed:') }}
         run: python scripts/prune_translation_cache.py --days 8
 
       - name: Build manual translation fallback status
+        if: ${{ !startsWith(needs.gate.outputs.reason, 'session_completed:') }}
         run: python scripts/build_translation_fallback_status.py
 
       - name: Audit translation badcases
+        if: ${{ !startsWith(needs.gate.outputs.reason, 'session_completed:') }}
         run: |
           python scripts/audit_translations.py \
             --items data/items.json \
@@ -135,6 +142,7 @@ jobs:
             --latest-xlsx data/translation_candidates_latest.xlsx
 
       - name: Upload translation badcase Excel
+        if: ${{ !startsWith(needs.gate.outputs.reason, 'session_completed:') }}
         uses: actions/upload-artifact@v4
         with:
           name: piasnews-translation-badcase-candidates
@@ -143,6 +151,7 @@ jobs:
             data/translation_candidates_latest.xlsx
 
       - name: Build history-review candidates
+        if: ${{ !startsWith(needs.gate.outputs.reason, 'session_completed:') }}
         run: python scripts/build_history_candidates.py
 
       - name: Build merged hot-event ranking
@@ -193,6 +202,7 @@ jobs:
         uses: actions/deploy-pages@v4
 
       - name: Notify Feishu translation badcases
+        if: ${{ !startsWith(needs.gate.outputs.reason, 'session_completed:') }}
         env:
           FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
           FEISHU_BASE_URL: ${{ vars.FEISHU_BASE_URL }}
