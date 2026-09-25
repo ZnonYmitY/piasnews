@@ -58,6 +58,7 @@ LIMIT EXPLANATIONS: Describing this service's inability to provide private commu
 Canonical routes: ${[...COMPANION_ROUTES].join(", ")}.
 Use fan_light for casual chat, f1_grounded for race discussion, public_fact for sourced real facts, public_adjacent for other public topics, rumor_check for a matching actual rumor proposition. Use the appropriate safety route or insufficient_current_fact/unverified_rumor_source where warranted.
 Return JSON only: answer_en, answer_zh, route, answer_kind (fictional|evidence|social|boundary|insufficient), knowledge_fact_ids (max 4), rumor_item_ids (max 1), public_source_ids (max 4), judgment_rule_ids (max 1), style_card_id, evidence_ids (max 8), notes, self_check. Include IDs only when actually used. Style observations are not proof that Oscar said or thought your generated sentence. Candidate judgment rules may be used only when CANDIDATE_MODE=true; no candidate rules in grounded mode.
+REFERENCE FIELDS: SELECTABLE_IDS lists the only allowed IDs separately for each output field. knowledge_fact_ids selects factual records (KF), rumor_item_ids selects assessments (RM), public_source_ids selects current sources (LIVE), and evidence_ids selects style provenance (EV) only. Historical source metadata (KS) is attached through its factual record: cite the matching KF, never put KS into public_source_ids or evidence_ids. A field may be empty; do not move an ID to another field merely because it is a source. Style references cannot substantiate a biographical claim or quotation.
 self_check is a compact same-generation assessment, NOT a second review or independent verification: {actual_facts:boolean, facts_supported:boolean, temporal_scope:"none"|"historical"|"current", mode_consistent:boolean, answers_question:boolean}. Assess both language versions of the NEW answer, not assertions in earlier turns. actual_facts means externally verifiable claims, including real biography, ownership, genuine quotes and actual activities even inside a fictional/social-labelled reply. Acknowledging the user's stated feeling, agreeing to reply briefly, and explaining that this chat's previous hypothetical answer was a performance are conversational acts, not external facts needing a source. Do not use that distinction to claim any real activity, habit or private state. Ordinary imagined reactions or suggestions are not actual facts. facts_supported requires that every actual claim is supported by its selected IDs, including attribution, answer_limits and related updates. temporal_scope=current if any actual claim describes recent/current activities, news, ownership state or a future schedule; historical interviews or interests alone cannot establish these. Repair your answer before returning when its self_check would be false. Return only the assessment, no reasoning or private chain of thought.
 English input: answer_en only, answer_zh empty. Chinese input: a natural faithful Chinese answer plus its English equivalent. TURN_POLICY sets an appropriate soft length target inside the general ceiling of 90 English words plus translation. Don't pad a complete answer to reach a word count. A public update overview needs at most 2–3 supported items. Do not add unrelated facts or an unselected schedule.
 STYLE_PACKAGE_JSON:
@@ -793,7 +794,8 @@ function productResponseIssue(raw, { mode, scope, knowledge, candidateMode, requ
   for (const [field, [index, limit]] of Object.entries(indexes)) {
     if (raw[field] == null) continue;
     if (!Array.isArray(raw[field]) || raw[field].length > limit || raw[field].some((id) => typeof id !== "string" || !index.has(id))) {
-      return `The field ${field} contains an unselected/unknown ID or exceeds its limit. Use only IDs actually supplied for this request; do not substitute arbitrary source URLs or remembered package IDs.`;
+      const rulesDisabled = field === "judgment_rule_ids" && (!candidateMode || mode === "grounded");
+      return `The field ${field} contains an unselected/unknown ID or exceeds its limit. Allowed ${field}: ${JSON.stringify(rulesDisabled ? [] : [...index.keys()])}; select at most ${rulesDisabled ? 0 : limit}, or leave it empty. Keep each reference in its own field per SELECTABLE_IDS. Historical KS metadata is attached via knowledge_fact_ids, not public_source_ids or evidence_ids. Do not substitute arbitrary URLs or remembered IDs; regenerate the answer with supported references.`;
     }
   }
   if ((!candidateMode || mode === "grounded") && raw.judgment_rule_ids?.length && !isFallback && raw.route !== "rumor_check") return "Candidate judgment rules are disabled for this request. Leave judgment_rule_ids empty.";
@@ -944,6 +946,14 @@ async function callDeepseekCompanion(body, env, trace = {}) {
     disclosure_shown: true,
     PRODUCT_SCOPE: { kind: scope.kind, route: scope.route, confidence: scope.confidence, reason: scope.reason, mode_intent: modeIntent.kind, evidence_need: scope.evidence_need, original_withheld: Boolean(boundary), history_withheld: Boolean(boundary || historyFlagged) },
     REQUEST_EVIDENCE_POLICY: requestPolicy,
+    SELECTABLE_IDS: {
+      knowledge_fact_ids: knowledge.facts.map(item => item.id),
+      rumor_item_ids: knowledge.rumors.map(item => item.id),
+      public_source_ids: knowledge.public_sources.map(item => item.id),
+      evidence_ids: [...RUNTIME_INDEX.evidence.keys()],
+      judgment_rule_ids: useJudgmentRules ? [...RUNTIME_INDEX.rules.keys()] : [],
+      style_card_id: [...RUNTIME_INDEX.styles.keys()],
+    },
     RETRIEVED_KNOWLEDGE_CONTEXT: knowledge,
     APPLICABLE_PUBLIC_SOURCE_IDS: knowledge.retrieved.public_source_ids,
     CURRENT_PUBLIC_DATA: { fetched_at: publicContext.fetched_at, source_status: publicContext.source_status, lookup_performed: publicContext.lookup_performed, available_source_count: publicContext.public_sources.length, selected_source_count: knowledge.public_sources.length, has_current_public_evidence: knowledge.public_sources.length > 0, public_source_ids: knowledge.retrieved.public_source_ids, content_location: "RETRIEVED_KNOWLEDGE_CONTEXT.public_sources[].facts" },
@@ -1019,6 +1029,7 @@ async function callDeepseekCompanion(body, env, trace = {}) {
         // Controlled enums/counts only, never rejected text or user history.
         trace.validation_snapshot = {
           validation_route: COMPANION_ROUTES.has(generated.raw?.route) ? generated.raw.route : null,
+          validation_id_field: ["knowledge_fact_ids", "rumor_item_ids", "public_source_ids", "evidence_ids", "judgment_rule_ids"].find(field => issue.startsWith(`The field ${field} `)) || null,
           validation_answer_kind: ["fictional", "evidence", "social", "boundary", "insufficient"].includes(generated.raw?.answer_kind) ? generated.raw.answer_kind : null,
           validation_actual_facts: typeof generated.raw?.self_check?.actual_facts === "boolean" ? generated.raw.self_check.actual_facts : null,
           validation_temporal_scope: ["none", "historical", "current"].includes(generated.raw?.self_check?.temporal_scope) ? generated.raw.self_check.temporal_scope : null,

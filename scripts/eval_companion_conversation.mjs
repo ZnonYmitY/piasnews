@@ -45,6 +45,7 @@ export function sanitizeConversationDiagnostic(value) {
   if (Number.isFinite(value.elapsed_ms) && value.elapsed_ms >= 0 && value.elapsed_ms <= 3600000) safe.elapsed_ms = value.elapsed_ms;
   if (["f1_grounded", "fan_light", "public_fact", "rumor_check", "public_adjacent", "unrelated_general", "private_or_inner_state_unverified", "team_secret_or_live_engineering", "medical_legal_financial", "gambling", "illegal_hate_harm", "identity_or_impersonation", "insufficient_current_fact", "unverified_rumor_source"].includes(value.validation_route)) safe.validation_route = value.validation_route;
   if (["fictional", "evidence", "social", "boundary", "insufficient"].includes(value.validation_answer_kind)) safe.validation_answer_kind = value.validation_answer_kind;
+  if (["knowledge_fact_ids", "rumor_item_ids", "public_source_ids", "evidence_ids", "judgment_rule_ids"].includes(value.validation_id_field)) safe.validation_id_field = value.validation_id_field;
   if (typeof value.validation_actual_facts === "boolean") safe.validation_actual_facts = value.validation_actual_facts;
   if (["none", "historical", "current"].includes(value.validation_temporal_scope)) safe.validation_temporal_scope = value.validation_temporal_scope;
   if (Number.isInteger(value.selected_factual_id_count) && value.selected_factual_id_count >= 0 && value.selected_factual_id_count <= 36) safe.selected_factual_id_count = value.selected_factual_id_count;

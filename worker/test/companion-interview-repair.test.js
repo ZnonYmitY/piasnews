@@ -116,6 +116,7 @@ test("unsupported private quotations remain rejected after one repair and diagno
   assert.equal(result.data.diagnostic.upstream_status, 200);
   assert.equal(result.data.diagnostic.repair_count, 1);
   assert.equal(result.data.diagnostic.validation_route, "private_or_inner_state_unverified");
+  assert.equal(result.data.diagnostic.validation_id_field, null);
   assert.equal(result.data.diagnostic.validation_answer_kind, "boundary");
   assert.equal(result.data.diagnostic.validation_actual_facts, true);
   assert.equal(result.data.diagnostic.validation_temporal_scope, "current");
@@ -184,7 +185,7 @@ for (const fixture of [
     assert.equal(result.data.diagnostic.reason, fixture.reason);
     assert.equal(result.data.diagnostic.upstream_status, fixture.upstream);
     assert.equal(result.data.diagnostic.repair_count, 1);
-    for (const key of ["validation_route", "validation_answer_kind", "validation_actual_facts", "validation_temporal_scope", "selected_factual_id_count"]) {
+    for (const key of ["validation_route", "validation_id_field", "validation_answer_kind", "validation_actual_facts", "validation_temporal_scope", "selected_factual_id_count"]) {
       assert.equal(Object.hasOwn(result.data.diagnostic, key), false, key);
     }
     const emitted = JSON.stringify([result.data, result.logs]);
@@ -193,6 +194,85 @@ for (const fixture of [
     }
   });
 }
+
+function historicalStatement(patch = {}) {
+  return answer({
+    route: "public_fact", answer_kind: "evidence", knowledge_fact_ids: ["KF-038"],
+    answer_en: "In his public interview after the 2024 Hungarian Grand Prix, Piastri described the win as deeply meaningful.",
+    answer_zh: "在 2024 年匈牙利大奖赛后的公开采访中，Piastri 表示这次首胜对他意义非凡。",
+    self_check: { actual_facts: true, facts_supported: true, temporal_scope: "historical", mode_consistent: true, answers_question: true },
+    ...patch,
+  });
+}
+
+for (const field of ["public_source_ids", "evidence_ids"]) {
+  test(`historical KS metadata cannot be placed in ${field}, even when its KF record was cited`, async () => {
+    const invalid = historicalStatement({ [field]: ["KS-029"] });
+    const result = await exercise([
+      { output: invalid },
+      { output: invalid, inspect(input) {
+        const repair = input.messages.find(item => item.content.startsWith("PRODUCT RESPONSE VALIDATION REPAIR:"))?.content || "";
+        assert.ok(repair.includes(`Allowed ${field}: ${JSON.stringify(runtime(input).SELECTABLE_IDS[field])}`));
+        assert.ok(repair.includes(`select at most ${field === "evidence_ids" ? 8 : 4}`));
+        assert.match(repair, /Historical KS metadata is attached via knowledge_fact_ids/);
+      } },
+    ], { message: historicalQuestion, history: [] });
+    assert.equal(result.status, 502);
+    assert.equal(result.calls.length, 2);
+    assert.equal(result.data.error_code, "COMPANION_VALIDATION_FAILED");
+    assert.equal(result.data.diagnostic.reason, "invalid_selected_ids");
+    assert.equal(result.data.diagnostic.validation_id_field, field);
+    assert.equal(result.data.diagnostic.repair_count, 1);
+    assert.equal(result.data.answer_en, undefined);
+  });
+}
+
+test("the model receives field-specific allowed IDs and repairs historical KS metadata to the selected KF record", async () => {
+  const result = await exercise([
+    { output: historicalStatement({ public_source_ids: ["KS-029"] }), inspect(input) {
+      const context = runtime(input);
+      const knowledge = context.RETRIEVED_KNOWLEDGE_CONTEXT;
+      const selectable = context.SELECTABLE_IDS;
+      assert.deepEqual(selectable.knowledge_fact_ids, knowledge.facts.map(item => item.id));
+      assert.deepEqual(selectable.rumor_item_ids, knowledge.rumors.map(item => item.id));
+      assert.deepEqual(selectable.public_source_ids, knowledge.public_sources.map(item => item.id));
+      assert.deepEqual(selectable.evidence_ids, COMPANION_RUNTIME_DATA.evidence.map(item => item.id));
+      assert.deepEqual(selectable.judgment_rule_ids, []);
+      assert.deepEqual(selectable.style_card_id, COMPANION_RUNTIME_DATA.styles.map(item => item.id));
+      assert.ok(selectable.knowledge_fact_ids.includes("KF-038"));
+      assert.ok(knowledge.facts.find(item => item.id === "KF-038").source_ids.includes("KS-029"));
+      assert.equal(Object.values(selectable).flat().some(id => id.startsWith("KS-")), false);
+    } },
+    { output: historicalStatement() },
+  ], { message: historicalQuestion, history: [] });
+  assert.equal(result.status, 200);
+  assert.equal(result.calls.length, 2);
+  assert.equal(result.data.answer_kind, "evidence");
+  assert.deepEqual(result.data.knowledge_fact_ids, ["KF-038"]);
+  assert.deepEqual(result.data.public_source_ids, []);
+  assert.equal(result.data.validation_trace.repair_count, 1);
+  assert.equal(result.data.validation_trace.recovery_reason, "invalid_selected_ids");
+});
+
+test("disabled candidate rules remain empty in both selectable IDs and invalid-ID repair guidance", async () => {
+  for (const mode of ["grounded", "free"]) {
+    const result = await exercise([
+      { output: historicalStatement({ judgment_rule_ids: ["JR-UNKNOWN-SYNTHETIC"] }), inspect(input) {
+        assert.deepEqual(runtime(input).SELECTABLE_IDS.judgment_rule_ids, []);
+        assert.equal(runtime(input).CANDIDATE_MODE, false);
+      } },
+      { output: historicalStatement(), inspect(input) {
+        const repair = input.messages.find(item => item.content.startsWith("PRODUCT RESPONSE VALIDATION REPAIR:"))?.content || "";
+        assert.match(repair, /Allowed judgment_rule_ids: \[\]; select at most 0/);
+        for (const rule of COMPANION_RUNTIME_DATA.judgment_rules) assert.equal(repair.includes(`"${rule.id}"`), false);
+      } },
+    ], { message: historicalQuestion, history: [], mode, facts_only: mode === "grounded", candidate_mode: false });
+    assert.equal(result.status, 200);
+    assert.equal(result.calls.length, 2);
+    assert.deepEqual(result.data.judgment_rule_ids, []);
+    assert.equal(result.data.validation_trace.recovery_reason, "invalid_selected_ids");
+  }
+});
 
 test("free hypothetical interview opinions about a slow stop are not blocked as real-person claims", async () => {
   const fictional = answer({
