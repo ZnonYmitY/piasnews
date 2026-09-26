@@ -146,6 +146,23 @@ test("two empty outputs retain the empty-content classification", async () => {
   assert.equal(result.data.error_code, "COMPANION_INVALID_RESPONSE");
   assert.equal(result.data.diagnostic.reason, "empty_content");
   assert.equal(result.data.diagnostic.repair_count, 1);
+  assert.deepEqual(result.data.diagnostic.output_shape, { choices: 1, content: "blank", completion_tokens: null });
+});
+
+test("unusable output diagnostics distinguish missing, null and array content without exposing values", async () => {
+  for (const [payload, shape] of [
+    [{}, { choices: null, content: "missing", completion_tokens: null }],
+    [{ choices: [] }, { choices: 0, content: "missing", completion_tokens: null }],
+    [completion(null), { choices: 1, content: "null", completion_tokens: null }],
+    [{ choices: [{ finish_reason: "stop", message: { content: ["private-shape-marker"] } }], usage: { completion_tokens: 999999999 } }, { choices: 1, content: "array", completion_tokens: 100000 }],
+  ]) {
+    const result = await exercise([{ payload }, { payload }]);
+    assert.equal(result.status, 502);
+    assert.equal(result.calls.length, 2);
+    assert.equal(result.data.diagnostic.reason, "empty_content");
+    assert.deepEqual(result.data.diagnostic.output_shape, shape);
+    assert.equal(JSON.stringify([result.data, result.logs]).includes("private-shape-marker"), false);
+  }
 });
 
 test("an upstream HTTP rejection is not treated as repairable model JSON", async () => {
@@ -258,7 +275,8 @@ test("diagnostics and repair instructions never include raw failed output, conve
   assert.ok(!repairInstructions.includes("private-output-marker"));
   assert.ok(!repairInstructions.includes("private-second-output-marker"));
   const diagnostic = result.data.diagnostic;
-  assert.deepEqual(Object.keys(diagnostic).sort(), ["context", "elapsed_ms", "model_finish_reason", "reason", "repair_count", "stage", "upstream_status"]);
+  assert.deepEqual(Object.keys(diagnostic).sort(), ["context", "elapsed_ms", "model_finish_reason", "output_shape", "reason", "repair_count", "stage", "upstream_status"]);
+  assert.deepEqual(diagnostic.output_shape, { choices: 1, content: "string", completion_tokens: null });
   assert.deepEqual(Object.keys(diagnostic.context).sort(), ["delivery", "event_status", "selected_source_count"]);
   assert.equal(diagnostic.context.event_status, null);
   assert.equal(diagnostic.context.selected_source_count, 0);

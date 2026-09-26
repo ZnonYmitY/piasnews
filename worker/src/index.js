@@ -706,6 +706,19 @@ function parseModelJson(content) {
   return JSON.parse(trimmed);
 }
 
+function modelOutputShape(payload) {
+  const choices = Array.isArray(payload?.choices) ? payload.choices : null;
+  const content = choices?.[0]?.message?.content;
+  return {
+    choices: choices ? Math.min(choices.length, 5) : null,
+    content: content === undefined ? "missing" : content === null ? "null"
+      : typeof content === "string" ? (content.trim() ? "string" : "blank")
+      : Array.isArray(content) ? "array" : typeof content === "object" ? "object" : "other",
+    completion_tokens: Number.isInteger(payload?.usage?.completion_tokens)
+      ? Math.max(0, Math.min(payload.usage.completion_tokens, 100000)) : null,
+  };
+}
+
 // Only controlled codes cross the service boundary. Never log provider bodies,
 // model output, prompts, headers or credentials when diagnosing a failure.
 function companionFailure(error, trace) {
@@ -828,11 +841,25 @@ function responseAnswerKind(raw, mode) {
   return raw.answer_kind || (mode === "free" ? "fictional" : "social");
 }
 
-function normalizeModelResult(raw, { candidateMode, chineseInput, scope, knowledge, mode }) {
-  const route = raw?.route;
+function responseContract(raw, { mode, scope, knowledge, requestPolicy }) {
+  // An incomplete historical answer is not a safety refusal. Canonicalize only
+  // the route, never the text or self-check flags; the full evidence validator
+  // below must still check IDs, factual intent, temporal scope and event data.
+  // Guard and serialization share this decision so citations cannot disappear.
+  const partialHistorical = raw?.route === "insufficient_current_fact"
+    && (!scope.route || scope.route === "insufficient_current_fact")
+    && raw.self_check?.actual_facts === true && raw.self_check?.temporal_scope === "historical"
+    && Array.isArray(raw.knowledge_fact_ids) && raw.knowledge_fact_ids.length > 0
+    && !raw.rumor_item_ids?.length && !raw.public_source_ids?.length
+    && !knowledge.current_fact_required && !requestPolicy?.current_activity_question;
+  const route = partialHistorical ? "public_fact" : raw?.route;
+  return { route, kind: responseAnswerKind({ ...raw, route }, mode), isFallback: FALLBACK_ROUTES.has(route) };
+}
+
+function normalizeModelResult(raw, context) {
+  const { candidateMode, chineseInput, knowledge, mode } = context;
+  const { route, kind, isFallback } = responseContract(raw, context);
   if (!COMPANION_ROUTES.has(route)) throw new Error("Model returned an invalid companion route.");
-  const isFallback = FALLBACK_ROUTES.has(route);
-  const kind = responseAnswerKind(raw, mode);
   const factIndex = new Map(knowledge.facts.map((item) => [item.id, item]));
   const rumorIndex = new Map(knowledge.rumors.map((item) => [item.id, item]));
   const liveIndex = new Map(knowledge.public_sources.map((item) => [item.id, item]));
@@ -888,7 +915,7 @@ function productResponseIssue(raw, { mode, scope, knowledge, candidateMode, requ
   if (scope.route && scope.route !== "insufficient_current_fact" && raw.route !== scope.route) {
     return `The explicit safety/task boundary requires route ${scope.route}. Explain that boundary briefly in fresh natural words. Do not fulfill the restricted action or copy a fixed fallback.`;
   }
-  const isFallback = FALLBACK_ROUTES.has(raw.route);
+  const { isFallback, kind } = responseContract(raw, { mode, scope, knowledge, requestPolicy });
   const indexes = {
     knowledge_fact_ids: [new Map(knowledge.facts.map((item) => [item.id, item])), 4],
     rumor_item_ids: [new Map(knowledge.rumors.map((item) => [item.id, item])), 1],
@@ -925,11 +952,12 @@ function productResponseIssue(raw, { mode, scope, knowledge, candidateMode, requ
     // 'nothing special' mistake. Enforce evidence reachability, not phrase bans.
     if (isFallback || !raw.public_source_ids?.length) return "The selected schedule facts and TEMPORAL_CONTEXT contain today's public sessions. Answer the supported day/session question using those source IDs. Distinguish practice/qualifying from the Grand Prix race. Do not claim no special event, no schedule, or invent a private-calendar explanation. Correct any earlier mistake directly. Do not invent information beyond those fields.";
   }
-  if (isFallback) return check.actual_facts ? "A boundary or information-gap answer must not smuggle in unsupported real-person facts. Regenerate only the relevant evidence/service limit: missing retrieved transcript or inability to provide private communications is not Oscar biography, a claim that he never said something, or a factual denial of the user's premise. Assess only the NEW answer; a limit-only reply has actual_facts=false and temporal_scope=none. Do not merely change flags while retaining factual claims. If an allowed supported factual part is necessary, choose an evidence answer and cite matching selected records instead." : null;
+  const gapWithFactualIds = raw.route === "insufficient_current_fact"
+    && ["knowledge_fact_ids", "rumor_item_ids", "public_source_ids"].some(field => raw[field]?.length);
+  if (isFallback) return check.actual_facts || gapWithFactualIds ? "A boundary or information-gap answer must not smuggle in unsupported real-person facts. Regenerate only the relevant evidence/service limit: missing retrieved transcript or inability to provide private communications is not Oscar biography, a claim that he never said something, or a factual denial of the user's premise. Assess only the NEW answer; a limit-only reply has actual_facts=false and temporal_scope=none, with no factual IDs. Do not merely change flags while retaining factual claims. If an allowed supported factual part is necessary, choose an evidence answer and cite matching selected records instead." : null;
   if (scope.reason === "bare_public_topic" && (raw.route === "rumor_check" || raw.rumor_item_ids?.length)) return "The current topic label is not a factual allegation. Do not manufacture a rumor proposition; discuss the topic or briefly clarify. A retrieved candidate rumor does not authorize a verdict.";
   const cited = (raw.knowledge_fact_ids?.length || 0) + (raw.rumor_item_ids?.length || 0) + (raw.public_source_ids?.length || 0);
   if (knowledge.current_fact_required && !raw.public_source_ids?.length) return "The requested current fact needs a matching selected LIVE source. Historical records do not establish latest news, standings, latest results or future schedule. Generate a specific information gap if no applicable current source was retrieved.";
-  const kind = responseAnswerKind(raw, mode);
   if (requestPolicy.current_activity_question && check.actual_facts && !raw.public_source_ids?.length) return "The question asks about recent/current activity. A historical hobby record cannot support an answer about what the real person has been doing recently. Use matching current public evidence or a precise information gap; free roleplay must remain fictional rather than claiming an actual recent event.";
   if (requestPolicy.literal_fact_question && (kind !== "evidence" || !cited)) return "This is a literal factual question, not permission to replace real biography or a public statement with fiction. Answer using a matching selected record and answer_kind evidence, or generate a specific information gap.";
   if (check.actual_facts && !cited) return "Your assessment identifies actual facts, but no supporting selected record IDs were cited. Support those facts or remove them; a fictional/social label does not waive factual consistency.";
@@ -1090,6 +1118,7 @@ async function callDeepseekCompanion(body, env, trace = {}) {
     trace.upstream_status = null;
     trace.model_finish_reason = null;
     trace.model_refusal = false;
+    trace.output_shape = null;
     const generationStartedAt = Date.now();
     const response = await fetch(`${config.baseUrl}/chat/completions`, {
       method: "POST",
@@ -1104,6 +1133,7 @@ async function callDeepseekCompanion(body, env, trace = {}) {
     if (!response.ok) throw new Error("Companion model upstream request failed.");
     trace.stage = "parse";
     const payload = await response.json();
+    trace.output_shape = modelOutputShape(payload);
     generationMs += Date.now() - generationStartedAt;
     usages.push(payload?.usage);
     const choice = payload?.choices?.[0];
@@ -1151,9 +1181,10 @@ async function callDeepseekCompanion(body, env, trace = {}) {
       const generated = await generate(requestMessages);
       payload = generated.payload;
       trace.stage = "validation";
-      const issue = productResponseIssue(generated.raw, privateLimitRepair
+      const activeGuardContext = privateLimitRepair
         ? { ...guardContext, scope: { ...scope, route: privateLimitRepairRoute }, knowledge: limitKnowledge, candidateMode: false }
-        : guardContext);
+        : guardContext;
+      const issue = productResponseIssue(generated.raw, activeGuardContext);
       if (issue) {
         trace.validation_issue = companionValidationCode(issue);
         if (privateCommunicationsRequest && trace.validation_issue === "boundary_fact_claim" && ["private_or_inner_state_unverified", "team_secret_or_live_engineering"].includes(generated.raw.route)) privateLimitRepairRoute = generated.raw.route;
@@ -1170,7 +1201,7 @@ async function callDeepseekCompanion(body, env, trace = {}) {
         throw new Error("Companion response failed validation.");
       }
       trace.stage = "normalize";
-      result = normalizeModelResult(generated.raw, { candidateMode: useJudgmentRules, chineseInput, scope, knowledge, mode });
+      result = normalizeModelResult(generated.raw, { ...activeGuardContext, chineseInput });
       break;
     } catch (error) {
       const failure = companionFailure(error, trace);
@@ -1403,6 +1434,7 @@ export default {
           repair_count: trace.repair_count,
           elapsed_ms: Date.now() - startedAt,
           context: trace.context_status || null,
+          ...(trace.stage === "parse" && trace.output_shape ? { output_shape: trace.output_shape } : {}),
           ...(trace.stage === "validation" ? trace.validation_snapshot || {} : {}),
         };
         console.error(JSON.stringify({ event: "companion_generation_failed", request_id: requestId, error_code: failure.code, ...diagnostic }));

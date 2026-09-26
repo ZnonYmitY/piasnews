@@ -49,6 +49,13 @@ export function sanitizeConversationDiagnostic(value) {
   if (typeof value.validation_actual_facts === "boolean") safe.validation_actual_facts = value.validation_actual_facts;
   if (["none", "historical", "current"].includes(value.validation_temporal_scope)) safe.validation_temporal_scope = value.validation_temporal_scope;
   if (Number.isInteger(value.selected_factual_id_count) && value.selected_factual_id_count >= 0 && value.selected_factual_id_count <= 36) safe.selected_factual_id_count = value.selected_factual_id_count;
+  if (value.output_shape && typeof value.output_shape === "object") {
+    const shape = value.output_shape, filtered = {};
+    if (shape.choices === null || Number.isInteger(shape.choices) && shape.choices >= 0 && shape.choices <= 5) filtered.choices = shape.choices;
+    if (["missing", "null", "blank", "string", "array", "object", "other"].includes(shape.content)) filtered.content = shape.content;
+    if (shape.completion_tokens === null || Number.isInteger(shape.completion_tokens) && shape.completion_tokens >= 0 && shape.completion_tokens <= 100000) filtered.completion_tokens = shape.completion_tokens;
+    if (Object.keys(filtered).length) safe.output_shape = filtered;
+  }
   return Object.keys(safe).length ? safe : null;
 }
 

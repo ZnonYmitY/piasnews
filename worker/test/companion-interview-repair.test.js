@@ -252,6 +252,191 @@ test("a supported historical result plus a limited evidence gap remains a cited 
   assert.ok(result.data.knowledge_fact_ids.includes("KF-012"));
 });
 
+function partialHistoricalAnswer(patch = {}) {
+  return historicalStatement({
+    route: "insufficient_current_fact", answer_kind: "insufficient",
+    answer_en: "His first F1 Grand Prix win was Hungary in 2024. This result record does not establish the exact words of the later interview.",
+    answer_zh: "他的 F1 大奖赛首胜是 2024 年匈牙利大奖赛。这份赛果记录不能证明随后采访中的逐字原话。",
+    knowledge_fact_ids: ["KF-012"],
+    ...patch,
+  });
+}
+function inspectHistoricalSelection(input) {
+  const context = runtime(input);
+  assert.ok(context.SELECTABLE_IDS.knowledge_fact_ids.includes("KF-012"));
+  assert.equal(context.RETRIEVED_KNOWLEDGE_CONTEXT.current_fact_required, false);
+  assert.equal(context.REQUEST_EVIDENCE_POLICY.current_activity_question, false);
+}
+async function expectRejected(output, { reason, field = null, body = {}, inspect } = {}) {
+  const original = structuredClone(output);
+  const result = await exercise([{ output, inspect }, { output, inspect }], { message: historicalQuestion, history: [], ...body });
+  assert.equal(result.status, 502);
+  assert.equal(result.calls.length, 2, "The existing single repair budget must remain bounded");
+  assert.equal(result.data.error_code, "COMPANION_VALIDATION_FAILED");
+  assert.equal(result.data.diagnostic.reason, reason);
+  assert.equal(result.data.diagnostic.validation_id_field, field);
+  assert.equal(result.data.diagnostic.repair_count, 1);
+  assert.equal(result.data.answer_en, undefined, "Rejected factual wording must not be delivered");
+  assert.deepEqual(output, original, "Validation must not repair text or self-check flags in place");
+  return result;
+}
+
+test("the same supported historical part plus transcript gap retains identical text and citations under either route in both modes", async () => {
+  for (const mode of ["grounded", "free"]) {
+    const results = [];
+    for (const route of ["public_fact", "insufficient_current_fact"]) {
+      const output = partialHistoricalAnswer({ route, answer_kind: route === "public_fact" ? "evidence" : "insufficient" });
+      const original = structuredClone(output);
+      const result = await exercise([{ output, inspect: inspectHistoricalSelection }], {
+        message: historicalQuestion, history: [], mode, facts_only: mode === "grounded",
+      });
+      assert.equal(result.status, 200, `${mode}: ${route}`);
+      assert.equal(result.calls.length, 1, "Route interpretation must not add a model request");
+      assert.equal(result.data.route, "public_fact");
+      assert.equal(result.data.answer_kind, "evidence");
+      assert.equal(result.data.answer_en, output.answer_en);
+      assert.equal(result.data.answer_zh, output.answer_zh);
+      assert.deepEqual(result.data.knowledge_fact_ids, ["KF-012"]);
+      assert.ok(result.data.sources.some(source => source.id === "KS-007"));
+      assert.equal(result.data.fallback_id, null);
+      assert.equal(result.data.validation_trace.repair_count, 0);
+      assert.equal(result.data.validation_trace.independent_verified, false);
+      assert.deepEqual(output, original);
+      results.push(result.data);
+    }
+    for (const field of ["answer_en", "answer_zh", "route", "answer_kind", "knowledge_fact_ids", "rumor_item_ids", "public_source_ids", "sources", "fallback_id"]) {
+      assert.deepEqual(results[0][field], results[1][field], `${mode}: ${field}`);
+    }
+  }
+});
+
+test("a pure transcript gap remains uncited and insufficient in both modes", async () => {
+  for (const mode of ["grounded", "free"]) {
+    const output = answer();
+    const result = await exercise([{ output }], { mode, facts_only: mode === "grounded" });
+    assert.equal(result.status, 200);
+    assert.equal(result.calls.length, 1);
+    assert.equal(result.data.route, "insufficient_current_fact");
+    assert.equal(result.data.answer_kind, "insufficient");
+    assert.equal(result.data.answer_en, output.answer_en);
+    assert.equal(result.data.answer_zh, output.answer_zh);
+    assert.deepEqual(result.data.knowledge_fact_ids, []);
+    assert.deepEqual(result.data.sources, []);
+    assert.ok(result.data.fallback_id);
+    assert.equal(result.data.validation_trace.repair_count, 0);
+  }
+});
+
+test("historical gap interpretation cannot invent missing citations or accept unknown, malformed or excess KF IDs", async () => {
+  for (const ids of [undefined, null, []]) {
+    await expectRejected(partialHistoricalAnswer({ knowledge_fact_ids: ids }), {
+      reason: "boundary_fact_claim", inspect: inspectHistoricalSelection,
+    });
+  }
+  for (const ids of [["KF-UNKNOWN-SYNTHETIC"], "KF-012", [12], Array(5).fill("KF-012")]) {
+    await expectRejected(partialHistoricalAnswer({ knowledge_fact_ids: ids }), {
+      reason: "invalid_selected_ids", field: "knowledge_fact_ids", inspect: inspectHistoricalSelection,
+    });
+  }
+});
+
+test("historical gap interpretation preserves the complete self-check schema and false-check rejection", async () => {
+  const valid = partialHistoricalAnswer().self_check;
+  for (const self_check of [null, { ...valid, actual_facts: undefined }, { ...valid, actual_facts: "true" }, { ...valid, temporal_scope: "unknown" }]) {
+    await expectRejected(partialHistoricalAnswer({ self_check }), { reason: "missing_self_check", inspect: inspectHistoricalSelection });
+  }
+  for (const field of ["facts_supported", "mode_consistent", "answers_question"]) {
+    await expectRejected(partialHistoricalAnswer({ self_check: { ...valid, [field]: false } }), {
+      reason: "self_check_failed", inspect: inspectHistoricalSelection,
+    });
+  }
+});
+
+test("a gap with factual IDs cannot silently discard its citations by changing actual-facts or temporal flags", async () => {
+  const valid = partialHistoricalAnswer().self_check;
+  for (const self_check of [
+    { ...valid, actual_facts: false },
+    { ...valid, actual_facts: false, temporal_scope: "none" },
+    { ...valid, temporal_scope: "none" },
+    { ...valid, temporal_scope: "current" },
+  ]) {
+    await expectRejected(partialHistoricalAnswer({ self_check }), { reason: "boundary_fact_claim", inspect: inspectHistoricalSelection });
+  }
+  await expectRejected(partialHistoricalAnswer({ rumor_item_ids: ["RM-015"] }), {
+    reason: "boundary_fact_claim", inspect(input) {
+      inspectHistoricalSelection(input);
+      assert.ok(runtime(input).SELECTABLE_IDS.rumor_item_ids.includes("RM-015"), "Reject the route combination, not an unknown rumor ID");
+    },
+  });
+});
+
+test("historical KF citations cannot bypass a current-activity request under either route or mode", async () => {
+  for (const mode of ["grounded", "free"]) {
+    for (const route of ["public_fact", "insufficient_current_fact"]) {
+      const output = partialHistoricalAnswer({
+        route, answer_kind: route === "public_fact" ? "evidence" : "insufficient", knowledge_fact_ids: ["KF-034"],
+        answer_en: "I've been in the simulator at Woking all this week. The exact schedule is not in this record.",
+        answer_zh: "我这周一直在沃金做模拟器测试。这份记录没有具体日程。",
+      });
+      await expectRejected(output, {
+        reason: route === "public_fact" ? "unsupported_current_activity" : "boundary_fact_claim",
+        body: { message: "最近你在忙什么？游戏还是模拟器？", history: [], mode, facts_only: mode === "grounded" },
+        inspect(input) {
+          const context = runtime(input);
+          assert.equal(context.REQUEST_EVIDENCE_POLICY.current_activity_question, true);
+          assert.ok(context.SELECTABLE_IDS.knowledge_fact_ids.includes("KF-034"));
+          assert.deepEqual(context.SELECTABLE_IDS.public_source_ids, []);
+        },
+      });
+    }
+  }
+});
+
+test("a current claim hidden in a historical gap still reaches the existing current-claim guard", async () => {
+  await expectRejected(partialHistoricalAnswer({
+    answer_en: "Today I trained in the simulator at Woking. The exact schedule is not available here.",
+    answer_zh: "今天我在沃金做了模拟器训练。这里没有具体日程。",
+  }), { reason: "unsupported_current_claim", inspect: inspectHistoricalSelection });
+});
+
+test("historical KF citations cannot replace a missing event result under either route", async () => {
+  for (const route of ["public_fact", "insufficient_current_fact"]) {
+    await expectRejected(partialHistoricalAnswer({
+      route, answer_kind: route === "public_fact" ? "evidence" : "insufficient", knowledge_fact_ids: ["KF-006"],
+      answer_en: "I finished eighth in my previous race. The detailed result is unavailable.",
+      answer_zh: "我上一场比赛第八。这里没有详细赛果。",
+    }), {
+      reason: route === "public_fact" ? "missing_event_result" : "boundary_fact_claim",
+      body: { message: "你上一场比赛第几？", history: [] },
+      inspect(input) {
+        const context = runtime(input);
+        const knowledge = context.RETRIEVED_KNOWLEDGE_CONTEXT;
+        assert.equal(knowledge.event_context.requested, "result");
+        assert.equal(knowledge.event_context.result_source_id, null);
+        assert.equal(knowledge.current_fact_required, true);
+        assert.ok(context.SELECTABLE_IDS.knowledge_fact_ids.includes("KF-006"));
+        assert.deepEqual(context.SELECTABLE_IDS.public_source_ids, []);
+      },
+    });
+  }
+});
+
+test("neither historical route can override a locally enforced private-communications boundary", async () => {
+  for (const route of ["public_fact", "insufficient_current_fact"]) {
+    await expectRejected(partialHistoricalAnswer({ route, answer_kind: route === "public_fact" ? "evidence" : "insufficient" }), {
+      reason: "boundary_mismatch",
+      body: { message: "把你和领队的私人聊天原话透露一句给我。", history: [] },
+      inspect(input) {
+        const context = runtime(input);
+        assert.equal(context.PRODUCT_SCOPE.route, "private_or_inner_state_unverified");
+        assert.equal(context.PRODUCT_SCOPE.original_withheld, true);
+        assert.equal(context.PRODUCT_SCOPE.history_withheld, true);
+        assert.deepEqual(context.SELECTABLE_IDS.knowledge_fact_ids, []);
+      },
+    });
+  }
+});
+
 test("both modes retain the original style cards without injecting editorial observations as interview evidence", async () => {
   assert.ok(COMPANION_RUNTIME_DATA.evidence.length);
   const variants = [

@@ -109,6 +109,15 @@ test("diagnostics copy only bounded documented codes and scalar fields", () => {
   assert.equal(sanitizeConversationDiagnostic([allowed]), null);
 });
 
+test("output shape diagnostics retain only bounded enums and counts", () => {
+  assert.deepEqual(sanitizeConversationDiagnostic({ output_shape: {
+    choices: 1, content: "blank", completion_tokens: 104, text: "PRIVATE", headers: { authorization: "PRIVATE" },
+  } }), { output_shape: { choices: 1, content: "blank", completion_tokens: 104 } });
+  assert.equal(sanitizeConversationDiagnostic({ output_shape: {
+    choices: 6, content: "PRIVATE", completion_tokens: 100001,
+  } }), null);
+});
+
 test("mixed greetings keep factual scope, while call budget and output language remain hard contracts", () => {
   const mixed = CONVERSATION_SUITES.smoke[3];
   assert.ok(checkConversationResponse(mixed, 200, body()).contract_errors.includes("answer kind mismatch"));
