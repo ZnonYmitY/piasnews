@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-26T13:20:35.566610Z",
+  "generated_at": "2026-09-26T13:35:34.170660Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -8,13 +8,13 @@
   "event_count": 10,
   "events": [
     {
-      "event_id": "evt-session-result-2026-round-15-qualifying",
+      "event_id": "evt-session-result-2026-round-15-race",
       "rule_id": null,
-      "hot_word_zh": "Oscar 在阿塞拜疆站排位赛获得第3名",
-      "hot_word_en": "Oscar qualifies P3 for the Azerbaijan Grand Prix",
-      "first_seen_at": "2026-09-25T13:33:16.764476Z",
-      "last_seen_at": "2026-09-25T13:33:16.764476Z",
-      "anchor_item_id": "session-result-2026-round-15-qualifying",
+      "hot_word_zh": "Oscar 在阿塞拜疆站正赛获得第14名",
+      "hot_word_en": "Oscar finishes P14 in the Azerbaijan Grand Prix",
+      "first_seen_at": "2026-09-26T13:35:33.224862Z",
+      "last_seen_at": "2026-09-26T13:35:33.224862Z",
+      "anchor_item_id": "session-result-2026-round-15-race",
       "image_url": null,
       "video_url": null,
       "video_poster_url": null,
@@ -37,26 +37,26 @@
       "hard_rule": {
         "type": "session_result",
         "race_id": "2026-round-15",
-        "session": "qualifying",
-        "position": 3,
+        "session": "race",
+        "position": 14,
         "status": "classified",
         "provisional": false,
-        "source_item_id": "session-result-2026-round-15-qualifying",
+        "source_item_id": "session-result-2026-round-15-race",
         "source": "OpenF1",
         "latest": true
       },
       "items": [
         {
-          "item_id": "session-result-2026-round-15-qualifying",
+          "item_id": "session-result-2026-round-15-race",
           "dataset": "session_result",
           "source_type": "media",
           "source": "OpenF1",
-          "title": "Oscar qualifies P3 for the Azerbaijan Grand Prix",
-          "title_zh": "Oscar 在阿塞拜疆站排位赛获得第3名",
+          "title": "Oscar finishes P14 in the Azerbaijan Grand Prix",
+          "title_zh": "Oscar 在阿塞拜疆站正赛获得第14名",
           "summary": "Structured session result for Oscar Piastri.",
           "summary_zh": "Oscar Piastri 的结构化场次成绩。",
-          "url": "https://api.openf1.org/v1/session_result?session_key=11373&driver_number=81",
-          "published_at": "2026-09-25T13:33:16.764476Z",
+          "url": "https://api.openf1.org/v1/session_result?session_key=11377&driver_number=81",
+          "published_at": "2026-09-26T13:35:33.224862Z",
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
@@ -67,7 +67,7 @@
       "rank": 1
     },
     {
-      "event_id": "evt-2026-09-23-b8fcee29b974-b8fcee29",
+      "event_id": "evt-2026-09-23-b8fcee29b974",
       "rule_id": null,
       "hot_word_zh": "Oscar直言不讳！😄 2024 🏆🎉 2025 💥❌ #F1 #AzerbaijanGP",
       "hot_word_en": "Oscar telling it straight! 😄 2024 🏆🎉 2025 💥❌ #F1 #AzerbaijanGP",
@@ -375,7 +375,7 @@
       "rank": 3
     },
     {
-      "event_id": "evt-2026-09-23-c1d86dffbbb0",
+      "event_id": "evt-2026-09-23-0571dc34c25d",
       "rule_id": null,
       "hot_word_zh": "George Russell 和 Oscar Piastri 因缺乏测试机会而在 2026…",
       "hot_word_en": "George Russell and Oscar Piastri struggle with 2026 F1 cars due to lack of testing opportunities",
@@ -453,7 +453,7 @@
           "image_url": "https://cdn.racingnews365.com/2026/Piastri/XPB_1439080_HiRes.jpg?v=1790340562&width=1800&height=945&quality=75&crop=5185%2C2723%2C0%2C94",
           "video_url": null,
           "video_poster_url": "https://cdn.racingnews365.com/2026/Piastri/XPB_1439080_HiRes.jpg?v=1790340562&width=1800&height=945&quality=75&crop=5185%2C2723%2C0%2C94",
-          "heat_contribution": 0.75,
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -606,7 +606,7 @@
           "image_url": "https://files.speedweek.com/images/c_crop,x_0,y_0,w_5185,h_2593/c_fill,f_auto,q_auto,w_1200,h_630/2026/9/23/nvslvws0anmruthcw2bq/mclaren-pilot-oscar-piastri-mit-seinem-teamkollegen-lando-norris",
           "video_url": null,
           "video_poster_url": "https://files.speedweek.com/images/c_crop,x_0,y_0,w_5185,h_2593/c_fill,f_auto,q_auto,w_1200,h_630/2026/9/23/nvslvws0anmruthcw2bq/mclaren-pilot-oscar-piastri-mit-seinem-teamkollegen-lando-norris",
-          "heat_contribution": 0.2,
+          "heat_contribution": 0.0,
           "metrics": {}
         },
         {
@@ -713,9 +713,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 45,
+      "media_heat": 43,
       "fan_heat": 0,
-      "heat": 45,
+      "heat": 43,
       "source_labels": [
         "媒"
       ],
@@ -729,7 +729,7 @@
       "rank": 4
     },
     {
-      "event_id": "evt-2026-09-24-23eb408405cf",
+      "event_id": "evt-2026-09-24-23eb408405cf-23eb4084",
       "rule_id": null,
       "hot_word_zh": "两辆McLaren都回到车库了。机械师一直在检查Norris的赛车是否有损伤，现在Pias…",
       "hot_word_en": "Both McLarens are back in the garage Mechanics have been checking Norris' car for damage and now Piastri is c…",
@@ -839,7 +839,7 @@
       "rank": 6
     },
     {
-      "event_id": "evt-2026-09-23-0571dc34c25d",
+      "event_id": "evt-2026-09-23-0571dc34c25d-0571dc34",
       "rule_id": null,
       "hot_word_zh": "Oscar和George今天在聊天 🫶🏻",
       "hot_word_en": "oscar and george chatting today 🫶🏻",
@@ -1651,7 +1651,7 @@
       }
     },
     {
-      "event_id": "evt-2026-09-23-b8fcee29b974",
+      "event_id": "evt-2026-09-23-b8fcee29b974-b8fcee29",
       "rule_id": null,
       "hot_word_zh": "稳定与氛围 🤝 #McLarenF1 | #AzerbaijanGP🇦🇿",
       "hot_word_en": "Stability and vibes 🤝 #McLarenF1 | #AzerbaijanGP🇦🇿",
