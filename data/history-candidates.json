@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T16:25:20.890695Z",
+  "generated_at": "2026-09-28T23:08:35.004321Z",
   "schema_version": 1,
   "description": "History candidates awaiting or recording human review decisions.",
   "candidates": [
@@ -1104,6 +1104,86 @@
           "hit_twice_first_lap_antonelli_wins"
         ],
         "embedding_text": "Piastri hit twice on first lap, Antonelli wins thanks to safety car luck. Team or car-performance item discovered from public news metadata."
+      },
+      "tags": [
+        "Oscar Piastri",
+        "McLaren",
+        "F1",
+        "race_win"
+      ]
+    },
+    {
+      "id": "piastri-2026-09-26-auto-5182e290fa",
+      "date": "2026-09-26",
+      "month_day": "09-26",
+      "year": 2026,
+      "title": "Formula 1: More woe for Oscar Piastri as George Russell wins in Azerbaijan to trim Kimi Antonelli’s F1 lead",
+      "title_zh": null,
+      "summary": "Team or car-performance item discovered from public news metadata.",
+      "summary_zh": null,
+      "type": "race_win",
+      "source": "Brisbane Times",
+      "url": "https://www.brisbanetimes.com.au/sport/motorsport/george-russell-wins-in-azerbaijan-to-trim-antonelli-s-f1-lead-20260927-p610rh.html",
+      "verification": {
+        "status": "needs_review",
+        "source_type": "media",
+        "primary_source": false
+      },
+      "candidate": {
+        "status": "pending",
+        "score": 75,
+        "signals": [
+          "race_win",
+          "coverage_3_plus_sources"
+        ],
+        "source_count": 3,
+        "sources": [
+          "Brisbane Times",
+          "SMH.com.au",
+          "theage.com.au"
+        ],
+        "source_item_ids": [
+          "piasnews-1a25076596c46be8",
+          "piasnews-239ae19730692c2b",
+          "piasnews-75b9b319c9443734"
+        ],
+        "discovered_at": "2026-09-28T23:08:35.004321Z",
+        "origin": "deterministic_recent_news_rules",
+        "reviewed_at": null,
+        "reviewed_by": null,
+        "decision_reason": null
+      },
+      "selection": {
+        "review_status": "pending",
+        "include": null,
+        "historical_value": 70,
+        "peak_attention": null,
+        "lasting_significance": null,
+        "career_impact": null,
+        "fan_recognition": null,
+        "inclusion_reason": "Automatically nominated from signals: race_win, coverage_3_plus_sources.",
+        "inclusion_reason_zh": null
+      },
+      "semantic": {
+        "event_kind": "race_win",
+        "themes": [
+          "race_win"
+        ],
+        "entities": [
+          "Oscar Piastri",
+          "McLaren"
+        ],
+        "competition": "Formula 1",
+        "season": 2026,
+        "round": null,
+        "circuit": null,
+        "session": null,
+        "outcome": "Formula 1: More woe for Oscar Piastri as George Russell wins in Azerbaijan to trim Kimi Antonelli’s F1 lead",
+        "strong_keys": [
+          "race_win",
+          "formula_1_more_woe_as_george"
+        ],
+        "embedding_text": "Formula 1: More woe for Oscar Piastri as George Russell wins in Azerbaijan to trim Kimi Antonelli’s F1 lead. Team or car-performance item discovered from public news metadata."
       },
       "tags": [
         "Oscar Piastri",
