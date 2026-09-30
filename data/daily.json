@@ -1,9 +1,23 @@
 {
-  "generated_at": "2026-09-30T03:18:25.268969Z",
+  "generated_at": "2026-09-30T06:19:24.465429Z",
   "window_days": 7,
-  "total_items": 99,
-  "latest_date": "2026-09-29",
+  "total_items": 100,
+  "latest_date": "2026-09-30",
   "days": [
+    {
+      "date": "2026-09-30",
+      "total_new_items": 1,
+      "official_new_items": 0,
+      "media_new_items": 1,
+      "x_new_items": 0,
+      "rumor_new_items": 0,
+      "sources": {
+        "Lente Desportiva": 1
+      },
+      "categories": {
+        "race": 1
+      }
+    },
     {
       "date": "2026-09-29",
       "total_new_items": 5,
@@ -13,8 +27,8 @@
       "rumor_new_items": 0,
       "sources": {
         "F1 Oversteer": 3,
-        "readmotorsport.com": 1,
-        "sportbible.com": 1
+        "Read Motorsport": 1,
+        "SPORTbible": 1
       },
       "categories": {
         "race": 1,
@@ -207,7 +221,7 @@
       "source_group": "official_direct",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=site%3Aformula1.com%2Fen%2Flatest+%22Piastri%22+when%3A3d",
       "ok": true,
-      "items": 1
+      "items": 0
     },
     {
       "query": "site:oscarpiastri.com \"Piastri\" when:3d",
@@ -221,7 +235,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 25
+      "items": 24
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
@@ -249,7 +263,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 15
+      "items": 14
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -261,13 +275,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 25,
-      "kept": 17,
+      "checked": 24,
+      "kept": 18,
       "results": {
-        "outside_window": 4,
+        "outside_window": 3,
         "publisher_date_missing": 1,
-        "publisher_unavailable": 3,
-        "verified": 17
+        "publisher_unavailable": 2,
+        "verified": 18
       }
     },
     {
@@ -276,7 +290,7 @@
       "discovery_days": 3,
       "retention_days": 7,
       "previous_items": 99,
-      "kept": 99
+      "kept": 100
     }
   ]
 }
