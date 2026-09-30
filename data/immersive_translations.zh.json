@@ -1,19 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-30T06:22:25.215955Z",
+  "generated_at": "2026-09-30T09:26:42.855740Z",
   "translations": {
-    "social:piasnews-social-1db6d232b079d764:summary:67a5886cf87977d22de782d8": {
-      "dataset": "social",
-      "item_id": "piasnews-social-1db6d232b079d764",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "bumblebeeastri mention in the mclaren azerbaijan preview 🥹🐝 \"our overtaking model said oscar couldn't overtake from that distance behind, but oscar hadn't seen the overtaking model, so he did it anyway\" https://t.co/McWUFu03RY",
-      "zh": "bumblebeeastri 在McLaren阿塞拜疆站前瞻中被提到 🥹🐝 “我们的超车模型说 Oscar 在后方那么远的距离无法超车，但 Oscar 没看过超车模型，所以还是超了”",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-09-22T06:48:14.168999Z"
-    },
     "items:piasnews-ea1898d071e01244:title:ac8d60a056f850a7f00390ef": {
       "dataset": "items",
       "item_id": "piasnews-ea1898d071e01244",
@@ -4249,6 +4237,102 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-09-30T06:22:24.366316Z"
+    },
+    "items:piasnews-77b5f27770cf2841:title:6589af15c6e9023e98c2aeca": {
+      "dataset": "items",
+      "item_id": "piasnews-77b5f27770cf2841",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Albers says Piastri lacks Verstappen’s ’bite’",
+      "zh": "阿尔伯斯称Piastri缺乏Verstappen的“咬劲”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-30T09:26:41.985100Z"
+    },
+    "items:piasnews-77b5f27770cf2841:summary:0d864a8260f8519601fd9ae1": {
+      "dataset": "items",
+      "item_id": "piasnews-77b5f27770cf2841",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Quote or interview-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的引述或采访相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-30T09:26:41.985158Z"
+    },
+    "items:piasnews-4841de719afdc3cd:title:4bb593d22287b8c459775fd9": {
+      "dataset": "items",
+      "item_id": "piasnews-4841de719afdc3cd",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Danner rules out Piastri-style Antonelli collapse",
+      "zh": "丹纳排除Piastri式Antonelli崩盘的可能性",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-30T09:26:41.985166Z"
+    },
+    "items:piasnews-4841de719afdc3cd:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-4841de719afdc3cd",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-30T09:26:41.985170Z"
+    },
+    "social:piasnews-social-c118d969b836440d:summary:16c2914682350f3621a78073": {
+      "dataset": "social",
+      "item_id": "piasnews-social-c118d969b836440d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @oskipiastri: OSCARTTURI DUO ———a thread. Oscar Piastri and Artturi Simila - their underrated friendship is too precious to me. http…",
+      "zh": "RT @oskipiastri：OSCARTTURI 双人组———一个串。Oscar Piastri 和 Artturi Simila——他们被低估的友谊对我来说太珍贵了。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-30T09:26:41.985174Z"
+    },
+    "social:piasnews-social-c7dc1034c4c76642:summary:4011917852322269059bc867": {
+      "dataset": "social",
+      "item_id": "piasnews-social-c7dc1034c4c76642",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "with all due respect: what the fuck https://t.co/klcHIKwNZG",
+      "zh": "恕我直言：这他妈什么鬼",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-30T09:26:41.985179Z"
+    },
+    "social:piasnews-social-345cebee4c25817d:summary:fdcaa8411730e6a7d7f5e788": {
+      "dataset": "social",
+      "item_id": "piasnews-social-345cebee4c25817d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "does he know he's alive 😭😭😭 https://t.co/hJkEWAVTY6",
+      "zh": "他知道自己还活着吗 😭😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-30T09:26:41.985185Z"
+    },
+    "social:piasnews-social-9ec984844d28a842:summary:dec571bd9547513aa1e8d8b9": {
+      "dataset": "social",
+      "item_id": "piasnews-social-9ec984844d28a842",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "A NEW SHIRT HAS BEEN UNLOCKED 📸: nazrenerahman https://t.co/fcixjdOQZb",
+      "zh": "一件新衬衫已解锁 📸：nazrenerahman",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-09-30T09:26:41.985192Z"
     }
   },
   "retention_days": 8
