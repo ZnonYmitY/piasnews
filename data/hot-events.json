@@ -1,12 +1,71 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-02T10:06:01.126455Z",
+  "generated_at": "2026-10-02T10:21:00.277133Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
   "event_count": 10,
   "events": [
+    {
+      "event_id": "evt-session-result-2026-round-16-practice_2",
+      "rule_id": null,
+      "hot_word_zh": "Oscar 在Bahrain Grand Prix in Malaysia二练获得第6名",
+      "hot_word_en": "Oscar finishes P6 in Bahrain Grand Prix in Malaysia Practice 2",
+      "first_seen_at": "2026-10-02T10:20:57.666934Z",
+      "last_seen_at": "2026-10-02T10:20:57.666934Z",
+      "anchor_item_id": "session-result-2026-round-16-practice_2",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "official_heat": 0,
+      "media_heat": 100,
+      "fan_heat": 0,
+      "heat": 100,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 1,
+        "fan": 0
+      },
+      "pinned_rank": 1,
+      "hidden": false,
+      "hard_rule": {
+        "type": "session_result",
+        "race_id": "2026-round-16",
+        "session": "practice_2",
+        "position": 6,
+        "status": "classified",
+        "provisional": false,
+        "source_item_id": "session-result-2026-round-16-practice_2",
+        "source": "Formula 1 Live Timing",
+        "latest": true
+      },
+      "items": [
+        {
+          "item_id": "session-result-2026-round-16-practice_2",
+          "dataset": "session_result",
+          "source_type": "media",
+          "source": "Formula 1 Live Timing",
+          "title": "Oscar finishes P6 in Bahrain Grand Prix in Malaysia Practice 2",
+          "title_zh": "Oscar 在Bahrain Grand Prix in Malaysia二练获得第6名",
+          "summary": "Structured session result for Oscar Piastri.",
+          "summary_zh": "Oscar Piastri 的结构化场次成绩。",
+          "url": "https://livetiming.formula1.com/static/2026/2026-10-04_Bahrain_Grand_Prix/2026-10-02_Practice_2/TimingData.jsonStream",
+          "published_at": "2026-10-02T10:20:57.666934Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 100,
+          "metrics": {}
+        }
+      ],
+      "rank": 1
+    },
     {
       "event_id": "evt-session-result-2026-round-16-practice_1",
       "rule_id": null,
@@ -32,7 +91,7 @@
         "media": 1,
         "fan": 0
       },
-      "pinned_rank": 1,
+      "pinned_rank": null,
       "hidden": false,
       "hard_rule": {
         "type": "session_result",
@@ -43,7 +102,7 @@
         "provisional": false,
         "source_item_id": "session-result-2026-round-16-practice_1",
         "source": "Formula 1 Live Timing",
-        "latest": true
+        "latest": false
       },
       "items": [
         {
@@ -64,10 +123,10 @@
           "metrics": {}
         }
       ],
-      "rank": 1
+      "rank": 2
     },
     {
-      "event_id": "evt-2026-09-29-ddd5b01baed9-7175487c",
+      "event_id": "evt-2026-09-29-ddd5b01baed9",
       "rule_id": null,
       "hot_word_zh": "今天男生们卡丁车之旅的最佳成绩以及他们使用的用户名 😭😭 george - g dawg…",
       "hot_word_en": "the best times the boys' trip atendees did in karting today and the usernames they used 😭😭 george - g dawg ca…",
@@ -167,7 +226,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 2
+      "rank": 3
     },
     {
       "event_id": "evt-2026-09-29-a6836ad7a57b",
@@ -246,7 +305,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 3
+      "rank": 4
     },
     {
       "event_id": "evt-2026-09-27-715677fba2df",
@@ -397,7 +456,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 4
+      "rank": 5
     },
     {
       "event_id": "evt-2026-10-01-73cb8a3c87b1",
@@ -452,7 +511,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 5
+      "rank": 6
     },
     {
       "event_id": "evt-2026-09-26-a8f0a951d1c9",
@@ -602,7 +661,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 7
     },
     {
       "event_id": "evt-2026-09-25-ee82cb51d1fd-c81fa287",
@@ -680,139 +739,6 @@
       "source_counts": {
         "official": 0,
         "media": 2,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 7
-    },
-    {
-      "event_id": "evt-2026-09-26-5b99c67cf679",
-      "rule_id": null,
-      "hot_word_zh": "Jacques Villeneuve表示，Oscar Piastri的头部动作揭示了Bak…",
-      "hot_word_en": "Jacques Villeneuve says Oscar Piastri's head movements reveal the true cause of Baku lock-up",
-      "first_seen_at": "2026-09-26T08:00:00Z",
-      "last_seen_at": "2026-09-30T10:07:27Z",
-      "anchor_item_id": "piasnews-c2df5a2eb545a961",
-      "image_url": "https://www.autoracing1.com/wp-content/uploads/2026/mugshots/oscar-piastri.jpg",
-      "video_url": null,
-      "video_poster_url": "https://www.autoracing1.com/wp-content/uploads/2026/mugshots/oscar-piastri.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-69b62bbab58954a4",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "BVM Sports",
-          "title": "Formula 1 News: Albers says Piastri lacks Verstappen’s ‘bite’",
-          "title_zh": "F1新闻：Albers称Piastri缺乏Verstappen的“狠劲”",
-          "summary": "Quote or interview-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与引述或采访相关的条目。",
-          "url": "https://bvmsports.com/2026/09/30/formula-1-news-albers-says-piastri-lacks-verstappens-bite/",
-          "published_at": "2026-09-30T10:07:27Z",
-          "image_url": "https://www.autoracing1.com/wp-content/uploads/2026/mugshots/oscar-piastri.jpg",
-          "video_url": null,
-          "video_poster_url": "https://www.autoracing1.com/wp-content/uploads/2026/mugshots/oscar-piastri.jpg",
-          "heat_contribution": 0.45,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-77b5f27770cf2841",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Nextgen-Auto.com",
-          "title": "Albers says Piastri lacks Verstappen’s ’bite’",
-          "title_zh": "阿尔伯斯称Piastri缺乏Verstappen的“咬劲”",
-          "summary": "Quote or interview-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与引述或采访相关的条目。",
-          "url": "https://motorsport.nextgen-auto.com/en/formula-1/albers-says-piastri-lacks-verstappen-s-bite,211869.html",
-          "published_at": "2026-09-30T08:09:00Z",
-          "image_url": "https://motorsport.nextgen-auto.com/IMG/logo/mclaren3_121_-2.jpg",
-          "video_url": null,
-          "video_poster_url": "https://motorsport.nextgen-auto.com/IMG/logo/mclaren3_121_-2.jpg",
-          "heat_contribution": 0.2,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-3ae47db6f0cd0737",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Operativ Məlumat Mərkəzi",
-          "title": "Oscar Piastri admits mistake in Baku: “It hurts a lot”",
-          "title_zh": "Oscar Piastri 承认在Baku犯错：“这很痛”",
-          "summary": "Quote or interview-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与引述或采访相关的条目。",
-          "url": "https://operativmm.az/en/post/oscar-piastri-admits-mistake-in-baku-it-hurts-a-lot/79858",
-          "published_at": "2026-09-28T05:34:30Z",
-          "image_url": "https://operativmm.az/storage/posts/oskar-piastri-bakidaki-sehvini-etiraf-etdi-cox-agrilidir-99dbcc.webp?v=1790573670",
-          "video_url": null,
-          "video_poster_url": "https://operativmm.az/storage/posts/oskar-piastri-bakidaki-sehvini-etiraf-etdi-cox-agrilidir-99dbcc.webp?v=1790573670",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-83fbb5f35e120a66",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Grande Prêmio",
-          "title": "Piastri says McLaren had pace for Baku podium before Turn 1 mistake",
-          "title_zh": "Piastri表示McLaren在1号弯失误前有速度争夺Baku领奖台",
-          "summary": "Quote or interview-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与引述或采访相关的条目。",
-          "url": "https://grandepremio.com/en/f1/piastri-says-mclaren-had-pace-for-baku-podium-before-turn-1-mistake/",
-          "published_at": "2026-09-26T17:00:00Z",
-          "image_url": "https://grandepremio.com/wp-content/uploads/2026/09/Piastri-GP-Azerbaiyan-ES-1200x630.jpg",
-          "video_url": null,
-          "video_poster_url": "https://grandepremio.com/wp-content/uploads/2026/09/Piastri-GP-Azerbaiyan-ES-1200x630.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-c2df5a2eb545a961",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "F1 Oversteer",
-          "title": "Jacques Villeneuve says Oscar Piastri's head movements reveal the true cause of Baku lock-up",
-          "title_zh": "Jacques Villeneuve表示，Oscar Piastri的头部动作揭示了Baku锁死的真正原因",
-          "summary": "Quote or interview-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与引述或采访相关的条目。",
-          "url": "https://www.f1oversteer.com/news/jacques-villeneuve-says-oscar-piastris-head-movements-reveal-the-true-cause-of-baku-lock-up/",
-          "published_at": "2026-09-26T14:14:25Z",
-          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2297241761-scaled.jpg",
-          "video_url": null,
-          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2297241761-scaled.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-cb9027b529bcf3a5",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "F1 Oversteer",
-          "title": "Oscar Piastri admits what McLaren did to his car in Baku is ‘never a great sign’",
-          "title_zh": "Oscar Piastri 承认 McLaren 在Baku对他的赛车所做的调整“绝不是什么好兆头”",
-          "summary": "Quote or interview-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与引述或采访相关的条目。",
-          "url": "https://www.f1oversteer.com/news/oscar-piastri-admits-what-mclaren-did-to-his-car-in-baku-is-never-a-great-sign/",
-          "published_at": "2026-09-26T08:00:00Z",
-          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2297073950-scaled.jpg",
-          "video_url": null,
-          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2297073950-scaled.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 15,
-      "fan_heat": 0,
-      "heat": 15,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 5,
         "fan": 0
       },
       "pinned_rank": null,
@@ -2639,64 +2565,6 @@
       }
     },
     {
-      "event_id": "evt-2026-09-30-c5e4fa9bae7c",
-      "rule_id": null,
-      "hot_word_zh": "等等 我刚发现我一夜之间涨到1万粉了？？？太疯狂了，我简直不敢相信有这么多人想看我的傻推文…",
-      "hot_word_en": "waittt i just noticed i reached 10k overnight??? that's insane, i can't believe so many people want to read m…",
-      "first_seen_at": "2026-09-30T10:08:15Z",
-      "last_seen_at": "2026-09-30T10:08:15Z",
-      "anchor_item_id": "piasnews-social-9f91f2b270f99154",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-9f91f2b270f99154",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: waittt i just noticed i reached 10k overnight??? that's insane, i can't believe so many people…",
-          "title_zh": "X 发帖 @laurogeitabat：等等 我刚发现我一夜之间涨到1万粉了？？？太疯狂了，我简直不敢相信有这么多人想看我的傻推文 😭 谢谢大家！我很兴奋能继续看到piastrihive成长，也期待和大家分享更多oscadventures 🫶🏻",
-          "summary": "waittt i just noticed i reached 10k overnight??? that's insane, i can't believe so many people want to read my silly tweets 😭 thank you everyone! i'm excited to keep seeing piastrihive grow and looking forward to sharing many more oscadventures with you all 🫶🏻",
-          "summary_zh": "等等 我刚发现我一夜之间涨到1万粉了？？？太疯狂了，我简直不敢相信有这么多人想看我的傻推文 😭 谢谢大家！我很兴奋能继续看到piastrihive成长，也期待和大家分享更多oscadventures 🫶🏻",
-          "url": "https://x.com/laurogeitabat/status/2105238285823918351",
-          "published_at": "2026-09-30T10:08:15Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 5.5582,
-          "metrics": {
-            "likes": 378,
-            "retweets": 2,
-            "replies": 41,
-            "quotes": 1,
-            "views": 6712,
-            "bookmarks": 1
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 30,
-      "heat": 30,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-10-01-756fc8cf727c",
       "rule_id": null,
       "hot_word_zh": "这些标语 😭🫶🏻",
@@ -2964,6 +2832,64 @@
             "quotes": 0,
             "views": 5808,
             "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 26,
+      "heat": 26,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-09-30-c5e4fa9bae7c",
+      "rule_id": null,
+      "hot_word_zh": "等等 我刚发现我一夜之间涨到1万粉了？？？太疯狂了，我简直不敢相信有这么多人想看我的傻推文…",
+      "hot_word_en": "waittt i just noticed i reached 10k overnight??? that's insane, i can't believe so many people want to read m…",
+      "first_seen_at": "2026-09-30T10:08:15Z",
+      "last_seen_at": "2026-09-30T10:08:15Z",
+      "anchor_item_id": "piasnews-social-9f91f2b270f99154",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-9f91f2b270f99154",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: waittt i just noticed i reached 10k overnight??? that's insane, i can't believe so many people…",
+          "title_zh": "X 发帖 @laurogeitabat：等等 我刚发现我一夜之间涨到1万粉了？？？太疯狂了，我简直不敢相信有这么多人想看我的傻推文 😭 谢谢大家！我很兴奋能继续看到piastrihive成长，也期待和大家分享更多oscadventures 🫶🏻",
+          "summary": "waittt i just noticed i reached 10k overnight??? that's insane, i can't believe so many people want to read my silly tweets 😭 thank you everyone! i'm excited to keep seeing piastrihive grow and looking forward to sharing many more oscadventures with you all 🫶🏻",
+          "summary_zh": "等等 我刚发现我一夜之间涨到1万粉了？？？太疯狂了，我简直不敢相信有这么多人想看我的傻推文 😭 谢谢大家！我很兴奋能继续看到piastrihive成长，也期待和大家分享更多oscadventures 🫶🏻",
+          "url": "https://x.com/laurogeitabat/status/2105238285823918351",
+          "published_at": "2026-09-30T10:08:15Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 4.7521,
+          "metrics": {
+            "likes": 378,
+            "retweets": 2,
+            "replies": 41,
+            "quotes": 1,
+            "views": 6712,
+            "bookmarks": 1
           }
         }
       ],
