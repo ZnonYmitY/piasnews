@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-02T06:35:54.146948Z",
+  "generated_at": "2026-10-02T09:20:59.304586Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -67,7 +67,7 @@
       "rank": 1
     },
     {
-      "event_id": "evt-2026-09-29-ddd5b01baed9-7175487c",
+      "event_id": "evt-2026-09-29-ddd5b01baed9",
       "rule_id": null,
       "hot_word_zh": "今天男生们卡丁车之旅的最佳成绩以及他们使用的用户名 😭😭 george - g dawg…",
       "hot_word_en": "the best times the boys' trip atendees did in karting today and the usernames they used 😭😭 george - g dawg ca…",
@@ -459,7 +459,7 @@
       "rule_id": null,
       "hot_word_zh": "Zak Brown 让 Oscar Piastri 处于风险之中，他透露 McLaren…",
       "hot_word_en": "Zak Brown leaves Oscar Piastri at risk as he reveals when McLaren could now sign Max Verstappen",
-      "first_seen_at": "2026-09-25T07:08:12Z",
+      "first_seen_at": "2026-09-25T10:30:00Z",
       "last_seen_at": "2026-10-01T21:00:00Z",
       "anchor_item_id": "piasnews-4ee732f4ddd94302",
       "image_url": "https://cdn.racingnews365.com/2026/Piastri/Piastri-Sepang.jpg?v=1790855401&width=1800&height=945&quality=75&crop=6000%2C3150%2C0%2C425",
@@ -586,23 +586,6 @@
           "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2249961392-scaled.jpg",
           "heat_contribution": 0.0,
           "metrics": {}
-        },
-        {
-          "item_id": "piasnews-64344742289afe88",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Lente Desportiva",
-          "title": "McLaren’s Baku nightmare explained: why Norris and Piastri may not recover this weekend",
-          "title_zh": "McLaren 的 Baku 噩梦解析：为什么 Norris 和 Piastri 本周末可能无法恢复",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
-          "url": "https://lentedesportiva.com/mclarens-baku-nightmare-explained-why-norris-and-piastri-may-not-recover-this-weekend/",
-          "published_at": "2026-09-25T07:08:12Z",
-          "image_url": "https://lentedesportiva.com/wp-content/uploads/2026/09/lente-af2ae79d-3594-470e-84ae-5ca94a044bd2.jpg",
-          "video_url": null,
-          "video_poster_url": "https://lentedesportiva.com/wp-content/uploads/2026/09/lente-af2ae79d-3594-470e-84ae-5ca94a044bd2.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
         }
       ],
       "official_heat": 0,
@@ -614,7 +597,7 @@
       ],
       "source_counts": {
         "official": 0,
-        "media": 6,
+        "media": 5,
         "fan": 0
       },
       "pinned_rank": null,
@@ -748,7 +731,7 @@
           "image_url": "https://motorsport.nextgen-auto.com/IMG/logo/mclaren3_121_-2.jpg",
           "video_url": null,
           "video_poster_url": "https://motorsport.nextgen-auto.com/IMG/logo/mclaren3_121_-2.jpg",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -821,9 +804,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 16,
+      "media_heat": 15,
       "fan_heat": 0,
-      "heat": 16,
+      "heat": 15,
       "source_labels": [
         "媒"
       ],
@@ -881,14 +864,14 @@
           "image_url": "https://motorsport.nextgen-auto.com/IMG/logo/mercedes_35_-6.jpg",
           "video_url": null,
           "video_poster_url": "https://motorsport.nextgen-auto.com/IMG/logo/mercedes_35_-6.jpg",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         }
       ],
       "official_heat": 0,
-      "media_heat": 16,
+      "media_heat": 15,
       "fan_heat": 0,
-      "heat": 16,
+      "heat": 15,
       "source_labels": [
         "媒"
       ],
@@ -967,7 +950,7 @@
       "rank": 10
     }
   ],
-  "review_needed_count": 39,
+  "review_needed_count": 38,
   "review_needed_events": [
     {
       "event_id": "evt-2026-09-29-8536ca2b8f74",
@@ -1053,88 +1036,6 @@
             "quotes": 0,
             "views": 231,
             "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 42,
-      "heat": 42,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-oscar-post-race-smile",
-      "rule_id": "oscar-post-race-smile",
-      "hot_word_zh": "Oscar 在荷兰站赛后镜头中微笑",
-      "hot_word_en": "Oscar smiles for the camera after the Dutch Grand Prix",
-      "first_seen_at": "2026-10-01T08:06:01Z",
-      "last_seen_at": "2026-10-01T08:12:14Z",
-      "anchor_item_id": "piasnews-social-b1086d9db92706f1",
-      "image_url": "https://pbs.twimg.com/media/HTh8q26XQAAqRSv.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HTh8q26XQAAqRSv.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-b1086d9db92706f1",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: smiley oscar and lando today 😁",
-          "title_zh": "X 发帖 @laurogeitabat：今天笑呵呵的 Oscar 和 Lando 😁",
-          "summary": "smiley oscar and lando today 😁 https://t.co/ooiF3PEB7f",
-          "summary_zh": "今天笑呵呵的 Oscar 和 Lando 😁",
-          "url": "https://x.com/laurogeitabat/status/2105569910940131341",
-          "published_at": "2026-10-01T08:06:01Z",
-          "image_url": "https://pbs.twimg.com/media/HTh8q26XQAAqRSv.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HTh8q26XQAAqRSv.jpg",
-          "heat_contribution": 5.7759,
-          "metrics": {
-            "likes": 334,
-            "retweets": 33,
-            "replies": 0,
-            "quotes": 4,
-            "views": 2057,
-            "bookmarks": 14
-          }
-        },
-        {
-          "item_id": "piasnews-social-447ad125d9436c38",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: he is so smiley today 🥹 📸: shotbyantoine",
-          "title_zh": "X 发帖 @laurogeitabat：他今天笑得真开心 🥹 📸：shotbyantoine",
-          "summary": "he is so smiley today 🥹 📸: shotbyantoine https://t.co/A4lNPv2jgC",
-          "summary_zh": "他今天笑得真开心 🥹 📸：shotbyantoine",
-          "url": "https://x.com/laurogeitabat/status/2105571478787719678",
-          "published_at": "2026-10-01T08:12:14Z",
-          "image_url": "https://pbs.twimg.com/media/HTh-GNbXMAAMOHR.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HTh-GNbXMAAMOHR.jpg",
-          "heat_contribution": 5.5504,
-          "metrics": {
-            "likes": 269,
-            "retweets": 20,
-            "replies": 0,
-            "quotes": 5,
-            "views": 2279,
-            "bookmarks": 2
           }
         }
       ],
@@ -1316,6 +1217,88 @@
       "media_heat": 0,
       "fan_heat": 40,
       "heat": 40,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-oscar-post-race-smile",
+      "rule_id": "oscar-post-race-smile",
+      "hot_word_zh": "Oscar 在荷兰站赛后镜头中微笑",
+      "hot_word_en": "Oscar smiles for the camera after the Dutch Grand Prix",
+      "first_seen_at": "2026-10-01T08:06:01Z",
+      "last_seen_at": "2026-10-01T08:12:14Z",
+      "anchor_item_id": "piasnews-social-b1086d9db92706f1",
+      "image_url": "https://pbs.twimg.com/media/HTh8q26XQAAqRSv.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HTh8q26XQAAqRSv.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-b1086d9db92706f1",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: smiley oscar and lando today 😁",
+          "title_zh": "X 发帖 @laurogeitabat：今天笑呵呵的 Oscar 和 Lando 😁",
+          "summary": "smiley oscar and lando today 😁 https://t.co/ooiF3PEB7f",
+          "summary_zh": "今天笑呵呵的 Oscar 和 Lando 😁",
+          "url": "https://x.com/laurogeitabat/status/2105569910940131341",
+          "published_at": "2026-10-01T08:06:01Z",
+          "image_url": "https://pbs.twimg.com/media/HTh8q26XQAAqRSv.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HTh8q26XQAAqRSv.jpg",
+          "heat_contribution": 5.2671,
+          "metrics": {
+            "likes": 334,
+            "retweets": 33,
+            "replies": 0,
+            "quotes": 4,
+            "views": 2057,
+            "bookmarks": 14
+          }
+        },
+        {
+          "item_id": "piasnews-social-447ad125d9436c38",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: he is so smiley today 🥹 📸: shotbyantoine",
+          "title_zh": "X 发帖 @laurogeitabat：他今天笑得真开心 🥹 📸：shotbyantoine",
+          "summary": "he is so smiley today 🥹 📸: shotbyantoine https://t.co/A4lNPv2jgC",
+          "summary_zh": "他今天笑得真开心 🥹 📸：shotbyantoine",
+          "url": "https://x.com/laurogeitabat/status/2105571478787719678",
+          "published_at": "2026-10-01T08:12:14Z",
+          "image_url": "https://pbs.twimg.com/media/HTh-GNbXMAAMOHR.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HTh-GNbXMAAMOHR.jpg",
+          "heat_contribution": 5.0422,
+          "metrics": {
+            "likes": 269,
+            "retweets": 20,
+            "replies": 0,
+            "quotes": 5,
+            "views": 2279,
+            "bookmarks": 2
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 39,
+      "heat": 39,
       "source_labels": [
         "粉"
       ],
@@ -1646,88 +1629,6 @@
       }
     },
     {
-      "event_id": "evt-2026-09-30-0a3a443bede5",
-      "rule_id": null,
-      "hot_word_zh": "OSCARTTURI 双人组———一个串。Oscar Piastri 和 Artturi…",
-      "hot_word_en": "OSCARTTURI DUO ———a thread. Oscar Piastri and Artturi Simila - their underrated friendship is too precious to…",
-      "first_seen_at": "2026-09-30T03:27:12Z",
-      "last_seen_at": "2026-09-30T09:14:37Z",
-      "anchor_item_id": "piasnews-social-c118d969b836440d",
-      "image_url": "https://pbs.twimg.com/media/HTbzROFWAAA5VPL.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HTbzROFWAAA5VPL.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-3b4093d0cfcc42c5",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X repost from @laurogeitabat: OSCARTTURI DUO ———a thread. Oscar Piastri and Artturi Simila - their underrated friendship is t…",
-          "title_zh": "X 转帖 @laurogeitabat：OSCARTTURI组合 ———一个串。Oscar Piastri和Artturi Simila——他们被低估的友谊对我来说太珍贵了。",
-          "summary": "OSCARTTURI DUO ———a thread. Oscar Piastri and Artturi Simila - their underrated friendship is too precious to me. https://t.co/pzLKlxZ7pI",
-          "summary_zh": "OSCARTTURI组合 ———一个串。Oscar Piastri和Artturi Simila——他们被低估的友谊对我来说太珍贵了。",
-          "url": "https://x.com/oskipiastri/status/2105137359108907346",
-          "published_at": "2026-09-30T03:27:12Z",
-          "image_url": "https://pbs.twimg.com/media/HTbzROFWAAA5VPL.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HTbzROFWAAA5VPL.jpg",
-          "heat_contribution": 5.2764,
-          "metrics": {
-            "likes": 686,
-            "retweets": 77,
-            "replies": 3,
-            "quotes": 7,
-            "views": 11030,
-            "bookmarks": 253
-          }
-        },
-        {
-          "item_id": "piasnews-social-c118d969b836440d",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X repost from @laurogeitabat: RT @oskipiastri: OSCARTTURI DUO ———a thread. Oscar Piastri and Artturi Simila - their underrate…",
-          "title_zh": "X 转帖 @laurogeitabat：RT @oskipiastri：OSCARTTURI 双人组———一个串。Oscar Piastri 和 Artturi Simila——他们被低估的友谊对我来说太珍贵了。",
-          "summary": "RT @oskipiastri: OSCARTTURI DUO ———a thread. Oscar Piastri and Artturi Simila - their underrated friendship is too precious to me. http…",
-          "summary_zh": "RT @oskipiastri：OSCARTTURI 双人组———一个串。Oscar Piastri 和 Artturi Simila——他们被低估的友谊对我来说太珍贵了。",
-          "url": "https://x.com/laurogeitabat/status/2105224790596325439",
-          "published_at": "2026-09-30T09:14:37Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 3.7366,
-          "metrics": {
-            "likes": 0,
-            "retweets": 45,
-            "replies": 0,
-            "quotes": 0,
-            "views": 101,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 36,
-      "heat": 36,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-09-30-dba2362dff6b",
       "rule_id": null,
       "hot_word_zh": "Artturi：“目标是 5 分钟” Oscar：“5 分钟？？",
@@ -1786,64 +1687,6 @@
       }
     },
     {
-      "event_id": "evt-2026-09-29-2dda9a3e4b30",
-      "rule_id": null,
-      "hot_word_zh": "上一次在雪邦有比赛的时候，oscar还是个圆圈",
-      "hot_word_en": "the last time there was a race in sepang oscar was a circle",
-      "first_seen_at": "2026-09-29T08:57:21Z",
-      "last_seen_at": "2026-09-29T08:57:21Z",
-      "anchor_item_id": "piasnews-social-4b8b3d4fdd349c73",
-      "image_url": "https://pbs.twimg.com/media/HTX1O38WkAAOyfx.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HTX1O38WkAAOyfx.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-4b8b3d4fdd349c73",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: the last time there was a race in sepang oscar was a circle",
-          "title_zh": "X 发帖 @laurogeitabat：上一次在雪邦有比赛的时候，oscar还是个圆圈",
-          "summary": "the last time there was a race in sepang oscar was a circle https://t.co/IwZ55JdBbs",
-          "summary_zh": "上一次在雪邦有比赛的时候，oscar还是个圆圈",
-          "url": "https://x.com/laurogeitabat/status/2104858053703025058",
-          "published_at": "2026-09-29T08:57:21Z",
-          "image_url": "https://pbs.twimg.com/media/HTX1O38WkAAOyfx.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HTX1O38WkAAOyfx.jpg",
-          "heat_contribution": 6.5086,
-          "metrics": {
-            "likes": 2659,
-            "retweets": 191,
-            "replies": 2,
-            "quotes": 0,
-            "views": 30241,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 35,
-      "heat": 35,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-09-29-e65ee032e375",
       "rule_id": null,
       "hot_word_zh": "搞了那么多就为了写一句“恭喜！”然后溜走",
@@ -1878,6 +1721,88 @@
             "replies": 3,
             "quotes": 0,
             "views": 24799,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 35,
+      "heat": 35,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-09-30-0a3a443bede5",
+      "rule_id": null,
+      "hot_word_zh": "OSCARTTURI 双人组———一个串。Oscar Piastri 和 Artturi…",
+      "hot_word_en": "OSCARTTURI DUO ———a thread. Oscar Piastri and Artturi Simila - their underrated friendship is too precious to…",
+      "first_seen_at": "2026-09-30T03:27:12Z",
+      "last_seen_at": "2026-09-30T09:14:37Z",
+      "anchor_item_id": "piasnews-social-c118d969b836440d",
+      "image_url": "https://pbs.twimg.com/media/HTbzROFWAAA5VPL.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HTbzROFWAAA5VPL.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-3b4093d0cfcc42c5",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: OSCARTTURI DUO ———a thread. Oscar Piastri and Artturi Simila - their underrated friendship is t…",
+          "title_zh": "X 转帖 @laurogeitabat：OSCARTTURI组合 ———一个串。Oscar Piastri和Artturi Simila——他们被低估的友谊对我来说太珍贵了。",
+          "summary": "OSCARTTURI DUO ———a thread. Oscar Piastri and Artturi Simila - their underrated friendship is too precious to me. https://t.co/pzLKlxZ7pI",
+          "summary_zh": "OSCARTTURI组合 ———一个串。Oscar Piastri和Artturi Simila——他们被低估的友谊对我来说太珍贵了。",
+          "url": "https://x.com/oskipiastri/status/2105137359108907346",
+          "published_at": "2026-09-30T03:27:12Z",
+          "image_url": "https://pbs.twimg.com/media/HTbzROFWAAA5VPL.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HTbzROFWAAA5VPL.jpg",
+          "heat_contribution": 5.2764,
+          "metrics": {
+            "likes": 686,
+            "retweets": 77,
+            "replies": 3,
+            "quotes": 7,
+            "views": 11030,
+            "bookmarks": 253
+          }
+        },
+        {
+          "item_id": "piasnews-social-c118d969b836440d",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: RT @oskipiastri: OSCARTTURI DUO ———a thread. Oscar Piastri and Artturi Simila - their underrate…",
+          "title_zh": "X 转帖 @laurogeitabat：RT @oskipiastri：OSCARTTURI 双人组———一个串。Oscar Piastri 和 Artturi Simila——他们被低估的友谊对我来说太珍贵了。",
+          "summary": "RT @oskipiastri: OSCARTTURI DUO ———a thread. Oscar Piastri and Artturi Simila - their underrated friendship is too precious to me. http…",
+          "summary_zh": "RT @oskipiastri：OSCARTTURI 双人组———一个串。Oscar Piastri 和 Artturi Simila——他们被低估的友谊对我来说太珍贵了。",
+          "url": "https://x.com/laurogeitabat/status/2105224790596325439",
+          "published_at": "2026-09-30T09:14:37Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 2.955,
+          "metrics": {
+            "likes": 0,
+            "retweets": 45,
+            "replies": 0,
+            "quotes": 0,
+            "views": 101,
             "bookmarks": 0
           }
         }
@@ -2169,64 +2094,6 @@
             "quotes": 11,
             "views": 10451,
             "bookmarks": 47
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 33,
-      "heat": 33,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-01-756fc8cf727c",
-      "rule_id": null,
-      "hot_word_zh": "这些标语 😭🫶🏻",
-      "hot_word_en": "THESE SIGNS 😭🫶🏻",
-      "first_seen_at": "2026-10-01T08:06:48Z",
-      "last_seen_at": "2026-10-01T08:06:48Z",
-      "anchor_item_id": "piasnews-social-3cf62f37c12ce69c",
-      "image_url": "https://pbs.twimg.com/media/HTh813nXwAEnL7l.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HTh813nXwAEnL7l.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-3cf62f37c12ce69c",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: THESE SIGNS 😭🫶🏻",
-          "title_zh": "X 发帖 @laurogeitabat：这些标语 😭🫶🏻",
-          "summary": "THESE SIGNS 😭🫶🏻 https://t.co/sOFQ5AZYJd",
-          "summary_zh": "这些标语 😭🫶🏻",
-          "url": "https://x.com/laurogeitabat/status/2105570108873535696",
-          "published_at": "2026-10-01T08:06:48Z",
-          "image_url": "https://pbs.twimg.com/media/HTh813nXwAEnL7l.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HTh813nXwAEnL7l.jpg",
-          "heat_contribution": 6.0859,
-          "metrics": {
-            "likes": 444,
-            "retweets": 51,
-            "replies": 1,
-            "quotes": 2,
-            "views": 3183,
-            "bookmarks": 7
           }
         }
       ],
@@ -2830,41 +2697,41 @@
       }
     },
     {
-      "event_id": "evt-2026-10-01-85829feaf0ab",
+      "event_id": "evt-2026-10-01-756fc8cf727c",
       "rule_id": null,
-      "hot_word_zh": "Alex 谈这帮兄弟去开卡丁车竞争有多激烈：“超级激烈。就是，超级超级激烈。” 😭😭😭😭",
-      "hot_word_en": "alex on how competitive the boys trip karting got: \"massively. like, MASIVELLY.\" 😭😭😭😭",
-      "first_seen_at": "2026-10-01T08:09:01Z",
-      "last_seen_at": "2026-10-01T08:09:01Z",
-      "anchor_item_id": "piasnews-social-77e476a13e5f1913",
-      "image_url": "https://pbs.twimg.com/media/HTh9XIXXoAAh8lv.jpg",
+      "hot_word_zh": "这些标语 😭🫶🏻",
+      "hot_word_en": "THESE SIGNS 😭🫶🏻",
+      "first_seen_at": "2026-10-01T08:06:48Z",
+      "last_seen_at": "2026-10-01T08:06:48Z",
+      "anchor_item_id": "piasnews-social-3cf62f37c12ce69c",
+      "image_url": "https://pbs.twimg.com/media/HTh813nXwAEnL7l.jpg",
       "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HTh9XIXXoAAh8lv.jpg",
+      "video_poster_url": "https://pbs.twimg.com/media/HTh813nXwAEnL7l.jpg",
       "review_needed": true,
       "review_needed_reason": "fan_account_public_cap",
       "items": [
         {
-          "item_id": "piasnews-social-77e476a13e5f1913",
+          "item_id": "piasnews-social-3cf62f37c12ce69c",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: alex on how competitive the boys trip karting got: \"massively. like, MASIVELLY.\" 😭😭😭😭",
-          "title_zh": "X 发帖 @laurogeitabat：Alex 谈这帮兄弟去开卡丁车竞争有多激烈：“超级激烈。就是，超级超级激烈。” 😭😭😭😭",
-          "summary": "alex on how competitive the boys trip karting got: \"massively. like, MASIVELLY.\" 😭😭😭😭 https://t.co/lU6DMhXmjg",
-          "summary_zh": "Alex 谈这帮兄弟去开卡丁车竞争有多激烈：“超级激烈。就是，超级超级激烈。” 😭😭😭😭",
-          "url": "https://x.com/laurogeitabat/status/2105570667185734047",
-          "published_at": "2026-10-01T08:09:01Z",
-          "image_url": "https://pbs.twimg.com/media/HTh9XIXXoAAh8lv.jpg",
+          "title": "X post from @laurogeitabat: THESE SIGNS 😭🫶🏻",
+          "title_zh": "X 发帖 @laurogeitabat：这些标语 😭🫶🏻",
+          "summary": "THESE SIGNS 😭🫶🏻 https://t.co/sOFQ5AZYJd",
+          "summary_zh": "这些标语 😭🫶🏻",
+          "url": "https://x.com/laurogeitabat/status/2105570108873535696",
+          "published_at": "2026-10-01T08:06:48Z",
+          "image_url": "https://pbs.twimg.com/media/HTh813nXwAEnL7l.jpg",
           "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HTh9XIXXoAAh8lv.jpg",
-          "heat_contribution": 5.4782,
+          "video_poster_url": "https://pbs.twimg.com/media/HTh813nXwAEnL7l.jpg",
+          "heat_contribution": 5.5766,
           "metrics": {
-            "likes": 268,
-            "retweets": 14,
-            "replies": 0,
-            "quotes": 1,
-            "views": 1988,
-            "bookmarks": 4
+            "likes": 444,
+            "retweets": 51,
+            "replies": 1,
+            "quotes": 2,
+            "views": 3183,
+            "bookmarks": 7
           }
         }
       ],
@@ -2981,6 +2848,64 @@
             "quotes": 0,
             "views": 20834,
             "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 27,
+      "heat": 27,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-10-01-85829feaf0ab",
+      "rule_id": null,
+      "hot_word_zh": "Alex 谈这帮兄弟去开卡丁车竞争有多激烈：“超级激烈。就是，超级超级激烈。” 😭😭😭😭",
+      "hot_word_en": "alex on how competitive the boys trip karting got: \"massively. like, MASIVELLY.\" 😭😭😭😭",
+      "first_seen_at": "2026-10-01T08:09:01Z",
+      "last_seen_at": "2026-10-01T08:09:01Z",
+      "anchor_item_id": "piasnews-social-77e476a13e5f1913",
+      "image_url": "https://pbs.twimg.com/media/HTh9XIXXoAAh8lv.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HTh9XIXXoAAh8lv.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-77e476a13e5f1913",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: alex on how competitive the boys trip karting got: \"massively. like, MASIVELLY.\" 😭😭😭😭",
+          "title_zh": "X 发帖 @laurogeitabat：Alex 谈这帮兄弟去开卡丁车竞争有多激烈：“超级激烈。就是，超级超级激烈。” 😭😭😭😭",
+          "summary": "alex on how competitive the boys trip karting got: \"massively. like, MASIVELLY.\" 😭😭😭😭 https://t.co/lU6DMhXmjg",
+          "summary_zh": "Alex 谈这帮兄弟去开卡丁车竞争有多激烈：“超级激烈。就是，超级超级激烈。” 😭😭😭😭",
+          "url": "https://x.com/laurogeitabat/status/2105570667185734047",
+          "published_at": "2026-10-01T08:09:01Z",
+          "image_url": "https://pbs.twimg.com/media/HTh9XIXXoAAh8lv.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HTh9XIXXoAAh8lv.jpg",
+          "heat_contribution": 4.9701,
+          "metrics": {
+            "likes": 268,
+            "retweets": 14,
+            "replies": 0,
+            "quotes": 1,
+            "views": 1988,
+            "bookmarks": 4
           }
         }
       ],
@@ -3147,7 +3072,7 @@
           "image_url": "https://pbs.twimg.com/media/HTdBcrEWgAAdQhW.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HTdBcrEWgAAdQhW.jpg",
-          "heat_contribution": 3.941,
+          "heat_contribution": 3.154,
           "metrics": {
             "likes": 87,
             "retweets": 9,
@@ -3160,66 +3085,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 22,
-      "heat": 22,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-09-30-5a4b48b936c1",
-      "rule_id": null,
-      "hot_word_zh": "他知道自己还活着吗 😭😭😭",
-      "hot_word_en": "does he know he's alive 😭😭😭",
-      "first_seen_at": "2026-09-30T09:09:27Z",
-      "last_seen_at": "2026-09-30T09:09:27Z",
-      "anchor_item_id": "piasnews-social-345cebee4c25817d",
-      "image_url": "https://pbs.twimg.com/media/HTdBmE3XMAAKOkz.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HTdBmE3XMAAKOkz.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-345cebee4c25817d",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: does he know he's alive 😭😭😭",
-          "title_zh": "X 发帖 @laurogeitabat：他知道自己还活着吗 😭😭😭",
-          "summary": "does he know he's alive 😭😭😭 https://t.co/hJkEWAVTY6",
-          "summary_zh": "他知道自己还活着吗 😭😭😭",
-          "url": "https://x.com/laurogeitabat/status/2105223487690305626",
-          "published_at": "2026-09-30T09:09:27Z",
-          "image_url": "https://pbs.twimg.com/media/HTdBmE3XMAAKOkz.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HTdBmE3XMAAKOkz.jpg",
-          "heat_contribution": 3.8833,
-          "metrics": {
-            "likes": 80,
-            "retweets": 6,
-            "replies": 2,
-            "quotes": 0,
-            "views": 774,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 22,
-      "heat": 22,
+      "fan_heat": 18,
+      "heat": 18,
       "source_labels": [
         "粉"
       ],
@@ -3263,7 +3130,7 @@
           "image_url": "https://pbs.twimg.com/media/HTdCDt5WsAAj_fR.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HTdCDt5WsAAj_fR.jpg",
-          "heat_contribution": 3.7848,
+          "heat_contribution": 3.0019,
           "metrics": {
             "likes": 70,
             "retweets": 8,
@@ -3276,8 +3143,66 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 21,
-      "heat": 21,
+      "fan_heat": 18,
+      "heat": 18,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-09-30-5a4b48b936c1",
+      "rule_id": null,
+      "hot_word_zh": "他知道自己还活着吗 😭😭😭",
+      "hot_word_en": "does he know he's alive 😭😭😭",
+      "first_seen_at": "2026-09-30T09:09:27Z",
+      "last_seen_at": "2026-09-30T09:09:27Z",
+      "anchor_item_id": "piasnews-social-345cebee4c25817d",
+      "image_url": "https://pbs.twimg.com/media/HTdBmE3XMAAKOkz.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HTdBmE3XMAAKOkz.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-345cebee4c25817d",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: does he know he's alive 😭😭😭",
+          "title_zh": "X 发帖 @laurogeitabat：他知道自己还活着吗 😭😭😭",
+          "summary": "does he know he's alive 😭😭😭 https://t.co/hJkEWAVTY6",
+          "summary_zh": "他知道自己还活着吗 😭😭😭",
+          "url": "https://x.com/laurogeitabat/status/2105223487690305626",
+          "published_at": "2026-09-30T09:09:27Z",
+          "image_url": "https://pbs.twimg.com/media/HTdBmE3XMAAKOkz.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HTdBmE3XMAAKOkz.jpg",
+          "heat_contribution": 3.0977,
+          "metrics": {
+            "likes": 80,
+            "retweets": 6,
+            "replies": 2,
+            "quotes": 0,
+            "views": 774,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 18,
+      "heat": 18,
       "source_labels": [
         "粉"
       ],
