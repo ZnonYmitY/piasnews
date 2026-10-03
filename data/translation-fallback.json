@@ -1,9 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-30T23:08:40.489236Z",
-  "status": "healthy",
-  "pending_count": 0,
+  "generated_at": "2026-10-03T23:08:43.973138Z",
+  "status": "action_required",
+  "pending_count": 1,
   "ignored_non_text_count": 0,
   "workbench_path": "../immersive/translation-workbench.html",
-  "items": []
+  "items": [
+    {
+      "key": "items:piasnews-cbf650660882dd1e:title:4dc64edd5de72eae15600999",
+      "dataset": "items",
+      "item_id": "piasnews-cbf650660882dd1e",
+      "target_field": "title_zh",
+      "source_text": "F1-George Russell-Alex Albon-Lando Norris-Oscar Piastri- Carlos Sainz-Ollie Bearman-Gabriel Bortoleto-2026",
+      "source_url": "https://autoaction.com.au/2026/10/02/piastri-ready-to-finish-the-job-after-baku-setback/image-1-37",
+      "source_name": "autoaction.com.au",
+      "reason": "llm_mapping_missing"
+    }
+  ]
 }
