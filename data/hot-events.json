@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-03T06:20:55.169784Z",
+  "generated_at": "2026-10-03T09:20:58.204218Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -126,145 +126,7 @@
       "rank": 2
     },
     {
-      "event_id": "evt-session-result-2026-round-16-practice_1",
-      "rule_id": null,
-      "hot_word_zh": "Oscar 在Bahrain Grand Prix in Malaysia一练获得第11名",
-      "hot_word_en": "Oscar finishes P11 in Bahrain Grand Prix in Malaysia Practice 1",
-      "first_seen_at": "2026-10-02T06:35:52.137945Z",
-      "last_seen_at": "2026-10-02T06:35:52.137945Z",
-      "anchor_item_id": "session-result-2026-round-16-practice_1",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": false,
-      "review_needed_reason": null,
-      "official_heat": 0,
-      "media_heat": 100,
-      "fan_heat": 0,
-      "heat": 100,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 1,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "hard_rule": {
-        "type": "session_result",
-        "race_id": "2026-round-16",
-        "session": "practice_1",
-        "position": 11,
-        "status": "classified",
-        "provisional": false,
-        "source_item_id": "session-result-2026-round-16-practice_1",
-        "source": "Formula 1 Live Timing",
-        "latest": false
-      },
-      "items": [
-        {
-          "item_id": "session-result-2026-round-16-practice_1",
-          "dataset": "session_result",
-          "source_type": "media",
-          "source": "Formula 1 Live Timing",
-          "title": "Oscar finishes P11 in Bahrain Grand Prix in Malaysia Practice 1",
-          "title_zh": "Oscar 在Bahrain Grand Prix in Malaysia一练获得第11名",
-          "summary": "Structured session result for Oscar Piastri.",
-          "summary_zh": "Oscar Piastri 的结构化场次成绩。",
-          "url": "https://livetiming.formula1.com/static/2026/2026-10-04_Bahrain_Grand_Prix/2026-10-02_Practice_1/TimingData.jsonStream",
-          "published_at": "2026-10-02T06:35:52.137945Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 100,
-          "metrics": {}
-        }
-      ],
-      "rank": 3
-    },
-    {
-      "event_id": "evt-oscar-post-race-smile",
-      "rule_id": "oscar-post-race-smile",
-      "hot_word_zh": "Oscar 在荷兰站赛后镜头中微笑",
-      "hot_word_en": "Oscar smiles for the camera after the Dutch Grand Prix",
-      "first_seen_at": "2026-10-01T08:06:01Z",
-      "last_seen_at": "2026-10-01T08:12:14Z",
-      "anchor_item_id": "piasnews-social-b1086d9db92706f1",
-      "image_url": "https://pbs.twimg.com/media/HTh8q26XQAAqRSv.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HTh8q26XQAAqRSv.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-b1086d9db92706f1",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: smiley oscar and lando today 😁",
-          "title_zh": "X 发帖 @laurogeitabat：今天笑呵呵的 Oscar 和 Lando 😁",
-          "summary": "smiley oscar and lando today 😁 https://t.co/ooiF3PEB7f",
-          "summary_zh": "今天笑呵呵的 Oscar 和 Lando 😁",
-          "url": "https://x.com/laurogeitabat/status/2105569910940131341",
-          "published_at": "2026-10-01T08:06:01Z",
-          "image_url": "https://pbs.twimg.com/media/HTh8q26XQAAqRSv.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HTh8q26XQAAqRSv.jpg",
-          "heat_contribution": 5.2671,
-          "metrics": {
-            "likes": 334,
-            "retweets": 33,
-            "replies": 0,
-            "quotes": 4,
-            "views": 2057,
-            "bookmarks": 14
-          }
-        },
-        {
-          "item_id": "piasnews-social-447ad125d9436c38",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: he is so smiley today 🥹 📸: shotbyantoine",
-          "title_zh": "X 发帖 @laurogeitabat：他今天笑得真开心 🥹 📸：shotbyantoine",
-          "summary": "he is so smiley today 🥹 📸: shotbyantoine https://t.co/A4lNPv2jgC",
-          "summary_zh": "他今天笑得真开心 🥹 📸：shotbyantoine",
-          "url": "https://x.com/laurogeitabat/status/2105571478787719678",
-          "published_at": "2026-10-01T08:12:14Z",
-          "image_url": "https://pbs.twimg.com/media/HTh-GNbXMAAMOHR.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HTh-GNbXMAAMOHR.jpg",
-          "heat_contribution": 5.0422,
-          "metrics": {
-            "likes": 269,
-            "retweets": 20,
-            "replies": 0,
-            "quotes": 5,
-            "views": 2279,
-            "bookmarks": 2
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 39,
-      "heat": 39,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 4
-    },
-    {
-      "event_id": "evt-2026-09-30-313a4fac3974-313a4fac",
+      "event_id": "evt-2026-09-30-313a4fac3974",
       "rule_id": null,
       "hot_word_zh": "后面那个人看起来很眼熟 👀 看来Oscar和George是一起飞过来的！",
       "hot_word_en": "that guy in the back looks familiar 👀 seems like oscar and george flew in together! 📸: hakiemas…",
@@ -316,7 +178,62 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 5
+      "rank": 3
+    },
+    {
+      "event_id": "evt-2026-09-30-fd26cbf19ec8",
+      "rule_id": null,
+      "hot_word_zh": "OSCAR出现在George男生旅行照片合集里了！",
+      "hot_word_en": "OSCAR'S CAMEOS IN GEORGE'S PHOTODUMP OF THE BOYS' TRIP! you can see him being filmed by lando for his docuser…",
+      "first_seen_at": "2026-09-30T09:36:31Z",
+      "last_seen_at": "2026-09-30T09:36:31Z",
+      "anchor_item_id": "piasnews-social-0cca55eec48e4ef5",
+      "image_url": "https://pbs.twimg.com/media/HTdHyD7WQAAzApI.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HTdHyD7WQAAzApI.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-0cca55eec48e4ef5",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: OSCAR'S CAMEOS IN GEORGE'S PHOTODUMP OF THE BOYS' TRIP! you can see him being filmed by lando f…",
+          "title_zh": "X 发帖 @laurogeitabat：OSCAR出现在George男生旅行照片合集里了！你可以看到Lando在给他的纪录片拍摄，还有他和Gabi、Carlos聊天 🥰",
+          "summary": "OSCAR'S CAMEOS IN GEORGE'S PHOTODUMP OF THE BOYS' TRIP! you can see him being filmed by lando for his docuseries and chatting with gabi and carlos 🥰 https://t.co/uKBOIoi09o",
+          "summary_zh": "OSCAR出现在George男生旅行照片合集里了！你可以看到Lando在给他的纪录片拍摄，还有他和Gabi、Carlos聊天 🥰",
+          "url": "https://x.com/laurogeitabat/status/2105230300544483534",
+          "published_at": "2026-09-30T09:36:31Z",
+          "image_url": "https://pbs.twimg.com/media/HTdHyD7WQAAzApI.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HTdHyD7WQAAzApI.jpg",
+          "heat_contribution": 6.9687,
+          "metrics": {
+            "likes": 3727,
+            "retweets": 385,
+            "replies": 6,
+            "quotes": 78,
+            "views": 63818,
+            "bookmarks": 292
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 37,
+      "heat": 37,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 4
     },
     {
       "event_id": "evt-2026-09-26-a8f0a951d1c9",
@@ -449,7 +366,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 5
     },
     {
       "event_id": "evt-2026-10-01-73cb8a3c87b1",
@@ -504,14 +421,14 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 6
     },
     {
       "event_id": "evt-2026-09-24-23eb408405cf-23eb4084",
       "rule_id": null,
       "hot_word_zh": "Jacques Villeneuve表示，Oscar Piastri的头部动作揭示了Bak…",
       "hot_word_en": "Jacques Villeneuve says Oscar Piastri's head movements reveal the true cause of Baku lock-up",
-      "first_seen_at": "2026-09-26T08:00:00Z",
+      "first_seen_at": "2026-09-26T14:14:25Z",
       "last_seen_at": "2026-10-02T17:02:18Z",
       "anchor_item_id": "piasnews-c2df5a2eb545a961",
       "image_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F09%2F07160837%2Foscar-piastri-mclaren-f1-2026-italian-grand-prix-press-conference.jpg",
@@ -585,7 +502,7 @@
           "image_url": "https://motorsport.nextgen-auto.com/IMG/logo/mclaren3_121_-2.jpg",
           "video_url": null,
           "video_poster_url": "https://motorsport.nextgen-auto.com/IMG/logo/mclaren3_121_-2.jpg",
-          "heat_contribution": 0.2,
+          "heat_contribution": 0.0,
           "metrics": {}
         },
         {
@@ -655,29 +572,12 @@
           "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2297241761-scaled.jpg",
           "heat_contribution": 0.0,
           "metrics": {}
-        },
-        {
-          "item_id": "piasnews-cb9027b529bcf3a5",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "F1 Oversteer",
-          "title": "Oscar Piastri admits what McLaren did to his car in Baku is ‘never a great sign’",
-          "title_zh": "Oscar Piastri 承认 McLaren 在Baku对他的赛车所做的调整“绝不是什么好兆头”",
-          "summary": "Quote or interview-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的引述或采访相关条目。",
-          "url": "https://www.f1oversteer.com/news/oscar-piastri-admits-what-mclaren-did-to-his-car-in-baku-is-never-a-great-sign/",
-          "published_at": "2026-09-26T08:00:00Z",
-          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2297073950-scaled.jpg",
-          "video_url": null,
-          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2297073950-scaled.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
         }
       ],
       "official_heat": 0,
-      "media_heat": 24,
+      "media_heat": 22,
       "fan_heat": 0,
-      "heat": 24,
+      "heat": 22,
       "source_labels": [
         "媒"
       ],
@@ -688,7 +588,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 7
     },
     {
       "event_id": "evt-2026-09-30-67ada2c81653",
@@ -804,7 +704,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 9
+      "rank": 8
     },
     {
       "event_id": "evt-2026-10-02-5a89cae6a9a6",
@@ -886,69 +786,93 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 10
-    }
-  ],
-  "review_needed_count": 20,
-  "review_needed_events": [
+      "rank": 9
+    },
     {
-      "event_id": "evt-2026-09-30-fd26cbf19ec8",
+      "event_id": "evt-2026-09-29-9061886acb62",
       "rule_id": null,
-      "hot_word_zh": "OSCAR出现在George男生旅行照片合集里了！",
-      "hot_word_en": "OSCAR'S CAMEOS IN GEORGE'S PHOTODUMP OF THE BOYS' TRIP! you can see him being filmed by lando for his docuser…",
-      "first_seen_at": "2026-09-30T09:36:31Z",
-      "last_seen_at": "2026-09-30T09:36:31Z",
-      "anchor_item_id": "piasnews-social-0cca55eec48e4ef5",
-      "image_url": "https://pbs.twimg.com/media/HTdHyD7WQAAzApI.jpg",
+      "hot_word_zh": "Oscar Piastri 在 Baku 被抓到“睡着了”后，被告知为何他“不像 Max…",
+      "hot_word_en": "Oscar Piastri told why he’s ‘not a racer’ like Max Verstappen after getting caught ‘asleep’ in Baku",
+      "first_seen_at": "2026-09-27T01:28:38Z",
+      "last_seen_at": "2026-10-02T01:41:29Z",
+      "anchor_item_id": "piasnews-f6333bda0315a42b",
+      "image_url": "https://autoaction.com.au/wp-content/uploads/2026/10/Image-2-e1790900740520.jpg?v=1790900674",
       "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HTdHyD7WQAAzApI.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
+      "video_poster_url": "https://autoaction.com.au/wp-content/uploads/2026/10/Image-2-e1790900740520.jpg?v=1790900674",
+      "review_needed": false,
+      "review_needed_reason": null,
       "items": [
         {
-          "item_id": "piasnews-social-0cca55eec48e4ef5",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: OSCAR'S CAMEOS IN GEORGE'S PHOTODUMP OF THE BOYS' TRIP! you can see him being filmed by lando f…",
-          "title_zh": "X 发帖 @laurogeitabat：OSCAR出现在George男生旅行照片合集里了！你可以看到Lando在给他的纪录片拍摄，还有他和Gabi、Carlos聊天 🥰",
-          "summary": "OSCAR'S CAMEOS IN GEORGE'S PHOTODUMP OF THE BOYS' TRIP! you can see him being filmed by lando for his docuseries and chatting with gabi and carlos 🥰 https://t.co/uKBOIoi09o",
-          "summary_zh": "OSCAR出现在George男生旅行照片合集里了！你可以看到Lando在给他的纪录片拍摄，还有他和Gabi、Carlos聊天 🥰",
-          "url": "https://x.com/laurogeitabat/status/2105230300544483534",
-          "published_at": "2026-09-30T09:36:31Z",
-          "image_url": "https://pbs.twimg.com/media/HTdHyD7WQAAzApI.jpg",
+          "item_id": "piasnews-d18865e46df56ca6",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Auto Action",
+          "title": "Piastri ready to \"finish the job\" after Baku setback",
+          "title_zh": "Baku受挫后，Piastri 准备“完成任务”",
+          "summary": "Oscar Piastri-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
+          "url": "https://autoaction.com.au/2026/10/02/piastri-ready-to-finish-the-job-after-baku-setback",
+          "published_at": "2026-10-02T01:41:29Z",
+          "image_url": "https://autoaction.com.au/wp-content/uploads/2026/10/Image-2-e1790900740520.jpg?v=1790900674",
           "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HTdHyD7WQAAzApI.jpg",
-          "heat_contribution": 6.9687,
-          "metrics": {
-            "likes": 3727,
-            "retweets": 385,
-            "replies": 6,
-            "quotes": 78,
-            "views": 63818,
-            "bookmarks": 292
-          }
+          "video_poster_url": "https://autoaction.com.au/wp-content/uploads/2026/10/Image-2-e1790900740520.jpg?v=1790900674",
+          "heat_contribution": 0.45,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-f6333bda0315a42b",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "F1 Oversteer",
+          "title": "Oscar Piastri told why he’s ‘not a racer’ like Max Verstappen after getting caught ‘asleep’ in Baku",
+          "title_zh": "Oscar Piastri 在 Baku 被抓到“睡着了”后，被告知为何他“不像 Max Verstappen 那样是个赛车手”",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+          "url": "https://www.f1oversteer.com/news/oscar-piastri-told-why-hes-not-a-racer-like-max-verstappen-after-getting-caught-asleep-in-baku/",
+          "published_at": "2026-09-29T08:00:00Z",
+          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2297257270-scaled.jpg",
+          "video_url": null,
+          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2297257270-scaled.jpg",
+          "heat_contribution": 0.0,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-14d7eae2e80b642e",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Auto Action",
+          "title": "Piastri’s Baku podium bid collapses after costly lock-up",
+          "title_zh": "Piastri的Baku领奖台争夺在代价高昂的锁死后崩溃",
+          "summary": "Oscar Piastri-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
+          "url": "https://autoaction.com.au/2026/09/27/piastris-baku-podium-bid-collapses-after-costly-lock-up",
+          "published_at": "2026-09-27T01:28:38Z",
+          "image_url": "https://autoaction.com.au/wp-content/uploads/2026/09/2026-Azerbaijan-Grand-Prix-–-Race-Report-e1790472419164.jpeg?v=1790472364",
+          "video_url": null,
+          "video_poster_url": "https://autoaction.com.au/wp-content/uploads/2026/09/2026-Azerbaijan-Grand-Prix-–-Race-Report-e1790472419164.jpeg?v=1790472364",
+          "heat_contribution": 0.0,
+          "metrics": {}
         }
       ],
       "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 37,
-      "heat": 37,
+      "media_heat": 10,
+      "fan_heat": 0,
+      "heat": 10,
       "source_labels": [
-        "粉"
+        "媒"
       ],
       "source_counts": {
         "official": 0,
-        "media": 0,
-        "fan": 1
+        "media": 2,
+        "fan": 0
       },
       "pinned_rank": null,
       "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
+      "rank": 10
+    }
+  ],
+  "review_needed_count": 16,
+  "review_needed_events": [
     {
       "event_id": "evt-2026-09-30-a3288522d2bd",
       "rule_id": null,
@@ -1230,6 +1154,88 @@
       }
     },
     {
+      "event_id": "evt-oscar-post-race-smile",
+      "rule_id": "oscar-post-race-smile",
+      "hot_word_zh": "Oscar 在荷兰站赛后镜头中微笑",
+      "hot_word_en": "Oscar smiles for the camera after the Dutch Grand Prix",
+      "first_seen_at": "2026-10-01T08:06:01Z",
+      "last_seen_at": "2026-10-01T08:12:14Z",
+      "anchor_item_id": "piasnews-social-b1086d9db92706f1",
+      "image_url": "https://pbs.twimg.com/media/HTh8q26XQAAqRSv.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HTh8q26XQAAqRSv.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-b1086d9db92706f1",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: smiley oscar and lando today 😁",
+          "title_zh": "X 发帖 @laurogeitabat：今天笑呵呵的 Oscar 和 Lando 😁",
+          "summary": "smiley oscar and lando today 😁 https://t.co/ooiF3PEB7f",
+          "summary_zh": "今天笑呵呵的 Oscar 和 Lando 😁",
+          "url": "https://x.com/laurogeitabat/status/2105569910940131341",
+          "published_at": "2026-10-01T08:06:01Z",
+          "image_url": "https://pbs.twimg.com/media/HTh8q26XQAAqRSv.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HTh8q26XQAAqRSv.jpg",
+          "heat_contribution": 4.4626,
+          "metrics": {
+            "likes": 334,
+            "retweets": 33,
+            "replies": 0,
+            "quotes": 4,
+            "views": 2057,
+            "bookmarks": 14
+          }
+        },
+        {
+          "item_id": "piasnews-social-447ad125d9436c38",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: he is so smiley today 🥹 📸: shotbyantoine",
+          "title_zh": "X 发帖 @laurogeitabat：他今天笑得真开心 🥹 📸：shotbyantoine",
+          "summary": "he is so smiley today 🥹 📸: shotbyantoine https://t.co/A4lNPv2jgC",
+          "summary_zh": "他今天笑得真开心 🥹 📸：shotbyantoine",
+          "url": "https://x.com/laurogeitabat/status/2105571478787719678",
+          "published_at": "2026-10-01T08:12:14Z",
+          "image_url": "https://pbs.twimg.com/media/HTh-GNbXMAAMOHR.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HTh-GNbXMAAMOHR.jpg",
+          "heat_contribution": 4.2393,
+          "metrics": {
+            "likes": 269,
+            "retweets": 20,
+            "replies": 0,
+            "quotes": 5,
+            "views": 2279,
+            "bookmarks": 2
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 33,
+      "heat": 33,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
       "event_id": "evt-2026-09-30-dba2362dff6b",
       "rule_id": null,
       "hot_word_zh": "Artturi：“目标是 5 分钟” Oscar：“5 分钟？？",
@@ -1388,64 +1394,6 @@
       "media_heat": 0,
       "fan_heat": 31,
       "heat": 31,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-01-756fc8cf727c",
-      "rule_id": null,
-      "hot_word_zh": "这些标语 😭🫶🏻",
-      "hot_word_en": "THESE SIGNS 😭🫶🏻",
-      "first_seen_at": "2026-10-01T08:06:48Z",
-      "last_seen_at": "2026-10-01T08:06:48Z",
-      "anchor_item_id": "piasnews-social-3cf62f37c12ce69c",
-      "image_url": "https://pbs.twimg.com/media/HTh813nXwAEnL7l.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HTh813nXwAEnL7l.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-3cf62f37c12ce69c",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: THESE SIGNS 😭🫶🏻",
-          "title_zh": "X 发帖 @laurogeitabat：这些标语 😭🫶🏻",
-          "summary": "THESE SIGNS 😭🫶🏻 https://t.co/sOFQ5AZYJd",
-          "summary_zh": "这些标语 😭🫶🏻",
-          "url": "https://x.com/laurogeitabat/status/2105570108873535696",
-          "published_at": "2026-10-01T08:06:48Z",
-          "image_url": "https://pbs.twimg.com/media/HTh813nXwAEnL7l.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HTh813nXwAEnL7l.jpg",
-          "heat_contribution": 5.5766,
-          "metrics": {
-            "likes": 444,
-            "retweets": 51,
-            "replies": 1,
-            "quotes": 2,
-            "views": 3183,
-            "bookmarks": 7
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 30,
-      "heat": 30,
       "source_labels": [
         "粉"
       ],
@@ -1752,64 +1700,6 @@
       }
     },
     {
-      "event_id": "evt-2026-10-01-85829feaf0ab",
-      "rule_id": null,
-      "hot_word_zh": "Alex 谈这帮兄弟去开卡丁车竞争有多激烈：“超级激烈。就是，超级超级激烈。” 😭😭😭😭",
-      "hot_word_en": "alex on how competitive the boys trip karting got: \"massively. like, MASIVELLY.\" 😭😭😭😭",
-      "first_seen_at": "2026-10-01T08:09:01Z",
-      "last_seen_at": "2026-10-01T08:09:01Z",
-      "anchor_item_id": "piasnews-social-77e476a13e5f1913",
-      "image_url": "https://pbs.twimg.com/media/HTh9XIXXoAAh8lv.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HTh9XIXXoAAh8lv.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-77e476a13e5f1913",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: alex on how competitive the boys trip karting got: \"massively. like, MASIVELLY.\" 😭😭😭😭",
-          "title_zh": "X 发帖 @laurogeitabat：Alex 谈这帮兄弟去开卡丁车竞争有多激烈：“超级激烈。就是，超级超级激烈。” 😭😭😭😭",
-          "summary": "alex on how competitive the boys trip karting got: \"massively. like, MASIVELLY.\" 😭😭😭😭 https://t.co/lU6DMhXmjg",
-          "summary_zh": "Alex 谈这帮兄弟去开卡丁车竞争有多激烈：“超级激烈。就是，超级超级激烈。” 😭😭😭😭",
-          "url": "https://x.com/laurogeitabat/status/2105570667185734047",
-          "published_at": "2026-10-01T08:09:01Z",
-          "image_url": "https://pbs.twimg.com/media/HTh9XIXXoAAh8lv.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HTh9XIXXoAAh8lv.jpg",
-          "heat_contribution": 4.9701,
-          "metrics": {
-            "likes": 268,
-            "retweets": 14,
-            "replies": 0,
-            "quotes": 1,
-            "views": 1988,
-            "bookmarks": 4
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 27,
-      "heat": 27,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-09-30-c5e4fa9bae7c",
       "rule_id": null,
       "hot_word_zh": "等等 我刚发现我一夜之间涨到1万粉了？？？太疯狂了，我简直不敢相信有这么多人想看我的傻推文…",
@@ -1868,188 +1758,48 @@
       }
     },
     {
-      "event_id": "evt-2026-09-30-0a3a443bede5",
+      "event_id": "evt-2026-10-01-756fc8cf727c",
       "rule_id": null,
-      "hot_word_zh": "OSCARTTURI 双人组———一个串。Oscar Piastri 和 Artturi…",
-      "hot_word_en": "OSCARTTURI DUO ———a thread. Oscar Piastri and Artturi Simila - their underrated friendship is too precious to…",
-      "first_seen_at": "2026-09-30T03:27:12Z",
-      "last_seen_at": "2026-09-30T09:14:37Z",
-      "anchor_item_id": "piasnews-social-c118d969b836440d",
-      "image_url": "https://pbs.twimg.com/media/HTbzROFWAAA5VPL.jpg",
+      "hot_word_zh": "这些标语 😭🫶🏻",
+      "hot_word_en": "THESE SIGNS 😭🫶🏻",
+      "first_seen_at": "2026-10-01T08:06:48Z",
+      "last_seen_at": "2026-10-01T08:06:48Z",
+      "anchor_item_id": "piasnews-social-3cf62f37c12ce69c",
+      "image_url": "https://pbs.twimg.com/media/HTh813nXwAEnL7l.jpg",
       "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HTbzROFWAAA5VPL.jpg",
+      "video_poster_url": "https://pbs.twimg.com/media/HTh813nXwAEnL7l.jpg",
       "review_needed": true,
       "review_needed_reason": "fan_account_public_cap",
       "items": [
         {
-          "item_id": "piasnews-social-c118d969b836440d",
+          "item_id": "piasnews-social-3cf62f37c12ce69c",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X repost from @laurogeitabat: RT @oskipiastri: OSCARTTURI DUO ———a thread. Oscar Piastri and Artturi Simila - their underrate…",
-          "title_zh": "X 转帖 @laurogeitabat：RT @oskipiastri：OSCARTTURI 双人组———一个串。Oscar Piastri 和 Artturi Simila——他们被低估的友谊对我来说太珍贵了。",
-          "summary": "RT @oskipiastri: OSCARTTURI DUO ———a thread. Oscar Piastri and Artturi Simila - their underrated friendship is too precious to me. http…",
-          "summary_zh": "RT @oskipiastri：OSCARTTURI 双人组———一个串。Oscar Piastri 和 Artturi Simila——他们被低估的友谊对我来说太珍贵了。",
-          "url": "https://x.com/laurogeitabat/status/2105224790596325439",
-          "published_at": "2026-09-30T09:14:37Z",
-          "image_url": null,
+          "title": "X post from @laurogeitabat: THESE SIGNS 😭🫶🏻",
+          "title_zh": "X 发帖 @laurogeitabat：这些标语 😭🫶🏻",
+          "summary": "THESE SIGNS 😭🫶🏻 https://t.co/sOFQ5AZYJd",
+          "summary_zh": "这些标语 😭🫶🏻",
+          "url": "https://x.com/laurogeitabat/status/2105570108873535696",
+          "published_at": "2026-10-01T08:06:48Z",
+          "image_url": "https://pbs.twimg.com/media/HTh813nXwAEnL7l.jpg",
           "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 2.955,
+          "video_poster_url": "https://pbs.twimg.com/media/HTh813nXwAEnL7l.jpg",
+          "heat_contribution": 4.7704,
           "metrics": {
-            "likes": 0,
-            "retweets": 45,
-            "replies": 0,
-            "quotes": 0,
-            "views": 101,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-3b4093d0cfcc42c5",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X repost from @laurogeitabat: OSCARTTURI DUO ———a thread. Oscar Piastri and Artturi Simila - their underrated friendship is t…",
-          "title_zh": "X 转帖 @laurogeitabat：OSCARTTURI组合 ———一个串。Oscar Piastri和Artturi Simila——他们被低估的友谊对我来说太珍贵了。",
-          "summary": "OSCARTTURI DUO ———a thread. Oscar Piastri and Artturi Simila - their underrated friendship is too precious to me. https://t.co/pzLKlxZ7pI",
-          "summary_zh": "OSCARTTURI组合 ———一个串。Oscar Piastri和Artturi Simila——他们被低估的友谊对我来说太珍贵了。",
-          "url": "https://x.com/oskipiastri/status/2105137359108907346",
-          "published_at": "2026-09-30T03:27:12Z",
-          "image_url": "https://pbs.twimg.com/media/HTbzROFWAAA5VPL.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HTbzROFWAAA5VPL.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {
-            "likes": 686,
-            "retweets": 77,
-            "replies": 3,
-            "quotes": 7,
-            "views": 11030,
-            "bookmarks": 253
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 18,
-      "heat": 18,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-09-30-1ad02b9a7161",
-      "rule_id": null,
-      "hot_word_zh": "一件新衬衫已解锁",
-      "hot_word_en": "A NEW SHIRT HAS BEEN UNLOCKED",
-      "first_seen_at": "2026-09-30T09:08:47Z",
-      "last_seen_at": "2026-09-30T09:08:47Z",
-      "anchor_item_id": "piasnews-social-9ec984844d28a842",
-      "image_url": "https://pbs.twimg.com/media/HTdBcrEWgAAdQhW.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HTdBcrEWgAAdQhW.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-9ec984844d28a842",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: A NEW SHIRT HAS BEEN UNLOCKED 📸: nazrenerahman",
-          "title_zh": "X 发帖 @laurogeitabat：一件新衬衫已解锁 📸：nazrenerahman",
-          "summary": "A NEW SHIRT HAS BEEN UNLOCKED 📸: nazrenerahman https://t.co/fcixjdOQZb",
-          "summary_zh": "一件新衬衫已解锁 📸：nazrenerahman",
-          "url": "https://x.com/laurogeitabat/status/2105223321734234531",
-          "published_at": "2026-09-30T09:08:47Z",
-          "image_url": "https://pbs.twimg.com/media/HTdBcrEWgAAdQhW.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HTdBcrEWgAAdQhW.jpg",
-          "heat_contribution": 3.154,
-          "metrics": {
-            "likes": 87,
-            "retweets": 9,
-            "replies": 0,
-            "quotes": 0,
-            "views": 715,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 18,
-      "heat": 18,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-09-30-4e6ddd37a6e7",
-      "rule_id": null,
-      "hot_word_zh": "恕我直言：这他妈什么鬼",
-      "hot_word_en": "with all due respect: what the fuck",
-      "first_seen_at": "2026-09-30T09:11:30Z",
-      "last_seen_at": "2026-09-30T09:11:30Z",
-      "anchor_item_id": "piasnews-social-c7dc1034c4c76642",
-      "image_url": "https://pbs.twimg.com/media/HTdCDt5WsAAj_fR.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HTdCDt5WsAAj_fR.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-c7dc1034c4c76642",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: with all due respect: what the fuck",
-          "title_zh": "X 发帖 @laurogeitabat：恕我直言：这他妈什么鬼",
-          "summary": "with all due respect: what the fuck https://t.co/klcHIKwNZG",
-          "summary_zh": "恕我直言：这他妈什么鬼",
-          "url": "https://x.com/laurogeitabat/status/2105224005712044084",
-          "published_at": "2026-09-30T09:11:30Z",
-          "image_url": "https://pbs.twimg.com/media/HTdCDt5WsAAj_fR.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HTdCDt5WsAAj_fR.jpg",
-          "heat_contribution": 3.0019,
-          "metrics": {
-            "likes": 70,
-            "retweets": 8,
+            "likes": 444,
+            "retweets": 51,
             "replies": 1,
-            "quotes": 0,
-            "views": 662,
-            "bookmarks": 0
+            "quotes": 2,
+            "views": 3183,
+            "bookmarks": 7
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 18,
-      "heat": 18,
+      "fan_heat": 26,
+      "heat": 26,
       "source_labels": [
         "粉"
       ],
@@ -2066,48 +1816,48 @@
       }
     },
     {
-      "event_id": "evt-2026-09-30-5a4b48b936c1",
+      "event_id": "evt-2026-10-01-85829feaf0ab",
       "rule_id": null,
-      "hot_word_zh": "他知道自己还活着吗 😭😭😭",
-      "hot_word_en": "does he know he's alive 😭😭😭",
-      "first_seen_at": "2026-09-30T09:09:27Z",
-      "last_seen_at": "2026-09-30T09:09:27Z",
-      "anchor_item_id": "piasnews-social-345cebee4c25817d",
-      "image_url": "https://pbs.twimg.com/media/HTdBmE3XMAAKOkz.jpg",
+      "hot_word_zh": "Alex 谈这帮兄弟去开卡丁车竞争有多激烈：“超级激烈。就是，超级超级激烈。” 😭😭😭😭",
+      "hot_word_en": "alex on how competitive the boys trip karting got: \"massively. like, MASIVELLY.\" 😭😭😭😭",
+      "first_seen_at": "2026-10-01T08:09:01Z",
+      "last_seen_at": "2026-10-01T08:09:01Z",
+      "anchor_item_id": "piasnews-social-77e476a13e5f1913",
+      "image_url": "https://pbs.twimg.com/media/HTh9XIXXoAAh8lv.jpg",
       "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HTdBmE3XMAAKOkz.jpg",
+      "video_poster_url": "https://pbs.twimg.com/media/HTh9XIXXoAAh8lv.jpg",
       "review_needed": true,
       "review_needed_reason": "fan_account_public_cap",
       "items": [
         {
-          "item_id": "piasnews-social-345cebee4c25817d",
+          "item_id": "piasnews-social-77e476a13e5f1913",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: does he know he's alive 😭😭😭",
-          "title_zh": "X 发帖 @laurogeitabat：他知道自己还活着吗 😭😭😭",
-          "summary": "does he know he's alive 😭😭😭 https://t.co/hJkEWAVTY6",
-          "summary_zh": "他知道自己还活着吗 😭😭😭",
-          "url": "https://x.com/laurogeitabat/status/2105223487690305626",
-          "published_at": "2026-09-30T09:09:27Z",
-          "image_url": "https://pbs.twimg.com/media/HTdBmE3XMAAKOkz.jpg",
+          "title": "X post from @laurogeitabat: alex on how competitive the boys trip karting got: \"massively. like, MASIVELLY.\" 😭😭😭😭",
+          "title_zh": "X 发帖 @laurogeitabat：Alex 谈这帮兄弟去开卡丁车竞争有多激烈：“超级激烈。就是，超级超级激烈。” 😭😭😭😭",
+          "summary": "alex on how competitive the boys trip karting got: \"massively. like, MASIVELLY.\" 😭😭😭😭 https://t.co/lU6DMhXmjg",
+          "summary_zh": "Alex 谈这帮兄弟去开卡丁车竞争有多激烈：“超级激烈。就是，超级超级激烈。” 😭😭😭😭",
+          "url": "https://x.com/laurogeitabat/status/2105570667185734047",
+          "published_at": "2026-10-01T08:09:01Z",
+          "image_url": "https://pbs.twimg.com/media/HTh9XIXXoAAh8lv.jpg",
           "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HTdBmE3XMAAKOkz.jpg",
-          "heat_contribution": 3.0977,
+          "video_poster_url": "https://pbs.twimg.com/media/HTh9XIXXoAAh8lv.jpg",
+          "heat_contribution": 4.1678,
           "metrics": {
-            "likes": 80,
-            "retweets": 6,
-            "replies": 2,
-            "quotes": 0,
-            "views": 774,
-            "bookmarks": 0
+            "likes": 268,
+            "retweets": 14,
+            "replies": 0,
+            "quotes": 1,
+            "views": 1988,
+            "bookmarks": 4
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 18,
-      "heat": 18,
+      "fan_heat": 23,
+      "heat": 23,
       "source_labels": [
         "粉"
       ],
