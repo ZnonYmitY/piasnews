@@ -1,12 +1,71 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-03T09:35:54.244338Z",
+  "generated_at": "2026-10-03T09:50:56.566168Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
   "event_count": 10,
   "events": [
+    {
+      "event_id": "evt-session-result-2026-round-16-qualifying",
+      "rule_id": null,
+      "hot_word_zh": "Oscar 在Bahrain Grand Prix in Malaysia排位赛获得第7名",
+      "hot_word_en": "Oscar qualifies P7 for the Bahrain Grand Prix in Malaysia",
+      "first_seen_at": "2026-10-03T09:50:54.478076Z",
+      "last_seen_at": "2026-10-03T09:50:54.478076Z",
+      "anchor_item_id": "session-result-2026-round-16-qualifying",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "official_heat": 0,
+      "media_heat": 100,
+      "fan_heat": 0,
+      "heat": 100,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 1,
+        "fan": 0
+      },
+      "pinned_rank": 1,
+      "hidden": false,
+      "hard_rule": {
+        "type": "session_result",
+        "race_id": "2026-round-16",
+        "session": "qualifying",
+        "position": 7,
+        "status": "classified",
+        "provisional": false,
+        "source_item_id": "session-result-2026-round-16-qualifying",
+        "source": "Formula 1 Live Timing",
+        "latest": true
+      },
+      "items": [
+        {
+          "item_id": "session-result-2026-round-16-qualifying",
+          "dataset": "session_result",
+          "source_type": "media",
+          "source": "Formula 1 Live Timing",
+          "title": "Oscar qualifies P7 for the Bahrain Grand Prix in Malaysia",
+          "title_zh": "Oscar 在Bahrain Grand Prix in Malaysia排位赛获得第7名",
+          "summary": "Structured session result for Oscar Piastri.",
+          "summary_zh": "Oscar Piastri 的结构化场次成绩。",
+          "url": "https://livetiming.formula1.com/static/2026/2026-10-04_Bahrain_Grand_Prix/2026-10-03_Qualifying/TimingData.jsonStream",
+          "published_at": "2026-10-03T09:50:54.478076Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 100,
+          "metrics": {}
+        }
+      ],
+      "rank": 1
+    },
     {
       "event_id": "evt-session-result-2026-round-16-practice_3",
       "rule_id": null,
@@ -32,7 +91,7 @@
         "media": 1,
         "fan": 0
       },
-      "pinned_rank": 1,
+      "pinned_rank": null,
       "hidden": false,
       "hard_rule": {
         "type": "session_result",
@@ -43,7 +102,7 @@
         "provisional": false,
         "source_item_id": "session-result-2026-round-16-practice_3",
         "source": "Formula 1 Live Timing",
-        "latest": true
+        "latest": false
       },
       "items": [
         {
@@ -64,7 +123,7 @@
           "metrics": {}
         }
       ],
-      "rank": 1
+      "rank": 2
     },
     {
       "event_id": "evt-session-result-2026-round-16-practice_2",
@@ -123,10 +182,10 @@
           "metrics": {}
         }
       ],
-      "rank": 2
+      "rank": 3
     },
     {
-      "event_id": "evt-2026-09-30-313a4fac3974-313a4fac",
+      "event_id": "evt-2026-09-30-313a4fac3974",
       "rule_id": null,
       "hot_word_zh": "后面那个人看起来很眼熟 👀 看来Oscar和George是一起飞过来的！",
       "hot_word_en": "that guy in the back looks familiar 👀 seems like oscar and george flew in together! 📸: hakiemas…",
@@ -178,51 +237,51 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 3
+      "rank": 4
     },
     {
       "event_id": "evt-2026-09-30-fd26cbf19ec8-fd26cbf1",
       "rule_id": null,
-      "hot_word_zh": "OSCAR出现在George男生旅行照片合集里了！",
-      "hot_word_en": "OSCAR'S CAMEOS IN GEORGE'S PHOTODUMP OF THE BOYS' TRIP! you can see him being filmed by lando for his docuser…",
-      "first_seen_at": "2026-09-30T09:36:31Z",
-      "last_seen_at": "2026-09-30T09:36:31Z",
-      "anchor_item_id": "piasnews-social-0cca55eec48e4ef5",
-      "image_url": "https://pbs.twimg.com/media/HTdHyD7WQAAzApI.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HTdHyD7WQAAzApI.jpg",
+      "hot_word_zh": "George说卡丁车比赛简直是一场混战，还说OSCAR差点又断了一根肋骨？？？？",
+      "hot_word_en": "george said the karting race was carnage and that OSCAR ALMOST BROKE ANOTHER RIB?????",
+      "first_seen_at": "2026-09-30T14:16:01Z",
+      "last_seen_at": "2026-09-30T14:16:01Z",
+      "anchor_item_id": "piasnews-social-bd73f771a7e993a5",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2105296636788215808/vid/avc1/1080x1920/R0cgBWhuLbOEIpE8.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2105296636788215808/img/lIGHJh-a_CFiDgwg.jpg",
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
         {
-          "item_id": "piasnews-social-0cca55eec48e4ef5",
+          "item_id": "piasnews-social-bd73f771a7e993a5",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: OSCAR'S CAMEOS IN GEORGE'S PHOTODUMP OF THE BOYS' TRIP! you can see him being filmed by lando f…",
-          "title_zh": "X 发帖 @laurogeitabat：OSCAR出现在George男生旅行照片合集里了！你可以看到Lando在给他的纪录片拍摄，还有他和Gabi、Carlos聊天 🥰",
-          "summary": "OSCAR'S CAMEOS IN GEORGE'S PHOTODUMP OF THE BOYS' TRIP! you can see him being filmed by lando for his docuseries and chatting with gabi and carlos 🥰 https://t.co/uKBOIoi09o",
-          "summary_zh": "OSCAR出现在George男生旅行照片合集里了！你可以看到Lando在给他的纪录片拍摄，还有他和Gabi、Carlos聊天 🥰",
-          "url": "https://x.com/laurogeitabat/status/2105230300544483534",
-          "published_at": "2026-09-30T09:36:31Z",
-          "image_url": "https://pbs.twimg.com/media/HTdHyD7WQAAzApI.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HTdHyD7WQAAzApI.jpg",
-          "heat_contribution": 6.9687,
+          "title": "X post from @laurogeitabat: george said the karting race was carnage and that OSCAR ALMOST BROKE ANOTHER RIB????? their com…",
+          "title_zh": "X 发帖 @laurogeitabat：George说卡丁车比赛简直是一场混战，还说OSCAR差点又断了一根肋骨？？？？他们这些好胜心强的人真该冷静一下 😭",
+          "summary": "george said the karting race was carnage and that OSCAR ALMOST BROKE ANOTHER RIB????? their competitive asses need to chill 😭 https://t.co/TaIZoSr9AK",
+          "summary_zh": "George说卡丁车比赛简直是一场混战，还说OSCAR差点又断了一根肋骨？？？？他们这些好胜心强的人真该冷静一下 😭",
+          "url": "https://x.com/laurogeitabat/status/2105300639274119430",
+          "published_at": "2026-09-30T14:16:01Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2105296636788215808/vid/avc1/1080x1920/R0cgBWhuLbOEIpE8.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2105296636788215808/img/lIGHJh-a_CFiDgwg.jpg",
+          "heat_contribution": 6.8747,
           "metrics": {
-            "likes": 3727,
-            "retweets": 385,
-            "replies": 6,
-            "quotes": 78,
-            "views": 63818,
-            "bookmarks": 292
+            "likes": 3661,
+            "retweets": 290,
+            "replies": 3,
+            "quotes": 58,
+            "views": 46645,
+            "bookmarks": 379
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 37,
-      "heat": 37,
+      "fan_heat": 36,
+      "heat": 36,
       "source_labels": [
         "粉"
       ],
@@ -233,7 +292,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 4
+      "rank": 5
     },
     {
       "event_id": "evt-2026-09-26-a8f0a951d1c9",
@@ -297,7 +356,7 @@
           "image_url": "https://www.racefans.net/wp-content/themes/twentyfifteen/assets/images/default-og.jpg",
           "video_url": null,
           "video_poster_url": "https://www.racefans.net/wp-content/themes/twentyfifteen/assets/images/default-og.jpg",
-          "heat_contribution": 0.75,
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -353,9 +412,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 27,
+      "media_heat": 25,
       "fan_heat": 0,
-      "heat": 27,
+      "heat": 25,
       "source_labels": [
         "媒"
       ],
@@ -366,7 +425,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 5
+      "rank": 6
     },
     {
       "event_id": "evt-2026-10-01-73cb8a3c87b1",
@@ -421,7 +480,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 7
     },
     {
       "event_id": "evt-2026-09-24-23eb408405cf-23eb4084",
@@ -588,7 +647,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 8
     },
     {
       "event_id": "evt-2026-09-30-67ada2c81653",
@@ -704,7 +763,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 9
     },
     {
       "event_id": "evt-2026-10-02-5a89cae6a9a6",
@@ -786,315 +845,11 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 9
-    },
-    {
-      "event_id": "evt-2026-09-29-9061886acb62",
-      "rule_id": null,
-      "hot_word_zh": "Oscar Piastri 在 Baku 被抓到“睡着了”后，被告知为何他“不像 Max…",
-      "hot_word_en": "Oscar Piastri told why he’s ‘not a racer’ like Max Verstappen after getting caught ‘asleep’ in Baku",
-      "first_seen_at": "2026-09-27T01:28:38Z",
-      "last_seen_at": "2026-10-02T01:41:29Z",
-      "anchor_item_id": "piasnews-f6333bda0315a42b",
-      "image_url": "https://autoaction.com.au/wp-content/uploads/2026/10/Image-2-e1790900740520.jpg?v=1790900674",
-      "video_url": null,
-      "video_poster_url": "https://autoaction.com.au/wp-content/uploads/2026/10/Image-2-e1790900740520.jpg?v=1790900674",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-d18865e46df56ca6",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Auto Action",
-          "title": "Piastri ready to \"finish the job\" after Baku setback",
-          "title_zh": "Baku受挫后，Piastri 准备“完成任务”",
-          "summary": "Oscar Piastri-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
-          "url": "https://autoaction.com.au/2026/10/02/piastri-ready-to-finish-the-job-after-baku-setback",
-          "published_at": "2026-10-02T01:41:29Z",
-          "image_url": "https://autoaction.com.au/wp-content/uploads/2026/10/Image-2-e1790900740520.jpg?v=1790900674",
-          "video_url": null,
-          "video_poster_url": "https://autoaction.com.au/wp-content/uploads/2026/10/Image-2-e1790900740520.jpg?v=1790900674",
-          "heat_contribution": 0.45,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-f6333bda0315a42b",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "F1 Oversteer",
-          "title": "Oscar Piastri told why he’s ‘not a racer’ like Max Verstappen after getting caught ‘asleep’ in Baku",
-          "title_zh": "Oscar Piastri 在 Baku 被抓到“睡着了”后，被告知为何他“不像 Max Verstappen 那样是个赛车手”",
-          "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
-          "url": "https://www.f1oversteer.com/news/oscar-piastri-told-why-hes-not-a-racer-like-max-verstappen-after-getting-caught-asleep-in-baku/",
-          "published_at": "2026-09-29T08:00:00Z",
-          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2297257270-scaled.jpg",
-          "video_url": null,
-          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2297257270-scaled.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-14d7eae2e80b642e",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Auto Action",
-          "title": "Piastri’s Baku podium bid collapses after costly lock-up",
-          "title_zh": "Piastri的Baku领奖台争夺在代价高昂的锁死后崩溃",
-          "summary": "Oscar Piastri-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
-          "url": "https://autoaction.com.au/2026/09/27/piastris-baku-podium-bid-collapses-after-costly-lock-up",
-          "published_at": "2026-09-27T01:28:38Z",
-          "image_url": "https://autoaction.com.au/wp-content/uploads/2026/09/2026-Azerbaijan-Grand-Prix-–-Race-Report-e1790472419164.jpeg?v=1790472364",
-          "video_url": null,
-          "video_poster_url": "https://autoaction.com.au/wp-content/uploads/2026/09/2026-Azerbaijan-Grand-Prix-–-Race-Report-e1790472419164.jpeg?v=1790472364",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 10,
-      "fan_heat": 0,
-      "heat": 10,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 2,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
       "rank": 10
     }
   ],
-  "review_needed_count": 16,
+  "review_needed_count": 13,
   "review_needed_events": [
-    {
-      "event_id": "evt-2026-09-30-fd26cbf19ec8",
-      "rule_id": null,
-      "hot_word_zh": "George说卡丁车比赛简直是一场混战，还说OSCAR差点又断了一根肋骨？？？？",
-      "hot_word_en": "george said the karting race was carnage and that OSCAR ALMOST BROKE ANOTHER RIB?????",
-      "first_seen_at": "2026-09-30T14:16:01Z",
-      "last_seen_at": "2026-09-30T14:16:01Z",
-      "anchor_item_id": "piasnews-social-bd73f771a7e993a5",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2105296636788215808/vid/avc1/1080x1920/R0cgBWhuLbOEIpE8.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2105296636788215808/img/lIGHJh-a_CFiDgwg.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-bd73f771a7e993a5",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: george said the karting race was carnage and that OSCAR ALMOST BROKE ANOTHER RIB????? their com…",
-          "title_zh": "X 发帖 @laurogeitabat：George说卡丁车比赛简直是一场混战，还说OSCAR差点又断了一根肋骨？？？？他们这些好胜心强的人真该冷静一下 😭",
-          "summary": "george said the karting race was carnage and that OSCAR ALMOST BROKE ANOTHER RIB????? their competitive asses need to chill 😭 https://t.co/TaIZoSr9AK",
-          "summary_zh": "George说卡丁车比赛简直是一场混战，还说OSCAR差点又断了一根肋骨？？？？他们这些好胜心强的人真该冷静一下 😭",
-          "url": "https://x.com/laurogeitabat/status/2105300639274119430",
-          "published_at": "2026-09-30T14:16:01Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2105296636788215808/vid/avc1/1080x1920/R0cgBWhuLbOEIpE8.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2105296636788215808/img/lIGHJh-a_CFiDgwg.jpg",
-          "heat_contribution": 6.8747,
-          "metrics": {
-            "likes": 3661,
-            "retweets": 290,
-            "replies": 3,
-            "quotes": 58,
-            "views": 46645,
-            "bookmarks": 379
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 36,
-      "heat": 36,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-09-30-078917225fbd",
-      "rule_id": null,
-      "hot_word_zh": "Oscar在George的照片合集里的评论 😭😭😭 “谢谢你买单 🤝”",
-      "hot_word_en": "oscar's comment in george's photodump 😭😭😭 \"Cheers for picking up the bill 🤝\"",
-      "first_seen_at": "2026-09-30T09:40:01Z",
-      "last_seen_at": "2026-09-30T09:40:01Z",
-      "anchor_item_id": "piasnews-social-41e38abc49a242b7",
-      "image_url": "https://pbs.twimg.com/media/HTdIlVMXQAAD31e.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HTdIlVMXQAAD31e.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-41e38abc49a242b7",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar's comment in george's photodump 😭😭😭 \"Cheers for picking up the bill 🤝\"",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar在George的照片合集里的评论 😭😭😭 “谢谢你买单 🤝”",
-          "summary": "oscar's comment in george's photodump 😭😭😭 \"Cheers for picking up the bill 🤝\" https://t.co/SR48ikgguH",
-          "summary_zh": "Oscar在George的照片合集里的评论 😭😭😭 “谢谢你买单 🤝”",
-          "url": "https://x.com/laurogeitabat/status/2105231180022906973",
-          "published_at": "2026-09-30T09:40:01Z",
-          "image_url": "https://pbs.twimg.com/media/HTdIlVMXQAAD31e.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HTdIlVMXQAAD31e.jpg",
-          "heat_contribution": 6.3458,
-          "metrics": {
-            "likes": 1977,
-            "retweets": 250,
-            "replies": 1,
-            "quotes": 37,
-            "views": 29139,
-            "bookmarks": 59
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 34,
-      "heat": 34,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-09-29-ddd5b01baed9",
-      "rule_id": null,
-      "hot_word_zh": "今天男生们卡丁车之旅的最佳成绩以及他们使用的用户名 😭😭 george - g dawg…",
-      "hot_word_en": "the best times the boys' trip atendees did in karting today and the usernames they used 😭😭 george - g dawg ca…",
-      "first_seen_at": "2026-09-29T14:02:43Z",
-      "last_seen_at": "2026-09-30T09:37:42Z",
-      "anchor_item_id": "piasnews-social-6485bc87848b4a84",
-      "image_url": "https://pbs.twimg.com/media/HTdIEAXXgAAYKoT.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HTdIEAXXgAAYKoT.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-f47cfb90fa7b8820",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar, george, alex, ollie, carlos and gabi hiking during the boys' trip ✨",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar、George、Alex、Ollie、Carlos和Gabi在男生们的旅行中徒步 ✨",
-          "summary": "oscar, george, alex, ollie, carlos and gabi hiking during the boys' trip ✨ https://t.co/qKR9Eb3Z9v",
-          "summary_zh": "Oscar、George、Alex、Ollie、Carlos和Gabi在男生们的旅行中徒步 ✨",
-          "url": "https://x.com/laurogeitabat/status/2105230596993602039",
-          "published_at": "2026-09-30T09:37:42Z",
-          "image_url": "https://pbs.twimg.com/media/HTdIEAXXgAAYKoT.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HTdIEAXXgAAYKoT.jpg",
-          "heat_contribution": 6.1034,
-          "metrics": {
-            "likes": 1435,
-            "retweets": 204,
-            "replies": 6,
-            "quotes": 63,
-            "views": 24482,
-            "bookmarks": 65
-          }
-        },
-        {
-          "item_id": "piasnews-social-6485bc87848b4a84",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: the best times the boys' trip atendees did in karting today and the usernames they used 😭😭 geor…",
-          "title_zh": "X 发帖 @laurogeitabat：今天男生们卡丁车之旅的最佳成绩以及他们使用的用户名 😭😭 george - g dawg carlos - 55 alex - Albino Albino ollie - ollieb gabi - gabriiiii oscar - OP 还有我们怎么才能让Oscar摆脱他与P7的有毒关系 😭😭😭",
-          "summary": "the best times the boys' trip atendees did in karting today and the usernames they used 😭😭 george - g dawg carlos - 55 alex - Albino Albino ollie - ollieb gabi - gabriiiii oscar - OP also how do we set oscar free from his toxic relationship with P7 😭😭😭 https://t.co/T0ye3JtxoH",
-          "summary_zh": "今天男生们卡丁车之旅的最佳成绩以及他们使用的用户名 😭😭 george - g dawg carlos - 55 alex - Albino Albino ollie - ollieb gabi - gabriiiii oscar - OP 还有我们怎么才能让Oscar摆脱他与P7的有毒关系 😭😭😭",
-          "url": "https://x.com/laurogeitabat/status/2104954426196684855",
-          "published_at": "2026-09-29T15:20:18Z",
-          "image_url": "https://pbs.twimg.com/media/HTZM5ANWMAAI9eM.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HTZM5ANWMAAI9eM.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {
-            "likes": 2832,
-            "retweets": 423,
-            "replies": 11,
-            "quotes": 0,
-            "views": 127110,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-b915bb296a5dcc0d",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: ALEX, OSCAR, CARLOS, OLLIE, GABI AND GEORGE HANGING OUT TODAY !!! 📸: _._emile_._",
-          "title_zh": "X 发帖 @laurogeitabat：ALEX、OSCAR、CARLOS、OLLIE、GABI和GEORGE今天一起玩！！！ 📸: _._emile_._",
-          "summary": "ALEX, OSCAR, CARLOS, OLLIE, GABI AND GEORGE HANGING OUT TODAY !!! 📸: _._emile_._ https://t.co/qNIcCbTgby",
-          "summary_zh": "ALEX、OSCAR、CARLOS、OLLIE、GABI和GEORGE今天一起玩！！！ 📸: _._emile_._",
-          "url": "https://x.com/laurogeitabat/status/2104934904957972924",
-          "published_at": "2026-09-29T14:02:43Z",
-          "image_url": "https://pbs.twimg.com/media/HTY7IqLXQAArd7T.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HTY7IqLXQAArd7T.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {
-            "likes": 7492,
-            "retweets": 874,
-            "replies": 38,
-            "quotes": 0,
-            "views": 435826,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 33,
-      "heat": 33,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
     {
       "event_id": "evt-2026-09-30-06d512a314cf",
       "rule_id": null,
