@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-02T23:08:20.165046Z",
+  "generated_at": "2026-10-03T05:50:52.570691Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -205,7 +205,7 @@
       "rank": 3
     },
     {
-      "event_id": "evt-2026-09-30-313a4fac3974",
+      "event_id": "evt-2026-09-30-313a4fac3974-313a4fac",
       "rule_id": null,
       "hot_word_zh": "后面那个人看起来很眼熟 👀 看来Oscar和George是一起飞过来的！",
       "hot_word_en": "that guy in the back looks familiar 👀 seems like oscar and george flew in together! 📸: hakiemas…",
@@ -287,7 +287,7 @@
           "image_url": "https://cdn.racingnews365.com/2026/Piastri/XPB_1440810_HiRes.jpg?v=1790928989&width=1800&height=945&quality=75&crop=5472%2C2873%2C0%2C387",
           "video_url": null,
           "video_poster_url": "https://cdn.racingnews365.com/2026/Piastri/XPB_1440810_HiRes.jpg?v=1790928989&width=1800&height=945&quality=75&crop=5472%2C2873%2C0%2C387",
-          "heat_contribution": 1.0,
+          "heat_contribution": 0.75,
           "metrics": {}
         },
         {
@@ -377,9 +377,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 29,
+      "media_heat": 27,
       "fan_heat": 0,
-      "heat": 29,
+      "heat": 27,
       "source_labels": [
         "媒"
       ],
@@ -420,7 +420,7 @@
           "image_url": "https://pbs.twimg.com/media/HThUJQEXoAAEAwg.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HThUJQEXoAAEAwg.jpg",
-          "heat_contribution": 5.4205,
+          "heat_contribution": 4.6151,
           "metrics": {
             "likes": 381,
             "retweets": 30,
@@ -433,8 +433,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 29,
-      "heat": 29,
+      "fan_heat": 25,
+      "heat": 25,
       "source_labels": [
         "粉"
       ],
@@ -492,7 +492,7 @@
           "image_url": "https://live-production.wcms.abc-cdn.net.au/7d48ae31aea7591edc024c2772126668?impolicy=wcms_watermark_news&cropH=1449&cropW=2576&xPos=0&yPos=134&width=862&height=485&imformat=generic",
           "video_url": null,
           "video_poster_url": "https://live-production.wcms.abc-cdn.net.au/7d48ae31aea7591edc024c2772126668?impolicy=wcms_watermark_news&cropH=1449&cropW=2576&xPos=0&yPos=134&width=862&height=485&imformat=generic",
-          "heat_contribution": 0.75,
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -616,9 +616,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 26,
+      "media_heat": 24,
       "fan_heat": 0,
-      "heat": 26,
+      "heat": 24,
       "source_labels": [
         "媒"
       ],
@@ -693,7 +693,7 @@
           "image_url": "https://lentedesportiva.com/wp-content/uploads/2026/09/lente-f122d5e7-a4f0-4e11-8752-b6b1bc9fb357.png",
           "video_url": null,
           "video_poster_url": "https://lentedesportiva.com/wp-content/uploads/2026/09/lente-f122d5e7-a4f0-4e11-8752-b6b1bc9fb357.png",
-          "heat_contribution": 0.2,
+          "heat_contribution": 0.0,
           "metrics": {}
         },
         {
@@ -732,9 +732,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 22,
+      "media_heat": 18,
       "fan_heat": 0,
-      "heat": 22,
+      "heat": 18,
       "source_labels": [
         "媒"
       ],
@@ -830,75 +830,58 @@
       "rank": 9
     },
     {
-      "event_id": "evt-2026-09-29-9061886acb62",
+      "event_id": "evt-2026-09-30-1e565abfcbf5",
       "rule_id": null,
-      "hot_word_zh": "Oscar Piastri 在 Baku 被抓到“睡着了”后，被告知为何他“不像 Max…",
-      "hot_word_en": "Oscar Piastri told why he’s ‘not a racer’ like Max Verstappen after getting caught ‘asleep’ in Baku",
-      "first_seen_at": "2026-09-27T01:28:38Z",
-      "last_seen_at": "2026-10-02T01:41:29Z",
-      "anchor_item_id": "piasnews-f6333bda0315a42b",
-      "image_url": "https://autoaction.com.au/wp-content/uploads/2026/10/Image-2-e1790900740520.jpg?v=1790900674",
+      "hot_word_zh": "F1新闻：Danner排除Antonelli出现Piastri式崩盘的可能",
+      "hot_word_en": "Formula 1 News: Danner rules out Piastri-style Antonelli collapse",
+      "first_seen_at": "2026-09-30T07:36:00Z",
+      "last_seen_at": "2026-09-30T10:39:29Z",
+      "anchor_item_id": "piasnews-fc58be94d96e4a8e",
+      "image_url": "https://www.autoracing1.com/wp-content/uploads/2026/mugshots/antonelli4.jpg",
       "video_url": null,
-      "video_poster_url": "https://autoaction.com.au/wp-content/uploads/2026/10/Image-2-e1790900740520.jpg?v=1790900674",
+      "video_poster_url": "https://www.autoracing1.com/wp-content/uploads/2026/mugshots/antonelli4.jpg",
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
         {
-          "item_id": "piasnews-d18865e46df56ca6",
+          "item_id": "piasnews-fc58be94d96e4a8e",
           "dataset": "items",
           "source_type": "media",
-          "source": "Auto Action",
-          "title": "Piastri ready to \"finish the job\" after Baku setback",
-          "title_zh": "Baku受挫后，Piastri 准备“完成任务”",
+          "source": "bvmsports.com",
+          "title": "Formula 1 News: Danner rules out Piastri-style Antonelli collapse",
+          "title_zh": "F1新闻：Danner排除Antonelli出现Piastri式崩盘的可能",
           "summary": "Oscar Piastri-related item discovered from public news metadata.",
           "summary_zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
-          "url": "https://autoaction.com.au/2026/10/02/piastri-ready-to-finish-the-job-after-baku-setback",
-          "published_at": "2026-10-02T01:41:29Z",
-          "image_url": "https://autoaction.com.au/wp-content/uploads/2026/10/Image-2-e1790900740520.jpg?v=1790900674",
+          "url": "https://bvmsports.com/2026/09/30/formula-1-news-danner-rules-out-piastri-style-antonelli-collapse/",
+          "published_at": "2026-09-30T10:39:29Z",
+          "image_url": "https://www.autoracing1.com/wp-content/uploads/2026/mugshots/antonelli4.jpg",
           "video_url": null,
-          "video_poster_url": "https://autoaction.com.au/wp-content/uploads/2026/10/Image-2-e1790900740520.jpg?v=1790900674",
-          "heat_contribution": 0.75,
+          "video_poster_url": "https://www.autoracing1.com/wp-content/uploads/2026/mugshots/antonelli4.jpg",
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
-          "item_id": "piasnews-f6333bda0315a42b",
+          "item_id": "piasnews-4841de719afdc3cd",
           "dataset": "items",
           "source_type": "media",
-          "source": "F1 Oversteer",
-          "title": "Oscar Piastri told why he’s ‘not a racer’ like Max Verstappen after getting caught ‘asleep’ in Baku",
-          "title_zh": "Oscar Piastri 在 Baku 被抓到“睡着了”后，被告知为何他“不像 Max Verstappen 那样是个赛车手”",
-          "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
-          "url": "https://www.f1oversteer.com/news/oscar-piastri-told-why-hes-not-a-racer-like-max-verstappen-after-getting-caught-asleep-in-baku/",
-          "published_at": "2026-09-29T08:00:00Z",
-          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2297257270-scaled.jpg",
-          "video_url": null,
-          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/09/GettyImages-2297257270-scaled.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-14d7eae2e80b642e",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Auto Action",
-          "title": "Piastri’s Baku podium bid collapses after costly lock-up",
-          "title_zh": "Piastri的Baku领奖台争夺在代价高昂的锁死后崩溃",
+          "source": "Nextgen-Auto.com",
+          "title": "Danner rules out Piastri-style Antonelli collapse",
+          "title_zh": "丹纳排除Piastri式Antonelli崩盘的可能性",
           "summary": "Oscar Piastri-related item discovered from public news metadata.",
           "summary_zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
-          "url": "https://autoaction.com.au/2026/09/27/piastris-baku-podium-bid-collapses-after-costly-lock-up",
-          "published_at": "2026-09-27T01:28:38Z",
-          "image_url": "https://autoaction.com.au/wp-content/uploads/2026/09/2026-Azerbaijan-Grand-Prix-–-Race-Report-e1790472419164.jpeg?v=1790472364",
+          "url": "https://motorsport.nextgen-auto.com/en/formula-1/danner-rules-out-piastri-style-antonelli-collapse,211870.html",
+          "published_at": "2026-09-30T07:36:00Z",
+          "image_url": "https://motorsport.nextgen-auto.com/IMG/logo/mercedes_35_-6.jpg",
           "video_url": null,
-          "video_poster_url": "https://autoaction.com.au/wp-content/uploads/2026/09/2026-Azerbaijan-Grand-Prix-–-Race-Report-e1790472419164.jpeg?v=1790472364",
-          "heat_contribution": 0.0,
+          "video_poster_url": "https://motorsport.nextgen-auto.com/IMG/logo/mercedes_35_-6.jpg",
+          "heat_contribution": 0.2,
           "metrics": {}
         }
       ],
       "official_heat": 0,
-      "media_heat": 13,
+      "media_heat": 12,
       "fan_heat": 0,
-      "heat": 13,
+      "heat": 12,
       "source_labels": [
         "媒"
       ],
@@ -1031,88 +1014,6 @@
       }
     },
     {
-      "event_id": "evt-2026-09-30-0a3a443bede5",
-      "rule_id": null,
-      "hot_word_zh": "OSCARTTURI 双人组———一个串。Oscar Piastri 和 Artturi…",
-      "hot_word_en": "OSCARTTURI DUO ———a thread. Oscar Piastri and Artturi Simila - their underrated friendship is too precious to…",
-      "first_seen_at": "2026-09-30T03:27:12Z",
-      "last_seen_at": "2026-09-30T09:14:37Z",
-      "anchor_item_id": "piasnews-social-c118d969b836440d",
-      "image_url": "https://pbs.twimg.com/media/HTbzROFWAAA5VPL.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HTbzROFWAAA5VPL.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-3b4093d0cfcc42c5",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X repost from @laurogeitabat: OSCARTTURI DUO ———a thread. Oscar Piastri and Artturi Simila - their underrated friendship is t…",
-          "title_zh": "X 转帖 @laurogeitabat：OSCARTTURI组合 ———一个串。Oscar Piastri和Artturi Simila——他们被低估的友谊对我来说太珍贵了。",
-          "summary": "OSCARTTURI DUO ———a thread. Oscar Piastri and Artturi Simila - their underrated friendship is too precious to me. https://t.co/pzLKlxZ7pI",
-          "summary_zh": "OSCARTTURI组合 ———一个串。Oscar Piastri和Artturi Simila——他们被低估的友谊对我来说太珍贵了。",
-          "url": "https://x.com/oskipiastri/status/2105137359108907346",
-          "published_at": "2026-09-30T03:27:12Z",
-          "image_url": "https://pbs.twimg.com/media/HTbzROFWAAA5VPL.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HTbzROFWAAA5VPL.jpg",
-          "heat_contribution": 5.2764,
-          "metrics": {
-            "likes": 686,
-            "retweets": 77,
-            "replies": 3,
-            "quotes": 7,
-            "views": 11030,
-            "bookmarks": 253
-          }
-        },
-        {
-          "item_id": "piasnews-social-c118d969b836440d",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X repost from @laurogeitabat: RT @oskipiastri: OSCARTTURI DUO ———a thread. Oscar Piastri and Artturi Simila - their underrate…",
-          "title_zh": "X 转帖 @laurogeitabat：RT @oskipiastri：OSCARTTURI 双人组———一个串。Oscar Piastri 和 Artturi Simila——他们被低估的友谊对我来说太珍贵了。",
-          "summary": "RT @oskipiastri: OSCARTTURI DUO ———a thread. Oscar Piastri and Artturi Simila - their underrated friendship is too precious to me. http…",
-          "summary_zh": "RT @oskipiastri：OSCARTTURI 双人组———一个串。Oscar Piastri 和 Artturi Simila——他们被低估的友谊对我来说太珍贵了。",
-          "url": "https://x.com/laurogeitabat/status/2105224790596325439",
-          "published_at": "2026-09-30T09:14:37Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 2.955,
-          "metrics": {
-            "likes": 0,
-            "retweets": 45,
-            "replies": 0,
-            "quotes": 0,
-            "views": 101,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 35,
-      "heat": 35,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-09-30-078917225fbd",
       "rule_id": null,
       "hot_word_zh": "Oscar在George的照片合集里的评论 😭😭😭 “谢谢你买单 🤝”",
@@ -1171,7 +1072,7 @@
       }
     },
     {
-      "event_id": "evt-2026-09-29-ddd5b01baed9-7175487c",
+      "event_id": "evt-2026-09-29-ddd5b01baed9",
       "rule_id": null,
       "hot_word_zh": "今天男生们卡丁车之旅的最佳成绩以及他们使用的用户名 😭😭 george - g dawg…",
       "hot_word_en": "the best times the boys' trip atendees did in karting today and the usernames they used 😭😭 george - g dawg ca…",
@@ -1335,64 +1236,6 @@
       }
     },
     {
-      "event_id": "evt-2026-10-01-0215c7fdaa44",
-      "rule_id": null,
-      "hot_word_zh": "“早上好！”Oscar：“你好！” “欢迎来到马来西亚的巴林！”Oscar：“谢谢。",
-      "hot_word_en": "\"morning!\" oscar: \"hello!\" \"welcome to bahrain in malaysia!\" oscar: \"thank you. it's very... bahraini.",
-      "first_seen_at": "2026-10-01T05:46:16Z",
-      "last_seen_at": "2026-10-01T05:46:16Z",
-      "anchor_item_id": "piasnews-social-8f4ef71ad7f1865f",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2105534711544049664/vid/avc1/720x1280/Eub_Yn3Bqdd50Mh3.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2105534711544049664/img/yEtqNYURPUleI2fx.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-8f4ef71ad7f1865f",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: \"morning!\" oscar: \"hello!\" \"welcome to bahrain in malaysia!\" oscar: \"thank you. it's very... ba…",
-          "title_zh": "X 发帖 @laurogeitabat：“早上好！”Oscar：“你好！” “欢迎来到马来西亚的巴林！”Oscar：“谢谢。非常……巴林。在马来西亚。” “期待开这条赛道吗？”Oscar：“是啊！应该会很好玩！新赛道，而且肯定不冷，所以我就等着看 Lando 会穿哪件连帽衫出现”",
-          "summary": "\"morning!\" oscar: \"hello!\" \"welcome to bahrain in malaysia!\" oscar: \"thank you. it's very... bahraini. in malaysia.\" \"excited to drive the circuit?\" oscar: \"yeah! should be fun! new track and it's definitely not cold so i'm just waiting to see which hoodie lando turns up in\" https://t.co/HVxMxT8AvQ",
-          "summary_zh": "“早上好！”Oscar：“你好！” “欢迎来到马来西亚的巴林！”Oscar：“谢谢。非常……巴林。在马来西亚。” “期待开这条赛道吗？”Oscar：“是啊！应该会很好玩！新赛道，而且肯定不冷，所以我就等着看 Lando 会穿哪件连帽衫出现”",
-          "url": "https://x.com/laurogeitabat/status/2105534743253049438",
-          "published_at": "2026-10-01T05:46:16Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2105534711544049664/vid/avc1/720x1280/Eub_Yn3Bqdd50Mh3.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2105534711544049664/img/yEtqNYURPUleI2fx.jpg",
-          "heat_contribution": 6.0918,
-          "metrics": {
-            "likes": 726,
-            "retweets": 64,
-            "replies": 0,
-            "quotes": 11,
-            "views": 10451,
-            "bookmarks": 47
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 33,
-      "heat": 33,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-09-30-dba2362dff6b",
       "rule_id": null,
       "hot_word_zh": "Artturi：“目标是 5 分钟” Oscar：“5 分钟？？",
@@ -1428,64 +1271,6 @@
             "quotes": 7,
             "views": 19847,
             "bookmarks": 146
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 32,
-      "heat": 32,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-01-de9da33729ba",
-      "rule_id": null,
-      "hot_word_zh": "Oscar 在马来西亚的第一个媒体日开始了！",
-      "hot_word_en": "oscar's first media day in malaysia is underway!",
-      "first_seen_at": "2026-10-01T05:25:08Z",
-      "last_seen_at": "2026-10-01T05:25:08Z",
-      "anchor_item_id": "piasnews-social-24ea15c58492e5e6",
-      "image_url": "https://pbs.twimg.com/media/HThX1sYWwAA5XJL.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HThX1sYWwAA5XJL.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-24ea15c58492e5e6",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar's first media day in malaysia is underway!",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar 在马来西亚的第一个媒体日开始了！",
-          "summary": "oscar's first media day in malaysia is underway! https://t.co/vlgakFkL4Q",
-          "summary_zh": "Oscar 在马来西亚的第一个媒体日开始了！",
-          "url": "https://x.com/laurogeitabat/status/2105529424611328040",
-          "published_at": "2026-10-01T05:25:08Z",
-          "image_url": "https://pbs.twimg.com/media/HThX1sYWwAA5XJL.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HThX1sYWwAA5XJL.jpg",
-          "heat_contribution": 5.8919,
-          "metrics": {
-            "likes": 579,
-            "retweets": 75,
-            "replies": 0,
-            "quotes": 10,
-            "views": 5345,
-            "bookmarks": 19
           }
         }
       ],
@@ -1741,6 +1526,64 @@
       }
     },
     {
+      "event_id": "evt-2026-10-01-0215c7fdaa44",
+      "rule_id": null,
+      "hot_word_zh": "“早上好！”Oscar：“你好！” “欢迎来到马来西亚的巴林！”Oscar：“谢谢。",
+      "hot_word_en": "\"morning!\" oscar: \"hello!\" \"welcome to bahrain in malaysia!\" oscar: \"thank you. it's very... bahraini.",
+      "first_seen_at": "2026-10-01T05:46:16Z",
+      "last_seen_at": "2026-10-01T05:46:16Z",
+      "anchor_item_id": "piasnews-social-8f4ef71ad7f1865f",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2105534711544049664/vid/avc1/720x1280/Eub_Yn3Bqdd50Mh3.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2105534711544049664/img/yEtqNYURPUleI2fx.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-8f4ef71ad7f1865f",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: \"morning!\" oscar: \"hello!\" \"welcome to bahrain in malaysia!\" oscar: \"thank you. it's very... ba…",
+          "title_zh": "X 发帖 @laurogeitabat：“早上好！”Oscar：“你好！” “欢迎来到马来西亚的巴林！”Oscar：“谢谢。非常……巴林。在马来西亚。” “期待开这条赛道吗？”Oscar：“是啊！应该会很好玩！新赛道，而且肯定不冷，所以我就等着看 Lando 会穿哪件连帽衫出现”",
+          "summary": "\"morning!\" oscar: \"hello!\" \"welcome to bahrain in malaysia!\" oscar: \"thank you. it's very... bahraini. in malaysia.\" \"excited to drive the circuit?\" oscar: \"yeah! should be fun! new track and it's definitely not cold so i'm just waiting to see which hoodie lando turns up in\" https://t.co/HVxMxT8AvQ",
+          "summary_zh": "“早上好！”Oscar：“你好！” “欢迎来到马来西亚的巴林！”Oscar：“谢谢。非常……巴林。在马来西亚。” “期待开这条赛道吗？”Oscar：“是啊！应该会很好玩！新赛道，而且肯定不冷，所以我就等着看 Lando 会穿哪件连帽衫出现”",
+          "url": "https://x.com/laurogeitabat/status/2105534743253049438",
+          "published_at": "2026-10-01T05:46:16Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2105534711544049664/vid/avc1/720x1280/Eub_Yn3Bqdd50Mh3.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2105534711544049664/img/yEtqNYURPUleI2fx.jpg",
+          "heat_contribution": 5.2837,
+          "metrics": {
+            "likes": 726,
+            "retweets": 64,
+            "replies": 0,
+            "quotes": 11,
+            "views": 10451,
+            "bookmarks": 47
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 29,
+      "heat": 29,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
       "event_id": "evt-2026-09-30-709e6c14f9f7",
       "rule_id": null,
       "hot_word_zh": "Oscar和Mark Webber与Grill'd团队的旧照！",
@@ -1834,6 +1677,64 @@
             "quotes": 8,
             "views": 12526,
             "bookmarks": 73
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 28,
+      "heat": 28,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-10-01-de9da33729ba",
+      "rule_id": null,
+      "hot_word_zh": "Oscar 在马来西亚的第一个媒体日开始了！",
+      "hot_word_en": "oscar's first media day in malaysia is underway!",
+      "first_seen_at": "2026-10-01T05:25:08Z",
+      "last_seen_at": "2026-10-01T05:25:08Z",
+      "anchor_item_id": "piasnews-social-24ea15c58492e5e6",
+      "image_url": "https://pbs.twimg.com/media/HThX1sYWwAA5XJL.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HThX1sYWwAA5XJL.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-24ea15c58492e5e6",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar's first media day in malaysia is underway!",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar 在马来西亚的第一个媒体日开始了！",
+          "summary": "oscar's first media day in malaysia is underway! https://t.co/vlgakFkL4Q",
+          "summary_zh": "Oscar 在马来西亚的第一个媒体日开始了！",
+          "url": "https://x.com/laurogeitabat/status/2105529424611328040",
+          "published_at": "2026-10-01T05:25:08Z",
+          "image_url": "https://pbs.twimg.com/media/HThX1sYWwAA5XJL.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HThX1sYWwAA5XJL.jpg",
+          "heat_contribution": 5.0844,
+          "metrics": {
+            "likes": 579,
+            "retweets": 75,
+            "replies": 0,
+            "quotes": 10,
+            "views": 5345,
+            "bookmarks": 19
           }
         }
       ],
@@ -1957,6 +1858,88 @@
       "media_heat": 0,
       "fan_heat": 26,
       "heat": 26,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-09-30-0a3a443bede5",
+      "rule_id": null,
+      "hot_word_zh": "OSCARTTURI 双人组———一个串。Oscar Piastri 和 Artturi…",
+      "hot_word_en": "OSCARTTURI DUO ———a thread. Oscar Piastri and Artturi Simila - their underrated friendship is too precious to…",
+      "first_seen_at": "2026-09-30T03:27:12Z",
+      "last_seen_at": "2026-09-30T09:14:37Z",
+      "anchor_item_id": "piasnews-social-c118d969b836440d",
+      "image_url": "https://pbs.twimg.com/media/HTbzROFWAAA5VPL.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HTbzROFWAAA5VPL.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-c118d969b836440d",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: RT @oskipiastri: OSCARTTURI DUO ———a thread. Oscar Piastri and Artturi Simila - their underrate…",
+          "title_zh": "X 转帖 @laurogeitabat：RT @oskipiastri：OSCARTTURI 双人组———一个串。Oscar Piastri 和 Artturi Simila——他们被低估的友谊对我来说太珍贵了。",
+          "summary": "RT @oskipiastri: OSCARTTURI DUO ———a thread. Oscar Piastri and Artturi Simila - their underrated friendship is too precious to me. http…",
+          "summary_zh": "RT @oskipiastri：OSCARTTURI 双人组———一个串。Oscar Piastri 和 Artturi Simila——他们被低估的友谊对我来说太珍贵了。",
+          "url": "https://x.com/laurogeitabat/status/2105224790596325439",
+          "published_at": "2026-09-30T09:14:37Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 2.955,
+          "metrics": {
+            "likes": 0,
+            "retweets": 45,
+            "replies": 0,
+            "quotes": 0,
+            "views": 101,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-3b4093d0cfcc42c5",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: OSCARTTURI DUO ———a thread. Oscar Piastri and Artturi Simila - their underrated friendship is t…",
+          "title_zh": "X 转帖 @laurogeitabat：OSCARTTURI组合 ———一个串。Oscar Piastri和Artturi Simila——他们被低估的友谊对我来说太珍贵了。",
+          "summary": "OSCARTTURI DUO ———a thread. Oscar Piastri and Artturi Simila - their underrated friendship is too precious to me. https://t.co/pzLKlxZ7pI",
+          "summary_zh": "OSCARTTURI组合 ———一个串。Oscar Piastri和Artturi Simila——他们被低估的友谊对我来说太珍贵了。",
+          "url": "https://x.com/oskipiastri/status/2105137359108907346",
+          "published_at": "2026-09-30T03:27:12Z",
+          "image_url": "https://pbs.twimg.com/media/HTbzROFWAAA5VPL.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HTbzROFWAAA5VPL.jpg",
+          "heat_contribution": 0.0,
+          "metrics": {
+            "likes": 686,
+            "retweets": 77,
+            "replies": 3,
+            "quotes": 7,
+            "views": 11030,
+            "bookmarks": 253
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 18,
+      "heat": 18,
       "source_labels": [
         "粉"
       ],
