@@ -1,12 +1,71 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-04T10:35:59.661870Z",
+  "generated_at": "2026-10-04T10:50:59.705973Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
   "event_count": 10,
   "events": [
+    {
+      "event_id": "evt-session-result-2026-round-16-race",
+      "rule_id": null,
+      "hot_word_zh": "Oscar 在Bahrain Grand Prix in Malaysia正赛获得第6名",
+      "hot_word_en": "Oscar finishes P6 in the Bahrain Grand Prix in Malaysia",
+      "first_seen_at": "2026-10-04T10:50:56.888165Z",
+      "last_seen_at": "2026-10-04T10:50:56.888165Z",
+      "anchor_item_id": "session-result-2026-round-16-race",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "official_heat": 0,
+      "media_heat": 100,
+      "fan_heat": 0,
+      "heat": 100,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 1,
+        "fan": 0
+      },
+      "pinned_rank": 1,
+      "hidden": false,
+      "hard_rule": {
+        "type": "session_result",
+        "race_id": "2026-round-16",
+        "session": "race",
+        "position": 6,
+        "status": "classified",
+        "provisional": false,
+        "source_item_id": "session-result-2026-round-16-race",
+        "source": "Formula 1 Live Timing",
+        "latest": true
+      },
+      "items": [
+        {
+          "item_id": "session-result-2026-round-16-race",
+          "dataset": "session_result",
+          "source_type": "media",
+          "source": "Formula 1 Live Timing",
+          "title": "Oscar finishes P6 in the Bahrain Grand Prix in Malaysia",
+          "title_zh": "Oscar 在Bahrain Grand Prix in Malaysia正赛获得第6名",
+          "summary": "Structured session result for Oscar Piastri.",
+          "summary_zh": "Oscar Piastri 的结构化场次成绩。",
+          "url": "https://livetiming.formula1.com/static/2026/2026-10-04_Bahrain_Grand_Prix/2026-10-04_Race/TimingData.jsonStream",
+          "published_at": "2026-10-04T10:50:56.888165Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 100,
+          "metrics": {}
+        }
+      ],
+      "rank": 1
+    },
     {
       "event_id": "evt-2026-09-30-67ada2c81653",
       "rule_id": null,
@@ -274,7 +333,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 1
+      "rank": 2
     },
     {
       "event_id": "evt-2026-09-26-a8f0a951d1c9",
@@ -407,7 +466,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 2
+      "rank": 3
     },
     {
       "event_id": "evt-2026-09-24-23eb408405cf-23eb4084",
@@ -519,54 +578,6 @@
       "source_counts": {
         "official": 0,
         "media": 5,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 3
-    },
-    {
-      "event_id": "evt-2026-10-02-5a89cae6a9a6",
-      "rule_id": null,
-      "hot_word_zh": "McLaren 解释马来西亚站什么“让我们措手不及”，Piastri 反思他们的位置",
-      "hot_word_en": "McLaren explain what ‘caught us by surprise’ in Malaysia as Piastri reflects on where they stack up",
-      "first_seen_at": "2026-10-02T10:49:16.885000Z",
-      "last_seen_at": "2026-10-02T10:49:16.885000Z",
-      "anchor_item_id": "piasnews-763bdf951ce72431",
-      "image_url": "https://media.formula1.com/image/upload/t_16by9North/c_lfill,w_2048/q_auto/v1740000001/fom-website/2026/Bahrain%20(Malaysia)/GettyImages-2298210625.webp",
-      "video_url": null,
-      "video_poster_url": "https://media.formula1.com/image/upload/t_16by9North/c_lfill,w_2048/q_auto/v1740000001/fom-website/2026/Bahrain%20(Malaysia)/GettyImages-2298210625.webp",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-763bdf951ce72431",
-          "dataset": "items",
-          "source_type": "official",
-          "source": "formula1.com",
-          "title": "McLaren explain what ‘caught us by surprise’ in Malaysia as Piastri reflects on where they stack up",
-          "title_zh": "McLaren 解释马来西亚站什么“让我们措手不及”，Piastri 反思他们的位置",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的条目。",
-          "url": "https://www.formula1.com/en/latest/article/mclaren-explain-what-caught-us-by-surprise-in-malaysia-as-piastri-reflects-on-where-they-stack-up.sDpGuLb4lFAQWOfgApwQR",
-          "published_at": "2026-10-02T10:49:16.885000Z",
-          "image_url": "https://media.formula1.com/image/upload/t_16by9North/c_lfill,w_2048/q_auto/v1740000001/fom-website/2026/Bahrain%20(Malaysia)/GettyImages-2298210625.webp",
-          "video_url": null,
-          "video_poster_url": "https://media.formula1.com/image/upload/t_16by9North/c_lfill,w_2048/q_auto/v1740000001/fom-website/2026/Bahrain%20(Malaysia)/GettyImages-2298210625.webp",
-          "heat_contribution": 1.35,
-          "metrics": {}
-        }
-      ],
-      "official_heat": 12,
-      "media_heat": 0,
-      "fan_heat": 0,
-      "heat": 12,
-      "source_labels": [
-        "官"
-      ],
-      "source_counts": {
-        "official": 1,
-        "media": 0,
         "fan": 0
       },
       "pinned_rank": null,
