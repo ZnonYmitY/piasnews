@@ -1,71 +1,12 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-04T09:36:04.175389Z",
+  "generated_at": "2026-10-04T09:51:15.831806Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
   "event_count": 10,
   "events": [
-    {
-      "event_id": "evt-session-result-2026-round-16-qualifying",
-      "rule_id": null,
-      "hot_word_zh": "Oscar 在Bahrain Grand Prix in Malaysia排位赛获得第7名",
-      "hot_word_en": "Oscar qualifies P7 for the Bahrain Grand Prix in Malaysia",
-      "first_seen_at": "2026-10-03T09:50:54.478076Z",
-      "last_seen_at": "2026-10-03T09:50:54.478076Z",
-      "anchor_item_id": "session-result-2026-round-16-qualifying",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": false,
-      "review_needed_reason": null,
-      "official_heat": 0,
-      "media_heat": 100,
-      "fan_heat": 0,
-      "heat": 100,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 1,
-        "fan": 0
-      },
-      "pinned_rank": 1,
-      "hidden": false,
-      "hard_rule": {
-        "type": "session_result",
-        "race_id": "2026-round-16",
-        "session": "qualifying",
-        "position": 7,
-        "status": "classified",
-        "provisional": false,
-        "source_item_id": "session-result-2026-round-16-qualifying",
-        "source": "Formula 1 Live Timing",
-        "latest": true
-      },
-      "items": [
-        {
-          "item_id": "session-result-2026-round-16-qualifying",
-          "dataset": "session_result",
-          "source_type": "media",
-          "source": "Formula 1 Live Timing",
-          "title": "Oscar qualifies P7 for the Bahrain Grand Prix in Malaysia",
-          "title_zh": "Oscar 在Bahrain Grand Prix in Malaysia排位赛获得第7名",
-          "summary": "Structured session result for Oscar Piastri.",
-          "summary_zh": "Oscar Piastri 的结构化场次成绩。",
-          "url": "https://livetiming.formula1.com/static/2026/2026-10-04_Bahrain_Grand_Prix/2026-10-03_Qualifying/TimingData.jsonStream",
-          "published_at": "2026-10-03T09:50:54.478076Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 100,
-          "metrics": {}
-        }
-      ],
-      "rank": 1
-    },
     {
       "event_id": "evt-2026-09-30-67ada2c81653",
       "rule_id": null,
@@ -179,7 +120,7 @@
           "image_url": "https://www.racefans.net/wp-content/themes/twentyfifteen/assets/images/default-og.jpg",
           "video_url": null,
           "video_poster_url": "https://www.racefans.net/wp-content/themes/twentyfifteen/assets/images/default-og.jpg",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -320,9 +261,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 34,
+      "media_heat": 33,
       "fan_heat": 0,
-      "heat": 34,
+      "heat": 33,
       "source_labels": [
         "媒"
       ],
@@ -333,7 +274,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 2
+      "rank": 1
     },
     {
       "event_id": "evt-2026-09-26-a8f0a951d1c9",
@@ -466,7 +407,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 3
+      "rank": 2
     },
     {
       "event_id": "evt-2026-09-24-23eb408405cf-23eb4084",
@@ -582,7 +523,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 4
+      "rank": 3
     },
     {
       "event_id": "evt-2026-10-02-5a89cae6a9a6",
@@ -630,7 +571,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 5
+      "rank": 4
     },
     {
       "event_id": "evt-2026-10-02-2dbb99ca8141",
@@ -678,7 +619,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 5
     },
     {
       "event_id": "evt-2026-09-30-313a4fac3974",
@@ -760,7 +701,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 6
     },
     {
       "event_id": "evt-2026-10-01-60dfafbd6cf7",
@@ -842,7 +783,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 7
     },
     {
       "event_id": "evt-2026-10-01-a02d5d43c122",
@@ -890,7 +831,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 9
+      "rank": 8
     },
     {
       "event_id": "evt-2026-10-01-dab021b4fadb",
@@ -920,6 +861,54 @@
           "image_url": "https://grandepremio.com/wp-content/uploads/2026/10/f1-2026-bahrein-malasia-media-day-mclaren-oscar-piastri-01-1200x630.jpg",
           "video_url": null,
           "video_poster_url": "https://grandepremio.com/wp-content/uploads/2026/10/f1-2026-bahrein-malasia-media-day-mclaren-oscar-piastri-01-1200x630.jpg",
+          "heat_contribution": 0.2,
+          "metrics": {}
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 8,
+      "fan_heat": 0,
+      "heat": 8,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 1,
+        "fan": 0
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "event_id": "evt-2026-10-02-1e10f9fd1249",
+      "rule_id": null,
+      "hot_word_zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
+      "hot_word_en": "Oscar Piastri-related item discovered from public news metadata.",
+      "first_seen_at": "2026-10-02T01:41:29Z",
+      "last_seen_at": "2026-10-02T01:41:29Z",
+      "anchor_item_id": "piasnews-d18865e46df56ca6",
+      "image_url": "https://autoaction.com.au/wp-content/uploads/2026/10/Image-2-e1790900740520.jpg?v=1790900674",
+      "video_url": null,
+      "video_poster_url": "https://autoaction.com.au/wp-content/uploads/2026/10/Image-2-e1790900740520.jpg?v=1790900674",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-d18865e46df56ca6",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "autoaction.com.au",
+          "title": "Piastri ready to \"finish the job\" after Baku setback",
+          "title_zh": "Baku受挫后，Piastri 准备“完成任务”",
+          "summary": "Oscar Piastri-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
+          "url": "https://autoaction.com.au/2026/10/02/piastri-ready-to-finish-the-job-after-baku-setback",
+          "published_at": "2026-10-02T01:41:29Z",
+          "image_url": "https://autoaction.com.au/wp-content/uploads/2026/10/Image-2-e1790900740520.jpg?v=1790900674",
+          "video_url": null,
+          "video_poster_url": "https://autoaction.com.au/wp-content/uploads/2026/10/Image-2-e1790900740520.jpg?v=1790900674",
           "heat_contribution": 0.2,
           "metrics": {}
         }
