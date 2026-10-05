@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-05T01:40:29.078826Z",
+  "generated_at": "2026-10-05T04:43:48.647497Z",
   "translations": {
     "items:piasnews-9ddfbc7aab936cb6:title:e0ef82a8d208365bba0c0d6b": {
       "dataset": "items",
@@ -3301,6 +3301,162 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-10-05T01:40:28.470408Z"
+    },
+    "items:piasnews-4c56ffb6b2506c7b:title:3f99b9cfc5c666a8c2a78289": {
+      "dataset": "items",
+      "item_id": "piasnews-4c56ffb6b2506c7b",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "A “hell of a lot” for Piastri to finish where he started",
+      "zh": "Piastri 要回到起步位置“难如登天”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-05T04:43:48.004389Z"
+    },
+    "items:piasnews-4c56ffb6b2506c7b:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-4c56ffb6b2506c7b",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-05T04:43:48.004398Z"
+    },
+    "items:piasnews-cf2f2e06f06a1d41:title:6cf486022a3e5e0a8dd9da13": {
+      "dataset": "items",
+      "item_id": "piasnews-cf2f2e06f06a1d41",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Motorsport: Piastri upbeat as McLaren close gap on rivals",
+      "zh": "赛车运动：McLaren 缩小与对手差距，Piastri 信心高涨",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-05T04:43:48.004403Z"
+    },
+    "items:piasnews-cf2f2e06f06a1d41:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-cf2f2e06f06a1d41",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-05T04:43:48.004408Z"
+    },
+    "social:piasnews-social-971c89497fd4d5e5:summary:36c0ab399a12cabb304e8dc5": {
+      "dataset": "social",
+      "item_id": "piasnews-social-971c89497fd4d5e5",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @Meowastri: Those white boys that keep sending you to torture town. https://t.co/sJCMNGca4o",
+      "zh": "RT @Meowastri：那些白人男孩总是把你送去受折磨的地方。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-05T04:43:48.004413Z"
+    },
+    "social:piasnews-social-4529706337d5a1fa:summary:4d7da27c53a2cacfc79b5d78": {
+      "dataset": "social",
+      "item_id": "piasnews-social-4529706337d5a1fa",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Norris narrowly avoids colliding with Piastri 😱 #F1 #BahrainGP https://t.co/RvF0cHVjMP",
+      "zh": "Norris 险些与 Piastri 相撞 😱 #F1 #BahrainGP",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-05T04:43:48.004418Z"
+    },
+    "social:piasnews-social-5381afa05fe6f360:summary:2909fb99aca633327e5db158": {
+      "dataset": "social",
+      "item_id": "piasnews-social-5381afa05fe6f360",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @TrackSimsF1: Deleted the first chart, which was missing the Intermediate tire laps. Here is race pace in its entirety from Sepang 👇…",
+      "zh": "RT @TrackSimsF1：删掉了第一张图表，因为漏掉了半雨胎圈数。以下是 Sepang 完整比赛节奏 👇…",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-05T04:43:48.004425Z"
+    },
+    "social:piasnews-social-d211d59531fe9eb2:summary:854569f6e6fe230bd0f5ca64": {
+      "dataset": "social",
+      "item_id": "piasnews-social-d211d59531fe9eb2",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @verstappenews: Oscar giving Max a thumbs up after the race! ❤️ https://t.co/tAXiHPapvy",
+      "zh": "RT @verstappenews：比赛结束后 Oscar 给 Max 竖了个大拇指！❤️",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-05T04:43:48.004433Z"
+    },
+    "social:piasnews-social-7e7eb69af24fae42:summary:0671f525fc80e304d7e69ccb": {
+      "dataset": "social",
+      "item_id": "piasnews-social-7e7eb69af24fae42",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @p1astripilled: what the fuck. how on earth is using a rape scenario to \"explain\" a RACING SITUATION in any shape or form a thought that…",
+      "zh": "RT @p1astripilled：搞什么鬼。用强奸场景来“解释”一个比赛情况，这到底怎么会有人想得出来…",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-05T04:43:48.004439Z"
+    },
+    "social:piasnews-social-d9ccafb89cd48094:summary:f53ec3510dc89ec4df15ef6d": {
+      "dataset": "social",
+      "item_id": "piasnews-social-d9ccafb89cd48094",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @McLarenF1: Post-race thoughts with Oscar 💬 #McLarenF1 | #BahrainGP 🇧🇭 https://t.co/mvGvG1ePnm",
+      "zh": "RT @McLarenF1：赛后 Oscar 的想法 💬 #McLarenF1 | #BahrainGP 🇧🇭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-05T04:43:48.004444Z"
+    },
+    "social:piasnews-social-9d9b8f97a918b0c1:summary:3a912f810e8c92aa0e034dea": {
+      "dataset": "social",
+      "item_id": "piasnews-social-9d9b8f97a918b0c1",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "fought so hard today ! P6 in the end 💗 https://t.co/TzNWVdkC2H",
+      "zh": "今天拼得太狠了！最终 P6 💗",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-05T04:43:48.004448Z"
+    },
+    "social:piasnews-social-a88351851750f4b1:summary:aa9b702e443eb945ae58ad03": {
+      "dataset": "social",
+      "item_id": "piasnews-social-a88351851750f4b1",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @laurogeitabat: p6 for oscar! a really strong race for oscar, both defending and overtaking. and more importantly, you could tell how…",
+      "zh": "RT @laurogeitabat：Oscar 拿到 P6！对 Oscar 来说这是一场非常强劲的比赛，无论是防守还是超车。更重要的是，你能看出他……",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-05T04:43:48.004452Z"
+    },
+    "social:piasnews-social-a846d63cdfc77c25:summary:c373d205aa7d25864f6e2e8a": {
+      "dataset": "social",
+      "item_id": "piasnews-social-a846d63cdfc77c25",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @covetize: hi @teamopeightyone @McLarenF1 how can we give oscar a tamtam 🥹? https://t.co/84DbndXJev",
+      "zh": "RT @covetize：嗨 @teamopeightyone @McLarenF1，我们怎么才能给 Oscar 一个 tamtam 🥹？",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-05T04:43:48.004457Z"
     }
   },
   "retention_days": 8
