@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T23:08:35.004321Z",
+  "generated_at": "2026-10-07T23:09:22.353270Z",
   "schema_version": 1,
   "description": "History candidates awaiting or recording human review decisions.",
   "candidates": [
@@ -1190,6 +1190,83 @@
         "McLaren",
         "F1",
         "race_win"
+      ]
+    },
+    {
+      "id": "piastri-2026-10-06-auto-b22cc8860d",
+      "date": "2026-10-06",
+      "month_day": "10-06",
+      "year": 2026,
+      "title": "Piastri hasn’t won a race in 402 days. This F1 legend thinks he’s still world champion material",
+      "title_zh": null,
+      "summary": "Race-week or performance-related item discovered from public news metadata.",
+      "summary_zh": null,
+      "type": "career_milestone",
+      "source": "SMH.com.au",
+      "url": "https://www.smh.com.au/sport/motorsport/piastri-hasn-t-won-a-race-in-402-days-this-f1-legend-thinks-he-s-still-world-champion-material-20261007-p6138o.html",
+      "verification": {
+        "status": "needs_review",
+        "source_type": "media",
+        "primary_source": false
+      },
+      "candidate": {
+        "status": "pending",
+        "score": 100,
+        "signals": [
+          "championship",
+          "race_win"
+        ],
+        "source_count": 1,
+        "sources": [
+          "SMH.com.au"
+        ],
+        "source_item_ids": [
+          "piasnews-597cde4a9aebe8a2"
+        ],
+        "discovered_at": "2026-10-07T23:09:22.353270Z",
+        "origin": "deterministic_recent_news_rules",
+        "reviewed_at": null,
+        "reviewed_by": null,
+        "decision_reason": null
+      },
+      "selection": {
+        "review_status": "pending",
+        "include": null,
+        "historical_value": 100,
+        "peak_attention": null,
+        "lasting_significance": null,
+        "career_impact": null,
+        "fan_recognition": null,
+        "inclusion_reason": "Automatically nominated from signals: championship, race_win.",
+        "inclusion_reason_zh": null
+      },
+      "semantic": {
+        "event_kind": "championship",
+        "themes": [
+          "championship",
+          "race_win"
+        ],
+        "entities": [
+          "Oscar Piastri",
+          "McLaren"
+        ],
+        "competition": "Formula 1",
+        "season": 2026,
+        "round": null,
+        "circuit": null,
+        "session": null,
+        "outcome": "Piastri hasn’t won a race in 402 days. This F1 legend thinks he’s still world champion material",
+        "strong_keys": [
+          "championship",
+          "hasn_t_won_race_402_days"
+        ],
+        "embedding_text": "Piastri hasn’t won a race in 402 days. This F1 legend thinks he’s still world champion material. Race-week or performance-related item discovered from public news metadata."
+      },
+      "tags": [
+        "Oscar Piastri",
+        "McLaren",
+        "F1",
+        "championship"
       ]
     }
   ]
