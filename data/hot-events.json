@@ -1,12 +1,71 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-09T14:33:12.862771Z",
+  "generated_at": "2026-10-09T14:36:29.421124Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
-  "event_count": 9,
+  "event_count": 10,
   "events": [
+    {
+      "event_id": "evt-session-result-2026-round-17-sprint_qualifying",
+      "rule_id": null,
+      "hot_word_zh": "Oscar 在新加坡站冲刺排位获得第4名",
+      "hot_word_en": "Oscar finishes P4 in Singapore Grand Prix Sprint Qualifying",
+      "first_seen_at": "2026-10-09T14:36:28.021912Z",
+      "last_seen_at": "2026-10-09T14:36:28.021912Z",
+      "anchor_item_id": "session-result-2026-round-17-sprint_qualifying",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "official_heat": 0,
+      "media_heat": 100,
+      "fan_heat": 0,
+      "heat": 100,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 1,
+        "fan": 0
+      },
+      "pinned_rank": 1,
+      "hidden": false,
+      "hard_rule": {
+        "type": "session_result",
+        "race_id": "2026-round-17",
+        "session": "sprint_qualifying",
+        "position": 4,
+        "status": "classified",
+        "provisional": false,
+        "source_item_id": "session-result-2026-round-17-sprint_qualifying",
+        "source": "OpenF1",
+        "latest": true
+      },
+      "items": [
+        {
+          "item_id": "session-result-2026-round-17-sprint_qualifying",
+          "dataset": "session_result",
+          "source_type": "media",
+          "source": "OpenF1",
+          "title": "Oscar finishes P4 in Singapore Grand Prix Sprint Qualifying",
+          "title_zh": "Oscar 在新加坡站冲刺排位获得第4名",
+          "summary": "Structured session result for Oscar Piastri.",
+          "summary_zh": "Oscar Piastri 的结构化场次成绩。",
+          "url": "https://api.openf1.org/v1/session_result?session_key=11379&driver_number=81",
+          "published_at": "2026-10-09T14:36:28.021912Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 100,
+          "metrics": {}
+        }
+      ],
+      "rank": 1
+    },
     {
       "event_id": "evt-session-result-2026-round-17-practice_1",
       "rule_id": null,
@@ -32,7 +91,7 @@
         "media": 1,
         "fan": 0
       },
-      "pinned_rank": 1,
+      "pinned_rank": null,
       "hidden": false,
       "hard_rule": {
         "type": "session_result",
@@ -43,7 +102,7 @@
         "provisional": false,
         "source_item_id": "session-result-2026-round-17-practice_1",
         "source": "OpenF1",
-        "latest": true
+        "latest": false
       },
       "items": [
         {
@@ -64,7 +123,7 @@
           "metrics": {}
         }
       ],
-      "rank": 1
+      "rank": 2
     },
     {
       "event_id": "evt-2026-10-08-fa3b64cfd60a",
@@ -180,7 +239,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 2
+      "rank": 3
     },
     {
       "event_id": "evt-2026-10-04-39387ce888f4",
@@ -534,7 +593,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 3
+      "rank": 4
     },
     {
       "event_id": "evt-2026-09-30-67ada2c81653",
@@ -769,7 +828,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 4
+      "rank": 5
     },
     {
       "event_id": "evt-2026-10-07-2dfba9ca5ee4",
@@ -851,7 +910,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 5
+      "rank": 6
     },
     {
       "event_id": "evt-2026-09-30-313a4fac3974",
@@ -950,7 +1009,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 7
     },
     {
       "event_id": "evt-2026-10-07-039126983b70",
@@ -998,7 +1057,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 8
     },
     {
       "event_id": "evt-mclaren-title-fight",
@@ -1046,7 +1105,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 9
     },
     {
       "event_id": "evt-2026-10-05-46ca86b3fe8e",
@@ -1094,7 +1153,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 9
+      "rank": 10
     }
   ],
   "review_needed_count": 0,

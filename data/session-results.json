@@ -1,36 +1,77 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-09T14:33:10.836620Z",
+  "generated_at": "2026-10-09T14:36:28.021912Z",
   "driver_number": 81,
   "source": "OpenF1 session_result with Formula 1 Live Timing fallback",
   "attempted_session_ref": "2026-round-17:sprint_qualifying",
-  "result_available": false,
+  "result_available": true,
   "latest": {
-    "session_ref": "2026-round-17:practice_1",
+    "session_ref": "2026-round-17:sprint_qualifying",
     "race_id": "2026-round-17",
     "race_name": "Singapore Grand Prix",
     "race_name_zh": "新加坡大奖赛",
-    "session": "practice_1",
-    "session_name": "Practice 1",
-    "session_key": 11378,
-    "session_start": "2026-10-09T08:30:00Z",
-    "session_end": "2026-10-09T09:30:00+00:00",
+    "session": "sprint_qualifying",
+    "session_name": "Sprint Qualifying",
+    "session_key": 11379,
+    "session_start": "2026-10-09T12:30:00Z",
+    "session_end": "2026-10-09T13:14:00+00:00",
     "driver_number": 81,
-    "position": 5,
+    "position": 4,
     "status": "classified",
     "dnf": false,
     "dns": false,
     "dsq": false,
-    "number_of_laps": 27,
-    "gap_to_leader": 0.564,
-    "duration": 92.838,
+    "number_of_laps": 19,
+    "gap_to_leader": [
+      0.8,
+      0.86,
+      0.298
+    ],
+    "duration": [
+      94.277,
+      93.106,
+      91.454
+    ],
     "source": "OpenF1",
-    "source_url": "https://api.openf1.org/v1/session_result?session_key=11378&driver_number=81",
+    "source_url": "https://api.openf1.org/v1/session_result?session_key=11379&driver_number=81",
     "provisional": false,
-    "fetched_at": "2026-10-09T10:07:00.455266Z",
-    "first_ranked_at": "2026-10-09T10:07:00.455266Z"
+    "fetched_at": "2026-10-09T14:36:28.021912Z",
+    "first_ranked_at": "2026-10-09T14:36:28.021912Z"
   },
   "results": [
+    {
+      "session_ref": "2026-round-17:sprint_qualifying",
+      "race_id": "2026-round-17",
+      "race_name": "Singapore Grand Prix",
+      "race_name_zh": "新加坡大奖赛",
+      "session": "sprint_qualifying",
+      "session_name": "Sprint Qualifying",
+      "session_key": 11379,
+      "session_start": "2026-10-09T12:30:00Z",
+      "session_end": "2026-10-09T13:14:00+00:00",
+      "driver_number": 81,
+      "position": 4,
+      "status": "classified",
+      "dnf": false,
+      "dns": false,
+      "dsq": false,
+      "number_of_laps": 19,
+      "gap_to_leader": [
+        0.8,
+        0.86,
+        0.298
+      ],
+      "duration": [
+        94.277,
+        93.106,
+        91.454
+      ],
+      "source": "OpenF1",
+      "source_url": "https://api.openf1.org/v1/session_result?session_key=11379&driver_number=81",
+      "fetched_at": "2026-10-09T14:36:28.021912Z",
+      "first_ranked_at": "2026-10-09T14:36:28.021912Z",
+      "provisional": false
+    },
     {
       "session_ref": "2026-round-17:practice_1",
       "race_id": "2026-round-17",
@@ -336,7 +377,5 @@
       "fetched_at": "2026-09-18T06:15:23.161902Z",
       "first_ranked_at": "2026-09-13T16:22:23.678151Z"
     }
-  ],
-  "last_error": "openf1_http_404",
-  "last_fallback_error": "f1_static_session_missing"
+  ]
 }
