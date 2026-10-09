@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-09T10:07:01.925674Z",
+  "generated_at": "2026-10-09T13:51:30.023120Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
-  "event_count": 10,
+  "event_count": 9,
   "events": [
     {
       "event_id": "evt-session-result-2026-round-17-practice_1",
@@ -187,7 +187,7 @@
       "rule_id": null,
       "hot_word_zh": "Lando Norris 为差点撞上 Oscar Piastri 找的借口，在发表禁赛言论…",
       "hot_word_en": "Lando Norris' excuse for nearly crashing into Oscar Piastri reeks of irony after race-ban comments",
-      "first_seen_at": "2026-10-02T12:27:15Z",
+      "first_seen_at": "2026-10-03T01:45:00Z",
       "last_seen_at": "2026-10-08T14:05:25Z",
       "anchor_item_id": "piasnews-5b7364cf896a1d8c",
       "image_url": "https://formularapida.net/wp-content/uploads/2026/10/image-148.jpg",
@@ -518,23 +518,6 @@
           "video_poster_url": "https://thesportingbase.com/tsb/wp-content/uploads/2026/08/Screenshot-2026-08-13-at-12.16.51-pm.png",
           "heat_contribution": 0.0,
           "metrics": {}
-        },
-        {
-          "item_id": "piasnews-3fbaeab269566e5c",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Auto Action",
-          "title": "F1-Oscar Piastri-2026-Bahrain Grand Prix",
-          "title_zh": "F1-Oscar Piastri-2026-巴林大奖赛",
-          "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
-          "url": "https://autoaction.com.au/2026/10/02/pretty-extreme-sepang-conditions-test-piastri/screenshot-30",
-          "published_at": "2026-10-02T12:27:15Z",
-          "image_url": "https://autoaction.com.au/2026/10/02/pretty-extreme-sepang-conditions-test-piastri/screenshot-30",
-          "video_url": null,
-          "video_poster_url": "https://autoaction.com.au/2026/10/02/pretty-extreme-sepang-conditions-test-piastri/screenshot-30",
-          "heat_contribution": 0.0,
-          "metrics": {}
         }
       ],
       "official_heat": 0,
@@ -558,7 +541,7 @@
       "rule_id": null,
       "hot_word_zh": "Fernando Alonso在马来西亚为Aston Martin立下汗马功劳后，Osca…",
       "hot_word_en": "Fernando Alonso given a new nickname by Oscar Piastri after Aston Martin heroics in Malaysia",
-      "first_seen_at": "2026-10-02T10:59:51Z",
+      "first_seen_at": "2026-10-02T16:00:00Z",
       "last_seen_at": "2026-10-08T17:58:28Z",
       "anchor_item_id": "piasnews-770d80113be5b8ec",
       "image_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F10%2F08161823%2Foscar-piastri-singapore-mclaren-paddock-planetf1.jpg",
@@ -768,23 +751,6 @@
           "image_url": "https://cdn.thestar.com.my/Themes/img/newTsol_logo_socmedia.png",
           "video_url": null,
           "video_poster_url": "https://cdn.thestar.com.my/Themes/img/newTsol_logo_socmedia.png",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-91fb0b6382d63993",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Speedcafe.com",
-          "title": "F1 news: Oscar Piastri hopeful after McLaren finds pace at Sepang",
-          "title_zh": "F1 新闻：McLaren 在雪邦找到速度后 Oscar Piastri 充满希望",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的车队或赛车表现相关条目。",
-          "url": "https://speedcafe.com/f1-news-2026-bahrain-grand-prix-malaysia-sepang-oscar-piastri-practice-results-reaction-mclaren/",
-          "published_at": "2026-10-02T10:59:51Z",
-          "image_url": "https://speedcafe.com/wp-content/uploads/2026/10/XPB_1440810_HiRes.jpg",
-          "video_url": null,
-          "video_poster_url": "https://speedcafe.com/wp-content/uploads/2026/10/XPB_1440810_HiRes.jpg",
           "heat_contribution": 0.0,
           "metrics": {}
         }
@@ -1129,54 +1095,6 @@
       "pinned_rank": null,
       "hidden": false,
       "rank": 9
-    },
-    {
-      "event_id": "evt-2026-10-06-240f3f7122bf",
-      "rule_id": null,
-      "hot_word_zh": "Piastri曾在2025年为F1冠军而战——如今他的2026挑战已经结束",
-      "hot_word_en": "Piastri fought for the F1 title in 2025 — now his 2026 challenge is already over",
-      "first_seen_at": "2026-10-06T12:00:00Z",
-      "last_seen_at": "2026-10-06T12:00:00Z",
-      "anchor_item_id": "piasnews-3e506dac18b94608",
-      "image_url": "https://grandepremio.com/wp-content/uploads/2026/10/f1-2026-bahrein-malasia-corrida-mclaren-oscar-piastri-5-1200x630.png",
-      "video_url": null,
-      "video_poster_url": "https://grandepremio.com/wp-content/uploads/2026/10/f1-2026-bahrein-malasia-corrida-mclaren-oscar-piastri-5-1200x630.png",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-3e506dac18b94608",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Grande Prêmio",
-          "title": "Piastri fought for the F1 title in 2025 — now his 2026 challenge is already over",
-          "title_zh": "Piastri曾在2025年为F1冠军而战——如今他的2026挑战已经结束",
-          "summary": "Oscar Piastri-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
-          "url": "https://grandepremio.com/en/f1/piastri-fought-for-the-f1-title-in-2025-now-his-2026-challenge-is-already-over/",
-          "published_at": "2026-10-06T12:00:00Z",
-          "image_url": "https://grandepremio.com/wp-content/uploads/2026/10/f1-2026-bahrein-malasia-corrida-mclaren-oscar-piastri-5-1200x630.png",
-          "video_url": null,
-          "video_poster_url": "https://grandepremio.com/wp-content/uploads/2026/10/f1-2026-bahrein-malasia-corrida-mclaren-oscar-piastri-5-1200x630.png",
-          "heat_contribution": 0.2,
-          "metrics": {}
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 8,
-      "fan_heat": 0,
-      "heat": 8,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 1,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 10
     }
   ],
   "review_needed_count": 0,
