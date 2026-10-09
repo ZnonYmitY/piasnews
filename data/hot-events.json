@@ -1,12 +1,71 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-09T09:51:36.494982Z",
+  "generated_at": "2026-10-09T10:07:01.925674Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
   "event_count": 10,
   "events": [
+    {
+      "event_id": "evt-session-result-2026-round-17-practice_1",
+      "rule_id": null,
+      "hot_word_zh": "Oscar 在新加坡站一练获得第5名",
+      "hot_word_en": "Oscar finishes P5 in Singapore Grand Prix Practice 1",
+      "first_seen_at": "2026-10-09T10:07:00.455266Z",
+      "last_seen_at": "2026-10-09T10:07:00.455266Z",
+      "anchor_item_id": "session-result-2026-round-17-practice_1",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "official_heat": 0,
+      "media_heat": 100,
+      "fan_heat": 0,
+      "heat": 100,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 1,
+        "fan": 0
+      },
+      "pinned_rank": 1,
+      "hidden": false,
+      "hard_rule": {
+        "type": "session_result",
+        "race_id": "2026-round-17",
+        "session": "practice_1",
+        "position": 5,
+        "status": "classified",
+        "provisional": false,
+        "source_item_id": "session-result-2026-round-17-practice_1",
+        "source": "OpenF1",
+        "latest": true
+      },
+      "items": [
+        {
+          "item_id": "session-result-2026-round-17-practice_1",
+          "dataset": "session_result",
+          "source_type": "media",
+          "source": "OpenF1",
+          "title": "Oscar finishes P5 in Singapore Grand Prix Practice 1",
+          "title_zh": "Oscar 在新加坡站一练获得第5名",
+          "summary": "Structured session result for Oscar Piastri.",
+          "summary_zh": "Oscar Piastri 的结构化场次成绩。",
+          "url": "https://api.openf1.org/v1/session_result?session_key=11378&driver_number=81",
+          "published_at": "2026-10-09T10:07:00.455266Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 100,
+          "metrics": {}
+        }
+      ],
+      "rank": 1
+    },
     {
       "event_id": "evt-2026-10-08-fa3b64cfd60a",
       "rule_id": null,
@@ -121,7 +180,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 1
+      "rank": 2
     },
     {
       "event_id": "evt-2026-10-04-39387ce888f4",
@@ -492,7 +551,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 2
+      "rank": 3
     },
     {
       "event_id": "evt-2026-09-30-67ada2c81653",
@@ -744,7 +803,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 3
+      "rank": 4
     },
     {
       "event_id": "evt-2026-10-07-2dfba9ca5ee4",
@@ -774,7 +833,7 @@
           "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-1389981907-scaled.jpg",
           "video_url": null,
           "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-1389981907-scaled.jpg",
-          "heat_contribution": 0.75,
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -813,9 +872,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 17,
+      "media_heat": 15,
       "fan_heat": 0,
-      "heat": 17,
+      "heat": 15,
       "source_labels": [
         "媒"
       ],
@@ -826,7 +885,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 4
+      "rank": 5
     },
     {
       "event_id": "evt-2026-09-30-313a4fac3974",
@@ -925,7 +984,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 5
+      "rank": 6
     },
     {
       "event_id": "evt-2026-10-07-039126983b70",
@@ -973,7 +1032,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 7
     },
     {
       "event_id": "evt-mclaren-title-fight",
@@ -1021,7 +1080,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 8
     },
     {
       "event_id": "evt-2026-10-05-46ca86b3fe8e",
@@ -1069,7 +1128,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 9
     },
     {
       "event_id": "evt-2026-10-06-240f3f7122bf",
@@ -1113,88 +1172,6 @@
       "source_counts": {
         "official": 0,
         "media": 1,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 9
-    },
-    {
-      "event_id": "evt-2026-10-06-375ab1b4666c",
-      "rule_id": null,
-      "hot_word_zh": "Andrea Stella私下曾预计Oscar Piastri在雪邦模拟后能快“五秒”",
-      "hot_word_en": "Andrea Stella privately expected Oscar Piastri to be ‘five seconds’ faster after Sepang simulations",
-      "first_seen_at": "2026-10-04T15:30:00Z",
-      "last_seen_at": "2026-10-06T11:00:00Z",
-      "anchor_item_id": "piasnews-81c21821d1c45a69",
-      "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2298521706-1-scaled.jpg",
-      "video_url": null,
-      "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2298521706-1-scaled.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-81c21821d1c45a69",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "F1 Oversteer",
-          "title": "Andrea Stella privately expected Oscar Piastri to be ‘five seconds’ faster after Sepang simulations",
-          "title_zh": "Andrea Stella私下曾预计Oscar Piastri在雪邦模拟后能快“五秒”",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的车队或赛车表现相关条目。",
-          "url": "https://www.f1oversteer.com/news/andrea-stella-privately-expected-oscar-piastri-to-be-five-seconds-faster-after-sepang-simulations/",
-          "published_at": "2026-10-06T11:00:00Z",
-          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2298521706-1-scaled.jpg",
-          "video_url": null,
-          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2298521706-1-scaled.jpg",
-          "heat_contribution": 0.2,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-538f249439afd735",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "F1 Oversteer",
-          "title": "Liam Lawson surprised by what he saw after Oscar Piastri overtook him at Sepang",
-          "title_zh": "Liam Lawson对Oscar Piastri在雪邦超越他后所看到的情况感到惊讶",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的车队或赛车表现相关条目。",
-          "url": "https://www.f1oversteer.com/news/liam-lawson-was-surprised-by-what-he-saw-after-oscar-piastri-overtook-him-in-bahrain-gp-in-malaysia/",
-          "published_at": "2026-10-06T06:30:00Z",
-          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2298518361-scaled.jpg",
-          "video_url": null,
-          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2298518361-scaled.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-82700af60345d34d",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Grande Prêmio",
-          "title": "Norris reprimanded after nearly hitting Piastri under Sepang Safety Car",
-          "title_zh": "Norris 在雪邦安全车下险些撞上 Piastri 后受到训诫",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的车队或赛车表现相关条目。",
-          "url": "https://grandepremio.com/en/f1/norris-reprimanded-after-nearly-hitting-piastri-under-sepang-safety-car/",
-          "published_at": "2026-10-04T15:30:00Z",
-          "image_url": "https://grandepremio.com/wp-content/uploads/2026/10/f1-2026-bahrein-malasia-corrida-mclaren-lando-norris-3-1200x630.png",
-          "video_url": null,
-          "video_poster_url": "https://grandepremio.com/wp-content/uploads/2026/10/f1-2026-bahrein-malasia-corrida-mclaren-lando-norris-3-1200x630.png",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 8,
-      "fan_heat": 0,
-      "heat": 8,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 2,
         "fan": 0
       },
       "pinned_rank": null,
