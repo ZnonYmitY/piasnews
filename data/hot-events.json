@@ -1,12 +1,71 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-10T10:36:23.377169Z",
+  "generated_at": "2026-10-10T10:51:25.748004Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
   "event_count": 10,
   "events": [
+    {
+      "event_id": "evt-session-result-2026-round-17-sprint",
+      "rule_id": null,
+      "hot_word_zh": "Oscar 在新加坡站冲刺赛未能完赛（DNF）",
+      "hot_word_en": "Oscar does not finish Singapore Grand Prix Sprint",
+      "first_seen_at": "2026-10-10T10:51:24.579019Z",
+      "last_seen_at": "2026-10-10T10:51:24.579019Z",
+      "anchor_item_id": "session-result-2026-round-17-sprint",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "official_heat": 0,
+      "media_heat": 100,
+      "fan_heat": 0,
+      "heat": 100,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 1,
+        "fan": 0
+      },
+      "pinned_rank": 1,
+      "hidden": false,
+      "hard_rule": {
+        "type": "session_result",
+        "race_id": "2026-round-17",
+        "session": "sprint",
+        "position": 14,
+        "status": "DNF",
+        "provisional": false,
+        "source_item_id": "session-result-2026-round-17-sprint",
+        "source": "OpenF1",
+        "latest": true
+      },
+      "items": [
+        {
+          "item_id": "session-result-2026-round-17-sprint",
+          "dataset": "session_result",
+          "source_type": "media",
+          "source": "OpenF1",
+          "title": "Oscar does not finish Singapore Grand Prix Sprint",
+          "title_zh": "Oscar 在新加坡站冲刺赛未能完赛（DNF）",
+          "summary": "Structured session result for Oscar Piastri.",
+          "summary_zh": "Oscar Piastri 的结构化场次成绩。",
+          "url": "https://api.openf1.org/v1/session_result?session_key=11383&driver_number=81",
+          "published_at": "2026-10-10T10:51:24.579019Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 100,
+          "metrics": {}
+        }
+      ],
+      "rank": 1
+    },
     {
       "event_id": "evt-session-result-2026-round-17-sprint_qualifying",
       "rule_id": null,
@@ -32,7 +91,7 @@
         "media": 1,
         "fan": 0
       },
-      "pinned_rank": 1,
+      "pinned_rank": null,
       "hidden": false,
       "hard_rule": {
         "type": "session_result",
@@ -43,7 +102,7 @@
         "provisional": false,
         "source_item_id": "session-result-2026-round-17-sprint_qualifying",
         "source": "OpenF1",
-        "latest": true
+        "latest": false
       },
       "items": [
         {
@@ -64,7 +123,7 @@
           "metrics": {}
         }
       ],
-      "rank": 1
+      "rank": 2
     },
     {
       "event_id": "evt-2026-10-08-18b8cd4819a0-18b8cd48",
@@ -191,7 +250,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 2
+      "rank": 3
     },
     {
       "event_id": "evt-2026-10-08-1d8dd1ff56c0",
@@ -270,7 +329,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 3
+      "rank": 4
     },
     {
       "event_id": "evt-2026-10-04-39387ce888f4",
@@ -641,7 +700,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 4
+      "rank": 5
     },
     {
       "event_id": "evt-2026-10-09-2b739ed28cdf",
@@ -696,7 +755,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 5
+      "rank": 6
     },
     {
       "event_id": "evt-2026-10-09-dec8bf5d54a7",
@@ -751,7 +810,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 7
     },
     {
       "event_id": "evt-2026-09-30-67ada2c81653",
@@ -1258,7 +1317,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 8
     },
     {
       "event_id": "evt-2026-10-08-fa3b64cfd60a",
@@ -1425,7 +1484,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 9
     },
     {
       "event_id": "evt-2026-10-10-b19d2b9be3f0",
@@ -1480,89 +1539,10 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 9
-    },
-    {
-      "event_id": "evt-2026-10-08-96d3290d361f-0e1240b5",
-      "rule_id": null,
-      "hot_word_zh": "RT @正赛piastri：天哪！！！Oscar 在新加坡大奖赛的特别头盔！！！",
-      "hot_word_en": "HOLYYYYY OSCAR’S SPECIAL HELMET FOR THE SINGAPORE GP!!!",
-      "first_seen_at": "2026-10-04T14:16:12Z",
-      "last_seen_at": "2026-10-08T16:36:18Z",
-      "anchor_item_id": "piasnews-social-60d1ce2483929b61",
-      "image_url": "https://pbs.twimg.com/media/HUHx2ajX0AECRJC.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HUHx2ajX0AECRJC.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-60d1ce2483929b61",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@oscarsspiastree",
-          "title": "X repost from @oscarsspiastree: RT @racepiastri: HOLYYYYY OSCAR’S SPECIAL HELMET FOR THE SINGAPORE GP!!!",
-          "title_zh": "X 转帖 @oscarsspiastree：RT @正赛piastri：天哪！！！Oscar 在新加坡大奖赛的特别头盔！！！",
-          "summary": "RT @racepiastri: HOLYYYYY OSCAR’S SPECIAL HELMET FOR THE SINGAPORE GP!!! https://t.co/y1AHmqHdMJ",
-          "summary_zh": "RT @正赛piastri：天哪！！！Oscar 在新加坡大奖赛的特别头盔！！！",
-          "url": "https://x.com/oscarsspiastree/status/2108235046649741596",
-          "published_at": "2026-10-08T16:36:18Z",
-          "image_url": "https://pbs.twimg.com/media/HUHx2ajX0AECRJC.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HUHx2ajX0AECRJC.jpg",
-          "heat_contribution": 4.5492,
-          "metrics": {
-            "likes": 0,
-            "retweets": 103,
-            "replies": 0,
-            "quotes": 0,
-            "views": 190,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-6626ed71fa5ff806",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar's special cap for the singapore gp!",
-          "title_zh": "X 发帖 @laurogeitabat：oscar为新加坡大奖赛准备的特别帽子！",
-          "summary": "oscar's special cap for the singapore gp! https://t.co/59YhwH9DPh",
-          "summary_zh": "oscar为新加坡大奖赛准备的特别帽子！",
-          "url": "https://x.com/laurogeitabat/status/2106750234806174065",
-          "published_at": "2026-10-04T14:16:12Z",
-          "image_url": "https://pbs.twimg.com/media/HTyuKDmWwAA__9W.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HTyuKDmWwAA__9W.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {
-            "likes": 1902,
-            "retweets": 130,
-            "replies": 2,
-            "quotes": 82,
-            "views": 19037,
-            "bookmarks": 65
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 25,
-      "heat": 25,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 2
-      },
-      "pinned_rank": null,
-      "hidden": false,
       "rank": 10
     }
   ],
-  "review_needed_count": 29,
+  "review_needed_count": 23,
   "review_needed_events": [
     {
       "event_id": "evt-2026-10-09-b9a9a992f1c0",
@@ -1592,7 +1572,7 @@
           "image_url": "https://pbs.twimg.com/media/HULFIBxaoAA4sB4.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HULFIBxaoAA4sB4.jpg",
-          "heat_contribution": 5.9617,
+          "heat_contribution": 5.4526,
           "metrics": {
             "likes": 0,
             "retweets": 257,
@@ -1605,8 +1585,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 32,
-      "heat": 32,
+      "fan_heat": 29,
+      "heat": 29,
       "source_labels": [
         "粉"
       ],
@@ -2001,64 +1981,6 @@
             "replies": 3,
             "quotes": 0,
             "views": 10153,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 36,
-      "heat": 36,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-09-54fffb2304a1",
-      "rule_id": null,
-      "hot_word_zh": "这面旗在粉丝区正中央😭😭😭",
-      "hot_word_en": "THIS FLAG FRONT AND CENTER AT THE FAN STAGE 😭😭😭",
-      "first_seen_at": "2026-10-09T10:47:45Z",
-      "last_seen_at": "2026-10-09T10:47:45Z",
-      "anchor_item_id": "piasnews-social-6b4640ca18796527",
-      "image_url": "https://pbs.twimg.com/media/HULuaCvXgAAudHS.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HULuaCvXgAAudHS.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-6b4640ca18796527",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: THIS FLAG FRONT AND CENTER AT THE FAN STAGE 😭😭😭",
-          "title_zh": "X 发帖 @laurogeitabat：这面旗在粉丝区正中央😭😭😭",
-          "summary": "THIS FLAG FRONT AND CENTER AT THE FAN STAGE 😭😭😭 https://t.co/746g0YXES1",
-          "summary_zh": "这面旗在粉丝区正中央😭😭😭",
-          "url": "https://x.com/laurogeitabat/status/2108509716229845079",
-          "published_at": "2026-10-09T10:47:45Z",
-          "image_url": "https://pbs.twimg.com/media/HULuaCvXgAAudHS.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HULuaCvXgAAudHS.jpg",
-          "heat_contribution": 6.7818,
-          "metrics": {
-            "likes": 884,
-            "retweets": 61,
-            "replies": 1,
-            "quotes": 0,
-            "views": 16517,
             "bookmarks": 0
           }
         }
@@ -2663,6 +2585,64 @@
       }
     },
     {
+      "event_id": "evt-2026-10-09-54fffb2304a1",
+      "rule_id": null,
+      "hot_word_zh": "这面旗在粉丝区正中央😭😭😭",
+      "hot_word_en": "THIS FLAG FRONT AND CENTER AT THE FAN STAGE 😭😭😭",
+      "first_seen_at": "2026-10-09T10:47:45Z",
+      "last_seen_at": "2026-10-09T10:47:45Z",
+      "anchor_item_id": "piasnews-social-6b4640ca18796527",
+      "image_url": "https://pbs.twimg.com/media/HULuaCvXgAAudHS.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HULuaCvXgAAudHS.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-6b4640ca18796527",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: THIS FLAG FRONT AND CENTER AT THE FAN STAGE 😭😭😭",
+          "title_zh": "X 发帖 @laurogeitabat：这面旗在粉丝区正中央😭😭😭",
+          "summary": "THIS FLAG FRONT AND CENTER AT THE FAN STAGE 😭😭😭 https://t.co/746g0YXES1",
+          "summary_zh": "这面旗在粉丝区正中央😭😭😭",
+          "url": "https://x.com/laurogeitabat/status/2108509716229845079",
+          "published_at": "2026-10-09T10:47:45Z",
+          "image_url": "https://pbs.twimg.com/media/HULuaCvXgAAudHS.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HULuaCvXgAAudHS.jpg",
+          "heat_contribution": 6.2717,
+          "metrics": {
+            "likes": 884,
+            "retweets": 61,
+            "replies": 1,
+            "quotes": 0,
+            "views": 16517,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 33,
+      "heat": 33,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
       "event_id": "evt-2026-10-09-911920e868e8",
       "rule_id": null,
       "hot_word_zh": "迷你 Oscar 看着赛道上的 mcl40，太可爱了 🥹",
@@ -2879,354 +2859,6 @@
       "media_heat": 0,
       "fan_heat": 32,
       "heat": 32,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-10-fd9de5b5116a",
-      "rule_id": null,
-      "hot_word_zh": "工程师 oscar 在维修区墙边看雨 😮‍💨",
-      "hot_word_en": "engineer oscar watching the rain from the pitwall 😮‍💨",
-      "first_seen_at": "2026-10-10T09:07:50Z",
-      "last_seen_at": "2026-10-10T09:07:50Z",
-      "anchor_item_id": "piasnews-social-8ef5e2065a681160",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2108846446397235200/vid/avc1/336x270/qoc7FB155ieU1SYx.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2108846446397235200/img/_aBHuD7OqgcO6lCX.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-8ef5e2065a681160",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: engineer oscar watching the rain from the pitwall 😮‍💨",
-          "title_zh": "X 发帖 @laurogeitabat：工程师 oscar 在维修区墙边看雨 😮‍💨",
-          "summary": "engineer oscar watching the rain from the pitwall 😮‍💨 https://t.co/KSKm9RZAl1",
-          "summary_zh": "工程师 oscar 在维修区墙边看雨 😮‍💨",
-          "url": "https://x.com/laurogeitabat/status/2108846959687590045",
-          "published_at": "2026-10-10T09:07:50Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2108846446397235200/vid/avc1/336x270/qoc7FB155ieU1SYx.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2108846446397235200/img/_aBHuD7OqgcO6lCX.jpg",
-          "heat_contribution": 6.0596,
-          "metrics": {
-            "likes": 303,
-            "retweets": 55,
-            "replies": 0,
-            "quotes": 0,
-            "views": 1420,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 32,
-      "heat": 32,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-09-679325f18a47",
-      "rule_id": null,
-      "hot_word_zh": "Oscar 谈拥有好导师的重要性 🫶🏻 “当你刚开始做任何事情时，独自完成是非常困难的。",
-      "hot_word_en": "oscar on how important having good mentors is 🫶🏻 \"when you're first starting out in anything it's very hard t…",
-      "first_seen_at": "2026-10-09T17:57:40Z",
-      "last_seen_at": "2026-10-09T17:57:40Z",
-      "anchor_item_id": "piasnews-social-c4f8c1122d2380d6",
-      "image_url": "https://pbs.twimg.com/media/HUNQyehWgAA2ttN.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HUNQyehWgAA2ttN.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-c4f8c1122d2380d6",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar on how important having good mentors is 🫶🏻 \"when you're first starting out in anything it…",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar 谈拥有好导师的重要性 🫶🏻 “当你刚开始做任何事情时，独自完成是非常困难的。你需要好的导师/老师。真正重要的是那些有经验、愿意帮助你学习，同时也准备好推动你前进的人。”",
-          "summary": "oscar on how important having good mentors is 🫶🏻 \"when you're first starting out in anything it's very hard to do things by yourself. you need good mentors/teachers. the people who matter are those with experience who are willing to help you learn but also prepared to push you.\" https://t.co/jLTxAPENMo",
-          "summary_zh": "Oscar 谈拥有好导师的重要性 🫶🏻 “当你刚开始做任何事情时，独自完成是非常困难的。你需要好的导师/老师。真正重要的是那些有经验、愿意帮助你学习，同时也准备好推动你前进的人。”",
-          "url": "https://x.com/laurogeitabat/status/2108617907483693326",
-          "published_at": "2026-10-09T17:57:40Z",
-          "image_url": "https://pbs.twimg.com/media/HUNQyehWgAA2ttN.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HUNQyehWgAA2ttN.jpg",
-          "heat_contribution": 5.7318,
-          "metrics": {
-            "likes": 316,
-            "retweets": 29,
-            "replies": 0,
-            "quotes": 0,
-            "views": 3604,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 31,
-      "heat": 31,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-10-405de553ab24",
-      "rule_id": null,
-      "hot_word_zh": "oscar 和 gabi 在同一队打板式网球，他们赢了 🥳",
-      "hot_word_en": "oscar and gabi played padel on the same team and they won 🥳",
-      "first_seen_at": "2026-10-10T08:55:45Z",
-      "last_seen_at": "2026-10-10T08:55:45Z",
-      "anchor_item_id": "piasnews-social-582729f51846bc46",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2108701236992397313/vid/avc1/320x568/vcwMKi7360jj6cVm.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2108701236992397313/img/UD5pY6DLRvfKx2N3.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-582729f51846bc46",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar and gabi played padel on the same team and they won 🥳",
-          "title_zh": "X 发帖 @laurogeitabat：oscar 和 gabi 在同一队打板式网球，他们赢了 🥳",
-          "summary": "oscar and gabi played padel on the same team and they won 🥳 https://t.co/Uaq7RoREzW",
-          "summary_zh": "oscar 和 gabi 在同一队打板式网球，他们赢了 🥳",
-          "url": "https://x.com/laurogeitabat/status/2108843918443819326",
-          "published_at": "2026-10-10T08:55:45Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2108701236992397313/vid/avc1/320x568/vcwMKi7360jj6cVm.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2108701236992397313/img/UD5pY6DLRvfKx2N3.jpg",
-          "heat_contribution": 5.7325,
-          "metrics": {
-            "likes": 250,
-            "retweets": 19,
-            "replies": 0,
-            "quotes": 0,
-            "views": 1973,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 31,
-      "heat": 31,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-09-2faee1bc59a8",
-      "rule_id": null,
-      "hot_word_zh": "“在赛道上，他将极其敏锐的精准与本能般的控制以及压力下非凡的冷静结合在一起。",
-      "hot_word_en": "\"on the racetrack he pairs razor-sharp precision with instinctive control and an extraordinary calm under pre…",
-      "first_seen_at": "2026-10-09T19:54:00Z",
-      "last_seen_at": "2026-10-09T19:54:00Z",
-      "anchor_item_id": "piasnews-social-da70e75eaa7e806d",
-      "image_url": "https://pbs.twimg.com/media/HUNra0KXMAAhSZY.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HUNra0KXMAAhSZY.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-da70e75eaa7e806d",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: \"on the racetrack he pairs razor-sharp precision with instinctive control and an extraordinary…",
-          "title_zh": "X 发帖 @laurogeitabat：“在赛道上，他将极其敏锐的精准与本能般的控制以及压力下非凡的冷静结合在一起。他的驾驶方式有一种优雅，让巨大的速度和复杂性看起来几乎毫不费力。而在现实中，不知何故，他更令人印象深刻。” ✨",
-          "summary": "\"on the racetrack he pairs razor-sharp precision with instinctive control and an extraordinary calm under pressure. there is an eleganxe to the way he drives, making immense speed and complexity appear almost effortless. in person, somehow, he is even more impressive.\" ✨ https://t.co/JTRKGp86dY",
-          "summary_zh": "“在赛道上，他将极其敏锐的精准与本能般的控制以及压力下非凡的冷静结合在一起。他的驾驶方式有一种优雅，让巨大的速度和复杂性看起来几乎毫不费力。而在现实中，不知何故，他更令人印象深刻。” ✨",
-          "url": "https://x.com/laurogeitabat/status/2108647185021595752",
-          "published_at": "2026-10-09T19:54:00Z",
-          "image_url": "https://pbs.twimg.com/media/HUNra0KXMAAhSZY.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HUNra0KXMAAhSZY.jpg",
-          "heat_contribution": 5.637,
-          "metrics": {
-            "likes": 254,
-            "retweets": 44,
-            "replies": 0,
-            "quotes": 0,
-            "views": 3081,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 30,
-      "heat": 30,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-09-5ee5d981a338",
-      "rule_id": null,
-      "hot_word_zh": "一旦我蜕变，一旦我重生 🐦‍🔥✨",
-      "hot_word_en": "once i'm transformed once i'm reborn 🐦‍🔥✨",
-      "first_seen_at": "2026-10-09T20:58:05Z",
-      "last_seen_at": "2026-10-09T20:58:05Z",
-      "anchor_item_id": "piasnews-social-d30c4d9678886d4a",
-      "image_url": "https://pbs.twimg.com/media/HUN6FyaXwAAOcLJ.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HUN6FyaXwAAOcLJ.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-d30c4d9678886d4a",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: once i'm transformed once i'm reborn 🐦‍🔥✨",
-          "title_zh": "X 发帖 @laurogeitabat：一旦我蜕变，一旦我重生 🐦‍🔥✨",
-          "summary": "once i'm transformed once i'm reborn 🐦‍🔥✨ https://t.co/7zeLveweHV",
-          "summary_zh": "一旦我蜕变，一旦我重生 🐦‍🔥✨",
-          "url": "https://x.com/laurogeitabat/status/2108663311738798264",
-          "published_at": "2026-10-09T20:58:05Z",
-          "image_url": "https://pbs.twimg.com/media/HUN6FyaXwAAOcLJ.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HUN6FyaXwAAOcLJ.jpg",
-          "heat_contribution": 5.5999,
-          "metrics": {
-            "likes": 269,
-            "retweets": 28,
-            "replies": 0,
-            "quotes": 0,
-            "views": 3421,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 30,
-      "heat": 30,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-09-145a5770cd99",
-      "rule_id": null,
-      "hot_word_zh": "Max 没有受罚。确认 Oscar 明天将从 P4 起步冲刺赛！",
-      "hot_word_en": "no penalty for max. confirmed that oscar will start the sprint tomorrow in p4!",
-      "first_seen_at": "2026-10-09T15:40:14Z",
-      "last_seen_at": "2026-10-09T15:40:14Z",
-      "anchor_item_id": "piasnews-social-8bf9927f4265d5c3",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-8bf9927f4265d5c3",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: no penalty for max. confirmed that oscar will start the sprint tomorrow in p4!",
-          "title_zh": "X 发帖 @laurogeitabat：Max 没有受罚。确认 Oscar 明天将从 P4 起步冲刺赛！",
-          "summary": "no penalty for max. confirmed that oscar will start the sprint tomorrow in p4!",
-          "summary_zh": "Max 没有受罚。确认 Oscar 明天将从 P4 起步冲刺赛！",
-          "url": "https://x.com/laurogeitabat/status/2108583323203199047",
-          "published_at": "2026-10-09T15:40:14Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 5.2543,
-          "metrics": {
-            "likes": 212,
-            "retweets": 2,
-            "replies": 0,
-            "quotes": 0,
-            "views": 3784,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 29,
-      "heat": 29,
       "source_labels": [
         "粉"
       ],
