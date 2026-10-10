@@ -1,21 +1,22 @@
 {
-  "generated_at": "2026-10-10T06:13:35.807971Z",
+  "generated_at": "2026-10-10T09:15:29.770232Z",
   "window_days": 7,
-  "total_items": 74,
+  "total_items": 73,
   "latest_date": "2026-10-10",
   "days": [
     {
       "date": "2026-10-10",
-      "total_new_items": 1,
+      "total_new_items": 2,
       "official_new_items": 0,
-      "media_new_items": 1,
+      "media_new_items": 2,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
-        "7NEWS": 1
+        "7NEWS": 1,
+        "SPEEDWEEK.com": 1
       },
       "categories": {
-        "race": 1
+        "race": 2
       }
     },
     {
@@ -168,21 +169,18 @@
     },
     {
       "date": "2026-10-03",
-      "total_new_items": 4,
+      "total_new_items": 2,
       "official_new_items": 0,
-      "media_new_items": 4,
+      "media_new_items": 2,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
-        "SPEEDWEEK.com": 1,
         "Speedcafe.com": 1,
-        "racingnews365.com": 1,
-        "t.co": 1
+        "racingnews365.com": 1
       },
       "categories": {
-        "other": 1,
         "race": 1,
-        "team": 2
+        "team": 1
       }
     }
   ],
@@ -213,7 +211,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 39
+      "items": 40
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
@@ -234,7 +232,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 8
+      "items": 9
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
@@ -253,13 +251,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 43,
-      "kept": 27,
+      "checked": 44,
+      "kept": 30,
       "results": {
         "outside_window": 1,
-        "publisher_date_missing": 7,
-        "publisher_unavailable": 8,
-        "verified": 27
+        "publisher_date_missing": 4,
+        "publisher_unavailable": 9,
+        "verified": 30
       }
     },
     {
@@ -268,7 +266,7 @@
       "discovery_days": 3,
       "retention_days": 7,
       "previous_items": 74,
-      "kept": 74
+      "kept": 73
     }
   ]
 }

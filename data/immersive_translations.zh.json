@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-10T06:15:45.369021Z",
+  "generated_at": "2026-10-10T09:17:57.663763Z",
   "translations": {
     "items:piasnews-1e570758d5abd239:title:d4e8cfa39bfba0de861c2b75": {
       "dataset": "items",
@@ -3229,6 +3229,126 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-10-10T03:15:19.209857Z"
+    },
+    "items:piasnews-bd1706fb1cedf048:title:50cb74c9b2796387e20e5711": {
+      "dataset": "items",
+      "item_id": "piasnews-bd1706fb1cedf048",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri in Singapore: Faster than the F1 World Champion in Sprint Qualifying",
+      "zh": "Oscar Piastri 在新加坡：冲刺排位赛中比 F1 世界冠军更快",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-10T09:17:56.984123Z"
+    },
+    "items:piasnews-bd1706fb1cedf048:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-bd1706fb1cedf048",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-10T09:17:56.984132Z"
+    },
+    "social:piasnews-social-9ef5d7e5161ce72c:summary:d6bb707ee99c352a26cefdc4": {
+      "dataset": "social",
+      "item_id": "piasnews-social-9ef5d7e5161ce72c",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar spotting himself on the broadcast: 👍🏻🙂 https://t.co/XMaTMex4dw",
+      "zh": "oscar 在转播中看到自己：👍🏻🙂",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-10T09:17:56.984138Z"
+    },
+    "social:piasnews-social-8ef5e2065a681160:summary:420a766cf3b6ce61192875ae": {
+      "dataset": "social",
+      "item_id": "piasnews-social-8ef5e2065a681160",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "engineer oscar watching the rain from the pitwall 😮‍💨 https://t.co/KSKm9RZAl1",
+      "zh": "工程师 oscar 在维修区墙边看雨 😮‍💨",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-10T09:17:56.984143Z"
+    },
+    "social:piasnews-social-23c1b9773f7bad6f:summary:d46d2dcfa312bbbf7af1e8f4": {
+      "dataset": "social",
+      "item_id": "piasnews-social-23c1b9773f7bad6f",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @oscpoleposition: Obsessed with this helmet https://t.co/cuxBvp0G2P",
+      "zh": "RT @osc杆位position：对这顶头盔着迷了",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-10T09:17:56.984147Z"
+    },
+    "social:piasnews-social-582729f51846bc46:summary:7df4c6b2ad85a3090fea0248": {
+      "dataset": "social",
+      "item_id": "piasnews-social-582729f51846bc46",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar and gabi played padel on the same team and they won 🥳 https://t.co/Uaq7RoREzW",
+      "zh": "oscar 和 gabi 在同一队打板式网球，他们赢了 🥳",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-10T09:17:56.984152Z"
+    },
+    "social:piasnews-social-d2a92ea5fe2b1cbe:summary:8497a100837dfd141dbf08dd": {
+      "dataset": "social",
+      "item_id": "piasnews-social-d2a92ea5fe2b1cbe",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "there's an oscar doll with a pastry in oscar's guests' table at the mclaren hospitality 🥹🥹 https://t.co/EG65jwQsiv",
+      "zh": "在 mclaren 接待区的 oscar 宾客桌上，有一个拿着糕点的 oscar 玩偶 🥹🥹",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-10T09:17:56.984158Z"
+    },
+    "social:piasnews-social-e349ee75fc961247:summary:60a8369baa9c51647b1c79d2": {
+      "dataset": "social",
+      "item_id": "piasnews-social-e349ee75fc961247",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @McLarenF1: Rituals 🤜🤛 #McLarenF1 | #SingaporeGP🇸🇬 https://t.co/Eh7ksp3IS6",
+      "zh": "RT @McLarenF1：仪式 🤜🤛 #McLarenF1 | #SingaporeGP🇸🇬",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-10T09:17:56.984166Z"
+    },
+    "social:piasnews-social-1ac483c33e9708bf:summary:4645b0b4e7180bd5f039b31f": {
+      "dataset": "social",
+      "item_id": "piasnews-social-1ac483c33e9708bf",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar and lily are here 💗💗 https://t.co/aewkHxiUEF",
+      "zh": "oscar 和 lily 来了 💗💗",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-10T09:17:56.984171Z"
+    },
+    "social:piasnews-social-b53b93861794194c:summary:3288064caed4517b3ac07b81": {
+      "dataset": "social",
+      "item_id": "piasnews-social-b53b93861794194c",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar and lily have arrived for sprint and qualifying day! and oscar is wearing the black version of the singapore collection team kit 😮‍💨 https://t.co/JGXe67dzj9",
+      "zh": "oscar 和 lily 已抵达冲刺赛和排位赛日！而且 oscar 穿着新加坡系列队服的黑色版本 😮‍💨",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-10T09:17:56.984175Z"
     }
   },
   "retention_days": 8
