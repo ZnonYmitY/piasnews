@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-10T14:36:23.162099Z",
+  "generated_at": "2026-10-10T14:51:22.749774Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -67,65 +67,6 @@
       "rank": 1
     },
     {
-      "event_id": "evt-session-result-2026-round-17-sprint_qualifying",
-      "rule_id": null,
-      "hot_word_zh": "Oscar 在新加坡站冲刺排位获得第4名",
-      "hot_word_en": "Oscar finishes P4 in Singapore Grand Prix Sprint Qualifying",
-      "first_seen_at": "2026-10-09T14:36:28.021912Z",
-      "last_seen_at": "2026-10-09T14:36:28.021912Z",
-      "anchor_item_id": "session-result-2026-round-17-sprint_qualifying",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": false,
-      "review_needed_reason": null,
-      "official_heat": 0,
-      "media_heat": 100,
-      "fan_heat": 0,
-      "heat": 100,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 1,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "hard_rule": {
-        "type": "session_result",
-        "race_id": "2026-round-17",
-        "session": "sprint_qualifying",
-        "position": 4,
-        "status": "classified",
-        "provisional": false,
-        "source_item_id": "session-result-2026-round-17-sprint_qualifying",
-        "source": "OpenF1",
-        "latest": false
-      },
-      "items": [
-        {
-          "item_id": "session-result-2026-round-17-sprint_qualifying",
-          "dataset": "session_result",
-          "source_type": "media",
-          "source": "OpenF1",
-          "title": "Oscar finishes P4 in Singapore Grand Prix Sprint Qualifying",
-          "title_zh": "Oscar 在新加坡站冲刺排位获得第4名",
-          "summary": "Structured session result for Oscar Piastri.",
-          "summary_zh": "Oscar Piastri 的结构化场次成绩。",
-          "url": "https://api.openf1.org/v1/session_result?session_key=11379&driver_number=81",
-          "published_at": "2026-10-09T14:36:28.021912Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 100,
-          "metrics": {}
-        }
-      ],
-      "rank": 2
-    },
-    {
       "event_id": "evt-2026-10-08-18b8cd4819a0-18b8cd48",
       "rule_id": null,
       "hot_word_zh": "Oscar 冲刺排位赛后的想法 💭 #McLarenF1 | #SingaporeGP🇸🇬",
@@ -153,7 +94,7 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2108839696897916928/vid/avc1/320x568/Pf9nvdyziChFbRd5.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2108839696897916928/img/1wLKwcecd0iFunYw.jpg",
-          "heat_contribution": 5.5447,
+          "heat_contribution": 5.2583,
           "metrics": {
             "likes": 0,
             "retweets": 127,
@@ -238,8 +179,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 59,
-      "heat": 59,
+      "fan_heat": 58,
+      "heat": 58,
       "source_labels": [
         "粉"
       ],
@@ -250,7 +191,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 3
+      "rank": 2
     },
     {
       "event_id": "evt-2026-10-08-1d8dd1ff56c0",
@@ -329,7 +270,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 4
+      "rank": 3
     },
     {
       "event_id": "evt-2026-10-04-39387ce888f4",
@@ -683,7 +624,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 5
+      "rank": 4
     },
     {
       "event_id": "evt-2026-10-09-dec8bf5d54a7",
@@ -738,7 +679,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 5
     },
     {
       "event_id": "evt-2026-10-09-2b739ed28cdf",
@@ -793,7 +734,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 6
     },
     {
       "event_id": "evt-2026-09-30-67ada2c81653",
@@ -908,7 +849,7 @@
           "image_url": "https://speedcafe.com/wp-content/uploads/2026/10/XPB_1442701_HiRes.jpg",
           "video_url": null,
           "video_poster_url": "https://speedcafe.com/wp-content/uploads/2026/10/XPB_1442701_HiRes.jpg",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -1287,9 +1228,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 39,
+      "media_heat": 38,
       "fan_heat": 0,
-      "heat": 39,
+      "heat": 38,
       "source_labels": [
         "媒"
       ],
@@ -1300,7 +1241,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 7
     },
     {
       "event_id": "evt-2026-10-08-fa3b64cfd60a",
@@ -1415,7 +1356,7 @@
           "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-10%2F20261008-0298-6ac79fb821d75.jpg",
           "video_url": null,
           "video_poster_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-10%2F20261008-0298-6ac79fb821d75.jpg",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -1432,7 +1373,7 @@
           "image_url": "https://s.yimg.com/lo/mysterio/api/a23b4925abd242d5fcd6aa697f040b0514c3369308d7a28c62539e3a86a77b7c/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fgpblog_716%2F4891a21b9ff96832ebde810e15dfe6d9",
           "video_url": null,
           "video_poster_url": "https://s.yimg.com/lo/mysterio/api/a23b4925abd242d5fcd6aa697f040b0514c3369308d7a28c62539e3a86a77b7c/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fgpblog_716%2F4891a21b9ff96832ebde810e15dfe6d9",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -1454,9 +1395,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 36,
+      "media_heat": 34,
       "fan_heat": 0,
-      "heat": 36,
+      "heat": 34,
       "source_labels": [
         "媒"
       ],
@@ -1467,7 +1408,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 9
+      "rank": 8
     },
     {
       "event_id": "evt-2026-10-10-b19d2b9be3f0",
@@ -1522,10 +1463,89 @@
       },
       "pinned_rank": null,
       "hidden": false,
+      "rank": 9
+    },
+    {
+      "event_id": "evt-2026-10-08-96d3290d361f",
+      "rule_id": null,
+      "hot_word_zh": "RT @正赛piastri：天哪！！！Oscar 在新加坡大奖赛的特别头盔！！！",
+      "hot_word_en": "HOLYYYYY OSCAR’S SPECIAL HELMET FOR THE SINGAPORE GP!!!",
+      "first_seen_at": "2026-10-04T14:16:12Z",
+      "last_seen_at": "2026-10-08T16:36:18Z",
+      "anchor_item_id": "piasnews-social-60d1ce2483929b61",
+      "image_url": "https://pbs.twimg.com/media/HUHx2ajX0AECRJC.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HUHx2ajX0AECRJC.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-60d1ce2483929b61",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@oscarsspiastree",
+          "title": "X repost from @oscarsspiastree: RT @racepiastri: HOLYYYYY OSCAR’S SPECIAL HELMET FOR THE SINGAPORE GP!!!",
+          "title_zh": "X 转帖 @oscarsspiastree：RT @正赛piastri：天哪！！！Oscar 在新加坡大奖赛的特别头盔！！！",
+          "summary": "RT @racepiastri: HOLYYYYY OSCAR’S SPECIAL HELMET FOR THE SINGAPORE GP!!! https://t.co/y1AHmqHdMJ",
+          "summary_zh": "RT @正赛piastri：天哪！！！Oscar 在新加坡大奖赛的特别头盔！！！",
+          "url": "https://x.com/oscarsspiastree/status/2108235046649741596",
+          "published_at": "2026-10-08T16:36:18Z",
+          "image_url": "https://pbs.twimg.com/media/HUHx2ajX0AECRJC.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HUHx2ajX0AECRJC.jpg",
+          "heat_contribution": 4.5492,
+          "metrics": {
+            "likes": 0,
+            "retweets": 103,
+            "replies": 0,
+            "quotes": 0,
+            "views": 190,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-6626ed71fa5ff806",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar's special cap for the singapore gp!",
+          "title_zh": "X 发帖 @laurogeitabat：oscar为新加坡大奖赛准备的特别帽子！",
+          "summary": "oscar's special cap for the singapore gp! https://t.co/59YhwH9DPh",
+          "summary_zh": "oscar为新加坡大奖赛准备的特别帽子！",
+          "url": "https://x.com/laurogeitabat/status/2106750234806174065",
+          "published_at": "2026-10-04T14:16:12Z",
+          "image_url": "https://pbs.twimg.com/media/HTyuKDmWwAA__9W.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HTyuKDmWwAA__9W.jpg",
+          "heat_contribution": 0.0,
+          "metrics": {
+            "likes": 1902,
+            "retweets": 130,
+            "replies": 2,
+            "quotes": 82,
+            "views": 19037,
+            "bookmarks": 65
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 25,
+      "heat": 25,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 2
+      },
+      "pinned_rank": null,
+      "hidden": false,
       "rank": 10
     }
   ],
-  "review_needed_count": 28,
+  "review_needed_count": 29,
   "review_needed_events": [
     {
       "event_id": "evt-2026-10-09-b9a9a992f1c0",
@@ -2626,64 +2646,6 @@
       }
     },
     {
-      "event_id": "evt-2026-10-10-5a038d566fc2",
-      "rule_id": null,
-      "hot_word_zh": "在 mclaren 接待区的 oscar 宾客桌上，有一个拿着糕点的 oscar 玩偶 🥹🥹",
-      "hot_word_en": "there's an oscar doll with a pastry in oscar's guests' table at the mclaren hospitality 🥹🥹",
-      "first_seen_at": "2026-10-10T08:46:46Z",
-      "last_seen_at": "2026-10-10T08:46:46Z",
-      "anchor_item_id": "piasnews-social-d2a92ea5fe2b1cbe",
-      "image_url": "https://pbs.twimg.com/media/HUQcTxXWwAAxHan.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HUQcTxXWwAAxHan.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-d2a92ea5fe2b1cbe",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: there's an oscar doll with a pastry in oscar's guests' table at the mclaren hospitality 🥹🥹",
-          "title_zh": "X 发帖 @laurogeitabat：在 mclaren 接待区的 oscar 宾客桌上，有一个拿着糕点的 oscar 玩偶 🥹🥹",
-          "summary": "there's an oscar doll with a pastry in oscar's guests' table at the mclaren hospitality 🥹🥹 https://t.co/EG65jwQsiv",
-          "summary_zh": "在 mclaren 接待区的 oscar 宾客桌上，有一个拿着糕点的 oscar 玩偶 🥹🥹",
-          "url": "https://x.com/laurogeitabat/status/2108841658737369515",
-          "published_at": "2026-10-10T08:46:46Z",
-          "image_url": "https://pbs.twimg.com/media/HUQcTxXWwAAxHan.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HUQcTxXWwAAxHan.jpg",
-          "heat_contribution": 5.9085,
-          "metrics": {
-            "likes": 288,
-            "retweets": 27,
-            "replies": 0,
-            "quotes": 0,
-            "views": 2514,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 32,
-      "heat": 32,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-10-10-fd9de5b5116a",
       "rule_id": null,
       "hot_word_zh": "工程师 oscar 在维修区墙边看雨 😮‍💨",
@@ -3132,6 +3094,122 @@
       "media_heat": 0,
       "fan_heat": 30,
       "heat": 30,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-10-10-5a038d566fc2",
+      "rule_id": null,
+      "hot_word_zh": "在 mclaren 接待区的 oscar 宾客桌上，有一个拿着糕点的 oscar 玩偶 🥹🥹",
+      "hot_word_en": "there's an oscar doll with a pastry in oscar's guests' table at the mclaren hospitality 🥹🥹",
+      "first_seen_at": "2026-10-10T08:46:46Z",
+      "last_seen_at": "2026-10-10T08:46:46Z",
+      "anchor_item_id": "piasnews-social-d2a92ea5fe2b1cbe",
+      "image_url": "https://pbs.twimg.com/media/HUQcTxXWwAAxHan.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HUQcTxXWwAAxHan.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-d2a92ea5fe2b1cbe",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: there's an oscar doll with a pastry in oscar's guests' table at the mclaren hospitality 🥹🥹",
+          "title_zh": "X 发帖 @laurogeitabat：在 mclaren 接待区的 oscar 宾客桌上，有一个拿着糕点的 oscar 玩偶 🥹🥹",
+          "summary": "there's an oscar doll with a pastry in oscar's guests' table at the mclaren hospitality 🥹🥹 https://t.co/EG65jwQsiv",
+          "summary_zh": "在 mclaren 接待区的 oscar 宾客桌上，有一个拿着糕点的 oscar 玩偶 🥹🥹",
+          "url": "https://x.com/laurogeitabat/status/2108841658737369515",
+          "published_at": "2026-10-10T08:46:46Z",
+          "image_url": "https://pbs.twimg.com/media/HUQcTxXWwAAxHan.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HUQcTxXWwAAxHan.jpg",
+          "heat_contribution": 5.6217,
+          "metrics": {
+            "likes": 288,
+            "retweets": 27,
+            "replies": 0,
+            "quotes": 0,
+            "views": 2514,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 30,
+      "heat": 30,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-10-09-145a5770cd99",
+      "rule_id": null,
+      "hot_word_zh": "Max 没有受罚。确认 Oscar 明天将从 P4 起步冲刺赛！",
+      "hot_word_en": "no penalty for max. confirmed that oscar will start the sprint tomorrow in p4!",
+      "first_seen_at": "2026-10-09T15:40:14Z",
+      "last_seen_at": "2026-10-09T15:40:14Z",
+      "anchor_item_id": "piasnews-social-8bf9927f4265d5c3",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-8bf9927f4265d5c3",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: no penalty for max. confirmed that oscar will start the sprint tomorrow in p4!",
+          "title_zh": "X 发帖 @laurogeitabat：Max 没有受罚。确认 Oscar 明天将从 P4 起步冲刺赛！",
+          "summary": "no penalty for max. confirmed that oscar will start the sprint tomorrow in p4!",
+          "summary_zh": "Max 没有受罚。确认 Oscar 明天将从 P4 起步冲刺赛！",
+          "url": "https://x.com/laurogeitabat/status/2108583323203199047",
+          "published_at": "2026-10-09T15:40:14Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 5.2543,
+          "metrics": {
+            "likes": 212,
+            "retweets": 2,
+            "replies": 0,
+            "quotes": 0,
+            "views": 3784,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 29,
+      "heat": 29,
       "source_labels": [
         "粉"
       ],
