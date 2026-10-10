@@ -1,12 +1,71 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-10T14:51:22.749774Z",
+  "generated_at": "2026-10-10T15:06:28.923117Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
   "event_count": 10,
   "events": [
+    {
+      "event_id": "evt-session-result-2026-round-17-qualifying",
+      "rule_id": null,
+      "hot_word_zh": "Oscar 在新加坡站排位赛获得第7名",
+      "hot_word_en": "Oscar qualifies P7 for the Singapore Grand Prix",
+      "first_seen_at": "2026-10-10T15:06:27.507536Z",
+      "last_seen_at": "2026-10-10T15:06:27.507536Z",
+      "anchor_item_id": "session-result-2026-round-17-qualifying",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "official_heat": 0,
+      "media_heat": 100,
+      "fan_heat": 0,
+      "heat": 100,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 1,
+        "fan": 0
+      },
+      "pinned_rank": 1,
+      "hidden": false,
+      "hard_rule": {
+        "type": "session_result",
+        "race_id": "2026-round-17",
+        "session": "qualifying",
+        "position": 7,
+        "status": "classified",
+        "provisional": false,
+        "source_item_id": "session-result-2026-round-17-qualifying",
+        "source": "OpenF1",
+        "latest": true
+      },
+      "items": [
+        {
+          "item_id": "session-result-2026-round-17-qualifying",
+          "dataset": "session_result",
+          "source_type": "media",
+          "source": "OpenF1",
+          "title": "Oscar qualifies P7 for the Singapore Grand Prix",
+          "title_zh": "Oscar 在新加坡站排位赛获得第7名",
+          "summary": "Structured session result for Oscar Piastri.",
+          "summary_zh": "Oscar Piastri 的结构化场次成绩。",
+          "url": "https://api.openf1.org/v1/session_result?session_key=11384&driver_number=81",
+          "published_at": "2026-10-10T15:06:27.507536Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 100,
+          "metrics": {}
+        }
+      ],
+      "rank": 1
+    },
     {
       "event_id": "evt-session-result-2026-round-17-sprint",
       "rule_id": null,
@@ -32,7 +91,7 @@
         "media": 1,
         "fan": 0
       },
-      "pinned_rank": 1,
+      "pinned_rank": null,
       "hidden": false,
       "hard_rule": {
         "type": "session_result",
@@ -43,7 +102,7 @@
         "provisional": false,
         "source_item_id": "session-result-2026-round-17-sprint",
         "source": "OpenF1",
-        "latest": true
+        "latest": false
       },
       "items": [
         {
@@ -64,7 +123,7 @@
           "metrics": {}
         }
       ],
-      "rank": 1
+      "rank": 2
     },
     {
       "event_id": "evt-2026-10-08-18b8cd4819a0-18b8cd48",
@@ -191,7 +250,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 2
+      "rank": 3
     },
     {
       "event_id": "evt-2026-10-08-1d8dd1ff56c0",
@@ -270,7 +329,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 3
+      "rank": 4
     },
     {
       "event_id": "evt-2026-10-04-39387ce888f4",
@@ -624,7 +683,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 4
+      "rank": 5
     },
     {
       "event_id": "evt-2026-10-09-dec8bf5d54a7",
@@ -679,7 +738,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 5
+      "rank": 6
     },
     {
       "event_id": "evt-2026-10-09-2b739ed28cdf",
@@ -734,7 +793,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 7
     },
     {
       "event_id": "evt-2026-09-30-67ada2c81653",
@@ -1241,7 +1300,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 8
     },
     {
       "event_id": "evt-2026-10-08-fa3b64cfd60a",
@@ -1408,7 +1467,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 9
     },
     {
       "event_id": "evt-2026-10-10-b19d2b9be3f0",
@@ -1463,89 +1522,10 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 9
-    },
-    {
-      "event_id": "evt-2026-10-08-96d3290d361f",
-      "rule_id": null,
-      "hot_word_zh": "RT @正赛piastri：天哪！！！Oscar 在新加坡大奖赛的特别头盔！！！",
-      "hot_word_en": "HOLYYYYY OSCAR’S SPECIAL HELMET FOR THE SINGAPORE GP!!!",
-      "first_seen_at": "2026-10-04T14:16:12Z",
-      "last_seen_at": "2026-10-08T16:36:18Z",
-      "anchor_item_id": "piasnews-social-60d1ce2483929b61",
-      "image_url": "https://pbs.twimg.com/media/HUHx2ajX0AECRJC.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HUHx2ajX0AECRJC.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-60d1ce2483929b61",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@oscarsspiastree",
-          "title": "X repost from @oscarsspiastree: RT @racepiastri: HOLYYYYY OSCAR’S SPECIAL HELMET FOR THE SINGAPORE GP!!!",
-          "title_zh": "X 转帖 @oscarsspiastree：RT @正赛piastri：天哪！！！Oscar 在新加坡大奖赛的特别头盔！！！",
-          "summary": "RT @racepiastri: HOLYYYYY OSCAR’S SPECIAL HELMET FOR THE SINGAPORE GP!!! https://t.co/y1AHmqHdMJ",
-          "summary_zh": "RT @正赛piastri：天哪！！！Oscar 在新加坡大奖赛的特别头盔！！！",
-          "url": "https://x.com/oscarsspiastree/status/2108235046649741596",
-          "published_at": "2026-10-08T16:36:18Z",
-          "image_url": "https://pbs.twimg.com/media/HUHx2ajX0AECRJC.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HUHx2ajX0AECRJC.jpg",
-          "heat_contribution": 4.5492,
-          "metrics": {
-            "likes": 0,
-            "retweets": 103,
-            "replies": 0,
-            "quotes": 0,
-            "views": 190,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-6626ed71fa5ff806",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar's special cap for the singapore gp!",
-          "title_zh": "X 发帖 @laurogeitabat：oscar为新加坡大奖赛准备的特别帽子！",
-          "summary": "oscar's special cap for the singapore gp! https://t.co/59YhwH9DPh",
-          "summary_zh": "oscar为新加坡大奖赛准备的特别帽子！",
-          "url": "https://x.com/laurogeitabat/status/2106750234806174065",
-          "published_at": "2026-10-04T14:16:12Z",
-          "image_url": "https://pbs.twimg.com/media/HTyuKDmWwAA__9W.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HTyuKDmWwAA__9W.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {
-            "likes": 1902,
-            "retweets": 130,
-            "replies": 2,
-            "quotes": 82,
-            "views": 19037,
-            "bookmarks": 65
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 25,
-      "heat": 25,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 2
-      },
-      "pinned_rank": null,
-      "hidden": false,
       "rank": 10
     }
   ],
-  "review_needed_count": 29,
+  "review_needed_count": 27,
   "review_needed_events": [
     {
       "event_id": "evt-2026-10-09-b9a9a992f1c0",
@@ -2878,64 +2858,6 @@
       }
     },
     {
-      "event_id": "evt-2026-10-10-405de553ab24",
-      "rule_id": null,
-      "hot_word_zh": "oscar 和 gabi 在同一队打板式网球，他们赢了 🥳",
-      "hot_word_en": "oscar and gabi played padel on the same team and they won 🥳",
-      "first_seen_at": "2026-10-10T08:55:45Z",
-      "last_seen_at": "2026-10-10T08:55:45Z",
-      "anchor_item_id": "piasnews-social-582729f51846bc46",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2108701236992397313/vid/avc1/320x568/vcwMKi7360jj6cVm.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2108701236992397313/img/UD5pY6DLRvfKx2N3.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-582729f51846bc46",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar and gabi played padel on the same team and they won 🥳",
-          "title_zh": "X 发帖 @laurogeitabat：oscar 和 gabi 在同一队打板式网球，他们赢了 🥳",
-          "summary": "oscar and gabi played padel on the same team and they won 🥳 https://t.co/Uaq7RoREzW",
-          "summary_zh": "oscar 和 gabi 在同一队打板式网球，他们赢了 🥳",
-          "url": "https://x.com/laurogeitabat/status/2108843918443819326",
-          "published_at": "2026-10-10T08:55:45Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2108701236992397313/vid/avc1/320x568/vcwMKi7360jj6cVm.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2108701236992397313/img/UD5pY6DLRvfKx2N3.jpg",
-          "heat_contribution": 5.7325,
-          "metrics": {
-            "likes": 250,
-            "retweets": 19,
-            "replies": 0,
-            "quotes": 0,
-            "views": 1973,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 31,
-      "heat": 31,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-10-09-2faee1bc59a8",
       "rule_id": null,
       "hot_word_zh": "“在赛道上，他将极其敏锐的精准与本能般的控制以及压力下非凡的冷静结合在一起。",
@@ -3152,64 +3074,6 @@
       "media_heat": 0,
       "fan_heat": 30,
       "heat": 30,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-09-145a5770cd99",
-      "rule_id": null,
-      "hot_word_zh": "Max 没有受罚。确认 Oscar 明天将从 P4 起步冲刺赛！",
-      "hot_word_en": "no penalty for max. confirmed that oscar will start the sprint tomorrow in p4!",
-      "first_seen_at": "2026-10-09T15:40:14Z",
-      "last_seen_at": "2026-10-09T15:40:14Z",
-      "anchor_item_id": "piasnews-social-8bf9927f4265d5c3",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-8bf9927f4265d5c3",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: no penalty for max. confirmed that oscar will start the sprint tomorrow in p4!",
-          "title_zh": "X 发帖 @laurogeitabat：Max 没有受罚。确认 Oscar 明天将从 P4 起步冲刺赛！",
-          "summary": "no penalty for max. confirmed that oscar will start the sprint tomorrow in p4!",
-          "summary_zh": "Max 没有受罚。确认 Oscar 明天将从 P4 起步冲刺赛！",
-          "url": "https://x.com/laurogeitabat/status/2108583323203199047",
-          "published_at": "2026-10-09T15:40:14Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 5.2543,
-          "metrics": {
-            "likes": 212,
-            "retweets": 2,
-            "replies": 0,
-            "quotes": 0,
-            "views": 3784,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 29,
-      "heat": 29,
       "source_labels": [
         "粉"
       ],
