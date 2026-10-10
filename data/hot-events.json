@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-10T14:21:30.782799Z",
+  "generated_at": "2026-10-10T14:36:23.162099Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -925,7 +925,7 @@
           "image_url": "https://content.api.news/v3/images/bin/8fb92a3795982e48377152d1c17f20f1",
           "video_url": null,
           "video_poster_url": "https://content.api.news/v3/images/bin/8fb92a3795982e48377152d1c17f20f1",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -1287,9 +1287,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 40,
+      "media_heat": 39,
       "fan_heat": 0,
-      "heat": 40,
+      "heat": 39,
       "source_labels": [
         "媒"
       ],
@@ -1814,64 +1814,6 @@
       }
     },
     {
-      "event_id": "evt-2026-10-09-02922193181d",
-      "rule_id": null,
-      "hot_word_zh": "问：你有多满意？Oscar：挺开心的！我觉得这差不多是我们能做到的全部了。",
-      "hot_word_en": "Q: how satisfied are you? oscar: pretty happy! i think that was more or less all we could've done.",
-      "first_seen_at": "2026-10-09T14:25:25Z",
-      "last_seen_at": "2026-10-09T14:25:25Z",
-      "anchor_item_id": "piasnews-social-b95fd5e9dece7e11",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2108564445416861696/vid/avc1/324x270/XGWPvM7MpwcSDc82.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2108564445416861696/img/ZioX0RLaGu0P1HvT.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-b95fd5e9dece7e11",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: Q: how satisfied are you? oscar: pretty happy! i think that was more or less all we could've do…",
-          "title_zh": "X 发帖 @laurogeitabat：问：你有多满意？Oscar：挺开心的！我觉得这差不多是我们能做到的全部了。在冲刺赛周末，要在这里把赛车的圈速全部榨出来非常棘手。我在中性胎上很挣扎，但一换上软胎我就挺满意了。表现不错！",
-          "summary": "Q: how satisfied are you? oscar: pretty happy! i think that was more or less all we could've done. it's very tricky on a sprint weekend to get all the lap time out of the car here. i was struggling on the medium but once i put the soft on i was pretty happy. not a bad effort! https://t.co/CO6Yi83UU4",
-          "summary_zh": "问：你有多满意？Oscar：挺开心的！我觉得这差不多是我们能做到的全部了。在冲刺赛周末，要在这里把赛车的圈速全部榨出来非常棘手。我在中性胎上很挣扎，但一换上软胎我就挺满意了。表现不错！",
-          "url": "https://x.com/laurogeitabat/status/2108564492963447211",
-          "published_at": "2026-10-09T14:25:25Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2108564445416861696/vid/avc1/324x270/XGWPvM7MpwcSDc82.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2108564445416861696/img/ZioX0RLaGu0P1HvT.jpg",
-          "heat_contribution": 7.1123,
-          "metrics": {
-            "likes": 1132,
-            "retweets": 160,
-            "replies": 0,
-            "quotes": 0,
-            "views": 18266,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 37,
-      "heat": 37,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-10-09-22804a41bfb5",
       "rule_id": null,
       "hot_word_zh": "“特别绝对是那个词。但谢谢你。”思考着他人生中的所有选择 😭😭😭😭",
@@ -1972,6 +1914,64 @@
       "media_heat": 0,
       "fan_heat": 36,
       "heat": 36,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-10-09-02922193181d",
+      "rule_id": null,
+      "hot_word_zh": "问：你有多满意？Oscar：挺开心的！我觉得这差不多是我们能做到的全部了。",
+      "hot_word_en": "Q: how satisfied are you? oscar: pretty happy! i think that was more or less all we could've done.",
+      "first_seen_at": "2026-10-09T14:25:25Z",
+      "last_seen_at": "2026-10-09T14:25:25Z",
+      "anchor_item_id": "piasnews-social-b95fd5e9dece7e11",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2108564445416861696/vid/avc1/324x270/XGWPvM7MpwcSDc82.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2108564445416861696/img/ZioX0RLaGu0P1HvT.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-b95fd5e9dece7e11",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: Q: how satisfied are you? oscar: pretty happy! i think that was more or less all we could've do…",
+          "title_zh": "X 发帖 @laurogeitabat：问：你有多满意？Oscar：挺开心的！我觉得这差不多是我们能做到的全部了。在冲刺赛周末，要在这里把赛车的圈速全部榨出来非常棘手。我在中性胎上很挣扎，但一换上软胎我就挺满意了。表现不错！",
+          "summary": "Q: how satisfied are you? oscar: pretty happy! i think that was more or less all we could've done. it's very tricky on a sprint weekend to get all the lap time out of the car here. i was struggling on the medium but once i put the soft on i was pretty happy. not a bad effort! https://t.co/CO6Yi83UU4",
+          "summary_zh": "问：你有多满意？Oscar：挺开心的！我觉得这差不多是我们能做到的全部了。在冲刺赛周末，要在这里把赛车的圈速全部榨出来非常棘手。我在中性胎上很挣扎，但一换上软胎我就挺满意了。表现不错！",
+          "url": "https://x.com/laurogeitabat/status/2108564492963447211",
+          "published_at": "2026-10-09T14:25:25Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2108564445416861696/vid/avc1/324x270/XGWPvM7MpwcSDc82.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2108564445416861696/img/ZioX0RLaGu0P1HvT.jpg",
+          "heat_contribution": 6.602,
+          "metrics": {
+            "likes": 1132,
+            "retweets": 160,
+            "replies": 0,
+            "quotes": 0,
+            "views": 18266,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 35,
+      "heat": 35,
       "source_labels": [
         "粉"
       ],
@@ -2626,64 +2626,6 @@
       }
     },
     {
-      "event_id": "evt-2026-10-09-5a0899f8838d",
-      "rule_id": null,
-      "hot_word_zh": "Oscar 谈他对赛车的感受：“赛车的整体感觉和平时没什么不同。",
-      "hot_word_en": "oscar on how he's feeling with the car: \"the general feeling of the car is not any different to what it norma…",
-      "first_seen_at": "2026-10-09T14:31:44Z",
-      "last_seen_at": "2026-10-09T14:31:44Z",
-      "anchor_item_id": "piasnews-social-d65715b8ed0f5708",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2108566036807057408/vid/avc1/348x270/S36SJAWbExlR-5dN.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2108566036807057408/img/ou2E5anb2evg57q-.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-d65715b8ed0f5708",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar on how he's feeling with the car: \"the general feeling of the car is not any different to…",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar 谈他对赛车的感受：“赛车的整体感觉和平时没什么不同。你必须真的把它逼到极限才能跑得快，而且，当我们用软胎增加了一点抓地力后，情况好了一些，但仍然是个挑战。”",
-          "summary": "oscar on how he's feeling with the car: \"the general feeling of the car is not any different to what it normally is. you've got to really wring its neck to be quick and yeah, once we added a bit more gripping with the soft it was a bit better, but still a challenge.\" https://t.co/rDGYblgfv4",
-          "summary_zh": "Oscar 谈他对赛车的感受：“赛车的整体感觉和平时没什么不同。你必须真的把它逼到极限才能跑得快，而且，当我们用软胎增加了一点抓地力后，情况好了一些，但仍然是个挑战。”",
-          "url": "https://x.com/laurogeitabat/status/2108566086153093129",
-          "published_at": "2026-10-09T14:31:44Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2108566036807057408/vid/avc1/348x270/S36SJAWbExlR-5dN.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2108566036807057408/img/ou2E5anb2evg57q-.jpg",
-          "heat_contribution": 6.0173,
-          "metrics": {
-            "likes": 404,
-            "retweets": 40,
-            "replies": 0,
-            "quotes": 0,
-            "views": 6194,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 32,
-      "heat": 32,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-10-10-5a038d566fc2",
       "rule_id": null,
       "hot_word_zh": "在 mclaren 接待区的 oscar 宾客桌上，有一个拿着糕点的 oscar 玩偶 🥹🥹",
@@ -3066,6 +3008,64 @@
             "replies": 0,
             "quotes": 0,
             "views": 3081,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 30,
+      "heat": 30,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-10-09-5a0899f8838d",
+      "rule_id": null,
+      "hot_word_zh": "Oscar 谈他对赛车的感受：“赛车的整体感觉和平时没什么不同。",
+      "hot_word_en": "oscar on how he's feeling with the car: \"the general feeling of the car is not any different to what it norma…",
+      "first_seen_at": "2026-10-09T14:31:44Z",
+      "last_seen_at": "2026-10-09T14:31:44Z",
+      "anchor_item_id": "piasnews-social-d65715b8ed0f5708",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2108566036807057408/vid/avc1/348x270/S36SJAWbExlR-5dN.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2108566036807057408/img/ou2E5anb2evg57q-.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-d65715b8ed0f5708",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar on how he's feeling with the car: \"the general feeling of the car is not any different to…",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar 谈他对赛车的感受：“赛车的整体感觉和平时没什么不同。你必须真的把它逼到极限才能跑得快，而且，当我们用软胎增加了一点抓地力后，情况好了一些，但仍然是个挑战。”",
+          "summary": "oscar on how he's feeling with the car: \"the general feeling of the car is not any different to what it normally is. you've got to really wring its neck to be quick and yeah, once we added a bit more gripping with the soft it was a bit better, but still a challenge.\" https://t.co/rDGYblgfv4",
+          "summary_zh": "Oscar 谈他对赛车的感受：“赛车的整体感觉和平时没什么不同。你必须真的把它逼到极限才能跑得快，而且，当我们用软胎增加了一点抓地力后，情况好了一些，但仍然是个挑战。”",
+          "url": "https://x.com/laurogeitabat/status/2108566086153093129",
+          "published_at": "2026-10-09T14:31:44Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2108566036807057408/vid/avc1/348x270/S36SJAWbExlR-5dN.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2108566036807057408/img/ou2E5anb2evg57q-.jpg",
+          "heat_contribution": 5.5081,
+          "metrics": {
+            "likes": 404,
+            "retweets": 40,
+            "replies": 0,
+            "quotes": 0,
+            "views": 6194,
             "bookmarks": 0
           }
         }
