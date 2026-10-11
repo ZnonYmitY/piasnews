@@ -1,12 +1,71 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-11T14:21:28.688795Z",
+  "generated_at": "2026-10-11T14:36:24.429041Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
   "event_count": 10,
   "events": [
+    {
+      "event_id": "evt-session-result-2026-round-17-race",
+      "rule_id": null,
+      "hot_word_zh": "Oscar 在新加坡站正赛获得第5名",
+      "hot_word_en": "Oscar finishes P5 in the Singapore Grand Prix",
+      "first_seen_at": "2026-10-11T14:36:22.743887Z",
+      "last_seen_at": "2026-10-11T14:36:22.743887Z",
+      "anchor_item_id": "session-result-2026-round-17-race",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "official_heat": 0,
+      "media_heat": 100,
+      "fan_heat": 0,
+      "heat": 100,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 1,
+        "fan": 0
+      },
+      "pinned_rank": 1,
+      "hidden": false,
+      "hard_rule": {
+        "type": "session_result",
+        "race_id": "2026-round-17",
+        "session": "race",
+        "position": 5,
+        "status": "classified",
+        "provisional": false,
+        "source_item_id": "session-result-2026-round-17-race",
+        "source": "OpenF1",
+        "latest": true
+      },
+      "items": [
+        {
+          "item_id": "session-result-2026-round-17-race",
+          "dataset": "session_result",
+          "source_type": "media",
+          "source": "OpenF1",
+          "title": "Oscar finishes P5 in the Singapore Grand Prix",
+          "title_zh": "Oscar 在新加坡站正赛获得第5名",
+          "summary": "Structured session result for Oscar Piastri.",
+          "summary_zh": "Oscar Piastri 的结构化场次成绩。",
+          "url": "https://api.openf1.org/v1/session_result?session_key=11388&driver_number=81",
+          "published_at": "2026-10-11T14:36:22.743887Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 100,
+          "metrics": {}
+        }
+      ],
+      "rank": 1
+    },
     {
       "event_id": "evt-session-result-2026-round-17-qualifying",
       "rule_id": null,
@@ -32,7 +91,7 @@
         "media": 1,
         "fan": 0
       },
-      "pinned_rank": 1,
+      "pinned_rank": null,
       "hidden": false,
       "hard_rule": {
         "type": "session_result",
@@ -43,7 +102,7 @@
         "provisional": false,
         "source_item_id": "session-result-2026-round-17-qualifying",
         "source": "OpenF1",
-        "latest": true
+        "latest": false
       },
       "items": [
         {
@@ -64,7 +123,7 @@
           "metrics": {}
         }
       ],
-      "rank": 1
+      "rank": 2
     },
     {
       "event_id": "evt-2026-10-04-39387ce888f4",
@@ -349,7 +408,7 @@
           "image_url": "https://storage.ghost.io/c/dd/af/ddafbd99-2ccd-468c-b622-4b3cccf80b49/content/images/size/w1200/2026/10/XPB_1443812_HiRes.jpg",
           "video_url": null,
           "video_poster_url": "https://storage.ghost.io/c/dd/af/ddafbd99-2ccd-468c-b622-4b3cccf80b49/content/images/size/w1200/2026/10/XPB_1443812_HiRes.jpg",
-          "heat_contribution": 0.75,
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -946,7 +1005,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 2
+      "rank": 3
     },
     {
       "event_id": "evt-2026-09-30-67ada2c81653",
@@ -1265,7 +1324,7 @@
           "image_url": "https://content.api.news/v3/images/bin/8fb92a3795982e48377152d1c17f20f1",
           "video_url": null,
           "video_poster_url": "https://content.api.news/v3/images/bin/8fb92a3795982e48377152d1c17f20f1",
-          "heat_contribution": 0.2,
+          "heat_contribution": 0.0,
           "metrics": {}
         },
         {
@@ -1508,9 +1567,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 54,
+      "media_heat": 53,
       "fan_heat": 0,
-      "heat": 54,
+      "heat": 53,
       "source_labels": [
         "媒"
       ],
@@ -1521,7 +1580,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 3
+      "rank": 4
     },
     {
       "event_id": "evt-2026-10-08-18b8cd4819a0-18b8cd48",
@@ -1648,7 +1707,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 4
+      "rank": 5
     },
     {
       "event_id": "evt-2026-10-08-1d8dd1ff56c0",
@@ -1727,7 +1786,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 5
+      "rank": 6
     },
     {
       "event_id": "evt-2026-10-09-dec8bf5d54a7",
@@ -1782,7 +1841,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 7
     },
     {
       "event_id": "evt-2026-10-09-2b739ed28cdf",
@@ -1837,7 +1896,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 8
     },
     {
       "event_id": "evt-2026-10-10-b19d2b9be3f0",
@@ -1892,10 +1951,10 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 9
     },
     {
-      "event_id": "evt-2026-10-08-fa3b64cfd60a",
+      "event_id": "evt-2026-10-08-fa3b64cfd60a-7dbbfb09",
       "rule_id": null,
       "hot_word_zh": "Oscar Piastri 表示，在 Verstappen 赢得马来西亚站后，Red Bu…",
       "hot_word_en": "Oscar Piastri says Red Bull have caught up with Mercedes after Verstappen’s Malaysia win",
@@ -2059,65 +2118,10 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 9
-    },
-    {
-      "event_id": "evt-2026-10-08-96d3290d361f",
-      "rule_id": null,
-      "hot_word_zh": "RT @正赛piastri：天哪！！！Oscar 在新加坡大奖赛的特别头盔！！！",
-      "hot_word_en": "HOLYYYYY OSCAR’S SPECIAL HELMET FOR THE SINGAPORE GP!!!",
-      "first_seen_at": "2026-10-08T16:36:18Z",
-      "last_seen_at": "2026-10-08T16:36:18Z",
-      "anchor_item_id": "piasnews-social-60d1ce2483929b61",
-      "image_url": "https://pbs.twimg.com/media/HUHx2ajX0AECRJC.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HUHx2ajX0AECRJC.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-60d1ce2483929b61",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@oscarsspiastree",
-          "title": "X repost from @oscarsspiastree: RT @racepiastri: HOLYYYYY OSCAR’S SPECIAL HELMET FOR THE SINGAPORE GP!!!",
-          "title_zh": "X 转帖 @oscarsspiastree：RT @正赛piastri：天哪！！！Oscar 在新加坡大奖赛的特别头盔！！！",
-          "summary": "RT @racepiastri: HOLYYYYY OSCAR’S SPECIAL HELMET FOR THE SINGAPORE GP!!! https://t.co/y1AHmqHdMJ",
-          "summary_zh": "RT @正赛piastri：天哪！！！Oscar 在新加坡大奖赛的特别头盔！！！",
-          "url": "https://x.com/oscarsspiastree/status/2108235046649741596",
-          "published_at": "2026-10-08T16:36:18Z",
-          "image_url": "https://pbs.twimg.com/media/HUHx2ajX0AECRJC.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HUHx2ajX0AECRJC.jpg",
-          "heat_contribution": 3.7514,
-          "metrics": {
-            "likes": 0,
-            "retweets": 103,
-            "replies": 0,
-            "quotes": 0,
-            "views": 190,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 21,
-      "heat": 21,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
       "rank": 10
     }
   ],
-  "review_needed_count": 29,
+  "review_needed_count": 25,
   "review_needed_events": [
     {
       "event_id": "evt-2026-10-09-b9a9a992f1c0",
@@ -2390,64 +2394,6 @@
       "media_heat": 0,
       "fan_heat": 36,
       "heat": 36,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-09-02922193181d",
-      "rule_id": null,
-      "hot_word_zh": "问：你有多满意？Oscar：挺开心的！我觉得这差不多是我们能做到的全部了。",
-      "hot_word_en": "Q: how satisfied are you? oscar: pretty happy! i think that was more or less all we could've done.",
-      "first_seen_at": "2026-10-09T14:25:25Z",
-      "last_seen_at": "2026-10-09T14:25:25Z",
-      "anchor_item_id": "piasnews-social-b95fd5e9dece7e11",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2108564445416861696/vid/avc1/324x270/XGWPvM7MpwcSDc82.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2108564445416861696/img/ZioX0RLaGu0P1HvT.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-b95fd5e9dece7e11",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: Q: how satisfied are you? oscar: pretty happy! i think that was more or less all we could've do…",
-          "title_zh": "X 发帖 @laurogeitabat：问：你有多满意？Oscar：挺开心的！我觉得这差不多是我们能做到的全部了。在冲刺赛周末，要在这里把赛车的圈速全部榨出来非常棘手。我在中性胎上很挣扎，但一换上软胎我就挺满意了。表现不错！",
-          "summary": "Q: how satisfied are you? oscar: pretty happy! i think that was more or less all we could've done. it's very tricky on a sprint weekend to get all the lap time out of the car here. i was struggling on the medium but once i put the soft on i was pretty happy. not a bad effort! https://t.co/CO6Yi83UU4",
-          "summary_zh": "问：你有多满意？Oscar：挺开心的！我觉得这差不多是我们能做到的全部了。在冲刺赛周末，要在这里把赛车的圈速全部榨出来非常棘手。我在中性胎上很挣扎，但一换上软胎我就挺满意了。表现不错！",
-          "url": "https://x.com/laurogeitabat/status/2108564492963447211",
-          "published_at": "2026-10-09T14:25:25Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2108564445416861696/vid/avc1/324x270/XGWPvM7MpwcSDc82.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2108564445416861696/img/ZioX0RLaGu0P1HvT.jpg",
-          "heat_contribution": 6.602,
-          "metrics": {
-            "likes": 1132,
-            "retweets": 160,
-            "replies": 0,
-            "quotes": 0,
-            "views": 18266,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 35,
-      "heat": 35,
       "source_labels": [
         "粉"
       ],
@@ -2754,6 +2700,64 @@
       }
     },
     {
+      "event_id": "evt-2026-10-09-02922193181d",
+      "rule_id": null,
+      "hot_word_zh": "问：你有多满意？Oscar：挺开心的！我觉得这差不多是我们能做到的全部了。",
+      "hot_word_en": "Q: how satisfied are you? oscar: pretty happy! i think that was more or less all we could've done.",
+      "first_seen_at": "2026-10-09T14:25:25Z",
+      "last_seen_at": "2026-10-09T14:25:25Z",
+      "anchor_item_id": "piasnews-social-b95fd5e9dece7e11",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2108564445416861696/vid/avc1/324x270/XGWPvM7MpwcSDc82.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2108564445416861696/img/ZioX0RLaGu0P1HvT.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-b95fd5e9dece7e11",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: Q: how satisfied are you? oscar: pretty happy! i think that was more or less all we could've do…",
+          "title_zh": "X 发帖 @laurogeitabat：问：你有多满意？Oscar：挺开心的！我觉得这差不多是我们能做到的全部了。在冲刺赛周末，要在这里把赛车的圈速全部榨出来非常棘手。我在中性胎上很挣扎，但一换上软胎我就挺满意了。表现不错！",
+          "summary": "Q: how satisfied are you? oscar: pretty happy! i think that was more or less all we could've done. it's very tricky on a sprint weekend to get all the lap time out of the car here. i was struggling on the medium but once i put the soft on i was pretty happy. not a bad effort! https://t.co/CO6Yi83UU4",
+          "summary_zh": "问：你有多满意？Oscar：挺开心的！我觉得这差不多是我们能做到的全部了。在冲刺赛周末，要在这里把赛车的圈速全部榨出来非常棘手。我在中性胎上很挣扎，但一换上软胎我就挺满意了。表现不错！",
+          "url": "https://x.com/laurogeitabat/status/2108564492963447211",
+          "published_at": "2026-10-09T14:25:25Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2108564445416861696/vid/avc1/324x270/XGWPvM7MpwcSDc82.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2108564445416861696/img/ZioX0RLaGu0P1HvT.jpg",
+          "heat_contribution": 5.7928,
+          "metrics": {
+            "likes": 1132,
+            "retweets": 160,
+            "replies": 0,
+            "quotes": 0,
+            "views": 18266,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 31,
+      "heat": 31,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
       "event_id": "evt-2026-10-09-52658c711b93",
       "rule_id": null,
       "hot_word_zh": "McLaren 时装秀结束后，Oscar 留了下来，和所有人合影，还和那些在 T 台上展示…",
@@ -3020,64 +3024,6 @@
             "replies": 1,
             "quotes": 0,
             "views": 16517,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 30,
-      "heat": 30,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-09-5a0899f8838d",
-      "rule_id": null,
-      "hot_word_zh": "Oscar 谈他对赛车的感受：“赛车的整体感觉和平时没什么不同。",
-      "hot_word_en": "oscar on how he's feeling with the car: \"the general feeling of the car is not any different to what it norma…",
-      "first_seen_at": "2026-10-09T14:31:44Z",
-      "last_seen_at": "2026-10-09T14:31:44Z",
-      "anchor_item_id": "piasnews-social-d65715b8ed0f5708",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2108566036807057408/vid/avc1/348x270/S36SJAWbExlR-5dN.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2108566036807057408/img/ou2E5anb2evg57q-.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-d65715b8ed0f5708",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar on how he's feeling with the car: \"the general feeling of the car is not any different to…",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar 谈他对赛车的感受：“赛车的整体感觉和平时没什么不同。你必须真的把它逼到极限才能跑得快，而且，当我们用软胎增加了一点抓地力后，情况好了一些，但仍然是个挑战。”",
-          "summary": "oscar on how he's feeling with the car: \"the general feeling of the car is not any different to what it normally is. you've got to really wring its neck to be quick and yeah, once we added a bit more gripping with the soft it was a bit better, but still a challenge.\" https://t.co/rDGYblgfv4",
-          "summary_zh": "Oscar 谈他对赛车的感受：“赛车的整体感觉和平时没什么不同。你必须真的把它逼到极限才能跑得快，而且，当我们用软胎增加了一点抓地力后，情况好了一些，但仍然是个挑战。”",
-          "url": "https://x.com/laurogeitabat/status/2108566086153093129",
-          "published_at": "2026-10-09T14:31:44Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2108566036807057408/vid/avc1/348x270/S36SJAWbExlR-5dN.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2108566036807057408/img/ou2E5anb2evg57q-.jpg",
-          "heat_contribution": 5.5081,
-          "metrics": {
-            "likes": 404,
-            "retweets": 40,
-            "replies": 0,
-            "quotes": 0,
-            "views": 6194,
             "bookmarks": 0
           }
         }
@@ -3608,180 +3554,6 @@
       "media_heat": 0,
       "fan_heat": 28,
       "heat": 28,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-09-c8e64445e4a1",
-      "rule_id": null,
-      "hot_word_zh": "“这绝对不适合我” 第二次尝试失败后的认命😭😭",
-      "hot_word_en": "\"this is definitely not made for me\" the resignation after the second failed attempt 😭😭",
-      "first_seen_at": "2026-10-09T11:45:29Z",
-      "last_seen_at": "2026-10-09T11:45:29Z",
-      "anchor_item_id": "piasnews-social-4701ca4854bfacbd",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2108524210515496960/vid/avc1/320x560/OC3PnsdG0eviUQXA.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2108524210515496960/img/JgWYSrj-gb8XAaH7.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-4701ca4854bfacbd",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: \"this is definitely not made for me\" the resignation after the second failed attempt 😭😭",
-          "title_zh": "X 发帖 @laurogeitabat：“这绝对不适合我” 第二次尝试失败后的认命😭😭",
-          "summary": "\"this is definitely not made for me\" the resignation after the second failed attempt 😭😭 https://t.co/iJBv0nkoHd",
-          "summary_zh": "“这绝对不适合我” 第二次尝试失败后的认命😭😭",
-          "url": "https://x.com/laurogeitabat/status/2108524247404400759",
-          "published_at": "2026-10-09T11:45:29Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2108524210515496960/vid/avc1/320x560/OC3PnsdG0eviUQXA.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2108524210515496960/img/JgWYSrj-gb8XAaH7.jpg",
-          "heat_contribution": 5.0272,
-          "metrics": {
-            "likes": 555,
-            "retweets": 44,
-            "replies": 1,
-            "quotes": 0,
-            "views": 11154,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 27,
-      "heat": 27,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-10-405de553ab24",
-      "rule_id": null,
-      "hot_word_zh": "oscar 和 gabi 在同一队打板式网球，他们赢了 🥳",
-      "hot_word_en": "oscar and gabi played padel on the same team and they won 🥳",
-      "first_seen_at": "2026-10-10T08:55:45Z",
-      "last_seen_at": "2026-10-10T08:55:45Z",
-      "anchor_item_id": "piasnews-social-582729f51846bc46",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2108701236992397313/vid/avc1/320x568/vcwMKi7360jj6cVm.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2108701236992397313/img/UD5pY6DLRvfKx2N3.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-582729f51846bc46",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar and gabi played padel on the same team and they won 🥳",
-          "title_zh": "X 发帖 @laurogeitabat：oscar 和 gabi 在同一队打板式网球，他们赢了 🥳",
-          "summary": "oscar and gabi played padel on the same team and they won 🥳 https://t.co/Uaq7RoREzW",
-          "summary_zh": "oscar 和 gabi 在同一队打板式网球，他们赢了 🥳",
-          "url": "https://x.com/laurogeitabat/status/2108843918443819326",
-          "published_at": "2026-10-10T08:55:45Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2108701236992397313/vid/avc1/320x568/vcwMKi7360jj6cVm.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2108701236992397313/img/UD5pY6DLRvfKx2N3.jpg",
-          "heat_contribution": 4.9379,
-          "metrics": {
-            "likes": 250,
-            "retweets": 19,
-            "replies": 0,
-            "quotes": 0,
-            "views": 1973,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 27,
-      "heat": 27,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-09-145a5770cd99",
-      "rule_id": null,
-      "hot_word_zh": "Max 没有受罚。确认 Oscar 明天将从 P4 起步冲刺赛！",
-      "hot_word_en": "no penalty for max. confirmed that oscar will start the sprint tomorrow in p4!",
-      "first_seen_at": "2026-10-09T15:40:14Z",
-      "last_seen_at": "2026-10-09T15:40:14Z",
-      "anchor_item_id": "piasnews-social-8bf9927f4265d5c3",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-8bf9927f4265d5c3",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: no penalty for max. confirmed that oscar will start the sprint tomorrow in p4!",
-          "title_zh": "X 发帖 @laurogeitabat：Max 没有受罚。确认 Oscar 明天将从 P4 起步冲刺赛！",
-          "summary": "no penalty for max. confirmed that oscar will start the sprint tomorrow in p4!",
-          "summary_zh": "Max 没有受罚。确认 Oscar 明天将从 P4 起步冲刺赛！",
-          "url": "https://x.com/laurogeitabat/status/2108583323203199047",
-          "published_at": "2026-10-09T15:40:14Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 4.7469,
-          "metrics": {
-            "likes": 212,
-            "retweets": 2,
-            "replies": 0,
-            "quotes": 0,
-            "views": 3784,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 26,
-      "heat": 26,
       "source_labels": [
         "粉"
       ],
