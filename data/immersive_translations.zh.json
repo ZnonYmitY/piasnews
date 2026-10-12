@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-12T07:07:58.731238Z",
+  "generated_at": "2026-10-12T11:49:42.684425Z",
   "translations": {
     "items:piasnews-64e0d908ceda0134:title:1bcac8f8089cf60b6cf6cf32": {
       "dataset": "items",
@@ -5089,6 +5089,90 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-10-12T07:07:57.747379Z"
+    },
+    "items:piasnews-6ed4bb86d863b53d:title:6364997c2532300359eedf1d": {
+      "dataset": "items",
+      "item_id": "piasnews-6ed4bb86d863b53d",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri: How a slow puncture set up thrilling Lewis Hamilton pass",
+      "zh": "Oscar Piastri：一次缓慢漏气如何促成激动人心的超越Lewis Hamilton",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-12T11:49:41.700603Z"
+    },
+    "items:piasnews-6ed4bb86d863b53d:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-6ed4bb86d863b53d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-12T11:49:41.700611Z"
+    },
+    "items:piasnews-fcc82c37f56208a8:title:7eaa41a0c006d5dd5d51620c": {
+      "dataset": "items",
+      "item_id": "piasnews-fcc82c37f56208a8",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Norris concedes he 'let down' McLaren with Piastri clash",
+      "zh": "Norris承认与Piastri的碰撞让McLaren“失望”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-12T11:49:41.700616Z"
+    },
+    "items:piasnews-fcc82c37f56208a8:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-fcc82c37f56208a8",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-12T11:49:41.700620Z"
+    },
+    "items:piasnews-bd98d1ac18439de3:title:2f2d8d95835b7dbb8bea1878": {
+      "dataset": "items",
+      "item_id": "piasnews-bd98d1ac18439de3",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri reveals how puncture gave bright end to ‘lonely’ Singapore GP",
+      "zh": "Oscar Piastri揭示爆胎如何为“孤独的”Singapore GP带来光明结局",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-12T11:49:41.700624Z"
+    },
+    "items:piasnews-bd98d1ac18439de3:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-bd98d1ac18439de3",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-12T11:49:41.700628Z"
+    },
+    "items:piasnews-c85883cd7cc3e616:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-c85883cd7cc3e616",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-12T11:49:41.700632Z"
     }
   },
   "retention_days": 8
