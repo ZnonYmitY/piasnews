@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-13T23:11:19.959305Z",
+  "generated_at": "2026-10-13T23:29:47.437786Z",
   "translations": {
     "items:piasnews-aca60fcd5187b94c:title:4fa7ba01d96cae3aff69145b": {
       "dataset": "items",
@@ -5269,6 +5269,42 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-10-13T23:11:19.137322Z"
+    },
+    "social:piasnews-social-7941a2e3981421cc:summary:3595dc4a3896835acce118ce": {
+      "dataset": "social",
+      "item_id": "piasnews-social-7941a2e3981421cc",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "nicole's comment on the young guns teaser, the things this poor woman has to deal with 😭 \"[you're calling the buggy] a nice big roll cage!!! i definitely CAN wait to see this!\" https://t.co/XoX4fUBCP3",
+      "zh": "Nicole 对 young guns 预告片的评论，这个可怜的女人不得不忍受的事情 😭 “（你管那辆破车叫）一个漂亮的大防滚架！！！我绝对等不及要看了！”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-13T23:29:46.429649Z"
+    },
+    "social:piasnews-social-5bf76e5d3180dd2f:summary:371214b1dee80a7085c7e659": {
+      "dataset": "social",
+      "item_id": "piasnews-social-5bf76e5d3180dd2f",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "7/10 if it didn't taste like grass",
+      "zh": "如果它尝起来不像草的话，7/10",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-13T23:29:46.429657Z"
+    },
+    "social:piasnews-social-dfb1e2ebb1c36c0e:summary:7f348aa0344523a809033c61": {
+      "dataset": "social",
+      "item_id": "piasnews-social-dfb1e2ebb1c36c0e",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "THE DISGUST IN HIS FACE 😭😭 https://t.co/XnQ76F0AX6",
+      "zh": "他脸上的厌恶 😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-13T23:29:46.429663Z"
     }
   },
   "retention_days": 8
