@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-13T06:28:12.793301Z",
+  "generated_at": "2026-10-13T09:29:17.122215Z",
   "translations": {
     "items:piasnews-cc43db2e892c2eac:title:78509ff48ee3b03e233f64bb": {
       "dataset": "items",
@@ -5017,6 +5017,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-10-13T06:28:12.027758Z"
+    },
+    "items:piasnews-919193cfc0904d50:title:c6ef1e6bc5140635e675e8fa": {
+      "dataset": "items",
+      "item_id": "piasnews-919193cfc0904d50",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Does Norris-Piastri crash show 'papaya rules' failing? - F1 Q&A",
+      "zh": "Norris-Piastri碰撞是否表明“木瓜规则”失效？——F1问答",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-13T09:29:16.386984Z"
+    },
+    "items:piasnews-919193cfc0904d50:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-919193cfc0904d50",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-13T09:29:16.386991Z"
     }
   },
   "retention_days": 8
