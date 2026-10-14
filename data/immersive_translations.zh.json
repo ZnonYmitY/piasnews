@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-14T03:25:43.232483Z",
+  "generated_at": "2026-10-14T06:27:00.602703Z",
   "translations": {
     "items:piasnews-aca60fcd5187b94c:title:4fa7ba01d96cae3aff69145b": {
       "dataset": "items",
@@ -5305,6 +5305,42 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-10-13T23:29:46.429663Z"
+    },
+    "items:piasnews-6f06306824446c2d:title:ed13b9cdbaba8921704e7f10": {
+      "dataset": "items",
+      "item_id": "piasnews-6f06306824446c2d",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "F1-Oscar Piastri-2026-Singapore Grand Prix",
+      "zh": "F1-Oscar Piastri-2026-新加坡大奖赛",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-14T06:26:59.568083Z"
+    },
+    "items:piasnews-6f06306824446c2d:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-6f06306824446c2d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-14T06:26:59.568091Z"
+    },
+    "social:piasnews-social-96c12c180bd5687f:summary:4953e1622dd771d919e0bfae": {
+      "dataset": "social",
+      "item_id": "piasnews-social-96c12c180bd5687f",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "his big smile walking towards fans 😁 📸: ikscpw https://t.co/gsHIHZnGn7",
+      "zh": "他笑容满面地走向粉丝 😁 📸: ikscpw",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-14T06:26:59.568097Z"
     }
   },
   "retention_days": 8
