@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-10-13T23:26:38.548466Z",
+  "generated_at": "2026-10-14T03:22:31.232795Z",
   "window_days": 7,
-  "total_items": 154,
+  "total_items": 152,
   "latest_date": "2026-10-13",
   "days": [
     {
@@ -198,34 +198,20 @@
     },
     {
       "date": "2026-10-07",
-      "total_new_items": 6,
+      "total_new_items": 5,
       "official_new_items": 0,
-      "media_new_items": 6,
+      "media_new_items": 5,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "F1 Oversteer": 3,
-        "GPblog": 2,
+        "GPblog": 1,
         "Yahoo Sports": 1
       },
       "categories": {
         "interview": 1,
         "race": 3,
-        "team": 2
-      }
-    },
-    {
-      "date": "2026-10-06",
-      "total_new_items": 1,
-      "official_new_items": 0,
-      "media_new_items": 1,
-      "x_new_items": 0,
-      "rumor_new_items": 0,
-      "sources": {
-        "SMH.com.au": 1
-      },
-      "categories": {
-        "race": 1
+        "team": 1
       }
     }
   ],
@@ -256,14 +242,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 61
+      "items": 62
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 50
+      "items": 63
     },
     {
       "query": "\"OP81\" when:3d",
@@ -277,7 +263,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 6
+      "items": 8
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
@@ -296,12 +282,12 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 74,
+      "checked": 76,
       "kept": 51,
       "results": {
-        "outside_window": 1,
-        "publisher_date_missing": 7,
-        "publisher_unavailable": 15,
+        "outside_window": 2,
+        "publisher_date_missing": 6,
+        "publisher_unavailable": 17,
         "verified": 51
       }
     },
@@ -311,7 +297,7 @@
       "discovery_days": 3,
       "retention_days": 7,
       "previous_items": 154,
-      "kept": 154
+      "kept": 152
     }
   ]
 }
