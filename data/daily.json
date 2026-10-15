@@ -1,9 +1,23 @@
 {
-  "generated_at": "2026-10-14T23:05:47.470278Z",
+  "generated_at": "2026-10-15T09:04:53.078153Z",
   "window_days": 7,
-  "total_items": 156,
-  "latest_date": "2026-10-14",
+  "total_items": 157,
+  "latest_date": "2026-10-15",
   "days": [
+    {
+      "date": "2026-10-15",
+      "total_new_items": 1,
+      "official_new_items": 0,
+      "media_new_items": 1,
+      "x_new_items": 0,
+      "rumor_new_items": 0,
+      "sources": {
+        "F1 Oversteer": 1
+      },
+      "categories": {
+        "team": 1
+      }
+    },
     {
       "date": "2026-10-14",
       "total_new_items": 6,
@@ -50,11 +64,11 @@
     },
     {
       "date": "2026-10-12",
-      "total_new_items": 21,
+      "total_new_items": 22,
       "official_new_items": 1,
-      "media_new_items": 20,
+      "media_new_items": 21,
       "x_new_items": 0,
-      "rumor_new_items": 1,
+      "rumor_new_items": 2,
       "sources": {
         "Auto Action": 2,
         "Elite Agent": 1,
@@ -68,6 +82,7 @@
         "PlanetF1": 1,
         "Sky Sports": 1,
         "Speedcafe.com": 1,
+        "TSN": 1,
         "Yahoo Sports": 2,
         "https://streamlinefeed.co.ke/": 1
       },
@@ -75,7 +90,7 @@
         "interview": 2,
         "other": 3,
         "race": 2,
-        "rumor": 1,
+        "rumor": 2,
         "team": 13
       }
     },
@@ -195,9 +210,9 @@
     },
     {
       "date": "2026-10-08",
-      "total_new_items": 10,
+      "total_new_items": 9,
       "official_new_items": 0,
-      "media_new_items": 10,
+      "media_new_items": 9,
       "x_new_items": 0,
       "rumor_new_items": 4,
       "sources": {
@@ -208,12 +223,11 @@
         "PlanetF1": 1,
         "RacingNews365": 1,
         "Speedcafe.com": 1,
-        "The Sporting Base": 1,
         "The Times of India": 1,
         "Yahoo Sports": 1
       },
       "categories": {
-        "race": 2,
+        "race": 1,
         "rumor": 4,
         "team": 4
       }
@@ -232,7 +246,7 @@
       "source_group": "official_direct",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=site%3Aformula1.com%2Fen%2Flatest+%22Piastri%22+when%3A3d",
       "ok": true,
-      "items": 1
+      "items": 0
     },
     {
       "query": "site:oscarpiastri.com \"Piastri\" when:3d",
@@ -246,14 +260,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 45
+      "items": 34
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 32
+      "items": 23
     },
     {
       "query": "\"OP81\" when:3d",
@@ -267,32 +281,31 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 5
+      "items": 3
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 23
+      "items": 18
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22interview%22+when%3A3d",
       "ok": true,
-      "items": 6
+      "items": 7
     },
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 41,
-      "kept": 34,
+      "checked": 33,
+      "kept": 29,
       "results": {
-        "outside_window": 2,
         "publisher_date_missing": 1,
-        "publisher_unavailable": 4,
-        "verified": 34
+        "publisher_unavailable": 3,
+        "verified": 29
       }
     },
     {
@@ -300,8 +313,8 @@
       "ok": true,
       "discovery_days": 3,
       "retention_days": 7,
-      "previous_items": 153,
-      "kept": 156
+      "previous_items": 156,
+      "kept": 157
     }
   ]
 }

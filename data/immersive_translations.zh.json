@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-14T23:09:06.851012Z",
+  "generated_at": "2026-10-15T09:10:14.311426Z",
   "translations": {
     "items:piasnews-9301858df019e319:title:94197030ad533bd9e631559d": {
       "dataset": "items",
@@ -5341,6 +5341,54 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-10-14T23:09:05.806373Z"
+    },
+    "items:piasnews-e575708235b4d9b5:title:1d1f29893966d96953f4f613": {
+      "dataset": "items",
+      "item_id": "piasnews-e575708235b4d9b5",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Guenther Steiner calls out 'cringe' Lando Norris over Oscar Piastri radio message in Singapore",
+      "zh": "Guenther Steiner 称 Lando Norris 在新加坡对 Oscar Piastri 的无线电消息“令人尴尬”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-15T09:10:13.479609Z"
+    },
+    "items:piasnews-e575708235b4d9b5:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-e575708235b4d9b5",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-15T09:10:13.479617Z"
+    },
+    "items:piasnews-6915f82d87998cc2:title:bfe2c4b1be429f8d281cd975": {
+      "dataset": "items",
+      "item_id": "piasnews-6915f82d87998cc2",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Red Bull downplay ‘team to beat’ label by Russell, Piastri",
+      "zh": "Red Bull 淡化 Russell 和 Piastri 所说的“最值得击败的车队”标签",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-15T09:10:13.479621Z"
+    },
+    "items:piasnews-6915f82d87998cc2:summary:70784e7f6008a4a7ae397845": {
+      "dataset": "items",
+      "item_id": "piasnews-6915f82d87998cc2",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Rumor or speculative report; treat as unverified unless confirmed by official sources.",
+      "zh": "传闻或推测性报道；除非得到官方消息来源证实，否则视为未经核实。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-15T09:10:13.479625Z"
     }
   },
   "retention_days": 8
