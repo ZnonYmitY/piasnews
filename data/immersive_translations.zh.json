@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-15T21:14:40.757745Z",
+  "generated_at": "2026-10-15T23:08:29.374965Z",
   "translations": {
     "items:piasnews-9301858df019e319:title:94197030ad533bd9e631559d": {
       "dataset": "items",
@@ -5953,6 +5953,54 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-10-15T21:14:39.916774Z"
+    },
+    "items:piasnews-c949bc4e2a816e51:title:4bea0a769dbe8a4ce7d4dd3a": {
+      "dataset": "items",
+      "item_id": "piasnews-c949bc4e2a816e51",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri faces MotoGP star Acosta in off-road rematch",
+      "zh": "Piastri在越野赛中再战MotoGP明星Acosta",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-15T23:08:28.710355Z"
+    },
+    "items:piasnews-c949bc4e2a816e51:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-c949bc4e2a816e51",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-15T23:08:28.710362Z"
+    },
+    "items:piasnews-b64220673497095f:title:b7ba374bfdf90c998a82a430": {
+      "dataset": "items",
+      "item_id": "piasnews-b64220673497095f",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Criticism of Lando Norris for his accident with Oscar Piastri during the Singapore GP",
+      "zh": "Lando Norris因在新加坡大奖赛与Oscar Piastri的事故而受到批评",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-15T23:08:28.710365Z"
+    },
+    "items:piasnews-b64220673497095f:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-b64220673497095f",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-15T23:08:28.710368Z"
     }
   },
   "retention_days": 8
