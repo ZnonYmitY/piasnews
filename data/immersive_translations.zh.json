@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-15T12:10:50.990637Z",
+  "generated_at": "2026-10-15T15:12:35.507864Z",
   "translations": {
     "items:piasnews-9301858df019e319:title:94197030ad533bd9e631559d": {
       "dataset": "items",
@@ -5713,6 +5713,126 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-10-15T12:10:49.910375Z"
+    },
+    "items:piasnews-196ccb7acb88073c:title:369180856e292f7d149dff18": {
+      "dataset": "items",
+      "item_id": "piasnews-196ccb7acb88073c",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "McLaren confirms Norris-Piastri talks continue after Singapore crash",
+      "zh": "McLaren确认新加坡撞车后Norris与Piastri的谈话仍在继续",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-15T15:12:34.399929Z"
+    },
+    "items:piasnews-196ccb7acb88073c:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-196ccb7acb88073c",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-15T15:12:34.399938Z"
+    },
+    "items:piasnews-c1bb3b410a40ca85:title:15c45a7b324c3c8473b89d0f": {
+      "dataset": "items",
+      "item_id": "piasnews-c1bb3b410a40ca85",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Norris/Piastri crash in Singapore: will it cost McLaren 10 million dollars?",
+      "zh": "Norris/Piastri在新加坡撞车：会让McLaren损失1000万美元吗？",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-15T15:12:34.399943Z"
+    },
+    "items:piasnews-c1bb3b410a40ca85:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-c1bb3b410a40ca85",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-15T15:12:34.399947Z"
+    },
+    "items:piasnews-a5957492cdc47f42:title:7bd810c2530d21b7284d68ae": {
+      "dataset": "items",
+      "item_id": "piasnews-a5957492cdc47f42",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "McLaren told to add new contract clause after Norris & Piastri crash",
+      "zh": "Norris与Piastri撞车后，McLaren被建议增加新合同条款",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-15T15:12:34.399951Z"
+    },
+    "items:piasnews-a5957492cdc47f42:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-a5957492cdc47f42",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-15T15:12:34.399955Z"
+    },
+    "items:piasnews-5ac0d42488138b73:title:5cb56091a39cd585b5954e18": {
+      "dataset": "items",
+      "item_id": "piasnews-5ac0d42488138b73",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri shines in the buggy duel between F1 and MotoGP",
+      "zh": "Oscar Piastri在F1与MotoGP的越野车对决中大放异彩",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-15T15:12:34.399960Z"
+    },
+    "items:piasnews-5ac0d42488138b73:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-5ac0d42488138b73",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-15T15:12:34.399967Z"
+    },
+    "social:piasnews-social-1d7ea97373a358ca:summary:85da8162b750b1781caf37f8": {
+      "dataset": "social",
+      "item_id": "piasnews-social-1d7ea97373a358ca",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar and lando face the speed (and memory) challenge! https://t.co/0acVca0s1w",
+      "zh": "oscar和lando挑战速度（和记忆）！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-15T15:12:34.399972Z"
+    },
+    "social:piasnews-social-4ae9b29a237d30c7:summary:460ce1a46e0d5d0fd1dfc433": {
+      "dataset": "social",
+      "item_id": "piasnews-social-4ae9b29a237d30c7",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar signed \"oscar pastry\" in one of his topps chrome cards this year 😭😭😭😭 https://t.co/hunqPdM9Mm",
+      "zh": "oscar今年在他的一张topps chrome卡上签了\"oscar pastry\" 😭😭😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-15T15:12:34.399976Z"
     }
   },
   "retention_days": 8
