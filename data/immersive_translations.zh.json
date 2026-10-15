@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-15T15:12:35.507864Z",
+  "generated_at": "2026-10-15T18:14:06.742665Z",
   "translations": {
     "items:piasnews-9301858df019e319:title:94197030ad533bd9e631559d": {
       "dataset": "items",
@@ -5833,6 +5833,54 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-10-15T15:12:34.399976Z"
+    },
+    "items:piasnews-3a7b5f3d4f7db9e6:title:dccbf8a86b3b904cb56726ae": {
+      "dataset": "items",
+      "item_id": "piasnews-3a7b5f3d4f7db9e6",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri must unlearn what made him fast, says Stella",
+      "zh": "斯特拉表示，Piastri必须忘掉那些让他变快的东西",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-15T18:14:05.757047Z"
+    },
+    "items:piasnews-3a7b5f3d4f7db9e6:summary:0d864a8260f8519601fd9ae1": {
+      "dataset": "items",
+      "item_id": "piasnews-3a7b5f3d4f7db9e6",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Quote or interview-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的引述或采访相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-15T18:14:05.757055Z"
+    },
+    "social:piasnews-social-25bb48980be9cf2a:summary:f2d4272541de8b9f99a45a55": {
+      "dataset": "social",
+      "item_id": "piasnews-social-25bb48980be9cf2a",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Q: karaoke in front of the team or dance challenge on tt? OP: karaoke Q: cook dinner or takeaway? OP: takeaway Q: never queue or never be stuck in traffic? OP: never queue Q: netflix or youtube? OP: netflix Q: sunrise or sunset? OP: sunset Q: aussie or uk summer OP: aussie! https://t.co/5MHsrtpgyN",
+      "zh": "问：在车队面前唱卡拉OK，还是在tt上参加舞蹈挑战？OP：卡拉OK 问：自己做饭还是点外卖？OP：点外卖 问：从不排队还是从不堵车？OP：从不排队 问：Netflix还是YouTube？OP：Netflix 问：日出还是日落？OP：日落 问：澳洲的夏天还是英国的夏天 OP：澳洲的！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-15T18:14:05.757059Z"
+    },
+    "social:piasnews-social-bbbfbbe96e8af4be:summary:633eb20121fde0d1158be6b1": {
+      "dataset": "social",
+      "item_id": "piasnews-social-bbbfbbe96e8af4be",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar's at the mtc! the long hair and the stubble/stache are still in place 😁 https://t.co/23LZ0XEcAi",
+      "zh": "oscar在mtc！长发和胡茬/小胡子还在 😁",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-15T18:14:05.757063Z"
     }
   },
   "retention_days": 8
