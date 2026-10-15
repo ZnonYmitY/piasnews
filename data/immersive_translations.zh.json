@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-15T18:14:06.742665Z",
+  "generated_at": "2026-10-15T21:14:40.757745Z",
   "translations": {
     "items:piasnews-9301858df019e319:title:94197030ad533bd9e631559d": {
       "dataset": "items",
@@ -5881,6 +5881,78 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-10-15T18:14:05.757063Z"
+    },
+    "items:piasnews-62eabc3dfeb3f465:title:084d301c375f7e4cba19b4a4": {
+      "dataset": "items",
+      "item_id": "piasnews-62eabc3dfeb3f465",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Andrea Stella makes confession about Oscar Piastri's 2026 data",
+      "zh": "Andrea Stella 对 Oscar Piastri 的 2026 年数据坦白",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-15T21:14:39.916754Z"
+    },
+    "items:piasnews-62eabc3dfeb3f465:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-62eabc3dfeb3f465",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-15T21:14:39.916760Z"
+    },
+    "social:piasnews-social-6d1cce60f849b2f4:summary:914db62a56cd965e79cdee40": {
+      "dataset": "social",
+      "item_id": "piasnews-social-6d1cce60f849b2f4",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar's 2027 season outside of track in a nutshell https://t.co/kYJqIAmcuK",
+      "zh": "Oscar 2027 赛季场外生活一览",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-15T21:14:39.916764Z"
+    },
+    "social:piasnews-social-fe0ab7a1055814a8:summary:dadac3fec6a25f90a8e34562": {
+      "dataset": "social",
+      "item_id": "piasnews-social-fe0ab7a1055814a8",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "\"a bit of messiness means ✨original✨\" yeah don't worry my guy we've seen how \"original\" your artistic creations are 😭😭 https://t.co/6YGPYbAo3e",
+      "zh": "“有点凌乱意味着✨原创✨” 是啊，别担心兄弟，我们见识过你的“原创”艺术创作有多“原创”了 😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-15T21:14:39.916768Z"
+    },
+    "social:piasnews-social-c051b5bfecf5f25f:summary:4593affa469cfa3f7e76b9c3": {
+      "dataset": "social",
+      "item_id": "piasnews-social-c051b5bfecf5f25f",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "\"what superpower would you give your trophy?\" oscar: \"the ability to look good\" PLEASEEE 😭😭 https://t.co/PWt1MBEKhv",
+      "zh": "“你会给你的奖杯什么超能力？” Oscar：“好看的能力” 求求了 😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-15T21:14:39.916772Z"
+    },
+    "social:piasnews-social-5dfff8afe4f8f3ca:summary:165038ec5cf408d140b94673": {
+      "dataset": "social",
+      "item_id": "piasnews-social-5dfff8afe4f8f3ca",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "there was no need to smack the clay against the table THAT hard 😭😭 https://t.co/njRxhJ5WLg",
+      "zh": "真没必要把黏土那么用力地往桌上摔 😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-15T21:14:39.916774Z"
     }
   },
   "retention_days": 8
