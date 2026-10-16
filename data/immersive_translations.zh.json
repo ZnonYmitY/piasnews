@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-16T09:25:55.679396Z",
+  "generated_at": "2026-10-16T23:08:04.359715Z",
   "translations": {
     "items:piasnews-051dbf6ddb5b8a05:title:61a5b26de155971b41a9efa3": {
       "dataset": "items",
@@ -5905,6 +5905,78 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-10-16T09:25:54.521107Z"
+    },
+    "items:piasnews-9101d8e1fda6a46f:title:76a9842e080340708860a2a3": {
+      "dataset": "items",
+      "item_id": "piasnews-9101d8e1fda6a46f",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "McLaren 'not finished' as Piastri and Norris contract solution proposed",
+      "zh": "McLaren“尚未完成”，有人提出Piastri和Norris的合同解决方案",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-16T23:08:03.704583Z"
+    },
+    "items:piasnews-9101d8e1fda6a46f:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-9101d8e1fda6a46f",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-16T23:08:03.704590Z"
+    },
+    "items:piasnews-2a0a68730d26bda9:title:99c8936b403765314fce0977": {
+      "dataset": "items",
+      "item_id": "piasnews-2a0a68730d26bda9",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Johnny Herbert urges Oscar Piastri to copy what Mark Webber 'had to do' for McLaren to back him",
+      "zh": "Johnny Herbert敦促Oscar Piastri效仿Mark Webber“不得不做的事”，以让McLaren支持他",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-16T23:08:03.704593Z"
+    },
+    "items:piasnews-2a0a68730d26bda9:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-2a0a68730d26bda9",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-16T23:08:03.704596Z"
+    },
+    "items:piasnews-8a0f1cefb86330aa:title:3789ba827290cb960887961a": {
+      "dataset": "items",
+      "item_id": "piasnews-8a0f1cefb86330aa",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Why Brown thinks Piastri is 'back to the driver I know'",
+      "zh": "为什么Brown认为Piastri“回到了我所认识的那位车手”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-16T23:08:03.704598Z"
+    },
+    "items:piasnews-8a0f1cefb86330aa:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-8a0f1cefb86330aa",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-16T23:08:03.704600Z"
     }
   },
   "retention_days": 8
