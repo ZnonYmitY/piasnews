@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-16T03:22:53.591008Z",
+  "generated_at": "2026-10-16T06:24:39.209288Z",
   "translations": {
     "items:piasnews-051dbf6ddb5b8a05:title:61a5b26de155971b41a9efa3": {
       "dataset": "items",
@@ -5845,6 +5845,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-10-16T00:15:52.379240Z"
+    },
+    "items:piasnews-5cb52c2e6632e144:title:06708ae2f2f3f345a908cc43": {
+      "dataset": "items",
+      "item_id": "piasnews-5cb52c2e6632e144",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "McLaren boss identifies key to Oscar Piastri F1 troubles",
+      "zh": "McLaren车队老板指出Oscar Piastri在F1中遇到困难的关键所在",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-16T06:24:38.108759Z"
+    },
+    "items:piasnews-5cb52c2e6632e144:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-5cb52c2e6632e144",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的关于车队或赛车性能的信息。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-16T06:24:38.108767Z"
     }
   },
   "retention_days": 8
