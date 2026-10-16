@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-10-15T23:05:51.481892Z",
+  "generated_at": "2026-10-16T00:12:27.075143Z",
   "window_days": 7,
-  "total_items": 156,
+  "total_items": 157,
   "latest_date": "2026-10-15",
   "days": [
     {
       "date": "2026-10-15",
-      "total_new_items": 9,
+      "total_new_items": 10,
       "official_new_items": 0,
-      "media_new_items": 9,
+      "media_new_items": 10,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
@@ -17,12 +17,13 @@
         "FormulaRapida.net": 2,
         "Grande Prêmio": 1,
         "SPEEDWEEK.com": 1,
-        "Speedcafe.com": 1
+        "Speedcafe.com": 1,
+        "SuaraGarut.ID": 1
       },
       "categories": {
         "interview": 1,
         "race": 3,
-        "team": 5
+        "team": 6
       }
     },
     {
@@ -243,14 +244,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 27
+      "items": 28
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 18
+      "items": 19
     },
     {
       "query": "\"OP81\" when:3d",
@@ -271,7 +272,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 16
+      "items": 17
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -283,13 +284,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 27,
-      "kept": 24,
+      "checked": 28,
+      "kept": 25,
       "results": {
         "outside_window": 1,
         "publisher_date_missing": 1,
         "publisher_unavailable": 1,
-        "verified": 24
+        "verified": 25
       }
     },
     {
@@ -297,8 +298,8 @@
       "ok": true,
       "discovery_days": 3,
       "retention_days": 7,
-      "previous_items": 154,
-      "kept": 156
+      "previous_items": 156,
+      "kept": 157
     }
   ]
 }
