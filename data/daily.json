@@ -1,9 +1,23 @@
 {
-  "generated_at": "2026-10-16T23:05:24.500297Z",
+  "generated_at": "2026-10-17T12:03:42.588409Z",
   "window_days": 7,
-  "total_items": 146,
-  "latest_date": "2026-10-16",
+  "total_items": 128,
+  "latest_date": "2026-10-17",
   "days": [
+    {
+      "date": "2026-10-17",
+      "total_new_items": 2,
+      "official_new_items": 0,
+      "media_new_items": 2,
+      "x_new_items": 0,
+      "rumor_new_items": 0,
+      "sources": {
+        "F1 Oversteer": 2
+      },
+      "categories": {
+        "team": 2
+      }
+    },
     {
       "date": "2026-10-16",
       "total_new_items": 5,
@@ -162,49 +176,46 @@
     },
     {
       "date": "2026-10-10",
-      "total_new_items": 62,
+      "total_new_items": 42,
       "official_new_items": 1,
-      "media_new_items": 61,
+      "media_new_items": 41,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
-        "7NEWS": 2,
+        "7NEWS": 1,
         "ABC News & Headlines – Australian Broadcasting Corporation": 1,
-        "Crash.net": 2,
+        "Crash.net": 1,
         "Daily Express": 1,
-        "Eastern Riverina Chronicle": 1,
         "F1 Oversteer": 1,
-        "F1i.com": 3,
         "Formula 1": 1,
         "Formula1News.co.uk": 1,
-        "FormulaRapida.net": 5,
-        "Fox Sports": 3,
-        "GPblog": 3,
-        "Grande Prêmio": 4,
+        "FormulaRapida.net": 3,
+        "Fox Sports": 2,
+        "GPblog": 2,
+        "Grande Prêmio": 3,
         "Las Motorsport": 1,
-        "MotorBiscuit": 2,
+        "MotorBiscuit": 1,
         "Motorsport Week": 1,
-        "Nine.com.au": 1,
-        "PlanetF1": 4,
-        "RaceFans": 3,
-        "RacingNews365": 5,
-        "SPEEDWEEK.com": 2,
+        "PlanetF1": 3,
+        "RaceFans": 2,
+        "RacingNews365": 3,
+        "SPEEDWEEK.com": 1,
         "SPORTbible": 1,
-        "Sky Sports": 3,
+        "Sky Sports": 2,
         "Speedcafe.com": 1,
         "Sportscape Magazine": 1,
         "Sportsnet.ca": 1,
         "TSN": 1,
         "The Race": 1,
         "The Standard | Warrnambool, VIC": 1,
-        "Yahoo Sports": 4,
+        "Yahoo Sports": 3,
         "inkl": 1
       },
       "categories": {
         "interview": 2,
-        "other": 12,
-        "race": 23,
-        "team": 25
+        "other": 8,
+        "race": 16,
+        "team": 16
       }
     }
   ],
@@ -242,7 +253,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 21
+      "items": 22
     },
     {
       "query": "\"OP81\" when:3d",
@@ -256,31 +267,31 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 5
+      "items": 6
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 15
+      "items": 14
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22interview%22+when%3A3d",
       "ok": true,
-      "items": 1
+      "items": 0
     },
     {
       "stage": "publisher_date_verification",
       "ok": true,
       "checked": 24,
-      "kept": 18,
+      "kept": 19,
       "results": {
-        "publisher_date_missing": 1,
-        "publisher_unavailable": 5,
-        "verified": 18
+        "publisher_date_missing": 2,
+        "publisher_unavailable": 3,
+        "verified": 19
       }
     },
     {
@@ -288,8 +299,8 @@
       "ok": true,
       "discovery_days": 3,
       "retention_days": 7,
-      "previous_items": 155,
-      "kept": 146
+      "previous_items": 146,
+      "kept": 128
     }
   ]
 }
