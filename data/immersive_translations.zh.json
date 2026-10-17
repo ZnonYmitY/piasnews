@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-17T17:22:07.814757Z",
+  "generated_at": "2026-10-17T23:07:44.653452Z",
   "translations": {
     "items:piasnews-bd3ec68df2156efa:title:6f7ceede02e30cc4901062a5": {
       "dataset": "items",
@@ -6025,6 +6025,54 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-10-17T17:22:06.676759Z"
+    },
+    "items:piasnews-ebcf5418fc70e218:title:13ea63fe0bf95860e377b004": {
+      "dataset": "items",
+      "item_id": "piasnews-ebcf5418fc70e218",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "F1 fans all tell Oscar Piastri the same thing as they disagree with Johnny Herbert’s latest advice",
+      "zh": "F1车迷对Oscar Piastri异口同声，不认同Johnny Herbert的最新建议",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-17T23:07:44.005667Z"
+    },
+    "items:piasnews-ebcf5418fc70e218:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-ebcf5418fc70e218",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-17T23:07:44.005675Z"
+    },
+    "items:piasnews-b7431dff1a2d3c64:title:e4697cd0c39aa60f6789106c": {
+      "dataset": "items",
+      "item_id": "piasnews-b7431dff1a2d3c64",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri clash triggers new Norris admission as McLaren 'not finished'",
+      "zh": "Oscar Piastri的碰撞引发Norris新表态，McLaren“尚未完成”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-17T23:07:44.005678Z"
+    },
+    "items:piasnews-b7431dff1a2d3c64:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-b7431dff1a2d3c64",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-17T23:07:44.005681Z"
     }
   },
   "retention_days": 8
