@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-17T12:06:56.485040Z",
+  "generated_at": "2026-10-17T17:22:07.814757Z",
   "translations": {
     "items:piasnews-bd3ec68df2156efa:title:6f7ceede02e30cc4901062a5": {
       "dataset": "items",
@@ -5953,6 +5953,78 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-10-17T12:06:55.328275Z"
+    },
+    "items:piasnews-7f3b8bee559d42ee:title:5899b4519863851f1e9e8548": {
+      "dataset": "items",
+      "item_id": "piasnews-7f3b8bee559d42ee",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Lando Norris’ Singapore GP radio offer to teammate Oscar Piastri branded ‘cringe’",
+      "zh": "Lando Norris在新加坡大奖赛无线电中对队友Oscar Piastri的提议被批“尴尬”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-17T17:22:06.676731Z"
+    },
+    "items:piasnews-7f3b8bee559d42ee:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-7f3b8bee559d42ee",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-17T17:22:06.676741Z"
+    },
+    "items:piasnews-d01a26f6b6581c24:title:2d071147aa191d55fb9f478e": {
+      "dataset": "items",
+      "item_id": "piasnews-d01a26f6b6581c24",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Brown and Piastri’s Rebirth: 'He Is Becoming the One From Before Again'",
+      "zh": "Brown与Piastri的重生：“他正在变回从前的那个自己”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-17T17:22:06.676746Z"
+    },
+    "items:piasnews-d01a26f6b6581c24:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-d01a26f6b6581c24",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-17T17:22:06.676750Z"
+    },
+    "social:piasnews-social-0dbd94c07aab5053:summary:ee797137d1bc4dc4b9c2352e": {
+      "dataset": "social",
+      "item_id": "piasnews-social-0dbd94c07aab5053",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "A tilt n shout rematch with our duo 😳 #McLarenF1 https://t.co/3bYfRi4BEk",
+      "zh": "和我们的二人组来一场倾斜呐喊复赛 😳 #McLarenF1",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-17T17:22:06.676755Z"
+    },
+    "social:piasnews-social-adb98d6de999e648:summary:977ccc21aa398043468e4f1f": {
+      "dataset": "social",
+      "item_id": "piasnews-social-adb98d6de999e648",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Back in Woking with OP81 👋 #McLarenF1 https://t.co/VA8Q7mNiPL",
+      "zh": "和OP81一起回到Woking 👋 #McLarenF1",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-17T17:22:06.676759Z"
     }
   },
   "retention_days": 8
