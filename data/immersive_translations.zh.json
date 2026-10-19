@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-19T17:03:17.253976Z",
+  "generated_at": "2026-10-19T23:07:44.612665Z",
   "translations": {
     "items:piasnews-6eb91786ce0c4144:title:93433570b933a8532d332f3d": {
       "dataset": "items",
@@ -4525,6 +4525,54 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-10-19T09:23:55.420469Z"
+    },
+    "items:piasnews-7bdf281fd00c683a:title:6fdb0d90f424c7bdac72d12b": {
+      "dataset": "items",
+      "item_id": "piasnews-7bdf281fd00c683a",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri makes ‘blunt’ Lando Norris admission that proves he is driving better than ever",
+      "zh": "Oscar Piastri 对 Lando Norris 做出“直白”表态，证明他状态前所未有地好",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-19T23:07:43.934796Z"
+    },
+    "items:piasnews-7bdf281fd00c683a:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-7bdf281fd00c683a",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-19T23:07:43.934803Z"
+    },
+    "items:piasnews-3bad3baeb3085b5c:title:8b2fb856fe9426039a599702": {
+      "dataset": "items",
+      "item_id": "piasnews-3bad3baeb3085b5c",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri has 'no magic answers' to solve crucial McLaren question",
+      "zh": "Oscar Piastri 对解决 McLaren 关键问题“没有神奇答案”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-19T23:07:43.934806Z"
+    },
+    "items:piasnews-3bad3baeb3085b5c:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-3bad3baeb3085b5c",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-19T23:07:43.934811Z"
     }
   },
   "retention_days": 8
