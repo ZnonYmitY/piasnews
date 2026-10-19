@@ -1,9 +1,23 @@
 {
-  "generated_at": "2026-10-19T03:16:43.413263Z",
+  "generated_at": "2026-10-19T06:19:25.212040Z",
   "window_days": 7,
   "total_items": 64,
-  "latest_date": "2026-10-18",
+  "latest_date": "2026-10-19",
   "days": [
+    {
+      "date": "2026-10-19",
+      "total_new_items": 1,
+      "official_new_items": 0,
+      "media_new_items": 1,
+      "x_new_items": 0,
+      "rumor_new_items": 0,
+      "sources": {
+        "Sportstar": 1
+      },
+      "categories": {
+        "team": 1
+      }
+    },
     {
       "date": "2026-10-18",
       "total_new_items": 7,
@@ -134,13 +148,13 @@
     },
     {
       "date": "2026-10-12",
-      "total_new_items": 17,
+      "total_new_items": 16,
       "official_new_items": 1,
-      "media_new_items": 16,
+      "media_new_items": 15,
       "x_new_items": 0,
       "rumor_new_items": 2,
       "sources": {
-        "F1 Oversteer": 5,
+        "F1 Oversteer": 4,
         "Formula 1": 1,
         "GPblog": 2,
         "Lente Desportiva": 1,
@@ -157,7 +171,7 @@
         "other": 3,
         "race": 1,
         "rumor": 2,
-        "team": 10
+        "team": 9
       }
     }
   ],
@@ -209,7 +223,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 3
+      "items": 4
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
@@ -228,11 +242,10 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 24,
+      "checked": 23,
       "kept": 19,
       "results": {
         "outside_window": 1,
-        "publisher_date_missing": 1,
         "publisher_unavailable": 3,
         "verified": 19
       }
@@ -242,7 +255,7 @@
       "ok": true,
       "discovery_days": 3,
       "retention_days": 7,
-      "previous_items": 69,
+      "previous_items": 64,
       "kept": 64
     }
   ]

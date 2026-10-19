@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-19T03:18:57.914738Z",
+  "generated_at": "2026-10-19T06:22:11.335427Z",
   "translations": {
     "items:piasnews-6eb91786ce0c4144:title:93433570b933a8532d332f3d": {
       "dataset": "items",
@@ -4489,6 +4489,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-10-19T03:18:57.362915Z"
+    },
+    "items:piasnews-5aef47126f40f306:title:14e5249e47680d0ad87cf2ed": {
+      "dataset": "items",
+      "item_id": "piasnews-5aef47126f40f306",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Formula 1: McLaren’s Papaya rules under scrutiny once again after Norris-Piastri Singapore Sprint crash",
+      "zh": "Formula 1：Norris-Piastri 新加坡冲刺赛撞车后，McLaren 的 Papaya 规则再次受到审视",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-19T06:22:10.559629Z"
+    },
+    "items:piasnews-5aef47126f40f306:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-5aef47126f40f306",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-19T06:22:10.559636Z"
     }
   },
   "retention_days": 8
