@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-19T06:22:11.335427Z",
+  "generated_at": "2026-10-19T09:23:55.912108Z",
   "translations": {
     "items:piasnews-6eb91786ce0c4144:title:93433570b933a8532d332f3d": {
       "dataset": "items",
@@ -4513,6 +4513,18 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-10-19T06:22:10.559636Z"
+    },
+    "social:piasnews-social-f136097730c6d77b:summary:4cf3af11c34d23b1c20798da": {
+      "dataset": "social",
+      "item_id": "piasnews-social-f136097730c6d77b",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "american triple header, we meet again https://t.co/2Psa96Tyg3",
+      "zh": "美洲三连赛，我们又见面了",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-19T09:23:55.420469Z"
     }
   },
   "retention_days": 8
