@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-20T03:22:16.959558Z",
+  "generated_at": "2026-10-20T06:23:24.543843Z",
   "translations": {
     "items:piasnews-e85e86eb267960b0:title:2c8ea2d9c9fee8ff3a057640": {
       "dataset": "items",
@@ -4045,6 +4045,114 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-10-20T03:22:16.236289Z"
+    },
+    "items:piasnews-ecff1c7e56f0a94c:title:1c0ddc99a97e926707c745bc": {
+      "dataset": "items",
+      "item_id": "piasnews-ecff1c7e56f0a94c",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Zak Brown says Oscar Piastri feeling more confident and on top of things now",
+      "zh": "Zak Brown 表示 Oscar Piastri 现在更加自信、更能掌控局面",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-20T06:23:23.823215Z"
+    },
+    "items:piasnews-ecff1c7e56f0a94c:summary:0d864a8260f8519601fd9ae1": {
+      "dataset": "items",
+      "item_id": "piasnews-ecff1c7e56f0a94c",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Quote or interview-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的引述或采访相关内容。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-20T06:23:23.823222Z"
+    },
+    "items:piasnews-14cfb333756a183b:title:f0080e85abb26f7f3ef837bb": {
+      "dataset": "items",
+      "item_id": "piasnews-14cfb333756a183b",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "McLaren have just made Oscar Piastri’s replacement obvious after fans told him to leave",
+      "zh": "在车迷劝 Oscar Piastri 离开后，McLaren 刚刚让他的替代人选变得显而易见",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-20T06:23:23.823226Z"
+    },
+    "items:piasnews-14cfb333756a183b:summary:70784e7f6008a4a7ae397845": {
+      "dataset": "items",
+      "item_id": "piasnews-14cfb333756a183b",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Rumor or speculative report; treat as unverified unless confirmed by official sources.",
+      "zh": "传闻或推测性报道；除非官方消息源确认，否则视为未经证实。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-20T06:23:23.823230Z"
+    },
+    "items:piasnews-fbd0558c2a0486d0:title:0031311bf7da177ddcd321e6": {
+      "dataset": "items",
+      "item_id": "piasnews-fbd0558c2a0486d0",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri and Norris' 2025 Austin Sprint collision",
+      "zh": "Piastri 与 Norris 在 2025 年 Austin 冲刺赛中的碰撞",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-20T06:23:23.823233Z"
+    },
+    "items:piasnews-fbd0558c2a0486d0:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-fbd0558c2a0486d0",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的内容。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-20T06:23:23.823246Z"
+    },
+    "social:piasnews-social-c4a7963b14bd46db:summary:2585568dddef932360d8efdf": {
+      "dataset": "social",
+      "item_id": "piasnews-social-c4a7963b14bd46db",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @McLarenF1: Looking ahead to the triple 👊 #McLarenF1 https://t.co/yP9NgQbYMB",
+      "zh": "RT @McLarenF1：展望三连赛 👊 #McLarenF1",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-20T06:23:23.823252Z"
+    },
+    "social:piasnews-social-9bfe66f09e9bda0e:summary:aa4ebb8a23da6f3a337008f8": {
+      "dataset": "social",
+      "item_id": "piasnews-social-9bfe66f09e9bda0e",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @teamopeightyone: COTA race week 🇺🇸🤠 https://t.co/lTIEEfuAc7",
+      "zh": "RT @teamopeightyone：COTA 比赛周 🇺🇸🤠",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-20T06:23:23.823259Z"
+    },
+    "social:piasnews-social-cf496dfe31ccc61e:summary:deaead8d6c3a7937ea317383": {
+      "dataset": "social",
+      "item_id": "piasnews-social-cf496dfe31ccc61e",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @piacetri: that model looks like oscar its a sign",
+      "zh": "RT @piacetri：那个模特看起来像 oscar，这是个征兆",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-20T06:23:23.823263Z"
     }
   },
   "retention_days": 8
