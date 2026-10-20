@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-10-20T06:20:21.066050Z",
+  "generated_at": "2026-10-20T09:21:44.803746Z",
   "window_days": 7,
-  "total_items": 52,
+  "total_items": 49,
   "latest_date": "2026-10-20",
   "days": [
     {
@@ -144,15 +144,14 @@
     },
     {
       "date": "2026-10-13",
-      "total_new_items": 10,
+      "total_new_items": 7,
       "official_new_items": 0,
-      "media_new_items": 10,
+      "media_new_items": 7,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
-        "BBC": 2,
         "Crash.net": 1,
-        "F1 Oversteer": 2,
+        "F1 Oversteer": 1,
         "GPblog": 1,
         "GiveMeSport": 1,
         "Lente Desportiva": 1,
@@ -160,9 +159,9 @@
         "RacingNews365": 1
       },
       "categories": {
-        "other": 3,
+        "other": 1,
         "race": 2,
-        "team": 5
+        "team": 4
       }
     }
   ],
@@ -214,7 +213,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 7
+      "items": 6
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
@@ -234,12 +233,12 @@
       "stage": "publisher_date_verification",
       "ok": true,
       "checked": 23,
-      "kept": 18,
+      "kept": 17,
       "results": {
         "outside_window": 1,
         "publisher_date_missing": 2,
-        "publisher_unavailable": 2,
-        "verified": 18
+        "publisher_unavailable": 3,
+        "verified": 17
       }
     },
     {
@@ -247,8 +246,8 @@
       "ok": true,
       "discovery_days": 3,
       "retention_days": 7,
-      "previous_items": 50,
-      "kept": 52
+      "previous_items": 52,
+      "kept": 49
     }
   ]
 }
