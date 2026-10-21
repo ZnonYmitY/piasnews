@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-21T21:45:53.952045Z",
+  "generated_at": "2026-10-21T23:08:07.388209Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -8,7 +8,7 @@
   "event_count": 10,
   "events": [
     {
-      "event_id": "evt-2026-10-19-7ae3279ee099-aa21610c",
+      "event_id": "evt-2026-10-19-7ae3279ee099",
       "rule_id": null,
       "hot_word_zh": "Lando、Oscar和Pierre在围场玩巨型UNO，保证笑料不断 🤣 完整视频现已上线…",
       "hot_word_en": "There's guaranteed laughter as Lando, Oscar & Pierre play giant UNO in the paddock 🤣 watch the full video now…",
@@ -166,7 +166,7 @@
       "rank": 2
     },
     {
-      "event_id": "evt-2026-10-19-7285c4b97e94",
+      "event_id": "evt-2026-10-19-7285c4b97e94-d8eacd6e",
       "rule_id": null,
       "hot_word_zh": "Lando让Oscar干所有的活去洗巨型uno牌 😭😭 Oscar：“我的天它们真的好重”…",
       "hot_word_en": "lando making oscar do all the work shuffling the giant uno cards 😭😭 oscar: \"oh my god they're actually heavy\"…",
@@ -395,17 +395,34 @@
     {
       "event_id": "evt-2026-10-12-6c5d2c74ef52-aba02db1",
       "rule_id": null,
-      "hot_word_zh": "Formula 1：Norris-Piastri 新加坡冲刺赛撞车后，McLaren 的…",
-      "hot_word_en": "Formula 1: McLaren’s Papaya rules under scrutiny once again after Norris-Piastri Singapore Sprint crash",
-      "first_seen_at": "2026-10-15T07:00:00Z",
-      "last_seen_at": "2026-10-21T17:45:00Z",
-      "anchor_item_id": "piasnews-5aef47126f40f306",
-      "image_url": "https://grandepremio.com/wp-content/uploads/2026/10/f1-2026-singapura-sprint-marina-bay-mclaren-lando-norris-oscar-piastri-batida-1200x630.png",
+      "hot_word_zh": "Norris的自私举动暴露了McLaren内部的转变……而Piastri或许终将成为最大赢家",
+      "hot_word_en": "Norris’ selfish act exposed a shift at McLaren... and Piastri could finally be the big winner",
+      "first_seen_at": "2026-10-15T14:30:00Z",
+      "last_seen_at": "2026-10-21T20:46:42Z",
+      "anchor_item_id": "piasnews-35569e72e4cc039e",
+      "image_url": "https://content.api.news/v3/images/bin/dca27a2efa1f33a732512f97fd5d6556",
       "video_url": null,
-      "video_poster_url": "https://grandepremio.com/wp-content/uploads/2026/10/f1-2026-singapura-sprint-marina-bay-mclaren-lando-norris-oscar-piastri-batida-1200x630.png",
+      "video_poster_url": "https://content.api.news/v3/images/bin/dca27a2efa1f33a732512f97fd5d6556",
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
+        {
+          "item_id": "piasnews-35569e72e4cc039e",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Fox Sports",
+          "title": "Norris’ selfish act exposed a shift at McLaren... and Piastri could finally be the big winner",
+          "title_zh": "Norris的自私举动暴露了McLaren内部的转变……而Piastri或许终将成为最大赢家",
+          "summary": "Team or car-performance item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+          "url": "https://www.foxsports.com.au/motorsport/formula-one/f1-2026-united-states-grand-prix-oscar-piastri-and-lando-norris-state-of-play-at-mclaren-after-singapore-crash-analysis/news-story/489cbcc95fbc161e13daf16fc22e76fd",
+          "published_at": "2026-10-21T20:46:42Z",
+          "image_url": "https://content.api.news/v3/images/bin/dca27a2efa1f33a732512f97fd5d6556",
+          "video_url": null,
+          "video_poster_url": "https://content.api.news/v3/images/bin/dca27a2efa1f33a732512f97fd5d6556",
+          "heat_contribution": 1.0,
+          "metrics": {}
+        },
         {
           "item_id": "piasnews-6efad42d63f89155",
           "dataset": "items",
@@ -414,7 +431,7 @@
           "title": "McLaren ends Norris-Piastri Singapore F1 dispute after fresh talks",
           "title_zh": "经过新一轮沟通，McLaren 化解了 Norris 与 Piastri 在新加坡站的 F1 争端",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
+          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
           "url": "https://grandepremio.com/en/f1/mclaren-closes-norris-piastri-clash-investigation-as-f1-champion-promises-better-decisions/",
           "published_at": "2026-10-21T17:45:00Z",
           "image_url": "https://grandepremio.com/wp-content/uploads/2026/10/f1-2026-singapura-sprint-marina-bay-mclaren-lando-norris-oscar-piastri-batida-1200x630.png",
@@ -431,7 +448,7 @@
           "title": "Oscar Piastri Reveals Why McLaren Envy Mercedes In F1 2026",
           "title_zh": "Oscar Piastri 揭示 McLaren 为何在 F1 2026 赛季羡慕 Mercedes",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
+          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
           "url": "https://www.sportscapemagazine.com/blog/oscar-piastri-mercedes-envy-mclaren-f1-cornering-pace",
           "published_at": "2026-10-21T15:37:21.626000Z",
           "image_url": "https://www.sportscapemagazine.com/_next/image?url=https%3A%2F%2Fcpbmehsalmelyeloaejn.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fpost-media%2Fisha%2F1792596770718-q9nt3s.jpg&w=1200&q=75",
@@ -448,30 +465,13 @@
           "title": "Stella Blames McLaren MCL40 for Piastri Struggles",
           "title_zh": "Stella将Piastri的困境归咎于McLaren MCL40",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
+          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
           "url": "https://t.co/OCSaz3Jkn0",
           "published_at": "2026-10-21T02:24:14Z",
           "image_url": "https://i0.wp.com/autodromef1.com/wp-content/uploads/2026/10/oscar-piastri-mclaren-mcl40-driving-style-stella.jpg",
           "video_url": null,
           "video_poster_url": "https://i0.wp.com/autodromef1.com/wp-content/uploads/2026/10/oscar-piastri-mclaren-mcl40-driving-style-stella.jpg",
           "heat_contribution": 0.75,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-7bdf281fd00c683a",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "F1 Oversteer",
-          "title": "Oscar Piastri makes ‘blunt’ Lando Norris admission that proves he is driving better than ever",
-          "title_zh": "Oscar Piastri 对 Lando Norris 做出“直白”表态，证明他状态前所未有地好",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
-          "url": "https://www.f1oversteer.com/news/oscar-piastri-makes-blunt-lando-norris-admission-that-proves-he-is-driving-better-than-ever/",
-          "published_at": "2026-10-19T18:30:00Z",
-          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2025/12/GettyImages-2249340966-scaled.jpg",
-          "video_url": null,
-          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2025/12/GettyImages-2249340966-scaled.jpg",
-          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -482,46 +482,12 @@
           "title": "Oscar Piastri has 'no magic answers' to solve crucial McLaren question",
           "title_zh": "Oscar Piastri 对解决 McLaren 关键问题“没有神奇答案”",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
+          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
           "url": "https://racingnews365.com/oscar-piastri-has-no-magic-answers-to-solve-crucial-mclaren-question",
           "published_at": "2026-10-19T17:10:00Z",
           "image_url": "https://cdn.racingnews365.com/2026/Piastri/Piastri-Sepang.jpg?v=1790855401&width=1800&height=945&quality=75&crop=6000%2C3150%2C0%2C425",
           "video_url": null,
           "video_poster_url": "https://cdn.racingnews365.com/2026/Piastri/Piastri-Sepang.jpg?v=1790855401&width=1800&height=945&quality=75&crop=6000%2C3150%2C0%2C425",
-          "heat_contribution": 0.2,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-5aef47126f40f306",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Sportstar",
-          "title": "Formula 1: McLaren’s Papaya rules under scrutiny once again after Norris-Piastri Singapore Sprint crash",
-          "title_zh": "Formula 1：Norris-Piastri 新加坡冲刺赛撞车后，McLaren 的 Papaya 规则再次受到审视",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
-          "url": "https://sportstar.thehindu.com/motorsport/f1/mclaren-papaya-rules-lando-norris-oscar-piastri-singapore-sprint-crash/article71602082.ece",
-          "published_at": "2026-10-19T05:13:25Z",
-          "image_url": "https://ss-i.thgim.com/public/incoming/ktylc7/article71602112.ece/alternates/LANDSCAPE_1200/2026-10-10T103449Z_71507345_UP1EMAA0TDWYA_RTRMADP_3_MOTOR-F1-SINGAPORE.JPG",
-          "video_url": null,
-          "video_poster_url": "https://ss-i.thgim.com/public/incoming/ktylc7/article71602112.ece/alternates/LANDSCAPE_1200/2026-10-10T103449Z_71507345_UP1EMAA0TDWYA_RTRMADP_3_MOTOR-F1-SINGAPORE.JPG",
-          "heat_contribution": 0.2,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-e309c0be8b32ec36",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Yahoo Sports",
-          "title": "Neither Norris nor Piastri: Montoya names real culprit in McLaren clash",
-          "title_zh": "既不是Norris也不是Piastri：Montoya点出McLaren冲突的真正责任人",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
-          "url": "https://sports.yahoo.com/articles/neither-norris-nor-piastri-montoya-220000810.html",
-          "published_at": "2026-10-18T22:00:00Z",
-          "image_url": "https://s.yimg.com/lo/mysterio/api/dbf48738e2243261141d1b80d9a82ea920bdbd2796526e6f96d1ad3ee0def4f0/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fgpblog_716%2F01609b34303765f8d0a7d563a20ea750",
-          "video_url": null,
-          "video_poster_url": "https://s.yimg.com/lo/mysterio/api/dbf48738e2243261141d1b80d9a82ea920bdbd2796526e6f96d1ad3ee0def4f0/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fgpblog_716%2F01609b34303765f8d0a7d563a20ea750",
           "heat_contribution": 0.2,
           "metrics": {}
         },
@@ -533,29 +499,12 @@
           "title": "Lando Norris mocked by F1 insider over 'cringe' Oscar Piastri moment",
           "title_zh": "Lando Norris因Oscar Piastri的“尴尬”时刻遭F1内部人士嘲讽",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
+          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
           "url": "https://www.gpfans.com/en/f1-news/1091689/f1-lando-norris-cringe-singapore-grand-prix-mclaren-oscar-piastri-offer/",
           "published_at": "2026-10-18T19:45:00Z",
           "image_url": "https://sportsbase.io/images/gpfans/copy_1200x800/dede7932562becaf7fe74606136b9bfe4e4eceff.jpg",
           "video_url": null,
           "video_poster_url": "https://sportsbase.io/images/gpfans/copy_1200x800/dede7932562becaf7fe74606136b9bfe4e4eceff.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-34c6bbecdb446bde",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "F1 Oversteer",
-          "title": "Christian Horner just spelled out why Lando Norris and Oscar Piastri both can't be number one driver",
-          "title_zh": "Christian Horner刚刚说明了为什么Lando Norris和Oscar Piastri都不能成为一号车手",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
-          "url": "https://www.f1oversteer.com/features/christian-horner-just-spelled-out-why-lando-norris-and-oscar-piastri-both-cant-be-number-one-driver/",
-          "published_at": "2026-10-18T18:30:00Z",
-          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2297217446-scaled.jpg",
-          "video_url": null,
-          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2297217446-scaled.jpg",
           "heat_contribution": 0.0,
           "metrics": {}
         },
@@ -567,29 +516,12 @@
           "title": "Oscar Piastri declares 'Mercedes envy' as tricky F1 challenge explained",
           "title_zh": "Oscar Piastri坦言“羡慕Mercedes”，并解释棘手的F1挑战",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
+          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
           "url": "https://racingnews365.com/oscar-piastri-declares-mercedes-envy-as-tricky-f1-challenge-explained",
           "published_at": "2026-10-18T17:05:00Z",
           "image_url": "https://cdn.racingnews365.com/2026/Piastri/XPB_1441394_HiRes.jpg?v=1791007314&width=1800&height=945&quality=75&crop=5472%2C2873%2C0%2C387",
           "video_url": null,
           "video_poster_url": "https://cdn.racingnews365.com/2026/Piastri/XPB_1441394_HiRes.jpg?v=1791007314&width=1800&height=945&quality=75&crop=5472%2C2873%2C0%2C387",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-79599e54fae8c8e8",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "https://www.autohebdof1.com/",
-          "title": "Zak Brown believes Oscar Piastri is getting back into form after a difficult start to the season.",
-          "title_zh": "Zak Brown认为Oscar Piastri在赛季初的艰难开局后正逐渐找回状态。",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
-          "url": "https://www.autohebdof1.com/news/f1/Zak-Brown-believes-Oscar-Piastri-is-back-in-form-after-a-difficult-start-to-the-season.html",
-          "published_at": "2026-10-18T13:02:00Z",
-          "image_url": "https://www.autohebdo.fr/wp-content/uploads/2026/10/DPPI_00126019_1224-2.jpg",
-          "video_url": null,
-          "video_poster_url": "https://www.autohebdo.fr/wp-content/uploads/2026/10/DPPI_00126019_1224-2.jpg",
           "heat_contribution": 0.0,
           "metrics": {}
         },
@@ -601,7 +533,7 @@
           "title": "McLaren Warns Norris and Piastri After Singapore Sprint Crash",
           "title_zh": "新加坡冲刺赛撞车后，McLaren 警告 Norris 和 Piastri",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
+          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
           "url": "https://suaragarut.id/en/mclaren-warns-norris-piastri-singapore-crash",
           "published_at": "2026-10-18T10:52:30Z",
           "image_url": "https://cdn.suaragarut.id/media/images/2026/10/296k05iMB9.jpeg?location=1&width=1200&height=674&quality=80&watermark=1",
@@ -618,29 +550,12 @@
           "title": "Oscar Piastri clash triggers new Norris admission as McLaren 'not finished'",
           "title_zh": "Oscar Piastri的碰撞引发Norris新表态，McLaren“尚未完成”",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
+          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
           "url": "https://www.planetf1.com/news/lando-norris-oscar-piastri-mclaren-crash-2026-singapore-grand-prix",
           "published_at": "2026-10-17T18:01:30Z",
           "image_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F10%2F17111456%2Foscar-piastri-lando-norris-mclaren-singapore-gp-2026-planetf1.jpg",
           "video_url": null,
           "video_poster_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F10%2F17111456%2Foscar-piastri-lando-norris-mclaren-singapore-gp-2026-planetf1.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-567c34f0a91ef8bf",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "F1 Oversteer",
-          "title": "Juan Pablo Montoya blames McLaren for Oscar Piastri driving ‘like a madman’ against Lando Norris",
-          "title_zh": "Juan Pablo Montoya 指责 McLaren 导致 Oscar Piastri 对 Lando Norris“像疯子一样”驾驶",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
-          "url": "https://www.f1oversteer.com/news/juan-pablo-montoya-blames-mclaren-for-oscar-piastri-driving-like-a-madman-against-lando-norris/",
-          "published_at": "2026-10-17T06:00:00Z",
-          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2299082691-scaled.jpg",
-          "video_url": null,
-          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2299082691-scaled.jpg",
           "heat_contribution": 0.0,
           "metrics": {}
         },
@@ -652,7 +567,7 @@
           "title": "McLaren 'not finished' as Piastri and Norris contract solution proposed",
           "title_zh": "McLaren“尚未完成”，有人提出Piastri和Norris的合同解决方案",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
+          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
           "url": "https://www.planetf1.com/news/oscar-piastri-lando-norris-mclaren-contract",
           "published_at": "2026-10-16T19:01:38Z",
           "image_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F10%2F16124741%2Flando-norris-oscar-piastri-mclaren-singapore-2026-planetf1-1.jpg",
@@ -669,7 +584,7 @@
           "title": "McLaren boss identifies key to Oscar Piastri F1 troubles",
           "title_zh": "McLaren车队老板指出Oscar Piastri在F1中遇到困难的关键所在",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
+          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
           "url": "https://www.motorsportweek.com/2026/10/16/oscar-piastri-andrea-stella-f1/",
           "published_at": "2026-10-16T06:00:00Z",
           "image_url": "https://www.motorsportweek.com/wp-content/uploads/2026/10/XPB_1444635_HiRes-2.webp",
@@ -686,7 +601,7 @@
           "title": "Norris Accepts Blame for Piastri Crash as McLaren Reaffirms Team Rules",
           "title_zh": "Norris 为 Piastri 撞车事故承担责任，McLaren 重申车队规则",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
+          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
           "url": "https://suaragarut.id/en/norris-accepts-blame-piastri-crash",
           "published_at": "2026-10-15T23:48:22Z",
           "image_url": "https://cdn.suaragarut.id/media/images/2026/10/lMbBKpSzi9.jpeg?location=1&width=1200&height=674&quality=80&watermark=1",
@@ -703,7 +618,7 @@
           "title": "McLaren confirms Norris-Piastri talks continue after Singapore crash",
           "title_zh": "McLaren确认新加坡撞车后Norris与Piastri的谈话仍在继续",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
+          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
           "url": "https://grandepremio.com/en/f1/mclaren-refuses-to-close-norris-piastri-case-after-singapore-crash-conversations-are-not-finished/",
           "published_at": "2026-10-15T14:30:00Z",
           "image_url": "https://grandepremio.com/wp-content/uploads/2026/10/f1-2026-singapura-sprint-marina-bay-mclaren-lando-norris-oscar-piastri-batida-1200x630.png",
@@ -711,69 +626,18 @@
           "video_poster_url": "https://grandepremio.com/wp-content/uploads/2026/10/f1-2026-singapura-sprint-marina-bay-mclaren-lando-norris-oscar-piastri-batida-1200x630.png",
           "heat_contribution": 0.0,
           "metrics": {}
-        },
-        {
-          "item_id": "piasnews-c1bb3b410a40ca85",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "SPEEDWEEK.com",
-          "title": "Norris/Piastri crash in Singapore: will it cost McLaren 10 million dollars?",
-          "title_zh": "Norris/Piastri在新加坡撞车：会让McLaren损失1000万美元吗？",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
-          "url": "https://www.speedweek.com/en/a/formula-1/norris-piastri-crash-in-singapore-will-it-cost-mclaren-10-million-dollars-",
-          "published_at": "2026-10-15T13:30:01.505000Z",
-          "image_url": "https://files.speedweek.com/images/c_crop,x_0,y_2824,w_3506,h_1753/c_fill,f_auto,q_auto,w_1200,h_630/2026/10/15/sfkefqbjtvpjvzmuagkv/1530-mc-laren-xpb",
-          "video_url": null,
-          "video_poster_url": "https://files.speedweek.com/images/c_crop,x_0,y_2824,w_3506,h_1753/c_fill,f_auto,q_auto,w_1200,h_630/2026/10/15/sfkefqbjtvpjvzmuagkv/1530-mc-laren-xpb",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-652be8ee15ceecd8",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "F1 Oversteer",
-          "title": "Otmar Szafnauer tells McLaren to add new clause to Lando Norris' contract after Oscar Piastri crash",
-          "title_zh": "Otmar Szafnauer 建议 McLaren 在 Oscar Piastri 撞车后为 Lando Norris 的合同增加新条款",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
-          "url": "https://www.f1oversteer.com/news/otmar-szafnauer-tells-mclaren-to-add-new-clause-to-lando-norris-contract-after-oscar-piastri-crash/",
-          "published_at": "2026-10-15T13:00:00Z",
-          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2299380296-scaled.jpg",
-          "video_url": null,
-          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2299380296-scaled.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-e575708235b4d9b5",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "F1 Oversteer",
-          "title": "Guenther Steiner calls out 'cringe' Lando Norris over Oscar Piastri radio message in Singapore",
-          "title_zh": "Guenther Steiner 称 Lando Norris 在新加坡对 Oscar Piastri 的无线电消息“令人尴尬”",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
-          "url": "https://www.f1oversteer.com/news/guenther-steiner-calls-out-cringe-lando-norris-over-oscar-piastri-radio-message-in-singapore/",
-          "published_at": "2026-10-15T07:00:00Z",
-          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2299383507-scaled.jpg",
-          "video_url": null,
-          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2299383507-scaled.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
         }
       ],
       "official_heat": 0,
-      "media_heat": 36,
+      "media_heat": 35,
       "fan_heat": 0,
-      "heat": 36,
+      "heat": 35,
       "source_labels": [
         "媒"
       ],
       "source_counts": {
         "official": 0,
-        "media": 13,
+        "media": 9,
         "fan": 0
       },
       "pinned_rank": null,
@@ -911,54 +775,6 @@
       "rank": 7
     },
     {
-      "event_id": "evt-2026-10-20-f6947b48cb2a",
-      "rule_id": null,
-      "hot_word_zh": "Piastri已连续26个比赛周末未获胜。终结冠军荒——并撼动Lando——的黄金机会近在…",
-      "hot_word_en": "Piastri hasn’t won in 26 weekends. A golden chance to end drought — and rattle Lando — is near",
-      "first_seen_at": "2026-10-20T22:11:02Z",
-      "last_seen_at": "2026-10-20T22:11:02Z",
-      "anchor_item_id": "piasnews-b1a0a75df287f660",
-      "image_url": "https://content.api.news/v3/images/bin/dbad6f4d0c51b213ccc4dc3285c3b4d8",
-      "video_url": null,
-      "video_poster_url": "https://content.api.news/v3/images/bin/dbad6f4d0c51b213ccc4dc3285c3b4d8",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-b1a0a75df287f660",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Fox Sports",
-          "title": "Piastri hasn’t won in 26 weekends. A golden chance to end drought — and rattle Lando — is near",
-          "title_zh": "Piastri已连续26个比赛周末未获胜。终结冠军荒——并撼动Lando——的黄金机会近在眼前",
-          "summary": "Oscar Piastri-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
-          "url": "https://www.foxsports.com.au/motorsport/formula-one/piastri-hasnt-won-in-26-weekends-this-is-where-his-drought-could-break/news-story/b8e8dfedc7612c1b8caf15901ae396c8",
-          "published_at": "2026-10-20T22:11:02Z",
-          "image_url": "https://content.api.news/v3/images/bin/dbad6f4d0c51b213ccc4dc3285c3b4d8",
-          "video_url": null,
-          "video_poster_url": "https://content.api.news/v3/images/bin/dbad6f4d0c51b213ccc4dc3285c3b4d8",
-          "heat_contribution": 0.75,
-          "metrics": {}
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 13,
-      "fan_heat": 0,
-      "heat": 13,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 1,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 8
-    },
-    {
       "event_id": "evt-2026-10-20-4b3f61a52229",
       "rule_id": null,
       "hot_word_zh": "Zak Brown 表示 Oscar Piastri 现在更加自信、更能掌控局面",
@@ -1004,7 +820,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 9
+      "rank": 8
     },
     {
       "event_id": "evt-2026-10-20-9c15c1b3b27c",
@@ -1028,12 +844,60 @@
           "title": "Oscar Piastri's worrying 'no magic' admission as he accepts season-long limitations",
           "title_zh": "Oscar Piastri令人担忧地承认“没有魔法”，并接受整个赛季的局限",
           "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
+          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
           "url": "https://www.planetf1.com/news/oscar-piastri-mclaren-mercedes-f1-deficit-magic-answers",
           "published_at": "2026-10-20T19:01:40Z",
           "image_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F09%2F09110711%2Foscar-piastri-mclaren-monza-2026-planetf1.jpg",
           "video_url": null,
           "video_poster_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F09%2F09110711%2Foscar-piastri-mclaren-monza-2026-planetf1.jpg",
+          "heat_contribution": 0.45,
+          "metrics": {}
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 10,
+      "fan_heat": 0,
+      "heat": 10,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 1,
+        "fan": 0
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "event_id": "evt-2026-10-20-f6947b48cb2a",
+      "rule_id": null,
+      "hot_word_zh": "Piastri已连续26个比赛周末未获胜。终结冠军荒——并撼动Lando——的黄金机会近在…",
+      "hot_word_en": "Piastri hasn’t won in 26 weekends. A golden chance to end drought — and rattle Lando — is near",
+      "first_seen_at": "2026-10-20T22:11:02Z",
+      "last_seen_at": "2026-10-20T22:11:02Z",
+      "anchor_item_id": "piasnews-b1a0a75df287f660",
+      "image_url": "https://content.api.news/v3/images/bin/dbad6f4d0c51b213ccc4dc3285c3b4d8",
+      "video_url": null,
+      "video_poster_url": "https://content.api.news/v3/images/bin/dbad6f4d0c51b213ccc4dc3285c3b4d8",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-b1a0a75df287f660",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Fox Sports",
+          "title": "Piastri hasn’t won in 26 weekends. A golden chance to end drought — and rattle Lando — is near",
+          "title_zh": "Piastri已连续26个比赛周末未获胜。终结冠军荒——并撼动Lando——的黄金机会近在眼前",
+          "summary": "Oscar Piastri-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+          "url": "https://www.foxsports.com.au/motorsport/formula-one/piastri-hasnt-won-in-26-weekends-this-is-where-his-drought-could-break/news-story/b8e8dfedc7612c1b8caf15901ae396c8",
+          "published_at": "2026-10-20T22:11:02Z",
+          "image_url": "https://content.api.news/v3/images/bin/dbad6f4d0c51b213ccc4dc3285c3b4d8",
+          "video_url": null,
+          "video_poster_url": "https://content.api.news/v3/images/bin/dbad6f4d0c51b213ccc4dc3285c3b4d8",
           "heat_contribution": 0.45,
           "metrics": {}
         }
@@ -1454,64 +1318,6 @@
       }
     },
     {
-      "event_id": "evt-2026-10-20-3a8059da8ba4",
-      "rule_id": null,
-      "hot_word_zh": "“我和oscar总是玩得很开心” pedro acosta，piastriheaven的大…",
-      "hot_word_en": "\"i always have a good time with oscar\" pedro acosta the gates of piastriheaven will always be open for you",
-      "first_seen_at": "2026-10-20T22:04:12Z",
-      "last_seen_at": "2026-10-20T22:04:12Z",
-      "anchor_item_id": "piasnews-social-86681af01119e5d9",
-      "image_url": "https://pbs.twimg.com/media/HVGyuXkX0AA4oyp.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HVGyuXkX0AA4oyp.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-86681af01119e5d9",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: \"i always have a good time with oscar\" pedro acosta the gates of piastriheaven will always be o…",
-          "title_zh": "X 发帖 @laurogeitabat：“我和oscar总是玩得很开心” pedro acosta，piastriheaven的大门永远为你敞开",
-          "summary": "\"i always have a good time with oscar\" pedro acosta the gates of piastriheaven will always be open for you https://t.co/8xdusOhus3",
-          "summary_zh": "“我和oscar总是玩得很开心” pedro acosta，piastriheaven的大门永远为你敞开",
-          "url": "https://x.com/laurogeitabat/status/2112666216061976621",
-          "published_at": "2026-10-20T22:04:12Z",
-          "image_url": "https://pbs.twimg.com/media/HVGyuXkX0AA4oyp.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HVGyuXkX0AA4oyp.jpg",
-          "heat_contribution": 6.9915,
-          "metrics": {
-            "likes": 1165,
-            "retweets": 106,
-            "replies": 0,
-            "quotes": 0,
-            "views": 7140,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 37,
-      "heat": 37,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-10-21-430e63088d89",
       "rule_id": null,
       "hot_word_zh": "听听就好，别太当真，但据这位粉丝说，oscar、esteban、ollie、alex 和…",
@@ -1860,6 +1666,64 @@
       }
     },
     {
+      "event_id": "evt-2026-10-20-3a8059da8ba4",
+      "rule_id": null,
+      "hot_word_zh": "“我和oscar总是玩得很开心” pedro acosta，piastriheaven的大…",
+      "hot_word_en": "\"i always have a good time with oscar\" pedro acosta the gates of piastriheaven will always be open for you",
+      "first_seen_at": "2026-10-20T22:04:12Z",
+      "last_seen_at": "2026-10-20T22:04:12Z",
+      "anchor_item_id": "piasnews-social-86681af01119e5d9",
+      "image_url": "https://pbs.twimg.com/media/HVGyuXkX0AA4oyp.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HVGyuXkX0AA4oyp.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-86681af01119e5d9",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: \"i always have a good time with oscar\" pedro acosta the gates of piastriheaven will always be o…",
+          "title_zh": "X 发帖 @laurogeitabat：“我和oscar总是玩得很开心” pedro acosta，piastriheaven的大门永远为你敞开",
+          "summary": "\"i always have a good time with oscar\" pedro acosta the gates of piastriheaven will always be open for you https://t.co/8xdusOhus3",
+          "summary_zh": "“我和oscar总是玩得很开心” pedro acosta，piastriheaven的大门永远为你敞开",
+          "url": "https://x.com/laurogeitabat/status/2112666216061976621",
+          "published_at": "2026-10-20T22:04:12Z",
+          "image_url": "https://pbs.twimg.com/media/HVGyuXkX0AA4oyp.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HVGyuXkX0AA4oyp.jpg",
+          "heat_contribution": 6.4812,
+          "metrics": {
+            "likes": 1165,
+            "retweets": 106,
+            "replies": 0,
+            "quotes": 0,
+            "views": 7140,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 34,
+      "heat": 34,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
       "event_id": "evt-2026-10-20-ceb82a47fa7f",
       "rule_id": null,
       "hot_word_zh": "他错过了大概 50 次之后，一拿到四个（4 个）文件夹就装得像空气动力学和物理老师一样 😭…",
@@ -1902,122 +1766,6 @@
       "media_heat": 0,
       "fan_heat": 34,
       "heat": 34,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-21-ef6850c205cd",
-      "rule_id": null,
-      "hot_word_zh": "工程师：“我把这个交给一个有时要忍受 50° 座舱的人” oscar：“我把接力棒交给一个…",
-      "hot_word_en": "engineer: \"i'm passing this to a person who sometimes endures 50° cockpits\" oscar: \"i'm passing the stick to…",
-      "first_seen_at": "2026-10-21T16:14:34Z",
-      "last_seen_at": "2026-10-21T16:14:34Z",
-      "anchor_item_id": "piasnews-social-6098f5c461d89705",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2112940582083407872/vid/avc1/320x560/bxIAlFMDE1kE5JTm.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112940582083407872/img/fwdtYUvZSek8uNcI.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-6098f5c461d89705",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: engineer: \"i'm passing this to a person who sometimes endures 50° cockpits\" oscar: \"i'm passing…",
-          "title_zh": "X 发帖 @laurogeitabat：工程师：“我把这个交给一个有时要忍受 50° 座舱的人” oscar：“我把接力棒交给一个总是汗流浃背的人” 维修团队：“好的，没问题” 😭😭😭",
-          "summary": "engineer: \"i'm passing this to a person who sometimes endures 50° cockpits\" oscar: \"i'm passing the stick to someone who is ALWAYS sweaty\" pit crew: \"okay, sure\" 😭😭😭 https://t.co/QYJtYss7HS",
-          "summary_zh": "工程师：“我把这个交给一个有时要忍受 50° 座舱的人” oscar：“我把接力棒交给一个总是汗流浃背的人” 维修团队：“好的，没问题” 😭😭😭",
-          "url": "https://x.com/laurogeitabat/status/2112940618288660950",
-          "published_at": "2026-10-21T16:14:34Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2112940582083407872/vid/avc1/320x560/bxIAlFMDE1kE5JTm.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112940582083407872/img/fwdtYUvZSek8uNcI.jpg",
-          "heat_contribution": 6.4722,
-          "metrics": {
-            "likes": 534,
-            "retweets": 24,
-            "replies": 0,
-            "quotes": 0,
-            "views": 6391,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 34,
-      "heat": 34,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-19-0e50e26f628d",
-      "rule_id": null,
-      "hot_word_zh": "等等我们还要出 Oscar 和 Lando 穿 2024 摩纳哥赛车服的 Funko 玩偶",
-      "hot_word_en": "WAIT WE ARE ALSO GETTING OSCAR AND LANDO FUNKOS WITH THE 2024 MONACO SUITS",
-      "first_seen_at": "2026-10-19T21:58:09Z",
-      "last_seen_at": "2026-10-19T21:58:09Z",
-      "anchor_item_id": "piasnews-social-c81f7b5b3bd3fa16",
-      "image_url": "https://pbs.twimg.com/media/HVBnvn6WUAAXicl.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HVBnvn6WUAAXicl.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-c81f7b5b3bd3fa16",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: WAIT WE ARE ALSO GETTING OSCAR AND LANDO FUNKOS WITH THE 2024 MONACO SUITS",
-          "title_zh": "X 发帖 @laurogeitabat：等等我们还要出 Oscar 和 Lando 穿 2024 摩纳哥赛车服的 Funko 玩偶",
-          "summary": "WAIT WE ARE ALSO GETTING OSCAR AND LANDO FUNKOS WITH THE 2024 MONACO SUITS https://t.co/JEOdPC9Zpe",
-          "summary_zh": "等等我们还要出 Oscar 和 Lando 穿 2024 摩纳哥赛车服的 Funko 玩偶",
-          "url": "https://x.com/laurogeitabat/status/2112302306406420967",
-          "published_at": "2026-10-19T21:58:09Z",
-          "image_url": "https://pbs.twimg.com/media/HVBnvn6WUAAXicl.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HVBnvn6WUAAXicl.jpg",
-          "heat_contribution": 6.0909,
-          "metrics": {
-            "likes": 698,
-            "retweets": 55,
-            "replies": 11,
-            "quotes": 0,
-            "views": 13857,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 33,
-      "heat": 33,
       "source_labels": [
         "粉"
       ],
@@ -2092,48 +1840,48 @@
       }
     },
     {
-      "event_id": "evt-2026-10-19-bb6eb144a808",
+      "event_id": "evt-2026-10-21-ef6850c205cd",
       "rule_id": null,
-      "hot_word_zh": "Oscar 准备打板球 🏏",
-      "hot_word_en": "oscar gearing up to play cricket 🏏",
-      "first_seen_at": "2026-10-19T22:15:26Z",
-      "last_seen_at": "2026-10-19T22:15:26Z",
-      "anchor_item_id": "piasnews-social-d45d5847d6c30090",
+      "hot_word_zh": "工程师：“我把这个交给一个有时要忍受 50° 座舱的人” oscar：“我把接力棒交给一个…",
+      "hot_word_en": "engineer: \"i'm passing this to a person who sometimes endures 50° cockpits\" oscar: \"i'm passing the stick to…",
+      "first_seen_at": "2026-10-21T16:14:34Z",
+      "last_seen_at": "2026-10-21T16:14:34Z",
+      "anchor_item_id": "piasnews-social-6098f5c461d89705",
       "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2112306623540613120/vid/avc1/318x270/9ysBwwk_vyCUx01l.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112306623540613120/img/GQiaHaYHZevN1ANW.jpg",
+      "video_url": "https://video.twimg.com/amplify_video/2112940582083407872/vid/avc1/320x560/bxIAlFMDE1kE5JTm.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112940582083407872/img/fwdtYUvZSek8uNcI.jpg",
       "review_needed": true,
       "review_needed_reason": "fan_account_public_cap",
       "items": [
         {
-          "item_id": "piasnews-social-d45d5847d6c30090",
+          "item_id": "piasnews-social-6098f5c461d89705",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar gearing up to play cricket 🏏",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar 准备打板球 🏏",
-          "summary": "oscar gearing up to play cricket 🏏 https://t.co/eHLG7Dpprx",
-          "summary_zh": "Oscar 准备打板球 🏏",
-          "url": "https://x.com/laurogeitabat/status/2112306656197402769",
-          "published_at": "2026-10-19T22:15:26Z",
+          "title": "X post from @laurogeitabat: engineer: \"i'm passing this to a person who sometimes endures 50° cockpits\" oscar: \"i'm passing…",
+          "title_zh": "X 发帖 @laurogeitabat：工程师：“我把这个交给一个有时要忍受 50° 座舱的人” oscar：“我把接力棒交给一个总是汗流浃背的人” 维修团队：“好的，没问题” 😭😭😭",
+          "summary": "engineer: \"i'm passing this to a person who sometimes endures 50° cockpits\" oscar: \"i'm passing the stick to someone who is ALWAYS sweaty\" pit crew: \"okay, sure\" 😭😭😭 https://t.co/QYJtYss7HS",
+          "summary_zh": "工程师：“我把这个交给一个有时要忍受 50° 座舱的人” oscar：“我把接力棒交给一个总是汗流浃背的人” 维修团队：“好的，没问题” 😭😭😭",
+          "url": "https://x.com/laurogeitabat/status/2112940618288660950",
+          "published_at": "2026-10-21T16:14:34Z",
           "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2112306623540613120/vid/avc1/318x270/9ysBwwk_vyCUx01l.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112306623540613120/img/GQiaHaYHZevN1ANW.jpg",
-          "heat_contribution": 5.9273,
+          "video_url": "https://video.twimg.com/amplify_video/2112940582083407872/vid/avc1/320x560/bxIAlFMDE1kE5JTm.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112940582083407872/img/fwdtYUvZSek8uNcI.jpg",
+          "heat_contribution": 6.185,
           "metrics": {
-            "likes": 658,
-            "retweets": 51,
+            "likes": 534,
+            "retweets": 24,
             "replies": 0,
             "quotes": 0,
-            "views": 7143,
+            "views": 6391,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 32,
-      "heat": 32,
+      "fan_heat": 33,
+      "heat": 33,
       "source_labels": [
         "粉"
       ],
@@ -2696,48 +2444,48 @@
       }
     },
     {
-      "event_id": "evt-oscar-post-race-smile",
-      "rule_id": "oscar-post-race-smile",
-      "hot_word_zh": "Oscar 在荷兰站赛后镜头中微笑",
-      "hot_word_en": "Oscar smiles for the camera after the Dutch Grand Prix",
-      "first_seen_at": "2026-10-19T22:17:21Z",
-      "last_seen_at": "2026-10-19T22:17:21Z",
-      "anchor_item_id": "piasnews-social-3d0fcefdeab4a271",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2112307112852246528/vid/avc1/476x270/CJMbCbVK9weflt23.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112307112852246528/img/jvMDwVQjyIQgzsUE.jpg",
+      "event_id": "evt-2026-10-19-0e50e26f628d",
+      "rule_id": null,
+      "hot_word_zh": "等等我们还要出 Oscar 和 Lando 穿 2024 摩纳哥赛车服的 Funko 玩偶",
+      "hot_word_en": "WAIT WE ARE ALSO GETTING OSCAR AND LANDO FUNKOS WITH THE 2024 MONACO SUITS",
+      "first_seen_at": "2026-10-19T21:58:09Z",
+      "last_seen_at": "2026-10-19T21:58:09Z",
+      "anchor_item_id": "piasnews-social-c81f7b5b3bd3fa16",
+      "image_url": "https://pbs.twimg.com/media/HVBnvn6WUAAXicl.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HVBnvn6WUAAXicl.jpg",
       "review_needed": true,
       "review_needed_reason": "fan_account_public_cap",
       "items": [
         {
-          "item_id": "piasnews-social-3d0fcefdeab4a271",
+          "item_id": "piasnews-social-c81f7b5b3bd3fa16",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: photographer: \"serious face and then smiley face please\" oscar: 🙂😬🙂",
-          "title_zh": "X 发帖 @laurogeitabat：摄影师：“请先严肃脸，然后笑脸” Oscar：🙂😬🙂",
-          "summary": "photographer: \"serious face and then smiley face please\" oscar: 🙂😬🙂 https://t.co/PHjsxVQiC6",
-          "summary_zh": "摄影师：“请先严肃脸，然后笑脸” Oscar：🙂😬🙂",
-          "url": "https://x.com/laurogeitabat/status/2112307140262064292",
-          "published_at": "2026-10-19T22:17:21Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2112307112852246528/vid/avc1/476x270/CJMbCbVK9weflt23.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112307112852246528/img/jvMDwVQjyIQgzsUE.jpg",
-          "heat_contribution": 5.5953,
+          "title": "X post from @laurogeitabat: WAIT WE ARE ALSO GETTING OSCAR AND LANDO FUNKOS WITH THE 2024 MONACO SUITS",
+          "title_zh": "X 发帖 @laurogeitabat：等等我们还要出 Oscar 和 Lando 穿 2024 摩纳哥赛车服的 Funko 玩偶",
+          "summary": "WAIT WE ARE ALSO GETTING OSCAR AND LANDO FUNKOS WITH THE 2024 MONACO SUITS https://t.co/JEOdPC9Zpe",
+          "summary_zh": "等等我们还要出 Oscar 和 Lando 穿 2024 摩纳哥赛车服的 Funko 玩偶",
+          "url": "https://x.com/laurogeitabat/status/2112302306406420967",
+          "published_at": "2026-10-19T21:58:09Z",
+          "image_url": "https://pbs.twimg.com/media/HVBnvn6WUAAXicl.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HVBnvn6WUAAXicl.jpg",
+          "heat_contribution": 5.2828,
           "metrics": {
-            "likes": 502,
-            "retweets": 21,
-            "replies": 0,
+            "likes": 698,
+            "retweets": 55,
+            "replies": 11,
             "quotes": 0,
-            "views": 5188,
+            "views": 13857,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 30,
-      "heat": 30,
+      "fan_heat": 29,
+      "heat": 29,
       "source_labels": [
         "粉"
       ],
@@ -2788,64 +2536,6 @@
             "replies": 0,
             "quotes": 0,
             "views": 7130,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 29,
-      "heat": 29,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-19-55f0e2c744a2",
-      "rule_id": null,
-      "hot_word_zh": "“你享受[打板球]吗？” Oscar：“是的，很好玩！我现在再也没机会击球或投球了。我很想念。",
-      "hot_word_en": "\"did you enjoy [playing cricket]?\" oscar: \"yeah it was good fun! i don't get to bat or bowl ever anymore.",
-      "first_seen_at": "2026-10-19T21:55:04Z",
-      "last_seen_at": "2026-10-19T21:55:04Z",
-      "anchor_item_id": "piasnews-social-b16fa4800fd116d1",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2112301500969918464/vid/avc1/476x270/ZQYjUsxb1qMWaqnU.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112301500969918464/img/uuvEyNmEz0HYZaUD.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-b16fa4800fd116d1",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: \"did you enjoy [playing cricket]?\" oscar: \"yeah it was good fun! i don't get to bat or bowl eve…",
-          "title_zh": "X 发帖 @laurogeitabat：“你享受[打板球]吗？” Oscar：“是的，很好玩！我现在再也没机会击球或投球了。我很想念。” kevin：“再打几个板球让你感觉不错吧” Oscar：“确实” 闭嘴我受不了了 现在就把他带回澳大利亚",
-          "summary": "\"did you enjoy [playing cricket]?\" oscar: \"yeah it was good fun! i don't get to bat or bowl ever anymore. i miss it.\" kevin: \"make you feel good that, smacking a few cricket balls again\" oscar: \"it did, yeah\" SHUT UP I CAN'T DO THIS TAKE HIM BACK TO AUSTRALIA RIGHT NOW https://t.co/5O1SWHir9a",
-          "summary_zh": "“你享受[打板球]吗？” Oscar：“是的，很好玩！我现在再也没机会击球或投球了。我很想念。” kevin：“再打几个板球让你感觉不错吧” Oscar：“确实” 闭嘴我受不了了 现在就把他带回澳大利亚",
-          "url": "https://x.com/laurogeitabat/status/2112301532934750372",
-          "published_at": "2026-10-19T21:55:04Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2112301500969918464/vid/avc1/476x270/ZQYjUsxb1qMWaqnU.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112301500969918464/img/uuvEyNmEz0HYZaUD.jpg",
-          "heat_contribution": 5.3229,
-          "metrics": {
-            "likes": 337,
-            "retweets": 33,
-            "replies": 0,
-            "quotes": 0,
-            "views": 5027,
             "bookmarks": 0
           }
         }
@@ -2928,98 +2618,40 @@
       }
     },
     {
-      "event_id": "evt-2026-10-19-7ed4968533a2",
+      "event_id": "evt-2026-10-19-bb6eb144a808",
       "rule_id": null,
-      "hot_word_zh": "阳光 🥹✨",
-      "hot_word_en": "sunshine 🥹✨",
-      "first_seen_at": "2026-10-19T22:27:50Z",
-      "last_seen_at": "2026-10-19T22:27:50Z",
-      "anchor_item_id": "piasnews-social-7b59eb98e0b0a884",
+      "hot_word_zh": "Oscar 准备打板球 🏏",
+      "hot_word_en": "oscar gearing up to play cricket 🏏",
+      "first_seen_at": "2026-10-19T22:15:26Z",
+      "last_seen_at": "2026-10-19T22:15:26Z",
+      "anchor_item_id": "piasnews-social-d45d5847d6c30090",
       "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2112309765959204864/vid/avc1/328x270/HlUqrn47sejUm3tB.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112309765959204864/img/GD0cHJqnpvK8JuH4.jpg",
+      "video_url": "https://video.twimg.com/amplify_video/2112306623540613120/vid/avc1/318x270/9ysBwwk_vyCUx01l.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112306623540613120/img/GQiaHaYHZevN1ANW.jpg",
       "review_needed": true,
       "review_needed_reason": "fan_account_public_cap",
       "items": [
         {
-          "item_id": "piasnews-social-7b59eb98e0b0a884",
+          "item_id": "piasnews-social-d45d5847d6c30090",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: sunshine 🥹✨",
-          "title_zh": "X 发帖 @laurogeitabat：阳光 🥹✨",
-          "summary": "sunshine 🥹✨ https://t.co/Ftt5mQgAeG",
-          "summary_zh": "阳光 🥹✨",
-          "url": "https://x.com/laurogeitabat/status/2112309776306569513",
-          "published_at": "2026-10-19T22:27:50Z",
+          "title": "X post from @laurogeitabat: oscar gearing up to play cricket 🏏",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar 准备打板球 🏏",
+          "summary": "oscar gearing up to play cricket 🏏 https://t.co/eHLG7Dpprx",
+          "summary_zh": "Oscar 准备打板球 🏏",
+          "url": "https://x.com/laurogeitabat/status/2112306656197402769",
+          "published_at": "2026-10-19T22:15:26Z",
           "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2112309765959204864/vid/avc1/328x270/HlUqrn47sejUm3tB.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112309765959204864/img/GD0cHJqnpvK8JuH4.jpg",
-          "heat_contribution": 5.3259,
+          "video_url": "https://video.twimg.com/amplify_video/2112306623540613120/vid/avc1/318x270/9ysBwwk_vyCUx01l.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112306623540613120/img/GQiaHaYHZevN1ANW.jpg",
+          "heat_contribution": 5.1197,
           "metrics": {
-            "likes": 367,
-            "retweets": 24,
-            "replies": 1,
-            "quotes": 0,
-            "views": 3664,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 29,
-      "heat": 29,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-19-90d3666ed239",
-      "rule_id": null,
-      "hot_word_zh": "kevin：“我们会把投球机设置在一个你舒服我也舒服的水平” Oscar：“你说的我舒服你…",
-      "hot_word_en": "kevin: \"we'll set the bowling machine at a level where you're comfortable and i'm comfortable\" oscar: \"what d…",
-      "first_seen_at": "2026-10-19T22:07:48Z",
-      "last_seen_at": "2026-10-19T22:07:48Z",
-      "anchor_item_id": "piasnews-social-136c8c81b635fb93",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2112304712137490433/vid/avc1/476x270/EcN0lr1vS1wX1CFO.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112304712137490433/img/WYEuKKZz27zH6KDF.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-136c8c81b635fb93",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: kevin: \"we'll set the bowling machine at a level where you're comfortable and i'm comfortable\"…",
-          "title_zh": "X 发帖 @laurogeitabat：kevin：“我们会把投球机设置在一个你舒服我也舒服的水平” Oscar：“你说的我舒服你也舒服是什么意思？这俩差得可远了” kevin：“你舒服的地方我就舒服” Oscar：“是的。我希望如此。” 😭😭",
-          "summary": "kevin: \"we'll set the bowling machine at a level where you're comfortable and i'm comfortable\" oscar: \"what do you mean i'm comfortable and you're comfortable? those are like worlds apart\" kevin: \"where you're comfortable i will be comfortable\" oscar: \"yes. i'd hope so.\" 😭😭 https://t.co/LqYM4Uu23Q",
-          "summary_zh": "kevin：“我们会把投球机设置在一个你舒服我也舒服的水平” Oscar：“你说的我舒服你也舒服是什么意思？这俩差得可远了” kevin：“你舒服的地方我就舒服” Oscar：“是的。我希望如此。” 😭😭",
-          "url": "https://x.com/laurogeitabat/status/2112304735478784053",
-          "published_at": "2026-10-19T22:07:48Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2112304712137490433/vid/avc1/476x270/EcN0lr1vS1wX1CFO.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112304712137490433/img/WYEuKKZz27zH6KDF.jpg",
-          "heat_contribution": 5.057,
-          "metrics": {
-            "likes": 259,
-            "retweets": 21,
+            "likes": 658,
+            "retweets": 51,
             "replies": 0,
             "quotes": 0,
-            "views": 4593,
+            "views": 7143,
             "bookmarks": 0
           }
         }
@@ -3194,64 +2826,6 @@
             "replies": 0,
             "quotes": 0,
             "views": 6301,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 27,
-      "heat": 27,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-19-9f44ace672bd",
-      "rule_id": null,
-      "hot_word_zh": "Oscar 谈与 kevin pietersen 拍摄 The Switch！“很好玩！",
-      "hot_word_en": "oscar on filming the switch with kevin pietersen! \"good fun! scary at times with the bowling machine, but good.",
-      "first_seen_at": "2026-10-19T22:02:50Z",
-      "last_seen_at": "2026-10-19T22:02:50Z",
-      "anchor_item_id": "piasnews-social-3d80338f291888d5",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2112303464982216704/vid/avc1/476x270/UZu1uhGKsTNZzPPy.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112303464982216704/img/mKPEkTfNPQUMORoi.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-3d80338f291888d5",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar on filming the switch with kevin pietersen! \"good fun! scary at times with the bowling ma…",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar 谈与 kevin pietersen 拍摄 The Switch！“很好玩！投球机有时候挺吓人的，但不错。做这样有趣的事总是很棒，尤其是和 KP 一起，你知道我是个大板球迷。我平时都是反对 KP 的，但现在不是了！美好的一天 😊”",
-          "summary": "oscar on filming the switch with kevin pietersen! \"good fun! scary at times with the bowling machine, but good. always awesome to do something fun like this, specially with KP, you know i'm a big cricket fan. i'm normally rooting against KP, but not anymore! a great day out 😊\" https://t.co/gofTPaE83F",
-          "summary_zh": "Oscar 谈与 kevin pietersen 拍摄 The Switch！“很好玩！投球机有时候挺吓人的，但不错。做这样有趣的事总是很棒，尤其是和 KP 一起，你知道我是个大板球迷。我平时都是反对 KP 的，但现在不是了！美好的一天 😊”",
-          "url": "https://x.com/laurogeitabat/status/2112303485022618020",
-          "published_at": "2026-10-19T22:02:50Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2112303464982216704/vid/avc1/476x270/UZu1uhGKsTNZzPPy.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112303464982216704/img/mKPEkTfNPQUMORoi.jpg",
-          "heat_contribution": 4.8921,
-          "metrics": {
-            "likes": 230,
-            "retweets": 15,
-            "replies": 0,
-            "quotes": 0,
-            "views": 3386,
             "bookmarks": 0
           }
         }
@@ -3682,64 +3256,6 @@
       }
     },
     {
-      "event_id": "evt-2026-10-19-a32ab72ef25f",
-      "rule_id": null,
-      "hot_word_zh": "kevin：我对他挥板球拍如此轻松感到非常惊讶。你越进入状态，就越能打出去。一开始非常谦虚。",
-      "hot_word_en": "kevin: i was incredibly surprised at how easily he swings a cricket bat.",
-      "first_seen_at": "2026-10-19T22:37:31Z",
-      "last_seen_at": "2026-10-19T22:37:31Z",
-      "anchor_item_id": "piasnews-social-f873d3a0e124f3a9",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2112312193349812224/vid/avc1/476x270/DrNKqFaOsXTg_tOl.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112312193349812224/img/sKdtiaBk0KdeJCec.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-f873d3a0e124f3a9",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: kevin: i was incredibly surprised at how easily he swings a cricket bat. the more you got into…",
-          "title_zh": "X 发帖 @laurogeitabat：kevin：我对他挥板球拍如此轻松感到非常惊讶。你越进入状态，就越能打出去。一开始非常谦虚。Oscar：🤷🏻‍♂️ 我试过了！一旦我进入状态就没问题了。稳定性很好。kevin：非常好！Oscar：谢谢 🙂",
-          "summary": "kevin: i was incredibly surprised at how easily he swings a cricket bat. the more you got into the flow, you sent it. very humble at the start. oscar: 🤷🏻‍♂️ i tried! once i got into the swing of things it was alright. consistency was good. kevin: very good! oscar: thank you 🙂 https://t.co/dQdVdJnp9u",
-          "summary_zh": "kevin：我对他挥板球拍如此轻松感到非常惊讶。你越进入状态，就越能打出去。一开始非常谦虚。Oscar：🤷🏻‍♂️ 我试过了！一旦我进入状态就没问题了。稳定性很好。kevin：非常好！Oscar：谢谢 🙂",
-          "url": "https://x.com/laurogeitabat/status/2112312214354866458",
-          "published_at": "2026-10-19T22:37:31Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2112312193349812224/vid/avc1/476x270/DrNKqFaOsXTg_tOl.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112312193349812224/img/sKdtiaBk0KdeJCec.jpg",
-          "heat_contribution": 4.6654,
-          "metrics": {
-            "likes": 172,
-            "retweets": 12,
-            "replies": 0,
-            "quotes": 0,
-            "views": 3779,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 26,
-      "heat": 26,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-10-19-c848d3c5be00",
       "rule_id": null,
       "hot_word_zh": "奥斯汀比赛周啦！用新秀Oscar的话说：“欢迎来到德州，yeehaw 🤠”",
@@ -3798,40 +3314,40 @@
       }
     },
     {
-      "event_id": "evt-2026-10-19-fada59c1edf1",
-      "rule_id": null,
-      "hot_word_zh": "kevin pietersen 和他的团队对 Oscar 的板球技巧印象深刻 😌",
-      "hot_word_en": "kevin pietersen and his team being impressed by oscar's cricket skills 😌",
-      "first_seen_at": "2026-10-19T22:51:23Z",
-      "last_seen_at": "2026-10-19T22:51:23Z",
-      "anchor_item_id": "piasnews-social-94657d542d33dfcb",
+      "event_id": "evt-oscar-post-race-smile",
+      "rule_id": "oscar-post-race-smile",
+      "hot_word_zh": "Oscar 在荷兰站赛后镜头中微笑",
+      "hot_word_en": "Oscar smiles for the camera after the Dutch Grand Prix",
+      "first_seen_at": "2026-10-19T22:17:21Z",
+      "last_seen_at": "2026-10-19T22:17:21Z",
+      "anchor_item_id": "piasnews-social-3d0fcefdeab4a271",
       "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2112315675465175040/vid/avc1/476x270/aULv1LEkSDacYIza.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112315675465175040/img/RRsM6KudypFz5sVC.jpg",
+      "video_url": "https://video.twimg.com/amplify_video/2112307112852246528/vid/avc1/476x270/CJMbCbVK9weflt23.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112307112852246528/img/jvMDwVQjyIQgzsUE.jpg",
       "review_needed": true,
       "review_needed_reason": "fan_account_public_cap",
       "items": [
         {
-          "item_id": "piasnews-social-94657d542d33dfcb",
+          "item_id": "piasnews-social-3d0fcefdeab4a271",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: kevin pietersen and his team being impressed by oscar's cricket skills 😌",
-          "title_zh": "X 发帖 @laurogeitabat：kevin pietersen 和他的团队对 Oscar 的板球技巧印象深刻 😌",
-          "summary": "kevin pietersen and his team being impressed by oscar's cricket skills 😌 https://t.co/VB9NWczEvZ",
-          "summary_zh": "kevin pietersen 和他的团队对 Oscar 的板球技巧印象深刻 😌",
-          "url": "https://x.com/laurogeitabat/status/2112315704011538818",
-          "published_at": "2026-10-19T22:51:23Z",
+          "title": "X post from @laurogeitabat: photographer: \"serious face and then smiley face please\" oscar: 🙂😬🙂",
+          "title_zh": "X 发帖 @laurogeitabat：摄影师：“请先严肃脸，然后笑脸” Oscar：🙂😬🙂",
+          "summary": "photographer: \"serious face and then smiley face please\" oscar: 🙂😬🙂 https://t.co/PHjsxVQiC6",
+          "summary_zh": "摄影师：“请先严肃脸，然后笑脸” Oscar：🙂😬🙂",
+          "url": "https://x.com/laurogeitabat/status/2112307140262064292",
+          "published_at": "2026-10-19T22:17:21Z",
           "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2112315675465175040/vid/avc1/476x270/aULv1LEkSDacYIza.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112315675465175040/img/RRsM6KudypFz5sVC.jpg",
-          "heat_contribution": 4.6892,
+          "video_url": "https://video.twimg.com/amplify_video/2112307112852246528/vid/avc1/476x270/CJMbCbVK9weflt23.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112307112852246528/img/jvMDwVQjyIQgzsUE.jpg",
+          "heat_contribution": 4.789,
           "metrics": {
-            "likes": 176,
-            "retweets": 13,
+            "likes": 502,
+            "retweets": 21,
             "replies": 0,
             "quotes": 0,
-            "views": 3749,
+            "views": 5188,
             "bookmarks": 0
           }
         }
@@ -3840,6 +3356,122 @@
       "media_heat": 0,
       "fan_heat": 26,
       "heat": 26,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-10-19-55f0e2c744a2",
+      "rule_id": null,
+      "hot_word_zh": "“你享受[打板球]吗？” Oscar：“是的，很好玩！我现在再也没机会击球或投球了。我很想念。",
+      "hot_word_en": "\"did you enjoy [playing cricket]?\" oscar: \"yeah it was good fun! i don't get to bat or bowl ever anymore.",
+      "first_seen_at": "2026-10-19T21:55:04Z",
+      "last_seen_at": "2026-10-19T21:55:04Z",
+      "anchor_item_id": "piasnews-social-b16fa4800fd116d1",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2112301500969918464/vid/avc1/476x270/ZQYjUsxb1qMWaqnU.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112301500969918464/img/uuvEyNmEz0HYZaUD.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-b16fa4800fd116d1",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: \"did you enjoy [playing cricket]?\" oscar: \"yeah it was good fun! i don't get to bat or bowl eve…",
+          "title_zh": "X 发帖 @laurogeitabat：“你享受[打板球]吗？” Oscar：“是的，很好玩！我现在再也没机会击球或投球了。我很想念。” kevin：“再打几个板球让你感觉不错吧” Oscar：“确实” 闭嘴我受不了了 现在就把他带回澳大利亚",
+          "summary": "\"did you enjoy [playing cricket]?\" oscar: \"yeah it was good fun! i don't get to bat or bowl ever anymore. i miss it.\" kevin: \"make you feel good that, smacking a few cricket balls again\" oscar: \"it did, yeah\" SHUT UP I CAN'T DO THIS TAKE HIM BACK TO AUSTRALIA RIGHT NOW https://t.co/5O1SWHir9a",
+          "summary_zh": "“你享受[打板球]吗？” Oscar：“是的，很好玩！我现在再也没机会击球或投球了。我很想念。” kevin：“再打几个板球让你感觉不错吧” Oscar：“确实” 闭嘴我受不了了 现在就把他带回澳大利亚",
+          "url": "https://x.com/laurogeitabat/status/2112301532934750372",
+          "published_at": "2026-10-19T21:55:04Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2112301500969918464/vid/avc1/476x270/ZQYjUsxb1qMWaqnU.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112301500969918464/img/uuvEyNmEz0HYZaUD.jpg",
+          "heat_contribution": 4.518,
+          "metrics": {
+            "likes": 337,
+            "retweets": 33,
+            "replies": 0,
+            "quotes": 0,
+            "views": 5027,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 25,
+      "heat": 25,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-10-19-7ed4968533a2",
+      "rule_id": null,
+      "hot_word_zh": "阳光 🥹✨",
+      "hot_word_en": "sunshine 🥹✨",
+      "first_seen_at": "2026-10-19T22:27:50Z",
+      "last_seen_at": "2026-10-19T22:27:50Z",
+      "anchor_item_id": "piasnews-social-7b59eb98e0b0a884",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2112309765959204864/vid/avc1/328x270/HlUqrn47sejUm3tB.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112309765959204864/img/GD0cHJqnpvK8JuH4.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-7b59eb98e0b0a884",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: sunshine 🥹✨",
+          "title_zh": "X 发帖 @laurogeitabat：阳光 🥹✨",
+          "summary": "sunshine 🥹✨ https://t.co/Ftt5mQgAeG",
+          "summary_zh": "阳光 🥹✨",
+          "url": "https://x.com/laurogeitabat/status/2112309776306569513",
+          "published_at": "2026-10-19T22:27:50Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2112309765959204864/vid/avc1/328x270/HlUqrn47sejUm3tB.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112309765959204864/img/GD0cHJqnpvK8JuH4.jpg",
+          "heat_contribution": 4.521,
+          "metrics": {
+            "likes": 367,
+            "retweets": 24,
+            "replies": 1,
+            "quotes": 0,
+            "views": 3664,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 25,
+      "heat": 25,
       "source_labels": [
         "粉"
       ],
@@ -4038,6 +3670,238 @@
       "media_heat": 0,
       "fan_heat": 25,
       "heat": 25,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-10-19-90d3666ed239",
+      "rule_id": null,
+      "hot_word_zh": "kevin：“我们会把投球机设置在一个你舒服我也舒服的水平” Oscar：“你说的我舒服你…",
+      "hot_word_en": "kevin: \"we'll set the bowling machine at a level where you're comfortable and i'm comfortable\" oscar: \"what d…",
+      "first_seen_at": "2026-10-19T22:07:48Z",
+      "last_seen_at": "2026-10-19T22:07:48Z",
+      "anchor_item_id": "piasnews-social-136c8c81b635fb93",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2112304712137490433/vid/avc1/476x270/EcN0lr1vS1wX1CFO.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112304712137490433/img/WYEuKKZz27zH6KDF.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-136c8c81b635fb93",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: kevin: \"we'll set the bowling machine at a level where you're comfortable and i'm comfortable\"…",
+          "title_zh": "X 发帖 @laurogeitabat：kevin：“我们会把投球机设置在一个你舒服我也舒服的水平” Oscar：“你说的我舒服你也舒服是什么意思？这俩差得可远了” kevin：“你舒服的地方我就舒服” Oscar：“是的。我希望如此。” 😭😭",
+          "summary": "kevin: \"we'll set the bowling machine at a level where you're comfortable and i'm comfortable\" oscar: \"what do you mean i'm comfortable and you're comfortable? those are like worlds apart\" kevin: \"where you're comfortable i will be comfortable\" oscar: \"yes. i'd hope so.\" 😭😭 https://t.co/LqYM4Uu23Q",
+          "summary_zh": "kevin：“我们会把投球机设置在一个你舒服我也舒服的水平” Oscar：“你说的我舒服你也舒服是什么意思？这俩差得可远了” kevin：“你舒服的地方我就舒服” Oscar：“是的。我希望如此。” 😭😭",
+          "url": "https://x.com/laurogeitabat/status/2112304735478784053",
+          "published_at": "2026-10-19T22:07:48Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2112304712137490433/vid/avc1/476x270/EcN0lr1vS1wX1CFO.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112304712137490433/img/WYEuKKZz27zH6KDF.jpg",
+          "heat_contribution": 4.254,
+          "metrics": {
+            "likes": 259,
+            "retweets": 21,
+            "replies": 0,
+            "quotes": 0,
+            "views": 4593,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 24,
+      "heat": 24,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-10-19-9f44ace672bd",
+      "rule_id": null,
+      "hot_word_zh": "Oscar 谈与 kevin pietersen 拍摄 The Switch！“很好玩！",
+      "hot_word_en": "oscar on filming the switch with kevin pietersen! \"good fun! scary at times with the bowling machine, but good.",
+      "first_seen_at": "2026-10-19T22:02:50Z",
+      "last_seen_at": "2026-10-19T22:02:50Z",
+      "anchor_item_id": "piasnews-social-3d80338f291888d5",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2112303464982216704/vid/avc1/476x270/UZu1uhGKsTNZzPPy.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112303464982216704/img/mKPEkTfNPQUMORoi.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-3d80338f291888d5",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar on filming the switch with kevin pietersen! \"good fun! scary at times with the bowling ma…",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar 谈与 kevin pietersen 拍摄 The Switch！“很好玩！投球机有时候挺吓人的，但不错。做这样有趣的事总是很棒，尤其是和 KP 一起，你知道我是个大板球迷。我平时都是反对 KP 的，但现在不是了！美好的一天 😊”",
+          "summary": "oscar on filming the switch with kevin pietersen! \"good fun! scary at times with the bowling machine, but good. always awesome to do something fun like this, specially with KP, you know i'm a big cricket fan. i'm normally rooting against KP, but not anymore! a great day out 😊\" https://t.co/gofTPaE83F",
+          "summary_zh": "Oscar 谈与 kevin pietersen 拍摄 The Switch！“很好玩！投球机有时候挺吓人的，但不错。做这样有趣的事总是很棒，尤其是和 KP 一起，你知道我是个大板球迷。我平时都是反对 KP 的，但现在不是了！美好的一天 😊”",
+          "url": "https://x.com/laurogeitabat/status/2112303485022618020",
+          "published_at": "2026-10-19T22:02:50Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2112303464982216704/vid/avc1/476x270/UZu1uhGKsTNZzPPy.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112303464982216704/img/mKPEkTfNPQUMORoi.jpg",
+          "heat_contribution": 4.0905,
+          "metrics": {
+            "likes": 230,
+            "retweets": 15,
+            "replies": 0,
+            "quotes": 0,
+            "views": 3386,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 23,
+      "heat": 23,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-10-19-a32ab72ef25f",
+      "rule_id": null,
+      "hot_word_zh": "kevin：我对他挥板球拍如此轻松感到非常惊讶。你越进入状态，就越能打出去。一开始非常谦虚。",
+      "hot_word_en": "kevin: i was incredibly surprised at how easily he swings a cricket bat.",
+      "first_seen_at": "2026-10-19T22:37:31Z",
+      "last_seen_at": "2026-10-19T22:37:31Z",
+      "anchor_item_id": "piasnews-social-f873d3a0e124f3a9",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2112312193349812224/vid/avc1/476x270/DrNKqFaOsXTg_tOl.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112312193349812224/img/sKdtiaBk0KdeJCec.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-f873d3a0e124f3a9",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: kevin: i was incredibly surprised at how easily he swings a cricket bat. the more you got into…",
+          "title_zh": "X 发帖 @laurogeitabat：kevin：我对他挥板球拍如此轻松感到非常惊讶。你越进入状态，就越能打出去。一开始非常谦虚。Oscar：🤷🏻‍♂️ 我试过了！一旦我进入状态就没问题了。稳定性很好。kevin：非常好！Oscar：谢谢 🙂",
+          "summary": "kevin: i was incredibly surprised at how easily he swings a cricket bat. the more you got into the flow, you sent it. very humble at the start. oscar: 🤷🏻‍♂️ i tried! once i got into the swing of things it was alright. consistency was good. kevin: very good! oscar: thank you 🙂 https://t.co/dQdVdJnp9u",
+          "summary_zh": "kevin：我对他挥板球拍如此轻松感到非常惊讶。你越进入状态，就越能打出去。一开始非常谦虚。Oscar：🤷🏻‍♂️ 我试过了！一旦我进入状态就没问题了。稳定性很好。kevin：非常好！Oscar：谢谢 🙂",
+          "url": "https://x.com/laurogeitabat/status/2112312214354866458",
+          "published_at": "2026-10-19T22:37:31Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2112312193349812224/vid/avc1/476x270/DrNKqFaOsXTg_tOl.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112312193349812224/img/sKdtiaBk0KdeJCec.jpg",
+          "heat_contribution": 3.8661,
+          "metrics": {
+            "likes": 172,
+            "retweets": 12,
+            "replies": 0,
+            "quotes": 0,
+            "views": 3779,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 22,
+      "heat": 22,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-10-19-fada59c1edf1",
+      "rule_id": null,
+      "hot_word_zh": "kevin pietersen 和他的团队对 Oscar 的板球技巧印象深刻 😌",
+      "hot_word_en": "kevin pietersen and his team being impressed by oscar's cricket skills 😌",
+      "first_seen_at": "2026-10-19T22:51:23Z",
+      "last_seen_at": "2026-10-19T22:51:23Z",
+      "anchor_item_id": "piasnews-social-94657d542d33dfcb",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2112315675465175040/vid/avc1/476x270/aULv1LEkSDacYIza.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112315675465175040/img/RRsM6KudypFz5sVC.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-94657d542d33dfcb",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: kevin pietersen and his team being impressed by oscar's cricket skills 😌",
+          "title_zh": "X 发帖 @laurogeitabat：kevin pietersen 和他的团队对 Oscar 的板球技巧印象深刻 😌",
+          "summary": "kevin pietersen and his team being impressed by oscar's cricket skills 😌 https://t.co/VB9NWczEvZ",
+          "summary_zh": "kevin pietersen 和他的团队对 Oscar 的板球技巧印象深刻 😌",
+          "url": "https://x.com/laurogeitabat/status/2112315704011538818",
+          "published_at": "2026-10-19T22:51:23Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2112315675465175040/vid/avc1/476x270/aULv1LEkSDacYIza.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2112315675465175040/img/RRsM6KudypFz5sVC.jpg",
+          "heat_contribution": 3.8897,
+          "metrics": {
+            "likes": 176,
+            "retweets": 13,
+            "replies": 0,
+            "quotes": 0,
+            "views": 3749,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 22,
+      "heat": 22,
       "source_labels": [
         "粉"
       ],
