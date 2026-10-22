@@ -1,103 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-21T23:08:06.089242Z",
+  "generated_at": "2026-10-22T12:41:13.585432Z",
   "translations": {
-    "items:piasnews-273b685b2513f60f:title:d20332674059f265b44748d6": {
-      "dataset": "items",
-      "item_id": "piasnews-273b685b2513f60f",
-      "field": "title",
-      "target_field": "title_zh",
-      "source_text": "McLaren launches investigation following 'unusual' Piastri puncture",
-      "zh": "McLaren在Piastri遭遇“异常”爆胎后展开调查",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-10-13T23:11:19.137316Z"
-    },
-    "items:piasnews-273b685b2513f60f:summary:26b5911fbd1b8158d42ac2a8": {
-      "dataset": "items",
-      "item_id": "piasnews-273b685b2513f60f",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "Team or car-performance item discovered from public news metadata.",
-      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-10-13T23:11:19.137322Z"
-    },
-    "social:piasnews-social-7941a2e3981421cc:summary:3595dc4a3896835acce118ce": {
-      "dataset": "social",
-      "item_id": "piasnews-social-7941a2e3981421cc",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "nicole's comment on the young guns teaser, the things this poor woman has to deal with 😭 \"[you're calling the buggy] a nice big roll cage!!! i definitely CAN wait to see this!\" https://t.co/XoX4fUBCP3",
-      "zh": "Nicole 对 young guns 预告片的评论，这个可怜的女人不得不忍受的事情 😭 “（你管那辆破车叫）一个漂亮的大防滚架！！！我绝对等不及要看了！”",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-10-13T23:29:46.429649Z"
-    },
-    "social:piasnews-social-5bf76e5d3180dd2f:summary:371214b1dee80a7085c7e659": {
-      "dataset": "social",
-      "item_id": "piasnews-social-5bf76e5d3180dd2f",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "7/10 if it didn't taste like grass",
-      "zh": "如果它尝起来不像草的话，7/10",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-10-13T23:29:46.429657Z"
-    },
-    "social:piasnews-social-dfb1e2ebb1c36c0e:summary:7f348aa0344523a809033c61": {
-      "dataset": "social",
-      "item_id": "piasnews-social-dfb1e2ebb1c36c0e",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "THE DISGUST IN HIS FACE 😭😭 https://t.co/XnQ76F0AX6",
-      "zh": "他脸上的厌恶 😭😭",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-10-13T23:29:46.429663Z"
-    },
-    "items:piasnews-6f06306824446c2d:title:ed13b9cdbaba8921704e7f10": {
-      "dataset": "items",
-      "item_id": "piasnews-6f06306824446c2d",
-      "field": "title",
-      "target_field": "title_zh",
-      "source_text": "F1-Oscar Piastri-2026-Singapore Grand Prix",
-      "zh": "F1-Oscar Piastri-2026-新加坡大奖赛",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-10-14T06:26:59.568083Z"
-    },
-    "items:piasnews-6f06306824446c2d:summary:7f7c735e99427ccf70333fad": {
-      "dataset": "items",
-      "item_id": "piasnews-6f06306824446c2d",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "Race-week or performance-related item discovered from public news metadata.",
-      "zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-10-14T06:26:59.568091Z"
-    },
-    "social:piasnews-social-96c12c180bd5687f:summary:4953e1622dd771d919e0bfae": {
-      "dataset": "social",
-      "item_id": "piasnews-social-96c12c180bd5687f",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "his big smile walking towards fans 😁 📸: ikscpw https://t.co/gsHIHZnGn7",
-      "zh": "他笑容满面地走向粉丝 😁 📸: ikscpw",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-10-14T06:26:59.568097Z"
-    },
     "items:piasnews-050c58540614cc90:title:b0a3ae65b11fd6ac50047921": {
       "dataset": "items",
       "item_id": "piasnews-050c58540614cc90",
@@ -3025,6 +2929,54 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-10-21T23:08:05.457524Z"
+    },
+    "items:piasnews-df281022872d17ba:title:eddf58181a8b6a6da33de237": {
+      "dataset": "items",
+      "item_id": "piasnews-df281022872d17ba",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Lando Norris promises to make 'better decisions' and draws line under Oscar Piastri crash",
+      "zh": "Lando Norris 承诺做出“更好的决定”，并为 Oscar Piastri 撞车事件画上句号",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-22T12:41:12.512983Z"
+    },
+    "items:piasnews-df281022872d17ba:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-df281022872d17ba",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-22T12:41:12.512990Z"
+    },
+    "items:piasnews-476e64f97cfc88f5:title:dd95b68d8539c4ac4770e8c4": {
+      "dataset": "items",
+      "item_id": "piasnews-476e64f97cfc88f5",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Norris’ selfish act exposed shift at McLaren ... and Piastri could finally be the big winner",
+      "zh": "Norris 的自私举动暴露了 McLaren 的转变……而 Piastri 最终可能成为大赢家",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-22T12:41:12.512993Z"
+    },
+    "items:piasnews-476e64f97cfc88f5:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-476e64f97cfc88f5",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-22T12:41:12.512995Z"
     }
   },
   "retention_days": 8
