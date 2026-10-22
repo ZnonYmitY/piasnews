@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-22T12:41:13.585432Z",
+  "generated_at": "2026-10-22T15:43:43.899155Z",
   "translations": {
     "items:piasnews-050c58540614cc90:title:b0a3ae65b11fd6ac50047921": {
       "dataset": "items",
@@ -2977,6 +2977,138 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-10-22T12:41:12.512995Z"
+    },
+    "social:piasnews-social-acaff6e762ffecd3:summary:e221a4cafd5d1af736613fdc": {
+      "dataset": "social",
+      "item_id": "piasnews-social-acaff6e762ffecd3",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "you know what sure https://t.co/7kw4DJk8y6",
+      "zh": "你知道吗，行吧",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-22T15:43:43.407038Z"
+    },
+    "social:piasnews-social-574a4ad64d89e00b:summary:4d9944621167425995d14597": {
+      "dataset": "social",
+      "item_id": "piasnews-social-574a4ad64d89e00b",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "(HR told her there was no case because the email was extremely polite and diplomatic, probably more so than most people would’ve written it. So that’s reassuring, but I’m in actual hell, I swear.)",
+      "zh": "（HR告诉她这不算案子，因为那封邮件极其礼貌且圆滑，可能比大多数人写的都要客气。所以这还算让人安心，但我真的身处地狱，我发誓。）",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-22T15:43:43.407047Z"
+    },
+    "social:piasnews-social-1946ccc1fa0367c0:summary:6d881a24f7b5577f5b459191": {
+      "dataset": "social",
+      "item_id": "piasnews-social-1946ccc1fa0367c0",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "This is unrelated to Oscar, but I experienced a real-life version of this tweet today after a coworker filed a complaint about the tone of my deadline reminder (where I thanked her twice and even offered to help). Maybe a third “thank you” would’ve set the right tone. https://t.co/qtoNKU1QUi",
+      "zh": "这跟Oscar无关，但我今天亲身经历了一条推文里说的事：一位同事投诉我催截止日期时语气不好（我在里面感谢了她两次，还主动提出帮忙）。也许再加第三句“谢谢”就能把语气调对了。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-22T15:43:43.407052Z"
+    },
+    "social:piasnews-social-827c02035fd3deaf:summary:d928c6a6e9222202c097f7fd": {
+      "dataset": "social",
+      "item_id": "piasnews-social-827c02035fd3deaf",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "\"oh, what are you doing here?\" 😭😭😭 https://t.co/4lH5IdiprX",
+      "zh": "“哦，你在这儿干嘛？”😭😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-22T15:43:43.407055Z"
+    },
+    "social:piasnews-social-4fcab54ccba1f5a4:summary:a552a5881a7fdbedc8e41950": {
+      "dataset": "social",
+      "item_id": "piasnews-social-4fcab54ccba1f5a4",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar hiding behind the curtain at the dell meet&greet, cutie 😭🤭 and then meeting the fans of course! 📸: Annie Chapa https://t.co/OYG83KnIEZ",
+      "zh": "oscar在dell见面会躲在帘子后面，小可爱😭🤭 然后当然就是见粉丝啦！📸: Annie Chapa",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-22T15:43:43.407060Z"
+    },
+    "social:piasnews-social-6320403d35e604cf:summary:156e11c1c52ebf3cd7a6523f": {
+      "dataset": "social",
+      "item_id": "piasnews-social-6320403d35e604cf",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "naming famous things from texas: lando: \"austin\" oscar: \"america\" lando: \"dell!\" (they were at a dell event lmao) *crowd starts shouting words* both: 😂😂 oscar: \"what's the famous gas station???\" crowd: \"BUC-EE'S\" oscar: \"buc-ee's!\" 😂 https://t.co/PgNg2VZrgq",
+      "zh": "说出德州的著名事物：lando：“austin” oscar：“america” lando：“dell！”（他们当时在dell的活动上，笑死）*人群开始喊词* 两人：😂😂 oscar：“那家著名的加油站叫什么？？？” 人群：“BUC-EE'S” oscar：“buc-ee's！”😂",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-22T15:43:43.407063Z"
+    },
+    "social:piasnews-social-459aae9f2dec1367:summary:a725fcad05a14aca5f81bdb5": {
+      "dataset": "social",
+      "item_id": "piasnews-social-459aae9f2dec1367",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar and lando playing a game at the event today! no sound unforch :( https://t.co/fr3xVKf5hQ",
+      "zh": "oscar和lando今天在活动上玩游戏！可惜没声音 :(",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-22T15:43:43.407068Z"
+    },
+    "social:piasnews-social-a4a81e4f434f0d33:summary:cce76476c799a40d94725916": {
+      "dataset": "social",
+      "item_id": "piasnews-social-a4a81e4f434f0d33",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "to avoid any confusion, this was the helmet he used back in canada which was sponsored by dell! the helmet he'll use this weekend is sponsored by intel ☺️ https://t.co/WRfqP8R0dH",
+      "zh": "为避免混淆，这是他在加拿大时用的头盔，由dell赞助！他这周末要用的头盔由intel赞助 ☺️",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-22T15:43:43.407074Z"
+    },
+    "social:piasnews-social-d6a103d4d9f5b250:summary:183327225cfb666078a3d1a7": {
+      "dataset": "social",
+      "item_id": "piasnews-social-d6a103d4d9f5b250",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "there was a giant inflatable oscar helmet at the dell event today omg how cool !!! https://t.co/mA9Kkq3bbr",
+      "zh": "今天dell活动上有一个巨大的充气oscar头盔，天哪太酷了！！！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-22T15:43:43.407078Z"
+    },
+    "social:piasnews-social-46dc3e48a8d3b178:summary:4598897b4ad263c5f8e26a93": {
+      "dataset": "social",
+      "item_id": "piasnews-social-46dc3e48a8d3b178",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "he might've chopped off his hair but he's still looking fab 😌✨ 📸: lilbucknuts41 https://t.co/fRsLLKCg15",
+      "zh": "他可能把头发剪了，但看起来依然超帅 😌✨ 📸: lilbucknuts41",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-22T15:43:43.407081Z"
+    },
+    "social:piasnews-social-7a2a6bbe26b61d7b:summary:ca0aa74f7d0de94bfc8d0b55": {
+      "dataset": "social",
+      "item_id": "piasnews-social-7a2a6bbe26b61d7b",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar and lando at the dell event! 📸: Laryssa Alvarado https://t.co/FTIvaVASm9",
+      "zh": "oscar和lando在dell活动上！📸: Laryssa Alvarado",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-10-22T15:43:43.407083Z"
     }
   },
   "retention_days": 8
