@@ -1,91 +1,12 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-23T21:35:31.087759Z",
+  "generated_at": "2026-10-23T21:50:36.937681Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
   "event_count": 10,
   "events": [
-    {
-      "event_id": "evt-2026-10-21-e3b5655c5de4-31ab5e4d",
-      "rule_id": null,
-      "hot_word_zh": "今天dell活动上有一个巨大的充气oscar头盔，天哪太酷了！！！",
-      "hot_word_en": "there was a giant inflatable oscar helmet at the dell event today omg how cool !!!",
-      "first_seen_at": "2026-10-21T21:40:28Z",
-      "last_seen_at": "2026-10-21T23:05:06Z",
-      "anchor_item_id": "piasnews-social-d6a103d4d9f5b250",
-      "image_url": "https://pbs.twimg.com/media/HVMKQMYXQAEWytx.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HVMKQMYXQAEWytx.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-d6a103d4d9f5b250",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: there was a giant inflatable oscar helmet at the dell event today omg how cool !!!",
-          "title_zh": "X 发帖 @laurogeitabat：今天dell活动上有一个巨大的充气oscar头盔，天哪太酷了！！！",
-          "summary": "there was a giant inflatable oscar helmet at the dell event today omg how cool !!! https://t.co/mA9Kkq3bbr",
-          "summary_zh": "今天dell活动上有一个巨大的充气oscar头盔，天哪太酷了！！！",
-          "url": "https://x.com/laurogeitabat/status/2113043931525009575",
-          "published_at": "2026-10-21T23:05:06Z",
-          "image_url": "https://pbs.twimg.com/media/HVMKQMYXQAEWytx.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HVMKQMYXQAEWytx.jpg",
-          "heat_contribution": 6.2913,
-          "metrics": {
-            "likes": 975,
-            "retweets": 59,
-            "replies": 3,
-            "quotes": 0,
-            "views": 9547,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-b102552b70dd377e",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar at the dell event earlier today! 📸: danielleroseyy",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar今天早些时候在Dell活动上！📸：danielleroseyy",
-          "summary": "oscar at the dell event earlier today! 📸: danielleroseyy https://t.co/f0nJ1k27yQ",
-          "summary_zh": "Oscar今天早些时候在Dell活动上！📸：danielleroseyy",
-          "url": "https://x.com/laurogeitabat/status/2113022632408875203",
-          "published_at": "2026-10-21T21:40:28Z",
-          "image_url": "https://pbs.twimg.com/media/HVL24TlWQAAvakd.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HVL24TlWQAAvakd.jpg",
-          "heat_contribution": 6.1473,
-          "metrics": {
-            "likes": 718,
-            "retweets": 71,
-            "replies": 7,
-            "quotes": 0,
-            "views": 15561,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 46,
-      "heat": 46,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 1
-    },
     {
       "event_id": "evt-2026-10-22-24c375fd11a4",
       "rule_id": null,
@@ -153,6 +74,85 @@
       "media_heat": 0,
       "fan_heat": 46,
       "heat": 46,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 1
+    },
+    {
+      "event_id": "evt-2026-10-21-e3b5655c5de4",
+      "rule_id": null,
+      "hot_word_zh": "今天dell活动上有一个巨大的充气oscar头盔，天哪太酷了！！！",
+      "hot_word_en": "there was a giant inflatable oscar helmet at the dell event today omg how cool !!!",
+      "first_seen_at": "2026-10-21T21:40:28Z",
+      "last_seen_at": "2026-10-21T23:05:06Z",
+      "anchor_item_id": "piasnews-social-d6a103d4d9f5b250",
+      "image_url": "https://pbs.twimg.com/media/HVMKQMYXQAEWytx.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HVMKQMYXQAEWytx.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-d6a103d4d9f5b250",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: there was a giant inflatable oscar helmet at the dell event today omg how cool !!!",
+          "title_zh": "X 发帖 @laurogeitabat：今天dell活动上有一个巨大的充气oscar头盔，天哪太酷了！！！",
+          "summary": "there was a giant inflatable oscar helmet at the dell event today omg how cool !!! https://t.co/mA9Kkq3bbr",
+          "summary_zh": "今天dell活动上有一个巨大的充气oscar头盔，天哪太酷了！！！",
+          "url": "https://x.com/laurogeitabat/status/2113043931525009575",
+          "published_at": "2026-10-21T23:05:06Z",
+          "image_url": "https://pbs.twimg.com/media/HVMKQMYXQAEWytx.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HVMKQMYXQAEWytx.jpg",
+          "heat_contribution": 6.2913,
+          "metrics": {
+            "likes": 975,
+            "retweets": 59,
+            "replies": 3,
+            "quotes": 0,
+            "views": 9547,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-b102552b70dd377e",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar at the dell event earlier today! 📸: danielleroseyy",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar今天早些时候在Dell活动上！📸：danielleroseyy",
+          "summary": "oscar at the dell event earlier today! 📸: danielleroseyy https://t.co/f0nJ1k27yQ",
+          "summary_zh": "Oscar今天早些时候在Dell活动上！📸：danielleroseyy",
+          "url": "https://x.com/laurogeitabat/status/2113022632408875203",
+          "published_at": "2026-10-21T21:40:28Z",
+          "image_url": "https://pbs.twimg.com/media/HVL24TlWQAAvakd.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HVL24TlWQAAvakd.jpg",
+          "heat_contribution": 5.3391,
+          "metrics": {
+            "likes": 718,
+            "retweets": 71,
+            "replies": 7,
+            "quotes": 0,
+            "views": 15561,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 44,
+      "heat": 44,
       "source_labels": [
         "粉"
       ],
@@ -1152,7 +1152,7 @@
           "image_url": "https://pbs.twimg.com/media/HVL2VN7WsAENur4.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HVL2VN7WsAENur4.jpg",
-          "heat_contribution": 7.7557,
+          "heat_contribution": 6.9453,
           "metrics": {
             "likes": 3483,
             "retweets": 345,
@@ -1165,8 +1165,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 41,
-      "heat": 41,
+      "fan_heat": 37,
+      "heat": 37,
       "source_labels": [
         "粉"
       ],
@@ -1183,7 +1183,7 @@
       }
     },
     {
-      "event_id": "evt-2026-10-21-e3b5655c5de4",
+      "event_id": "evt-2026-10-21-e3b5655c5de4-31ab5e4d",
       "rule_id": null,
       "hot_word_zh": "oscar在dell见面会躲在帘子后面，小可爱😭🤭 然后当然就是见粉丝啦！",
       "hot_word_en": "oscar hiding behind the curtain at the dell meet&greet, cutie 😭🤭 and then meeting the fans of course!",
