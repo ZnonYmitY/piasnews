@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-23T22:05:30.663646Z",
+  "generated_at": "2026-10-23T22:20:33.539172Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
-  "event_count": 10,
+  "event_count": 9,
   "events": [
     {
-      "event_id": "evt-2026-10-21-e3b5655c5de4-31ab5e4d",
+      "event_id": "evt-2026-10-21-e3b5655c5de4",
       "rule_id": null,
       "hot_word_zh": "今天dell活动上有一个巨大的充气oscar头盔，天哪太酷了！！！",
       "hot_word_en": "there was a giant inflatable oscar helmet at the dell event today omg how cool !!!",
@@ -1072,54 +1072,6 @@
       "pinned_rank": null,
       "hidden": false,
       "rank": 9
-    },
-    {
-      "event_id": "evt-2026-10-19-7ae3279ee099-aa21610c",
-      "rule_id": null,
-      "hot_word_zh": "Piastri已连续26个比赛周末未获胜。终结冠军荒——并撼动Lando——的黄金机会近在…",
-      "hot_word_en": "Piastri hasn’t won in 26 weekends. A golden chance to end drought — and rattle Lando — is near",
-      "first_seen_at": "2026-10-20T22:11:02Z",
-      "last_seen_at": "2026-10-20T22:11:02Z",
-      "anchor_item_id": "piasnews-b1a0a75df287f660",
-      "image_url": "https://content.api.news/v3/images/bin/dbad6f4d0c51b213ccc4dc3285c3b4d8",
-      "video_url": null,
-      "video_poster_url": "https://content.api.news/v3/images/bin/dbad6f4d0c51b213ccc4dc3285c3b4d8",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-b1a0a75df287f660",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Fox Sports",
-          "title": "Piastri hasn’t won in 26 weekends. A golden chance to end drought — and rattle Lando — is near",
-          "title_zh": "Piastri已连续26个比赛周末未获胜。终结冠军荒——并撼动Lando——的黄金机会近在眼前",
-          "summary": "Oscar Piastri-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
-          "url": "https://www.foxsports.com.au/motorsport/formula-one/piastri-hasnt-won-in-26-weekends-this-is-where-his-drought-could-break/news-story/b8e8dfedc7612c1b8caf15901ae396c8",
-          "published_at": "2026-10-20T22:11:02Z",
-          "image_url": "https://content.api.news/v3/images/bin/dbad6f4d0c51b213ccc4dc3285c3b4d8",
-          "video_url": null,
-          "video_poster_url": "https://content.api.news/v3/images/bin/dbad6f4d0c51b213ccc4dc3285c3b4d8",
-          "heat_contribution": 0.2,
-          "metrics": {}
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 8,
-      "fan_heat": 0,
-      "heat": 8,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 1,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 10
     }
   ],
   "review_needed_count": 17,
@@ -1183,7 +1135,7 @@
       }
     },
     {
-      "event_id": "evt-2026-10-21-e3b5655c5de4",
+      "event_id": "evt-2026-10-21-e3b5655c5de4-31ab5e4d",
       "rule_id": null,
       "hot_word_zh": "oscar在dell见面会躲在帘子后面，小可爱😭🤭 然后当然就是见粉丝啦！",
       "hot_word_en": "oscar hiding behind the curtain at the dell meet&greet, cutie 😭🤭 and then meeting the fans of course!",
