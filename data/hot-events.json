@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-23T21:05:33.107235Z",
+  "generated_at": "2026-10-23T21:20:30.788368Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -8,7 +8,7 @@
   "event_count": 10,
   "events": [
     {
-      "event_id": "evt-2026-10-21-e3b5655c5de4-31ab5e4d",
+      "event_id": "evt-2026-10-21-e3b5655c5de4",
       "rule_id": null,
       "hot_word_zh": "今天dell活动上有一个巨大的充气oscar头盔，天哪太酷了！！！",
       "hot_word_en": "there was a giant inflatable oscar helmet at the dell event today omg how cool !!!",
@@ -742,6 +742,61 @@
       "rank": 5
     },
     {
+      "event_id": "evt-2026-10-22-9de7666c364f",
+      "rule_id": null,
+      "hot_word_zh": "（HR告诉她这不算案子，因为那封邮件极其礼貌且圆滑，可能比大多数人写的都要客气。",
+      "hot_word_en": "(HR told her there was no case because the email was extremely polite and diplomatic, probably more so than m…",
+      "first_seen_at": "2026-10-22T13:13:50Z",
+      "last_seen_at": "2026-10-22T13:13:50Z",
+      "anchor_item_id": "piasnews-social-574a4ad64d89e00b",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-574a4ad64d89e00b",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@oscarpiastri81",
+          "title": "X post from @oscarpiastri81: (HR told her there was no case because the email was extremely polite and diplomatic, probably…",
+          "title_zh": "X 发帖 @oscarpiastri81：（HR告诉她这不算案子，因为那封邮件极其礼貌且圆滑，可能比大多数人写的都要客气。所以这还算让人安心，但我真的身处地狱，我发誓。）",
+          "summary": "(HR told her there was no case because the email was extremely polite and diplomatic, probably more so than most people would’ve written it. So that’s reassuring, but I’m in actual hell, I swear.)",
+          "summary_zh": "（HR告诉她这不算案子，因为那封邮件极其礼貌且圆滑，可能比大多数人写的都要客气。所以这还算让人安心，但我真的身处地狱，我发誓。）",
+          "url": "https://x.com/oscarpiastri81/status/2113257524556427732",
+          "published_at": "2026-10-22T13:13:50Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 3.1332,
+          "metrics": {
+            "likes": 39,
+            "retweets": 0,
+            "replies": 0,
+            "quotes": 0,
+            "views": 977,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 18,
+      "heat": 18,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 6
+    },
+    {
       "event_id": "evt-2026-10-13-4c9fa50e8316",
       "rule_id": null,
       "hot_word_zh": "Norris承担了责任，但Montoya表示Piastri和McLaren的papaya规…",
@@ -769,7 +824,7 @@
           "image_url": "https://cdn.racingnews365.com/2026/Piastri/Piastri-Austin.jpg?v=1792703627&width=1800&height=945&quality=75&crop=6000%2C3150%2C0%2C425",
           "video_url": null,
           "video_poster_url": "https://cdn.racingnews365.com/2026/Piastri/Piastri-Austin.jpg?v=1792703627&width=1800&height=945&quality=75&crop=6000%2C3150%2C0%2C425",
-          "heat_contribution": 0.75,
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -842,9 +897,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 18,
+      "media_heat": 16,
       "fan_heat": 0,
-      "heat": 18,
+      "heat": 16,
       "source_labels": [
         "媒"
       ],
@@ -852,61 +907,6 @@
         "official": 0,
         "media": 4,
         "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 6
-    },
-    {
-      "event_id": "evt-2026-10-22-9de7666c364f",
-      "rule_id": null,
-      "hot_word_zh": "（HR告诉她这不算案子，因为那封邮件极其礼貌且圆滑，可能比大多数人写的都要客气。",
-      "hot_word_en": "(HR told her there was no case because the email was extremely polite and diplomatic, probably more so than m…",
-      "first_seen_at": "2026-10-22T13:13:50Z",
-      "last_seen_at": "2026-10-22T13:13:50Z",
-      "anchor_item_id": "piasnews-social-574a4ad64d89e00b",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-574a4ad64d89e00b",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@oscarpiastri81",
-          "title": "X post from @oscarpiastri81: (HR told her there was no case because the email was extremely polite and diplomatic, probably…",
-          "title_zh": "X 发帖 @oscarpiastri81：（HR告诉她这不算案子，因为那封邮件极其礼貌且圆滑，可能比大多数人写的都要客气。所以这还算让人安心，但我真的身处地狱，我发誓。）",
-          "summary": "(HR told her there was no case because the email was extremely polite and diplomatic, probably more so than most people would’ve written it. So that’s reassuring, but I’m in actual hell, I swear.)",
-          "summary_zh": "（HR告诉她这不算案子，因为那封邮件极其礼貌且圆滑，可能比大多数人写的都要客气。所以这还算让人安心，但我真的身处地狱，我发誓。）",
-          "url": "https://x.com/oscarpiastri81/status/2113257524556427732",
-          "published_at": "2026-10-22T13:13:50Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 3.1332,
-          "metrics": {
-            "likes": 39,
-            "retweets": 0,
-            "replies": 0,
-            "quotes": 0,
-            "views": 977,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 18,
-      "heat": 18,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
       },
       "pinned_rank": null,
       "hidden": false,
@@ -1183,7 +1183,7 @@
       }
     },
     {
-      "event_id": "evt-2026-10-21-e3b5655c5de4",
+      "event_id": "evt-2026-10-21-e3b5655c5de4-31ab5e4d",
       "rule_id": null,
       "hot_word_zh": "oscar在dell见面会躲在帘子后面，小可爱😭🤭 然后当然就是见粉丝啦！",
       "hot_word_en": "oscar hiding behind the curtain at the dell meet&greet, cutie 😭🤭 and then meeting the fans of course!",
