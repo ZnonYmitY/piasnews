@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-24T20:05:30.129517Z",
+  "generated_at": "2026-10-24T20:20:30.303466Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -8,7 +8,7 @@
   "event_count": 8,
   "events": [
     {
-      "event_id": "evt-2026-10-22-24c375fd11a4",
+      "event_id": "evt-2026-10-22-24c375fd11a4-9f3b5c05",
       "rule_id": null,
       "hot_word_zh": "说出德州的著名事物：lando：“austin” oscar：“america” land…",
       "hot_word_en": "naming famous things from texas: lando: \"austin\" oscar: \"america\" lando: \"dell!",
@@ -87,7 +87,7 @@
       "rank": 1
     },
     {
-      "event_id": "evt-2026-10-21-e3b5655c5de4",
+      "event_id": "evt-2026-10-21-e3b5655c5de4-31ab5e4d",
       "rule_id": null,
       "hot_word_zh": "今天dell活动上有一个巨大的充气oscar头盔，天哪太酷了！！！",
       "hot_word_en": "there was a giant inflatable oscar helmet at the dell event today omg how cool !!!",
@@ -166,6 +166,61 @@
       "rank": 2
     },
     {
+      "event_id": "evt-2026-10-22-1c0ce0ba7df4",
+      "rule_id": null,
+      "hot_word_zh": "这跟Oscar无关，但我今天亲身经历了一条推文里说的事：一位同事投诉我催截止日期时语气不好…",
+      "hot_word_en": "This is unrelated to Oscar, but I experienced a real-life version of this tweet today after a coworker filed…",
+      "first_seen_at": "2026-10-22T13:12:17Z",
+      "last_seen_at": "2026-10-22T13:12:17Z",
+      "anchor_item_id": "piasnews-social-1946ccc1fa0367c0",
+      "image_url": "https://pbs.twimg.com/media/HVPMHzlXAAASyiC.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HVPMHzlXAAASyiC.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-1946ccc1fa0367c0",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@oscarpiastri81",
+          "title": "X post from @oscarpiastri81: This is unrelated to Oscar, but I experienced a real-life version of this tweet today after a c…",
+          "title_zh": "X 发帖 @oscarpiastri81：这跟Oscar无关，但我今天亲身经历了一条推文里说的事：一位同事投诉我催截止日期时语气不好（我在里面感谢了她两次，还主动提出帮忙）。也许再加第三句“谢谢”就能把语气调对了。",
+          "summary": "This is unrelated to Oscar, but I experienced a real-life version of this tweet today after a coworker filed a complaint about the tone of my deadline reminder (where I thanked her twice and even offered to help). Maybe a third “thank you” would’ve set the right tone. https://t.co/qtoNKU1QUi",
+          "summary_zh": "这跟Oscar无关，但我今天亲身经历了一条推文里说的事：一位同事投诉我催截止日期时语气不好（我在里面感谢了她两次，还主动提出帮忙）。也许再加第三句“谢谢”就能把语气调对了。",
+          "url": "https://x.com/oscarpiastri81/status/2113257133466583126",
+          "published_at": "2026-10-22T13:12:17Z",
+          "image_url": "https://pbs.twimg.com/media/HVPMHzlXAAASyiC.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HVPMHzlXAAASyiC.jpg",
+          "heat_contribution": 4.9004,
+          "metrics": {
+            "likes": 577,
+            "retweets": 7,
+            "replies": 6,
+            "quotes": 0,
+            "views": 5769,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 27,
+      "heat": 27,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 3
+    },
+    {
       "event_id": "evt-2026-10-12-6c5d2c74ef52-aba02db1",
       "rule_id": null,
       "hot_word_zh": "Formula 1：Norris-Piastri 新加坡冲刺赛撞车后，McLaren 的…",
@@ -227,7 +282,7 @@
           "image_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F10%2F22205722%2Foscar-piastri-mclaren-austin-2026-planetf1.jpg",
           "video_url": null,
           "video_poster_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F10%2F22205722%2Foscar-piastri-mclaren-austin-2026-planetf1.jpg",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -504,9 +559,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 27,
+      "media_heat": 26,
       "fan_heat": 0,
-      "heat": 27,
+      "heat": 26,
       "source_labels": [
         "媒"
       ],
@@ -514,61 +569,6 @@
         "official": 0,
         "media": 15,
         "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 3
-    },
-    {
-      "event_id": "evt-2026-10-22-1c0ce0ba7df4",
-      "rule_id": null,
-      "hot_word_zh": "这跟Oscar无关，但我今天亲身经历了一条推文里说的事：一位同事投诉我催截止日期时语气不好…",
-      "hot_word_en": "This is unrelated to Oscar, but I experienced a real-life version of this tweet today after a coworker filed…",
-      "first_seen_at": "2026-10-22T13:12:17Z",
-      "last_seen_at": "2026-10-22T13:12:17Z",
-      "anchor_item_id": "piasnews-social-1946ccc1fa0367c0",
-      "image_url": "https://pbs.twimg.com/media/HVPMHzlXAAASyiC.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HVPMHzlXAAASyiC.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-1946ccc1fa0367c0",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@oscarpiastri81",
-          "title": "X post from @oscarpiastri81: This is unrelated to Oscar, but I experienced a real-life version of this tweet today after a c…",
-          "title_zh": "X 发帖 @oscarpiastri81：这跟Oscar无关，但我今天亲身经历了一条推文里说的事：一位同事投诉我催截止日期时语气不好（我在里面感谢了她两次，还主动提出帮忙）。也许再加第三句“谢谢”就能把语气调对了。",
-          "summary": "This is unrelated to Oscar, but I experienced a real-life version of this tweet today after a coworker filed a complaint about the tone of my deadline reminder (where I thanked her twice and even offered to help). Maybe a third “thank you” would’ve set the right tone. https://t.co/qtoNKU1QUi",
-          "summary_zh": "这跟Oscar无关，但我今天亲身经历了一条推文里说的事：一位同事投诉我催截止日期时语气不好（我在里面感谢了她两次，还主动提出帮忙）。也许再加第三句“谢谢”就能把语气调对了。",
-          "url": "https://x.com/oscarpiastri81/status/2113257133466583126",
-          "published_at": "2026-10-22T13:12:17Z",
-          "image_url": "https://pbs.twimg.com/media/HVPMHzlXAAASyiC.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HVPMHzlXAAASyiC.jpg",
-          "heat_contribution": 4.9004,
-          "metrics": {
-            "likes": 577,
-            "retweets": 7,
-            "replies": 6,
-            "quotes": 0,
-            "views": 5769,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 27,
-      "heat": 27,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
       },
       "pinned_rank": null,
       "hidden": false,
@@ -937,7 +937,7 @@
       }
     },
     {
-      "event_id": "evt-2026-10-21-e3b5655c5de4-31ab5e4d",
+      "event_id": "evt-2026-10-21-e3b5655c5de4",
       "rule_id": null,
       "hot_word_zh": "oscar在dell见面会躲在帘子后面，小可爱😭🤭 然后当然就是见粉丝啦！",
       "hot_word_en": "oscar hiding behind the curtain at the dell meet&greet, cutie 😭🤭 and then meeting the fans of course!",
