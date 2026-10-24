@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-24T08:50:33.649003Z",
+  "generated_at": "2026-10-24T09:05:30.668051Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
-  "event_count": 9,
+  "event_count": 8,
   "events": [
     {
-      "event_id": "evt-2026-10-22-24c375fd11a4-9f3b5c05",
+      "event_id": "evt-2026-10-22-24c375fd11a4",
       "rule_id": null,
       "hot_word_zh": "说出德州的著名事物：lando：“austin” oscar：“america” land…",
       "hot_word_en": "naming famous things from texas: lando: \"austin\" oscar: \"america\" lando: \"dell!",
@@ -87,7 +87,7 @@
       "rank": 1
     },
     {
-      "event_id": "evt-2026-10-21-e3b5655c5de4-31ab5e4d",
+      "event_id": "evt-2026-10-21-e3b5655c5de4",
       "rule_id": null,
       "hot_word_zh": "今天dell活动上有一个巨大的充气oscar头盔，天哪太酷了！！！",
       "hot_word_en": "there was a giant inflatable oscar helmet at the dell event today omg how cool !!!",
@@ -170,7 +170,7 @@
       "rule_id": null,
       "hot_word_zh": "Formula 1：Norris-Piastri 新加坡冲刺赛撞车后，McLaren 的…",
       "hot_word_en": "Formula 1: McLaren’s Papaya rules under scrutiny once again after Norris-Piastri Singapore Sprint crash",
-      "first_seen_at": "2026-10-17T09:00:00Z",
+      "first_seen_at": "2026-10-17T13:00:00Z",
       "last_seen_at": "2026-10-22T21:53:44Z",
       "anchor_item_id": "piasnews-5aef47126f40f306",
       "image_url": "https://speedcafe.com/wp-content/uploads/2026/10/XPB_1445253_HiRes.jpg",
@@ -552,23 +552,6 @@
           "video_poster_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-03%2F20260326-0303-69c549301e15e.jpg",
           "heat_contribution": 0.0,
           "metrics": {}
-        },
-        {
-          "item_id": "piasnews-c0431dc40e72807f",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "F1 Oversteer",
-          "title": "Emerson Fittipaldi feels ‘frustrated’ Oscar Piastri needs one thing to show F1 title potential again",
-          "title_zh": "Emerson Fittipaldi 感到“沮丧”，认为 Oscar Piastri 需要一件事才能再次展现 F1 冠军潜力",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
-          "url": "https://www.f1oversteer.com/news/emerson-fittipaldi-feels-frustrated-oscar-piastri-needs-one-thing-to-show-f1-title-potential-again/",
-          "published_at": "2026-10-17T09:00:00Z",
-          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2298697421-scaled.jpg",
-          "video_url": null,
-          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2298697421-scaled.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
         }
       ],
       "official_heat": 0,
@@ -942,119 +925,6 @@
       "pinned_rank": null,
       "hidden": false,
       "rank": 8
-    },
-    {
-      "event_id": "evt-2026-10-15-273743f81c94",
-      "rule_id": null,
-      "hot_word_zh": "McLaren在COTA的新升级或能解决毁掉Oscar Piastri近期比赛的关键问题",
-      "hot_word_en": "McLaren's new COTA upgrades could fix the key problem that wrecked Oscar Piastri's recent races",
-      "first_seen_at": "2026-10-19T15:10:23Z",
-      "last_seen_at": "2026-10-21T09:00:00Z",
-      "anchor_item_id": "piasnews-11c5f98794ed0510",
-      "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2299380829-scaled.jpg",
-      "video_url": null,
-      "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2299380829-scaled.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-11c5f98794ed0510",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "F1 Oversteer",
-          "title": "McLaren's new COTA upgrades could fix the key problem that wrecked Oscar Piastri's recent races",
-          "title_zh": "McLaren在COTA的新升级或能解决毁掉Oscar Piastri近期比赛的关键问题",
-          "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的比赛周或与性能相关的条目。",
-          "url": "https://www.f1oversteer.com/news/mclarens-new-cota-upgrades-could-fix-the-key-problem-that-wrecked-oscar-piastris-recent-races/",
-          "published_at": "2026-10-21T09:00:00Z",
-          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2299380829-scaled.jpg",
-          "video_url": null,
-          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2299380829-scaled.jpg",
-          "heat_contribution": 0.2,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-21e7e7cf9776d989",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "GPFans",
-          "title": "Oscar Piastri faces stark McLaren verdict ahead of US Grand Prix",
-          "title_zh": "美国大奖赛前，Oscar Piastri面临McLaren的严峻评判",
-          "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的比赛周或与性能相关的条目。",
-          "url": "https://www.gpfans.com/en/f1-news/1091745/f1-odds-us-grand-prix-2026-oscar-piastri-mclaren/",
-          "published_at": "2026-10-20T19:45:00Z",
-          "image_url": "https://sportsbase.io/images/gpfans/copy_1200x800/e1296be8a1e7d5c12cffbb81ba3e2e29017fc1b5.jpg",
-          "video_url": null,
-          "video_poster_url": "https://sportsbase.io/images/gpfans/copy_1200x800/e1296be8a1e7d5c12cffbb81ba3e2e29017fc1b5.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-social-9bfe66f09e9bda0e",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@oscarsspiastree",
-          "title": "X repost from @oscarsspiastree: RT @teamopeightyone: COTA race week 🇺🇸🤠",
-          "title_zh": "X 转帖 @oscarsspiastree：RT @teamopeightyone：COTA 比赛周 🇺🇸🤠",
-          "summary": "RT @teamopeightyone: COTA race week 🇺🇸🤠 https://t.co/lTIEEfuAc7",
-          "summary_zh": "RT @teamopeightyone：COTA 比赛周 🇺🇸🤠",
-          "url": "https://x.com/oscarsspiastree/status/2112199862934450483",
-          "published_at": "2026-10-19T15:11:04Z",
-          "image_url": "https://pbs.twimg.com/media/HVAKa8VXcAEKRQ6.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HVAKa8VXcAEKRQ6.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {
-            "likes": 0,
-            "retweets": 118,
-            "replies": 0,
-            "quotes": 0,
-            "views": 150,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-1549615f14ff1642",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@oscarsspiastree",
-          "title": "X repost from @oscarsspiastree: COTA race week 🇺🇸🤠",
-          "title_zh": "X 转帖 @oscarsspiastree：COTA比赛周 🇺🇸🤠",
-          "summary": "COTA race week 🇺🇸🤠 https://t.co/lTIEEfuAc7",
-          "summary_zh": "COTA比赛周 🇺🇸🤠",
-          "url": "https://x.com/teamopeightyone/status/2112199690515108052",
-          "published_at": "2026-10-19T15:10:23Z",
-          "image_url": "https://pbs.twimg.com/media/HVAKa8VXcAEKRQ6.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HVAKa8VXcAEKRQ6.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {
-            "likes": 954,
-            "retweets": 115,
-            "replies": 3,
-            "quotes": 5,
-            "views": 6600,
-            "bookmarks": 26
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 8,
-      "fan_heat": 0,
-      "heat": 8,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 2,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 9
     }
   ],
   "review_needed_count": 12,
@@ -1118,7 +988,7 @@
       }
     },
     {
-      "event_id": "evt-2026-10-21-e3b5655c5de4",
+      "event_id": "evt-2026-10-21-e3b5655c5de4-31ab5e4d",
       "rule_id": null,
       "hot_word_zh": "oscar在dell见面会躲在帘子后面，小可爱😭🤭 然后当然就是见粉丝啦！",
       "hot_word_en": "oscar hiding behind the curtain at the dell meet&greet, cutie 😭🤭 and then meeting the fans of course!",
