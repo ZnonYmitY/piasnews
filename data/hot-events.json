@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-24T11:35:33.575779Z",
+  "generated_at": "2026-10-24T11:50:29.432222Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -8,7 +8,7 @@
   "event_count": 8,
   "events": [
     {
-      "event_id": "evt-2026-10-22-24c375fd11a4",
+      "event_id": "evt-2026-10-22-24c375fd11a4-9f3b5c05",
       "rule_id": null,
       "hot_word_zh": "说出德州的著名事物：lando：“austin” oscar：“america” land…",
       "hot_word_en": "naming famous things from texas: lando: \"austin\" oscar: \"america\" lando: \"dell!",
@@ -87,7 +87,7 @@
       "rank": 1
     },
     {
-      "event_id": "evt-2026-10-21-e3b5655c5de4",
+      "event_id": "evt-2026-10-21-e3b5655c5de4-31ab5e4d",
       "rule_id": null,
       "hot_word_zh": "今天dell活动上有一个巨大的充气oscar头盔，天哪太酷了！！！",
       "hot_word_en": "there was a giant inflatable oscar helmet at the dell event today omg how cool !!!",
@@ -927,7 +927,7 @@
       "rank": 8
     }
   ],
-  "review_needed_count": 12,
+  "review_needed_count": 11,
   "review_needed_events": [
     {
       "event_id": "evt-2026-10-21-b11fc8cc0a4c",
@@ -988,7 +988,7 @@
       }
     },
     {
-      "event_id": "evt-2026-10-21-e3b5655c5de4-31ab5e4d",
+      "event_id": "evt-2026-10-21-e3b5655c5de4",
       "rule_id": null,
       "hot_word_zh": "oscar在dell见面会躲在帘子后面，小可爱😭🤭 然后当然就是见粉丝啦！",
       "hot_word_en": "oscar hiding behind the curtain at the dell meet&greet, cutie 😭🤭 and then meeting the fans of course!",
@@ -1088,64 +1088,6 @@
       "media_heat": 0,
       "fan_heat": 31,
       "heat": 31,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-21-430e63088d89",
-      "rule_id": null,
-      "hot_word_zh": "听听就好，别太当真，但据这位粉丝说，oscar、esteban、ollie、alex 和…",
-      "hot_word_en": "take it with a grain of salt but according to this fan oscar, esteban, ollie, alex and carlos all flew togeth…",
-      "first_seen_at": "2026-10-21T11:47:30Z",
-      "last_seen_at": "2026-10-21T11:47:30Z",
-      "anchor_item_id": "piasnews-social-5a2af4023eaa0b01",
-      "image_url": "https://pbs.twimg.com/media/HVJvKZfXoAEP4HV.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HVJvKZfXoAEP4HV.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-5a2af4023eaa0b01",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: take it with a grain of salt but according to this fan oscar, esteban, ollie, alex and carlos a…",
-          "title_zh": "X 发帖 @laurogeitabat：听听就好，别太当真，但据这位粉丝说，oscar、esteban、ollie、alex 和 carlos 都是一起飞往 Austin 的！",
-          "summary": "take it with a grain of salt but according to this fan oscar, esteban, ollie, alex and carlos all flew together to austin! https://t.co/1MJSaexosJ",
-          "summary_zh": "听听就好，别太当真，但据这位粉丝说，oscar、esteban、ollie、alex 和 carlos 都是一起飞往 Austin 的！",
-          "url": "https://x.com/laurogeitabat/status/2112873407423422513",
-          "published_at": "2026-10-21T11:47:30Z",
-          "image_url": "https://pbs.twimg.com/media/HVJvKZfXoAEP4HV.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HVJvKZfXoAEP4HV.jpg",
-          "heat_contribution": 5.6192,
-          "metrics": {
-            "likes": 889,
-            "retweets": 40,
-            "replies": 2,
-            "quotes": 0,
-            "views": 39831,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 30,
-      "heat": 30,
       "source_labels": [
         "粉"
       ],
