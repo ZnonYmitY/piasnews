@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-25T12:20:29.087116Z",
+  "generated_at": "2026-10-25T12:35:31.772066Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
-  "event_count": 8,
+  "event_count": 7,
   "events": [
     {
       "event_id": "evt-2026-10-22-1c0ce0ba7df4",
@@ -63,61 +63,6 @@
       "rank": 1
     },
     {
-      "event_id": "evt-2026-10-22-2613ab652d18",
-      "rule_id": null,
-      "hot_word_zh": "“哦，你在这儿干嘛？”😭😭😭",
-      "hot_word_en": "\"oh, what are you doing here?\" 😭😭😭",
-      "first_seen_at": "2026-10-22T12:22:31Z",
-      "last_seen_at": "2026-10-22T12:22:31Z",
-      "anchor_item_id": "piasnews-social-827c02035fd3deaf",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2113244582641041409/vid/avc1/320x560/6Ss5KzExvnuSjamG.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2113244582641041409/img/pilv3Pi_gxOxAv8l.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-827c02035fd3deaf",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: \"oh, what are you doing here?\" 😭😭😭",
-          "title_zh": "X 发帖 @laurogeitabat：“哦，你在这儿干嘛？”😭😭😭",
-          "summary": "\"oh, what are you doing here?\" 😭😭😭 https://t.co/4lH5IdiprX",
-          "summary_zh": "“哦，你在这儿干嘛？”😭😭😭",
-          "url": "https://x.com/laurogeitabat/status/2113244607429431701",
-          "published_at": "2026-10-22T12:22:31Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2113244582641041409/vid/avc1/320x560/6Ss5KzExvnuSjamG.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2113244582641041409/img/pilv3Pi_gxOxAv8l.jpg",
-          "heat_contribution": 4.9636,
-          "metrics": {
-            "likes": 589,
-            "retweets": 30,
-            "replies": 0,
-            "quotes": 0,
-            "views": 6157,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 27,
-      "heat": 27,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 2
-    },
-    {
       "event_id": "evt-2026-10-22-d1e3b349439c",
       "rule_id": null,
       "hot_word_zh": "你知道吗，行吧",
@@ -170,7 +115,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 3
+      "rank": 2
     },
     {
       "event_id": "evt-2026-10-12-6c5d2c74ef52-aba02db1",
@@ -507,7 +452,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 4
+      "rank": 3
     },
     {
       "event_id": "evt-2026-10-22-9de7666c364f",
@@ -562,7 +507,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 5
+      "rank": 4
     },
     {
       "event_id": "evt-2026-10-13-4c9fa50e8316",
@@ -661,7 +606,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 5
     },
     {
       "event_id": "evt-2026-10-20-7dda7cba3f9f",
@@ -743,7 +688,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 6
     },
     {
       "event_id": "evt-2026-10-22-313e576ef494",
@@ -791,7 +736,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 7
     }
   ],
   "review_needed_count": 0,
