@@ -111,11 +111,6 @@ def decision(
     force: bool,
     handled_session_ref: str | None = None,
 ) -> tuple[bool, str]:
-    completed = [row for row in session_ready_times(calendar, confirmation_minutes) if row[0] <= now]
-    if completed and completed[-1][1] != handled_session_ref:
-        return True, f"session_completed:{completed[-1][1]}"
-    if force:
-        return True, "manual_dispatch"
     if last_generated is None:
         return True, "missing_previous_generation"
     if daily_refresh_due(
@@ -125,6 +120,11 @@ def decision(
         daily_timezone=daily_timezone,
     ):
         return True, "daily_refresh_due"
+    completed = [row for row in session_ready_times(calendar, confirmation_minutes) if row[0] <= now]
+    if completed and completed[-1][1] != handled_session_ref:
+        return True, f"session_completed:{completed[-1][1]}"
+    if force:
+        return True, "manual_dispatch"
     return False, "waiting_for_daily_or_session_trigger"
 
 

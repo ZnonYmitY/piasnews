@@ -102,6 +102,24 @@ class RefreshGateTest(unittest.TestCase):
         self.assertTrue(run)
         self.assertEqual(reason, "session_completed:2026-round-13:practice_1")
 
+    def test_overdue_daily_refresh_takes_priority_over_unavailable_session_result(self):
+        run, reason = should_refresh.decision(
+            now=datetime(2026, 10, 28, 6, 5, tzinfo=timezone.utc),
+            last_generated=datetime(2026, 10, 22, 23, 5, tzinfo=timezone.utc),
+            calendar={"races": [{
+                "id": "2026-round-18",
+                "sessions": {"race": "2026-10-25T20:00:00Z"},
+            }]},
+            daily_hour=7,
+            daily_timezone="Asia/Shanghai",
+            confirmation_minutes=15,
+            force=False,
+            handled_session_ref="2026-round-17:race",
+        )
+
+        self.assertTrue(run)
+        self.assertEqual(reason, "daily_refresh_due")
+
     def test_waits_until_0700_beijing_for_daily_refresh(self):
         run, reason = should_refresh.decision(
             now=datetime(2026, 9, 18, 22, 45, tzinfo=timezone.utc),
