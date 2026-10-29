@@ -1,9 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-28T23:07:46.830133Z",
-  "status": "healthy",
-  "pending_count": 0,
+  "generated_at": "2026-10-29T23:08:31.975825Z",
+  "status": "action_required",
+  "pending_count": 1,
   "ignored_non_text_count": 0,
   "workbench_path": "../immersive/translation-workbench.html",
-  "items": []
+  "items": [
+    {
+      "key": "social:piasnews-social-badc3b753ceb758e:summary:2b7ba897acb5d4d6e33c7e02",
+      "dataset": "social",
+      "item_id": "piasnews-social-badc3b753ceb758e",
+      "target_field": "summary_zh",
+      "source_text": "RT @deodeokgui: 👶 https://t.co/RNU4JFxATw",
+      "source_url": "https://x.com/laurogeitabat/status/2115486061665075335",
+      "source_name": "@laurogeitabat",
+      "reason": "llm_mapping_missing"
+    }
+  ]
 }
