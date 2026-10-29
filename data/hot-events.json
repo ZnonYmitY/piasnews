@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-29T02:00:23.492083Z",
+  "generated_at": "2026-10-29T04:55:42.585345Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -148,6 +148,61 @@
       "rank": 1
     },
     {
+      "event_id": "evt-2026-10-26-0a01d7adcc58",
+      "rule_id": null,
+      "hot_word_zh": "三连赛开始了",
+      "hot_word_en": "Triple header up and running",
+      "first_seen_at": "2026-10-26T19:04:26Z",
+      "last_seen_at": "2026-10-26T19:04:26Z",
+      "anchor_item_id": "piasnews-social-9ce681796e2edbca",
+      "image_url": "https://pbs.twimg.com/media/HVlDFxJWkAAp20E.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HVlDFxJWkAAp20E.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-9ce681796e2edbca",
+          "dataset": "social",
+          "source_type": "official",
+          "source": "@OscarPiastri",
+          "title": "X post from @OscarPiastri: Triple header up and running",
+          "title_zh": "X 发帖 @OscarPiastri：三连赛开始了",
+          "summary": "Triple header up and running https://t.co/9nwd2Cscjk",
+          "summary_zh": "三连赛开始了",
+          "url": "https://x.com/OscarPiastri/status/2114795304054632665",
+          "published_at": "2026-10-26T19:04:26Z",
+          "image_url": "https://pbs.twimg.com/media/HVlDFxJWkAAp20E.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HVlDFxJWkAAp20E.jpg",
+          "heat_contribution": 8.3279,
+          "metrics": {
+            "likes": 14680,
+            "retweets": 1956,
+            "replies": 189,
+            "quotes": 102,
+            "views": 132067,
+            "bookmarks": 256
+          }
+        }
+      ],
+      "official_heat": 54,
+      "media_heat": 0,
+      "fan_heat": 0,
+      "heat": 54,
+      "source_labels": [
+        "官"
+      ],
+      "source_counts": {
+        "official": 1,
+        "media": 0,
+        "fan": 0
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 2
+    },
+    {
       "event_id": "evt-2026-10-27-b23cc82f4f7c",
       "rule_id": null,
       "hot_word_zh": "Google Pixel通过Emotive在Oscar Piastri第三章中让澳洲人对手…",
@@ -175,7 +230,7 @@
           "image_url": "https://speedcafe.com/wp-content/uploads/2026/10/XPB_1445215_HiRes.jpg",
           "video_url": null,
           "video_poster_url": "https://speedcafe.com/wp-content/uploads/2026/10/XPB_1445215_HiRes.jpg",
-          "heat_contribution": 1.0,
+          "heat_contribution": 0.75,
           "metrics": {}
         },
         {
@@ -192,7 +247,7 @@
           "image_url": "https://sportsbase.io/images/gpfans/copy_1200x800/b239b104bf94bc244c1dd28c1cd0211a65a99640.jpg",
           "video_url": null,
           "video_poster_url": "https://sportsbase.io/images/gpfans/copy_1200x800/b239b104bf94bc244c1dd28c1cd0211a65a99640.jpg",
-          "heat_contribution": 1.0,
+          "heat_contribution": 0.75,
           "metrics": {}
         },
         {
@@ -209,7 +264,7 @@
           "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-07%2Fpiastri-gb-6a4e391d93b7c.jpg",
           "video_url": null,
           "video_poster_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-07%2Fpiastri-gb-6a4e391d93b7c.jpg",
-          "heat_contribution": 1.0,
+          "heat_contribution": 0.75,
           "metrics": {}
         },
         {
@@ -226,7 +281,7 @@
           "image_url": "https://lentedesportiva.com/wp-content/uploads/2026/10/lente-973af95d-13c7-4827-8e8f-50df10947e6d.png",
           "video_url": null,
           "video_poster_url": "https://lentedesportiva.com/wp-content/uploads/2026/10/lente-973af95d-13c7-4827-8e8f-50df10947e6d.png",
-          "heat_contribution": 1.0,
+          "heat_contribution": 0.75,
           "metrics": {}
         },
         {
@@ -520,70 +575,15 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 56,
+      "media_heat": 51,
       "fan_heat": 0,
-      "heat": 56,
+      "heat": 51,
       "source_labels": [
         "媒"
       ],
       "source_counts": {
         "official": 0,
         "media": 14,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 2
-    },
-    {
-      "event_id": "evt-2026-10-26-0a01d7adcc58",
-      "rule_id": null,
-      "hot_word_zh": "三连赛开始了",
-      "hot_word_en": "Triple header up and running",
-      "first_seen_at": "2026-10-26T19:04:26Z",
-      "last_seen_at": "2026-10-26T19:04:26Z",
-      "anchor_item_id": "piasnews-social-9ce681796e2edbca",
-      "image_url": "https://pbs.twimg.com/media/HVlDFxJWkAAp20E.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HVlDFxJWkAAp20E.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-9ce681796e2edbca",
-          "dataset": "social",
-          "source_type": "official",
-          "source": "@OscarPiastri",
-          "title": "X post from @OscarPiastri: Triple header up and running",
-          "title_zh": "X 发帖 @OscarPiastri：三连赛开始了",
-          "summary": "Triple header up and running https://t.co/9nwd2Cscjk",
-          "summary_zh": "三连赛开始了",
-          "url": "https://x.com/OscarPiastri/status/2114795304054632665",
-          "published_at": "2026-10-26T19:04:26Z",
-          "image_url": "https://pbs.twimg.com/media/HVlDFxJWkAAp20E.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HVlDFxJWkAAp20E.jpg",
-          "heat_contribution": 8.3279,
-          "metrics": {
-            "likes": 14680,
-            "retweets": 1956,
-            "replies": 189,
-            "quotes": 102,
-            "views": 132067,
-            "bookmarks": 256
-          }
-        }
-      ],
-      "official_heat": 54,
-      "media_heat": 0,
-      "fan_heat": 0,
-      "heat": 54,
-      "source_labels": [
-        "官"
-      ],
-      "source_counts": {
-        "official": 1,
-        "media": 0,
         "fan": 0
       },
       "pinned_rank": null,
@@ -646,7 +646,7 @@
       "rank": 4
     },
     {
-      "event_id": "evt-2026-10-27-7fdc208f22bb-7fdc208f",
+      "event_id": "evt-2026-10-27-7fdc208f22bb",
       "rule_id": null,
       "hot_word_zh": "oscar：头盔的尺寸是可以改的 lando：可以的！",
       "hot_word_en": "oscar: you can change the size of the helmet lando: you can! mine is a... oscar: you've got a big head, so...",
@@ -699,105 +699,6 @@
       "pinned_rank": null,
       "hidden": false,
       "rank": 5
-    },
-    {
-      "event_id": "evt-2026-10-27-0dd0cadadca6",
-      "rule_id": null,
-      "hot_word_zh": "Piastri 在 COTA 被发现在跟随 Hadjar 后“到处乱跑”的 Red Bul…",
-      "hot_word_en": "Rumor or speculative report; treat as unverified unless confirmed by official sources.",
-      "first_seen_at": "2026-10-22T22:01:00Z",
-      "last_seen_at": "2026-10-27T07:30:00Z",
-      "anchor_item_id": "piasnews-364faaaca55f36d2",
-      "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2301973487-scaled.jpg",
-      "video_url": null,
-      "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2301973487-scaled.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-364faaaca55f36d2",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "F1 Oversteer",
-          "title": "Piastri spotted ‘all over the place’ Red Bull issue following Hadjar at COTA",
-          "title_zh": "Piastri 在 COTA 被发现在跟随 Hadjar 后“到处乱跑”的 Red Bull 问题",
-          "summary": "Rumor or speculative report; treat as unverified unless confirmed by official sources.",
-          "summary_zh": "传闻或推测性报道；除非官方消息源确认，否则视为未经证实。",
-          "url": "https://www.f1oversteer.com/news/oscar-piastri-spotted-all-over-the-place-red-bull-issue-following-isack-hadjar-in-united-states-gp/",
-          "published_at": "2026-10-27T07:30:00Z",
-          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2301973487-scaled.jpg",
-          "video_url": null,
-          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2301973487-scaled.jpg",
-          "heat_contribution": 0.45,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-9c7a165d79bce3a3",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Auto Action",
-          "title": "Piastri’s Austin struggle leaves McLaren level with Red Bull",
-          "title_zh": "Piastri在奥斯汀的挣扎让McLaren与Red Bull持平",
-          "summary": "Rumor or speculative report; treat as unverified unless confirmed by official sources.",
-          "summary_zh": "传闻或推测性报道；除非官方消息源确认，否则视为未经证实。",
-          "url": "https://autoaction.com.au/2026/10/26/piastris-austin-struggle-leaves-mclaren-level-with-red-bull",
-          "published_at": "2026-10-26T02:42:29Z",
-          "image_url": "https://autoaction.com.au/wp-content/uploads/2026/10/Screenshot-2026-10-26-at-12.01.50-pm-e1792976833404.jpeg?v=1792976726",
-          "video_url": null,
-          "video_poster_url": "https://autoaction.com.au/wp-content/uploads/2026/10/Screenshot-2026-10-26-at-12.01.50-pm-e1792976833404.jpeg?v=1792976726",
-          "heat_contribution": 0.2,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-03cbbc3f715e75e7",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "GPblog",
-          "title": "Piastri admits Red Bull have overtaken McLaren as Ferrari strength raises questions",
-          "title_zh": "Piastri承认Red Bull已超越McLaren，Ferrari实力引发疑问",
-          "summary": "Rumor or speculative report; treat as unverified unless confirmed by official sources.",
-          "summary_zh": "传闻或推测性报道；除非官方消息源确认，否则视为未经证实。",
-          "url": "https://www.gpblog.com/en/news/piastri-makes-telling-red-bull-admission-mclaren-wont-want-to-hear",
-          "published_at": "2026-10-22T22:01:00Z",
-          "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-10%2F20261022-0380-6ada6d5374630.jpg",
-          "video_url": null,
-          "video_poster_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-10%2F20261022-0380-6ada6d5374630.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-55e7b303642d825b",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Yahoo Sports",
-          "title": "Piastri makes telling Red Bull admission McLaren won't want to hear",
-          "title_zh": "Piastri对Red Bull做出坦率表态，McLaren不愿听到",
-          "summary": "Rumor or speculative report; treat as unverified unless confirmed by official sources.",
-          "summary_zh": "传闻或推测性报道；除非官方消息源确认，否则视为未经证实。",
-          "url": "https://sports.yahoo.com/articles/piastri-makes-telling-red-bull-220100845.html",
-          "published_at": "2026-10-22T22:01:00Z",
-          "image_url": "https://s.yimg.com/lo/mysterio/api/2154121bb871ddc8216fd26a160a8201bd8b052c827670064ee881b5b2682be4/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fgpblog_716%2F33e17fb13c6d99311743a6ae7a539787",
-          "video_url": null,
-          "video_poster_url": "https://s.yimg.com/lo/mysterio/api/2154121bb871ddc8216fd26a160a8201bd8b052c827670064ee881b5b2682be4/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fgpblog_716%2F33e17fb13c6d99311743a6ae7a539787",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 15,
-      "fan_heat": 0,
-      "heat": 15,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 4,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 6
     },
     {
       "event_id": "evt-2026-10-25-e7f5c7158f39",
@@ -879,7 +780,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 6
     },
     {
       "event_id": "evt-2026-10-27-0007e0bbb18d-0007e0bb",
@@ -923,6 +824,105 @@
       "source_counts": {
         "official": 0,
         "media": 1,
+        "fan": 0
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "event_id": "evt-2026-10-27-0dd0cadadca6",
+      "rule_id": null,
+      "hot_word_zh": "Piastri 在 COTA 被发现在跟随 Hadjar 后“到处乱跑”的 Red Bul…",
+      "hot_word_en": "Rumor or speculative report; treat as unverified unless confirmed by official sources.",
+      "first_seen_at": "2026-10-22T22:01:00Z",
+      "last_seen_at": "2026-10-27T07:30:00Z",
+      "anchor_item_id": "piasnews-364faaaca55f36d2",
+      "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2301973487-scaled.jpg",
+      "video_url": null,
+      "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2301973487-scaled.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-364faaaca55f36d2",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "F1 Oversteer",
+          "title": "Piastri spotted ‘all over the place’ Red Bull issue following Hadjar at COTA",
+          "title_zh": "Piastri 在 COTA 被发现在跟随 Hadjar 后“到处乱跑”的 Red Bull 问题",
+          "summary": "Rumor or speculative report; treat as unverified unless confirmed by official sources.",
+          "summary_zh": "传闻或推测性报道；除非官方消息源确认，否则视为未经证实。",
+          "url": "https://www.f1oversteer.com/news/oscar-piastri-spotted-all-over-the-place-red-bull-issue-following-isack-hadjar-in-united-states-gp/",
+          "published_at": "2026-10-27T07:30:00Z",
+          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2301973487-scaled.jpg",
+          "video_url": null,
+          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2301973487-scaled.jpg",
+          "heat_contribution": 0.45,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-9c7a165d79bce3a3",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Auto Action",
+          "title": "Piastri’s Austin struggle leaves McLaren level with Red Bull",
+          "title_zh": "Piastri在奥斯汀的挣扎让McLaren与Red Bull持平",
+          "summary": "Rumor or speculative report; treat as unverified unless confirmed by official sources.",
+          "summary_zh": "传闻或推测性报道；除非官方消息源确认，否则视为未经证实。",
+          "url": "https://autoaction.com.au/2026/10/26/piastris-austin-struggle-leaves-mclaren-level-with-red-bull",
+          "published_at": "2026-10-26T02:42:29Z",
+          "image_url": "https://autoaction.com.au/wp-content/uploads/2026/10/Screenshot-2026-10-26-at-12.01.50-pm-e1792976833404.jpeg?v=1792976726",
+          "video_url": null,
+          "video_poster_url": "https://autoaction.com.au/wp-content/uploads/2026/10/Screenshot-2026-10-26-at-12.01.50-pm-e1792976833404.jpeg?v=1792976726",
+          "heat_contribution": 0.0,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-03cbbc3f715e75e7",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "GPblog",
+          "title": "Piastri admits Red Bull have overtaken McLaren as Ferrari strength raises questions",
+          "title_zh": "Piastri承认Red Bull已超越McLaren，Ferrari实力引发疑问",
+          "summary": "Rumor or speculative report; treat as unverified unless confirmed by official sources.",
+          "summary_zh": "传闻或推测性报道；除非官方消息源确认，否则视为未经证实。",
+          "url": "https://www.gpblog.com/en/news/piastri-makes-telling-red-bull-admission-mclaren-wont-want-to-hear",
+          "published_at": "2026-10-22T22:01:00Z",
+          "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-10%2F20261022-0380-6ada6d5374630.jpg",
+          "video_url": null,
+          "video_poster_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-10%2F20261022-0380-6ada6d5374630.jpg",
+          "heat_contribution": 0.0,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-55e7b303642d825b",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Yahoo Sports",
+          "title": "Piastri makes telling Red Bull admission McLaren won't want to hear",
+          "title_zh": "Piastri对Red Bull做出坦率表态，McLaren不愿听到",
+          "summary": "Rumor or speculative report; treat as unverified unless confirmed by official sources.",
+          "summary_zh": "传闻或推测性报道；除非官方消息源确认，否则视为未经证实。",
+          "url": "https://sports.yahoo.com/articles/piastri-makes-telling-red-bull-220100845.html",
+          "published_at": "2026-10-22T22:01:00Z",
+          "image_url": "https://s.yimg.com/lo/mysterio/api/2154121bb871ddc8216fd26a160a8201bd8b052c827670064ee881b5b2682be4/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fgpblog_716%2F33e17fb13c6d99311743a6ae7a539787",
+          "video_url": null,
+          "video_poster_url": "https://s.yimg.com/lo/mysterio/api/2154121bb871ddc8216fd26a160a8201bd8b052c827670064ee881b5b2682be4/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fgpblog_716%2F33e17fb13c6d99311743a6ae7a539787",
+          "heat_contribution": 0.0,
+          "metrics": {}
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 10,
+      "fan_heat": 0,
+      "heat": 10,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 4,
         "fan": 0
       },
       "pinned_rank": null,
@@ -1060,7 +1060,7 @@
       "rank": 10
     }
   ],
-  "review_needed_count": 27,
+  "review_needed_count": 25,
   "review_needed_events": [
     {
       "event_id": "evt-2026-10-26-b94d8452df4c",
@@ -1759,64 +1759,6 @@
       }
     },
     {
-      "event_id": "evt-2026-10-26-80651de69098",
-      "rule_id": null,
-      "hot_word_zh": "靠当最可爱的人熬过这些恐怖时刻",
-      "hot_word_en": "surviving the horrors by being the most cutieful",
-      "first_seen_at": "2026-10-26T03:34:11Z",
-      "last_seen_at": "2026-10-26T03:34:11Z",
-      "anchor_item_id": "piasnews-social-4d39c74ac6cad1f8",
-      "image_url": "https://pbs.twimg.com/media/HVhuMfYWcAAttrS.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HVhuMfYWcAAttrS.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-4d39c74ac6cad1f8",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: surviving the horrors by being the most cutieful",
-          "title_zh": "X 发帖 @laurogeitabat：靠当最可爱的人熬过这些恐怖时刻",
-          "summary": "surviving the horrors by being the most cutieful https://t.co/euR7dX8DSq",
-          "summary_zh": "靠当最可爱的人熬过这些恐怖时刻",
-          "url": "https://x.com/laurogeitabat/status/2114561199266222516",
-          "published_at": "2026-10-26T03:34:11Z",
-          "image_url": "https://pbs.twimg.com/media/HVhuMfYWcAAttrS.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HVhuMfYWcAAttrS.jpg",
-          "heat_contribution": 5.3585,
-          "metrics": {
-            "likes": 816,
-            "retweets": 91,
-            "replies": 0,
-            "quotes": 0,
-            "views": 5903,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 29,
-      "heat": 29,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-10-27-17875d21201b",
       "rule_id": null,
       "hot_word_zh": "Oscar谈与MCL40赛车不稳定性作斗争：“我能修好一个地方，却修不好另一个；这很艰难。",
@@ -2305,7 +2247,7 @@
       }
     },
     {
-      "event_id": "evt-2026-10-27-7fdc208f22bb",
+      "event_id": "evt-2026-10-27-7fdc208f22bb-7fdc208f",
       "rule_id": null,
       "hot_word_zh": "leo fornarolli将在墨西哥一练驾驶lando的车，在巴西一练驾驶oscar的车！",
       "hot_word_en": "leo fornarolli will take lando's car in fp1 in mexico, and oscar's car in fp1 in brazil!",
@@ -2405,64 +2347,6 @@
       "media_heat": 0,
       "fan_heat": 26,
       "heat": 26,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-26-40c00484550c",
-      "rule_id": null,
-      "hot_word_zh": "现在是凌晨4点，我已经24小时没睡了，刚在机场看完了整场比赛回放，我实在没精力去找好话来表…",
-      "hot_word_en": "it's 4am i haven't slept in 24h and i just watched the full race replay at the airport i do not have energy t…",
-      "first_seen_at": "2026-10-26T03:14:22Z",
-      "last_seen_at": "2026-10-26T03:14:22Z",
-      "anchor_item_id": "piasnews-social-83afe57d4de4a82f",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-83afe57d4de4a82f",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: it's 4am i haven't slept in 24h and i just watched the full race replay at the airport i do not…",
-          "title_zh": "X 发帖 @laurogeitabat：现在是凌晨4点，我已经24小时没睡了，刚在机场看完了整场比赛回放，我实在没精力去找好话来表达我对某个胡萝卜色群体的看法，但你今天的防守表现足以载入史册，我的神 @oscarpiastri",
-          "summary": "it's 4am i haven't slept in 24h and i just watched the full race replay at the airport i do not have energy to find kind words to express my thoughts about a certain carrot colored group of people but your defense work today is one for the history books my goat @oscarpiastri",
-          "summary_zh": "现在是凌晨4点，我已经24小时没睡了，刚在机场看完了整场比赛回放，我实在没精力去找好话来表达我对某个胡萝卜色群体的看法，但你今天的防守表现足以载入史册，我的神 @oscarpiastri",
-          "url": "https://x.com/laurogeitabat/status/2114556212708565117",
-          "published_at": "2026-10-26T03:14:22Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 4.5219,
-          "metrics": {
-            "likes": 367,
-            "retweets": 7,
-            "replies": 4,
-            "quotes": 0,
-            "views": 6203,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 25,
-      "heat": 25,
       "source_labels": [
         "粉"
       ],
