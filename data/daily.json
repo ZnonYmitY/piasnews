@@ -1,9 +1,34 @@
 {
-  "generated_at": "2026-10-29T23:06:11.261823Z",
+  "generated_at": "2026-10-30T23:06:04.642877Z",
   "window_days": 7,
-  "total_items": 43,
-  "latest_date": "2026-10-29",
+  "total_items": 52,
+  "latest_date": "2026-10-30",
   "days": [
+    {
+      "date": "2026-10-30",
+      "total_new_items": 9,
+      "official_new_items": 0,
+      "media_new_items": 9,
+      "x_new_items": 0,
+      "rumor_new_items": 2,
+      "sources": {
+        "AOL.co.uk": 1,
+        "Auto Action": 1,
+        "FormulaRapida.net": 1,
+        "Fox Sports": 1,
+        "SPEEDWEEK.com": 1,
+        "Speedcafe.com": 1,
+        "Sportscape Magazine": 1,
+        "The Mirror": 1,
+        "Yahoo Sports": 1
+      },
+      "categories": {
+        "interview": 1,
+        "race": 1,
+        "rumor": 2,
+        "team": 5
+      }
+    },
     {
       "date": "2026-10-29",
       "total_new_items": 5,
@@ -144,14 +169,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 28
+      "items": 31
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 16
+      "items": 24
     },
     {
       "query": "\"OP81\" when:3d",
@@ -172,24 +197,25 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 11
+      "items": 14
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22interview%22+when%3A3d",
       "ok": true,
-      "items": 2
+      "items": 3
     },
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 32,
-      "kept": 25,
+      "checked": 31,
+      "kept": 22,
       "results": {
-        "publisher_date_missing": 1,
-        "publisher_unavailable": 6,
-        "verified": 25
+        "outside_window": 1,
+        "publisher_date_missing": 3,
+        "publisher_unavailable": 5,
+        "verified": 22
       }
     },
     {
@@ -197,8 +223,8 @@
       "ok": true,
       "discovery_days": 3,
       "retention_days": 7,
-      "previous_items": 45,
-      "kept": 43
+      "previous_items": 43,
+      "kept": 52
     }
   ]
 }

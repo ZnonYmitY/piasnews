@@ -1,11 +1,31 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-29T23:08:31.975825Z",
+  "generated_at": "2026-10-30T23:08:50.437450Z",
   "status": "action_required",
-  "pending_count": 1,
+  "pending_count": 3,
   "ignored_non_text_count": 0,
   "workbench_path": "../immersive/translation-workbench.html",
   "items": [
+    {
+      "key": "social:piasnews-social-b2cfed9400459468:summary:a195f4b751544d81417d50d0",
+      "dataset": "social",
+      "item_id": "piasnews-social-b2cfed9400459468",
+      "target_field": "summary_zh",
+      "source_text": "RT @Oliberbearman: oscdance.mp4 https://t.co/lbGydPqgY1",
+      "source_url": "https://x.com/laurogeitabat/status/2115925301561532925",
+      "source_name": "@laurogeitabat",
+      "reason": "llm_mapping_missing"
+    },
+    {
+      "key": "social:piasnews-social-f11a27a865273739:summary:ff665525c9f8eb3bcc3fac18",
+      "dataset": "social",
+      "item_id": "piasnews-social-f11a27a865273739",
+      "target_field": "summary_zh",
+      "source_text": "RT @PIZZAPIASTRI: 🥹🫶🏻 https://t.co/f2WNBMXOzF",
+      "source_url": "https://x.com/laurogeitabat/status/2115779892784611730",
+      "source_name": "@laurogeitabat",
+      "reason": "llm_mapping_missing"
+    },
     {
       "key": "social:piasnews-social-badc3b753ceb758e:summary:2b7ba897acb5d4d6e33c7e02",
       "dataset": "social",
