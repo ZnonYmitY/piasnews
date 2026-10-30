@@ -1,12 +1,135 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-29T23:08:33.727875Z",
+  "generated_at": "2026-10-30T02:16:35.026720Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
   "event_count": 10,
   "events": [
+    {
+      "event_id": "evt-2026-10-27-0007e0bbb18d",
+      "rule_id": null,
+      "hot_word_zh": "Oscar 在美国站正赛获得第7名",
+      "hot_word_en": "Oscar finishes P7 in the United States Grand Prix",
+      "first_seen_at": "2026-10-26T21:00:00Z",
+      "last_seen_at": "2026-10-29T07:16:47Z",
+      "anchor_item_id": "piasnews-2d551b7e9135c8e1",
+      "image_url": "https://storage.ghost.io/c/dd/af/ddafbd99-2ccd-468c-b622-4b3cccf80b49/content/images/size/w1200/2026/10/XPB_1446853_HiRes.jpg",
+      "video_url": null,
+      "video_poster_url": "https://storage.ghost.io/c/dd/af/ddafbd99-2ccd-468c-b622-4b3cccf80b49/content/images/size/w1200/2026/10/XPB_1446853_HiRes.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-1a59d219950d4023",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "The Race",
+          "title": "'Superpower' neutered - Piastri's fresh F1 struggles explained",
+          "title_zh": "“超能力”被削弱——Piastri 近期 F1 困境解析",
+          "summary": "Oscar Piastri-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
+          "url": "https://www.the-race.com/formula-1/superpower-neutered-piastris-fresh-f1-struggles-explained/",
+          "published_at": "2026-10-29T07:16:47Z",
+          "image_url": "https://storage.ghost.io/c/dd/af/ddafbd99-2ccd-468c-b622-4b3cccf80b49/content/images/size/w1200/2026/10/XPB_1446853_HiRes.jpg",
+          "video_url": null,
+          "video_poster_url": "https://storage.ghost.io/c/dd/af/ddafbd99-2ccd-468c-b622-4b3cccf80b49/content/images/size/w1200/2026/10/XPB_1446853_HiRes.jpg",
+          "heat_contribution": 0.75,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-886d3df691d6033b",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Sky Sports",
+          "title": "Mexico City GP: McLaren plan further upgrades after Lando Norris and Oscar Piastri's struggles in Austin",
+          "title_zh": "墨西哥城大奖赛：Lando Norris和Oscar Piastri在奥斯汀陷入困境后，McLaren计划进一步升级",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或性能相关条目。",
+          "url": "https://www.skysports.com/f1/news/13604726/mexico-city-gp-mclaren-plan-further-upgrades-after-lando-norris-and-oscar-piastris-struggles-in-austin",
+          "published_at": "2026-10-28T12:00:00Z",
+          "image_url": "https://e0.365dm.com/26/10/1600x900/skysports-f1-lando-norris-oscar-piastri_7389553.jpg?20261028110407",
+          "video_url": null,
+          "video_poster_url": "https://e0.365dm.com/26/10/1600x900/skysports-f1-lando-norris-oscar-piastri_7389553.jpg?20261028110407",
+          "heat_contribution": 0.45,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-2d551b7e9135c8e1",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Sky Sports",
+          "title": "United States GP: Martin Brundle's verdict on 'outstanding' Kimi Antonelli win in Austin and Oscar Piastri's struggles in 2026 F1 cars",
+          "title_zh": "美国大奖赛：Martin Brundle 评点 Kimi Antonelli 在奥斯汀的“出色”胜利，以及 Oscar Piastri 在2026年F1赛车中的挣扎",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或性能相关条目。",
+          "url": "https://www.skysports.com/f1/news/13604035/united-states-gp-martin-brundles-verdict-on-outstanding-kimi-antonelli-win-in-austin-and-oscar-piastris-struggles-in-2026-f1-cars",
+          "published_at": "2026-10-27T10:30:00Z",
+          "image_url": "https://e0.365dm.com/26/10/1600x900/skysports-f1-kimi-antonelli_7388551.jpg?20261027102026",
+          "video_url": null,
+          "video_poster_url": "https://e0.365dm.com/26/10/1600x900/skysports-f1-kimi-antonelli_7388551.jpg?20261027102026",
+          "heat_contribution": 0.2,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-75bde40573ec3b81",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Paddock News 24",
+          "title": "Oscar Piastri’s McLaren struggles continue in Austin: “It was a slow race”",
+          "title_zh": "Oscar Piastri 在奥斯汀的 McLaren 困境持续：“这是一场缓慢的比赛”",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或性能相关条目。",
+          "url": "https://www.paddocknews24.com/en/news-f1/oscar-piastris-mclaren-struggles-continue-in-austin-it-was-a-slow-race/",
+          "published_at": "2026-10-26T22:36:02Z",
+          "image_url": "https://www.paddocknews24.com/en/wp-content/uploads/2026/10/Oscar-Piastri-3V6A4596.webp",
+          "video_url": null,
+          "video_poster_url": "https://www.paddocknews24.com/en/wp-content/uploads/2026/10/Oscar-Piastri-3V6A4596.webp",
+          "heat_contribution": 0.0,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-63a0f832cf6d1128",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "GPblog",
+          "title": "Piastri confused by McLaren struggles at US GP: “It’s the story of my year\"",
+          "title_zh": "Piastri对McLaren在美国大奖赛的挣扎感到困惑：“这就是我这一年的写照”",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或性能相关条目。",
+          "url": "https://www.gpblog.com/en/news/piastri-confused-by-mclaren-struggles-at-us-gp-its-the-story-of-my-year",
+          "published_at": "2026-10-26T21:00:00Z",
+          "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-10%2F20261023-0133-6adf573e1371c.jpg",
+          "video_url": null,
+          "video_poster_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-10%2F20261023-0133-6adf573e1371c.jpg",
+          "heat_contribution": 0.0,
+          "metrics": {}
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 19,
+      "fan_heat": 0,
+      "heat": 19,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 4,
+        "fan": 0
+      },
+      "pinned_rank": 1,
+      "hidden": false,
+      "hard_rule": {
+        "type": "session_result",
+        "race_id": "2026-round-18",
+        "session": "race",
+        "position": 7,
+        "source_item_id": "piasnews-886d3df691d6033b"
+      },
+      "rank": 1
+    },
     {
       "event_id": "evt-2026-10-28-6f68a290864c",
       "rule_id": null,
@@ -60,7 +183,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 1
+      "rank": 2
     },
     {
       "event_id": "evt-2026-10-28-49ebd0bdec9c",
@@ -139,7 +262,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 2
+      "rank": 3
     },
     {
       "event_id": "evt-2026-10-27-b23cc82f4f7c",
@@ -169,7 +292,7 @@
           "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2301976315-scaled.jpg",
           "video_url": null,
           "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2301976315-scaled.jpg",
-          "heat_contribution": 1.0,
+          "heat_contribution": 0.75,
           "metrics": {}
         },
         {
@@ -327,9 +450,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 40,
+      "media_heat": 37,
       "fan_heat": 0,
-      "heat": 40,
+      "heat": 37,
       "source_labels": [
         "媒"
       ],
@@ -340,7 +463,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 3
+      "rank": 4
     },
     {
       "event_id": "evt-2026-10-27-7fdc208f22bb",
@@ -404,7 +527,7 @@
           "image_url": "https://mumbrella.com.au/wp-content/uploads/2026/10/Oscar_Piastri_Pixel_2026-10-28.jpg",
           "video_url": null,
           "video_poster_url": "https://mumbrella.com.au/wp-content/uploads/2026/10/Oscar_Piastri_Pixel_2026-10-28.jpg",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -443,122 +566,6 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 20,
-      "fan_heat": 0,
-      "heat": 20,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 5,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 4
-    },
-    {
-      "event_id": "evt-2026-10-27-0007e0bbb18d",
-      "rule_id": null,
-      "hot_word_zh": "美国大奖赛：Martin Brundle 评点 Kimi Antonelli 在奥斯汀的“…",
-      "hot_word_en": "United States GP: Martin Brundle's verdict on 'outstanding' Kimi Antonelli win in Austin and Oscar Piastri's…",
-      "first_seen_at": "2026-10-26T21:00:00Z",
-      "last_seen_at": "2026-10-29T07:16:47Z",
-      "anchor_item_id": "piasnews-2d551b7e9135c8e1",
-      "image_url": "https://storage.ghost.io/c/dd/af/ddafbd99-2ccd-468c-b622-4b3cccf80b49/content/images/size/w1200/2026/10/XPB_1446853_HiRes.jpg",
-      "video_url": null,
-      "video_poster_url": "https://storage.ghost.io/c/dd/af/ddafbd99-2ccd-468c-b622-4b3cccf80b49/content/images/size/w1200/2026/10/XPB_1446853_HiRes.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-1a59d219950d4023",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "The Race",
-          "title": "'Superpower' neutered - Piastri's fresh F1 struggles explained",
-          "title_zh": "“超能力”被削弱——Piastri 近期 F1 困境解析",
-          "summary": "Oscar Piastri-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
-          "url": "https://www.the-race.com/formula-1/superpower-neutered-piastris-fresh-f1-struggles-explained/",
-          "published_at": "2026-10-29T07:16:47Z",
-          "image_url": "https://storage.ghost.io/c/dd/af/ddafbd99-2ccd-468c-b622-4b3cccf80b49/content/images/size/w1200/2026/10/XPB_1446853_HiRes.jpg",
-          "video_url": null,
-          "video_poster_url": "https://storage.ghost.io/c/dd/af/ddafbd99-2ccd-468c-b622-4b3cccf80b49/content/images/size/w1200/2026/10/XPB_1446853_HiRes.jpg",
-          "heat_contribution": 0.75,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-886d3df691d6033b",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Sky Sports",
-          "title": "Mexico City GP: McLaren plan further upgrades after Lando Norris and Oscar Piastri's struggles in Austin",
-          "title_zh": "墨西哥城大奖赛：Lando Norris和Oscar Piastri在奥斯汀陷入困境后，McLaren计划进一步升级",
-          "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的比赛周或性能相关条目。",
-          "url": "https://www.skysports.com/f1/news/13604726/mexico-city-gp-mclaren-plan-further-upgrades-after-lando-norris-and-oscar-piastris-struggles-in-austin",
-          "published_at": "2026-10-28T12:00:00Z",
-          "image_url": "https://e0.365dm.com/26/10/1600x900/skysports-f1-lando-norris-oscar-piastri_7389553.jpg?20261028110407",
-          "video_url": null,
-          "video_poster_url": "https://e0.365dm.com/26/10/1600x900/skysports-f1-lando-norris-oscar-piastri_7389553.jpg?20261028110407",
-          "heat_contribution": 0.45,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-2d551b7e9135c8e1",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Sky Sports",
-          "title": "United States GP: Martin Brundle's verdict on 'outstanding' Kimi Antonelli win in Austin and Oscar Piastri's struggles in 2026 F1 cars",
-          "title_zh": "美国大奖赛：Martin Brundle 评点 Kimi Antonelli 在奥斯汀的“出色”胜利，以及 Oscar Piastri 在2026年F1赛车中的挣扎",
-          "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的比赛周或性能相关条目。",
-          "url": "https://www.skysports.com/f1/news/13604035/united-states-gp-martin-brundles-verdict-on-outstanding-kimi-antonelli-win-in-austin-and-oscar-piastris-struggles-in-2026-f1-cars",
-          "published_at": "2026-10-27T10:30:00Z",
-          "image_url": "https://e0.365dm.com/26/10/1600x900/skysports-f1-kimi-antonelli_7388551.jpg?20261027102026",
-          "video_url": null,
-          "video_poster_url": "https://e0.365dm.com/26/10/1600x900/skysports-f1-kimi-antonelli_7388551.jpg?20261027102026",
-          "heat_contribution": 0.2,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-75bde40573ec3b81",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Paddock News 24",
-          "title": "Oscar Piastri’s McLaren struggles continue in Austin: “It was a slow race”",
-          "title_zh": "Oscar Piastri 在奥斯汀的 McLaren 困境持续：“这是一场缓慢的比赛”",
-          "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的比赛周或性能相关条目。",
-          "url": "https://www.paddocknews24.com/en/news-f1/oscar-piastris-mclaren-struggles-continue-in-austin-it-was-a-slow-race/",
-          "published_at": "2026-10-26T22:36:02Z",
-          "image_url": "https://www.paddocknews24.com/en/wp-content/uploads/2026/10/Oscar-Piastri-3V6A4596.webp",
-          "video_url": null,
-          "video_poster_url": "https://www.paddocknews24.com/en/wp-content/uploads/2026/10/Oscar-Piastri-3V6A4596.webp",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-63a0f832cf6d1128",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "GPblog",
-          "title": "Piastri confused by McLaren struggles at US GP: “It’s the story of my year\"",
-          "title_zh": "Piastri对McLaren在美国大奖赛的挣扎感到困惑：“这就是我这一年的写照”",
-          "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的比赛周或性能相关条目。",
-          "url": "https://www.gpblog.com/en/news/piastri-confused-by-mclaren-struggles-at-us-gp-its-the-story-of-my-year",
-          "published_at": "2026-10-26T21:00:00Z",
-          "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-10%2F20261023-0133-6adf573e1371c.jpg",
-          "video_url": null,
-          "video_poster_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-10%2F20261023-0133-6adf573e1371c.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        }
-      ],
-      "official_heat": 0,
       "media_heat": 19,
       "fan_heat": 0,
       "heat": 19,
@@ -567,7 +574,7 @@
       ],
       "source_counts": {
         "official": 0,
-        "media": 4,
+        "media": 5,
         "fan": 0
       },
       "pinned_rank": null,
@@ -940,7 +947,7 @@
       "hidden": false
     },
     {
-      "event_id": "evt-2026-10-26-b94d8452df4c",
+      "event_id": "evt-2026-10-28-942a6fdc0323",
       "rule_id": null,
       "hot_word_zh": "小小的 Oscar（还有 Kimi），那时他还是个围场小孩 🥹",
       "hot_word_en": "a tiny oscar (and kimi) back when he was a grid kid 🥹",
@@ -2274,64 +2281,6 @@
       }
     },
     {
-      "event_id": "evt-2026-10-27-0007e0bbb18d-0007e0bb",
-      "rule_id": null,
-      "hot_word_zh": "Andrea Stella确认McLaren将在巴西和拉斯维加斯带来升级！",
-      "hot_word_en": "andrea stella confirms mclaren will bring upgrades to brazil and vegas!",
-      "first_seen_at": "2026-10-27T09:33:50Z",
-      "last_seen_at": "2026-10-27T09:33:50Z",
-      "anchor_item_id": "piasnews-social-25be5b7818e07ea4",
-      "image_url": "https://pbs.twimg.com/media/HVoKHBfWoAEUhQA.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HVoKHBfWoAEUhQA.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-25be5b7818e07ea4",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: andrea stella confirms mclaren will bring upgrades to brazil and vegas!",
-          "title_zh": "X 发帖 @laurogeitabat：Andrea Stella确认McLaren将在巴西和拉斯维加斯带来升级！",
-          "summary": "andrea stella confirms mclaren will bring upgrades to brazil and vegas! https://t.co/wtsE7odhir",
-          "summary_zh": "Andrea Stella确认McLaren将在巴西和拉斯维加斯带来升级！",
-          "url": "https://x.com/laurogeitabat/status/2115014097431327095",
-          "published_at": "2026-10-27T09:33:50Z",
-          "image_url": "https://pbs.twimg.com/media/HVoKHBfWoAEUhQA.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HVoKHBfWoAEUhQA.jpg",
-          "heat_contribution": 4.138,
-          "metrics": {
-            "likes": 206,
-            "retweets": 13,
-            "replies": 5,
-            "quotes": 0,
-            "views": 6140,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 23,
-      "heat": 23,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-10-27-5d4a40a64500",
       "rule_id": null,
       "hot_word_zh": "Lando差点用篮球砸到Oscar 😭",
@@ -2424,6 +2373,64 @@
             "replies": 0,
             "quotes": 0,
             "views": 4376,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 23,
+      "heat": 23,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-10-27-ab717337ac33",
+      "rule_id": null,
+      "hot_word_zh": "Andrea Stella确认McLaren将在巴西和拉斯维加斯带来升级！",
+      "hot_word_en": "andrea stella confirms mclaren will bring upgrades to brazil and vegas!",
+      "first_seen_at": "2026-10-27T09:33:50Z",
+      "last_seen_at": "2026-10-27T09:33:50Z",
+      "anchor_item_id": "piasnews-social-25be5b7818e07ea4",
+      "image_url": "https://pbs.twimg.com/media/HVoKHBfWoAEUhQA.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HVoKHBfWoAEUhQA.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-25be5b7818e07ea4",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: andrea stella confirms mclaren will bring upgrades to brazil and vegas!",
+          "title_zh": "X 发帖 @laurogeitabat：Andrea Stella确认McLaren将在巴西和拉斯维加斯带来升级！",
+          "summary": "andrea stella confirms mclaren will bring upgrades to brazil and vegas! https://t.co/wtsE7odhir",
+          "summary_zh": "Andrea Stella确认McLaren将在巴西和拉斯维加斯带来升级！",
+          "url": "https://x.com/laurogeitabat/status/2115014097431327095",
+          "published_at": "2026-10-27T09:33:50Z",
+          "image_url": "https://pbs.twimg.com/media/HVoKHBfWoAEUhQA.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HVoKHBfWoAEUhQA.jpg",
+          "heat_contribution": 4.138,
+          "metrics": {
+            "likes": 206,
+            "retweets": 13,
+            "replies": 5,
+            "quotes": 0,
+            "views": 6140,
             "bookmarks": 0
           }
         }
