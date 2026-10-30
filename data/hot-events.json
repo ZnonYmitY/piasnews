@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-30T06:25:57.013153Z",
+  "generated_at": "2026-10-30T09:26:49.360193Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -35,7 +35,7 @@
           "image_url": "https://storage.ghost.io/c/dd/af/ddafbd99-2ccd-468c-b622-4b3cccf80b49/content/images/size/w1200/2026/10/XPB_1446853_HiRes.jpg",
           "video_url": null,
           "video_poster_url": "https://storage.ghost.io/c/dd/af/ddafbd99-2ccd-468c-b622-4b3cccf80b49/content/images/size/w1200/2026/10/XPB_1446853_HiRes.jpg",
-          "heat_contribution": 0.75,
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -108,9 +108,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 19,
+      "media_heat": 16,
       "fan_heat": 0,
-      "heat": 19,
+      "heat": 16,
       "source_labels": [
         "媒"
       ],
@@ -582,6 +582,54 @@
       "rank": 5
     },
     {
+      "event_id": "evt-2026-10-29-636ad1ecf97d",
+      "rule_id": null,
+      "hot_word_zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
+      "hot_word_en": "Oscar Piastri-related item discovered from public news metadata.",
+      "first_seen_at": "2026-10-29T13:46:08Z",
+      "last_seen_at": "2026-10-29T13:46:08Z",
+      "anchor_item_id": "piasnews-289210805419a087",
+      "image_url": "https://f1i.com/wp-content/uploads/2026/10/2301976727-1200x800-5b2df79.jpg",
+      "video_url": null,
+      "video_poster_url": "https://f1i.com/wp-content/uploads/2026/10/2301976727-1200x800-5b2df79.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-289210805419a087",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "F1i.com",
+          "title": "Steiner reverses course on Piastri: ‘No need to panic’",
+          "title_zh": "Steiner 对 Piastri 改变说法：“无需恐慌”",
+          "summary": "Oscar Piastri-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
+          "url": "https://f1i.com/news/576402-steiner-reverses-course-on-piastri-no-need-to-panic.html",
+          "published_at": "2026-10-29T13:46:08Z",
+          "image_url": "https://f1i.com/wp-content/uploads/2026/10/2301976727-1200x800-5b2df79.jpg",
+          "video_url": null,
+          "video_poster_url": "https://f1i.com/wp-content/uploads/2026/10/2301976727-1200x800-5b2df79.jpg",
+          "heat_contribution": 0.75,
+          "metrics": {}
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 13,
+      "fan_heat": 0,
+      "heat": 13,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 1,
+        "fan": 0
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 6
+    },
+    {
       "event_id": "evt-2026-10-25-e7f5c7158f39",
       "rule_id": null,
       "hot_word_zh": "Andrea Stella 赛前对 Oscar Piastri 的讲话证实他如今已非正式地…",
@@ -643,7 +691,7 @@
           "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/stella-piastri-1793026433093.jpg",
           "video_url": null,
           "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/stella-piastri-1793026433093.jpg",
-          "heat_contribution": 0.2,
+          "heat_contribution": 0.0,
           "metrics": {}
         },
         {
@@ -665,63 +713,15 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 16,
+      "media_heat": 12,
       "fan_heat": 0,
-      "heat": 16,
+      "heat": 12,
       "source_labels": [
         "媒"
       ],
       "source_counts": {
         "official": 0,
         "media": 4,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 6
-    },
-    {
-      "event_id": "evt-2026-10-29-636ad1ecf97d",
-      "rule_id": null,
-      "hot_word_zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
-      "hot_word_en": "Oscar Piastri-related item discovered from public news metadata.",
-      "first_seen_at": "2026-10-29T13:46:08Z",
-      "last_seen_at": "2026-10-29T13:46:08Z",
-      "anchor_item_id": "piasnews-289210805419a087",
-      "image_url": "https://f1i.com/wp-content/uploads/2026/10/2301976727-1200x800-5b2df79.jpg",
-      "video_url": null,
-      "video_poster_url": "https://f1i.com/wp-content/uploads/2026/10/2301976727-1200x800-5b2df79.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-289210805419a087",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "F1i.com",
-          "title": "Steiner reverses course on Piastri: ‘No need to panic’",
-          "title_zh": "Steiner 对 Piastri 改变说法：“无需恐慌”",
-          "summary": "Oscar Piastri-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
-          "url": "https://f1i.com/news/576402-steiner-reverses-course-on-piastri-no-need-to-panic.html",
-          "published_at": "2026-10-29T13:46:08Z",
-          "image_url": "https://f1i.com/wp-content/uploads/2026/10/2301976727-1200x800-5b2df79.jpg",
-          "video_url": null,
-          "video_poster_url": "https://f1i.com/wp-content/uploads/2026/10/2301976727-1200x800-5b2df79.jpg",
-          "heat_contribution": 0.75,
-          "metrics": {}
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 13,
-      "fan_heat": 0,
-      "heat": 13,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 1,
         "fan": 0
       },
       "pinned_rank": null,
@@ -777,71 +777,6 @@
       "rank": 8
     },
     {
-      "event_id": "evt-2026-10-27-0dd0cadadca6",
-      "rule_id": null,
-      "hot_word_zh": "Piastri 在 COTA 被发现在跟随 Hadjar 后“到处乱跑”的 Red Bul…",
-      "hot_word_en": "Rumor or speculative report; treat as unverified unless confirmed by official sources.",
-      "first_seen_at": "2026-10-26T02:42:29Z",
-      "last_seen_at": "2026-10-27T07:30:00Z",
-      "anchor_item_id": "piasnews-364faaaca55f36d2",
-      "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2301973487-scaled.jpg",
-      "video_url": null,
-      "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2301973487-scaled.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-364faaaca55f36d2",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "F1 Oversteer",
-          "title": "Piastri spotted ‘all over the place’ Red Bull issue following Hadjar at COTA",
-          "title_zh": "Piastri 在 COTA 被发现在跟随 Hadjar 后“到处乱跑”的 Red Bull 问题",
-          "summary": "Rumor or speculative report; treat as unverified unless confirmed by official sources.",
-          "summary_zh": "传闻或推测性报道；除非官方消息源确认，否则视为未经证实。",
-          "url": "https://www.f1oversteer.com/news/oscar-piastri-spotted-all-over-the-place-red-bull-issue-following-isack-hadjar-in-united-states-gp/",
-          "published_at": "2026-10-27T07:30:00Z",
-          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2301973487-scaled.jpg",
-          "video_url": null,
-          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2301973487-scaled.jpg",
-          "heat_contribution": 0.2,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-9c7a165d79bce3a3",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Auto Action",
-          "title": "Piastri’s Austin struggle leaves McLaren level with Red Bull",
-          "title_zh": "Piastri在奥斯汀的挣扎让McLaren与Red Bull持平",
-          "summary": "Rumor or speculative report; treat as unverified unless confirmed by official sources.",
-          "summary_zh": "传闻或推测性报道；除非官方消息源确认，否则视为未经证实。",
-          "url": "https://autoaction.com.au/2026/10/26/piastris-austin-struggle-leaves-mclaren-level-with-red-bull",
-          "published_at": "2026-10-26T02:42:29Z",
-          "image_url": "https://autoaction.com.au/wp-content/uploads/2026/10/Screenshot-2026-10-26-at-12.01.50-pm-e1792976833404.jpeg?v=1792976726",
-          "video_url": null,
-          "video_poster_url": "https://autoaction.com.au/wp-content/uploads/2026/10/Screenshot-2026-10-26-at-12.01.50-pm-e1792976833404.jpeg?v=1792976726",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 8,
-      "fan_heat": 0,
-      "heat": 8,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 2,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 9
-    },
-    {
       "event_id": "evt-2026-10-27-4b5173883185",
       "rule_id": null,
       "hot_word_zh": "Brundle 盛赞 Antonelli 的出色驾驶，而 Piastri 在 2026 款…",
@@ -887,10 +822,58 @@
       },
       "pinned_rank": null,
       "hidden": false,
+      "rank": 9
+    },
+    {
+      "event_id": "evt-2026-10-27-78eb10c668ea",
+      "rule_id": null,
+      "hot_word_zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
+      "hot_word_en": "Piastri warns about Austin's bumps and their impact on overtaking",
+      "first_seen_at": "2026-10-27T21:55:52Z",
+      "last_seen_at": "2026-10-27T21:55:52Z",
+      "anchor_item_id": "piasnews-84c1e339ddc216be",
+      "image_url": "https://foro3d.com/2026/octubre/imagenes/piastri-alerta-sobre-los-baches-de-austin-y-su-impacto-en-los-adelanta.webp",
+      "video_url": null,
+      "video_poster_url": "https://foro3d.com/2026/octubre/imagenes/piastri-alerta-sobre-los-baches-de-austin-y-su-impacto-en-los-adelanta.webp",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-84c1e339ddc216be",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Foro3D",
+          "title": "Piastri warns about Austin's bumps and their impact on overtaking",
+          "title_zh": "Piastri 提醒奥斯汀赛道的颠簸及其对超车的影响",
+          "summary": "Oscar Piastri-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
+          "url": "https://foro3d.com/en/2026/octubre/piastri-alerta-sobre-los-baches-de-austin-y-su-impacto-en-los-adelanta.html",
+          "published_at": "2026-10-27T21:55:52Z",
+          "image_url": "https://foro3d.com/2026/octubre/imagenes/piastri-alerta-sobre-los-baches-de-austin-y-su-impacto-en-los-adelanta.webp",
+          "video_url": null,
+          "video_poster_url": "https://foro3d.com/2026/octubre/imagenes/piastri-alerta-sobre-los-baches-de-austin-y-su-impacto-en-los-adelanta.webp",
+          "heat_contribution": 0.2,
+          "metrics": {}
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 8,
+      "fan_heat": 0,
+      "heat": 8,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 1,
+        "fan": 0
+      },
+      "pinned_rank": null,
+      "hidden": false,
       "rank": 10
     }
   ],
-  "review_needed_count": 31,
+  "review_needed_count": 28,
   "review_needed_events": [
     {
       "event_id": "evt-2026-10-28-bd739e2152f8",
@@ -1005,64 +988,6 @@
       }
     },
     {
-      "event_id": "evt-2026-10-28-bf46f359b1db",
-      "rule_id": null,
-      "hot_word_zh": "Somesuch 导演谈与 Oscar 合作拍摄 Google Pixel 新广告：“Os…",
-      "hot_word_en": "somesuch director on working with oscar for the new google pixel ad: \"oscar makes creating a funny & engaging…",
-      "first_seen_at": "2026-10-28T09:11:34Z",
-      "last_seen_at": "2026-10-28T09:11:34Z",
-      "anchor_item_id": "piasnews-social-e5f5431f6bb96b54",
-      "image_url": "https://pbs.twimg.com/media/HVtOl6-XgAAX1La.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HVtOl6-XgAAX1La.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-e5f5431f6bb96b54",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: somesuch director on working with oscar for the new google pixel ad: \"oscar makes creating a fu…",
-          "title_zh": "X 发帖 @laurogeitabat：Somesuch 导演谈与 Oscar 合作拍摄 Google Pixel 新广告：“Oscar 让和一个非演员的人一起创作出有趣又吸引人的表演变得很容易。他有独特的冷面幽默和令人不安的镇定，这让他做自己时就自然好笑。”",
-          "summary": "somesuch director on working with oscar for the new google pixel ad: \"oscar makes creating a funny &amp; engaging performance with someone who isn't an actor easy. he has a unique, deadpan tone and unnerving unflappability that make him naturally funny when he's just being himself.\" https://t.co/euBf18Yvd4",
-          "summary_zh": "Somesuch 导演谈与 Oscar 合作拍摄 Google Pixel 新广告：“Oscar 让和一个非演员的人一起创作出有趣又吸引人的表演变得很容易。他有独特的冷面幽默和令人不安的镇定，这让他做自己时就自然好笑。”",
-          "url": "https://x.com/laurogeitabat/status/2115370883204120710",
-          "published_at": "2026-10-28T09:11:34Z",
-          "image_url": "https://pbs.twimg.com/media/HVtOl6-XgAAX1La.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HVtOl6-XgAAX1La.jpg",
-          "heat_contribution": 6.7765,
-          "metrics": {
-            "likes": 1415,
-            "retweets": 131,
-            "replies": 2,
-            "quotes": 0,
-            "views": 26365,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 36,
-      "heat": 36,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-10-27-7fdc208f22bb-7fdc208f",
       "rule_id": null,
       "hot_word_zh": "oscar：头盔的尺寸是可以改的 lando：可以的！",
@@ -1097,64 +1022,6 @@
             "replies": 2,
             "quotes": 0,
             "views": 44233,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 34,
-      "heat": 34,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-27-fb97811ab675",
-      "rule_id": null,
-      "hot_word_zh": "McLadmin让团队成员画一顶牛仔帽，但Oscar却画了一顶软木帽 😭😭😭 澳洲气质流淌…",
-      "hot_word_en": "mcladmin asked team members to draw a cowboy hat but oscar drew a cork hat instead 😭😭😭 aussieness runs in his…",
-      "first_seen_at": "2026-10-27T08:11:02Z",
-      "last_seen_at": "2026-10-27T08:11:02Z",
-      "anchor_item_id": "piasnews-social-67ab8032e73a1897",
-      "image_url": "https://pbs.twimg.com/media/HVn3IRTWQAAO1l_.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HVn3IRTWQAAO1l_.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-67ab8032e73a1897",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: mcladmin asked team members to draw a cowboy hat but oscar drew a cork hat instead 😭😭😭 aussiene…",
-          "title_zh": "X 发帖 @laurogeitabat：McLadmin让团队成员画一顶牛仔帽，但Oscar却画了一顶软木帽 😭😭😭 澳洲气质流淌在他的血液里",
-          "summary": "mcladmin asked team members to draw a cowboy hat but oscar drew a cork hat instead 😭😭😭 aussieness runs in his veins https://t.co/whH7zZn3Rr",
-          "summary_zh": "McLadmin让团队成员画一顶牛仔帽，但Oscar却画了一顶软木帽 😭😭😭 澳洲气质流淌在他的血液里",
-          "url": "https://x.com/laurogeitabat/status/2114993258040348811",
-          "published_at": "2026-10-27T08:11:02Z",
-          "image_url": "https://pbs.twimg.com/media/HVn3IRTWQAAO1l_.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HVn3IRTWQAAO1l_.jpg",
-          "heat_contribution": 6.3827,
-          "metrics": {
-            "likes": 2379,
-            "retweets": 158,
-            "replies": 3,
-            "quotes": 0,
-            "views": 24867,
             "bookmarks": 0
           }
         }
@@ -1353,40 +1220,40 @@
       }
     },
     {
-      "event_id": "evt-2026-10-27-a5e7dc172f85",
+      "event_id": "evt-2026-10-28-bf46f359b1db",
       "rule_id": null,
-      "hot_word_zh": "“大家好！我听说你们是McLaren的超级粉丝，我很激动被邀请进群聊。我保证真的是我。",
-      "hot_word_en": "\"hey guys! i heard you are big mclaren fans and i'm so excited to be invited to the group chat.",
-      "first_seen_at": "2026-10-27T08:34:52Z",
-      "last_seen_at": "2026-10-27T08:34:52Z",
-      "anchor_item_id": "piasnews-social-4df539c9101b8b67",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2114999216305000448/vid/avc1/320x568/_h30c3U_jgLTjFqE.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2114999216305000448/img/jJTO4vY-_-0dyijy.jpg",
+      "hot_word_zh": "Somesuch 导演谈与 Oscar 合作拍摄 Google Pixel 新广告：“Os…",
+      "hot_word_en": "somesuch director on working with oscar for the new google pixel ad: \"oscar makes creating a funny & engaging…",
+      "first_seen_at": "2026-10-28T09:11:34Z",
+      "last_seen_at": "2026-10-28T09:11:34Z",
+      "anchor_item_id": "piasnews-social-e5f5431f6bb96b54",
+      "image_url": "https://pbs.twimg.com/media/HVtOl6-XgAAX1La.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HVtOl6-XgAAX1La.jpg",
       "review_needed": true,
       "review_needed_reason": "fan_account_public_cap",
       "items": [
         {
-          "item_id": "piasnews-social-4df539c9101b8b67",
+          "item_id": "piasnews-social-e5f5431f6bb96b54",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: \"hey guys! i heard you are big mclaren fans and i'm so excited to be invited to the group chat.…",
-          "title_zh": "X 发帖 @laurogeitabat：“大家好！我听说你们是McLaren的超级粉丝，我很激动被邀请进群聊。我保证真的是我。准备好迎接表情包吧！”哦，能和Oscar在同一个群聊里 😭😭",
-          "summary": "\"hey guys! i heard you are big mclaren fans and i'm so excited to be invited to the group chat. i promise it's really me. get ready for the memes!\" oh to be in a gc with oscar 😭😭 https://t.co/4oHpJNEfKY",
-          "summary_zh": "“大家好！我听说你们是McLaren的超级粉丝，我很激动被邀请进群聊。我保证真的是我。准备好迎接表情包吧！”哦，能和Oscar在同一个群聊里 😭😭",
-          "url": "https://x.com/laurogeitabat/status/2114999257325277277",
-          "published_at": "2026-10-27T08:34:52Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2114999216305000448/vid/avc1/320x568/_h30c3U_jgLTjFqE.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2114999216305000448/img/jJTO4vY-_-0dyijy.jpg",
-          "heat_contribution": 5.8699,
+          "title": "X post from @laurogeitabat: somesuch director on working with oscar for the new google pixel ad: \"oscar makes creating a fu…",
+          "title_zh": "X 发帖 @laurogeitabat：Somesuch 导演谈与 Oscar 合作拍摄 Google Pixel 新广告：“Oscar 让和一个非演员的人一起创作出有趣又吸引人的表演变得很容易。他有独特的冷面幽默和令人不安的镇定，这让他做自己时就自然好笑。”",
+          "summary": "somesuch director on working with oscar for the new google pixel ad: \"oscar makes creating a funny &amp; engaging performance with someone who isn't an actor easy. he has a unique, deadpan tone and unnerving unflappability that make him naturally funny when he's just being himself.\" https://t.co/euBf18Yvd4",
+          "summary_zh": "Somesuch 导演谈与 Oscar 合作拍摄 Google Pixel 新广告：“Oscar 让和一个非演员的人一起创作出有趣又吸引人的表演变得很容易。他有独特的冷面幽默和令人不安的镇定，这让他做自己时就自然好笑。”",
+          "url": "https://x.com/laurogeitabat/status/2115370883204120710",
+          "published_at": "2026-10-28T09:11:34Z",
+          "image_url": "https://pbs.twimg.com/media/HVtOl6-XgAAX1La.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HVtOl6-XgAAX1La.jpg",
+          "heat_contribution": 5.967,
           "metrics": {
-            "likes": 1351,
-            "retweets": 93,
-            "replies": 6,
+            "likes": 1415,
+            "retweets": 131,
+            "replies": 2,
             "quotes": 0,
-            "views": 21111,
+            "views": 26365,
             "bookmarks": 0
           }
         }
@@ -2489,64 +2356,6 @@
             "replies": 0,
             "quotes": 0,
             "views": 241,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 22,
-      "heat": 22,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-27-d772c5508849",
-      "rule_id": null,
-      "hot_word_zh": "他们想让我相信我的GOAT发消息像个老年人",
-      "hot_word_en": "they want me to believe my goat texts like a boomer",
-      "first_seen_at": "2026-10-27T08:35:29Z",
-      "last_seen_at": "2026-10-27T08:35:29Z",
-      "anchor_item_id": "piasnews-social-91ce516f24463fff",
-      "image_url": "https://pbs.twimg.com/media/HVn8vgeWwAEwXJV.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HVn8vgeWwAEwXJV.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-91ce516f24463fff",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: they want me to believe my goat texts like a boomer",
-          "title_zh": "X 发帖 @laurogeitabat：他们想让我相信我的GOAT发消息像个老年人",
-          "summary": "they want me to believe my goat texts like a boomer https://t.co/URg7ewQCEM",
-          "summary_zh": "他们想让我相信我的GOAT发消息像个老年人",
-          "url": "https://x.com/laurogeitabat/status/2114999413412176173",
-          "published_at": "2026-10-27T08:35:29Z",
-          "image_url": "https://pbs.twimg.com/media/HVn8vgeWwAEwXJV.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HVn8vgeWwAEwXJV.jpg",
-          "heat_contribution": 3.8548,
-          "metrics": {
-            "likes": 165,
-            "retweets": 6,
-            "replies": 0,
-            "quotes": 0,
-            "views": 5410,
             "bookmarks": 0
           }
         }
