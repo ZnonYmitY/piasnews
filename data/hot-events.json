@@ -1,12 +1,71 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-30T23:21:03.191718Z",
+  "generated_at": "2026-10-30T23:35:59.852961Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
   "event_count": 10,
   "events": [
+    {
+      "event_id": "evt-session-result-2026-round-19-practice_2",
+      "rule_id": null,
+      "hot_word_zh": "Oscar 在墨西哥城站二练获得第10名",
+      "hot_word_en": "Oscar finishes P10 in Mexico City Grand Prix Practice 2",
+      "first_seen_at": "2026-10-30T23:35:58.612230Z",
+      "last_seen_at": "2026-10-30T23:35:58.612230Z",
+      "anchor_item_id": "session-result-2026-round-19-practice_2",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "official_heat": 0,
+      "media_heat": 100,
+      "fan_heat": 0,
+      "heat": 100,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 1,
+        "fan": 0
+      },
+      "pinned_rank": 1,
+      "hidden": false,
+      "hard_rule": {
+        "type": "session_result",
+        "race_id": "2026-round-19",
+        "session": "practice_2",
+        "position": 10,
+        "status": "classified",
+        "provisional": false,
+        "source_item_id": "session-result-2026-round-19-practice_2",
+        "source": "OpenF1",
+        "latest": true
+      },
+      "items": [
+        {
+          "item_id": "session-result-2026-round-19-practice_2",
+          "dataset": "session_result",
+          "source_type": "media",
+          "source": "OpenF1",
+          "title": "Oscar finishes P10 in Mexico City Grand Prix Practice 2",
+          "title_zh": "Oscar 在墨西哥城站二练获得第10名",
+          "summary": "Structured session result for Oscar Piastri.",
+          "summary_zh": "Oscar Piastri 的结构化场次成绩。",
+          "url": "https://api.openf1.org/v1/session_result?session_key=11398&driver_number=81",
+          "published_at": "2026-10-30T23:35:58.612230Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 100,
+          "metrics": {}
+        }
+      ],
+      "rank": 1
+    },
     {
       "event_id": "evt-session-result-2026-round-19-practice_1",
       "rule_id": null,
@@ -32,7 +91,7 @@
         "media": 1,
         "fan": 0
       },
-      "pinned_rank": 1,
+      "pinned_rank": null,
       "hidden": false,
       "hard_rule": {
         "type": "session_result",
@@ -43,7 +102,7 @@
         "provisional": false,
         "source_item_id": "session-result-2026-round-19-practice_1",
         "source": "OpenF1",
-        "latest": true
+        "latest": false
       },
       "items": [
         {
@@ -64,7 +123,7 @@
           "metrics": {}
         }
       ],
-      "rank": 1
+      "rank": 2
     },
     {
       "event_id": "evt-2026-10-27-b23cc82f4f7c",
@@ -520,7 +579,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 2
+      "rank": 3
     },
     {
       "event_id": "evt-2026-10-28-6f68a290864c",
@@ -575,7 +634,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 3
+      "rank": 4
     },
     {
       "event_id": "evt-2026-10-28-49ebd0bdec9c-bd723536",
@@ -654,7 +713,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 4
+      "rank": 5
     },
     {
       "event_id": "evt-2026-10-28-49ebd0bdec9c",
@@ -795,7 +854,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 5
+      "rank": 6
     },
     {
       "event_id": "evt-2026-10-27-0007e0bbb18d",
@@ -894,7 +953,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 7
     },
     {
       "event_id": "evt-2026-10-30-8b284e0cc847",
@@ -976,7 +1035,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 8
     },
     {
       "event_id": "evt-mclaren-title-fight",
@@ -1058,7 +1117,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 9
     },
     {
       "event_id": "evt-2026-10-27-ce4b076fd194",
@@ -1119,54 +1178,6 @@
       "source_counts": {
         "official": 0,
         "media": 2,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 9
-    },
-    {
-      "event_id": "evt-2026-10-29-636ad1ecf97d",
-      "rule_id": null,
-      "hot_word_zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
-      "hot_word_en": "Oscar Piastri-related item discovered from public news metadata.",
-      "first_seen_at": "2026-10-29T13:46:08Z",
-      "last_seen_at": "2026-10-29T13:46:08Z",
-      "anchor_item_id": "piasnews-289210805419a087",
-      "image_url": "https://f1i.com/wp-content/uploads/2026/10/2301976727-1200x800-5b2df79.jpg",
-      "video_url": null,
-      "video_poster_url": "https://f1i.com/wp-content/uploads/2026/10/2301976727-1200x800-5b2df79.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-289210805419a087",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "F1i.com",
-          "title": "Steiner reverses course on Piastri: ‘No need to panic’",
-          "title_zh": "Steiner 对 Piastri 改变说法：“无需恐慌”",
-          "summary": "Oscar Piastri-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
-          "url": "https://f1i.com/news/576402-steiner-reverses-course-on-piastri-no-need-to-panic.html",
-          "published_at": "2026-10-29T13:46:08Z",
-          "image_url": "https://f1i.com/wp-content/uploads/2026/10/2301976727-1200x800-5b2df79.jpg",
-          "video_url": null,
-          "video_poster_url": "https://f1i.com/wp-content/uploads/2026/10/2301976727-1200x800-5b2df79.jpg",
-          "heat_contribution": 0.45,
-          "metrics": {}
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 10,
-      "fan_heat": 0,
-      "heat": 10,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 1,
         "fan": 0
       },
       "pinned_rank": null,
