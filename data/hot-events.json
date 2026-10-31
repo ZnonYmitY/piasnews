@@ -1,12 +1,71 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-31T18:51:00.894269Z",
+  "generated_at": "2026-10-31T19:06:02.667704Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
   "event_count": 10,
   "events": [
+    {
+      "event_id": "evt-session-result-2026-round-19-practice_3",
+      "rule_id": null,
+      "hot_word_zh": "Oscar 在墨西哥城站三练获得第4名",
+      "hot_word_en": "Oscar finishes P4 in Mexico City Grand Prix Practice 3",
+      "first_seen_at": "2026-10-31T19:06:01.552602Z",
+      "last_seen_at": "2026-10-31T19:06:01.552602Z",
+      "anchor_item_id": "session-result-2026-round-19-practice_3",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "official_heat": 0,
+      "media_heat": 100,
+      "fan_heat": 0,
+      "heat": 100,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 1,
+        "fan": 0
+      },
+      "pinned_rank": 1,
+      "hidden": false,
+      "hard_rule": {
+        "type": "session_result",
+        "race_id": "2026-round-19",
+        "session": "practice_3",
+        "position": 4,
+        "status": "classified",
+        "provisional": false,
+        "source_item_id": "session-result-2026-round-19-practice_3",
+        "source": "OpenF1",
+        "latest": true
+      },
+      "items": [
+        {
+          "item_id": "session-result-2026-round-19-practice_3",
+          "dataset": "session_result",
+          "source_type": "media",
+          "source": "OpenF1",
+          "title": "Oscar finishes P4 in Mexico City Grand Prix Practice 3",
+          "title_zh": "Oscar 在墨西哥城站三练获得第4名",
+          "summary": "Structured session result for Oscar Piastri.",
+          "summary_zh": "Oscar Piastri 的结构化场次成绩。",
+          "url": "https://api.openf1.org/v1/session_result?session_key=11399&driver_number=81",
+          "published_at": "2026-10-31T19:06:01.552602Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 100,
+          "metrics": {}
+        }
+      ],
+      "rank": 1
+    },
     {
       "event_id": "evt-session-result-2026-round-19-practice_2",
       "rule_id": null,
@@ -32,7 +91,7 @@
         "media": 1,
         "fan": 0
       },
-      "pinned_rank": 1,
+      "pinned_rank": null,
       "hidden": false,
       "hard_rule": {
         "type": "session_result",
@@ -43,7 +102,7 @@
         "provisional": false,
         "source_item_id": "session-result-2026-round-19-practice_2",
         "source": "OpenF1",
-        "latest": true
+        "latest": false
       },
       "items": [
         {
@@ -64,7 +123,7 @@
           "metrics": {}
         }
       ],
-      "rank": 1
+      "rank": 2
     },
     {
       "event_id": "evt-session-result-2026-round-19-practice_1",
@@ -123,7 +182,7 @@
           "metrics": {}
         }
       ],
-      "rank": 2
+      "rank": 3
     },
     {
       "event_id": "evt-2026-10-27-b23cc82f4f7c",
@@ -238,7 +297,7 @@
           "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2301976315-scaled.jpg",
           "video_url": null,
           "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2301976315-scaled.jpg",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -566,9 +625,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 42,
+      "media_heat": 41,
       "fan_heat": 0,
-      "heat": 42,
+      "heat": 41,
       "source_labels": [
         "媒"
       ],
@@ -579,7 +638,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 3
+      "rank": 4
     },
     {
       "event_id": "evt-2026-10-30-e4221493167c",
@@ -658,7 +717,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 4
+      "rank": 5
     },
     {
       "event_id": "evt-2026-10-29-06dd8c6df0d0",
@@ -713,7 +772,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 5
+      "rank": 6
     },
     {
       "event_id": "evt-2026-10-27-0007e0bbb18d",
@@ -812,7 +871,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 7
     },
     {
       "event_id": "evt-2026-10-28-49ebd0bdec9c",
@@ -952,7 +1011,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 8
     },
     {
       "event_id": "evt-2026-10-30-8b284e0cc847",
@@ -1034,7 +1093,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 9
     },
     {
       "event_id": "evt-mclaren-title-fight",
@@ -1112,71 +1171,6 @@
       "source_counts": {
         "official": 0,
         "media": 3,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 9
-    },
-    {
-      "event_id": "evt-2026-10-27-ce4b076fd194",
-      "rule_id": null,
-      "hot_word_zh": "美国大奖赛：Martin Brundle 评点 Kimi Antonelli 在奥斯汀的“…",
-      "hot_word_en": "United States GP: Martin Brundle's verdict on 'outstanding' Kimi Antonelli win in Austin and Oscar Piastri's…",
-      "first_seen_at": "2026-10-27T10:30:00Z",
-      "last_seen_at": "2026-10-29T07:16:47Z",
-      "anchor_item_id": "piasnews-2d551b7e9135c8e1",
-      "image_url": "https://storage.ghost.io/c/dd/af/ddafbd99-2ccd-468c-b622-4b3cccf80b49/content/images/size/w1200/2026/10/XPB_1446853_HiRes.jpg",
-      "video_url": null,
-      "video_poster_url": "https://storage.ghost.io/c/dd/af/ddafbd99-2ccd-468c-b622-4b3cccf80b49/content/images/size/w1200/2026/10/XPB_1446853_HiRes.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-1a59d219950d4023",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "The Race",
-          "title": "'Superpower' neutered - Piastri's fresh F1 struggles explained",
-          "title_zh": "“超能力”被削弱——Piastri 近期 F1 困境解析",
-          "summary": "Oscar Piastri-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
-          "url": "https://www.the-race.com/formula-1/superpower-neutered-piastris-fresh-f1-struggles-explained/",
-          "published_at": "2026-10-29T07:16:47Z",
-          "image_url": "https://storage.ghost.io/c/dd/af/ddafbd99-2ccd-468c-b622-4b3cccf80b49/content/images/size/w1200/2026/10/XPB_1446853_HiRes.jpg",
-          "video_url": null,
-          "video_poster_url": "https://storage.ghost.io/c/dd/af/ddafbd99-2ccd-468c-b622-4b3cccf80b49/content/images/size/w1200/2026/10/XPB_1446853_HiRes.jpg",
-          "heat_contribution": 0.2,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-2d551b7e9135c8e1",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Sky Sports",
-          "title": "United States GP: Martin Brundle's verdict on 'outstanding' Kimi Antonelli win in Austin and Oscar Piastri's struggles in 2026 F1 cars",
-          "title_zh": "美国大奖赛：Martin Brundle 评点 Kimi Antonelli 在奥斯汀的“出色”胜利，以及 Oscar Piastri 在2026年F1赛车中的挣扎",
-          "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与比赛周或性能相关的内容。",
-          "url": "https://www.skysports.com/f1/news/13604035/united-states-gp-martin-brundles-verdict-on-outstanding-kimi-antonelli-win-in-austin-and-oscar-piastris-struggles-in-2026-f1-cars",
-          "published_at": "2026-10-27T10:30:00Z",
-          "image_url": "https://e0.365dm.com/26/10/1600x900/skysports-f1-kimi-antonelli_7388551.jpg?20261027102026",
-          "video_url": null,
-          "video_poster_url": "https://e0.365dm.com/26/10/1600x900/skysports-f1-kimi-antonelli_7388551.jpg?20261027102026",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 8,
-      "fan_heat": 0,
-      "heat": 8,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 2,
         "fan": 0
       },
       "pinned_rank": null,
