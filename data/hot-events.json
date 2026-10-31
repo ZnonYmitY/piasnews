@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-31T19:06:02.667704Z",
+  "generated_at": "2026-10-31T22:21:04.827740Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -126,65 +126,6 @@
       "rank": 2
     },
     {
-      "event_id": "evt-session-result-2026-round-19-practice_1",
-      "rule_id": null,
-      "hot_word_zh": "Oscar 在墨西哥城站一练获得第8名",
-      "hot_word_en": "Oscar finishes P8 in Mexico City Grand Prix Practice 1",
-      "first_seen_at": "2026-10-30T20:06:56.722983Z",
-      "last_seen_at": "2026-10-30T20:06:56.722983Z",
-      "anchor_item_id": "session-result-2026-round-19-practice_1",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": false,
-      "review_needed_reason": null,
-      "official_heat": 0,
-      "media_heat": 100,
-      "fan_heat": 0,
-      "heat": 100,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 1,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "hard_rule": {
-        "type": "session_result",
-        "race_id": "2026-round-19",
-        "session": "practice_1",
-        "position": 8,
-        "status": "classified",
-        "provisional": false,
-        "source_item_id": "session-result-2026-round-19-practice_1",
-        "source": "OpenF1",
-        "latest": false
-      },
-      "items": [
-        {
-          "item_id": "session-result-2026-round-19-practice_1",
-          "dataset": "session_result",
-          "source_type": "media",
-          "source": "OpenF1",
-          "title": "Oscar finishes P8 in Mexico City Grand Prix Practice 1",
-          "title_zh": "Oscar 在墨西哥城站一练获得第8名",
-          "summary": "Structured session result for Oscar Piastri.",
-          "summary_zh": "Oscar Piastri 的结构化场次成绩。",
-          "url": "https://api.openf1.org/v1/session_result?session_key=11397&driver_number=81",
-          "published_at": "2026-10-30T20:06:56.722983Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 100,
-          "metrics": {}
-        }
-      ],
-      "rank": 3
-    },
-    {
       "event_id": "evt-2026-10-27-b23cc82f4f7c",
       "rule_id": null,
       "hot_word_zh": "Google Pixel通过Emotive在Oscar Piastri第三章中让澳洲人对手…",
@@ -212,7 +153,7 @@
           "image_url": "https://formularapida.net/wp-content/uploads/2026/10/image-971.jpg",
           "video_url": null,
           "video_poster_url": "https://formularapida.net/wp-content/uploads/2026/10/image-971.jpg",
-          "heat_contribution": 0.75,
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -348,7 +289,7 @@
           "image_url": "https://sportsbase.io/images/gpfans/copy_1200x800/b239b104bf94bc244c1dd28c1cd0211a65a99640.jpg",
           "video_url": null,
           "video_poster_url": "https://sportsbase.io/images/gpfans/copy_1200x800/b239b104bf94bc244c1dd28c1cd0211a65a99640.jpg",
-          "heat_contribution": 0.2,
+          "heat_contribution": 0.0,
           "metrics": {}
         },
         {
@@ -365,7 +306,7 @@
           "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-07%2Fpiastri-gb-6a4e391d93b7c.jpg",
           "video_url": null,
           "video_poster_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-07%2Fpiastri-gb-6a4e391d93b7c.jpg",
-          "heat_contribution": 0.2,
+          "heat_contribution": 0.0,
           "metrics": {}
         },
         {
@@ -382,7 +323,7 @@
           "image_url": "https://s.yimg.com/lo/mysterio/api/09c1f3e0a48727b3fd64202a5dcf650603c217e4df4e3b39c201e801fea5ed53/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fgpblog_716%2F152a7347124e149bb44b167e0db00b4c",
           "video_url": null,
           "video_poster_url": "https://s.yimg.com/lo/mysterio/api/09c1f3e0a48727b3fd64202a5dcf650603c217e4df4e3b39c201e801fea5ed53/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fgpblog_716%2F152a7347124e149bb44b167e0db00b4c",
-          "heat_contribution": 0.2,
+          "heat_contribution": 0.0,
           "metrics": {}
         },
         {
@@ -399,7 +340,7 @@
           "image_url": "https://lentedesportiva.com/wp-content/uploads/2026/10/lente-973af95d-13c7-4827-8e8f-50df10947e6d.png",
           "video_url": null,
           "video_poster_url": "https://lentedesportiva.com/wp-content/uploads/2026/10/lente-973af95d-13c7-4827-8e8f-50df10947e6d.png",
-          "heat_contribution": 0.2,
+          "heat_contribution": 0.0,
           "metrics": {}
         },
         {
@@ -625,9 +566,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 41,
+      "media_heat": 33,
       "fan_heat": 0,
-      "heat": 41,
+      "heat": 33,
       "source_labels": [
         "媒"
       ],
@@ -638,86 +579,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 4
-    },
-    {
-      "event_id": "evt-2026-10-30-e4221493167c",
-      "rule_id": null,
-      "hot_word_zh": "oscar 和 lando 对 leo 太慢玩 bop it 的反应，当时他们正要拿到个人…",
-      "hot_word_en": "oscar and lando's reactions to leo being too slow playing bop it when they were about to get a PB 😭😭",
-      "first_seen_at": "2026-10-29T22:03:20Z",
-      "last_seen_at": "2026-10-30T09:07:26Z",
-      "anchor_item_id": "piasnews-social-3fd3369fd8f789f7",
-      "image_url": "https://pbs.twimg.com/media/HV1I0YNXAAAym6f.jpg",
-      "video_url": "https://video.twimg.com/amplify_video/2116094458533912576/vid/avc1/320x568/9vEoC09wPl7gNqA1.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/media/HV1I0YNXAAAym6f.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-cb813f60a4727602",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar, lando and leo playing bop it!!",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar、Lando和Leo在玩Bop It！！",
-          "summary": "oscar, lando and leo playing bop it!! https://t.co/D91mEmuOZj",
-          "summary_zh": "Oscar、Lando和Leo在玩Bop It！！",
-          "url": "https://x.com/laurogeitabat/status/2115927491680579617",
-          "published_at": "2026-10-29T22:03:20Z",
-          "image_url": "https://pbs.twimg.com/media/HV1I0YNXAAAym6f.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HV1I0YNXAAAym6f.jpg",
-          "heat_contribution": 5.3866,
-          "metrics": {
-            "likes": 375,
-            "retweets": 35,
-            "replies": 0,
-            "quotes": 0,
-            "views": 3824,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-3fd3369fd8f789f7",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar and lando's reactions to leo being too slow playing bop it when they were about to get a…",
-          "title_zh": "X 发帖 @laurogeitabat：oscar 和 lando 对 leo 太慢玩 bop it 的反应，当时他们正要拿到个人最好成绩 😭😭",
-          "summary": "oscar and lando's reactions to leo being too slow playing bop it when they were about to get a PB 😭😭 https://t.co/7mh24eY3oS",
-          "summary_zh": "oscar 和 lando 对 leo 太慢玩 bop it 的反应，当时他们正要拿到个人最好成绩 😭😭",
-          "url": "https://x.com/laurogeitabat/status/2116094615782658113",
-          "published_at": "2026-10-30T09:07:26Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2116094458533912576/vid/avc1/320x568/9vEoC09wPl7gNqA1.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2116094458533912576/img/nP_IO98vF-Qn8Frr.jpg",
-          "heat_contribution": 3.8028,
-          "metrics": {
-            "likes": 75,
-            "retweets": 6,
-            "replies": 0,
-            "quotes": 0,
-            "views": 1039,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 37,
-      "heat": 37,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 5
+      "rank": 3
     },
     {
       "event_id": "evt-2026-10-29-06dd8c6df0d0",
@@ -772,7 +634,86 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 4
+    },
+    {
+      "event_id": "evt-2026-10-30-e4221493167c",
+      "rule_id": null,
+      "hot_word_zh": "oscar 和 lando 对 leo 太慢玩 bop it 的反应，当时他们正要拿到个人…",
+      "hot_word_en": "oscar and lando's reactions to leo being too slow playing bop it when they were about to get a PB 😭😭",
+      "first_seen_at": "2026-10-29T22:03:20Z",
+      "last_seen_at": "2026-10-30T09:07:26Z",
+      "anchor_item_id": "piasnews-social-3fd3369fd8f789f7",
+      "image_url": "https://pbs.twimg.com/media/HV1I0YNXAAAym6f.jpg",
+      "video_url": "https://video.twimg.com/amplify_video/2116094458533912576/vid/avc1/320x568/9vEoC09wPl7gNqA1.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/media/HV1I0YNXAAAym6f.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-cb813f60a4727602",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar, lando and leo playing bop it!!",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar、Lando和Leo在玩Bop It！！",
+          "summary": "oscar, lando and leo playing bop it!! https://t.co/D91mEmuOZj",
+          "summary_zh": "Oscar、Lando和Leo在玩Bop It！！",
+          "url": "https://x.com/laurogeitabat/status/2115927491680579617",
+          "published_at": "2026-10-29T22:03:20Z",
+          "image_url": "https://pbs.twimg.com/media/HV1I0YNXAAAym6f.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HV1I0YNXAAAym6f.jpg",
+          "heat_contribution": 4.5814,
+          "metrics": {
+            "likes": 375,
+            "retweets": 35,
+            "replies": 0,
+            "quotes": 0,
+            "views": 3824,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-3fd3369fd8f789f7",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar and lando's reactions to leo being too slow playing bop it when they were about to get a…",
+          "title_zh": "X 发帖 @laurogeitabat：oscar 和 lando 对 leo 太慢玩 bop it 的反应，当时他们正要拿到个人最好成绩 😭😭",
+          "summary": "oscar and lando's reactions to leo being too slow playing bop it when they were about to get a PB 😭😭 https://t.co/7mh24eY3oS",
+          "summary_zh": "oscar 和 lando 对 leo 太慢玩 bop it 的反应，当时他们正要拿到个人最好成绩 😭😭",
+          "url": "https://x.com/laurogeitabat/status/2116094615782658113",
+          "published_at": "2026-10-30T09:07:26Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2116094458533912576/vid/avc1/320x568/9vEoC09wPl7gNqA1.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2116094458533912576/img/nP_IO98vF-Qn8Frr.jpg",
+          "heat_contribution": 3.8028,
+          "metrics": {
+            "likes": 75,
+            "retweets": 6,
+            "replies": 0,
+            "quotes": 0,
+            "views": 1039,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 33,
+      "heat": 33,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 5
     },
     {
       "event_id": "evt-2026-10-27-0007e0bbb18d",
@@ -871,7 +812,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 6
     },
     {
       "event_id": "evt-2026-10-28-49ebd0bdec9c",
@@ -1011,7 +952,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 7
     },
     {
       "event_id": "evt-2026-10-30-8b284e0cc847",
@@ -1093,7 +1034,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 9
+      "rank": 8
     },
     {
       "event_id": "evt-mclaren-title-fight",
@@ -1175,10 +1116,75 @@
       },
       "pinned_rank": null,
       "hidden": false,
+      "rank": 9
+    },
+    {
+      "event_id": "evt-2026-10-27-ce4b076fd194",
+      "rule_id": null,
+      "hot_word_zh": "美国大奖赛：Martin Brundle 评点 Kimi Antonelli 在奥斯汀的“…",
+      "hot_word_en": "United States GP: Martin Brundle's verdict on 'outstanding' Kimi Antonelli win in Austin and Oscar Piastri's…",
+      "first_seen_at": "2026-10-27T10:30:00Z",
+      "last_seen_at": "2026-10-29T07:16:47Z",
+      "anchor_item_id": "piasnews-2d551b7e9135c8e1",
+      "image_url": "https://storage.ghost.io/c/dd/af/ddafbd99-2ccd-468c-b622-4b3cccf80b49/content/images/size/w1200/2026/10/XPB_1446853_HiRes.jpg",
+      "video_url": null,
+      "video_poster_url": "https://storage.ghost.io/c/dd/af/ddafbd99-2ccd-468c-b622-4b3cccf80b49/content/images/size/w1200/2026/10/XPB_1446853_HiRes.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-1a59d219950d4023",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "The Race",
+          "title": "'Superpower' neutered - Piastri's fresh F1 struggles explained",
+          "title_zh": "“超能力”被削弱——Piastri 近期 F1 困境解析",
+          "summary": "Oscar Piastri-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
+          "url": "https://www.the-race.com/formula-1/superpower-neutered-piastris-fresh-f1-struggles-explained/",
+          "published_at": "2026-10-29T07:16:47Z",
+          "image_url": "https://storage.ghost.io/c/dd/af/ddafbd99-2ccd-468c-b622-4b3cccf80b49/content/images/size/w1200/2026/10/XPB_1446853_HiRes.jpg",
+          "video_url": null,
+          "video_poster_url": "https://storage.ghost.io/c/dd/af/ddafbd99-2ccd-468c-b622-4b3cccf80b49/content/images/size/w1200/2026/10/XPB_1446853_HiRes.jpg",
+          "heat_contribution": 0.2,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-2d551b7e9135c8e1",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Sky Sports",
+          "title": "United States GP: Martin Brundle's verdict on 'outstanding' Kimi Antonelli win in Austin and Oscar Piastri's struggles in 2026 F1 cars",
+          "title_zh": "美国大奖赛：Martin Brundle 评点 Kimi Antonelli 在奥斯汀的“出色”胜利，以及 Oscar Piastri 在2026年F1赛车中的挣扎",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的与比赛周或性能相关的内容。",
+          "url": "https://www.skysports.com/f1/news/13604035/united-states-gp-martin-brundles-verdict-on-outstanding-kimi-antonelli-win-in-austin-and-oscar-piastris-struggles-in-2026-f1-cars",
+          "published_at": "2026-10-27T10:30:00Z",
+          "image_url": "https://e0.365dm.com/26/10/1600x900/skysports-f1-kimi-antonelli_7388551.jpg?20261027102026",
+          "video_url": null,
+          "video_poster_url": "https://e0.365dm.com/26/10/1600x900/skysports-f1-kimi-antonelli_7388551.jpg?20261027102026",
+          "heat_contribution": 0.0,
+          "metrics": {}
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 8,
+      "fan_heat": 0,
+      "heat": 8,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 2,
+        "fan": 0
+      },
+      "pinned_rank": null,
+      "hidden": false,
       "rank": 10
     }
   ],
-  "review_needed_count": 28,
+  "review_needed_count": 26,
   "review_needed_events": [
     {
       "event_id": "evt-2026-10-28-bd739e2152f8",
@@ -1987,64 +1993,6 @@
       }
     },
     {
-      "event_id": "evt-2026-10-29-d8ac367688ba",
-      "rule_id": null,
-      "hot_word_zh": "有人问Pato他会带Oscar和Lando去CDMX哪里，他说他会带他们去街边的taco店…",
-      "hot_word_en": "pato was asked where he'd take oscar and lando in CDMX and he said he'd take them to a taco spot in the stree…",
-      "first_seen_at": "2026-10-29T22:10:26Z",
-      "last_seen_at": "2026-10-29T22:10:26Z",
-      "anchor_item_id": "piasnews-social-d387916940ceb269",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2115929254810599424/vid/avc1/320x568/LvsXoLy6vrHlG8dA.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2115929254810599424/img/BxLDJ2go9AT6H5WD.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-d387916940ceb269",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: pato was asked where he'd take oscar and lando in CDMX and he said he'd take them to a taco spo…",
-          "title_zh": "X 发帖 @laurogeitabat：有人问Pato他会带Oscar和Lando去CDMX哪里，他说他会带他们去街边的taco店，好让他们拉肚子？？？？😭😭😭",
-          "summary": "pato was asked where he'd take oscar and lando in CDMX and he said he'd take them to a taco spot in the street so they get diarrhea ???? 😭😭😭 https://t.co/Xb20e9Eg9B",
-          "summary_zh": "有人问Pato他会带Oscar和Lando去CDMX哪里，他说他会带他们去街边的taco店，好让他们拉肚子？？？？😭😭😭",
-          "url": "https://x.com/laurogeitabat/status/2115929277107486916",
-          "published_at": "2026-10-29T22:10:26Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2115929254810599424/vid/avc1/320x568/LvsXoLy6vrHlG8dA.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2115929254810599424/img/BxLDJ2go9AT6H5WD.jpg",
-          "heat_contribution": 4.824,
-          "metrics": {
-            "likes": 209,
-            "retweets": 3,
-            "replies": 2,
-            "quotes": 0,
-            "views": 5337,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 26,
-      "heat": 26,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-10-30-7a64764816f4",
       "rule_id": null,
       "hot_word_zh": "Oscar谈适应新规则赛车：“我现在肯定得用很不一样的方式驾驶。",
@@ -2087,64 +2035,6 @@
       "media_heat": 0,
       "fan_heat": 26,
       "heat": 26,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-28-e98ef2a90bc2",
-      "rule_id": null,
-      "hot_word_zh": "我看到有些混淆，所以澄清一下：这个视频并不是 hptuners 作为 Oscar 或 Mc…",
-      "hot_word_en": "i've seen some confusion so just to clear it up, this video is not hptuners joining as an oscar or mclaren sp…",
-      "first_seen_at": "2026-10-28T21:37:40Z",
-      "last_seen_at": "2026-10-28T21:37:40Z",
-      "anchor_item_id": "piasnews-social-909e9356a4c49989",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-909e9356a4c49989",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: i've seen some confusion so just to clear it up, this video is not hptuners joining as an oscar…",
-          "title_zh": "X 发帖 @laurogeitabat：我看到有些混淆，所以澄清一下：这个视频并不是 hptuners 作为 Oscar 或 McLaren 的赞助商加入！这只是 Oscar 在帮他爸爸的忙，宣传这家公司的工作，几个月前拍摄这段素材时他也为其他一些东西做过同样的事。",
-          "summary": "i've seen some confusion so just to clear it up, this video is not hptuners joining as an oscar or mclaren sponsor! this is just oscar helping his dad out and promoting the company's work, he did the same with some other stuff a few months ago back when they filmed this footage",
-          "summary_zh": "我看到有些混淆，所以澄清一下：这个视频并不是 hptuners 作为 Oscar 或 McLaren 的赞助商加入！这只是 Oscar 在帮他爸爸的忙，宣传这家公司的工作，几个月前拍摄这段素材时他也为其他一些东西做过同样的事。",
-          "url": "https://x.com/laurogeitabat/status/2115558644523954471",
-          "published_at": "2026-10-28T21:37:40Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 4.5717,
-          "metrics": {
-            "likes": 338,
-            "retweets": 29,
-            "replies": 3,
-            "quotes": 0,
-            "views": 7354,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 25,
-      "heat": 25,
       "source_labels": [
         "粉"
       ],
@@ -2335,64 +2225,6 @@
       }
     },
     {
-      "event_id": "evt-2026-10-28-652c4891651c",
-      "rule_id": null,
-      "hot_word_zh": "高海拔周末 🤝 #McLarenF1 | #MexicoGP 🇲🇽",
-      "hot_word_en": "A high altitude weekend 🤝 #McLarenF1 | #MexicoGP 🇲🇽",
-      "first_seen_at": "2026-10-28T19:46:59Z",
-      "last_seen_at": "2026-10-28T19:46:59Z",
-      "anchor_item_id": "piasnews-social-6411a57bb871d4d9",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2115497256316960768/vid/avc1/320x568/P6t5JPxQxIaCFITP.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2115497256316960768/img/18XIiX2SKyRQb1Tg.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-6411a57bb871d4d9",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X repost from @laurogeitabat: RT @McLarenF1: A high altitude weekend 🤝 #McLarenF1 | #MexicoGP 🇲🇽",
-          "title_zh": "X 转帖 @laurogeitabat：RT @McLarenF1：高海拔周末 🤝 #McLarenF1 | #MexicoGP 🇲🇽",
-          "summary": "RT @McLarenF1: A high altitude weekend 🤝 #McLarenF1 | #MexicoGP 🇲🇽 https://t.co/m02lFHfMxK",
-          "summary_zh": "RT @McLarenF1：高海拔周末 🤝 #McLarenF1 | #MexicoGP 🇲🇽",
-          "url": "https://x.com/laurogeitabat/status/2115530788565336476",
-          "published_at": "2026-10-28T19:46:59Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2115497256316960768/vid/avc1/320x568/P6t5JPxQxIaCFITP.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2115497256316960768/img/18XIiX2SKyRQb1Tg.jpg",
-          "heat_contribution": 4.2776,
-          "metrics": {
-            "likes": 0,
-            "retweets": 177,
-            "replies": 0,
-            "quotes": 0,
-            "views": 134,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 24,
-      "heat": 24,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-10-30-3e917a8fe0a7",
       "rule_id": null,
       "hot_word_zh": "“lando 和我都在与一辆对很多因素都非常敏感的赛车较劲。驾驶它的方式相当特殊，窗口也很窄。",
@@ -2485,6 +2317,64 @@
             "replies": 0,
             "quotes": 0,
             "views": 3279,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 23,
+      "heat": 23,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-10-29-d8ac367688ba",
+      "rule_id": null,
+      "hot_word_zh": "有人问Pato他会带Oscar和Lando去CDMX哪里，他说他会带他们去街边的taco店…",
+      "hot_word_en": "pato was asked where he'd take oscar and lando in CDMX and he said he'd take them to a taco spot in the stree…",
+      "first_seen_at": "2026-10-29T22:10:26Z",
+      "last_seen_at": "2026-10-29T22:10:26Z",
+      "anchor_item_id": "piasnews-social-d387916940ceb269",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2115929254810599424/vid/avc1/320x568/LvsXoLy6vrHlG8dA.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2115929254810599424/img/BxLDJ2go9AT6H5WD.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-d387916940ceb269",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: pato was asked where he'd take oscar and lando in CDMX and he said he'd take them to a taco spo…",
+          "title_zh": "X 发帖 @laurogeitabat：有人问Pato他会带Oscar和Lando去CDMX哪里，他说他会带他们去街边的taco店，好让他们拉肚子？？？？😭😭😭",
+          "summary": "pato was asked where he'd take oscar and lando in CDMX and he said he'd take them to a taco spot in the street so they get diarrhea ???? 😭😭😭 https://t.co/Xb20e9Eg9B",
+          "summary_zh": "有人问Pato他会带Oscar和Lando去CDMX哪里，他说他会带他们去街边的taco店，好让他们拉肚子？？？？😭😭😭",
+          "url": "https://x.com/laurogeitabat/status/2115929277107486916",
+          "published_at": "2026-10-29T22:10:26Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2115929254810599424/vid/avc1/320x568/LvsXoLy6vrHlG8dA.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2115929254810599424/img/BxLDJ2go9AT6H5WD.jpg",
+          "heat_contribution": 4.0231,
+          "metrics": {
+            "likes": 209,
+            "retweets": 3,
+            "replies": 2,
+            "quotes": 0,
+            "views": 5337,
             "bookmarks": 0
           }
         }
@@ -2768,7 +2658,7 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2115035986291830786/vid/avc1/500x270/hpCbIWTwt73KR3mT.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2115035986291830786/img/U58Nhv9TmOQDXg1H.jpg",
-          "heat_contribution": 2.1333,
+          "heat_contribution": 1.4605,
           "metrics": {
             "likes": 0,
             "retweets": 7,
@@ -2781,8 +2671,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 14,
-      "heat": 14,
+      "fan_heat": 10,
+      "heat": 10,
       "source_labels": [
         "粉"
       ],
