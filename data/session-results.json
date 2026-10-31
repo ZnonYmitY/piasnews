@@ -1,36 +1,77 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-31T22:21:03.284145Z",
+  "generated_at": "2026-10-31T22:36:01.018819Z",
   "driver_number": 81,
   "source": "OpenF1 session_result with Formula 1 Live Timing fallback",
   "attempted_session_ref": "2026-round-19:qualifying",
-  "result_available": false,
+  "result_available": true,
   "latest": {
-    "session_ref": "2026-round-19:practice_3",
+    "session_ref": "2026-round-19:qualifying",
     "race_id": "2026-round-19",
     "race_name": "Mexico City Grand Prix",
     "race_name_zh": "墨西哥城大奖赛",
-    "session": "practice_3",
-    "session_name": "Practice 3",
-    "session_key": 11399,
-    "session_start": "2026-10-31T17:30:00Z",
-    "session_end": "2026-10-31T18:30:00+00:00",
+    "session": "qualifying",
+    "session_name": "Qualifying",
+    "session_key": 11400,
+    "session_start": "2026-10-31T21:00:00Z",
+    "session_end": "2026-10-31T22:00:00+00:00",
     "driver_number": 81,
-    "position": 4,
+    "position": 13,
     "status": "classified",
     "dnf": false,
     "dns": false,
     "dsq": false,
-    "number_of_laps": 20,
-    "gap_to_leader": 0.195,
-    "duration": 77.795,
+    "number_of_laps": 17,
+    "gap_to_leader": [
+      0.318,
+      0.918,
+      null
+    ],
+    "duration": [
+      77.659,
+      77.646,
+      null
+    ],
     "source": "OpenF1",
-    "source_url": "https://api.openf1.org/v1/session_result?session_key=11399&driver_number=81",
+    "source_url": "https://api.openf1.org/v1/session_result?session_key=11400&driver_number=81",
     "provisional": false,
-    "fetched_at": "2026-10-31T19:06:01.552602Z",
-    "first_ranked_at": "2026-10-31T19:06:01.552602Z"
+    "fetched_at": "2026-10-31T22:36:01.018819Z",
+    "first_ranked_at": "2026-10-31T22:36:01.018819Z"
   },
   "results": [
+    {
+      "session_ref": "2026-round-19:qualifying",
+      "race_id": "2026-round-19",
+      "race_name": "Mexico City Grand Prix",
+      "race_name_zh": "墨西哥城大奖赛",
+      "session": "qualifying",
+      "session_name": "Qualifying",
+      "session_key": 11400,
+      "session_start": "2026-10-31T21:00:00Z",
+      "session_end": "2026-10-31T22:00:00+00:00",
+      "driver_number": 81,
+      "position": 13,
+      "status": "classified",
+      "dnf": false,
+      "dns": false,
+      "dsq": false,
+      "number_of_laps": 17,
+      "gap_to_leader": [
+        0.318,
+        0.918,
+        null
+      ],
+      "duration": [
+        77.659,
+        77.646,
+        null
+      ],
+      "source": "OpenF1",
+      "source_url": "https://api.openf1.org/v1/session_result?session_key=11400&driver_number=81",
+      "fetched_at": "2026-10-31T22:36:01.018819Z",
+      "first_ranked_at": "2026-10-31T22:36:01.018819Z",
+      "provisional": false
+    },
     {
       "session_ref": "2026-round-19:practice_3",
       "race_id": "2026-round-19",
@@ -527,7 +568,5 @@
       "fetched_at": "2026-09-18T06:15:23.161902Z",
       "first_ranked_at": "2026-09-13T16:22:23.678151Z"
     }
-  ],
-  "last_error": "openf1_http_401_live_access_requires_auth",
-  "last_fallback_error": "f1_static_proxy_http_502"
+  ]
 }
