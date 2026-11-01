@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-11-01T21:39:14.651146Z",
+  "generated_at": "2026-11-01T23:05:59.953681Z",
   "window_days": 7,
-  "total_items": 80,
+  "total_items": 77,
   "latest_date": "2026-11-01",
   "days": [
     {
       "date": "2026-11-01",
-      "total_new_items": 8,
+      "total_new_items": 9,
       "official_new_items": 0,
-      "media_new_items": 8,
+      "media_new_items": 9,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
@@ -16,6 +16,7 @@
         "F1 Oversteer": 2,
         "PlanetF1": 1,
         "SPORTbible": 1,
+        "Sky Sports": 1,
         "Speedcafe.com": 1,
         "https://www.autohebdof1.com/": 1,
         "news.gp": 1
@@ -23,7 +24,7 @@
       "categories": {
         "interview": 1,
         "other": 1,
-        "race": 3,
+        "race": 4,
         "team": 3
       }
     },
@@ -166,26 +167,21 @@
     },
     {
       "date": "2026-10-25",
-      "total_new_items": 8,
+      "total_new_items": 4,
       "official_new_items": 0,
-      "media_new_items": 8,
+      "media_new_items": 4,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
-        "Fox Sports": 1,
         "MotorBiscuit": 1,
-        "Nine.com.au": 1,
-        "PlanetF1": 1,
         "Speedcafe.com": 1,
-        "Yahoo News Australia": 2,
+        "Yahoo News Australia": 1,
         "Yahoo Sports": 1
       },
       "categories": {
-        "fan": 1,
         "interview": 2,
-        "other": 1,
-        "race": 2,
-        "team": 2
+        "race": 1,
+        "team": 1
       }
     }
   ],
@@ -216,7 +212,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 54
+      "items": 46
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
@@ -237,7 +233,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 22
+      "items": 14
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
@@ -256,12 +252,12 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 52,
-      "kept": 37,
+      "checked": 49,
+      "kept": 36,
       "results": {
-        "publisher_date_missing": 7,
-        "publisher_unavailable": 8,
-        "verified": 37
+        "publisher_date_missing": 6,
+        "publisher_unavailable": 7,
+        "verified": 36
       }
     },
     {
@@ -270,7 +266,7 @@
       "discovery_days": 3,
       "retention_days": 7,
       "previous_items": 80,
-      "kept": 80
+      "kept": 77
     }
   ]
 }

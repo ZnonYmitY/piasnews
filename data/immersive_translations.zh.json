@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-01T21:42:08.365905Z",
+  "generated_at": "2026-11-01T23:08:50.975427Z",
   "translations": {
     "items:piasnews-4a633b8ce10953a7:title:88ab7abc054b2321242d2fd8": {
       "dataset": "items",
@@ -3493,6 +3493,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-11-01T21:42:07.621769Z"
+    },
+    "items:piasnews-54dae46a72b9dacc:title:25e15d10365228fafa9d9b46": {
+      "dataset": "items",
+      "item_id": "piasnews-54dae46a72b9dacc",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Mexico City GP: Arvid Lindblad retires after being taken out by Oscar Piastri!",
+      "zh": "墨西哥城大奖赛：Arvid Lindblad 被 Oscar Piastri 撞出后退出比赛！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-01T23:08:50.257063Z"
+    },
+    "items:piasnews-54dae46a72b9dacc:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-54dae46a72b9dacc",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-01T23:08:50.257073Z"
     }
   },
   "retention_days": 8
