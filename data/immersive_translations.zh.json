@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-02T11:05:59.566167Z",
+  "generated_at": "2026-11-02T23:09:03.617677Z",
   "translations": {
     "items:piasnews-4a633b8ce10953a7:title:88ab7abc054b2321242d2fd8": {
       "dataset": "items",
@@ -4177,6 +4177,102 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-11-02T11:05:58.747616Z"
+    },
+    "items:piasnews-a84e3497df81e89b:title:16662780798c89e169058a09": {
+      "dataset": "items",
+      "item_id": "piasnews-a84e3497df81e89b",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri Drops to 13th After Mexican GP Collision Penalty",
+      "zh": "墨西哥大奖赛碰撞罚时后，Piastri 跌至第13位",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-02T23:09:02.788443Z"
+    },
+    "items:piasnews-a84e3497df81e89b:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-a84e3497df81e89b",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-02T23:09:02.788451Z"
+    },
+    "items:piasnews-9074fc52efeb7f44:title:f25d9e41c8a0bf07d0f52247": {
+      "dataset": "items",
+      "item_id": "piasnews-9074fc52efeb7f44",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Fine for Russell, penalties for Piastri, Gasly and Colapinto, Lawson seventh, Hirakawa scores a point on his F1 debut",
+      "zh": "Russell 被罚款，Piastri、Gasly 和 Colapinto 受罚，Lawson 第七，Hirakawa 在 F1 首秀中拿下一分",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-02T23:09:02.788456Z"
+    },
+    "items:piasnews-9074fc52efeb7f44:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-9074fc52efeb7f44",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-02T23:09:02.788460Z"
+    },
+    "items:piasnews-3bfd8dbeb1d7eae0:title:cf140a0692487e0a78f6e7c8": {
+      "dataset": "items",
+      "item_id": "piasnews-3bfd8dbeb1d7eae0",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri tangles with Arvid Lindblad",
+      "zh": "Oscar Piastri 与 Arvid Lindblad 发生纠缠",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-02T23:09:02.788464Z"
+    },
+    "items:piasnews-3bfd8dbeb1d7eae0:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-3bfd8dbeb1d7eae0",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车表现相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-02T23:09:02.788468Z"
+    },
+    "items:piasnews-2c7c401d7001b56e:title:7443b26b940652f83b71b8fe": {
+      "dataset": "items",
+      "item_id": "piasnews-2c7c401d7001b56e",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri Can't Explain Grip Loss That Ended His Mexico City Qualifying in Q2",
+      "zh": "Oscar Piastri 无法解释导致他在墨西哥城排位赛 Q2 出局的抓地力丧失",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-02T23:09:02.788473Z"
+    },
+    "items:piasnews-2c7c401d7001b56e:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-2c7c401d7001b56e",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-02T23:09:02.788480Z"
     }
   },
   "retention_days": 8
