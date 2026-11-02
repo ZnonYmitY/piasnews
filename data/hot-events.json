@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-01T23:36:01.765156Z",
+  "generated_at": "2026-11-02T08:05:20.963270Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -67,74 +67,36 @@
       "rank": 1
     },
     {
-      "event_id": "evt-2026-11-01-867fb89a3fa4",
+      "event_id": "evt-2026-10-28-49ebd0bdec9c",
       "rule_id": null,
-      "hot_word_zh": "Oscar Piastri 连续晋级 Q3 的纪录就此终结，距其开始已过去两年 😢❌ #F…",
-      "hot_word_en": "Oscar Piastri's Q3 streak comes to an end, two years since it started 😢❌ #F1 #MexicoGP",
-      "first_seen_at": "2026-11-01T00:08:00Z",
-      "last_seen_at": "2026-11-01T00:08:00Z",
-      "anchor_item_id": "piasnews-social-b3576f584747e506",
-      "image_url": "https://pbs.twimg.com/media/HV_oL8gXsAAI3ka.jpg",
+      "hot_word_zh": "美国大奖赛：Martin Brundle 评点 Kimi Antonelli 在奥斯汀的“…",
+      "hot_word_en": "United States GP: Martin Brundle's verdict on 'outstanding' Kimi Antonelli win in Austin and Oscar Piastri's…",
+      "first_seen_at": "2026-10-26T21:00:00Z",
+      "last_seen_at": "2026-11-02T03:01:51Z",
+      "anchor_item_id": "piasnews-2d551b7e9135c8e1",
+      "image_url": "https://media.formula1.com/image/upload/t_16by9Centre/c_lfill,w_2048/q_auto/v1740000001/trackside-images/2026/F1_Grand_Prix_of_Mexico/2303039644.webp",
       "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HV_oL8gXsAAI3ka.jpg",
+      "video_poster_url": "https://media.formula1.com/image/upload/t_16by9Centre/c_lfill,w_2048/q_auto/v1740000001/trackside-images/2026/F1_Grand_Prix_of_Mexico/2303039644.webp",
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
         {
-          "item_id": "piasnews-social-b3576f584747e506",
-          "dataset": "social",
+          "item_id": "piasnews-b6e6390ec3a2f882",
+          "dataset": "items",
           "source_type": "official",
-          "source": "@F1",
-          "title": "X post from @F1: Oscar Piastri's Q3 streak comes to an end, two years since it started 😢❌ #F1 #MexicoGP",
-          "title_zh": "X 发帖 @F1：Oscar Piastri 连续晋级 Q3 的纪录就此终结，距其开始已过去两年 😢❌ #F1 #MexicoGP",
-          "summary": "Oscar Piastri's Q3 streak comes to an end, two years since it started 😢❌ #F1 #MexicoGP https://t.co/1fjwCq9csf",
-          "summary_zh": "Oscar Piastri 连续晋级 Q3 的纪录就此终结，距其开始已过去两年 😢❌ #F1 #MexicoGP",
-          "url": "https://x.com/F1/status/2116683638922248311",
-          "published_at": "2026-11-01T00:08:00Z",
-          "image_url": "https://pbs.twimg.com/media/HV_oL8gXsAAI3ka.jpg",
+          "source": "Formula 1",
+          "title": "Piastri receives post-race penalty at Mexico City GP",
+          "title_zh": "Piastri在墨西哥城大奖赛赛后受到处罚",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+          "url": "https://www.formula1.com/en/latest/article/piastri-loses-p7-after-being-handed-post-race-penalty-at-mexico-city-gp.5dk3wHeak2yu7xWF0OhsRt",
+          "published_at": "2026-11-02T00:35:41.249000Z",
+          "image_url": "https://media.formula1.com/image/upload/t_16by9Centre/c_lfill,w_2048/q_auto/v1740000001/trackside-images/2026/F1_Grand_Prix_of_Mexico/2303039644.webp",
           "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HV_oL8gXsAAI3ka.jpg",
-          "heat_contribution": 9.2988,
-          "metrics": {
-            "likes": 9996,
-            "retweets": 599,
-            "replies": 122,
-            "quotes": 0,
-            "views": 300570,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 60,
-      "media_heat": 0,
-      "fan_heat": 0,
-      "heat": 60,
-      "source_labels": [
-        "官"
-      ],
-      "source_counts": {
-        "official": 1,
-        "media": 0,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 2
-    },
-    {
-      "event_id": "evt-2026-10-28-49ebd0bdec9c",
-      "rule_id": null,
-      "hot_word_zh": "McLaren 公布墨西哥城大奖赛特别车迷灵感涂装：Norris 和 Piastri 的赛…",
-      "hot_word_en": "McLaren Reveals Special Fan-Inspired Livery For Mexico City GP: What Makes Norris And Piastri’s Cars Different?",
-      "first_seen_at": "2026-10-26T21:00:00Z",
-      "last_seen_at": "2026-11-01T22:10:00Z",
-      "anchor_item_id": "piasnews-69437b4a06e1258c",
-      "image_url": "https://media.formula1.com/image/upload/t_16by9Centre/c_lfill,w_2048/q_auto/v1740000001/trackside-images/2026/F1_Grand_Prix_of_Mexico___Qualifying/2302903422.webp",
-      "video_url": null,
-      "video_poster_url": "https://media.formula1.com/image/upload/t_16by9Centre/c_lfill,w_2048/q_auto/v1740000001/trackside-images/2026/F1_Grand_Prix_of_Mexico___Qualifying/2302903422.webp",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
+          "video_poster_url": "https://media.formula1.com/image/upload/t_16by9Centre/c_lfill,w_2048/q_auto/v1740000001/trackside-images/2026/F1_Grand_Prix_of_Mexico/2303039644.webp",
+          "heat_contribution": 2.25,
+          "metrics": {}
+        },
         {
           "item_id": "piasnews-ef139297dc2bdca8",
           "dataset": "items",
@@ -153,6 +115,193 @@
           "metrics": {}
         },
         {
+          "item_id": "piasnews-48236b862e711caf",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "FormulaRapida.net",
+          "title": "Penalty leaves Oscar Piastri without points at the Mexican GP",
+          "title_zh": "处罚使 Oscar Piastri 在墨西哥大奖赛无缘积分",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+          "url": "https://formularapida.net/en/piastri-penalty-mexican-gp/",
+          "published_at": "2026-11-02T03:01:51Z",
+          "image_url": "https://formularapida.net/wp-content/uploads/2026/11/image-54.jpg",
+          "video_url": null,
+          "video_poster_url": "https://formularapida.net/wp-content/uploads/2026/11/image-54.jpg",
+          "heat_contribution": 1.0,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-dd212f84d1171d4c",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Auto Action",
+          "title": "Piastri loses Mexico points after post-race penalty",
+          "title_zh": "Piastri 因赛后处罚失去墨西哥站积分",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+          "url": "https://autoaction.com.au/2026/11/02/piastri-loses-mexico-points-after-post-race-penalty",
+          "published_at": "2026-11-02T01:45:30Z",
+          "image_url": "https://autoaction.com.au/wp-content/uploads/2026/11/Image-11-e1793583836805.jpg?v=1793583774",
+          "video_url": null,
+          "video_poster_url": "https://autoaction.com.au/wp-content/uploads/2026/11/Image-11-e1793583836805.jpg?v=1793583774",
+          "heat_contribution": 0.75,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-0a60cfc000ee4a96",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Speedcafe.com",
+          "title": "Piastri loses Mexico City points after post-race penalty",
+          "title_zh": "Piastri 因赛后处罚失去墨西哥城站积分",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+          "url": "https://speedcafe.com/f1-news-2026-mexico-city-grand-prix-oscar-piastri-penalty-crash-arvid-lindblad-why-reason-reaction-comments/",
+          "published_at": "2026-11-02T00:46:10Z",
+          "image_url": "https://speedcafe.com/wp-content/uploads/2026/11/Screenshot-2026-11-02-114438.png",
+          "video_url": null,
+          "video_poster_url": "https://speedcafe.com/wp-content/uploads/2026/11/Screenshot-2026-11-02-114438.png",
+          "heat_contribution": 0.75,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-aa8c09b4f12d6443",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "RacingNews365",
+          "title": "Oscar Piastri stripped of Mexico points after huge F1 stewards penalty",
+          "title_zh": "Oscar Piastri 遭 F1 赛事干事重罚，墨西哥站积分被取消",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+          "url": "https://racingnews365.com/oscar-piastri-stripped-of-mexico-points-after-huge-f1-stewards-penalty",
+          "published_at": "2026-11-02T00:45:00Z",
+          "image_url": "https://cdn.racingnews365.com/2026/Piastri/XPB_1446165_HiRes.jpg?v=1792951784&width=1800&height=945&quality=75&crop=5185%2C2723%2C0%2C369",
+          "video_url": null,
+          "video_poster_url": "https://cdn.racingnews365.com/2026/Piastri/XPB_1446165_HiRes.jpg?v=1792951784&width=1800&height=945&quality=75&crop=5185%2C2723%2C0%2C369",
+          "heat_contribution": 0.75,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-e2ab92b304269e79",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "PlanetF1",
+          "title": "FIA confirms Oscar Piastri punishment after Lindblad Mexican GP incident",
+          "title_zh": "FIA确认Oscar Piastri在墨西哥大奖赛与Lindblad事件后受到处罚",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+          "url": "https://www.planetf1.com/news/fia-oscar-piastri-penalty-f1-2026-mexican-grand-prix",
+          "published_at": "2026-11-02T00:34:09Z",
+          "image_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F08%2F23193459%2Foscar-piastri-zandvoort-luck.jpg",
+          "video_url": null,
+          "video_poster_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F08%2F23193459%2Foscar-piastri-zandvoort-luck.jpg",
+          "heat_contribution": 0.75,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-ee6a87fe3c933072",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "The Race",
+          "title": "Piastri punished for Lindblad collision",
+          "title_zh": "Piastri因与Lindblad碰撞受到处罚",
+          "summary": "Oscar Piastri-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+          "url": "https://www.the-race.com/formula-1/piastri-punished-for-lindblad-collision/",
+          "published_at": "2026-11-02T00:25:26Z",
+          "image_url": "https://storage.ghost.io/c/dd/af/ddafbd99-2ccd-468c-b622-4b3cccf80b49/content/images/size/w1200/2026/11/XPB_1450181_HiRes.jpg",
+          "video_url": null,
+          "video_poster_url": "https://storage.ghost.io/c/dd/af/ddafbd99-2ccd-468c-b622-4b3cccf80b49/content/images/size/w1200/2026/11/XPB_1450181_HiRes.jpg",
+          "heat_contribution": 0.75,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-a0b6c2b84a0d7e23",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "GPblog",
+          "title": "Piastri suffers 10-second penalty after Lindblad collision at Mexico City GP",
+          "title_zh": "Piastri在墨西哥城大奖赛与Lindblad碰撞后被罚10秒",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+          "url": "https://www.gpblog.com/en/breaking-news/piastri-suffers-10-second-penalty-after-lindblad-collision-at-mexico-city-gp",
+          "published_at": "2026-11-02T00:12:00Z",
+          "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-09%2Fpiastri-6a9c538c84dfb.jpg",
+          "video_url": null,
+          "video_poster_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-09%2Fpiastri-6a9c538c84dfb.jpg",
+          "heat_contribution": 0.75,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-1f5fd7bb4e9de79d",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "RaceFans",
+          "title": "Piastri loses points finish after 10-second penalty for Lindblad collision",
+          "title_zh": "Piastri因与Lindblad碰撞被罚10秒，失去积分完赛成绩",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+          "url": "https://www.racefans.net/2026/11/02/piastri-loses-points-finish-after-10-second-penalty-for-lindblad-collision/",
+          "published_at": "2026-11-02T00:10:25Z",
+          "image_url": "https://www.racefans.net/wp-content/uploads/2026/11/racefansdotnet-24-11-01-14-19-18-2-2303024718.jpg",
+          "video_url": null,
+          "video_poster_url": "https://www.racefans.net/wp-content/uploads/2026/11/racefansdotnet-24-11-01-14-19-18-2-2303024718.jpg",
+          "heat_contribution": 0.75,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-f328169860522050",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "PlanetF1",
+          "title": "FIA launches Oscar Piastri and Lindblad investigation after Mexican GP incident",
+          "title_zh": "墨西哥大奖赛事件后，FIA对Oscar Piastri和Lindblad展开调查",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+          "url": "https://www.planetf1.com/news/fia-investigation-oscar-piastri-arvid-lindblad-f1-2026-mexican-grand-prix",
+          "published_at": "2026-11-01T23:58:53Z",
+          "image_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F10%2F22233520%2Foscar-piastri-mclaren-united-states-gp-austin-2026-planetf1.jpg",
+          "video_url": null,
+          "video_poster_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F10%2F22233520%2Foscar-piastri-mclaren-united-states-gp-austin-2026-planetf1.jpg",
+          "heat_contribution": 0.75,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-dc562ebbe8893f63",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Nine.com.au",
+          "title": "Piastri’s points stripped after being slapped with penalty for crash",
+          "title_zh": "Piastri因撞车被处罚，积分被剥夺",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+          "url": "https://www.nine.com.au/sport/motorsport/f1-mexico-city-grand-prix-kimi-antonelli-wins-world-championship-drivers-title-oscar-piastri-crash-slow-stop-mclaren-reaction-comments-20261102-p61ahk.html",
+          "published_at": "2026-11-01T23:42:03.719000Z",
+          "image_url": "https://static.ffx.io/images/$zoom_0.6533%2C$multiply_2%2C$ratio_1.777778%2C$width_1059%2C$x_71%2C$y_108/t_crop_custom/c_scale%2Cw_1200%2Cq_88%2Cf_auto/5b61e26916bf3917be876045bed3b5b1a6a4edefc289f8f3efb0239626643d59",
+          "video_url": null,
+          "video_poster_url": "https://static.ffx.io/images/$zoom_0.6533%2C$multiply_2%2C$ratio_1.777778%2C$width_1059%2C$x_71%2C$y_108/t_crop_custom/c_scale%2Cw_1200%2Cq_88%2Cf_auto/5b61e26916bf3917be876045bed3b5b1a6a4edefc289f8f3efb0239626643d59",
+          "heat_contribution": 0.75,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-0c2de9e8938bd26f",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Fox Sports",
+          "title": "Piastri dealt brutal post-race blow as comeback turns sour over crash",
+          "title_zh": "Piastri赛后遭受沉重打击，复出因撞车化为泡影",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+          "url": "https://www.foxsports.com.au/motorsport/formula-one/f1-2026-oscar-piastri-and-arvid-lindblad-crash-at-mexico-city-grand-prix-stewards-investigate-collision-mclaren-driver-finishes-seventh-after-qualifying-disaster/news-story/76de322647002f5f15294a183bf90d70",
+          "published_at": "2026-11-01T23:04:57Z",
+          "image_url": "https://content.api.news/v3/images/bin/bf520664d6cf0b7032aad995d588d1ff",
+          "video_url": null,
+          "video_poster_url": "https://content.api.news/v3/images/bin/bf520664d6cf0b7032aad995d588d1ff",
+          "heat_contribution": 0.75,
+          "metrics": {}
+        },
+        {
           "item_id": "piasnews-54dae46a72b9dacc",
           "dataset": "items",
           "source_type": "media",
@@ -166,7 +315,7 @@
           "image_url": "https://e0.365dm.com/26/11/1600x900/skysports-motorsport-f1-lindblad_7394296.jpg?20261101221632",
           "video_url": null,
           "video_poster_url": "https://e0.365dm.com/26/11/1600x900/skysports-motorsport-f1-lindblad_7394296.jpg?20261101221632",
-          "heat_contribution": 1.0,
+          "heat_contribution": 0.75,
           "metrics": {}
         },
         {
@@ -183,7 +332,7 @@
           "image_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F10%2F01005530%2Foscar-piastri-mclaren-mexico-gp.jpg",
           "video_url": null,
           "video_poster_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F10%2F01005530%2Foscar-piastri-mclaren-mexico-gp.jpg",
-          "heat_contribution": 0.75,
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -200,7 +349,7 @@
           "image_url": "https://resizer.ladbiblegroup.com/ogimage/v3/assets/blta90d05ad41a54a71/blt1da74c812363de1d/6ae688562fd6bb824e3cd6d0/MEXICO_CITY_MEXICO_-_OCTOBER_31-_Pole_position_qualifier_Le_(1).jpeg",
           "video_url": null,
           "video_poster_url": "https://resizer.ladbiblegroup.com/ogimage/v3/assets/blta90d05ad41a54a71/blt1da74c812363de1d/6ae688562fd6bb824e3cd6d0/MEXICO_CITY_MEXICO_-_OCTOBER_31-_Pole_position_qualifier_Le_(1).jpeg",
-          "heat_contribution": 0.75,
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -217,7 +366,7 @@
           "image_url": "https://speedcafe.com/wp-content/uploads/2026/11/XPB_1449701_HiRes-e1793491533766.jpg",
           "video_url": null,
           "video_poster_url": "https://speedcafe.com/wp-content/uploads/2026/11/XPB_1449701_HiRes-e1793491533766.jpg",
-          "heat_contribution": 0.75,
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -238,19 +387,36 @@
           "metrics": {}
         },
         {
-          "item_id": "piasnews-1121be2e380ed3ff",
+          "item_id": "piasnews-483a42be019e1bc2",
           "dataset": "items",
           "source_type": "media",
-          "source": "Speedcafe.com",
-          "title": "Hamilton storms to Mexico City pole, Piastri eliminated in Q2",
-          "title_zh": "Hamilton 强势夺得墨西哥城杆位，Piastri 在 Q2 被淘汰",
-          "summary": "Oscar Piastri-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的 Oscar Piastri 相关条目。",
-          "url": "https://speedcafe.com/f1-news-2026-mexico-city-grand-prix-qualifying-results-pole-position-lewis-hamilton-george-russell-charles-leclerc/",
-          "published_at": "2026-10-31T22:15:26Z",
-          "image_url": "https://speedcafe.com/wp-content/uploads/2026/11/XPB_1449717_HiRes.jpg",
+          "source": "Grande Prêmio",
+          "title": "Piastri eliminated in Mexican GP Q2 as McLaren driver qualifies 13th",
+          "title_zh": "Piastri 在墨西哥大奖赛 Q2 被淘汰，McLaren 车手排位第 13",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+          "url": "https://grandepremio.com/en/f1/piastri-suffers-first-q2-exit-in-two-years-as-mclarens-mexico-qualifying-gamble-backfires/",
+          "published_at": "2026-10-31T22:00:00Z",
+          "image_url": "https://grandepremio.com/wp-content/uploads/2026/10/f1-2026-mexico-cidade-do-mexico-treinos-livres-mclaren-oscar-piastri-01-4-1200x630.jpg",
           "video_url": null,
-          "video_poster_url": "https://speedcafe.com/wp-content/uploads/2026/11/XPB_1449717_HiRes.jpg",
+          "video_poster_url": "https://grandepremio.com/wp-content/uploads/2026/10/f1-2026-mexico-cidade-do-mexico-treinos-livres-mclaren-oscar-piastri-01-4-1200x630.jpg",
+          "heat_contribution": 0.45,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-dcc118bd27588dfa",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Fox Sports",
+          "title": "Max fires back as F1 stars cop penalties; Piastri’s ‘very difficult’ admission — Qualifying LIVE",
+          "title_zh": "Max反击，F1众星受罚；Piastri坦言“非常艰难”——排位赛直播",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+          "url": "https://www.foxsports.com.au/motorsport/f1-2026-mexico-city-grand-prix-qualifying-live-updates-and-results-grid-video-and-highlights-max-verstappen/news-story/da70fcde4137389aa0399bc764d83030",
+          "published_at": "2026-10-31T10:30:35Z",
+          "image_url": "https://content.api.news/v3/images/bin/800f5fef44dca7a84f1bf64346f2d216",
+          "video_url": null,
+          "video_poster_url": "https://content.api.news/v3/images/bin/800f5fef44dca7a84f1bf64346f2d216",
           "heat_contribution": 0.45,
           "metrics": {}
         },
@@ -289,40 +455,6 @@
           "metrics": {}
         },
         {
-          "item_id": "piasnews-f9064edcbe9fde61",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Nine.com.au",
-          "title": "Piastri optimistic for Mexico after ‘messy’ lap",
-          "title_zh": "经历“混乱”一圈后，Piastri对墨西哥站保持乐观",
-          "summary": "Oscar Piastri-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的 Oscar Piastri 相关条目。",
-          "url": "https://www.nine.com.au/sport/motorsport/f1-mexico-city-grand-prix-oscar-piastri-mclaren-pace-performance-practice-results-kimi-antonelli-sick-20261031-p61a6v.html",
-          "published_at": "2026-10-31T01:05:07.441000Z",
-          "image_url": "https://static.ffx.io/images/$zoom_0.18%2C$multiply_4%2C$ratio_1.777778%2C$width_1059%2C$x_0%2C$y_47/t_crop_custom/c_scale%2Cw_1200%2Cq_88%2Cf_auto/90405c4b48547f15ddb94aa13127d533e4fe8b601774e7ddc87536806d427203",
-          "video_url": null,
-          "video_poster_url": "https://static.ffx.io/images/$zoom_0.18%2C$multiply_4%2C$ratio_1.777778%2C$width_1059%2C$x_0%2C$y_47/t_crop_custom/c_scale%2Cw_1200%2Cq_88%2Cf_auto/90405c4b48547f15ddb94aa13127d533e4fe8b601774e7ddc87536806d427203",
-          "heat_contribution": 0.45,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-975ee4170633ab26",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Auto Action",
-          "title": "Piastri encouraged by McLaren’s Mexico progress",
-          "title_zh": "McLaren在墨西哥站的进展令Piastri备受鼓舞",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
-          "url": "https://autoaction.com.au/2026/10/31/piastri-encouraged-by-mclarens-mexico-progress",
-          "published_at": "2026-10-31T01:00:36Z",
-          "image_url": "https://autoaction.com.au/wp-content/uploads/2026/10/Image-2-2-1-e1793408588336.jpg?v=1793408207",
-          "video_url": null,
-          "video_poster_url": "https://autoaction.com.au/wp-content/uploads/2026/10/Image-2-2-1-e1793408588336.jpg?v=1793408207",
-          "heat_contribution": 0.45,
-          "metrics": {}
-        },
-        {
           "item_id": "piasnews-931f449de695778c",
           "dataset": "items",
           "source_type": "media",
@@ -336,7 +468,7 @@
           "image_url": "https://autoaction.com.au/2026/10/31/piastri-encouraged-by-mclarens-mexico-progress/image-2-2-3",
           "video_url": null,
           "video_poster_url": "https://autoaction.com.au/2026/10/31/piastri-encouraged-by-mclarens-mexico-progress/image-2-2-3",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -353,7 +485,7 @@
           "image_url": "https://www.sportscapemagazine.com/_next/image?url=https%3A%2F%2Fcpbmehsalmelyeloaejn.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fpost-media%2Fisha%2F1793338733508-hwiyw6.jpg&w=1200&q=75",
           "video_url": null,
           "video_poster_url": "https://www.sportscapemagazine.com/_next/image?url=https%3A%2F%2Fcpbmehsalmelyeloaejn.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fpost-media%2Fisha%2F1793338733508-hwiyw6.jpg&w=1200&q=75",
-          "heat_contribution": 0.2,
+          "heat_contribution": 0.0,
           "metrics": {}
         },
         {
@@ -370,7 +502,7 @@
           "image_url": "https://autoaction.com.au/2026/10/30/piastri-backs-mclaren-to-fight-back/image-104",
           "video_url": null,
           "video_poster_url": "https://autoaction.com.au/2026/10/30/piastri-backs-mclaren-to-fight-back/image-104",
-          "heat_contribution": 0.2,
+          "heat_contribution": 0.0,
           "metrics": {}
         },
         {
@@ -387,6 +519,91 @@
           "image_url": "https://e0.365dm.com/26/10/1600x900/skysports-f1-lando-norris-oscar-piastri_7389553.jpg?20261028110407",
           "video_url": null,
           "video_poster_url": "https://e0.365dm.com/26/10/1600x900/skysports-f1-lando-norris-oscar-piastri_7389553.jpg?20261028110407",
+          "heat_contribution": 0.0,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-4a633b8ce10953a7",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "GPblog",
+          "title": "Piastri left playing second fiddle in US GP as Stella reveals McLaren plan",
+          "title_zh": "美国大奖赛中Piastri沦为配角，Stella透露McLaren计划",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+          "url": "https://www.gpblog.com/en/news/piastri-told-to-let-norris-through-as-mclaren-reveal-what-triggered-team-swap",
+          "published_at": "2026-10-28T06:01:00Z",
+          "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-10%2F20261023-0818-6ae0b1f62d500.jpg",
+          "video_url": null,
+          "video_poster_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-10%2F20261023-0818-6ae0b1f62d500.jpg",
+          "heat_contribution": 0.0,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-387270ff86d4765f",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "PlanetF1",
+          "title": "Oscar Piastri delivers telling admission over George Russell US GP battle",
+          "title_zh": "Oscar Piastri就与George Russell的美国大奖赛较量作出坦率表态",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+          "url": "https://www.planetf1.com/united-states-grand-prix/oscar-piastri-admission-russell-us-gp-battle",
+          "published_at": "2026-10-27T20:00:55Z",
+          "image_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F10%2F26143705%2FOscar-Piastri-George-Russell-United-States-GP.jpeg",
+          "video_url": null,
+          "video_poster_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F10%2F26143705%2FOscar-Piastri-George-Russell-United-States-GP.jpeg",
+          "heat_contribution": 0.0,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-2d551b7e9135c8e1",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Sky Sports",
+          "title": "United States GP: Martin Brundle's verdict on 'outstanding' Kimi Antonelli win in Austin and Oscar Piastri's struggles in 2026 F1 cars",
+          "title_zh": "美国大奖赛：Martin Brundle 评点 Kimi Antonelli 在奥斯汀的“出色”胜利，以及 Oscar Piastri 在2026年F1赛车中的挣扎",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+          "url": "https://www.skysports.com/f1/news/13604035/united-states-gp-martin-brundles-verdict-on-outstanding-kimi-antonelli-win-in-austin-and-oscar-piastris-struggles-in-2026-f1-cars",
+          "published_at": "2026-10-27T10:30:00Z",
+          "image_url": "https://e0.365dm.com/26/10/1600x900/skysports-f1-kimi-antonelli_7388551.jpg?20261027102026",
+          "video_url": null,
+          "video_poster_url": "https://e0.365dm.com/26/10/1600x900/skysports-f1-kimi-antonelli_7388551.jpg?20261027102026",
+          "heat_contribution": 0.0,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-63313b9c3e6b161d",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Grande Prêmio",
+          "title": "Piastri admits McLaren lacks pace after seventh-place finish at United States GP",
+          "title_zh": "Piastri 承认 McLaren 在美国大奖赛第七名完赛后缺乏速度",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+          "url": "https://grandepremio.com/en/f1/piastri-reveals-mclarens-biggest-problem-after-painful-austin-race-we-just-didnt-have-the-pace/",
+          "published_at": "2026-10-27T10:30:00Z",
+          "image_url": "https://grandepremio.com/wp-content/uploads/2026/10/f1-2026-estados-unidos-austin-corrida-mclaren-oscar-piastri-05-1200x630.jpg",
+          "video_url": null,
+          "video_poster_url": "https://grandepremio.com/wp-content/uploads/2026/10/f1-2026-estados-unidos-austin-corrida-mclaren-oscar-piastri-05-1200x630.jpg",
+          "heat_contribution": 0.0,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-3b4a0e5a480cad73",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "F1 Oversteer",
+          "title": "Andrea Stella's pre-race message to Oscar Piastri confirms he's now unofficially McLaren's number two",
+          "title_zh": "Andrea Stella 赛前对 Oscar Piastri 的讲话证实他如今已非正式地成为 McLaren 的二号车手",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+          "url": "https://www.f1oversteer.com/news/andrea-stellas-pre-race-message-to-oscar-piastri-confirms-hes-now-unofficially-mclarens-number-two/",
+          "published_at": "2026-10-27T07:00:00Z",
+          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/stella-piastri-1793026433093.jpg",
+          "video_url": null,
+          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/stella-piastri-1793026433093.jpg",
           "heat_contribution": 0.0,
           "metrics": {}
         },
@@ -425,141 +642,31 @@
           "metrics": {}
         }
       ],
-      "official_heat": 12,
-      "media_heat": 51,
+      "official_heat": 21,
+      "media_heat": 79,
       "fan_heat": 0,
-      "heat": 54,
+      "heat": 84,
       "source_labels": [
         "官",
         "媒"
       ],
       "source_counts": {
         "official": 1,
-        "media": 11,
+        "media": 17,
         "fan": 0
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 3
-    },
-    {
-      "event_id": "evt-2026-11-01-7d25bcb78775",
-      "rule_id": null,
-      "hot_word_zh": "Oscar Piastri 后轮毫无抓地力，在墨西哥城 Q2 被淘汰 😢 #F1 #Mex…",
-      "hot_word_en": "No rear grip for Oscar Piastri leaves him eliminated in Q2 in Mexico City 😢 #F1 #MexicoGP",
-      "first_seen_at": "2026-11-01T01:42:00Z",
-      "last_seen_at": "2026-11-01T01:42:00Z",
-      "anchor_item_id": "piasnews-social-174a331c620dc57f",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2116694794437107712/vid/avc1/1080x1080/JomQf71k1ruMOcbP.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2116694794437107712/img/MVjjDBDleGKxPpwo.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-174a331c620dc57f",
-          "dataset": "social",
-          "source_type": "official",
-          "source": "@F1",
-          "title": "X post from @F1: No rear grip for Oscar Piastri leaves him eliminated in Q2 in Mexico City 😢 #F1 #MexicoGP",
-          "title_zh": "X 发帖 @F1：Oscar Piastri 后轮毫无抓地力，在墨西哥城 Q2 被淘汰 😢 #F1 #MexicoGP",
-          "summary": "No rear grip for Oscar Piastri leaves him eliminated in Q2 in Mexico City 😢 #F1 #MexicoGP https://t.co/xN0W2cNIGS",
-          "summary_zh": "Oscar Piastri 后轮毫无抓地力，在墨西哥城 Q2 被淘汰 😢 #F1 #MexicoGP",
-          "url": "https://x.com/F1/status/2116707294486360103",
-          "published_at": "2026-11-01T01:42:00Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2116694794437107712/vid/avc1/1080x1080/JomQf71k1ruMOcbP.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2116694794437107712/img/MVjjDBDleGKxPpwo.jpg",
-          "heat_contribution": 8.0122,
-          "metrics": {
-            "likes": 1518,
-            "retweets": 136,
-            "replies": 23,
-            "quotes": 28,
-            "views": 210706,
-            "bookmarks": 60
-          }
-        }
-      ],
-      "official_heat": 52,
-      "media_heat": 0,
-      "fan_heat": 0,
-      "heat": 52,
-      "source_labels": [
-        "官"
-      ],
-      "source_counts": {
-        "official": 1,
-        "media": 0,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 4
-    },
-    {
-      "event_id": "evt-2026-11-01-7dd7cbef5590",
-      "rule_id": null,
-      "hot_word_zh": "Piastri 在 1 号弯从内线超越 Lindblad！",
-      "hot_word_en": "Piastri goes down the inside of Lindblad into Turn 1! 😮‍💨 A nice move from the McLaren driver into P7 🙌 #F1 #…",
-      "first_seen_at": "2026-11-01T20:21:00Z",
-      "last_seen_at": "2026-11-01T20:21:00Z",
-      "anchor_item_id": "piasnews-social-b3ef3b89bf275a28",
-      "image_url": "https://pbs.twimg.com/media/HWEOLu2XkAAzmbr.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HWEOLu2XkAAzmbr.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-b3ef3b89bf275a28",
-          "dataset": "social",
-          "source_type": "official",
-          "source": "@F1",
-          "title": "X post from @F1: Piastri goes down the inside of Lindblad into Turn 1! 😮‍💨 A nice move from the McLaren driver i…",
-          "title_zh": "X 发帖 @F1：Piastri 在 1 号弯从内线超越 Lindblad！😮‍💨 这位 McLaren 车手漂亮地升至 P7 🙌 #F1 #MexicoGP | 第 12/71 圈",
-          "summary": "Piastri goes down the inside of Lindblad into Turn 1! 😮‍💨 A nice move from the McLaren driver into P7 🙌 #F1 #MexicoGP | LAP 12/71 https://t.co/JgUYHUTTvF",
-          "summary_zh": "Piastri 在 1 号弯从内线超越 Lindblad！😮‍💨 这位 McLaren 车手漂亮地升至 P7 🙌 #F1 #MexicoGP | 第 12/71 圈",
-          "url": "https://x.com/F1/status/2116988903294927087",
-          "published_at": "2026-11-01T20:21:00Z",
-          "image_url": "https://pbs.twimg.com/media/HWEOLu2XkAAzmbr.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HWEOLu2XkAAzmbr.jpg",
-          "heat_contribution": 7.9704,
-          "metrics": {
-            "likes": 1248,
-            "retweets": 128,
-            "replies": 8,
-            "quotes": 13,
-            "views": 133905,
-            "bookmarks": 31
-          }
-        }
-      ],
-      "official_heat": 52,
-      "media_heat": 0,
-      "fan_heat": 0,
-      "heat": 52,
-      "source_labels": [
-        "官"
-      ],
-      "source_counts": {
-        "official": 1,
-        "media": 0,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 5
+      "rank": 2
     },
     {
       "event_id": "evt-2026-10-31-8070731949db",
       "rule_id": null,
-      "hot_word_zh": "听听 Oscar 在今天排位赛后的感想 💭 #McLarenF1 | #MexicoGP…",
-      "hot_word_en": "Hear from Oscar following today's Qualifying 💭 #McLarenF1 | #MexicoGP 🇲🇽 | #LiveYourFandom",
+      "hot_word_zh": "{\\fn黑体\\fs22\\bord1\\shad0\\3aHBE\\4aH00\\fscx67\\fs…",
+      "hot_word_en": "🤜🤛 #McLarenF1 | #MexicoGP 🇲🇽 | #LiveYourFandom",
       "first_seen_at": "2026-10-31T23:20:00Z",
-      "last_seen_at": "2026-10-31T23:23:38Z",
-      "anchor_item_id": "piasnews-social-c72294b055df9dce",
+      "last_seen_at": "2026-11-01T19:24:54Z",
+      "anchor_item_id": "piasnews-social-381f3c3990c69be2",
       "image_url": null,
       "video_url": "https://video.twimg.com/amplify_video/2116666511049764864/vid/avc1/1080x1920/if1csRNN3aqhfuP7.mp4?tag=29",
       "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2116666511049764864/img/ncPPlROQ8O1cVxCO.jpg",
@@ -591,6 +698,30 @@
           }
         },
         {
+          "item_id": "piasnews-social-381f3c3990c69be2",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: 🤜🤛 #McLarenF1 | #MexicoGP 🇲🇽 | #LiveYourFandom",
+          "title_zh": "X 转帖 @laurogeitabat：{\\fn黑体\\fs22\\bord1\\shad0\\3aHBE\\4aH00\\fscx67\\fscy66\\2cHFFFFFF\\3cH808080}#McLarenF1 {\\fn黑体\\fs22\\bord1\\shad0\\3aHBE\\4aH00\\fscx67\\fscy66\\2cHFFFFFF\\3cH808080}#McLarenF1 {\\fn黑体\\fs22\\bord1\\shad0\\3aHBE\\4aH00\\fscx67\\fscy66\\2cHFFFFFF\\3cH808080}#McLarenF1 {\\fn黑体\\fs22\\bord1\\shad0\\3aHBE\\4aH00\\fscx67\\fscy66\\2cHFFFFFF\\3cH808080}#MexicoGP####Live Your Fandom#####Live YourFandom#####MCLive",
+          "summary": "🤜🤛 #McLarenF1 | #MexicoGP 🇲🇽 | #LiveYourFandom https://t.co/GMdVSD2rXR",
+          "summary_zh": "{\\fn黑体\\fs22\\bord1\\shad0\\3aHBE\\4aH00\\fscx67\\fscy66\\2cHFFFFFF\\3cH808080}#McLarenF1 {\\fn黑体\\fs22\\bord1\\shad0\\3aHBE\\4aH00\\fscx67\\fscy66\\2cHFFFFFF\\3cH808080}#McLarenF1 {\\fn黑体\\fs22\\bord1\\shad0\\3aHBE\\4aH00\\fscx67\\fscy66\\2cHFFFFFF\\3cH808080}#McLarenF1 {\\fn黑体\\fs22\\bord1\\shad0\\3aHBE\\4aH00\\fscx67\\fscy66\\2cHFFFFFF\\3cH808080}#MexicoGP####Live Your Fandom#####Live YourFandom#####MCLive",
+          "url": "https://x.com/McLarenF1/status/2116974367704060161",
+          "published_at": "2026-11-01T19:23:15Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2116973468675694592/vid/avc1/2160x3840/6dRQFqwRQjeUSC01.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2116973468675694592/img/PR5--2bNmEzG8sc5.jpg",
+          "heat_contribution": 6.4109,
+          "metrics": {
+            "likes": 455,
+            "retweets": 58,
+            "replies": 1,
+            "quotes": 3,
+            "views": 22990,
+            "bookmarks": 16
+          }
+        },
+        {
           "item_id": "piasnews-social-0d02b45b05b5d7d6",
           "dataset": "social",
           "source_type": "fan",
@@ -604,28 +735,217 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2116666511049764864/vid/avc1/320x568/hD5oL4tRpw6oCTBS.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2116666511049764864/img/ncPPlROQ8O1cVxCO.jpg",
-          "heat_contribution": 5.0579,
+          "heat_contribution": 5.0973,
           "metrics": {
             "likes": 0,
-            "retweets": 173,
+            "retweets": 180,
             "replies": 0,
             "quotes": 0,
-            "views": 123,
+            "views": 127,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-142f284156af1f18",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: RT @McLarenF1: 🤜🤛 #McLarenF1 | #MexicoGP 🇲🇽 | #LiveYourFandom",
+          "title_zh": "X 转帖 @laurogeitabat：@McLarenF1:#McLarenF1##墨西哥GP#####Live YourFandom",
+          "summary": "RT @McLarenF1: 🤜🤛 #McLarenF1 | #MexicoGP 🇲🇽 | #LiveYourFandom https://t.co/GMdVSD2rXR",
+          "summary_zh": "@McLarenF1:#McLarenF1##墨西哥GP#####Live YourFandom",
+          "url": "https://x.com/laurogeitabat/status/2116974781589520742",
+          "published_at": "2026-11-01T19:24:54Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2116973468675694592/vid/avc1/320x568/Ykm6Yqs4Mo6JcU5X.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2116973468675694592/img/PR5--2bNmEzG8sc5.jpg",
+          "heat_contribution": 4.7011,
+          "metrics": {
+            "likes": 0,
+            "retweets": 72,
+            "replies": 0,
+            "quotes": 0,
+            "views": 143,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 47,
-      "heat": 47,
+      "fan_heat": 71,
+      "heat": 71,
       "source_labels": [
         "粉"
       ],
       "source_counts": {
         "official": 0,
         "media": 0,
-        "fan": 1
+        "fan": 2
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "event_id": "evt-2026-11-01-867fb89a3fa4",
+      "rule_id": null,
+      "hot_word_zh": "Oscar Piastri 连续晋级 Q3 的纪录就此终结，距其开始已过去两年 😢❌ #F…",
+      "hot_word_en": "Oscar Piastri's Q3 streak comes to an end, two years since it started 😢❌ #F1 #MexicoGP",
+      "first_seen_at": "2026-11-01T00:08:00Z",
+      "last_seen_at": "2026-11-01T00:08:00Z",
+      "anchor_item_id": "piasnews-social-b3576f584747e506",
+      "image_url": "https://pbs.twimg.com/media/HV_oL8gXsAAI3ka.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HV_oL8gXsAAI3ka.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-b3576f584747e506",
+          "dataset": "social",
+          "source_type": "official",
+          "source": "@F1",
+          "title": "X post from @F1: Oscar Piastri's Q3 streak comes to an end, two years since it started 😢❌ #F1 #MexicoGP",
+          "title_zh": "X 发帖 @F1：Oscar Piastri 连续晋级 Q3 的纪录就此终结，距其开始已过去两年 😢❌ #F1 #MexicoGP",
+          "summary": "Oscar Piastri's Q3 streak comes to an end, two years since it started 😢❌ #F1 #MexicoGP https://t.co/1fjwCq9csf",
+          "summary_zh": "Oscar Piastri 连续晋级 Q3 的纪录就此终结，距其开始已过去两年 😢❌ #F1 #MexicoGP",
+          "url": "https://x.com/F1/status/2116683638922248311",
+          "published_at": "2026-11-01T00:08:00Z",
+          "image_url": "https://pbs.twimg.com/media/HV_oL8gXsAAI3ka.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HV_oL8gXsAAI3ka.jpg",
+          "heat_contribution": 8.7881,
+          "metrics": {
+            "likes": 9996,
+            "retweets": 599,
+            "replies": 122,
+            "quotes": 0,
+            "views": 300570,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 57,
+      "media_heat": 0,
+      "fan_heat": 0,
+      "heat": 57,
+      "source_labels": [
+        "官"
+      ],
+      "source_counts": {
+        "official": 1,
+        "media": 0,
+        "fan": 0
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "event_id": "evt-2026-11-01-7dd7cbef5590-7dd7cbef",
+      "rule_id": null,
+      "hot_word_zh": "Piastri 在 1 号弯从内线超越 Lindblad！",
+      "hot_word_en": "Piastri goes down the inside of Lindblad into Turn 1! 😮‍💨 A nice move from the McLaren driver into P7 🙌 #F1 #…",
+      "first_seen_at": "2026-11-01T20:21:00Z",
+      "last_seen_at": "2026-11-01T20:21:00Z",
+      "anchor_item_id": "piasnews-social-b3ef3b89bf275a28",
+      "image_url": "https://pbs.twimg.com/media/HWEOLu2XkAAzmbr.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HWEOLu2XkAAzmbr.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-b3ef3b89bf275a28",
+          "dataset": "social",
+          "source_type": "official",
+          "source": "@F1",
+          "title": "X post from @F1: Piastri goes down the inside of Lindblad into Turn 1! 😮‍💨 A nice move from the McLaren driver i…",
+          "title_zh": "X 发帖 @F1：Piastri 在 1 号弯从内线超越 Lindblad！😮‍💨 这位 McLaren 车手漂亮地升至 P7 🙌 #F1 #MexicoGP | 第 12/71 圈",
+          "summary": "Piastri goes down the inside of Lindblad into Turn 1! 😮‍💨 A nice move from the McLaren driver into P7 🙌 #F1 #MexicoGP | LAP 12/71 https://t.co/JgUYHUTTvF",
+          "summary_zh": "Piastri 在 1 号弯从内线超越 Lindblad！😮‍💨 这位 McLaren 车手漂亮地升至 P7 🙌 #F1 #MexicoGP | 第 12/71 圈",
+          "url": "https://x.com/F1/status/2116988903294927087",
+          "published_at": "2026-11-01T20:21:00Z",
+          "image_url": "https://pbs.twimg.com/media/HWEOLu2XkAAzmbr.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HWEOLu2XkAAzmbr.jpg",
+          "heat_contribution": 7.6828,
+          "metrics": {
+            "likes": 1248,
+            "retweets": 128,
+            "replies": 8,
+            "quotes": 13,
+            "views": 133905,
+            "bookmarks": 31
+          }
+        }
+      ],
+      "official_heat": 50,
+      "media_heat": 0,
+      "fan_heat": 0,
+      "heat": 50,
+      "source_labels": [
+        "官"
+      ],
+      "source_counts": {
+        "official": 1,
+        "media": 0,
+        "fan": 0
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "event_id": "evt-2026-11-01-7d25bcb78775-7d25bcb7",
+      "rule_id": null,
+      "hot_word_zh": "Oscar Piastri 后轮毫无抓地力，在墨西哥城 Q2 被淘汰 😢 #F1 #Mex…",
+      "hot_word_en": "No rear grip for Oscar Piastri leaves him eliminated in Q2 in Mexico City 😢 #F1 #MexicoGP",
+      "first_seen_at": "2026-11-01T01:42:00Z",
+      "last_seen_at": "2026-11-01T01:42:00Z",
+      "anchor_item_id": "piasnews-social-174a331c620dc57f",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2116694794437107712/vid/avc1/1080x1080/JomQf71k1ruMOcbP.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2116694794437107712/img/MVjjDBDleGKxPpwo.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-174a331c620dc57f",
+          "dataset": "social",
+          "source_type": "official",
+          "source": "@F1",
+          "title": "X post from @F1: No rear grip for Oscar Piastri leaves him eliminated in Q2 in Mexico City 😢 #F1 #MexicoGP",
+          "title_zh": "X 发帖 @F1：Oscar Piastri 后轮毫无抓地力，在墨西哥城 Q2 被淘汰 😢 #F1 #MexicoGP",
+          "summary": "No rear grip for Oscar Piastri leaves him eliminated in Q2 in Mexico City 😢 #F1 #MexicoGP https://t.co/xN0W2cNIGS",
+          "summary_zh": "Oscar Piastri 后轮毫无抓地力，在墨西哥城 Q2 被淘汰 😢 #F1 #MexicoGP",
+          "url": "https://x.com/F1/status/2116707294486360103",
+          "published_at": "2026-11-01T01:42:00Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2116694794437107712/vid/avc1/1080x1080/JomQf71k1ruMOcbP.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2116694794437107712/img/MVjjDBDleGKxPpwo.jpg",
+          "heat_contribution": 7.5016,
+          "metrics": {
+            "likes": 1518,
+            "retweets": 136,
+            "replies": 23,
+            "quotes": 28,
+            "views": 210706,
+            "bookmarks": 60
+          }
+        }
+      ],
+      "official_heat": 49,
+      "media_heat": 0,
+      "fan_heat": 0,
+      "heat": 49,
+      "source_labels": [
+        "官"
+      ],
+      "source_counts": {
+        "official": 1,
+        "media": 0,
+        "fan": 0
       },
       "pinned_rank": null,
       "hidden": false,
@@ -711,48 +1031,48 @@
       "rank": 7
     },
     {
-      "event_id": "evt-2026-11-01-4d227f893367",
+      "event_id": "evt-2026-11-01-95f4f9e7b0cd",
       "rule_id": null,
-      "hot_word_zh": "他们换了 Oscar 赛车的一半部件 我好害怕",
-      "hot_word_en": "THEY CHANGED HALF OF OSCAR'S CAR I'M SCARED",
-      "first_seen_at": "2026-11-01T19:07:54Z",
-      "last_seen_at": "2026-11-01T19:07:54Z",
-      "anchor_item_id": "piasnews-social-b6803dc6ff6666a7",
-      "image_url": "https://pbs.twimg.com/media/HWD9dFJXoAAiWOO.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HWD9dFJXoAAiWOO.jpg",
+      "hot_word_zh": "Oscar 在玩那个吸尘器/风扇之类的东西，他的俏皮劲儿真是没完没了 😭😭😭",
+      "hot_word_en": "oscar playing with the vacuum/fan thingy, his whimsy knows no end 😭😭😭",
+      "first_seen_at": "2026-11-01T21:54:35Z",
+      "last_seen_at": "2026-11-01T21:54:35Z",
+      "anchor_item_id": "piasnews-social-4c1534ea57954529",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2117009747161526272/vid/avc1/480x270/AjAw1iwyVGQ8WdN4.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2117009747161526272/img/zuFMtBwv2Fp07S1k.jpg",
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
         {
-          "item_id": "piasnews-social-b6803dc6ff6666a7",
+          "item_id": "piasnews-social-4c1534ea57954529",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: THEY CHANGED HALF OF OSCAR'S CAR I'M SCARED",
-          "title_zh": "X 发帖 @laurogeitabat：他们换了 Oscar 赛车的一半部件 我好害怕",
-          "summary": "THEY CHANGED HALF OF OSCAR'S CAR I'M SCARED https://t.co/AxyTSY80RU",
-          "summary_zh": "他们换了 Oscar 赛车的一半部件 我好害怕",
-          "url": "https://x.com/laurogeitabat/status/2116970507106971705",
-          "published_at": "2026-11-01T19:07:54Z",
-          "image_url": "https://pbs.twimg.com/media/HWD9dFJXoAAiWOO.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HWD9dFJXoAAiWOO.jpg",
-          "heat_contribution": 7.8369,
+          "title": "X post from @laurogeitabat: oscar playing with the vacuum/fan thingy, his whimsy knows no end 😭😭😭",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar 在玩那个吸尘器/风扇之类的东西，他的俏皮劲儿真是没完没了 😭😭😭",
+          "summary": "oscar playing with the vacuum/fan thingy, his whimsy knows no end 😭😭😭 https://t.co/5P3lzp2F4c",
+          "summary_zh": "Oscar 在玩那个吸尘器/风扇之类的东西，他的俏皮劲儿真是没完没了 😭😭😭",
+          "url": "https://x.com/laurogeitabat/status/2117012454110531808",
+          "published_at": "2026-11-01T21:54:35Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2117009747161526272/vid/avc1/480x270/AjAw1iwyVGQ8WdN4.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2117009747161526272/img/zuFMtBwv2Fp07S1k.jpg",
+          "heat_contribution": 8.7831,
           "metrics": {
-            "likes": 1683,
-            "retweets": 101,
-            "replies": 12,
-            "quotes": 145,
-            "views": 32024,
-            "bookmarks": 71
+            "likes": 6486,
+            "retweets": 779,
+            "replies": 7,
+            "quotes": 0,
+            "views": 63105,
+            "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 41,
-      "heat": 41,
+      "fan_heat": 45,
+      "heat": 45,
       "source_labels": [
         "粉"
       ],
@@ -774,7 +1094,7 @@
       "last_seen_at": "2026-10-31T12:20:21Z",
       "anchor_item_id": "piasnews-social-0e9c76fd0a2d5565",
       "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2116505475755732992/vid/avc1/1440x1080/ptJY52VQKSj5okpQ.mp4?tag=29",
+      "video_url": "https://video.twimg.com/amplify_video/2116505475755732992/vid/avc1/360x270/87co1eVr-wD48MAl.mp4?tag=29",
       "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2116505475755732992/img/0cNpMHDuL05yZPdk.jpg",
       "review_needed": false,
       "review_needed_reason": null,
@@ -791,16 +1111,16 @@
           "url": "https://x.com/oscarsspiastree/status/2116505555283882477",
           "published_at": "2026-10-31T12:20:21Z",
           "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2116505475755732992/vid/avc1/1440x1080/ptJY52VQKSj5okpQ.mp4?tag=29",
+          "video_url": "https://video.twimg.com/amplify_video/2116505475755732992/vid/avc1/360x270/87co1eVr-wD48MAl.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2116505475755732992/img/0cNpMHDuL05yZPdk.jpg",
-          "heat_contribution": 6.7285,
+          "heat_contribution": 6.7241,
           "metrics": {
-            "likes": 1403,
+            "likes": 1423,
             "retweets": 100,
             "replies": 1,
-            "quotes": 15,
-            "views": 21932,
-            "bookmarks": 212
+            "quotes": 0,
+            "views": 22112,
+            "bookmarks": 0
           }
         }
       ],
@@ -821,244 +1141,117 @@
       "rank": 9
     },
     {
-      "event_id": "evt-2026-10-27-b23cc82f4f7c",
+      "event_id": "evt-2026-10-31-104690d9440a",
       "rule_id": null,
-      "hot_word_zh": "Karun Chandhok 指出 Oscar Piastri 的关键问题，让他陷入“艰难…",
-      "hot_word_en": "Karun Chandhok pinpoints Oscar Piastri’s key problem that’s leaving him in a ‘tough place’",
-      "first_seen_at": "2026-10-28T04:55:45Z",
-      "last_seen_at": "2026-11-01T10:00:00Z",
-      "anchor_item_id": "piasnews-24439519657cf1fe",
-      "image_url": "https://media.formula1.com/image/upload/t_16by9Centre/c_lfill,w_2048/q_auto/v1740000001/trackside-images/2026/F1_Grand_Prix_of_Mexico___Practice/2302755784.webp",
-      "video_url": null,
-      "video_poster_url": "https://media.formula1.com/image/upload/t_16by9Centre/c_lfill,w_2048/q_auto/v1740000001/trackside-images/2026/F1_Grand_Prix_of_Mexico___Practice/2302755784.webp",
+      "hot_word_zh": "“也许我会去当和尚”——Oscar Piastri，2026。",
+      "hot_word_en": "\"Maybe I'll become a monk\" - oscar piastri, 2026. Q: I don't know if you've given any thought to what you'd d…",
+      "first_seen_at": "2026-10-31T12:25:31Z",
+      "last_seen_at": "2026-10-31T12:25:31Z",
+      "anchor_item_id": "piasnews-social-9f3e385b0db66b4c",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2116506761553178624/vid/avc1/360x270/OEJg11H-dgG-psJY.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/media/HV9Xw7-XwAAbVzV.jpg",
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
         {
-          "item_id": "piasnews-0515b09a0a42c113",
-          "dataset": "items",
-          "source_type": "official",
-          "source": "Formula 1",
-          "title": "Piastri on McLaren’s 'very difficult to know’ Mexico chances",
-          "title_zh": "Piastri谈McLaren在墨西哥“很难预知”的机会",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
-          "url": "https://www.formula1.com/en/latest/article/piastri-explains-why-mclarens-mexico-prospects-are-very-difficult-to-know-after-first-day-on-track.4PGo71V75Iiks8Tdhj5z4B",
-          "published_at": "2026-10-31T01:34:14.106000Z",
-          "image_url": "https://media.formula1.com/image/upload/t_16by9Centre/c_lfill,w_2048/q_auto/v1740000001/trackside-images/2026/F1_Grand_Prix_of_Mexico___Practice/2302755784.webp",
-          "video_url": null,
-          "video_poster_url": "https://media.formula1.com/image/upload/t_16by9Centre/c_lfill,w_2048/q_auto/v1740000001/trackside-images/2026/F1_Grand_Prix_of_Mexico___Practice/2302755784.webp",
-          "heat_contribution": 1.35,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-24439519657cf1fe",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "F1 Oversteer",
-          "title": "Karun Chandhok pinpoints Oscar Piastri’s key problem that’s leaving him in a ‘tough place’",
-          "title_zh": "Karun Chandhok 指出 Oscar Piastri 的关键问题，让他陷入“艰难处境”",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
-          "url": "https://www.f1oversteer.com/news/karun-chandhok-pinpoints-oscar-piastris-key-problem-thats-leaving-him-in-a-tough-place/",
-          "published_at": "2026-11-01T10:00:00Z",
-          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2302863892-scaled.jpg",
-          "video_url": null,
-          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/10/GettyImages-2302863892-scaled.jpg",
-          "heat_contribution": 0.75,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-cfa298b6c691b3ec",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Nine.com.au",
-          "title": "Piastri left stranded as ‘risky’ McLaren gamble backfires",
-          "title_zh": "Piastri 被困场边，McLaren 的“冒险”赌注适得其反",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
-          "url": "https://www.nine.com.au/sport/motorsport/f1-mexico-city-grand-prix-qualifying-oscar-piastri-out-thirteenth-place-start-20261101-p61abb.html",
-          "published_at": "2026-10-31T22:54:33.858000Z",
-          "image_url": "https://static.ffx.io/images/$zoom_0.1857%2C$multiply_4%2C$ratio_1.777778%2C$width_1059%2C$x_167%2C$y_45/t_crop_custom/c_scale%2Cw_1200%2Cq_88%2Cf_auto/1d2e286fccf7f9aa1c6216c1703d84a5b546d8e7350c114a368c7decc90a370b",
-          "video_url": null,
-          "video_poster_url": "https://static.ffx.io/images/$zoom_0.1857%2C$multiply_4%2C$ratio_1.777778%2C$width_1059%2C$x_167%2C$y_45/t_crop_custom/c_scale%2Cw_1200%2Cq_88%2Cf_auto/1d2e286fccf7f9aa1c6216c1703d84a5b546d8e7350c114a368c7decc90a370b",
-          "heat_contribution": 0.45,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-29410344e0f0761f",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "RacingNews365",
-          "title": "Oscar Piastri suffers embarrassing early exit as McLaren gamble backfires",
-          "title_zh": "Oscar Piastri 遭遇尴尬的早早出局，McLaren 的赌注适得其反",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
-          "url": "https://racingnews365.com/oscar-piastri-suffers-embarrassing-early-exit-as-mclaren-gamble-backfires",
-          "published_at": "2026-10-31T21:54:00Z",
-          "image_url": "https://cdn.racingnews365.com/2026/Piastri/Piastri-Q-Mexico.jpg?v=1793483084&width=1800&height=945&quality=75&crop=3014%2C1583%2C0%2C55",
-          "video_url": null,
-          "video_poster_url": "https://cdn.racingnews365.com/2026/Piastri/Piastri-Q-Mexico.jpg?v=1793483084&width=1800&height=945&quality=75&crop=3014%2C1583%2C0%2C55",
-          "heat_contribution": 0.45,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-814e244e64426469",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "FormulaRapida.net",
-          "title": "Oscar Piastri reflects on McLaren’s challenges this season",
-          "title_zh": "Oscar Piastri 回顾 McLaren 本赛季面临的挑战",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
-          "url": "https://formularapida.net/en/oscar-piastri-mclaren-challenges/",
-          "published_at": "2026-10-30T19:19:27Z",
-          "image_url": "https://formularapida.net/wp-content/uploads/2026/10/image-971.jpg",
-          "video_url": null,
-          "video_poster_url": "https://formularapida.net/wp-content/uploads/2026/10/image-971.jpg",
-          "heat_contribution": 0.2,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-b6a2f67380249098",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Yahoo Sports",
-          "title": "Oscar Piastri Outlines McLaren's Ongoing Battle to Cure MCL40 Woes",
-          "title_zh": "Oscar Piastri 阐述 McLaren 为治愈 MCL40 问题而持续进行的斗争",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
-          "url": "https://sports.yahoo.com/articles/oscar-piastri-outlines-mclarens-ongoing-085320015.html",
-          "published_at": "2026-10-30T08:53:20Z",
-          "image_url": "https://s.yimg.com/lo/mysterio/api/485f67ba112faee118e95b1726ff83bbc1d388cd88bed324005852905308be79/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Ff1_chronicle_874%2F3c5ce8143c6a6bb48fbb3d414081575f.jpg",
-          "video_url": null,
-          "video_poster_url": "https://s.yimg.com/lo/mysterio/api/485f67ba112faee118e95b1726ff83bbc1d388cd88bed324005852905308be79/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Ff1_chronicle_874%2F3c5ce8143c6a6bb48fbb3d414081575f.jpg",
-          "heat_contribution": 0.2,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-fd3c9019d2fead9c",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Auto Action",
-          "title": "Piastri backs McLaren to fight back",
-          "title_zh": "Piastri 力挺McLaren反击",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
-          "url": "https://autoaction.com.au/2026/10/30/piastri-backs-mclaren-to-fight-back",
-          "published_at": "2026-10-30T02:46:36Z",
-          "image_url": "https://autoaction.com.au/wp-content/uploads/2026/10/Image-7-e1793328373419.jpg?v=1793328237",
-          "video_url": null,
-          "video_poster_url": "https://autoaction.com.au/wp-content/uploads/2026/10/Image-7-e1793328373419.jpg?v=1793328237",
-          "heat_contribution": 0.2,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-9eae8895bd2fc9f2",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "SPEEDWEEK.com",
-          "title": "Günther Steiner’s U-turn: “No reason to panic” for Oscar Piastri",
-          "title_zh": "Günther Steiner 态度大转弯：对 Oscar Piastri 而言“没有理由恐慌”",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
-          "url": "https://www.speedweek.com/en/a/formula-1/guenther-steiner-no-reason-to-panic-piastri",
-          "published_at": "2026-10-29T14:42:02.235000Z",
-          "image_url": "https://files.speedweek.com/images/c_crop,x_0,y_1258,w_3648,h_1824/c_fill,f_auto,q_auto,w_1200,h_630/2026/10/29/qm0gaawfszam1u3elszq/formel-1-oscar-piastri-mclaren-f1-team-2026-formula-1-world-championship-rd-18-united-states-grand-prix-austin",
-          "video_url": null,
-          "video_poster_url": "https://files.speedweek.com/images/c_crop,x_0,y_1258,w_3648,h_1824/c_fill,f_auto,q_auto,w_1200,h_630/2026/10/29/qm0gaawfszam1u3elszq/formel-1-oscar-piastri-mclaren-f1-team-2026-formula-1-world-championship-rd-18-united-states-grand-prix-austin",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-0f1e30e9d79882d3",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Speedcafe.com",
-          "title": "Steiner makes U-turn on controversial Piastri McLaren call",
-          "title_zh": "Steiner对备受争议的Piastri McLaren决定态度大转弯",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
-          "url": "https://speedcafe.com/f1-news-2026-guenther-steiner-interview-oscar-piastri-thoughts-opinion-future-mclaren-update/",
-          "published_at": "2026-10-28T22:21:53Z",
-          "image_url": "https://speedcafe.com/wp-content/uploads/2026/10/XPB_1445215_HiRes.jpg",
-          "video_url": null,
-          "video_poster_url": "https://speedcafe.com/wp-content/uploads/2026/10/XPB_1445215_HiRes.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-b78ba5c800b02e2d",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "GPblog",
-          "title": "Brundle: it's 'painful to witness' Oscar Piastri's decline in 2026",
-          "title_zh": "Brundle：目睹Oscar Piastri在2026年的下滑“令人痛苦”",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
-          "url": "https://www.gpblog.com/en/news/brundle-issues-clear-verdict-on-oscar-piastris-ongoing-struggles",
-          "published_at": "2026-10-28T21:02:00Z",
-          "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-07%2Fpiastri-gb-6a4e391d93b7c.jpg",
-          "video_url": null,
-          "video_poster_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-07%2Fpiastri-gb-6a4e391d93b7c.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-23f7d65116ba8eb4",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Yahoo Sports",
-          "title": "Brundle issues clear verdict on Oscar Piastri's ongoing struggles",
-          "title_zh": "Brundle 对 Oscar Piastri 持续低迷给出明确判断",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
-          "url": "https://sports.yahoo.com/articles/brundle-issues-clear-verdict-oscar-210200693.html",
-          "published_at": "2026-10-28T21:02:00Z",
-          "image_url": "https://s.yimg.com/lo/mysterio/api/09c1f3e0a48727b3fd64202a5dcf650603c217e4df4e3b39c201e801fea5ed53/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fgpblog_716%2F152a7347124e149bb44b167e0db00b4c",
-          "video_url": null,
-          "video_poster_url": "https://s.yimg.com/lo/mysterio/api/09c1f3e0a48727b3fd64202a5dcf650603c217e4df4e3b39c201e801fea5ed53/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fgpblog_716%2F152a7347124e149bb44b167e0db00b4c",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-fd09a7d9692013b0",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "ContentGrip",
-          "title": "Oscar Piastri's Pixel film gets 1.5m views",
-          "title_zh": "Oscar Piastri的Pixel影片获得150万次观看",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
-          "url": "https://www.contentgrip.com/piastri-pixel-in-the-zone/",
-          "published_at": "2026-10-28T04:55:45Z",
-          "image_url": "https://contentgrip-media.b-cdn.net/featured/Oscar-Piastris-Pixel-film-gets-1.5m-views.webp",
-          "video_url": null,
-          "video_poster_url": "https://contentgrip-media.b-cdn.net/featured/Oscar-Piastris-Pixel-film-gets-1.5m-views.webp",
-          "heat_contribution": 0.0,
-          "metrics": {}
+          "item_id": "piasnews-social-9f3e385b0db66b4c",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@oscarsspiastree",
+          "title": "X post from @oscarsspiastree: \"Maybe I'll become a monk\" - oscar piastri, 2026. Q: I don't know if you've given any thought t…",
+          "title_zh": "X 发帖 @oscarsspiastree：“也许我会去当和尚”——Oscar Piastri，2026。问：我不知道你有没有想过退役后要做什么，但我能想象你经营一家正念中心。“😂😂 也许吧，是的！我觉得目前我还需要正念中心来教我正念。不过，也许吧。谁知道呢！那肯定会是人生的大转折，这一点可以肯定。我不知道，也许吧！也许我退役后会去当和尚……😅”",
+          "summary": "\"Maybe I'll become a monk\" - oscar piastri, 2026. Q: I don't know if you've given any thought to what you'd do after your retire but I could see you running a mindfulness centre. \"😂😂. Maybe, yeah! I feel like I still need the mindfulness hub to teach me the mindfulness for now. But, maybe. You never know! It would be one hell of a life turn, that's for sure. I don't know, maybe! Maybe I'll become a monk after I retire...😅\"",
+          "summary_zh": "“也许我会去当和尚”——Oscar Piastri，2026。问：我不知道你有没有想过退役后要做什么，但我能想象你经营一家正念中心。“😂😂 也许吧，是的！我觉得目前我还需要正念中心来教我正念。不过，也许吧。谁知道呢！那肯定会是人生的大转折，这一点可以肯定。我不知道，也许吧！也许我退役后会去当和尚……😅”",
+          "url": "https://x.com/oscarsspiastree/status/2116506852997431801",
+          "published_at": "2026-10-31T12:25:31Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2116506761553178624/vid/avc1/360x270/OEJg11H-dgG-psJY.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/media/HV9Xw7-XwAAbVzV.jpg",
+          "heat_contribution": 6.5011,
+          "metrics": {
+            "likes": 936,
+            "retweets": 141,
+            "replies": 0,
+            "quotes": 0,
+            "views": 25945,
+            "bookmarks": 0
+          }
         }
       ],
-      "official_heat": 12,
-      "media_heat": 30,
-      "fan_heat": 0,
-      "heat": 33,
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 35,
+      "heat": 35,
       "source_labels": [
-        "官",
-        "媒"
+        "粉"
       ],
       "source_counts": {
-        "official": 1,
-        "media": 10,
-        "fan": 0
+        "official": 0,
+        "media": 0,
+        "fan": 1
       },
       "pinned_rank": null,
       "hidden": false,
       "rank": 10
     }
   ],
-  "review_needed_count": 18,
+  "review_needed_count": 15,
   "review_needed_events": [
+    {
+      "event_id": "evt-2026-11-02-639794917582",
+      "rule_id": null,
+      "hot_word_zh": "待补充事件标题",
+      "hot_word_en": "Event title needs review",
+      "first_seen_at": "2026-11-02T01:01:31Z",
+      "last_seen_at": "2026-11-02T01:01:31Z",
+      "anchor_item_id": "piasnews-social-111712ea0ff3f636",
+      "image_url": "https://pbs.twimg.com/media/HWFOYzzXQAAF3h6.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HWFOYzzXQAAF3h6.jpg",
+      "review_needed": true,
+      "review_needed_reason": "insufficient_semantic_text",
+      "items": [
+        {
+          "item_id": "piasnews-social-111712ea0ff3f636",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: @laurogeitabat",
+          "title_zh": "X 发帖：@laurogeitabat",
+          "summary": "https://t.co/oIaLXjeknZ",
+          "summary_zh": "https://t.co/oIaLXjeknZ",
+          "url": "https://x.com/laurogeitabat/status/2117059495696236760",
+          "published_at": "2026-11-02T01:01:31Z",
+          "image_url": "https://pbs.twimg.com/media/HWFOYzzXQAAF3h6.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HWFOYzzXQAAF3h6.jpg",
+          "heat_contribution": 6.458,
+          "metrics": {
+            "likes": 602,
+            "retweets": 97,
+            "replies": 1,
+            "quotes": 0,
+            "views": 5005,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 34,
+      "heat": 34,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false
+    },
     {
       "event_id": "evt-2026-11-01-38b2aeb79e51",
       "rule_id": null,
@@ -1087,21 +1280,21 @@
           "image_url": "https://pbs.twimg.com/media/HWEZUblXIAA0E8G.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HWEZUblXIAA0E8G.jpg",
-          "heat_contribution": 6.8809,
+          "heat_contribution": 7.1934,
           "metrics": {
-            "likes": 659,
-            "retweets": 117,
-            "replies": 6,
-            "quotes": 2,
-            "views": 5749,
-            "bookmarks": 13
+            "likes": 1260,
+            "retweets": 201,
+            "replies": 5,
+            "quotes": 0,
+            "views": 9588,
+            "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 36,
-      "heat": 36,
+      "fan_heat": 38,
+      "heat": 38,
       "source_labels": [
         "粉"
       ],
@@ -1166,6 +1359,64 @@
       "hidden": false
     },
     {
+      "event_id": "evt-2026-11-01-4d227f893367",
+      "rule_id": null,
+      "hot_word_zh": "他们换了 Oscar 赛车的一半部件 我好害怕",
+      "hot_word_en": "THEY CHANGED HALF OF OSCAR'S CAR I'M SCARED",
+      "first_seen_at": "2026-11-01T19:07:54Z",
+      "last_seen_at": "2026-11-01T19:07:54Z",
+      "anchor_item_id": "piasnews-social-b6803dc6ff6666a7",
+      "image_url": "https://pbs.twimg.com/media/HWD9dFJXoAAiWOO.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HWD9dFJXoAAiWOO.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-b6803dc6ff6666a7",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: THEY CHANGED HALF OF OSCAR'S CAR I'M SCARED",
+          "title_zh": "X 发帖 @laurogeitabat：他们换了 Oscar 赛车的一半部件 我好害怕",
+          "summary": "THEY CHANGED HALF OF OSCAR'S CAR I'M SCARED https://t.co/AxyTSY80RU",
+          "summary_zh": "他们换了 Oscar 赛车的一半部件 我好害怕",
+          "url": "https://x.com/laurogeitabat/status/2116970507106971705",
+          "published_at": "2026-11-01T19:07:54Z",
+          "image_url": "https://pbs.twimg.com/media/HWD9dFJXoAAiWOO.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HWD9dFJXoAAiWOO.jpg",
+          "heat_contribution": 7.5493,
+          "metrics": {
+            "likes": 1683,
+            "retweets": 101,
+            "replies": 12,
+            "quotes": 145,
+            "views": 32024,
+            "bookmarks": 71
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 40,
+      "heat": 40,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
       "event_id": "evt-2026-11-01-7513c315ac17",
       "rule_id": null,
       "hot_word_zh": "OSCAR 用手捂住偷笑 天啊他们听到了什么 😭😭😭",
@@ -1193,7 +1444,7 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2116965638136606721/vid/avc1/720x1280/6RpTU04gxbqbDmcU.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2116965638136606721/img/qJDJXRJLNpgGCYEj.jpg",
-          "heat_contribution": 7.9163,
+          "heat_contribution": 7.6287,
           "metrics": {
             "likes": 2147,
             "retweets": 178,
@@ -1206,8 +1457,66 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 41,
-      "heat": 41,
+      "fan_heat": 40,
+      "heat": 40,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-01-7b614c42673f",
+      "rule_id": null,
+      "hot_word_zh": "Artturi 去学校接他儿子",
+      "hot_word_en": "artturi picking up his son from school",
+      "first_seen_at": "2026-11-01T21:19:26Z",
+      "last_seen_at": "2026-11-01T21:19:26Z",
+      "anchor_item_id": "piasnews-social-1671a7259733d454",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2117002238304694272/vid/avc1/424x270/fvZ3H7AqKI-chnm1.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2117002238304694272/img/IjcctXsxqVf4Ac9-.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-1671a7259733d454",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: artturi picking up his son from school",
+          "title_zh": "X 发帖 @laurogeitabat：Artturi 去学校接他儿子",
+          "summary": "artturi picking up his son from school https://t.co/IMnRaRQQPm",
+          "summary_zh": "Artturi 去学校接他儿子",
+          "url": "https://x.com/laurogeitabat/status/2117003606947705187",
+          "published_at": "2026-11-01T21:19:26Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2117002238304694272/vid/avc1/424x270/fvZ3H7AqKI-chnm1.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2117002238304694272/img/IjcctXsxqVf4Ac9-.jpg",
+          "heat_contribution": 7.623,
+          "metrics": {
+            "likes": 2055,
+            "retweets": 220,
+            "replies": 0,
+            "quotes": 0,
+            "views": 23005,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 40,
+      "heat": 40,
       "source_labels": [
         "粉"
       ],
@@ -1251,14 +1560,130 @@
           "image_url": "https://pbs.twimg.com/media/HWEBAPOXIAAgwzh.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HWEBAPOXIAAgwzh.jpg",
-          "heat_contribution": 7.3648,
+          "heat_contribution": 7.6563,
           "metrics": {
-            "likes": 1197,
-            "retweets": 144,
+            "likes": 2122,
+            "retweets": 286,
             "replies": 0,
-            "quotes": 8,
-            "views": 7743,
-            "bookmarks": 68
+            "quotes": 0,
+            "views": 12322,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 40,
+      "heat": 40,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-02-83d0252de4a3",
+      "rule_id": null,
+      "hot_word_zh": "“41号车防守时留出了比赛空间”“81号车本应驶离赛道以避免碰撞” 所以你们承认没有空间了？？",
+      "hot_word_en": "\"car 41 defended allowing racing room\" \"car 81 should've left the track to avoid the collision\" so you admit…",
+      "first_seen_at": "2026-11-02T00:02:04Z",
+      "last_seen_at": "2026-11-02T00:02:04Z",
+      "anchor_item_id": "piasnews-social-ce76fd21e414f4c6",
+      "image_url": "https://pbs.twimg.com/media/HWFAx-gWkAAgxvt.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HWFAx-gWkAAgxvt.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-ce76fd21e414f4c6",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: \"car 41 defended allowing racing room\" \"car 81 should've left the track to avoid the collision\"…",
+          "title_zh": "X 发帖 @laurogeitabat：“41号车防守时留出了比赛空间”“81号车本应驶离赛道以避免碰撞” 所以你们承认没有空间了？？你们是在这么做吗？？承认了？？？",
+          "summary": "\"car 41 defended allowing racing room\" \"car 81 should've left the track to avoid the collision\" so you admit there was no room?? is that what you're doing?? admitting it??? https://t.co/d7Po5JxhOf",
+          "summary_zh": "“41号车防守时留出了比赛空间”“81号车本应驶离赛道以避免碰撞” 所以你们承认没有空间了？？你们是在这么做吗？？承认了？？？",
+          "url": "https://x.com/laurogeitabat/status/2117044534378893340",
+          "published_at": "2026-11-02T00:02:04Z",
+          "image_url": "https://pbs.twimg.com/media/HWFAx-gWkAAgxvt.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HWFAx-gWkAAgxvt.jpg",
+          "heat_contribution": 7.6118,
+          "metrics": {
+            "likes": 1697,
+            "retweets": 302,
+            "replies": 20,
+            "quotes": 0,
+            "views": 33362,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 40,
+      "heat": 40,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-01-fe95d82abcdc",
+      "rule_id": null,
+      "hot_word_zh": "“我在T1内侧上前，arvid移动得晚，所以我为了躲他跑到了外侧。",
+      "hot_word_en": "\"i went up the inside of T1 and arvid moved late so i ended up on the outside bc i was avoiding him.",
+      "first_seen_at": "2026-11-01T23:54:14Z",
+      "last_seen_at": "2026-11-01T23:54:14Z",
+      "anchor_item_id": "piasnews-social-eec9e9bb1aada60b",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2117042530965499904/vid/avc1/366x270/PB9jOYU8TV87oaFc.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2117042530965499904/img/LPO0aoT0OzX2egIc.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-eec9e9bb1aada60b",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: \"i went up the inside of T1 and arvid moved late so i ended up on the outside bc i was avoiding…",
+          "title_zh": "X 发帖 @laurogeitabat：“我在T1内侧上前，arvid移动得晚，所以我为了躲他跑到了外侧。我试着从外侧绕过去，他把我推得相当宽，我正想收油退出。我们在弯前就发生了接触。从我这边看，我根本无处可去。”",
+          "summary": "\"i went up the inside of T1 and arvid moved late so i ended up on the outside bc i was avoiding him. i tried to go around the outside, he pushed me pretty wide and i was trying to back out. we made contact before the corner. from my side of things i didnt have anywhere to go.\" https://t.co/tX48i831Td",
+          "summary_zh": "“我在T1内侧上前，arvid移动得晚，所以我为了躲他跑到了外侧。我试着从外侧绕过去，他把我推得相当宽，我正想收油退出。我们在弯前就发生了接触。从我这边看，我根本无处可去。”",
+          "url": "https://x.com/laurogeitabat/status/2117042564142338295",
+          "published_at": "2026-11-01T23:54:14Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2117042530965499904/vid/avc1/366x270/PB9jOYU8TV87oaFc.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2117042530965499904/img/LPO0aoT0OzX2egIc.jpg",
+          "heat_contribution": 7.513,
+          "metrics": {
+            "likes": 1707,
+            "retweets": 211,
+            "replies": 2,
+            "quotes": 0,
+            "views": 30589,
+            "bookmarks": 0
           }
         }
       ],
@@ -1282,7 +1707,65 @@
       }
     },
     {
-      "event_id": "evt-2026-10-31-8070731949db-a7152518",
+      "event_id": "evt-2026-11-02-dc8ba5f8d0f8",
+      "rule_id": null,
+      "hot_word_zh": "oscar祝贺kimi夺冠 🫶🏻 “祝贺kimi赢得冠军。",
+      "hot_word_en": "oscar congratulates kimi on his championship 🫶🏻 \"congratulations to kimi on his championship win.",
+      "first_seen_at": "2026-11-02T01:25:44Z",
+      "last_seen_at": "2026-11-02T01:25:44Z",
+      "anchor_item_id": "piasnews-social-f66e75460a360247",
+      "image_url": "https://pbs.twimg.com/media/HWFT6JVXkAAaxnG.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HWFT6JVXkAAaxnG.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-f66e75460a360247",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar congratulates kimi on his championship 🫶🏻 \"congratulations to kimi on his championship wi…",
+          "title_zh": "X 发帖 @laurogeitabat：oscar祝贺kimi夺冠 🫶🏻 “祝贺kimi赢得冠军。他从一开始就度过了一个稳定的赛季，在这么年轻的年纪就取得这样的成就非常了不起。”",
+          "summary": "oscar congratulates kimi on his championship 🫶🏻 \"congratulations to kimi on his championship win. he has driven a solid season from the start, and to achieve what he has at such a young age is remarkable.\" https://t.co/KbjBMNKW3u",
+          "summary_zh": "oscar祝贺kimi夺冠 🫶🏻 “祝贺kimi赢得冠军。他从一开始就度过了一个稳定的赛季，在这么年轻的年纪就取得这样的成就非常了不起。”",
+          "url": "https://x.com/laurogeitabat/status/2117065591089438861",
+          "published_at": "2026-11-02T01:25:44Z",
+          "image_url": "https://pbs.twimg.com/media/HWFT6JVXkAAaxnG.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HWFT6JVXkAAaxnG.jpg",
+          "heat_contribution": 7.4301,
+          "metrics": {
+            "likes": 1718,
+            "retweets": 209,
+            "replies": 0,
+            "quotes": 0,
+            "views": 11066,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 39,
+      "heat": 39,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-01-904506e3ea04",
       "rule_id": null,
       "hot_word_zh": "背上背包迎接比赛日 🧡 #McLarenF1 | #MexicoGP 🇲🇽",
       "hot_word_en": "Backpacks on for race day 🧡 #McLarenF1 | #MexicoGP 🇲🇽",
@@ -1317,6 +1800,64 @@
             "quotes": 11,
             "views": 35215,
             "bookmarks": 32
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 38,
+      "heat": 38,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-02-0c4830c5f913",
+      "rule_id": null,
+      "hot_word_zh": "收到10秒罚时后，oscar从P7掉到P15。不过两辆Alpine也都被处罚了，所以osc…",
+      "hot_word_en": "after receiving a 10s penalty oscar dropped from p7 to p15.",
+      "first_seen_at": "2026-11-02T01:53:31Z",
+      "last_seen_at": "2026-11-02T01:53:31Z",
+      "anchor_item_id": "piasnews-social-69d7f22926bafffa",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-69d7f22926bafffa",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: after receiving a 10s penalty oscar dropped from p7 to p15. however, both alpines have also bee…",
+          "title_zh": "X 发帖 @laurogeitabat：收到10秒罚时后，oscar从P7掉到P15。不过两辆Alpine也都被处罚了，所以oscar最终回到P13 😭😭",
+          "summary": "after receiving a 10s penalty oscar dropped from p7 to p15. however, both alpines have also been penalized, so oscar finishes back in p13 😭😭",
+          "summary_zh": "收到10秒罚时后，oscar从P7掉到P15。不过两辆Alpine也都被处罚了，所以oscar最终回到P13 😭😭",
+          "url": "https://x.com/laurogeitabat/status/2117072581513584736",
+          "published_at": "2026-11-02T01:53:31Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 7.1529,
+          "metrics": {
+            "likes": 1263,
+            "retweets": 129,
+            "replies": 6,
+            "quotes": 0,
+            "views": 16339,
+            "bookmarks": 0
           }
         }
       ],
@@ -1398,122 +1939,6 @@
       }
     },
     {
-      "event_id": "evt-2026-11-01-57cb62c34fb0",
-      "rule_id": null,
-      "hot_word_zh": "“当车手试图再多推一点，因为他们觉得还有抓地力可用时，抓地力实际上却消失了。",
-      "hot_word_en": "\"when the drivers try to push that little bit more, because they feel grip is available, actually the grip di…",
-      "first_seen_at": "2026-11-01T00:37:44Z",
-      "last_seen_at": "2026-11-01T00:37:44Z",
-      "anchor_item_id": "piasnews-social-e1d2243b93c2b3fa",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2116686997477539840/vid/avc1/960x720/N2AewipSNn-pO0e4.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2116686997477539840/img/utF6RxGrQj59kZzU.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-e1d2243b93c2b3fa",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: \"when the drivers try to push that little bit more, because they feel grip is available, actual…",
-          "title_zh": "X 发帖 @laurogeitabat：“当车手试图再多推一点，因为他们觉得还有抓地力可用时，抓地力实际上却消失了。这是一种奇怪的行为。这让车手们的处境非常艰难。”这破车 😵‍💫😵‍💫😵‍💫",
-          "summary": "\"when the drivers try to push that little bit more, because they feel grip is available, actually the grip disappears. this is a weird behavior. it makes the life of the drivers very difficult.\" this fucking car 😵‍💫😵‍💫😵‍💫 https://t.co/l1Sz3lMwpB",
-          "summary_zh": "“当车手试图再多推一点，因为他们觉得还有抓地力可用时，抓地力实际上却消失了。这是一种奇怪的行为。这让车手们的处境非常艰难。”这破车 😵‍💫😵‍💫😵‍💫",
-          "url": "https://x.com/laurogeitabat/status/2116691122193944998",
-          "published_at": "2026-11-01T00:37:44Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2116686997477539840/vid/avc1/960x720/N2AewipSNn-pO0e4.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2116686997477539840/img/utF6RxGrQj59kZzU.jpg",
-          "heat_contribution": 6.7595,
-          "metrics": {
-            "likes": 785,
-            "retweets": 78,
-            "replies": 5,
-            "quotes": 36,
-            "views": 12031,
-            "bookmarks": 58
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 36,
-      "heat": 36,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-11-01-7b614c42673f",
-      "rule_id": null,
-      "hot_word_zh": "Artturi 去学校接他儿子",
-      "hot_word_en": "artturi picking up his son from school",
-      "first_seen_at": "2026-11-01T21:19:26Z",
-      "last_seen_at": "2026-11-01T21:19:26Z",
-      "anchor_item_id": "piasnews-social-1671a7259733d454",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2117002238304694272/vid/avc1/994x632/cTG1t7pBWJJ38Puy.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2117002238304694272/img/IjcctXsxqVf4Ac9-.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-1671a7259733d454",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: artturi picking up his son from school",
-          "title_zh": "X 发帖 @laurogeitabat：Artturi 去学校接他儿子",
-          "summary": "artturi picking up his son from school https://t.co/IMnRaRQQPm",
-          "summary_zh": "Artturi 去学校接他儿子",
-          "url": "https://x.com/laurogeitabat/status/2117003606947705187",
-          "published_at": "2026-11-01T21:19:26Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2117002238304694272/vid/avc1/994x632/cTG1t7pBWJJ38Puy.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2117002238304694272/img/IjcctXsxqVf4Ac9-.jpg",
-          "heat_contribution": 6.8571,
-          "metrics": {
-            "likes": 670,
-            "retweets": 100,
-            "replies": 0,
-            "quotes": 10,
-            "views": 5965,
-            "bookmarks": 51
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 36,
-      "heat": 36,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-11-01-f3a6d1176d1d",
       "rule_id": null,
       "hot_word_zh": "Oscar 和 Gordon Ramsay 今天同框了！",
@@ -1541,21 +1966,21 @@
           "image_url": "https://pbs.twimg.com/media/HWEJLBBWMAExkau.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HWEJLBBWMAExkau.jpg",
-          "heat_contribution": 6.9015,
+          "heat_contribution": 7.061,
           "metrics": {
-            "likes": 749,
-            "retweets": 69,
+            "likes": 1192,
+            "retweets": 102,
             "replies": 0,
-            "quotes": 7,
-            "views": 9174,
-            "bookmarks": 37
+            "quotes": 0,
+            "views": 15683,
+            "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 36,
-      "heat": 36,
+      "fan_heat": 37,
+      "heat": 37,
       "source_labels": [
         "粉"
       ],
@@ -1572,477 +1997,13 @@
       }
     },
     {
-      "event_id": "evt-2026-10-31-104690d9440a",
+      "event_id": "evt-2026-11-01-18f7152e7466",
       "rule_id": null,
-      "hot_word_zh": "“也许我会去当和尚”——Oscar Piastri，2026。",
-      "hot_word_en": "\"Maybe I'll become a monk\" - oscar piastri, 2026. Q: I don't know if you've given any thought to what you'd d…",
-      "first_seen_at": "2026-10-31T12:25:31Z",
-      "last_seen_at": "2026-10-31T12:25:31Z",
-      "anchor_item_id": "piasnews-social-9f3e385b0db66b4c",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2116506761553178624/vid/avc1/1440x1080/gHkn0QopT6Ur0szL.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/media/HV9Xw7-XwAAbVzV.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-9f3e385b0db66b4c",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@oscarsspiastree",
-          "title": "X post from @oscarsspiastree: \"Maybe I'll become a monk\" - oscar piastri, 2026. Q: I don't know if you've given any thought t…",
-          "title_zh": "X 发帖 @oscarsspiastree：“也许我会去当和尚”——Oscar Piastri，2026。问：我不知道你有没有想过退役后要做什么，但我能想象你经营一家正念中心。“😂😂 也许吧，是的！我觉得目前我还需要正念中心来教我正念。不过，也许吧。谁知道呢！那肯定会是人生的大转折，这一点可以肯定。我不知道，也许吧！也许我退役后会去当和尚……😅”",
-          "summary": "\"Maybe I'll become a monk\" - oscar piastri, 2026. Q: I don't know if you've given any thought to what you'd do after your retire but I could see you running a mindfulness centre. \"😂😂. Maybe, yeah! I feel like I still need the mindfulness hub to teach me the mindfulness for now. But, maybe. You never know! It would be one hell of a life turn, that's for sure. I don't know, maybe! Maybe I'll become a monk after I retire...😅\"",
-          "summary_zh": "“也许我会去当和尚”——Oscar Piastri，2026。问：我不知道你有没有想过退役后要做什么，但我能想象你经营一家正念中心。“😂😂 也许吧，是的！我觉得目前我还需要正念中心来教我正念。不过，也许吧。谁知道呢！那肯定会是人生的大转折，这一点可以肯定。我不知道，也许吧！也许我退役后会去当和尚……😅”",
-          "url": "https://x.com/oscarsspiastree/status/2116506852997431801",
-          "published_at": "2026-10-31T12:25:31Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2116506761553178624/vid/avc1/1440x1080/gHkn0QopT6Ur0szL.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/media/HV9Xw7-XwAAbVzV.jpg",
-          "heat_contribution": 6.5465,
-          "metrics": {
-            "likes": 933,
-            "retweets": 140,
-            "replies": 0,
-            "quotes": 38,
-            "views": 25723,
-            "bookmarks": 136
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 35,
-      "heat": 35,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@oscarsspiastree",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-31-728dc1cb035f",
-      "rule_id": null,
-      "hot_word_zh": "Karun 分析了 Oscar 的排位圈，说能看出他不得不以完全不同的方式驾驶：“看他的手…",
-      "hot_word_en": "karun analyzed oscar's quali lap and said you can tell he's having to drive very differently: \"watch his hand…",
-      "first_seen_at": "2026-10-31T23:27:41Z",
-      "last_seen_at": "2026-10-31T23:27:41Z",
-      "anchor_item_id": "piasnews-social-5fb506670ac8c671",
-      "image_url": "https://pbs.twimg.com/media/HV_vUY-WMAAZsVS.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HV_vUY-WMAAZsVS.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-5fb506670ac8c671",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: karun analyzed oscar's quali lap and said you can tell he's having to drive very differently: \"…",
-          "title_zh": "X 发帖 @laurogeitabat：Karun 分析了 Oscar 的排位圈，说能看出他不得不以完全不同的方式驾驶：“看他的手，在方向盘上那么犹豫，他得一点一点地试探。如果你像我一样看过那么多 Oscar Piastri 的车载镜头，你就知道那不是他的风格。”",
-          "summary": "karun analyzed oscar's quali lap and said you can tell he's having to drive very differently: \"watch his hands, so tentative at the wheel, he's having to take several bites at it. if you've watched as many oscar piastri onboards as i have, you just know that isn't his style.\" https://t.co/yZpmyrgZFC",
-          "summary_zh": "Karun 分析了 Oscar 的排位圈，说能看出他不得不以完全不同的方式驾驶：“看他的手，在方向盘上那么犹豫，他得一点一点地试探。如果你像我一样看过那么多 Oscar Piastri 的车载镜头，你就知道那不是他的风格。”",
-          "url": "https://x.com/laurogeitabat/status/2116673493219573970",
-          "published_at": "2026-10-31T23:27:41Z",
-          "image_url": "https://pbs.twimg.com/media/HV_vUY-WMAAZsVS.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HV_vUY-WMAAZsVS.jpg",
-          "heat_contribution": 6.534,
-          "metrics": {
-            "likes": 1016,
-            "retweets": 137,
-            "replies": 4,
-            "quotes": 26,
-            "views": 17296,
-            "bookmarks": 93
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 35,
-      "heat": 35,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-11-01-11ee7cf77a56",
-      "rule_id": null,
-      "hot_word_zh": "{\\fn黑体\\fs22\\bord1\\shad0\\3aHBE\\4aH00\\fscx67\\fs…",
-      "hot_word_en": "🤜🤛 #McLarenF1 | #MexicoGP 🇲🇽 | #LiveYourFandom",
-      "first_seen_at": "2026-11-01T19:23:15Z",
-      "last_seen_at": "2026-11-01T19:23:15Z",
-      "anchor_item_id": "piasnews-social-381f3c3990c69be2",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2116973468675694592/vid/avc1/2160x3840/6dRQFqwRQjeUSC01.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2116973468675694592/img/PR5--2bNmEzG8sc5.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-381f3c3990c69be2",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X repost from @laurogeitabat: 🤜🤛 #McLarenF1 | #MexicoGP 🇲🇽 | #LiveYourFandom",
-          "title_zh": "X 转帖 @laurogeitabat：{\\fn黑体\\fs22\\bord1\\shad0\\3aHBE\\4aH00\\fscx67\\fscy66\\2cHFFFFFF\\3cH808080}#McLarenF1 {\\fn黑体\\fs22\\bord1\\shad0\\3aHBE\\4aH00\\fscx67\\fscy66\\2cHFFFFFF\\3cH808080}#McLarenF1 {\\fn黑体\\fs22\\bord1\\shad0\\3aHBE\\4aH00\\fscx67\\fscy66\\2cHFFFFFF\\3cH808080}#McLarenF1 {\\fn黑体\\fs22\\bord1\\shad0\\3aHBE\\4aH00\\fscx67\\fscy66\\2cHFFFFFF\\3cH808080}#MexicoGP####Live Your Fandom#####Live YourFandom#####MCLive",
-          "summary": "🤜🤛 #McLarenF1 | #MexicoGP 🇲🇽 | #LiveYourFandom https://t.co/GMdVSD2rXR",
-          "summary_zh": "{\\fn黑体\\fs22\\bord1\\shad0\\3aHBE\\4aH00\\fscx67\\fscy66\\2cHFFFFFF\\3cH808080}#McLarenF1 {\\fn黑体\\fs22\\bord1\\shad0\\3aHBE\\4aH00\\fscx67\\fscy66\\2cHFFFFFF\\3cH808080}#McLarenF1 {\\fn黑体\\fs22\\bord1\\shad0\\3aHBE\\4aH00\\fscx67\\fscy66\\2cHFFFFFF\\3cH808080}#McLarenF1 {\\fn黑体\\fs22\\bord1\\shad0\\3aHBE\\4aH00\\fscx67\\fscy66\\2cHFFFFFF\\3cH808080}#MexicoGP####Live Your Fandom#####Live YourFandom#####MCLive",
-          "url": "https://x.com/McLarenF1/status/2116974367704060161",
-          "published_at": "2026-11-01T19:23:15Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2116973468675694592/vid/avc1/2160x3840/6dRQFqwRQjeUSC01.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2116973468675694592/img/PR5--2bNmEzG8sc5.jpg",
-          "heat_contribution": 6.6981,
-          "metrics": {
-            "likes": 455,
-            "retweets": 58,
-            "replies": 1,
-            "quotes": 3,
-            "views": 22990,
-            "bookmarks": 16
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 35,
-      "heat": 35,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-11-01-7aac6549e4fa",
-      "rule_id": null,
-      "hot_word_zh": "“我不明白发生了什么，赛车完全不受控制”🥲",
-      "hot_word_en": "\"i don't get what's going on, the car is all over the place\" 🥲",
-      "first_seen_at": "2026-11-01T20:57:40Z",
-      "last_seen_at": "2026-11-01T20:57:40Z",
-      "anchor_item_id": "piasnews-social-32d09cbd579d5929",
-      "image_url": "https://pbs.twimg.com/media/HWEWk5pW0AApfnW.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HWEWk5pW0AApfnW.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-32d09cbd579d5929",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: \"i don't get what's going on, the car is all over the place\" 🥲",
-          "title_zh": "X 发帖 @laurogeitabat：“我不明白发生了什么，赛车完全不受控制”🥲",
-          "summary": "\"i don't get what's going on, the car is all over the place\" 🥲 https://t.co/z9tYcOtnTg",
-          "summary_zh": "“我不明白发生了什么，赛车完全不受控制”🥲",
-          "url": "https://x.com/laurogeitabat/status/2116998130105512226",
-          "published_at": "2026-11-01T20:57:40Z",
-          "image_url": "https://pbs.twimg.com/media/HWEWk5pW0AApfnW.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HWEWk5pW0AApfnW.jpg",
-          "heat_contribution": 6.6073,
-          "metrics": {
-            "likes": 528,
-            "retweets": 38,
-            "replies": 6,
-            "quotes": 25,
-            "views": 6749,
-            "bookmarks": 13
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 35,
-      "heat": 35,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-31-422629dccd22",
-      "rule_id": null,
-      "hot_word_zh": "是啊，我也是，兄弟",
-      "hot_word_en": "yeah me too man",
-      "first_seen_at": "2026-10-31T23:02:14Z",
-      "last_seen_at": "2026-10-31T23:02:14Z",
-      "anchor_item_id": "piasnews-social-97747284e73fc148",
-      "image_url": "https://pbs.twimg.com/media/HV_pf5kW8AA8jnL.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HV_pf5kW8AA8jnL.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-97747284e73fc148",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: yeah me too man",
-          "title_zh": "X 发帖 @laurogeitabat：是啊，我也是，兄弟",
-          "summary": "yeah me too man https://t.co/VT6cjXeYoF",
-          "summary_zh": "是啊，我也是，兄弟",
-          "url": "https://x.com/laurogeitabat/status/2116667090773893623",
-          "published_at": "2026-10-31T23:02:14Z",
-          "image_url": "https://pbs.twimg.com/media/HV_pf5kW8AA8jnL.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HV_pf5kW8AA8jnL.jpg",
-          "heat_contribution": 6.3613,
-          "metrics": {
-            "likes": 956,
-            "retweets": 127,
-            "replies": 1,
-            "quotes": 5,
-            "views": 6145,
-            "bookmarks": 30
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 34,
-      "heat": 34,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-10-31-ed46e7518173",
-      "rule_id": null,
-      "hot_word_zh": "Bernie Collins 和 Karun Chandhok 认为 McLaren 用旧…",
-      "hot_word_en": "bernie collins and karun chandhok think mclaren's strategy of starting on the used tyre in order to save a ne…",
-      "first_seen_at": "2026-10-31T23:35:27Z",
-      "last_seen_at": "2026-10-31T23:35:27Z",
-      "anchor_item_id": "piasnews-social-3dc5f3214ac81c42",
-      "image_url": "https://pbs.twimg.com/media/HV_xFRZXkAANP6w.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HV_xFRZXkAANP6w.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-3dc5f3214ac81c42",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: bernie collins and karun chandhok think mclaren's strategy of starting on the used tyre in orde…",
-          "title_zh": "X 发帖 @laurogeitabat：Bernie Collins 和 Karun Chandhok 认为 McLaren 用旧胎起步、为比赛保留一套新胎的策略太冒险了。“在风险与回报的博弈中，那是个糟糕的决定。”",
-          "summary": "bernie collins and karun chandhok think mclaren's strategy of starting on the used tyre in order to save a new tyre for the race was too risky. \"in the game of risk and reward, that was a poor decision.\" https://t.co/kwLlASZCzz",
-          "summary_zh": "Bernie Collins 和 Karun Chandhok 认为 McLaren 用旧胎起步、为比赛保留一套新胎的策略太冒险了。“在风险与回报的博弈中，那是个糟糕的决定。”",
-          "url": "https://x.com/laurogeitabat/status/2116675448562233843",
-          "published_at": "2026-10-31T23:35:27Z",
-          "image_url": "https://pbs.twimg.com/media/HV_xFRZXkAANP6w.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HV_xFRZXkAANP6w.jpg",
-          "heat_contribution": 6.3271,
-          "metrics": {
-            "likes": 628,
-            "retweets": 99,
-            "replies": 2,
-            "quotes": 36,
-            "views": 33724,
-            "bookmarks": 45
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 34,
-      "heat": 34,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-11-01-11311c8240ad",
-      "rule_id": null,
-      "hot_word_zh": "Oscar在巡游前和Ollie、Ryo、George、Valtteri、Pierre以及C…",
-      "hot_word_en": "oscar chatting with ollie, ryo, george, valtteri, pierre and charles before the parade! oscar 🤝 ryo",
-      "first_seen_at": "2026-11-01T18:34:17Z",
-      "last_seen_at": "2026-11-01T18:34:17Z",
-      "anchor_item_id": "piasnews-social-d0680493e4a3b3cc",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2116960839437549568/vid/avc1/720x1280/kczdIAJ9fh52CWFj.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2116960839437549568/img/Owbnsf7keBNm68ji.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-d0680493e4a3b3cc",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar chatting with ollie, ryo, george, valtteri, pierre and charles before the parade! oscar 🤝…",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar在巡游前和Ollie、Ryo、George、Valtteri、Pierre以及Charles聊天！Oscar 🤝 Ryo",
-          "summary": "oscar chatting with ollie, ryo, george, valtteri, pierre and charles before the parade! oscar 🤝 ryo https://t.co/DtFZh47cTY",
-          "summary_zh": "Oscar在巡游前和Ollie、Ryo、George、Valtteri、Pierre以及Charles聊天！Oscar 🤝 Ryo",
-          "url": "https://x.com/laurogeitabat/status/2116962045673509052",
-          "published_at": "2026-11-01T18:34:17Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2116960839437549568/vid/avc1/720x1280/kczdIAJ9fh52CWFj.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2116960839437549568/img/Owbnsf7keBNm68ji.jpg",
-          "heat_contribution": 6.3116,
-          "metrics": {
-            "likes": 428,
-            "retweets": 32,
-            "replies": 0,
-            "quotes": 4,
-            "views": 4995,
-            "bookmarks": 31
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 34,
-      "heat": 34,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-11-01-2c7a011b89c6",
-      "rule_id": null,
-      "hot_word_zh": "问：“Q2出局和你去年说的在低抓地力赛道挣扎有关吗？”Oscar：“不是这个周末。",
-      "hot_word_en": "Q: \"did the q2 exit have something to do with what you said last year about struggling on low grip tracks?",
-      "first_seen_at": "2026-11-01T15:48:49Z",
-      "last_seen_at": "2026-11-01T15:48:49Z",
-      "anchor_item_id": "piasnews-social-9e4fb2588bfed881",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2116920377624375296/vid/avc1/928x720/s4__PBgezepeAj2G.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2116920377624375296/img/4WcL6WsebBf_Sxp-.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-9e4fb2588bfed881",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: Q: \"did the q2 exit have something to do with what you said last year about struggling on low g…",
-          "title_zh": "X 发帖 @laurogeitabat：问：“Q2出局和你去年说的在低抓地力赛道挣扎有关吗？”Oscar：“不是这个周末。早上和Q1我们表现相当接近。换上新的软胎后，我就是没法完成一圈而不差点打转。挺奇怪的。”",
-          "summary": "Q: \"did the q2 exit have something to do with what you said last year about struggling on low grip tracks?\" oscar: \"not this weekend. in the morning and in q1 we were pretty evenly matched. with the new softs i just couldnt finish a lap without nearly spinning. quite weird.\" https://t.co/y9eKmnK8fW",
-          "summary_zh": "问：“Q2出局和你去年说的在低抓地力赛道挣扎有关吗？”Oscar：“不是这个周末。早上和Q1我们表现相当接近。换上新的软胎后，我就是没法完成一圈而不差点打转。挺奇怪的。”",
-          "url": "https://x.com/laurogeitabat/status/2116920405407531331",
-          "published_at": "2026-11-01T15:48:49Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2116920377624375296/vid/avc1/928x720/s4__PBgezepeAj2G.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2116920377624375296/img/4WcL6WsebBf_Sxp-.jpg",
-          "heat_contribution": 6.319,
-          "metrics": {
-            "likes": 496,
-            "retweets": 47,
-            "replies": 1,
-            "quotes": 15,
-            "views": 11569,
-            "bookmarks": 47
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 34,
-      "heat": 34,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-11-01-5386f0194a8d",
-      "rule_id": null,
-      "hot_word_zh": "Liam Lawson被取消资格。Oscar明天将从P12发车！",
-      "hot_word_en": "liam lawson has been disqualified. oscar will start the race tomorrow from p12!",
-      "first_seen_at": "2026-11-01T01:10:17Z",
-      "last_seen_at": "2026-11-01T01:10:17Z",
-      "anchor_item_id": "piasnews-social-ce10aa358917020b",
+      "hot_word_zh": "oscar因与arvid的碰撞被罚10秒。oscar今天没有积分 😔",
+      "hot_word_en": "oscar has been given a 10 second time penalty for the collision with arvid. no points for oscar today 😔",
+      "first_seen_at": "2026-11-01T23:58:12Z",
+      "last_seen_at": "2026-11-01T23:58:12Z",
+      "anchor_item_id": "piasnews-social-9242309a7a1dc2d3",
       "image_url": null,
       "video_url": null,
       "video_poster_url": null,
@@ -2050,34 +2011,34 @@
       "review_needed_reason": "fan_account_public_cap",
       "items": [
         {
-          "item_id": "piasnews-social-ce10aa358917020b",
+          "item_id": "piasnews-social-9242309a7a1dc2d3",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: liam lawson has been disqualified. oscar will start the race tomorrow from p12!",
-          "title_zh": "X 发帖 @laurogeitabat：Liam Lawson被取消资格。Oscar明天将从P12发车！",
-          "summary": "liam lawson has been disqualified. oscar will start the race tomorrow from p12!",
-          "summary_zh": "Liam Lawson被取消资格。Oscar明天将从P12发车！",
-          "url": "https://x.com/laurogeitabat/status/2116699315657671033",
-          "published_at": "2026-11-01T01:10:17Z",
+          "title": "X post from @laurogeitabat: oscar has been given a 10 second time penalty for the collision with arvid. no points for oscar…",
+          "title_zh": "X 发帖 @laurogeitabat：oscar因与arvid的碰撞被罚10秒。oscar今天没有积分 😔",
+          "summary": "oscar has been given a 10 second time penalty for the collision with arvid. no points for oscar today 😔",
+          "summary_zh": "oscar因与arvid的碰撞被罚10秒。oscar今天没有积分 😔",
+          "url": "https://x.com/laurogeitabat/status/2117043561967317473",
+          "published_at": "2026-11-01T23:58:12Z",
           "image_url": null,
           "video_url": null,
           "video_poster_url": null,
-          "heat_contribution": 6.4539,
+          "heat_contribution": 6.7214,
           "metrics": {
-            "likes": 613,
-            "retweets": 35,
-            "replies": 4,
-            "quotes": 20,
-            "views": 11054,
-            "bookmarks": 10
+            "likes": 745,
+            "retweets": 64,
+            "replies": 18,
+            "quotes": 0,
+            "views": 17832,
+            "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 34,
-      "heat": 34,
+      "fan_heat": 36,
+      "heat": 36,
       "source_labels": [
         "粉"
       ],
