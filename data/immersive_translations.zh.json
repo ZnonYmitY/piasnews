@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-02T08:05:19.610173Z",
+  "generated_at": "2026-11-02T11:05:59.566167Z",
   "translations": {
     "items:piasnews-4a633b8ce10953a7:title:88ab7abc054b2321242d2fd8": {
       "dataset": "items",
@@ -4129,6 +4129,54 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-11-02T08:05:18.787226Z"
+    },
+    "items:piasnews-78993eb92ea4c68e:title:4cb35031e6fbc953e7130030": {
+      "dataset": "items",
+      "item_id": "piasnews-78993eb92ea4c68e",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "F1-Oscar Piastri-2026-Mexico City Grand Prix",
+      "zh": "F1-Oscar Piastri-2026-墨西哥城大奖赛",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-02T11:05:58.747599Z"
+    },
+    "items:piasnews-78993eb92ea4c68e:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-78993eb92ea4c68e",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或与表现相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-02T11:05:58.747607Z"
+    },
+    "social:piasnews-social-80f06d7904f148d5:summary:800bdb03daa4313f819d6a6b": {
+      "dataset": "social",
+      "item_id": "piasnews-social-80f06d7904f148d5",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar talking about kimi 🫶🏻 \"i think he's been incredible. second season in f1, very very impressive to do what he's done. full credit to him and his team and mercedes, they've had a very good year. new target to chase for next season!\" https://t.co/M1Y0cDBWho",
+      "zh": "Oscar谈到kimi 🫶🏻 “我觉得他一直非常出色。在F1的第二个赛季，能做到他所做到的事情非常非常令人印象深刻。完全归功于他和他的团队以及Mercedes，他们度过了非常好的一年。下个赛季有了新的追赶目标！”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-02T11:05:58.747612Z"
+    },
+    "social:piasnews-social-05fb3c38f07f0789:summary:a65193a6f74f77cc5004d56b": {
+      "dataset": "social",
+      "item_id": "piasnews-social-05fb3c38f07f0789",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "HE IS SO HUNGRY 2027 WE WILL BE THERE",
+      "zh": "他太渴望了 2027我们会在那里",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-02T11:05:58.747616Z"
     }
   },
   "retention_days": 8
