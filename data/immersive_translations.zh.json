@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-02T23:09:03.617677Z",
+  "generated_at": "2026-11-03T23:12:28.353183Z",
   "translations": {
     "items:piasnews-4a633b8ce10953a7:title:88ab7abc054b2321242d2fd8": {
       "dataset": "items",
@@ -4273,6 +4273,150 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-11-02T23:09:02.788480Z"
+    },
+    "items:piasnews-15a7f36c4f832a9c:title:2750279b3238f458e8f2b36a": {
+      "dataset": "items",
+      "item_id": "piasnews-15a7f36c4f832a9c",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri defends costly Mexico City GP crash ‘I couldn't really do much more’",
+      "zh": "Piastri 为代价高昂的墨西哥城大奖赛撞车辩护：“我真的做不了更多了”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-03T23:12:27.483810Z"
+    },
+    "items:piasnews-15a7f36c4f832a9c:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-15a7f36c4f832a9c",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-03T23:12:27.483819Z"
+    },
+    "items:piasnews-b645aa4632e7082a:title:ddc316b03717da776066d28a": {
+      "dataset": "items",
+      "item_id": "piasnews-b645aa4632e7082a",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Lando Norris’ reception in Mexico shows fans haven’t forgotten about Oscar Piastri treatment",
+      "zh": "Lando Norris 在墨西哥受到的欢迎表明车迷没有忘记 Oscar Piastri 所受的待遇",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-03T23:12:27.483824Z"
+    },
+    "items:piasnews-b645aa4632e7082a:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-b645aa4632e7082a",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-03T23:12:27.483828Z"
+    },
+    "items:piasnews-cd12457e084a82f7:title:4830a92a5d0d71b5ccb1667a": {
+      "dataset": "items",
+      "item_id": "piasnews-cd12457e084a82f7",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "'We were in a genuine fight' – Lindblad offers verdict on Piastri collision in Mexico City Grand Prix",
+      "zh": "“我们当时确实在激烈缠斗”——Lindblad 就墨西哥城大奖赛与 Piastri 的碰撞发表看法",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-03T23:12:27.483833Z"
+    },
+    "items:piasnews-cd12457e084a82f7:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-cd12457e084a82f7",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-03T23:12:27.483837Z"
+    },
+    "items:piasnews-d8434e10d65282f7:title:d6b0a7a4a3e7e380ae5f2594": {
+      "dataset": "items",
+      "item_id": "piasnews-d8434e10d65282f7",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Retrospective penalty: How Oscar Piastri saw the F1 crash with Arvid Lindblad",
+      "zh": "事后处罚：Oscar Piastri 如何看待与 Arvid Lindblad 的 F1 撞车",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-03T23:12:27.483843Z"
+    },
+    "items:piasnews-d8434e10d65282f7:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-d8434e10d65282f7",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-03T23:12:27.483850Z"
+    },
+    "items:piasnews-9d904ab0334b4194:title:fbad7be97f1c86f7ab0e52b6": {
+      "dataset": "items",
+      "item_id": "piasnews-9d904ab0334b4194",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "David Croft's Oscar Piastri prediction has aged horribly after Kimi Antonelli's championship win",
+      "zh": "Kimi Antonelli 夺冠后，David Croft 对 Oscar Piastri 的预测显得格外打脸",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-03T23:12:27.483855Z"
+    },
+    "items:piasnews-9d904ab0334b4194:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-9d904ab0334b4194",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-03T23:12:27.483859Z"
+    },
+    "items:piasnews-80c014e6ad10033d:title:1b63b4f91af5752b83727284": {
+      "dataset": "items",
+      "item_id": "piasnews-80c014e6ad10033d",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "FIA Penalty Drops Oscar Piastri From Seventh to 15th at Mexico Grand Prix",
+      "zh": "FIA 处罚使 Oscar Piastri 在墨西哥大奖赛从第七名跌至第十五名",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-03T23:12:27.483863Z"
+    },
+    "items:piasnews-80c014e6ad10033d:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-80c014e6ad10033d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-03T23:12:27.483866Z"
     }
   },
   "retention_days": 8
