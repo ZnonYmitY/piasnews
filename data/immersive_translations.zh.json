@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-04T09:36:02.347227Z",
+  "generated_at": "2026-11-04T23:08:32.451854Z",
   "translations": {
     "items:piasnews-4a633b8ce10953a7:title:88ab7abc054b2321242d2fd8": {
       "dataset": "items",
@@ -4693,6 +4693,126 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-11-04T09:36:01.730511Z"
+    },
+    "items:piasnews-8f3bf453736eec51:title:c45bcf650b6efaed25b052e3": {
+      "dataset": "items",
+      "item_id": "piasnews-8f3bf453736eec51",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri verdict on Lindblad clash revealed after FIA penalty decision",
+      "zh": "FIA处罚决定后，Oscar Piastri对与Lindblad冲突的裁决曝光",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-04T23:08:31.563562Z"
+    },
+    "items:piasnews-8f3bf453736eec51:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-8f3bf453736eec51",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-04T23:08:31.563569Z"
+    },
+    "items:piasnews-676d977d498e0a4b:title:db3d048c41c50b643c98ea2a": {
+      "dataset": "items",
+      "item_id": "piasnews-676d977d498e0a4b",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Penalty leaves Oscar Piastri without points at the Mexican GP",
+      "zh": "处罚使Oscar Piastri在墨西哥大奖赛无缘积分",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-04T23:08:31.563575Z"
+    },
+    "items:piasnews-676d977d498e0a4b:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-676d977d498e0a4b",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-04T23:08:31.563579Z"
+    },
+    "items:piasnews-b1a25a1fec7d03f7:title:4cb35031e6fbc953e7130030": {
+      "dataset": "items",
+      "item_id": "piasnews-b1a25a1fec7d03f7",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "F1-Oscar Piastri-2026-Mexico City Grand Prix",
+      "zh": "F1-Oscar Piastri-2026-墨西哥城大奖赛",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-04T23:08:31.563583Z"
+    },
+    "items:piasnews-b1a25a1fec7d03f7:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-b1a25a1fec7d03f7",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-04T23:08:31.563586Z"
+    },
+    "social:piasnews-social-cce928a6f84b4153:summary:249e0868c410d8b171ce79f0": {
+      "dataset": "social",
+      "item_id": "piasnews-social-cce928a6f84b4153",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @yurunununu96604: 🐨 #oscarpiastri #f1fanart https://t.co/GXaikCcKeI",
+      "zh": "转发 @yurunununu96604：🐨 #oscarpiastri #f1fanart",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-04T23:08:31.563591Z"
+    },
+    "social:piasnews-social-142f284156af1f18:summary:aa69be3c1acf9319bf5a5574": {
+      "dataset": "social",
+      "item_id": "piasnews-social-142f284156af1f18",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @McLarenF1: 🤜🤛 #McLarenF1 | #MexicoGP 🇲🇽 | #LiveYourFandom https://t.co/GMdVSD2rXR",
+      "zh": "转发 @McLarenF1：🤜🤛 #McLarenF1 | #MexicoGP 🇲🇽 | #LiveYourFandom",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-04T23:08:31.563599Z"
+    },
+    "social:piasnews-social-b2cfed9400459468:summary:a195f4b751544d81417d50d0": {
+      "dataset": "social",
+      "item_id": "piasnews-social-b2cfed9400459468",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @Oliberbearman: oscdance.mp4 https://t.co/lbGydPqgY1",
+      "zh": "转发 @Oliberbearman：oscdance.mp4",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-04T23:08:31.563603Z"
+    },
+    "social:piasnews-social-f11a27a865273739:summary:ff665525c9f8eb3bcc3fac18": {
+      "dataset": "social",
+      "item_id": "piasnews-social-f11a27a865273739",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @PIZZAPIASTRI: 🥹🫶🏻 https://t.co/f2WNBMXOzF",
+      "zh": "转发 @PIZZAPIASTRI：🥹🫶🏻",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-04T23:08:31.563607Z"
     }
   },
   "retention_days": 8
