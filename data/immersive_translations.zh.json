@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-04T06:34:54.513517Z",
+  "generated_at": "2026-11-04T09:36:02.347227Z",
   "translations": {
     "items:piasnews-4a633b8ce10953a7:title:88ab7abc054b2321242d2fd8": {
       "dataset": "items",
@@ -4681,6 +4681,18 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-11-04T06:34:53.900022Z"
+    },
+    "social:piasnews-social-2377442ccb124b28:summary:6df79d7ab26170338877e414": {
+      "dataset": "social",
+      "item_id": "piasnews-social-2377442ccb124b28",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar meeting fans last night in brazil 🫶🏻 looks like it might've been after the annual car 81 crew dinner!! https://t.co/gCPXKln2Xp",
+      "zh": "Oscar昨晚在巴西与粉丝见面 🫶🏻 看起来可能是在一年一度的81号车组聚餐之后！！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-04T09:36:01.730511Z"
     }
   },
   "retention_days": 8
