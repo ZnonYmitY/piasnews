@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-04T03:34:11.865861Z",
+  "generated_at": "2026-11-04T06:34:54.513517Z",
   "translations": {
     "items:piasnews-4a633b8ce10953a7:title:88ab7abc054b2321242d2fd8": {
       "dataset": "items",
@@ -4657,6 +4657,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-11-04T03:34:11.344536Z"
+    },
+    "items:piasnews-616babc91cb7c014:title:5e2d55b079f54077c10ee9d1": {
+      "dataset": "items",
+      "item_id": "piasnews-616babc91cb7c014",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri defends ill-fated Lindblad move: ‘I couldn't really do much more'",
+      "zh": "Piastri 为不幸的 Lindblad 动作辩护：“我真的做不了更多了”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-04T06:34:53.900015Z"
+    },
+    "items:piasnews-616babc91cb7c014:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-616babc91cb7c014",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-04T06:34:53.900022Z"
     }
   },
   "retention_days": 8
