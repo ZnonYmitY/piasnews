@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-05T09:25:53.272545Z",
+  "generated_at": "2026-11-05T12:26:06.621220Z",
   "translations": {
     "items:piasnews-0f1e30e9d79882d3:title:003be7e07a9be768f6b091d5": {
       "dataset": "items",
@@ -4093,6 +4093,18 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-11-05T09:25:52.555888Z"
+    },
+    "social:piasnews-social-de1d4f5ba48ef1d3:summary:7ac3c64ab6cbcd352be19f2b": {
+      "dataset": "social",
+      "item_id": "piasnews-social-de1d4f5ba48ef1d3",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "\"we have our own driver rooms. do you get a chair?\" OSCAR PLEASE 😭😭😭 https://t.co/kG0RHA7wwj",
+      "zh": "“我们有自己的车手休息室。你有椅子吗？”OSCAR 拜托 😭😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-05T12:26:05.807989Z"
     }
   },
   "retention_days": 8
