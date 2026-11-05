@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-05T06:24:29.554072Z",
+  "generated_at": "2026-11-05T09:25:53.272545Z",
   "translations": {
     "items:piasnews-0f1e30e9d79882d3:title:003be7e07a9be768f6b091d5": {
       "dataset": "items",
@@ -4045,6 +4045,54 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-11-05T03:23:55.260047Z"
+    },
+    "social:piasnews-social-cee4c2595374b4f4:summary:79ee745a8243048e2f68ff50": {
+      "dataset": "social",
+      "item_id": "piasnews-social-cee4c2595374b4f4",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @InfoOP81: Conversamos com a organização do evento e descobrimos os bastidores dessa surpresa: o capacete de miçangas autografado foi em…",
+      "zh": "RT @InfoOP81：我们与活动组织方进行了交流，揭开了这个惊喜的幕后故事：那顶签名的串珠头盔是在……",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-05T09:25:52.555873Z"
+    },
+    "social:piasnews-social-66e5b8406bcdcd0e:summary:c53160845c2fdb13dea6d633": {
+      "dataset": "social",
+      "item_id": "piasnews-social-66e5b8406bcdcd0e",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @InfoOP81: OSCAR VAI RECEBER O NOSSO FANBOOK!! E quem nos garantiu isso foi a Giovana, um anjo enviado do céu para nos ajudar a entreg…",
+      "zh": "RT @InfoOP81：Oscar 将会收到我们的粉丝书！！而向我们保证这一点的是 Giovana，一位上天派来帮助我们送达的天使……",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-05T09:25:52.555880Z"
+    },
+    "social:piasnews-social-2198741a5cfc649b:summary:79ee745a8243048e2f68ff50": {
+      "dataset": "social",
+      "item_id": "piasnews-social-2198741a5cfc649b",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @InfoOP81: Conversamos com a organização do evento e descobrimos os bastidores dessa surpresa: o capacete de miçangas autografado foi em…",
+      "zh": "RT @InfoOP81：我们与活动组织方进行了交流，揭开了这个惊喜的幕后故事：那顶签名的串珠头盔是在……",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-05T09:25:52.555884Z"
+    },
+    "social:piasnews-social-fff4d8f74f027ca5:summary:1a28d77e9ea8d53229742faf": {
+      "dataset": "social",
+      "item_id": "piasnews-social-fff4d8f74f027ca5",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "he's proper obsessed with padel at this point 😭 https://t.co/SlUvxbtu33",
+      "zh": "他现在是真的迷上板式网球了 😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-05T09:25:52.555888Z"
     }
   },
   "retention_days": 8
