@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-06T06:24:05.505682Z",
+  "generated_at": "2026-11-06T09:24:51.878656Z",
   "translations": {
     "items:piasnews-637209b96c02841d:title:cc8440f8e596ce41034b84f1": {
       "dataset": "items",
@@ -4273,6 +4273,18 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-11-06T06:24:04.658994Z"
+    },
+    "social:piasnews-social-c683927bf9f5dab1:summary:6e0974aaaa1d330b073e354c": {
+      "dataset": "social",
+      "item_id": "piasnews-social-c683927bf9f5dab1",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar at the okx event last night ✨ https://t.co/k8ADXk32KF",
+      "zh": "Oscar 昨晚在 OKX 活动上 ✨",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-06T09:24:51.024032Z"
     }
   },
   "retention_days": 8

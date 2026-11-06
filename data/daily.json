@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-06T06:21:07.053308Z",
+  "generated_at": "2026-11-06T09:22:07.759926Z",
   "window_days": 7,
-  "total_items": 74,
+  "total_items": 70,
   "latest_date": "2026-11-06",
   "days": [
     {
@@ -158,22 +158,18 @@
     },
     {
       "date": "2026-10-30",
-      "total_new_items": 6,
+      "total_new_items": 2,
       "official_new_items": 0,
-      "media_new_items": 6,
+      "media_new_items": 2,
       "x_new_items": 0,
-      "rumor_new_items": 1,
+      "rumor_new_items": 0,
       "sources": {
-        "AOL.co.uk": 1,
         "FormulaRapida.net": 1,
-        "SPEEDWEEK.com": 1,
-        "The Mirror": 1,
-        "Yahoo Sports": 2
+        "Yahoo Sports": 1
       },
       "categories": {
-        "interview": 2,
-        "rumor": 1,
-        "team": 3
+        "interview": 1,
+        "team": 1
       }
     }
   ],
@@ -204,7 +200,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 20
+      "items": 18
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
@@ -244,13 +240,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 21,
-      "kept": 14,
+      "checked": 19,
+      "kept": 13,
       "results": {
-        "outside_window": 2,
+        "outside_window": 1,
         "publisher_date_missing": 3,
         "publisher_unavailable": 2,
-        "verified": 14
+        "verified": 13
       }
     },
     {
@@ -258,8 +254,8 @@
       "ok": true,
       "discovery_days": 3,
       "retention_days": 7,
-      "previous_items": 75,
-      "kept": 74
+      "previous_items": 74,
+      "kept": 70
     }
   ]
 }
