@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-06T18:35:52.204030Z",
+  "generated_at": "2026-11-06T18:50:52.652893Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -166,7 +166,7 @@
       "rank": 2
     },
     {
-      "event_id": "evt-2026-11-04-48d94f7c9022-48d94f7c",
+      "event_id": "evt-2026-11-04-48d94f7c9022",
       "rule_id": null,
       "hot_word_zh": "回顾去年的冲刺赛，Piastri、Hulkenberg 和 Colapinto 都在同一个…",
       "hot_word_en": "Throwback to last year's Sprint when Piastri, Hulkenberg and Colapinto all slid out on the same corner!",
@@ -1720,64 +1720,6 @@
       }
     },
     {
-      "event_id": "evt-2026-11-05-d733f335f97e",
-      "rule_id": null,
-      "hot_word_zh": "“我希望有台摄像机给大家看看你过去30秒在干什么。就那样站着 😁”",
-      "hot_word_en": "\"i wish i had a camera to show the people what YOU have been doing the last 30 seconds. standing there like 😁\"",
-      "first_seen_at": "2026-11-05T18:45:38Z",
-      "last_seen_at": "2026-11-05T18:45:38Z",
-      "anchor_item_id": "piasnews-social-1887ad12ef0a16df",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2118404494803222529/vid/avc1/320x568/juarS1s5D4ev0r5M.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118404494803222529/img/daoKJUMXvmvr4mad.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-1887ad12ef0a16df",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: \"i wish i had a camera to show the people what YOU have been doing the last 30 seconds. standin…",
-          "title_zh": "X 发帖 @laurogeitabat：“我希望有台摄像机给大家看看你过去30秒在干什么。就那样站着 😁”",
-          "summary": "\"i wish i had a camera to show the people what YOU have been doing the last 30 seconds. standing there like 😁\" https://t.co/XCUPSgopmp",
-          "summary_zh": "“我希望有台摄像机给大家看看你过去30秒在干什么。就那样站着 😁”",
-          "url": "https://x.com/laurogeitabat/status/2118414453087649909",
-          "published_at": "2026-11-05T18:45:38Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2118404494803222529/vid/avc1/320x568/juarS1s5D4ev0r5M.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118404494803222529/img/daoKJUMXvmvr4mad.jpg",
-          "heat_contribution": 7.3172,
-          "metrics": {
-            "likes": 1621,
-            "retweets": 120,
-            "replies": 0,
-            "quotes": 0,
-            "views": 14570,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 38,
-      "heat": 38,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-oscar-post-race-smile",
       "rule_id": "oscar-post-race-smile",
       "hot_word_zh": "Oscar 在荷兰站赛后镜头中微笑",
@@ -2010,6 +1952,64 @@
             "replies": 3,
             "quotes": 0,
             "views": 17405,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 36,
+      "heat": 36,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-05-d733f335f97e",
+      "rule_id": null,
+      "hot_word_zh": "“我希望有台摄像机给大家看看你过去30秒在干什么。就那样站着 😁”",
+      "hot_word_en": "\"i wish i had a camera to show the people what YOU have been doing the last 30 seconds. standing there like 😁\"",
+      "first_seen_at": "2026-11-05T18:45:38Z",
+      "last_seen_at": "2026-11-05T18:45:38Z",
+      "anchor_item_id": "piasnews-social-1887ad12ef0a16df",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2118404494803222529/vid/avc1/320x568/juarS1s5D4ev0r5M.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118404494803222529/img/daoKJUMXvmvr4mad.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-1887ad12ef0a16df",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: \"i wish i had a camera to show the people what YOU have been doing the last 30 seconds. standin…",
+          "title_zh": "X 发帖 @laurogeitabat：“我希望有台摄像机给大家看看你过去30秒在干什么。就那样站着 😁”",
+          "summary": "\"i wish i had a camera to show the people what YOU have been doing the last 30 seconds. standing there like 😁\" https://t.co/XCUPSgopmp",
+          "summary_zh": "“我希望有台摄像机给大家看看你过去30秒在干什么。就那样站着 😁”",
+          "url": "https://x.com/laurogeitabat/status/2118414453087649909",
+          "published_at": "2026-11-05T18:45:38Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2118404494803222529/vid/avc1/320x568/juarS1s5D4ev0r5M.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118404494803222529/img/daoKJUMXvmvr4mad.jpg",
+          "heat_contribution": 6.8068,
+          "metrics": {
+            "likes": 1621,
+            "retweets": 120,
+            "replies": 0,
+            "quotes": 0,
+            "views": 14570,
             "bookmarks": 0
           }
         }
@@ -3044,64 +3044,6 @@
       }
     },
     {
-      "event_id": "evt-2026-11-04-f0260a60b733",
-      "rule_id": null,
-      "hot_word_zh": "Oscar 欢迎 Pedro Acosta 加入 Monster Energy 大家庭，因…",
-      "hot_word_en": "oscar welcoming pedro acosta to the monster energy family because pedroscar is more alive than ever !!!",
-      "first_seen_at": "2026-11-04T18:38:43Z",
-      "last_seen_at": "2026-11-04T18:38:43Z",
-      "anchor_item_id": "piasnews-social-839b5196199427ed",
-      "image_url": "https://pbs.twimg.com/media/HWTTiasXsAAIXkd.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HWTTiasXsAAIXkd.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-839b5196199427ed",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar welcoming pedro acosta to the monster energy family because pedroscar is more alive than…",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar 欢迎 Pedro Acosta 加入 Monster Energy 大家庭，因为 Pedroscar 比以往任何时候都更有活力！！！鲨鱼 emoji 🥹",
-          "summary": "oscar welcoming pedro acosta to the monster energy family because pedroscar is more alive than ever !!! the shark emoji 🥹 https://t.co/Vw8ioeAjFx",
-          "summary_zh": "Oscar 欢迎 Pedro Acosta 加入 Monster Energy 大家庭，因为 Pedroscar 比以往任何时候都更有活力！！！鲨鱼 emoji 🥹",
-          "url": "https://x.com/laurogeitabat/status/2118050326007722377",
-          "published_at": "2026-11-04T18:38:43Z",
-          "image_url": "https://pbs.twimg.com/media/HWTTiasXsAAIXkd.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HWTTiasXsAAIXkd.jpg",
-          "heat_contribution": 5.8604,
-          "metrics": {
-            "likes": 638,
-            "retweets": 42,
-            "replies": 0,
-            "quotes": 0,
-            "views": 5550,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 31,
-      "heat": 31,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-11-05-094a1780e94b",
       "rule_id": null,
       "hot_word_zh": "头发又变回王子般的模样了 😌",
@@ -3492,6 +3434,64 @@
       "media_heat": 0,
       "fan_heat": 29,
       "heat": 29,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-04-f0260a60b733",
+      "rule_id": null,
+      "hot_word_zh": "Oscar 欢迎 Pedro Acosta 加入 Monster Energy 大家庭，因…",
+      "hot_word_en": "oscar welcoming pedro acosta to the monster energy family because pedroscar is more alive than ever !!!",
+      "first_seen_at": "2026-11-04T18:38:43Z",
+      "last_seen_at": "2026-11-04T18:38:43Z",
+      "anchor_item_id": "piasnews-social-839b5196199427ed",
+      "image_url": "https://pbs.twimg.com/media/HWTTiasXsAAIXkd.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HWTTiasXsAAIXkd.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-839b5196199427ed",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar welcoming pedro acosta to the monster energy family because pedroscar is more alive than…",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar 欢迎 Pedro Acosta 加入 Monster Energy 大家庭，因为 Pedroscar 比以往任何时候都更有活力！！！鲨鱼 emoji 🥹",
+          "summary": "oscar welcoming pedro acosta to the monster energy family because pedroscar is more alive than ever !!! the shark emoji 🥹 https://t.co/Vw8ioeAjFx",
+          "summary_zh": "Oscar 欢迎 Pedro Acosta 加入 Monster Energy 大家庭，因为 Pedroscar 比以往任何时候都更有活力！！！鲨鱼 emoji 🥹",
+          "url": "https://x.com/laurogeitabat/status/2118050326007722377",
+          "published_at": "2026-11-04T18:38:43Z",
+          "image_url": "https://pbs.twimg.com/media/HWTTiasXsAAIXkd.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HWTTiasXsAAIXkd.jpg",
+          "heat_contribution": 5.0531,
+          "metrics": {
+            "likes": 638,
+            "retweets": 42,
+            "replies": 0,
+            "quotes": 0,
+            "views": 5550,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 28,
+      "heat": 28,
       "source_labels": [
         "粉"
       ],
