@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-06T03:20:16.468706Z",
+  "generated_at": "2026-11-06T06:21:07.053308Z",
   "window_days": 7,
-  "total_items": 75,
+  "total_items": 74,
   "latest_date": "2026-11-06",
   "days": [
     {
@@ -21,9 +21,9 @@
     },
     {
       "date": "2026-11-05",
-      "total_new_items": 6,
+      "total_new_items": 7,
       "official_new_items": 0,
-      "media_new_items": 6,
+      "media_new_items": 7,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
@@ -31,10 +31,11 @@
         "PlanetF1": 1,
         "Speedcafe.com": 1,
         "WhichCar": 1,
-        "Yahoo Sports": 2
+        "Yahoo Sports": 2,
+        "inkl": 1
       },
       "categories": {
-        "race": 2,
+        "race": 3,
         "team": 4
       }
     },
@@ -157,25 +158,22 @@
     },
     {
       "date": "2026-10-30",
-      "total_new_items": 8,
+      "total_new_items": 6,
       "official_new_items": 0,
-      "media_new_items": 8,
+      "media_new_items": 6,
       "x_new_items": 0,
       "rumor_new_items": 1,
       "sources": {
         "AOL.co.uk": 1,
         "FormulaRapida.net": 1,
-        "Fox Sports": 1,
         "SPEEDWEEK.com": 1,
-        "Sportscape Magazine": 1,
         "The Mirror": 1,
         "Yahoo Sports": 2
       },
       "categories": {
         "interview": 2,
-        "race": 1,
         "rumor": 1,
-        "team": 4
+        "team": 3
       }
     }
   ],
@@ -227,7 +225,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 4
+      "items": 5
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
@@ -246,13 +244,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 20,
-      "kept": 13,
+      "checked": 21,
+      "kept": 14,
       "results": {
         "outside_window": 2,
         "publisher_date_missing": 3,
         "publisher_unavailable": 2,
-        "verified": 13
+        "verified": 14
       }
     },
     {
@@ -261,7 +259,7 @@
       "discovery_days": 3,
       "retention_days": 7,
       "previous_items": 75,
-      "kept": 75
+      "kept": 74
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-06T03:23:25.705743Z",
+  "generated_at": "2026-11-06T06:24:05.505682Z",
   "translations": {
     "items:piasnews-637209b96c02841d:title:cc8440f8e596ce41034b84f1": {
       "dataset": "items",
@@ -4249,6 +4249,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-11-06T03:23:24.878762Z"
+    },
+    "items:piasnews-07c6466b5f7b059e:title:948338d01f2f16a24edc1637": {
+      "dataset": "items",
+      "item_id": "piasnews-07c6466b5f7b059e",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri accepts Arvid Lindblad clash penalty; guidelines 'tricky' to enforce at Mexico opening corners",
+      "zh": "Oscar Piastri接受与Arvid Lindblad碰撞的处罚；墨西哥站开场弯道相关准则“难以”执行",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-06T06:24:04.658985Z"
+    },
+    "items:piasnews-07c6466b5f7b059e:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-07c6466b5f7b059e",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或与表现相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-06T06:24:04.658994Z"
     }
   },
   "retention_days": 8
