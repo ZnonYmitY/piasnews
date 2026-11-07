@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-07T16:05:52.270324Z",
+  "generated_at": "2026-11-07T19:20:51.362547Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -1046,7 +1046,7 @@
           "image_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F09%2F08093833%2Foscar-piastri-monza-pit-lane-mclaren-planetf1.jpg",
           "video_url": null,
           "video_poster_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F09%2F08093833%2Foscar-piastri-monza-pit-lane-mclaren-planetf1.jpg",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -1323,9 +1323,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 19,
+      "media_heat": 18,
       "fan_heat": 0,
-      "heat": 19,
+      "heat": 18,
       "source_labels": [
         "媒"
       ],
@@ -1339,7 +1339,7 @@
       "rank": 10
     }
   ],
-  "review_needed_count": 32,
+  "review_needed_count": 28,
   "review_needed_events": [
     {
       "event_id": "evt-2026-11-02-639794917582",
@@ -1562,64 +1562,6 @@
       }
     },
     {
-      "event_id": "evt-2026-11-05-6effb432dba3",
-      "rule_id": null,
-      "hot_word_zh": "快看这边这位 MCGIGGLES 😭😭😭",
-      "hot_word_en": "LOOK AT MCGIGGLES OVER HERE 😭😭😭",
-      "first_seen_at": "2026-11-05T16:37:10Z",
-      "last_seen_at": "2026-11-05T16:37:10Z",
-      "anchor_item_id": "piasnews-social-cef430f9195125a1",
-      "image_url": "https://pbs.twimg.com/media/HWYBT3GW0AEq64h.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HWYBT3GW0AEq64h.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-cef430f9195125a1",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: LOOK AT MCGIGGLES OVER HERE 😭😭😭",
-          "title_zh": "X 发帖 @laurogeitabat：快看这边这位 MCGIGGLES 😭😭😭",
-          "summary": "LOOK AT MCGIGGLES OVER HERE 😭😭😭 https://t.co/sj6DgpkpCH",
-          "summary_zh": "快看这边这位 MCGIGGLES 😭😭😭",
-          "url": "https://x.com/laurogeitabat/status/2118382123673395380",
-          "published_at": "2026-11-05T16:37:10Z",
-          "image_url": "https://pbs.twimg.com/media/HWYBT3GW0AEq64h.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HWYBT3GW0AEq64h.jpg",
-          "heat_contribution": 6.8125,
-          "metrics": {
-            "likes": 1545,
-            "retweets": 145,
-            "replies": 3,
-            "quotes": 0,
-            "views": 17405,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 36,
-      "heat": 36,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-11-05-86f9d9d131f4",
       "rule_id": null,
       "hot_word_zh": "“我们有自己的车手休息室。你有椅子吗？”OSCAR 拜托 😭😭😭",
@@ -1678,64 +1620,6 @@
       }
     },
     {
-      "event_id": "evt-2026-11-05-d733f335f97e",
-      "rule_id": null,
-      "hot_word_zh": "“我希望有台摄像机给大家看看你过去30秒在干什么。就那样站着 😁”",
-      "hot_word_en": "\"i wish i had a camera to show the people what YOU have been doing the last 30 seconds. standing there like 😁\"",
-      "first_seen_at": "2026-11-05T18:45:38Z",
-      "last_seen_at": "2026-11-05T18:45:38Z",
-      "anchor_item_id": "piasnews-social-1887ad12ef0a16df",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2118404494803222529/vid/avc1/320x568/juarS1s5D4ev0r5M.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118404494803222529/img/daoKJUMXvmvr4mad.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-1887ad12ef0a16df",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: \"i wish i had a camera to show the people what YOU have been doing the last 30 seconds. standin…",
-          "title_zh": "X 发帖 @laurogeitabat：“我希望有台摄像机给大家看看你过去30秒在干什么。就那样站着 😁”",
-          "summary": "\"i wish i had a camera to show the people what YOU have been doing the last 30 seconds. standing there like 😁\" https://t.co/XCUPSgopmp",
-          "summary_zh": "“我希望有台摄像机给大家看看你过去30秒在干什么。就那样站着 😁”",
-          "url": "https://x.com/laurogeitabat/status/2118414453087649909",
-          "published_at": "2026-11-05T18:45:38Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2118404494803222529/vid/avc1/320x568/juarS1s5D4ev0r5M.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118404494803222529/img/daoKJUMXvmvr4mad.jpg",
-          "heat_contribution": 6.8068,
-          "metrics": {
-            "likes": 1621,
-            "retweets": 120,
-            "replies": 0,
-            "quotes": 0,
-            "views": 14570,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 36,
-      "heat": 36,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-11-05-06b45d4661c2",
       "rule_id": null,
       "hot_word_zh": "Oscar今年也戴上了纪念罂粟花！",
@@ -1770,64 +1654,6 @@
             "replies": 1,
             "quotes": 0,
             "views": 8823,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 34,
-      "heat": 34,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-11-05-40438776568d",
-      "rule_id": null,
-      "hot_word_zh": "Oscar目前正在为Pure Electric拍摄东西！他在最后一张里在干嘛 😭",
-      "hot_word_en": "oscar is currently filming something for pure electric! what is he doing in the last one 😭",
-      "first_seen_at": "2026-11-05T16:50:25Z",
-      "last_seen_at": "2026-11-05T16:50:25Z",
-      "anchor_item_id": "piasnews-social-6fc599a282b5ba4d",
-      "image_url": "https://pbs.twimg.com/media/HWYEUv4X0AEeFzv.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HWYEUv4X0AEeFzv.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-6fc599a282b5ba4d",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar is currently filming something for pure electric! what is he doing in the last one 😭",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar目前正在为Pure Electric拍摄东西！他在最后一张里在干嘛 😭",
-          "summary": "oscar is currently filming something for pure electric! what is he doing in the last one 😭 https://t.co/963ztkkoR3",
-          "summary_zh": "Oscar目前正在为Pure Electric拍摄东西！他在最后一张里在干嘛 😭",
-          "url": "https://x.com/laurogeitabat/status/2118385456744133087",
-          "published_at": "2026-11-05T16:50:25Z",
-          "image_url": "https://pbs.twimg.com/media/HWYEUv4X0AEeFzv.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HWYEUv4X0AEeFzv.jpg",
-          "heat_contribution": 6.3039,
-          "metrics": {
-            "likes": 951,
-            "retweets": 82,
-            "replies": 0,
-            "quotes": 0,
-            "views": 9768,
             "bookmarks": 0
           }
         }
@@ -1934,6 +1760,64 @@
       }
     },
     {
+      "event_id": "evt-2026-11-05-6effb432dba3",
+      "rule_id": null,
+      "hot_word_zh": "快看这边这位 MCGIGGLES 😭😭😭",
+      "hot_word_en": "LOOK AT MCGIGGLES OVER HERE 😭😭😭",
+      "first_seen_at": "2026-11-05T16:37:10Z",
+      "last_seen_at": "2026-11-05T16:37:10Z",
+      "anchor_item_id": "piasnews-social-cef430f9195125a1",
+      "image_url": "https://pbs.twimg.com/media/HWYBT3GW0AEq64h.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HWYBT3GW0AEq64h.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-cef430f9195125a1",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: LOOK AT MCGIGGLES OVER HERE 😭😭😭",
+          "title_zh": "X 发帖 @laurogeitabat：快看这边这位 MCGIGGLES 😭😭😭",
+          "summary": "LOOK AT MCGIGGLES OVER HERE 😭😭😭 https://t.co/sj6DgpkpCH",
+          "summary_zh": "快看这边这位 MCGIGGLES 😭😭😭",
+          "url": "https://x.com/laurogeitabat/status/2118382123673395380",
+          "published_at": "2026-11-05T16:37:10Z",
+          "image_url": "https://pbs.twimg.com/media/HWYBT3GW0AEq64h.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HWYBT3GW0AEq64h.jpg",
+          "heat_contribution": 6.0029,
+          "metrics": {
+            "likes": 1545,
+            "retweets": 145,
+            "replies": 3,
+            "quotes": 0,
+            "views": 17405,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 32,
+      "heat": 32,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
       "event_id": "evt-2026-11-05-b09986db88af",
       "rule_id": null,
       "hot_word_zh": "“我最想要的是在车里找到稳定性和轻松感。有几场不错的比赛，但我们没有争夺领奖台的表现。",
@@ -1992,6 +1876,64 @@
             "replies": 0,
             "quotes": 0,
             "views": 3211,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 32,
+      "heat": 32,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-05-d733f335f97e",
+      "rule_id": null,
+      "hot_word_zh": "“我希望有台摄像机给大家看看你过去30秒在干什么。就那样站着 😁”",
+      "hot_word_en": "\"i wish i had a camera to show the people what YOU have been doing the last 30 seconds. standing there like 😁\"",
+      "first_seen_at": "2026-11-05T18:45:38Z",
+      "last_seen_at": "2026-11-05T18:45:38Z",
+      "anchor_item_id": "piasnews-social-1887ad12ef0a16df",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2118404494803222529/vid/avc1/320x568/juarS1s5D4ev0r5M.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118404494803222529/img/daoKJUMXvmvr4mad.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-1887ad12ef0a16df",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: \"i wish i had a camera to show the people what YOU have been doing the last 30 seconds. standin…",
+          "title_zh": "X 发帖 @laurogeitabat：“我希望有台摄像机给大家看看你过去30秒在干什么。就那样站着 😁”",
+          "summary": "\"i wish i had a camera to show the people what YOU have been doing the last 30 seconds. standing there like 😁\" https://t.co/XCUPSgopmp",
+          "summary_zh": "“我希望有台摄像机给大家看看你过去30秒在干什么。就那样站着 😁”",
+          "url": "https://x.com/laurogeitabat/status/2118414453087649909",
+          "published_at": "2026-11-05T18:45:38Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2118404494803222529/vid/avc1/320x568/juarS1s5D4ev0r5M.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118404494803222529/img/daoKJUMXvmvr4mad.jpg",
+          "heat_contribution": 5.9973,
+          "metrics": {
+            "likes": 1621,
+            "retweets": 120,
+            "replies": 0,
+            "quotes": 0,
+            "views": 14570,
             "bookmarks": 0
           }
         }
@@ -2132,64 +2074,6 @@
       }
     },
     {
-      "event_id": "evt-2026-11-05-094a1780e94b",
-      "rule_id": null,
-      "hot_word_zh": "头发又变回王子般的模样了 😌",
-      "hot_word_en": "the hair is back to looking so princely 😌",
-      "first_seen_at": "2026-11-05T16:52:30Z",
-      "last_seen_at": "2026-11-05T16:52:30Z",
-      "anchor_item_id": "piasnews-social-052069ab291f2b12",
-      "image_url": "https://pbs.twimg.com/media/HWYE0XvXQAATm3V.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HWYE0XvXQAATm3V.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-052069ab291f2b12",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: the hair is back to looking so princely 😌",
-          "title_zh": "X 发帖 @laurogeitabat：头发又变回王子般的模样了 😌",
-          "summary": "the hair is back to looking so princely 😌 https://t.co/BbAxfpdpgG",
-          "summary_zh": "头发又变回王子般的模样了 😌",
-          "url": "https://x.com/laurogeitabat/status/2118385981648756988",
-          "published_at": "2026-11-05T16:52:30Z",
-          "image_url": "https://pbs.twimg.com/media/HWYE0XvXQAATm3V.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HWYE0XvXQAATm3V.jpg",
-          "heat_contribution": 5.6978,
-          "metrics": {
-            "likes": 538,
-            "retweets": 39,
-            "replies": 0,
-            "quotes": 0,
-            "views": 4446,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 31,
-      "heat": 31,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-11-05-514ed7f9472b",
       "rule_id": null,
       "hot_word_zh": "问：“你喜欢在雨中开车吗？”Oscar：“看有多湿 😁 当还能看清方向时就挺好玩。",
@@ -2248,64 +2132,6 @@
       }
     },
     {
-      "event_id": "evt-2026-11-05-68c0a4749071",
-      "rule_id": null,
-      "hot_word_zh": "📸 摄影：_rosscooke_",
-      "hot_word_en": "📸 by _rosscooke_",
-      "first_seen_at": "2026-11-05T16:38:37Z",
-      "last_seen_at": "2026-11-05T16:38:37Z",
-      "anchor_item_id": "piasnews-social-e2e5f93d40f5ce4f",
-      "image_url": "https://pbs.twimg.com/media/HWYBof6X0AAw8YV.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HWYBof6X0AAw8YV.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-e2e5f93d40f5ce4f",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: 📸 by _rosscooke_",
-          "title_zh": "X 发帖 @laurogeitabat：📸 摄影：_rosscooke_",
-          "summary": "📸 by _rosscooke_ https://t.co/Pfl5mHcpc6",
-          "summary_zh": "📸 摄影：_rosscooke_",
-          "url": "https://x.com/laurogeitabat/status/2118382489089544247",
-          "published_at": "2026-11-05T16:38:37Z",
-          "image_url": "https://pbs.twimg.com/media/HWYBof6X0AAw8YV.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HWYBof6X0AAw8YV.jpg",
-          "heat_contribution": 5.6636,
-          "metrics": {
-            "likes": 464,
-            "retweets": 65,
-            "replies": 0,
-            "quotes": 0,
-            "views": 4418,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 31,
-      "heat": 31,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-11-04-92ab43c04d8a",
       "rule_id": null,
       "hot_word_zh": "被万寿菊环绕 🌼🌼",
@@ -2340,6 +2166,64 @@
             "replies": 1,
             "quotes": 0,
             "views": 7479,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 30,
+      "heat": 30,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-05-40438776568d",
+      "rule_id": null,
+      "hot_word_zh": "Oscar目前正在为Pure Electric拍摄东西！他在最后一张里在干嘛 😭",
+      "hot_word_en": "oscar is currently filming something for pure electric! what is he doing in the last one 😭",
+      "first_seen_at": "2026-11-05T16:50:25Z",
+      "last_seen_at": "2026-11-05T16:50:25Z",
+      "anchor_item_id": "piasnews-social-6fc599a282b5ba4d",
+      "image_url": "https://pbs.twimg.com/media/HWYEUv4X0AEeFzv.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HWYEUv4X0AEeFzv.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-6fc599a282b5ba4d",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar is currently filming something for pure electric! what is he doing in the last one 😭",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar目前正在为Pure Electric拍摄东西！他在最后一张里在干嘛 😭",
+          "summary": "oscar is currently filming something for pure electric! what is he doing in the last one 😭 https://t.co/963ztkkoR3",
+          "summary_zh": "Oscar目前正在为Pure Electric拍摄东西！他在最后一张里在干嘛 😭",
+          "url": "https://x.com/laurogeitabat/status/2118385456744133087",
+          "published_at": "2026-11-05T16:50:25Z",
+          "image_url": "https://pbs.twimg.com/media/HWYEUv4X0AEeFzv.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HWYEUv4X0AEeFzv.jpg",
+          "heat_contribution": 5.4953,
+          "metrics": {
+            "likes": 951,
+            "retweets": 82,
+            "replies": 0,
+            "quotes": 0,
+            "views": 9768,
             "bookmarks": 0
           }
         }
@@ -2770,98 +2654,40 @@
       }
     },
     {
-      "event_id": "evt-2026-11-04-f0260a60b733",
+      "event_id": "evt-2026-11-05-094a1780e94b",
       "rule_id": null,
-      "hot_word_zh": "Oscar 欢迎 Pedro Acosta 加入 Monster Energy 大家庭，因…",
-      "hot_word_en": "oscar welcoming pedro acosta to the monster energy family because pedroscar is more alive than ever !!!",
-      "first_seen_at": "2026-11-04T18:38:43Z",
-      "last_seen_at": "2026-11-04T18:38:43Z",
-      "anchor_item_id": "piasnews-social-839b5196199427ed",
-      "image_url": "https://pbs.twimg.com/media/HWTTiasXsAAIXkd.jpg",
+      "hot_word_zh": "头发又变回王子般的模样了 😌",
+      "hot_word_en": "the hair is back to looking so princely 😌",
+      "first_seen_at": "2026-11-05T16:52:30Z",
+      "last_seen_at": "2026-11-05T16:52:30Z",
+      "anchor_item_id": "piasnews-social-052069ab291f2b12",
+      "image_url": "https://pbs.twimg.com/media/HWYE0XvXQAATm3V.jpg",
       "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HWTTiasXsAAIXkd.jpg",
+      "video_poster_url": "https://pbs.twimg.com/media/HWYE0XvXQAATm3V.jpg",
       "review_needed": true,
       "review_needed_reason": "fan_account_public_cap",
       "items": [
         {
-          "item_id": "piasnews-social-839b5196199427ed",
+          "item_id": "piasnews-social-052069ab291f2b12",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar welcoming pedro acosta to the monster energy family because pedroscar is more alive than…",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar 欢迎 Pedro Acosta 加入 Monster Energy 大家庭，因为 Pedroscar 比以往任何时候都更有活力！！！鲨鱼 emoji 🥹",
-          "summary": "oscar welcoming pedro acosta to the monster energy family because pedroscar is more alive than ever !!! the shark emoji 🥹 https://t.co/Vw8ioeAjFx",
-          "summary_zh": "Oscar 欢迎 Pedro Acosta 加入 Monster Energy 大家庭，因为 Pedroscar 比以往任何时候都更有活力！！！鲨鱼 emoji 🥹",
-          "url": "https://x.com/laurogeitabat/status/2118050326007722377",
-          "published_at": "2026-11-04T18:38:43Z",
-          "image_url": "https://pbs.twimg.com/media/HWTTiasXsAAIXkd.jpg",
+          "title": "X post from @laurogeitabat: the hair is back to looking so princely 😌",
+          "title_zh": "X 发帖 @laurogeitabat：头发又变回王子般的模样了 😌",
+          "summary": "the hair is back to looking so princely 😌 https://t.co/BbAxfpdpgG",
+          "summary_zh": "头发又变回王子般的模样了 😌",
+          "url": "https://x.com/laurogeitabat/status/2118385981648756988",
+          "published_at": "2026-11-05T16:52:30Z",
+          "image_url": "https://pbs.twimg.com/media/HWYE0XvXQAATm3V.jpg",
           "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HWTTiasXsAAIXkd.jpg",
-          "heat_contribution": 5.0531,
+          "video_poster_url": "https://pbs.twimg.com/media/HWYE0XvXQAATm3V.jpg",
+          "heat_contribution": 4.891,
           "metrics": {
-            "likes": 638,
-            "retweets": 42,
+            "likes": 538,
+            "retweets": 39,
             "replies": 0,
             "quotes": 0,
-            "views": 5550,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 28,
-      "heat": 28,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-11-04-386fbbfa5985",
-      "rule_id": null,
-      "hot_word_zh": "问：“达到300场比赛是你的目标吗？” Oscar：“不一定。",
-      "hot_word_en": "Q: \"is reaching 300 races a goal for you?\" oscar: \"not necessarily.",
-      "first_seen_at": "2026-11-04T16:25:38Z",
-      "last_seen_at": "2026-11-04T16:25:38Z",
-      "anchor_item_id": "piasnews-social-801a502dc10cfac3",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2118016681121288192/vid/avc1/320x454/jWFX-uVqJpPiiWK_.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118016681121288192/img/I7FKW457VeB6RT0Q.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-801a502dc10cfac3",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: Q: \"is reaching 300 races a goal for you?\" oscar: \"not necessarily. for me what i achieve in th…",
-          "title_zh": "X 发帖 @laurogeitabat：问：“达到300场比赛是你的目标吗？” Oscar：“不一定。对我来说，我在那些比赛中取得的成就才是更重要的，但赛季越来越长，所以达到300场需要的年数更少。能跑那么多场比赛非常了不起，如果我能做到那会很酷。”",
-          "summary": "Q: \"is reaching 300 races a goal for you?\" oscar: \"not necessarily. for me what i achieve in those races is the bigger thing, but the seasons are getting longer so it takes less years to get to 300. it's very impressive to do that many races, if i can do that it'd be very cool.\" https://t.co/7b2LHTHdcI",
-          "summary_zh": "问：“达到300场比赛是你的目标吗？” Oscar：“不一定。对我来说，我在那些比赛中取得的成就才是更重要的，但赛季越来越长，所以达到300场需要的年数更少。能跑那么多场比赛非常了不起，如果我能做到那会很酷。”",
-          "url": "https://x.com/laurogeitabat/status/2118016831571087426",
-          "published_at": "2026-11-04T16:25:38Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2118016681121288192/vid/avc1/320x454/jWFX-uVqJpPiiWK_.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118016681121288192/img/I7FKW457VeB6RT0Q.jpg",
-          "heat_contribution": 4.9505,
-          "metrics": {
-            "likes": 546,
-            "retweets": 36,
-            "replies": 1,
-            "quotes": 0,
-            "views": 8021,
+            "views": 4446,
             "bookmarks": 0
           }
         }
@@ -2886,40 +2712,40 @@
       }
     },
     {
-      "event_id": "evt-2026-11-04-3d69e29fe7e9",
+      "event_id": "evt-2026-11-05-68c0a4749071",
       "rule_id": null,
-      "hot_word_zh": "Oscar：“我希望明年我们的赛车服上有口袋” 管理员和 Lando：“对，前面的口袋！",
-      "hot_word_en": "oscar: \"i wish we had pockets in our suits next year\" admin & lando: \"yeah, front pockets!",
-      "first_seen_at": "2026-11-04T17:03:12Z",
-      "last_seen_at": "2026-11-04T17:03:12Z",
-      "anchor_item_id": "piasnews-social-9fad8e0d76131e4c",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2118026271573565440/vid/avc1/320x400/upTvELOdNkC166Tf.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118026271573565440/img/HlzzieiSPQ2mKezQ.jpg",
+      "hot_word_zh": "📸 摄影：_rosscooke_",
+      "hot_word_en": "📸 by _rosscooke_",
+      "first_seen_at": "2026-11-05T16:38:37Z",
+      "last_seen_at": "2026-11-05T16:38:37Z",
+      "anchor_item_id": "piasnews-social-e2e5f93d40f5ce4f",
+      "image_url": "https://pbs.twimg.com/media/HWYBof6X0AAw8YV.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HWYBof6X0AAw8YV.jpg",
       "review_needed": true,
       "review_needed_reason": "fan_account_public_cap",
       "items": [
         {
-          "item_id": "piasnews-social-9fad8e0d76131e4c",
+          "item_id": "piasnews-social-e2e5f93d40f5ce4f",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar: \"i wish we had pockets in our suits next year\" admin &amp; lando: \"yeah, front pockets!\"…",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar：“我希望明年我们的赛车服上有口袋” 管理员和 Lando：“对，前面的口袋！” Oscar：🤦🏻‍♂️🙂‍↔️🙂‍↔️ 他就是我们中的一员，他懂没有口袋生活的苦 😭😭😭",
-          "summary": "oscar: \"i wish we had pockets in our suits next year\" admin &amp; lando: \"yeah, front pockets!\" oscar: 🤦🏻‍♂️🙂‍↔️🙂‍↔️ HE'S ONE OF US HE KNOWS THE STRUGGLES OF THE POCKETLESS LIFE 😭😭😭 https://t.co/HfwXbn7uQZ",
-          "summary_zh": "Oscar：“我希望明年我们的赛车服上有口袋” 管理员和 Lando：“对，前面的口袋！” Oscar：🤦🏻‍♂️🙂‍↔️🙂‍↔️ 他就是我们中的一员，他懂没有口袋生活的苦 😭😭😭",
-          "url": "https://x.com/laurogeitabat/status/2118026288942174292",
-          "published_at": "2026-11-04T17:03:12Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2118026271573565440/vid/avc1/320x400/upTvELOdNkC166Tf.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118026271573565440/img/HlzzieiSPQ2mKezQ.jpg",
-          "heat_contribution": 4.9649,
+          "title": "X post from @laurogeitabat: 📸 by _rosscooke_",
+          "title_zh": "X 发帖 @laurogeitabat：📸 摄影：_rosscooke_",
+          "summary": "📸 by _rosscooke_ https://t.co/Pfl5mHcpc6",
+          "summary_zh": "📸 摄影：_rosscooke_",
+          "url": "https://x.com/laurogeitabat/status/2118382489089544247",
+          "published_at": "2026-11-05T16:38:37Z",
+          "image_url": "https://pbs.twimg.com/media/HWYBof6X0AAw8YV.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HWYBof6X0AAw8YV.jpg",
+          "heat_contribution": 4.857,
           "metrics": {
-            "likes": 552,
-            "retweets": 37,
+            "likes": 464,
+            "retweets": 65,
             "replies": 0,
             "quotes": 0,
-            "views": 8550,
+            "views": 4418,
             "bookmarks": 0
           }
         }
@@ -3044,64 +2870,6 @@
       "media_heat": 0,
       "fan_heat": 27,
       "heat": 27,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-11-04-1b578c750818",
-      "rule_id": null,
-      "hot_word_zh": "还有别人看到 OSCPENGUIN 的构想吗",
-      "hot_word_en": "DOES ANYONE ELSE SEE THE OSCPENGUIN VISION",
-      "first_seen_at": "2026-11-04T17:13:46Z",
-      "last_seen_at": "2026-11-04T17:13:46Z",
-      "anchor_item_id": "piasnews-social-fff5dd603bde33ac",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2118028905613287424/vid/avc1/320x468/GtPn74ONBRoqoEFA.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118028905613287424/img/GnHdVotJRJJe38m_.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-fff5dd603bde33ac",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: DOES ANYONE ELSE SEE THE OSCPENGUIN VISION",
-          "title_zh": "X 发帖 @laurogeitabat：还有别人看到 OSCPENGUIN 的构想吗",
-          "summary": "DOES ANYONE ELSE SEE THE OSCPENGUIN VISION https://t.co/6WDVOh1XbS",
-          "summary_zh": "还有别人看到 OSCPENGUIN 的构想吗",
-          "url": "https://x.com/laurogeitabat/status/2118028945903730801",
-          "published_at": "2026-11-04T17:13:46Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2118028905613287424/vid/avc1/320x468/GtPn74ONBRoqoEFA.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118028905613287424/img/GnHdVotJRJJe38m_.jpg",
-          "heat_contribution": 4.2579,
-          "metrics": {
-            "likes": 268,
-            "retweets": 23,
-            "replies": 0,
-            "quotes": 0,
-            "views": 3431,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 24,
-      "heat": 24,
       "source_labels": [
         "粉"
       ],
