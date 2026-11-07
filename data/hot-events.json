@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-07T20:05:46.459098Z",
+  "generated_at": "2026-11-07T20:20:50.371560Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -1339,7 +1339,7 @@
       "rank": 10
     }
   ],
-  "review_needed_count": 28,
+  "review_needed_count": 26,
   "review_needed_events": [
     {
       "event_id": "evt-2026-11-02-639794917582",
@@ -1444,64 +1444,6 @@
       },
       "pinned_rank": null,
       "hidden": false
-    },
-    {
-      "event_id": "evt-2026-11-04-41085f5e08bc",
-      "rule_id": null,
-      "hot_word_zh": "这张照片太可爱了 🌼🧡",
-      "hot_word_en": "SUCH A CUTE PIC 🌼🧡",
-      "first_seen_at": "2026-11-04T20:14:32Z",
-      "last_seen_at": "2026-11-04T20:14:32Z",
-      "anchor_item_id": "piasnews-social-224ae147b8b4e099",
-      "image_url": "https://pbs.twimg.com/media/HWTpeUBXUAAwlBa.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HWTpeUBXUAAwlBa.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-224ae147b8b4e099",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: SUCH A CUTE PIC 🌼🧡",
-          "title_zh": "X 发帖 @laurogeitabat：这张照片太可爱了 🌼🧡",
-          "summary": "SUCH A CUTE PIC 🌼🧡 https://t.co/vcVWCTjukT",
-          "summary_zh": "这张照片太可爱了 🌼🧡",
-          "url": "https://x.com/laurogeitabat/status/2118074438771982810",
-          "published_at": "2026-11-04T20:14:32Z",
-          "image_url": "https://pbs.twimg.com/media/HWTpeUBXUAAwlBa.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HWTpeUBXUAAwlBa.jpg",
-          "heat_contribution": 6.846,
-          "metrics": {
-            "likes": 3524,
-            "retweets": 406,
-            "replies": 8,
-            "quotes": 0,
-            "views": 33539,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 36,
-      "heat": 36,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
     },
     {
       "event_id": "evt-2026-11-05-46b8e6ff429b",
@@ -2116,64 +2058,6 @@
       "media_heat": 0,
       "fan_heat": 31,
       "heat": 31,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-11-04-92ab43c04d8a",
-      "rule_id": null,
-      "hot_word_zh": "被万寿菊环绕 🌼🌼",
-      "hot_word_en": "surrounded by marigolds 🌼🌼",
-      "first_seen_at": "2026-11-04T20:13:44Z",
-      "last_seen_at": "2026-11-04T20:13:44Z",
-      "anchor_item_id": "piasnews-social-fbb9adfd274b71d5",
-      "image_url": "https://pbs.twimg.com/media/HWTpM6gXoAA-2j2.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HWTpM6gXoAA-2j2.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-fbb9adfd274b71d5",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: surrounded by marigolds 🌼🌼",
-          "title_zh": "X 发帖 @laurogeitabat：被万寿菊环绕 🌼🌼",
-          "summary": "surrounded by marigolds 🌼🌼 https://t.co/wZAIcFf80B",
-          "summary_zh": "被万寿菊环绕 🌼🌼",
-          "url": "https://x.com/laurogeitabat/status/2118074234794848300",
-          "published_at": "2026-11-04T20:13:44Z",
-          "image_url": "https://pbs.twimg.com/media/HWTpM6gXoAA-2j2.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HWTpM6gXoAA-2j2.jpg",
-          "heat_contribution": 5.5205,
-          "metrics": {
-            "likes": 938,
-            "retweets": 114,
-            "replies": 1,
-            "quotes": 0,
-            "views": 7479,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 30,
-      "heat": 30,
       "source_labels": [
         "粉"
       ],
