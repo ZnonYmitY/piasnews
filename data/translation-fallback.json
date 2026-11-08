@@ -1,11 +1,31 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-04T23:08:32.559193Z",
+  "generated_at": "2026-11-08T14:07:11.805300Z",
   "status": "action_required",
-  "pending_count": 1,
+  "pending_count": 3,
   "ignored_non_text_count": 0,
   "workbench_path": "../immersive/translation-workbench.html",
   "items": [
+    {
+      "key": "items:piasnews-980e285cbfe84570:title:fe809e38ffeeb44ca94441ec",
+      "dataset": "items",
+      "item_id": "piasnews-980e285cbfe84570",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri, McLaren, Interlagos, 2026",
+      "source_url": "https://www.racefans.net/2026/11/08/very-high-chance-of-a-horrific-crash-if-f1-races-in-same-conditions-as-qualifying-drivers-warn/f1-grand-prix-of-brazil-qualifying-20/",
+      "source_name": "RaceFans",
+      "reason": "llm_mapping_missing"
+    },
+    {
+      "key": "social:piasnews-social-892f17f6da7af8e0:summary:ddcd58eefb278adeefac8123",
+      "dataset": "social",
+      "item_id": "piasnews-social-892f17f6da7af8e0",
+      "target_field": "summary_zh",
+      "source_text": "RT @laurogeitabat: https://t.co/oIaLXjeknZ",
+      "source_url": "https://x.com/laurogeitabat/status/2119244645955739686",
+      "source_name": "@laurogeitabat",
+      "reason": "llm_mapping_missing"
+    },
     {
       "key": "social:piasnews-social-381f3c3990c69be2:summary:bc4880e263eb7bc28d0d020c",
       "dataset": "social",
