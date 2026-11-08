@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-08T03:55:12.367794Z",
+  "generated_at": "2026-11-08T09:43:37.261385Z",
   "translations": {
     "items:piasnews-cfa298b6c691b3ec:title:c538ade4f3f2eb16178ca696": {
       "dataset": "items",
@@ -4081,6 +4081,54 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-11-08T03:55:11.562519Z"
+    },
+    "items:piasnews-4970884aa2a0cf9b:title:4aa3e70e1f7763b6719cfc26": {
+      "dataset": "items",
+      "item_id": "piasnews-4970884aa2a0cf9b",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri admits what he did in qualifying ‘definitely didn’t work’ after Sao Paulo GP Q2 shock",
+      "zh": "Oscar Piastri 承认他在排位赛中所做的“绝对没有奏效”，此前圣保罗大奖赛 Q2 爆冷出局",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-08T09:43:36.438766Z"
+    },
+    "items:piasnews-4970884aa2a0cf9b:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-4970884aa2a0cf9b",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-08T09:43:36.438775Z"
+    },
+    "items:piasnews-a851a659426d2752:title:7c4d84919d7bce9593f8b3b4": {
+      "dataset": "items",
+      "item_id": "piasnews-a851a659426d2752",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "‘You f***ing told me’: Truth in fuming F1 star’s claim; how much crash cost Piastri — Talking Pts",
+      "zh": "“你他妈告诉过我”：愤怒 F1 车手说法中的真相；撞车让 Piastri 损失多少——话题要点",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-08T09:43:36.438791Z"
+    },
+    "items:piasnews-a851a659426d2752:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-a851a659426d2752",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-08T09:43:36.438796Z"
     }
   },
   "retention_days": 8
