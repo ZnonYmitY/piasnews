@@ -1,11 +1,21 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-08T14:07:11.805300Z",
+  "generated_at": "2026-11-08T23:08:57.169632Z",
   "status": "action_required",
   "pending_count": 3,
   "ignored_non_text_count": 0,
   "workbench_path": "../immersive/translation-workbench.html",
   "items": [
+    {
+      "key": "items:piasnews-c4fd0532dd481cfa:title:fe809e38ffeeb44ca94441ec",
+      "dataset": "items",
+      "item_id": "piasnews-c4fd0532dd481cfa",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri, McLaren, Interlagos, 2026",
+      "source_url": "https://www.racefans.net/2026/11/08/2026-brazilian-grand-prix-in-pictures/f1-grand-prix-of-brazil-151/",
+      "source_name": "RaceFans",
+      "reason": "llm_mapping_missing"
+    },
     {
       "key": "items:piasnews-980e285cbfe84570:title:fe809e38ffeeb44ca94441ec",
       "dataset": "items",
@@ -23,16 +33,6 @@
       "target_field": "summary_zh",
       "source_text": "RT @laurogeitabat: https://t.co/oIaLXjeknZ",
       "source_url": "https://x.com/laurogeitabat/status/2119244645955739686",
-      "source_name": "@laurogeitabat",
-      "reason": "llm_mapping_missing"
-    },
-    {
-      "key": "social:piasnews-social-381f3c3990c69be2:summary:bc4880e263eb7bc28d0d020c",
-      "dataset": "social",
-      "item_id": "piasnews-social-381f3c3990c69be2",
-      "target_field": "summary_zh",
-      "source_text": "🤜🤛 #McLarenF1 | #MexicoGP 🇲🇽 | #LiveYourFandom https://t.co/GMdVSD2rXR",
-      "source_url": "https://x.com/McLarenF1/status/2116974367704060161",
       "source_name": "@laurogeitabat",
       "reason": "llm_mapping_missing"
     }
