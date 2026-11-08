@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-08T14:07:13.514710Z",
+  "generated_at": "2026-11-08T19:20:59.907467Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -67,102 +67,19 @@
       "rank": 1
     },
     {
-      "event_id": "evt-session-result-2026-round-20-practice_3",
-      "rule_id": null,
-      "hot_word_zh": "Oscar 在Brazilian Grand Prix三练获得第6名",
-      "hot_word_en": "Oscar finishes P6 in Brazilian Grand Prix Practice 3",
-      "first_seen_at": "2026-11-07T16:05:50.878541Z",
-      "last_seen_at": "2026-11-07T16:05:50.878541Z",
-      "anchor_item_id": "session-result-2026-round-20-practice_3",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": false,
-      "review_needed_reason": null,
-      "official_heat": 0,
-      "media_heat": 100,
-      "fan_heat": 0,
-      "heat": 100,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 1,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "hard_rule": {
-        "type": "session_result",
-        "race_id": "2026-round-20",
-        "session": "practice_3",
-        "position": 6,
-        "status": "classified",
-        "provisional": false,
-        "source_item_id": "session-result-2026-round-20-practice_3",
-        "source": "OpenF1",
-        "latest": false
-      },
-      "items": [
-        {
-          "item_id": "session-result-2026-round-20-practice_3",
-          "dataset": "session_result",
-          "source_type": "media",
-          "source": "OpenF1",
-          "title": "Oscar finishes P6 in Brazilian Grand Prix Practice 3",
-          "title_zh": "Oscar 在Brazilian Grand Prix三练获得第6名",
-          "summary": "Structured session result for Oscar Piastri.",
-          "summary_zh": "Oscar Piastri 的结构化场次成绩。",
-          "url": "https://api.openf1.org/v1/session_result?session_key=11407&driver_number=81",
-          "published_at": "2026-11-07T16:05:50.878541Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 100,
-          "metrics": {}
-        }
-      ],
-      "rank": 2
-    },
-    {
-      "event_id": "evt-2026-11-07-3dc6e3d251d4",
+      "event_id": "evt-2026-11-07-3dc6e3d251d4-72daff9f",
       "rule_id": null,
       "hot_word_zh": "Q2 还剩五分钟 👀 前十名 Russell Antonelli Leclerc Hami…",
       "hot_word_en": "Five minutes to go in Q2 👀 Top 10 Russell Antonelli Leclerc Hamilton Norris Piastri 📸 Lawson Hulkenberg Hadja…",
       "first_seen_at": "2026-11-07T15:32:47Z",
       "last_seen_at": "2026-11-07T20:01:17Z",
       "anchor_item_id": "piasnews-social-bae29acf0fdf88ea",
-      "image_url": "https://pbs.twimg.com/media/HWiFplHXkAAF9nt.jpg",
+      "image_url": "https://pbs.twimg.com/media/HWjC2wTWkAApktU.jpg",
       "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HWiFplHXkAAF9nt.jpg",
+      "video_poster_url": "https://pbs.twimg.com/media/HWjC2wTWkAApktU.jpg",
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
-        {
-          "item_id": "piasnews-social-227947f32cfcbb98",
-          "dataset": "social",
-          "source_type": "official",
-          "source": "@F1",
-          "title": "X post from @F1: 🏁 END OF FP3 🏁 TOP 10 Verstappen 📸 Antonelli Norris Russell Leclerc Piastri Lindblad Lawson Had…",
-          "title_zh": "X 发帖 @F1：🏁 三练结束 🏁 前十名 Verstappen 📸 Antonelli Norris Russell Leclerc Piastri Lindblad Lawson Hadjar Bortoleto #F1 #BrazilGP",
-          "summary": "🏁 END OF FP3 🏁 TOP 10 Verstappen 📸 Antonelli Norris Russell Leclerc Piastri Lindblad Lawson Hadjar Bortoleto #F1 #BrazilGP https://t.co/7QXERKKEah",
-          "summary_zh": "🏁 三练结束 🏁 前十名 Verstappen 📸 Antonelli Norris Russell Leclerc Piastri Lindblad Lawson Hadjar Bortoleto #F1 #BrazilGP",
-          "url": "https://x.com/F1/status/2119090697340883086",
-          "published_at": "2026-11-07T15:32:47Z",
-          "image_url": "https://pbs.twimg.com/media/HWiFplHXkAAF9nt.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HWiFplHXkAAF9nt.jpg",
-          "heat_contribution": 7.8022,
-          "metrics": {
-            "likes": 1479,
-            "retweets": 190,
-            "replies": 12,
-            "quotes": 0,
-            "views": 136508,
-            "bookmarks": 0
-          }
-        },
         {
           "item_id": "piasnews-social-bae29acf0fdf88ea",
           "dataset": "social",
@@ -186,12 +103,36 @@
             "views": 160719,
             "bookmarks": 0
           }
+        },
+        {
+          "item_id": "piasnews-social-227947f32cfcbb98",
+          "dataset": "social",
+          "source_type": "official",
+          "source": "@F1",
+          "title": "X post from @F1: 🏁 END OF FP3 🏁 TOP 10 Verstappen 📸 Antonelli Norris Russell Leclerc Piastri Lindblad Lawson Had…",
+          "title_zh": "X 发帖 @F1：🏁 三练结束 🏁 前十名 Verstappen 📸 Antonelli Norris Russell Leclerc Piastri Lindblad Lawson Hadjar Bortoleto #F1 #BrazilGP",
+          "summary": "🏁 END OF FP3 🏁 TOP 10 Verstappen 📸 Antonelli Norris Russell Leclerc Piastri Lindblad Lawson Hadjar Bortoleto #F1 #BrazilGP https://t.co/7QXERKKEah",
+          "summary_zh": "🏁 三练结束 🏁 前十名 Verstappen 📸 Antonelli Norris Russell Leclerc Piastri Lindblad Lawson Hadjar Bortoleto #F1 #BrazilGP",
+          "url": "https://x.com/F1/status/2119090697340883086",
+          "published_at": "2026-11-07T15:32:47Z",
+          "image_url": "https://pbs.twimg.com/media/HWiFplHXkAAF9nt.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HWiFplHXkAAF9nt.jpg",
+          "heat_contribution": 7.2917,
+          "metrics": {
+            "likes": 1479,
+            "retweets": 190,
+            "replies": 12,
+            "quotes": 0,
+            "views": 136508,
+            "bookmarks": 0
+          }
         }
       ],
-      "official_heat": 70,
+      "official_heat": 68,
       "media_heat": 0,
       "fan_heat": 0,
-      "heat": 70,
+      "heat": 68,
       "source_labels": [
         "官"
       ],
@@ -202,7 +143,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 3
+      "rank": 2
     },
     {
       "event_id": "evt-2026-11-07-8eb60ba218a2",
@@ -281,10 +222,10 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 4
+      "rank": 3
     },
     {
-      "event_id": "evt-2026-11-05-cc1fe294da1b-eb9c4fc2",
+      "event_id": "evt-2026-11-05-cc1fe294da1b",
       "rule_id": null,
       "hot_word_zh": "Oscar谈Alan Jones的离世 🫶🏻 “他经常说些关于我的好话，他真好。",
       "hot_word_en": "oscar on alan jones' passing 🫶🏻 \"he often had nice things to say about me which was nice of him.",
@@ -360,6 +301,85 @@
       },
       "pinned_rank": null,
       "hidden": false,
+      "rank": 4
+    },
+    {
+      "event_id": "evt-2026-11-07-d1f4a3938656",
+      "rule_id": null,
+      "hot_word_zh": "这就是他起步了却没跑完的那一圈，也是他再次止步Q2的原因。",
+      "hot_word_en": "this is the lap he started and didn’t get to do, and the reason why he’s out in q2 once again.",
+      "first_seen_at": "2026-11-07T20:55:09Z",
+      "last_seen_at": "2026-11-07T21:48:48Z",
+      "anchor_item_id": "piasnews-social-3d52129fb034deac",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2119162891492524032/vid/avc1/1280x960/hnfWLX0N97mL6ik4.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2119162891492524032/img/osE7kpIb4eBYgqgn.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-3d52129fb034deac",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: this is the lap he started and didn’t get to do, and the reason why he’s out in q2 once again.…",
+          "title_zh": "X 转帖 @laurogeitabat：这就是他起步了却没跑完的那一圈，也是他再次止步Q2的原因。不在他的掌控之中，就像上周一样 :)",
+          "summary": "this is the lap he started and didn’t get to do, and the reason why he’s out in q2 once again. out of his control, like it was last week :) https://t.co/BkEvcurYZe",
+          "summary_zh": "这就是他起步了却没跑完的那一圈，也是他再次止步Q2的原因。不在他的掌控之中，就像上周一样 :)",
+          "url": "https://x.com/r81sie/status/2119171823556546962",
+          "published_at": "2026-11-07T20:55:09Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2119162891492524032/vid/avc1/1280x960/hnfWLX0N97mL6ik4.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2119162891492524032/img/osE7kpIb4eBYgqgn.jpg",
+          "heat_contribution": 6.1881,
+          "metrics": {
+            "likes": 435,
+            "retweets": 65,
+            "replies": 4,
+            "quotes": 8,
+            "views": 5488,
+            "bookmarks": 20
+          }
+        },
+        {
+          "item_id": "piasnews-social-823bc388e8ff9dfe",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: RT @r81sie: this is the lap he started and didn’t get to do, and the reason why he’s out in q2…",
+          "title_zh": "X 转帖 @laurogeitabat：RT @r81sie：这就是他开始却没能完成的那一圈，也是他再次止步 Q2 的原因。不在他的掌控之中，就像之前那样……",
+          "summary": "RT @r81sie: this is the lap he started and didn’t get to do, and the reason why he’s out in q2 once again. out of his control, like it was…",
+          "summary_zh": "RT @r81sie：这就是他开始却没能完成的那一圈，也是他再次止步 Q2 的原因。不在他的掌控之中，就像之前那样……",
+          "url": "https://x.com/laurogeitabat/status/2119185324182036656",
+          "published_at": "2026-11-07T21:48:48Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 4.7868,
+          "metrics": {
+            "likes": 0,
+            "retweets": 78,
+            "replies": 0,
+            "quotes": 0,
+            "views": 255,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 43,
+      "heat": 43,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
       "rank": 5
     },
     {
@@ -407,7 +427,7 @@
           "image_url": "https://www.racefans.net/wp-content/themes/twentyfifteen/assets/images/default-og.jpg",
           "video_url": null,
           "video_poster_url": "https://www.racefans.net/wp-content/themes/twentyfifteen/assets/images/default-og.jpg",
-          "heat_contribution": 1.0,
+          "heat_contribution": 0.75,
           "metrics": {}
         },
         {
@@ -509,7 +529,7 @@
           "image_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F09%2F08093833%2Foscar-piastri-monza-pit-lane-mclaren-planetf1.jpg",
           "video_url": null,
           "video_poster_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F09%2F08093833%2Foscar-piastri-monza-pit-lane-mclaren-planetf1.jpg",
-          "heat_contribution": 0.2,
+          "heat_contribution": 0.0,
           "metrics": {}
         },
         {
@@ -769,9 +789,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 44,
+      "media_heat": 42,
       "fan_heat": 0,
-      "heat": 44,
+      "heat": 42,
       "source_labels": [
         "媒"
       ],
@@ -783,85 +803,6 @@
       "pinned_rank": null,
       "hidden": false,
       "rank": 6
-    },
-    {
-      "event_id": "evt-2026-11-07-d1f4a3938656",
-      "rule_id": null,
-      "hot_word_zh": "这就是他起步了却没跑完的那一圈，也是他再次止步Q2的原因。",
-      "hot_word_en": "this is the lap he started and didn’t get to do, and the reason why he’s out in q2 once again.",
-      "first_seen_at": "2026-11-07T20:55:09Z",
-      "last_seen_at": "2026-11-07T21:48:48Z",
-      "anchor_item_id": "piasnews-social-3d52129fb034deac",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2119162891492524032/vid/avc1/1280x960/hnfWLX0N97mL6ik4.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2119162891492524032/img/osE7kpIb4eBYgqgn.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-3d52129fb034deac",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X repost from @laurogeitabat: this is the lap he started and didn’t get to do, and the reason why he’s out in q2 once again.…",
-          "title_zh": "X 转帖 @laurogeitabat：这就是他起步了却没跑完的那一圈，也是他再次止步Q2的原因。不在他的掌控之中，就像上周一样 :)",
-          "summary": "this is the lap he started and didn’t get to do, and the reason why he’s out in q2 once again. out of his control, like it was last week :) https://t.co/BkEvcurYZe",
-          "summary_zh": "这就是他起步了却没跑完的那一圈，也是他再次止步Q2的原因。不在他的掌控之中，就像上周一样 :)",
-          "url": "https://x.com/r81sie/status/2119171823556546962",
-          "published_at": "2026-11-07T20:55:09Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2119162891492524032/vid/avc1/1280x960/hnfWLX0N97mL6ik4.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2119162891492524032/img/osE7kpIb4eBYgqgn.jpg",
-          "heat_contribution": 6.1881,
-          "metrics": {
-            "likes": 435,
-            "retweets": 65,
-            "replies": 4,
-            "quotes": 8,
-            "views": 5488,
-            "bookmarks": 20
-          }
-        },
-        {
-          "item_id": "piasnews-social-823bc388e8ff9dfe",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X repost from @laurogeitabat: RT @r81sie: this is the lap he started and didn’t get to do, and the reason why he’s out in q2…",
-          "title_zh": "X 转帖 @laurogeitabat：RT @r81sie：这就是他开始却没能完成的那一圈，也是他再次止步 Q2 的原因。不在他的掌控之中，就像之前那样……",
-          "summary": "RT @r81sie: this is the lap he started and didn’t get to do, and the reason why he’s out in q2 once again. out of his control, like it was…",
-          "summary_zh": "RT @r81sie：这就是他开始却没能完成的那一圈，也是他再次止步 Q2 的原因。不在他的掌控之中，就像之前那样……",
-          "url": "https://x.com/laurogeitabat/status/2119185324182036656",
-          "published_at": "2026-11-07T21:48:48Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 4.7868,
-          "metrics": {
-            "likes": 0,
-            "retweets": 78,
-            "replies": 0,
-            "quotes": 0,
-            "views": 255,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 43,
-      "heat": 43,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 7
     },
     {
       "event_id": "evt-2026-11-07-e5783cdf1df7",
@@ -916,86 +857,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
-    },
-    {
-      "event_id": "evt-2026-11-05-0fb3bb3ebb37",
-      "rule_id": null,
-      "hot_word_zh": "OSCAR 很擅长啤酒乒乓，暂停一下（拍摄于加拿大媒体日）",
-      "hot_word_en": "OSCAR'S GOOD AT BEER PONG PAUSE (filmed during media day in canada)",
-      "first_seen_at": "2026-11-05T14:00:39Z",
-      "last_seen_at": "2026-11-05T14:56:29Z",
-      "anchor_item_id": "piasnews-social-f23e020ee298f0e1",
-      "image_url": "https://pbs.twimg.com/media/HWXdexnW0AAiD-T.jpg",
-      "video_url": "https://video.twimg.com/amplify_video/2118356769281822720/vid/avc1/320x560/LwM6hJbMCgP3qCCV.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118356769281822720/img/qDNTAn_CUN18pcSb.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-f23e020ee298f0e1",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: OSCAR'S GOOD AT BEER PONG PAUSE (filmed during media day in canada)",
-          "title_zh": "X 发帖 @laurogeitabat：OSCAR 很擅长啤酒乒乓，暂停一下（拍摄于加拿大媒体日）",
-          "summary": "OSCAR'S GOOD AT BEER PONG PAUSE (filmed during media day in canada) https://t.co/2vvSOw8ifN",
-          "summary_zh": "OSCAR 很擅长啤酒乒乓，暂停一下（拍摄于加拿大媒体日）",
-          "url": "https://x.com/laurogeitabat/status/2118356786642096611",
-          "published_at": "2026-11-05T14:56:29Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2118356769281822720/vid/avc1/320x560/LwM6hJbMCgP3qCCV.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118356769281822720/img/qDNTAn_CUN18pcSb.jpg",
-          "heat_contribution": 6.4582,
-          "metrics": {
-            "likes": 2373,
-            "retweets": 183,
-            "replies": 4,
-            "quotes": 0,
-            "views": 43343,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-4491a8f0f9938601",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@oscarsspiastree",
-          "title": "X post from @oscarsspiastree: oscar is here for media day 💗",
-          "title_zh": "X 发帖 @oscarsspiastree：Oscar 来参加媒体日了 💗",
-          "summary": "oscar is here for media day 💗 https://t.co/GegvxPBTHr",
-          "summary_zh": "Oscar 来参加媒体日了 💗",
-          "url": "https://x.com/oscarsspiastree/status/2118342733131559355",
-          "published_at": "2026-11-05T14:00:39Z",
-          "image_url": "https://pbs.twimg.com/media/HWXdexnW0AAiD-T.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HWXdexnW0AAiD-T.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {
-            "likes": 523,
-            "retweets": 55,
-            "replies": 0,
-            "quotes": 0,
-            "views": 4872,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 34,
-      "heat": 34,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 2
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 9
+      "rank": 7
     },
     {
       "event_id": "evt-2026-11-06-b550a711e90c",
@@ -1074,10 +936,243 @@
       },
       "pinned_rank": null,
       "hidden": false,
+      "rank": 8
+    },
+    {
+      "event_id": "evt-2026-11-03-3f6a049fd974",
+      "rule_id": null,
+      "hot_word_zh": "Lando Norris 在墨西哥受到的欢迎表明车迷没有忘记 Oscar Piastri…",
+      "hot_word_en": "Lando Norris’ reception in Mexico shows fans haven’t forgotten about Oscar Piastri treatment",
+      "first_seen_at": "2026-11-01T23:01:36Z",
+      "last_seen_at": "2026-11-07T22:25:21Z",
+      "anchor_item_id": "piasnews-b645aa4632e7082a",
+      "image_url": "https://images.7news.com.au/publication/C-23131090/ef8b52ad50cd4dccdf5634cd37ecbe805bc31c09-16x9-x0y2w1280h720.jpg?imwidth=1200",
+      "video_url": null,
+      "video_poster_url": "https://images.7news.com.au/publication/C-23131090/ef8b52ad50cd4dccdf5634cd37ecbe805bc31c09-16x9-x0y2w1280h720.jpg?imwidth=1200",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-2ac4cd480fabe169",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "7NEWS",
+          "title": "Oscar Piastri suffers ‘shock’ result as Lando Norris puts McLaren on pole in Sao Paulo",
+          "title_zh": "Oscar Piastri 遭遇“震惊”结果，Lando Norris 为 McLaren 在圣保罗夺得杆位",
+          "summary": "Team or car-performance item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的车队或赛车表现相关条目。",
+          "url": "https://7news.com.au/sport/f1/oscar-piastri-suffers-shock-result-as-lando-norris-puts-mclaren-on-pole-in-sao-paulo-c-23131090",
+          "published_at": "2026-11-07T22:25:21Z",
+          "image_url": "https://images.7news.com.au/publication/C-23131090/ef8b52ad50cd4dccdf5634cd37ecbe805bc31c09-16x9-x0y2w1280h720.jpg?imwidth=1200",
+          "video_url": null,
+          "video_poster_url": "https://images.7news.com.au/publication/C-23131090/ef8b52ad50cd4dccdf5634cd37ecbe805bc31c09-16x9-x0y2w1280h720.jpg?imwidth=1200",
+          "heat_contribution": 0.75,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-6d1fa351a2699e06",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "RacingNews365",
+          "title": "McLaren relief as Brazil upgrades offer Lando Norris-Oscar Piastri boost",
+          "title_zh": "巴西升级为Lando Norris和Oscar Piastri带来助力，McLaren如释重负",
+          "summary": "Team or car-performance item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的车队或赛车表现相关条目。",
+          "url": "https://racingnews365.com/mclaren-relief-as-brazil-upgrades-offer-lando-norris-oscar-piastri-boost",
+          "published_at": "2026-11-07T12:10:00Z",
+          "image_url": "https://cdn.racingnews365.com/2026/Norris/XPB_1451426_HiRes.jpg?v=1793983088&width=1800&height=945&quality=75&crop=5185%2C2722%2C0%2C369",
+          "video_url": null,
+          "video_poster_url": "https://cdn.racingnews365.com/2026/Norris/XPB_1451426_HiRes.jpg?v=1793983088&width=1800&height=945&quality=75&crop=5185%2C2722%2C0%2C369",
+          "heat_contribution": 0.45,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-08dd9f2c6d74f9f0",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Speedcafe.com",
+          "title": "F1 news: Oscar Piastri encouraged by McLaren upgrade gains in Brazil",
+          "title_zh": "F1新闻：Oscar Piastri对McLaren在巴西的升级收益感到鼓舞",
+          "summary": "Team or car-performance item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的车队或赛车表现相关条目。",
+          "url": "https://speedcafe.com/f1-news-2026-sao-paulo-brazil-brazilian-grand-prix-oscar-piastri-reaction-friday-practice-mclaren-what-happened-results/",
+          "published_at": "2026-11-06T21:56:48Z",
+          "image_url": "https://speedcafe.com/wp-content/uploads/2026/11/XPB_1451972_HiRes.jpg",
+          "video_url": null,
+          "video_poster_url": "https://speedcafe.com/wp-content/uploads/2026/11/XPB_1451972_HiRes.jpg",
+          "heat_contribution": 0.45,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-fca6e953b9f43658",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Auto Action",
+          "title": "Piastri hoping McLaren upgrades can turn the tide in Brazil",
+          "title_zh": "Piastri希望McLaren的升级能在巴西扭转局势",
+          "summary": "Team or car-performance item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的车队或赛车表现相关条目。",
+          "url": "https://autoaction.com.au/2026/11/06/piastri-hoping-mclaren-upgrades-can-turn-the-tide-in-brazil",
+          "published_at": "2026-11-06T02:48:36Z",
+          "image_url": "https://autoaction.com.au/wp-content/uploads/2026/11/Image-6-e1793931981734.jpg?v=1793931874",
+          "video_url": null,
+          "video_poster_url": "https://autoaction.com.au/wp-content/uploads/2026/11/Image-6-e1793931981734.jpg?v=1793931874",
+          "heat_contribution": 0.2,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-3902ad72f3c00a5c",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Speedcafe.com",
+          "title": "F1 news: Oscar Piastri hails Alan Jones' support in heartfelt tribute",
+          "title_zh": "F1新闻：Oscar Piastri 在深情致敬中感谢 Alan Jones 的支持",
+          "summary": "Team or car-performance item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的车队或赛车表现相关条目。",
+          "url": "https://speedcafe.com/f1-news-2026-sao-paulo-grand-prix-brazil-oscar-piastri-on-alan-jones-tribute-thoughts-comments-reaction/",
+          "published_at": "2026-11-05T22:45:57Z",
+          "image_url": "https://speedcafe.com/wp-content/uploads/2026/11/XPB_796254_HiRes_2.jpg",
+          "video_url": null,
+          "video_poster_url": "https://speedcafe.com/wp-content/uploads/2026/11/XPB_796254_HiRes_2.jpg",
+          "heat_contribution": 0.2,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-b645aa4632e7082a",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "F1 Oversteer",
+          "title": "Lando Norris’ reception in Mexico shows fans haven’t forgotten about Oscar Piastri treatment",
+          "title_zh": "Lando Norris 在墨西哥受到的欢迎表明车迷没有忘记 Oscar Piastri 所受的待遇",
+          "summary": "Team or car-performance item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的车队或赛车表现相关条目。",
+          "url": "https://www.f1oversteer.com/news/lando-norris-reception-in-mexico-shows-fans-havent-forgotten-about-oscar-piastri-treatment/",
+          "published_at": "2026-11-03T20:30:00Z",
+          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/11/GettyImages-2303012106-2048x1365.jpg",
+          "video_url": null,
+          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/11/GettyImages-2303012106-2048x1365.jpg",
+          "heat_contribution": 0.0,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-3bfd8dbeb1d7eae0",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Yahoo News Australia",
+          "title": "Oscar Piastri tangles with Arvid Lindblad",
+          "title_zh": "Oscar Piastri 与 Arvid Lindblad 发生纠缠",
+          "summary": "Team or car-performance item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的车队或赛车表现相关条目。",
+          "url": "https://au.news.yahoo.com/oscar-piastri-tangles-with-arvid-lindblad-230136146.html",
+          "published_at": "2026-11-01T23:01:36Z",
+          "image_url": "https://s.yimg.com/lo/mysterio/api/058eb978f7ab6bacc09346f0d87d8131aa35f218d95c084f1d6720751c09bcff/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_jpg/https%3A%2F%2Fcf-images.us-east-1.prod.boltdns.net%2Fv1%2Fjit%2F6415665815001%2F546b0eec-2afc-4d88-a159-bdeafacf87c7%2Fmain%2F1280x720%2F5s386ms%2Fmatch%2Fimage.jpg",
+          "video_url": null,
+          "video_poster_url": "https://s.yimg.com/lo/mysterio/api/058eb978f7ab6bacc09346f0d87d8131aa35f218d95c084f1d6720751c09bcff/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_jpg/https%3A%2F%2Fcf-images.us-east-1.prod.boltdns.net%2Fv1%2Fjit%2F6415665815001%2F546b0eec-2afc-4d88-a159-bdeafacf87c7%2Fmain%2F1280x720%2F5s386ms%2Fmatch%2Fimage.jpg",
+          "heat_contribution": 0.0,
+          "metrics": {}
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 26,
+      "fan_heat": 0,
+      "heat": 26,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 6,
+        "fan": 0
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "event_id": "evt-2026-11-05-cc1fe294da1b-eb9c4fc2",
+      "rule_id": null,
+      "hot_word_zh": "“一个值得庆祝的人生”——Piastri领衔致敬F1冠军Alan Jones逝世",
+      "hot_word_en": "‘A life that should be celebrated’ – Piastri leads tributes to Alan Jones after F1 champion passes away",
+      "first_seen_at": "2026-11-06T01:32:19Z",
+      "last_seen_at": "2026-11-06T22:19:02.875000Z",
+      "anchor_item_id": "piasnews-fc32999a5eb363af",
+      "image_url": "https://media.formula1.com/image/upload/c_lfill,w_2048/q_auto/v1740000001/fom-website/2026/Miscellaneous/GettyImages-2229853287.webp",
+      "video_url": null,
+      "video_poster_url": "https://media.formula1.com/image/upload/c_lfill,w_2048/q_auto/v1740000001/fom-website/2026/Miscellaneous/GettyImages-2229853287.webp",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-fc32999a5eb363af",
+          "dataset": "items",
+          "source_type": "official",
+          "source": "Formula 1",
+          "title": "‘A life that should be celebrated’ – Piastri leads tributes to Alan Jones after F1 champion passes away",
+          "title_zh": "“一个值得庆祝的人生”——Piastri领衔致敬F1冠军Alan Jones逝世",
+          "summary": "Oscar Piastri-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
+          "url": "https://www.formula1.com/en/latest/article/a-life-that-should-be-celebrated-piastri-leads-tributes-to-alan-jones-after-f1-champion-passes-away.7KCspK6xXT5mgKjUOyPu0f",
+          "published_at": "2026-11-06T11:23:52.155000Z",
+          "image_url": "https://media.formula1.com/image/upload/c_lfill,w_2048/q_auto/v1740000001/fom-website/2026/Miscellaneous/GettyImages-2229853287.webp",
+          "video_url": null,
+          "video_poster_url": "https://media.formula1.com/image/upload/c_lfill,w_2048/q_auto/v1740000001/fom-website/2026/Miscellaneous/GettyImages-2229853287.webp",
+          "heat_contribution": 0.6,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-5f95ae6b940a2e78",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Nine.com.au",
+          "title": "Piastri leads tributes for the ‘Australian spirit’ of F1 compatriot",
+          "title_zh": "Piastri领衔致敬F1同胞的“澳大利亚精神”",
+          "summary": "Oscar Piastri-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
+          "url": "https://www.nine.com.au/sport/motorsport/oscar-piastri-tribute-australian-champion-alan-jones-brazil-grand-prix-practice-results-video-20261107-p61c7k.html",
+          "published_at": "2026-11-06T22:19:02.875000Z",
+          "image_url": "https://static.ffx.io/images/$zoom_0.1904%2C$multiply_4%2C$ratio_1.777778%2C$width_1059%2C$x_0%2C$y_19/t_crop_custom/c_scale%2Cw_1200%2Cq_88%2Cf_auto/5e40bbbb3066907e496736d29951c05c6b0a22347909b8ffcaeb247121ecf0e9",
+          "video_url": null,
+          "video_poster_url": "https://static.ffx.io/images/$zoom_0.1904%2C$multiply_4%2C$ratio_1.777778%2C$width_1059%2C$x_0%2C$y_19/t_crop_custom/c_scale%2Cw_1200%2Cq_88%2Cf_auto/5e40bbbb3066907e496736d29951c05c6b0a22347909b8ffcaeb247121ecf0e9",
+          "heat_contribution": 0.45,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-5b31a7c82e246764",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Auto Action",
+          "title": "Piastri leads tributes to Australian F1 legend Alan Jones",
+          "title_zh": "Piastri领衔致敬澳大利亚F1传奇Alan Jones",
+          "summary": "Oscar Piastri-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的条目。",
+          "url": "https://autoaction.com.au/2026/11/06/piastri-leads-tributes-to-australian-f1-legend-alan-jones",
+          "published_at": "2026-11-06T01:32:19Z",
+          "image_url": "https://autoaction.com.au/wp-content/uploads/2026/11/Image-3-e1793928633968.jpg?v=1793928274",
+          "video_url": null,
+          "video_poster_url": "https://autoaction.com.au/wp-content/uploads/2026/11/Image-3-e1793928633968.jpg?v=1793928274",
+          "heat_contribution": 0.2,
+          "metrics": {}
+        }
+      ],
+      "official_heat": 8,
+      "media_heat": 15,
+      "fan_heat": 0,
+      "heat": 17,
+      "source_labels": [
+        "官",
+        "媒"
+      ],
+      "source_counts": {
+        "official": 1,
+        "media": 2,
+        "fan": 0
+      },
+      "pinned_rank": null,
+      "hidden": false,
       "rank": 10
     }
   ],
-  "review_needed_count": 10,
+  "review_needed_count": 43,
   "review_needed_events": [
     {
       "event_id": "evt-2026-11-02-639794917582",
@@ -1182,64 +1277,6 @@
       },
       "pinned_rank": null,
       "hidden": false
-    },
-    {
-      "event_id": "evt-2026-11-06-95c53cf76f86",
-      "rule_id": null,
-      "hot_word_zh": "OP 在维修墙值守 🫡",
-      "hot_word_en": "OP on pitwall duty 🫡",
-      "first_seen_at": "2026-11-06T16:38:12Z",
-      "last_seen_at": "2026-11-06T16:38:12Z",
-      "anchor_item_id": "piasnews-social-c25bbc7f08663f62",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2118736036222423040/vid/avc1/360x270/sD62r9tYLSE6y6ac.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118736036222423040/img/-ckBYBpuinq3ktrC.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-c25bbc7f08663f62",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: OP on pitwall duty 🫡",
-          "title_zh": "X 发帖 @laurogeitabat：OP 在维修墙值守 🫡",
-          "summary": "OP on pitwall duty 🫡 https://t.co/M9bTPnF6za",
-          "summary_zh": "OP 在维修墙值守 🫡",
-          "url": "https://x.com/laurogeitabat/status/2118744772915397047",
-          "published_at": "2026-11-06T16:38:12Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2118736036222423040/vid/avc1/360x270/sD62r9tYLSE6y6ac.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118736036222423040/img/-ckBYBpuinq3ktrC.jpg",
-          "heat_contribution": 7.1022,
-          "metrics": {
-            "likes": 1889,
-            "retweets": 240,
-            "replies": 0,
-            "quotes": 0,
-            "views": 32795,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 37,
-      "heat": 37,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
     },
     {
       "event_id": "evt-2026-11-05-2e3888eb21da",
@@ -1498,6 +1535,412 @@
       }
     },
     {
+      "event_id": "evt-2026-11-07-aab31547243a",
+      "rule_id": null,
+      "hot_word_zh": "oscar给我们深入分析了当下的时尚潮流：“我觉得现在的时尚是……是……是glittler…",
+      "hot_word_en": "oscar gives us an in depth analysis of current fashion trends: \"i feel like the fashion at the moment is... is.",
+      "first_seen_at": "2026-11-07T12:39:30Z",
+      "last_seen_at": "2026-11-07T12:39:30Z",
+      "anchor_item_id": "piasnews-social-c47a68422ccaa34f",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2119047071072124928/vid/avc1/320x354/ntHv6FVOrGI6xFDe.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2119047071072124928/img/dapvH4KYRbFs25uF.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-c47a68422ccaa34f",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar gives us an in depth analysis of current fashion trends: \"i feel like the fashion at the…",
+          "title_zh": "X 发帖 @laurogeitabat：oscar给我们深入分析了当下的时尚潮流：“我觉得现在的时尚是……是……是glittler” 😭😭 然后人群开始高喊他的名字 🫶🏻",
+          "summary": "oscar gives us an in depth analysis of current fashion trends: \"i feel like the fashion at the moment is... is... is glittler\" 😭😭 and then the crowd starts chanting his name 🫶🏻 https://t.co/GmwPZsBPrO",
+          "summary_zh": "oscar给我们深入分析了当下的时尚潮流：“我觉得现在的时尚是……是……是glittler” 😭😭 然后人群开始高喊他的名字 🫶🏻",
+          "url": "https://x.com/laurogeitabat/status/2119047090252685542",
+          "published_at": "2026-11-07T12:39:30Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2119047071072124928/vid/avc1/320x354/ntHv6FVOrGI6xFDe.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2119047071072124928/img/dapvH4KYRbFs25uF.jpg",
+          "heat_contribution": 6.5546,
+          "metrics": {
+            "likes": 1269,
+            "retweets": 75,
+            "replies": 1,
+            "quotes": 0,
+            "views": 13677,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 35,
+      "heat": 35,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-06-95c53cf76f86",
+      "rule_id": null,
+      "hot_word_zh": "OP 在维修墙值守 🫡",
+      "hot_word_en": "OP on pitwall duty 🫡",
+      "first_seen_at": "2026-11-06T16:38:12Z",
+      "last_seen_at": "2026-11-06T16:38:12Z",
+      "anchor_item_id": "piasnews-social-c25bbc7f08663f62",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2118736036222423040/vid/avc1/360x270/sD62r9tYLSE6y6ac.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118736036222423040/img/-ckBYBpuinq3ktrC.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-c25bbc7f08663f62",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: OP on pitwall duty 🫡",
+          "title_zh": "X 发帖 @laurogeitabat：OP 在维修墙值守 🫡",
+          "summary": "OP on pitwall duty 🫡 https://t.co/M9bTPnF6za",
+          "summary_zh": "OP 在维修墙值守 🫡",
+          "url": "https://x.com/laurogeitabat/status/2118744772915397047",
+          "published_at": "2026-11-06T16:38:12Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2118736036222423040/vid/avc1/360x270/sD62r9tYLSE6y6ac.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118736036222423040/img/-ckBYBpuinq3ktrC.jpg",
+          "heat_contribution": 6.2923,
+          "metrics": {
+            "likes": 1889,
+            "retweets": 240,
+            "replies": 0,
+            "quotes": 0,
+            "views": 32795,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 34,
+      "heat": 34,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-07-647681e1596d",
+      "rule_id": null,
+      "hot_word_zh": "她随后被射了37枪",
+      "hot_word_en": "she was then shot 37 times",
+      "first_seen_at": "2026-11-07T21:31:10Z",
+      "last_seen_at": "2026-11-07T21:31:10Z",
+      "anchor_item_id": "piasnews-social-d6ef3c7b9c2d6bfc",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-d6ef3c7b9c2d6bfc",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: she was then shot 37 times",
+          "title_zh": "X 发帖 @laurogeitabat：她随后被射了37枪",
+          "summary": "she was then shot 37 times",
+          "summary_zh": "她随后被射了37枪",
+          "url": "https://x.com/laurogeitabat/status/2119180886323183854",
+          "published_at": "2026-11-07T21:31:10Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 6.4222,
+          "metrics": {
+            "likes": 678,
+            "retweets": 41,
+            "replies": 1,
+            "quotes": 0,
+            "views": 5612,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 34,
+      "heat": 34,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-05-890700b17ca6",
+      "rule_id": null,
+      "hot_word_zh": "“他是国际象棋神童”说这话的人，他妈妈五岁时就拒绝跟他下棋，因为他太厉害了 😭😭😭",
+      "hot_word_en": "\"he's the chess prodigy\" says the guy whose mother refused to play chess against because he was too good AT F…",
+      "first_seen_at": "2026-11-05T21:24:53Z",
+      "last_seen_at": "2026-11-05T21:24:53Z",
+      "anchor_item_id": "piasnews-social-496e0502b5200718",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2118454478802235392/vid/avc1/354x270/xGw9gF1I3l4bBJD6.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118454478802235392/img/RzoC-o1WRf0iiiJc.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-496e0502b5200718",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: \"he's the chess prodigy\" says the guy whose mother refused to play chess against because he was…",
+          "title_zh": "X 发帖 @laurogeitabat：“他是国际象棋神童”说这话的人，他妈妈五岁时就拒绝跟他下棋，因为他太厉害了 😭😭😭",
+          "summary": "\"he's the chess prodigy\" says the guy whose mother refused to play chess against because he was too good AT FIVE YEARS OLD 😭😭😭 https://t.co/clcN2k79CY",
+          "summary_zh": "“他是国际象棋神童”说这话的人，他妈妈五岁时就拒绝跟他下棋，因为他太厉害了 😭😭😭",
+          "url": "https://x.com/laurogeitabat/status/2118454528857247748",
+          "published_at": "2026-11-05T21:24:53Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2118454478802235392/vid/avc1/354x270/xGw9gF1I3l4bBJD6.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118454478802235392/img/RzoC-o1WRf0iiiJc.jpg",
+          "heat_contribution": 6.1528,
+          "metrics": {
+            "likes": 1842,
+            "retweets": 162,
+            "replies": 3,
+            "quotes": 0,
+            "views": 17021,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 33,
+      "heat": 33,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-07-ee9c8e959d2f",
+      "rule_id": null,
+      "hot_word_zh": "问：你坐在方向盘后面感觉怎么样？\"比赛刚开始的时候确实很艰难。",
+      "hot_word_en": "Q: What was it like behind the wheel for you? \"Definitely the beginning of the session it was tough.",
+      "first_seen_at": "2026-11-07T21:21:16Z",
+      "last_seen_at": "2026-11-07T21:21:16Z",
+      "anchor_item_id": "piasnews-social-7fdb7e1c0d05ee26",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2119178334152142848/vid/avc1/320x320/HS_igi8VBCubR1zE.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/media/HWjVhJNWUAAFONX.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-7fdb7e1c0d05ee26",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@oscarsspiastree",
+          "title": "X post from @oscarsspiastree: Q: What was it like behind the wheel for you? \"Definitely the beginning of the session it was t…",
+          "title_zh": "X 发帖 @oscarsspiastree：问：你坐在方向盘后面感觉怎么样？\"比赛刚开始的时候确实很艰难。我觉得到后面确实变得容易了一些，但你需要跑几圈才能让半雨胎达到温度，所以非常非常具有挑战性。我们明天会努力向前推进。\"",
+          "summary": "Q: What was it like behind the wheel for you? \"Definitely the beginning of the session it was tough. I think towards the end it was definitely getting easier but I think you needed a couple of laps to get temperature into the inters so it was very very challenging. We'll try and make our way forwards tomorrow.\"",
+          "summary_zh": "问：你坐在方向盘后面感觉怎么样？\"比赛刚开始的时候确实很艰难。我觉得到后面确实变得容易了一些，但你需要跑几圈才能让半雨胎达到温度，所以非常非常具有挑战性。我们明天会努力向前推进。\"",
+          "url": "https://x.com/oscarsspiastree/status/2119178395158188359",
+          "published_at": "2026-11-07T21:21:16Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2119178334152142848/vid/avc1/320x320/HS_igi8VBCubR1zE.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/media/HWjVhJNWUAAFONX.jpg",
+          "heat_contribution": 6.2803,
+          "metrics": {
+            "likes": 499,
+            "retweets": 69,
+            "replies": 0,
+            "quotes": 0,
+            "views": 7358,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 33,
+      "heat": 33,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@oscarsspiastree",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-05-46b8e6ff429b",
+      "rule_id": null,
+      "hot_word_zh": "问：“你有一段时间没上领奖台了。你有多想念？”Oscar：“呃……上领奖台肯定比没上好玩多…",
+      "hot_word_en": "Q: \"it's been a while since you've been on the podium. how much do you miss it?\" oscar: \"uuhhh...",
+      "first_seen_at": "2026-11-05T21:44:48Z",
+      "last_seen_at": "2026-11-05T21:44:48Z",
+      "anchor_item_id": "piasnews-social-19de5a52d6dd38bf",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2118459517595725824/vid/avc1/312x270/8cv5b-UVzXmwRsnV.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118459517595725824/img/p0EePUhHog2NMntw.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-19de5a52d6dd38bf",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: Q: \"it's been a while since you've been on the podium. how much do you miss it?\" oscar: \"uuhhh.…",
+          "title_zh": "X 发帖 @laurogeitabat：问：“你有一段时间没上领奖台了。你有多想念？”Oscar：“呃……上领奖台肯定比没上好玩多了”这什么鬼问题 💀💀💀",
+          "summary": "Q: \"it's been a while since you've been on the podium. how much do you miss it?\" oscar: \"uuhhh... it's a lot more fun when you're on the podium that when you're not, for sure\" WHAT KINDA QUESTION 💀💀💀 https://t.co/vcRHtEFWdQ",
+          "summary_zh": "问：“你有一段时间没上领奖台了。你有多想念？”Oscar：“呃……上领奖台肯定比没上好玩多了”这什么鬼问题 💀💀💀",
+          "url": "https://x.com/laurogeitabat/status/2118459540760932567",
+          "published_at": "2026-11-05T21:44:48Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2118459517595725824/vid/avc1/312x270/8cv5b-UVzXmwRsnV.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118459517595725824/img/p0EePUhHog2NMntw.jpg",
+          "heat_contribution": 5.9761,
+          "metrics": {
+            "likes": 1442,
+            "retweets": 122,
+            "replies": 2,
+            "quotes": 0,
+            "views": 27249,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 32,
+      "heat": 32,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-06-69e5e9f80716",
+      "rule_id": null,
+      "hot_word_zh": "oscar在二练后的感想！“一切感觉都很好，升级看起来是积极的。",
+      "hot_word_en": "oscar's thoughts after fp2! \"everything feels good and the upgrades look positive.",
+      "first_seen_at": "2026-11-06T22:41:24Z",
+      "last_seen_at": "2026-11-06T22:41:24Z",
+      "anchor_item_id": "piasnews-social-efbbb18525431f7b",
+      "image_url": "https://pbs.twimg.com/media/HWeeQXxWoAA7F-X.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HWeeQXxWoAA7F-X.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-efbbb18525431f7b",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar's thoughts after fp2! \"everything feels good and the upgrades look positive. there's stil…",
+          "title_zh": "X 发帖 @laurogeitabat：oscar在二练后的感想！“一切感觉都很好，升级看起来是积极的。要追上前面的车还有工作要做，但总体来说第一天相当成功。感谢leo在一练的努力，以及他为车队做的有用工作。” 耶耶耶 😁",
+          "summary": "oscar's thoughts after fp2! \"everything feels good and the upgrades look positive. there's still work to do to catch the cars ahead, but overall it was a pretty successful first day. thanks to leo for his efforts in fp1 and the useful work he did for the team.\" YAYYYY 😁 https://t.co/fiqWg4p82M",
+          "summary_zh": "oscar在二练后的感想！“一切感觉都很好，升级看起来是积极的。要追上前面的车还有工作要做，但总体来说第一天相当成功。感谢leo在一练的努力，以及他为车队做的有用工作。” 耶耶耶 😁",
+          "url": "https://x.com/laurogeitabat/status/2118836173028126971",
+          "published_at": "2026-11-06T22:41:24Z",
+          "image_url": "https://pbs.twimg.com/media/HWeeQXxWoAA7F-X.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HWeeQXxWoAA7F-X.jpg",
+          "heat_contribution": 6.0294,
+          "metrics": {
+            "likes": 640,
+            "retweets": 75,
+            "replies": 0,
+            "quotes": 0,
+            "views": 13108,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 32,
+      "heat": 32,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
       "event_id": "evt-2026-11-06-fd3c6c23c420",
       "rule_id": null,
       "hot_word_zh": "工程师 OSCAR 欢迎回家 🙌🏻",
@@ -1525,7 +1968,7 @@
           "image_url": "https://pbs.twimg.com/media/HWdDxyKWEAADnci.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HWdDxyKWEAADnci.jpg",
-          "heat_contribution": 6.6873,
+          "heat_contribution": 5.8779,
           "metrics": {
             "likes": 1307,
             "retweets": 200,
@@ -1538,8 +1981,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 35,
-      "heat": 35,
+      "fan_heat": 32,
+      "heat": 32,
       "source_labels": [
         "粉"
       ],
@@ -1583,7 +2026,7 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2119077587351752704/vid/avc1/320x568/6fdW6WGuc27ib20v.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2119077587351752704/img/XyP3X42dTZLaXuKM.jpg",
-          "heat_contribution": 6.5739,
+          "heat_contribution": 6.064,
           "metrics": {
             "likes": 740,
             "retweets": 50,
@@ -1596,8 +2039,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 35,
-      "heat": 35,
+      "fan_heat": 32,
+      "heat": 32,
       "source_labels": [
         "粉"
       ],
@@ -1614,48 +2057,1638 @@
       }
     },
     {
-      "event_id": "evt-2026-11-07-aab31547243a",
+      "event_id": "evt-2026-11-08-a8431303a271",
       "rule_id": null,
-      "hot_word_zh": "oscar给我们深入分析了当下的时尚潮流：“我觉得现在的时尚是……是……是glittler…",
-      "hot_word_en": "oscar gives us an in depth analysis of current fashion trends: \"i feel like the fashion at the moment is... is.",
-      "first_seen_at": "2026-11-07T12:39:30Z",
-      "last_seen_at": "2026-11-07T12:39:30Z",
-      "anchor_item_id": "piasnews-social-c47a68422ccaa34f",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2119047071072124928/vid/avc1/320x354/ntHv6FVOrGI6xFDe.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2119047071072124928/img/dapvH4KYRbFs25uF.jpg",
+      "hot_word_zh": "比赛日准备就绪！今天好运，oscar 🫶🏻",
+      "hot_word_en": "race day ready! good luck today, oscar 🫶🏻",
+      "first_seen_at": "2026-11-08T13:27:43Z",
+      "last_seen_at": "2026-11-08T13:27:43Z",
+      "anchor_item_id": "piasnews-social-f2c0967a9a45f7e3",
+      "image_url": "https://pbs.twimg.com/media/HWmytV7XUAALEsL.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HWmytV7XUAALEsL.jpg",
       "review_needed": true,
       "review_needed_reason": "fan_account_public_cap",
       "items": [
         {
-          "item_id": "piasnews-social-c47a68422ccaa34f",
+          "item_id": "piasnews-social-f2c0967a9a45f7e3",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar gives us an in depth analysis of current fashion trends: \"i feel like the fashion at the…",
-          "title_zh": "X 发帖 @laurogeitabat：oscar给我们深入分析了当下的时尚潮流：“我觉得现在的时尚是……是……是glittler” 😭😭 然后人群开始高喊他的名字 🫶🏻",
-          "summary": "oscar gives us an in depth analysis of current fashion trends: \"i feel like the fashion at the moment is... is... is glittler\" 😭😭 and then the crowd starts chanting his name 🫶🏻 https://t.co/GmwPZsBPrO",
-          "summary_zh": "oscar给我们深入分析了当下的时尚潮流：“我觉得现在的时尚是……是……是glittler” 😭😭 然后人群开始高喊他的名字 🫶🏻",
-          "url": "https://x.com/laurogeitabat/status/2119047090252685542",
-          "published_at": "2026-11-07T12:39:30Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2119047071072124928/vid/avc1/320x354/ntHv6FVOrGI6xFDe.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2119047071072124928/img/dapvH4KYRbFs25uF.jpg",
-          "heat_contribution": 6.5546,
+          "title": "X post from @laurogeitabat: race day ready! good luck today, oscar 🫶🏻",
+          "title_zh": "X 发帖 @laurogeitabat：比赛日准备就绪！今天好运，oscar 🫶🏻",
+          "summary": "race day ready! good luck today, oscar 🫶🏻 https://t.co/IRL7QE4LqC",
+          "summary_zh": "比赛日准备就绪！今天好运，oscar 🫶🏻",
+          "url": "https://x.com/laurogeitabat/status/2119421611321315436",
+          "published_at": "2026-11-08T13:27:43Z",
+          "image_url": "https://pbs.twimg.com/media/HWmytV7XUAALEsL.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HWmytV7XUAALEsL.jpg",
+          "heat_contribution": 5.8711,
           "metrics": {
-            "likes": 1269,
-            "retweets": 75,
-            "replies": 1,
+            "likes": 255,
+            "retweets": 40,
+            "replies": 0,
             "quotes": 0,
-            "views": 13677,
+            "views": 1864,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 35,
-      "heat": 35,
+      "fan_heat": 32,
+      "heat": 32,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-08-e5beb726bcc5",
+      "rule_id": null,
+      "hot_word_zh": "我看到了你们所有的帖子，非常感谢你们每一个人。真的谢谢你们 💖",
+      "hot_word_en": "i've seen all your posts and i appreciate you all so much. thank you, truly 💖",
+      "first_seen_at": "2026-11-08T00:17:35Z",
+      "last_seen_at": "2026-11-08T00:17:35Z",
+      "anchor_item_id": "piasnews-social-9c6a0f7d34a16f50",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-9c6a0f7d34a16f50",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: i've seen all your posts and i appreciate you all so much. thank you, truly 💖",
+          "title_zh": "X 发帖 @laurogeitabat：我看到了你们所有的帖子，非常感谢你们每一个人。真的谢谢你们 💖",
+          "summary": "i've seen all your posts and i appreciate you all so much. thank you, truly 💖",
+          "summary_zh": "我看到了你们所有的帖子，非常感谢你们每一个人。真的谢谢你们 💖",
+          "url": "https://x.com/laurogeitabat/status/2119222768374083771",
+          "published_at": "2026-11-08T00:17:35Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 5.9892,
+          "metrics": {
+            "likes": 376,
+            "retweets": 2,
+            "replies": 20,
+            "quotes": 0,
+            "views": 9077,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 32,
+      "heat": 32,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-06-355cacfee9e1",
+      "rule_id": null,
+      "hot_word_zh": "折腾半天就为了一个10秒的片段 😭😭",
+      "hot_word_en": "all that for a 10s clip 😭😭",
+      "first_seen_at": "2026-11-06T22:50:53Z",
+      "last_seen_at": "2026-11-06T22:50:53Z",
+      "anchor_item_id": "piasnews-social-f9cb96655aa3fa8a",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2118838528129863680/vid/avc1/320x568/3XIn58So7C21uorz.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118838528129863680/img/gMKCcGsqQv1Fn4Qx.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-f9cb96655aa3fa8a",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: all that for a 10s clip 😭😭",
+          "title_zh": "X 发帖 @laurogeitabat：折腾半天就为了一个10秒的片段 😭😭",
+          "summary": "all that for a 10s clip 😭😭 https://t.co/lELkdUuWbT",
+          "summary_zh": "折腾半天就为了一个10秒的片段 😭😭",
+          "url": "https://x.com/laurogeitabat/status/2118838558559502493",
+          "published_at": "2026-11-06T22:50:53Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2118838528129863680/vid/avc1/320x568/3XIn58So7C21uorz.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118838528129863680/img/gMKCcGsqQv1Fn4Qx.jpg",
+          "heat_contribution": 5.7554,
+          "metrics": {
+            "likes": 529,
+            "retweets": 38,
+            "replies": 0,
+            "quotes": 0,
+            "views": 9478,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 31,
+      "heat": 31,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-07-640fc38e9cf0",
+      "rule_id": null,
+      "hot_word_zh": "oscar已经到场，准备迎接最后一节练习和排位赛日 🫶🏻",
+      "hot_word_en": "oscar has arrived for final practice and quali day 🫶🏻",
+      "first_seen_at": "2026-11-07T12:56:36Z",
+      "last_seen_at": "2026-11-07T12:56:36Z",
+      "anchor_item_id": "piasnews-social-2d14a6d33c85f939",
+      "image_url": "https://pbs.twimg.com/media/HWhiAqWXMAEULYb.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HWhiAqWXMAEULYb.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-2d14a6d33c85f939",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar has arrived for final practice and quali day 🫶🏻",
+          "title_zh": "X 发帖 @laurogeitabat：oscar已经到场，准备迎接最后一节练习和排位赛日 🫶🏻",
+          "summary": "oscar has arrived for final practice and quali day 🫶🏻 https://t.co/I0QuHUWsqE",
+          "summary_zh": "oscar已经到场，准备迎接最后一节练习和排位赛日 🫶🏻",
+          "url": "https://x.com/laurogeitabat/status/2119051393205948590",
+          "published_at": "2026-11-07T12:56:36Z",
+          "image_url": "https://pbs.twimg.com/media/HWhiAqWXMAEULYb.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HWhiAqWXMAEULYb.jpg",
+          "heat_contribution": 5.8284,
+          "metrics": {
+            "likes": 584,
+            "retweets": 54,
+            "replies": 0,
+            "quotes": 0,
+            "views": 6091,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 31,
+      "heat": 31,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-07-bbaec10b64af",
+      "rule_id": null,
+      "hot_word_zh": "oscar在三练拿到P6！他在两节练习中都表现得非常稳定，看起来也稍微更自在了。",
+      "hot_word_en": "p6 for oscar in fp3! he's been very consistent in both fp sessions and he does seem a bit more comfy.",
+      "first_seen_at": "2026-11-07T15:36:27Z",
+      "last_seen_at": "2026-11-07T15:36:27Z",
+      "anchor_item_id": "piasnews-social-ec5eeea72f30e0df",
+      "image_url": "https://pbs.twimg.com/media/HWiGl4FWwAAtGLh.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HWiGl4FWwAAtGLh.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-ec5eeea72f30e0df",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: p6 for oscar in fp3! he's been very consistent in both fp sessions and he does seem a bit more…",
+          "title_zh": "X 发帖 @laurogeitabat：oscar在三练拿到P6！他在两节练习中都表现得非常稳定，看起来也稍微更自在了。考虑到有几位车手会吃到发车位罚退，还有很多可争取的 👀",
+          "summary": "p6 for oscar in fp3! he's been very consistent in both fp sessions and he does seem a bit more comfy. a lot to play for considering several drivers will get grid penalties 👀 https://t.co/wSDfuPpRBL",
+          "summary_zh": "oscar在三练拿到P6！他在两节练习中都表现得非常稳定，看起来也稍微更自在了。考虑到有几位车手会吃到发车位罚退，还有很多可争取的 👀",
+          "url": "https://x.com/laurogeitabat/status/2119091618502299812",
+          "published_at": "2026-11-07T15:36:27Z",
+          "image_url": "https://pbs.twimg.com/media/HWiGl4FWwAAtGLh.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HWiGl4FWwAAtGLh.jpg",
+          "heat_contribution": 5.6819,
+          "metrics": {
+            "likes": 492,
+            "retweets": 43,
+            "replies": 0,
+            "quotes": 0,
+            "views": 7200,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 31,
+      "heat": 31,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-08-524bb97bdd01",
+      "rule_id": null,
+      "hot_word_zh": "@laurogeitabat:你应该知道,",
+      "hot_word_en": "@laurogeitabat:你应该知道,",
+      "first_seen_at": "2026-11-08T01:44:31Z",
+      "last_seen_at": "2026-11-08T01:44:31Z",
+      "anchor_item_id": "piasnews-social-892f17f6da7af8e0",
+      "image_url": "https://pbs.twimg.com/media/HWFOYzzXQAAF3h6.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HWFOYzzXQAAF3h6.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-892f17f6da7af8e0",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: RT @laurogeitabat:",
+          "title_zh": "X 转帖 @laurogeitabat：@laurogeitabat:你应该知道,",
+          "summary": "RT @laurogeitabat: https://t.co/oIaLXjeknZ",
+          "summary_zh": "@laurogeitabat:你应该知道,",
+          "url": "https://x.com/laurogeitabat/status/2119244645955739686",
+          "published_at": "2026-11-08T01:44:31Z",
+          "image_url": "https://pbs.twimg.com/media/HWFOYzzXQAAF3h6.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HWFOYzzXQAAF3h6.jpg",
+          "heat_contribution": 5.7317,
+          "metrics": {
+            "likes": 0,
+            "retweets": 205,
+            "replies": 0,
+            "quotes": 0,
+            "views": 0,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 31,
+      "heat": 31,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-05-06b45d4661c2",
+      "rule_id": null,
+      "hot_word_zh": "Oscar今年也戴上了纪念罂粟花！",
+      "hot_word_en": "oscar is wearing the remembrance poppy this year as well!",
+      "first_seen_at": "2026-11-05T21:37:46Z",
+      "last_seen_at": "2026-11-05T21:37:46Z",
+      "anchor_item_id": "piasnews-social-28617f837ab68ea2",
+      "image_url": "https://pbs.twimg.com/media/HWZGG5tWMAAxFbB.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HWZGG5tWMAAxFbB.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-28617f837ab68ea2",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar is wearing the remembrance poppy this year as well!",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar今年也戴上了纪念罂粟花！",
+          "summary": "oscar is wearing the remembrance poppy this year as well! https://t.co/D7E4taBbMd",
+          "summary_zh": "Oscar今年也戴上了纪念罂粟花！",
+          "url": "https://x.com/laurogeitabat/status/2118457771393712148",
+          "published_at": "2026-11-05T21:37:46Z",
+          "image_url": "https://pbs.twimg.com/media/HWZGG5tWMAAxFbB.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HWZGG5tWMAAxFbB.jpg",
+          "heat_contribution": 5.5485,
+          "metrics": {
+            "likes": 1050,
+            "retweets": 69,
+            "replies": 1,
+            "quotes": 0,
+            "views": 8823,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 30,
+      "heat": 30,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-07-ed0c6d046848",
+      "rule_id": null,
+      "hot_word_zh": "#blessed 又错过了一场地狱三连赛中的一节练习。还剩一节，我们就自由了 🙏🏻",
+      "hot_word_en": "#blessed to have missed another session of the triple header from hell. one more until we're free 🙏🏻",
+      "first_seen_at": "2026-11-07T21:21:45Z",
+      "last_seen_at": "2026-11-07T21:21:45Z",
+      "anchor_item_id": "piasnews-social-8a8570852a6f0871",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-8a8570852a6f0871",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: #blessed to have missed another session of the triple header from hell. one more until we're fr…",
+          "title_zh": "X 发帖 @laurogeitabat：#blessed 又错过了一场地狱三连赛中的一节练习。还剩一节，我们就自由了 🙏🏻",
+          "summary": "#blessed to have missed another session of the triple header from hell. one more until we're free 🙏🏻",
+          "summary_zh": "#blessed 又错过了一场地狱三连赛中的一节练习。还剩一节，我们就自由了 🙏🏻",
+          "url": "https://x.com/laurogeitabat/status/2119178518252929520",
+          "published_at": "2026-11-07T21:21:45Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 5.6276,
+          "metrics": {
+            "likes": 286,
+            "retweets": 11,
+            "replies": 5,
+            "quotes": 0,
+            "views": 4632,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 30,
+      "heat": 30,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-06-2ad85daaecd0",
+      "rule_id": null,
+      "hot_word_zh": "我从练习赛报告里推断出的：一练：lando用了新尾翼，leo用了旧尾翼——他们确认新尾翼按…",
+      "hot_word_en": "what i infer from the practice report: fp1: lando used the new rear wing and leo used the old one - they conf…",
+      "first_seen_at": "2026-11-06T22:25:15Z",
+      "last_seen_at": "2026-11-06T22:25:15Z",
+      "anchor_item_id": "piasnews-social-0bcc98172b1a09d6",
+      "image_url": "https://pbs.twimg.com/media/HWeakW7XUAAXbvd.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HWeakW7XUAAXbvd.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-0bcc98172b1a09d6",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: what i infer from the practice report: fp1: lando used the new rear wing and leo used the old o…",
+          "title_zh": "X 发帖 @laurogeitabat：我从练习赛报告里推断出的：一练：lando用了新尾翼，leo用了旧尾翼——他们确认新尾翼按预期工作。二练：oscar和lando用了新尾翼，lando还换上了新底板（所以我猜oscar还没测试那个升级）",
+          "summary": "what i infer from the practice report: fp1: lando used the new rear wing and leo used the old one - they confirmed the new one works as expected fp2: oscar &amp; lando used the new rear wing + lando switched to the new floor (so i guess oscar hasn't tested that upgrade yet) https://t.co/P1WWtz3gM7",
+          "summary_zh": "我从练习赛报告里推断出的：一练：lando用了新尾翼，leo用了旧尾翼——他们确认新尾翼按预期工作。二练：oscar和lando用了新尾翼，lando还换上了新底板（所以我猜oscar还没测试那个升级）",
+          "url": "https://x.com/laurogeitabat/status/2118832111285403936",
+          "published_at": "2026-11-06T22:25:15Z",
+          "image_url": "https://pbs.twimg.com/media/HWeakW7XUAAXbvd.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HWeakW7XUAAXbvd.jpg",
+          "heat_contribution": 5.3631,
+          "metrics": {
+            "likes": 306,
+            "retweets": 34,
+            "replies": 1,
+            "quotes": 0,
+            "views": 9496,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 29,
+      "heat": 29,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-06-480beef49402",
+      "rule_id": null,
+      "hot_word_zh": "“我们坐镇一练的时候都干些什么？最重要的事就是尽量在维修区墙上显得酷一点。",
+      "hot_word_en": "\"what do we do when we're sitting out fp1? the biggest thing is just trying to look cool on the pitwall\" he t…",
+      "first_seen_at": "2026-11-06T15:56:51Z",
+      "last_seen_at": "2026-11-06T15:56:51Z",
+      "anchor_item_id": "piasnews-social-a767f92d4bd737bd",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2118734342738280448/vid/avc1/320x560/ghHLyoK0beq890xg.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118734342738280448/img/H9_ICylYODlcKifS.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-a767f92d4bd737bd",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: \"what do we do when we're sitting out fp1? the biggest thing is just trying to look cool on the…",
+          "title_zh": "X 发帖 @laurogeitabat：“我们坐镇一练的时候都干些什么？最重要的事就是尽量在维修区墙上显得酷一点。”他觉得自己可太幽默了 😭😭😭",
+          "summary": "\"what do we do when we're sitting out fp1? the biggest thing is just trying to look cool on the pitwall\" he thinks he's so funny 😭😭😭 https://t.co/tuTjJKPzco",
+          "summary_zh": "“我们坐镇一练的时候都干些什么？最重要的事就是尽量在维修区墙上显得酷一点。”他觉得自己可太幽默了 😭😭😭",
+          "url": "https://x.com/laurogeitabat/status/2118734363122708869",
+          "published_at": "2026-11-06T15:56:51Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2118734342738280448/vid/avc1/320x560/ghHLyoK0beq890xg.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118734342738280448/img/H9_ICylYODlcKifS.jpg",
+          "heat_contribution": 5.381,
+          "metrics": {
+            "likes": 736,
+            "retweets": 76,
+            "replies": 0,
+            "quotes": 0,
+            "views": 19315,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 29,
+      "heat": 29,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-06-b6765252be45",
+      "rule_id": null,
+      "hot_word_zh": "长距离表现看起来很有希望……P2和P5之间差距不到0.07秒……家人们，我们回来了",
+      "hot_word_en": "long runs look promising... there's less than 0.07s between p2 and p5... chat are we back",
+      "first_seen_at": "2026-11-06T20:37:51Z",
+      "last_seen_at": "2026-11-06T20:37:51Z",
+      "anchor_item_id": "piasnews-social-2135e1887f55ac02",
+      "image_url": "https://pbs.twimg.com/media/HWeB_enW8AAfZZg.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HWeB_enW8AAfZZg.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-2135e1887f55ac02",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: long runs look promising... there's less than 0.07s between p2 and p5... chat are we back",
+          "title_zh": "X 发帖 @laurogeitabat：长距离表现看起来很有希望……P2和P5之间差距不到0.07秒……家人们，我们回来了",
+          "summary": "long runs look promising... there's less than 0.07s between p2 and p5... chat are we back https://t.co/ZCZGD4moe2",
+          "summary_zh": "长距离表现看起来很有希望……P2和P5之间差距不到0.07秒……家人们，我们回来了",
+          "url": "https://x.com/laurogeitabat/status/2118805081432736156",
+          "published_at": "2026-11-06T20:37:51Z",
+          "image_url": "https://pbs.twimg.com/media/HWeB_enW8AAfZZg.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HWeB_enW8AAfZZg.jpg",
+          "heat_contribution": 5.3805,
+          "metrics": {
+            "likes": 393,
+            "retweets": 18,
+            "replies": 3,
+            "quotes": 0,
+            "views": 4231,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 29,
+      "heat": 29,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-08-a802f0a150ba",
+      "rule_id": null,
+      "hot_word_zh": "andrea stella：“oscar太可惜了，他本来正要完成一圈、很可能足以晋级，却被…",
+      "hot_word_en": "andrea stella: \"it's a shame about oscar, who was let down by a red flag as he was about to complete a lap th…",
+      "first_seen_at": "2026-11-08T02:23:01Z",
+      "last_seen_at": "2026-11-08T02:23:01Z",
+      "anchor_item_id": "piasnews-social-05f13d38544c6571",
+      "image_url": "https://pbs.twimg.com/media/HWkalWRXIAA_A53.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HWkalWRXIAA_A53.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-05f13d38544c6571",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: andrea stella: \"it's a shame about oscar, who was let down by a red flag as he was about to com…",
+          "title_zh": "X 发帖 @laurogeitabat：andrea stella：“oscar太可惜了，他本来正要完成一圈、很可能足以晋级，却被红旗打断了。判断切换到半雨胎的正确时机很困难，而红旗是我们无法控制的。”",
+          "summary": "andrea stella: \"it's a shame about oscar, who was let down by a red flag as he was about to complete a lap that would probably have seen him make the cut. it was difficult to judge the right moment to switch to inters, and the red flag was beyond our control.\" https://t.co/c6XJHKG6KW",
+          "summary_zh": "andrea stella：“oscar太可惜了，他本来正要完成一圈、很可能足以晋级，却被红旗打断了。判断切换到半雨胎的正确时机很困难，而红旗是我们无法控制的。”",
+          "url": "https://x.com/laurogeitabat/status/2119254333493485951",
+          "published_at": "2026-11-08T02:23:01Z",
+          "image_url": "https://pbs.twimg.com/media/HWkalWRXIAA_A53.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HWkalWRXIAA_A53.jpg",
+          "heat_contribution": 5.3284,
+          "metrics": {
+            "likes": 168,
+            "retweets": 13,
+            "replies": 0,
+            "quotes": 0,
+            "views": 7948,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 29,
+      "heat": 29,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-05-b09986db88af",
+      "rule_id": null,
+      "hot_word_zh": "“我最想要的是在车里找到稳定性和轻松感。有几场不错的比赛，但我们没有争夺领奖台的表现。",
+      "hot_word_en": "\"the biggest thing i'm after is trying to find consistency & ease in the car.",
+      "first_seen_at": "2026-11-02T09:42:03Z",
+      "last_seen_at": "2026-11-05T21:49:11Z",
+      "anchor_item_id": "piasnews-social-a7087618fe71bc02",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2118460578867843072/vid/avc1/354x270/ojEUrmvQOnyJ96lB.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118460578867843072/img/tqVEIVYyQHRjEUei.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-a7087618fe71bc02",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: \"the biggest thing i'm after is trying to find consistency &amp; ease in the car. there's been…",
+          "title_zh": "X 发帖 @laurogeitabat：“我最想要的是在车里找到稳定性和轻松感。有几场不错的比赛，但我们没有争夺领奖台的表现。所以，就是努力从自己和赛车中挖掘更多，希望领奖台会随之而来。”",
+          "summary": "\"the biggest thing i'm after is trying to find consistency &amp; ease in the car. there's been a few good races but we've not had the performance to fight for a podium. so yeah, just trying to unlock more from myself and the car, and hopefully the podiums will come as a consequence.\" https://t.co/bFxqYxIAKx",
+          "summary_zh": "“我最想要的是在车里找到稳定性和轻松感。有几场不错的比赛，但我们没有争夺领奖台的表现。所以，就是努力从自己和赛车中挖掘更多，希望领奖台会随之而来。”",
+          "url": "https://x.com/laurogeitabat/status/2118460645859324231",
+          "published_at": "2026-11-05T21:49:11Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2118460578867843072/vid/avc1/354x270/ojEUrmvQOnyJ96lB.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118460578867843072/img/tqVEIVYyQHRjEUei.jpg",
+          "heat_contribution": 5.2123,
+          "metrics": {
+            "likes": 535,
+            "retweets": 65,
+            "replies": 2,
+            "quotes": 0,
+            "views": 24157,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-05fb3c38f07f0789",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: HE IS SO HUNGRY 2027 WE WILL BE THERE",
+          "title_zh": "X 发帖 @laurogeitabat：他太渴望了 2027我们会在那里",
+          "summary": "HE IS SO HUNGRY 2027 WE WILL BE THERE",
+          "summary_zh": "他太渴望了 2027我们会在那里",
+          "url": "https://x.com/laurogeitabat/status/2117190493343822231",
+          "published_at": "2026-11-02T09:42:03Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 0.0,
+          "metrics": {
+            "likes": 142,
+            "retweets": 6,
+            "replies": 0,
+            "quotes": 0,
+            "views": 3211,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 28,
+      "heat": 28,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-05-e04217aa5b47",
+      "rule_id": null,
+      "hot_word_zh": "Oscar谈处罚 👏🏻 “当避免事故的唯一选择是切弯时，你就没处在什么好位置。",
+      "hot_word_en": "oscar on the penalty 👏🏻 \"when the only option to avoid an incident is to cut the track you're not left in a g…",
+      "first_seen_at": "2026-11-05T22:24:43Z",
+      "last_seen_at": "2026-11-05T22:24:43Z",
+      "anchor_item_id": "piasnews-social-bb5bd36f5751dd3d",
+      "image_url": "https://pbs.twimg.com/media/HWZQ2uZXEAAE-nJ.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HWZQ2uZXEAAE-nJ.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-bb5bd36f5751dd3d",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar on the penalty 👏🏻 \"when the only option to avoid an incident is to cut the track you're n…",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar谈处罚 👏🏻 “当避免事故的唯一选择是切弯时，你就没处在什么好位置。Arvid非常强硬。他有权防守，我认为我也有权做那个动作，直到我试图收手的那一刻，也就是我们相撞的时候。”",
+          "summary": "oscar on the penalty 👏🏻 \"when the only option to avoid an incident is to cut the track you're not left in a great place. arvid was very robust. he had the right to defend, i think i had the right to that move until the point where i tried to back out, which is when we collided.\" https://t.co/VPsIt9euJr",
+          "summary_zh": "Oscar谈处罚 👏🏻 “当避免事故的唯一选择是切弯时，你就没处在什么好位置。Arvid非常强硬。他有权防守，我认为我也有权做那个动作，直到我试图收手的那一刻，也就是我们相撞的时候。”",
+          "url": "https://x.com/laurogeitabat/status/2118469587528224908",
+          "published_at": "2026-11-05T22:24:43Z",
+          "image_url": "https://pbs.twimg.com/media/HWZQ2uZXEAAE-nJ.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HWZQ2uZXEAAE-nJ.jpg",
+          "heat_contribution": 5.1048,
+          "metrics": {
+            "likes": 626,
+            "retweets": 65,
+            "replies": 0,
+            "quotes": 0,
+            "views": 6306,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 28,
+      "heat": 28,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-06-defc2b63b687",
+      "rule_id": null,
+      "hot_word_zh": "oscar：“我准备好拿一个 cpf 了” 而他今天拿到了 🥳",
+      "hot_word_en": "oscar: \"i'm ready for a cpf\" AND HE GOT IT TODAY 🥳",
+      "first_seen_at": "2026-11-06T18:35:23Z",
+      "last_seen_at": "2026-11-06T18:35:23Z",
+      "anchor_item_id": "piasnews-social-a28a149a2cdaeed0",
+      "image_url": "https://pbs.twimg.com/media/HWdl9WYWQAAXSwO.jpg",
+      "video_url": "https://video.twimg.com/amplify_video/2118774202429792257/vid/avc1/320x560/TjEFujfqbl1SOYcJ.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118774202429792257/img/mnXFKJnFVmfXSub_.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-a28a149a2cdaeed0",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar: \"i'm ready for a cpf\" AND HE GOT IT TODAY 🥳",
+          "title_zh": "X 发帖 @laurogeitabat：oscar：“我准备好拿一个 cpf 了” 而他今天拿到了 🥳",
+          "summary": "oscar: \"i'm ready for a cpf\" AND HE GOT IT TODAY 🥳 https://t.co/IfRzEihsTg",
+          "summary_zh": "oscar：“我准备好拿一个 cpf 了” 而他今天拿到了 🥳",
+          "url": "https://x.com/laurogeitabat/status/2118774261070360881",
+          "published_at": "2026-11-06T18:35:23Z",
+          "image_url": "https://pbs.twimg.com/media/HWdl9WYWQAAXSwO.jpg",
+          "video_url": "https://video.twimg.com/amplify_video/2118774202429792257/vid/avc1/320x560/TjEFujfqbl1SOYcJ.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118774202429792257/img/mnXFKJnFVmfXSub_.jpg",
+          "heat_contribution": 5.09,
+          "metrics": {
+            "likes": 650,
+            "retweets": 48,
+            "replies": 0,
+            "quotes": 0,
+            "views": 6094,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 28,
+      "heat": 28,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-05-514ed7f9472b",
+      "rule_id": null,
+      "hot_word_zh": "问：“你喜欢在雨中开车吗？”Oscar：“看有多湿 😁 当还能看清方向时就挺好玩。",
+      "hot_word_en": "Q: \"do you like to drive in the rain?\" oscar: \"depends how wet 😁 when you can still see where you're going it…",
+      "first_seen_at": "2026-11-05T21:54:02Z",
+      "last_seen_at": "2026-11-05T21:54:02Z",
+      "anchor_item_id": "piasnews-social-69d7677e00b0405f",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2118461793290813440/vid/avc1/360x270/aXFyIEDUT0aZIhsZ.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118461793290813440/img/1pwuXOJci4djHFc6.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-69d7677e00b0405f",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: Q: \"do you like to drive in the rain?\" oscar: \"depends how wet 😁 when you can still see where y…",
+          "title_zh": "X 发帖 @laurogeitabat：问：“你喜欢在雨中开车吗？”Oscar：“看有多湿 😁 当还能看清方向时就挺好玩。当你需要一点额外因素或发生点意外才能取得惊人成绩时，那是个不错的位置。我完全不介意在雨中开车！”",
+          "summary": "Q: \"do you like to drive in the rain?\" oscar: \"depends how wet 😁 when you can still see where you're going it's fun. when you need a little extra or something random to happen to have an amazing result, it's a nice position to be in. i don't mind driving in the rain at all!\" https://t.co/WMHOJnm72f",
+          "summary_zh": "问：“你喜欢在雨中开车吗？”Oscar：“看有多湿 😁 当还能看清方向时就挺好玩。当你需要一点额外因素或发生点意外才能取得惊人成绩时，那是个不错的位置。我完全不介意在雨中开车！”",
+          "url": "https://x.com/laurogeitabat/status/2118461866766737615",
+          "published_at": "2026-11-05T21:54:02Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2118461793290813440/vid/avc1/360x270/aXFyIEDUT0aZIhsZ.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118461793290813440/img/1pwuXOJci4djHFc6.jpg",
+          "heat_contribution": 4.8957,
+          "metrics": {
+            "likes": 470,
+            "retweets": 49,
+            "replies": 0,
+            "quotes": 0,
+            "views": 9560,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 27,
+      "heat": 27,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-dutch-gp-fan-reaction",
+      "rule_id": "dutch-gp-fan-reaction",
+      "hot_word_zh": "粉丝讨论 Oscar 荷兰站赛后状态",
+      "hot_word_en": "Fans discuss Oscar's mood after the Dutch Grand Prix",
+      "first_seen_at": "2026-11-05T22:45:43Z",
+      "last_seen_at": "2026-11-05T22:45:43Z",
+      "anchor_item_id": "piasnews-social-1033371885eed33f",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2118474854768750592/vid/avc1/320x568/vDxnslOwbbUt6M6B.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118474854768750592/img/86XDhcEjDCMxsuSm.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-1033371885eed33f",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar leaving the track today!",
+          "title_zh": "X 发帖 @laurogeitabat：oscar今天离开赛道！",
+          "summary": "oscar leaving the track today! https://t.co/T4i7eVRxYu",
+          "summary_zh": "oscar今天离开赛道！",
+          "url": "https://x.com/laurogeitabat/status/2118474870069596603",
+          "published_at": "2026-11-05T22:45:43Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2118474854768750592/vid/avc1/320x568/vDxnslOwbbUt6M6B.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118474854768750592/img/86XDhcEjDCMxsuSm.jpg",
+          "heat_contribution": 4.849,
+          "metrics": {
+            "likes": 484,
+            "retweets": 37,
+            "replies": 1,
+            "quotes": 0,
+            "views": 7205,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 27,
+      "heat": 27,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-06-854a2a18d725",
+      "rule_id": null,
+      "hot_word_zh": "oscar谈他在巴西比赛最喜欢的一点：“大概是车迷吧！",
+      "hot_word_en": "oscar on his favourite thing about racing in brazil: \"probably the fans!",
+      "first_seen_at": "2026-11-06T15:04:19Z",
+      "last_seen_at": "2026-11-06T15:04:19Z",
+      "anchor_item_id": "piasnews-social-b582a29419cd90ac",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2118711667966001152/vid/avc1/320x568/yNH3WUpvRLkm6BVD.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118711667966001152/img/YQ8QqiiitEeN2PA_.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-b582a29419cd90ac",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar on his favourite thing about racing in brazil: \"probably the fans! the track itself is ve…",
+          "title_zh": "X 发帖 @laurogeitabat：oscar谈他在巴西比赛最喜欢的一点：“大概是车迷吧！赛道本身非常老派、很有历史感，但我觉得一年里有几场比赛，车迷会带来额外的加成，这里绝对是其中之一。” 🫶🏻🫶🏻",
+          "summary": "oscar on his favourite thing about racing in brazil: \"probably the fans! the track itself is very old school &amp; historic, but i feel like there's a few races through the year where the fans add a bit extra and this is definitely one of those places.\" 🫶🏻🫶🏻 https://t.co/42RPCzcfVk",
+          "summary_zh": "oscar谈他在巴西比赛最喜欢的一点：“大概是车迷吧！赛道本身非常老派、很有历史感，但我觉得一年里有几场比赛，车迷会带来额外的加成，这里绝对是其中之一。” 🫶🏻🫶🏻",
+          "url": "https://x.com/laurogeitabat/status/2118721144274420169",
+          "published_at": "2026-11-06T15:04:19Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2118711667966001152/vid/avc1/320x568/yNH3WUpvRLkm6BVD.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118711667966001152/img/YQ8QqiiitEeN2PA_.jpg",
+          "heat_contribution": 4.6596,
+          "metrics": {
+            "likes": 411,
+            "retweets": 30,
+            "replies": 1,
+            "quotes": 0,
+            "views": 4899,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 26,
+      "heat": 26,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-06-b0b050357120",
+      "rule_id": null,
+      "hot_word_zh": "oscar 和 lando 猜巴西美食！",
+      "hot_word_en": "oscar and lando guessing brazilian food!",
+      "first_seen_at": "2026-11-06T18:18:32Z",
+      "last_seen_at": "2026-11-06T18:18:32Z",
+      "anchor_item_id": "piasnews-social-6611f695194af453",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2118767652877344768/vid/avc1/320x568/lGIPhj9pQbGlkoy2.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118767652877344768/img/lUezvOvgdf2w2uXb.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-6611f695194af453",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar and lando guessing brazilian food!",
+          "title_zh": "X 发帖 @laurogeitabat：oscar 和 lando 猜巴西美食！",
+          "summary": "oscar and lando guessing brazilian food! https://t.co/vShINzanQK",
+          "summary_zh": "oscar 和 lando 猜巴西美食！",
+          "url": "https://x.com/laurogeitabat/status/2118770022034080010",
+          "published_at": "2026-11-06T18:18:32Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2118767652877344768/vid/avc1/320x568/lGIPhj9pQbGlkoy2.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118767652877344768/img/lUezvOvgdf2w2uXb.jpg",
+          "heat_contribution": 4.7879,
+          "metrics": {
+            "likes": 464,
+            "retweets": 28,
+            "replies": 0,
+            "quotes": 0,
+            "views": 7524,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 26,
+      "heat": 26,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-05-95977064e30e",
+      "rule_id": null,
+      "hot_word_zh": "oscar谈到去年，以及看到团队里每个人都那么开心是多么特别 🥹🫶🏻 “对每个人来说都是非…",
+      "hot_word_en": "oscar talking about last year and how special it was seeing everyone in the team so happy 🥹🫶🏻 \"very special a…",
+      "first_seen_at": "2026-11-05T22:52:54Z",
+      "last_seen_at": "2026-11-05T22:52:54Z",
+      "anchor_item_id": "piasnews-social-9cead8a97890c0c1",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2118476628539867137/vid/avc1/320x490/5mhBVknGqPVCXh7U.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118476628539867137/img/WMjqPX3R_f77oSEl.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-9cead8a97890c0c1",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar talking about last year and how special it was seeing everyone in the team so happy 🥹🫶🏻 \"…",
+          "title_zh": "X 发帖 @laurogeitabat：oscar谈到去年，以及看到团队里每个人都那么开心是多么特别 🥹🫶🏻 “对每个人来说都是非常特别的成就。看到整个团队都为参与其中而如此自豪……他们中有些人参与过之前的冠军，等了非常久。”",
+          "summary": "oscar talking about last year and how special it was seeing everyone in the team so happy 🥹🫶🏻 \"very special achievement for everybody. seeing how proud the whole team were to be a part of that... some of them were part of the prev championships and had waited a very long time.\" https://t.co/ieSiGRdmNx",
+          "summary_zh": "oscar谈到去年，以及看到团队里每个人都那么开心是多么特别 🥹🫶🏻 “对每个人来说都是非常特别的成就。看到整个团队都为参与其中而如此自豪……他们中有些人参与过之前的冠军，等了非常久。”",
+          "url": "https://x.com/laurogeitabat/status/2118476681551741287",
+          "published_at": "2026-11-05T22:52:54Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2118476628539867137/vid/avc1/320x490/5mhBVknGqPVCXh7U.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118476628539867137/img/WMjqPX3R_f77oSEl.jpg",
+          "heat_contribution": 4.5929,
+          "metrics": {
+            "likes": 346,
+            "retweets": 38,
+            "replies": 0,
+            "quotes": 0,
+            "views": 6690,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 25,
+      "heat": 25,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-05-ade69334610b",
+      "rule_id": null,
+      "hot_word_zh": "Oscar在后面解说，对Leo说“对，就这样继续”，结果他立马就输了 😭😭😭",
+      "hot_word_en": "oscar's commentary in the back, telling leo \"yeah just keep doing that\" just for him to immediately lose 😭😭😭",
+      "first_seen_at": "2026-11-05T22:04:54Z",
+      "last_seen_at": "2026-11-05T22:04:54Z",
+      "anchor_item_id": "piasnews-social-bba4af9b91cb2916",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2118464566111731712/vid/avc1/320x568/p94XJEPPnoM1K7jS.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118464566111731712/img/wKSuxZCWYguIXJqF.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-bba4af9b91cb2916",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar's commentary in the back, telling leo \"yeah just keep doing that\" just for him to immedia…",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar在后面解说，对Leo说“对，就这样继续”，结果他立马就输了 😭😭😭",
+          "summary": "oscar's commentary in the back, telling leo \"yeah just keep doing that\" just for him to immediately lose 😭😭😭 https://t.co/cLbjj7lff3",
+          "summary_zh": "Oscar在后面解说，对Leo说“对，就这样继续”，结果他立马就输了 😭😭😭",
+          "url": "https://x.com/laurogeitabat/status/2118464602182946921",
+          "published_at": "2026-11-05T22:04:54Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2118464566111731712/vid/avc1/320x568/p94XJEPPnoM1K7jS.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2118464566111731712/img/wKSuxZCWYguIXJqF.jpg",
+          "heat_contribution": 4.5623,
+          "metrics": {
+            "likes": 297,
+            "retweets": 22,
+            "replies": 0,
+            "quotes": 0,
+            "views": 13304,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 25,
+      "heat": 25,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-05-a58cfdb27749",
+      "rule_id": null,
+      "hot_word_zh": "“我觉得我不需要做什么惊天动地的事”“没必要做什么特别的”“看看我们最终会到哪”“没必要强…",
+      "hot_word_en": "\"i don't think i need to do anything spectacular\" \"no need to do something special\" \"see where we end up\" \"no…",
+      "first_seen_at": "2026-11-05T22:35:59Z",
+      "last_seen_at": "2026-11-05T22:35:59Z",
+      "anchor_item_id": "piasnews-social-0a2914473fb8509e",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-0a2914473fb8509e",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: \"i don't think i need to do anything spectacular\" \"no need to do something special\" \"see where…",
+          "title_zh": "X 发帖 @laurogeitabat：“我觉得我不需要做什么惊天动地的事”“没必要做什么特别的”“看看我们最终会到哪”“没必要强行去做不会发生的事”“能拿到什么就拿什么” 每天早上打卡上班的我",
+          "summary": "\"i don't think i need to do anything spectacular\" \"no need to do something special\" \"see where we end up\" \"no point trying to force something that's not going to happen\" \"we'll take whatever we can get\" me clocking in every morning",
+          "summary_zh": "“我觉得我不需要做什么惊天动地的事”“没必要做什么特别的”“看看我们最终会到哪”“没必要强行去做不会发生的事”“能拿到什么就拿什么” 每天早上打卡上班的我",
+          "url": "https://x.com/laurogeitabat/status/2118472421720138214",
+          "published_at": "2026-11-05T22:35:59Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 4.2187,
+          "metrics": {
+            "likes": 231,
+            "retweets": 31,
+            "replies": 2,
+            "quotes": 0,
+            "views": 3574,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 24,
+      "heat": 24,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-06-f5d510369d7e",
+      "rule_id": null,
+      "hot_word_zh": "Oscar 昨晚在 OKX 活动上 ✨",
+      "hot_word_en": "oscar at the okx event last night ✨",
+      "first_seen_at": "2026-11-06T07:52:27Z",
+      "last_seen_at": "2026-11-06T07:52:27Z",
+      "anchor_item_id": "piasnews-social-c683927bf9f5dab1",
+      "image_url": "https://pbs.twimg.com/media/HWbSy1YXoAA1dil.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HWbSy1YXoAA1dil.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-c683927bf9f5dab1",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar at the okx event last night ✨",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar 昨晚在 OKX 活动上 ✨",
+          "summary": "oscar at the okx event last night ✨ https://t.co/k8ADXk32KF",
+          "summary_zh": "Oscar 昨晚在 OKX 活动上 ✨",
+          "url": "https://x.com/laurogeitabat/status/2118612459955065276",
+          "published_at": "2026-11-06T07:52:27Z",
+          "image_url": "https://pbs.twimg.com/media/HWbSy1YXoAA1dil.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HWbSy1YXoAA1dil.jpg",
+          "heat_contribution": 4.1885,
+          "metrics": {
+            "likes": 263,
+            "retweets": 22,
+            "replies": 0,
+            "quotes": 0,
+            "views": 1761,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 23,
+      "heat": 23,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-06-94e4241d7b41",
+      "rule_id": null,
+      "hot_word_zh": "lando在测试新的尾翼，而leo在oscar的车上用旧尾翼做对比！",
+      "hot_word_en": "lando is testing the new rear wing while leo uses the previous wing on oscar's car for comparison!",
+      "first_seen_at": "2026-11-06T15:49:32Z",
+      "last_seen_at": "2026-11-06T15:49:32Z",
+      "anchor_item_id": "piasnews-social-6be8212e65201d58",
+      "image_url": "https://pbs.twimg.com/media/HWc__6gXYAAqckV.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HWc__6gXYAAqckV.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-6be8212e65201d58",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: lando is testing the new rear wing while leo uses the previous wing on oscar's car for comparis…",
+          "title_zh": "X 发帖 @laurogeitabat：lando在测试新的尾翼，而leo在oscar的车上用旧尾翼做对比！",
+          "summary": "lando is testing the new rear wing while leo uses the previous wing on oscar's car for comparison! https://t.co/uBkeicUuK5",
+          "summary_zh": "lando在测试新的尾翼，而leo在oscar的车上用旧尾翼做对比！",
+          "url": "https://x.com/laurogeitabat/status/2118732522502713644",
+          "published_at": "2026-11-06T15:49:32Z",
+          "image_url": "https://pbs.twimg.com/media/HWc__6gXYAAqckV.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HWc__6gXYAAqckV.jpg",
+          "heat_contribution": 3.9777,
+          "metrics": {
+            "likes": 169,
+            "retweets": 11,
+            "replies": 1,
+            "quotes": 0,
+            "views": 6798,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 22,
+      "heat": 22,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-06-82346b49f940",
+      "rule_id": null,
+      "hot_word_zh": "小小提醒一下，oscar今天不会参加一练！接下来一个小时里，他的车将由leo驾驶 😁",
+      "hot_word_en": "a little reminder that oscar won't be driving in fp1 today!",
+      "first_seen_at": "2026-11-06T15:22:33Z",
+      "last_seen_at": "2026-11-06T15:22:33Z",
+      "anchor_item_id": "piasnews-social-ca3fb7778a928f45",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-ca3fb7778a928f45",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: a little reminder that oscar won't be driving in fp1 today! leo will be behind the wheel of his…",
+          "title_zh": "X 发帖 @laurogeitabat：小小提醒一下，oscar今天不会参加一练！接下来一个小时里，他的车将由leo驾驶 😁",
+          "summary": "a little reminder that oscar won't be driving in fp1 today! leo will be behind the wheel of his car during the next hour 😁",
+          "summary_zh": "小小提醒一下，oscar今天不会参加一练！接下来一个小时里，他的车将由leo驾驶 😁",
+          "url": "https://x.com/laurogeitabat/status/2118725731849031964",
+          "published_at": "2026-11-06T15:22:33Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 3.5986,
+          "metrics": {
+            "likes": 139,
+            "retweets": 2,
+            "replies": 1,
+            "quotes": 0,
+            "views": 3173,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 21,
+      "heat": 21,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-05-b5a671ed66de",
+      "rule_id": null,
+      "hot_word_zh": "停😭😭😭",
+      "hot_word_en": "停😭😭😭",
+      "first_seen_at": "2026-11-05T21:10:59Z",
+      "last_seen_at": "2026-11-05T21:10:59Z",
+      "anchor_item_id": "piasnews-social-12d38557b9e7c6e1",
+      "image_url": "https://pbs.twimg.com/media/HWYlIVvWwAAGQ1A.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HWYlIVvWwAAGQ1A.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-12d38557b9e7c6e1",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: RT @waspiastri: STOP😭😭😭",
+          "title_zh": "X 转帖 @laurogeitabat：RT @waspiastri：停😭😭😭",
+          "summary": "RT @waspiastri: STOP😭😭😭 https://t.co/ZWdAgaTI1H",
+          "summary_zh": "RT @waspiastri：停😭😭😭",
+          "url": "https://x.com/laurogeitabat/status/2118451030971089064",
+          "published_at": "2026-11-05T21:10:59Z",
+          "image_url": "https://pbs.twimg.com/media/HWYlIVvWwAAGQ1A.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HWYlIVvWwAAGQ1A.jpg",
+          "heat_contribution": 3.5576,
+          "metrics": {
+            "likes": 0,
+            "retweets": 84,
+            "replies": 0,
+            "quotes": 0,
+            "views": 239,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 20,
+      "heat": 20,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-06-e3f621d7cee3",
+      "rule_id": null,
+      "hot_word_zh": "Oscar Piastri 解释了遥测和车手输入数据如何帮助将成千上万个数据点转化为可执行…",
+      "hot_word_en": "Oscar Piastri explains how telemetry and driver input data help turn thousands of data points into actionable…",
+      "first_seen_at": "2026-11-06T15:09:10Z",
+      "last_seen_at": "2026-11-06T15:09:10Z",
+      "anchor_item_id": "piasnews-social-243394bf4c61245c",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-243394bf4c61245c",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: RT @intel: Oscar Piastri explains how telemetry and driver input data help turn thousands of da…",
+          "title_zh": "X 转帖 @laurogeitabat：RT @intel：Oscar Piastri 解释了遥测和车手输入数据如何帮助将成千上万个数据点转化为可执行的洞察，从而塑造……",
+          "summary": "RT @intel: Oscar Piastri explains how telemetry and driver input data help turn thousands of data points into actionable insights that shap…",
+          "summary_zh": "RT @intel：Oscar Piastri 解释了遥测和车手输入数据如何帮助将成千上万个数据点转化为可执行的洞察，从而塑造……",
+          "url": "https://x.com/laurogeitabat/status/2118722364468768848",
+          "published_at": "2026-11-06T15:09:10Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 3.225,
+          "metrics": {
+            "likes": 0,
+            "retweets": 59,
+            "replies": 0,
+            "quotes": 0,
+            "views": 277,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 19,
+      "heat": 19,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-06-fabb001c227f",
+      "rule_id": null,
+      "hot_word_zh": "这是自动翻译的，可能和他原话不完全准确 🙏🏻",
+      "hot_word_en": "this was automatically translated so it might not be perfectly accurate to what he said 🙏🏻",
+      "first_seen_at": "2026-11-06T21:54:44Z",
+      "last_seen_at": "2026-11-06T21:54:44Z",
+      "anchor_item_id": "piasnews-social-0f8bed5d4acb4ca3",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-0f8bed5d4acb4ca3",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: this was automatically translated so it might not be perfectly accurate to what he said 🙏🏻",
+          "title_zh": "X 发帖 @laurogeitabat：这是自动翻译的，可能和他原话不完全准确 🙏🏻",
+          "summary": "this was automatically translated so it might not be perfectly accurate to what he said 🙏🏻",
+          "summary_zh": "这是自动翻译的，可能和他原话不完全准确 🙏🏻",
+          "url": "https://x.com/laurogeitabat/status/2118824427689521274",
+          "published_at": "2026-11-06T21:54:44Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 3.2545,
+          "metrics": {
+            "likes": 32,
+            "retweets": 0,
+            "replies": 0,
+            "quotes": 0,
+            "views": 2335,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 19,
+      "heat": 19,
       "source_labels": [
         "粉"
       ],
