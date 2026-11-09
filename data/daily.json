@@ -1,20 +1,36 @@
 {
-  "generated_at": "2026-11-08T23:05:59.244794Z",
+  "generated_at": "2026-11-09T03:24:48.579242Z",
   "window_days": 7,
-  "total_items": 62,
-  "latest_date": "2026-11-08",
+  "total_items": 48,
+  "latest_date": "2026-11-09",
   "days": [
     {
-      "date": "2026-11-08",
-      "total_new_items": 11,
+      "date": "2026-11-09",
+      "total_new_items": 2,
       "official_new_items": 0,
-      "media_new_items": 11,
+      "media_new_items": 2,
+      "x_new_items": 0,
+      "rumor_new_items": 0,
+      "sources": {
+        "Auto Action": 1,
+        "PlanetF1": 1
+      },
+      "categories": {
+        "race": 1,
+        "team": 1
+      }
+    },
+    {
+      "date": "2026-11-08",
+      "total_new_items": 12,
+      "official_new_items": 0,
+      "media_new_items": 12,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "Auto Action": 1,
         "F1 Oversteer": 3,
-        "Fox Sports": 1,
+        "Fox Sports": 2,
         "Grandprix.com": 1,
         "Las Motorsport": 1,
         "RaceFans": 2,
@@ -22,7 +38,7 @@
         "Speedcafe.com": 1
       },
       "categories": {
-        "other": 3,
+        "other": 4,
         "race": 3,
         "team": 5
       }
@@ -126,46 +142,18 @@
     },
     {
       "date": "2026-11-02",
-      "total_new_items": 18,
-      "official_new_items": 1,
-      "media_new_items": 17,
+      "total_new_items": 3,
+      "official_new_items": 0,
+      "media_new_items": 3,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "AOL.com": 1,
-        "Auto Action": 3,
         "ClubS1": 1,
-        "Formula 1": 1,
-        "FormulaRapida.net": 2,
-        "Fox Sports": 1,
-        "GPblog": 1,
-        "Grande Prêmio": 1,
-        "JournalArta": 1,
-        "PlanetF1": 1,
-        "RaceFans": 1,
-        "RacingNews365": 1,
-        "Speedcafe.com": 1,
-        "The Race": 1,
-        "https://www.autohebdof1.com/": 1
+        "JournalArta": 1
       },
       "categories": {
-        "other": 2,
-        "race": 13,
-        "team": 3
-      }
-    },
-    {
-      "date": "2026-11-01",
-      "total_new_items": 2,
-      "official_new_items": 0,
-      "media_new_items": 2,
-      "x_new_items": 0,
-      "rumor_new_items": 0,
-      "sources": {
-        "Nine.com.au": 1,
-        "PlanetF1": 1
-      },
-      "categories": {
+        "other": 1,
         "race": 2
       }
     }
@@ -197,14 +185,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 38
+      "items": 39
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 22
+      "items": 21
     },
     {
       "query": "\"OP81\" when:3d",
@@ -225,23 +213,23 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 9
+      "items": 11
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22interview%22+when%3A3d",
       "ok": true,
-      "items": 1
+      "items": 0
     },
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 40,
+      "checked": 42,
       "kept": 26,
       "results": {
-        "publisher_date_missing": 8,
-        "publisher_unavailable": 6,
+        "publisher_date_missing": 9,
+        "publisher_unavailable": 7,
         "verified": 26
       }
     },
@@ -250,8 +238,8 @@
       "ok": true,
       "discovery_days": 3,
       "retention_days": 7,
-      "previous_items": 59,
-      "kept": 62
+      "previous_items": 62,
+      "kept": 48
     }
   ]
 }

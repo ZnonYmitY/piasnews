@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-08T23:08:57.081287Z",
+  "generated_at": "2026-11-09T03:27:17.843984Z",
   "translations": {
     "items:piasnews-24439519657cf1fe:title:7e81ceb34e9e0470e97afb1b": {
       "dataset": "items",
@@ -4033,6 +4033,114 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-11-08T23:08:56.414950Z"
+    },
+    "items:piasnews-cb36da2cd6bc216b:title:07d49a2f032bf36ca8f6e950": {
+      "dataset": "items",
+      "item_id": "piasnews-cb36da2cd6bc216b",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri encouraged by São Paulo pace",
+      "zh": "Piastri对圣保罗站速度感到鼓舞",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-09T03:27:17.369386Z"
+    },
+    "items:piasnews-cb36da2cd6bc216b:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-cb36da2cd6bc216b",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-09T03:27:17.369392Z"
+    },
+    "items:piasnews-bbed3fdc876cffa6:title:fade28397ffd60934bf2261d": {
+      "dataset": "items",
+      "item_id": "piasnews-bbed3fdc876cffa6",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri reacts to 'scary' Brazilian GP incident",
+      "zh": "Oscar Piastri回应巴西大奖赛“惊险”事件",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-09T03:27:17.369395Z"
+    },
+    "items:piasnews-bbed3fdc876cffa6:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-bbed3fdc876cffa6",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的关于比赛周或表现的内容。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-09T03:27:17.369398Z"
+    },
+    "items:piasnews-d35514d864a6bebd:title:69a2560d6d8d0e134fdc3eca": {
+      "dataset": "items",
+      "item_id": "piasnews-d35514d864a6bebd",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Why stunning snub would be impossible to sell; timely boost for Piastri explained — F1 Talking Pts",
+      "zh": "为何这一惊人冷落难以解释；Piastri迎来及时利好——F1 讨论要点",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-09T03:27:17.369401Z"
+    },
+    "items:piasnews-d35514d864a6bebd:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-d35514d864a6bebd",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的内容。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-09T03:27:17.369404Z"
+    },
+    "items:piasnews-c4fd0532dd481cfa:title:fe809e38ffeeb44ca94441ec": {
+      "dataset": "items",
+      "item_id": "piasnews-c4fd0532dd481cfa",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri, McLaren, Interlagos, 2026",
+      "zh": "Oscar Piastri，McLaren，英特拉格斯，2026",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-09T03:27:17.369416Z"
+    },
+    "items:piasnews-980e285cbfe84570:title:fe809e38ffeeb44ca94441ec": {
+      "dataset": "items",
+      "item_id": "piasnews-980e285cbfe84570",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri, McLaren, Interlagos, 2026",
+      "zh": "Oscar Piastri，McLaren，英特拉格斯，2026",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-09T03:27:17.369421Z"
+    },
+    "social:piasnews-social-9732129ed8d4ef57:summary:450fcc1cb2e43566abc01ab4": {
+      "dataset": "social",
+      "item_id": "piasnews-social-9732129ed8d4ef57",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "This battle between Piastri and Verstappen 😮‍💨 #F1 #BrazilGP https://t.co/NPXOvyGOqG",
+      "zh": "Piastri与Verstappen之间的这场较量 😮‍💨 #F1 #BrazilGP",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-09T03:27:17.369425Z"
     }
   },
   "retention_days": 8
