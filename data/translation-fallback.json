@@ -1,129 +1,19 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-09T23:09:10.202474Z",
+  "generated_at": "2026-11-10T03:13:26.805947Z",
   "status": "action_required",
-  "pending_count": 13,
+  "pending_count": 2,
   "ignored_non_text_count": 0,
   "workbench_path": "../immersive/translation-workbench.html",
   "items": [
     {
-      "key": "items:piasnews-b16de5239424aa10:title:9b981f568c61eed3761edbde",
-      "dataset": "items",
-      "item_id": "piasnews-b16de5239424aa10",
-      "target_field": "title_zh",
-      "source_text": "Oscar Piastri confirms split from Mark Webber after seven-year partnership",
-      "source_url": "https://www.f1oversteer.com/news/oscar-piastri-confirms-split-from-mark-webber-after-seven-year-partnership/",
-      "source_name": "F1 Oversteer",
-      "reason": "llm_mapping_missing"
-    },
-    {
-      "key": "items:piasnews-b16de5239424aa10:summary:26b5911fbd1b8158d42ac2a8",
-      "dataset": "items",
-      "item_id": "piasnews-b16de5239424aa10",
+      "key": "social:piasnews-social-d17fda9225b1eb7d:summary:6c1c90614d5fc2895044115a",
+      "dataset": "social",
+      "item_id": "piasnews-social-d17fda9225b1eb7d",
       "target_field": "summary_zh",
-      "source_text": "Team or car-performance item discovered from public news metadata.",
-      "source_url": "https://www.f1oversteer.com/news/oscar-piastri-confirms-split-from-mark-webber-after-seven-year-partnership/",
-      "source_name": "F1 Oversteer",
-      "reason": "llm_mapping_missing"
-    },
-    {
-      "key": "items:piasnews-0ad924ed6b9d2df2:title:0a97e7d98ce61cdbd6919788",
-      "dataset": "items",
-      "item_id": "piasnews-0ad924ed6b9d2df2",
-      "target_field": "title_zh",
-      "source_text": "Piastri splits with Webber's F1 management team",
-      "source_url": "https://www.the-race.com/formula-1/oscar-piastri-mark-webber-f1-management-split/",
-      "source_name": "The Race",
-      "reason": "llm_mapping_missing"
-    },
-    {
-      "key": "items:piasnews-0ad924ed6b9d2df2:summary:73c687deab0b33e8260654ec",
-      "dataset": "items",
-      "item_id": "piasnews-0ad924ed6b9d2df2",
-      "target_field": "summary_zh",
-      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
-      "source_url": "https://www.the-race.com/formula-1/oscar-piastri-mark-webber-f1-management-split/",
-      "source_name": "The Race",
-      "reason": "llm_mapping_missing"
-    },
-    {
-      "key": "items:piasnews-928437353460b900:title:637d361972b0090731763dad",
-      "dataset": "items",
-      "item_id": "piasnews-928437353460b900",
-      "target_field": "title_zh",
-      "source_text": "Oscar Piastri ends management agreement with Mark Webber",
-      "source_url": "https://racingnews365.com/breaking-oscar-piastri-terminates-management-agreement-with-mark-webber",
-      "source_name": "RacingNews365",
-      "reason": "llm_mapping_missing"
-    },
-    {
-      "key": "items:piasnews-928437353460b900:summary:26b5911fbd1b8158d42ac2a8",
-      "dataset": "items",
-      "item_id": "piasnews-928437353460b900",
-      "target_field": "summary_zh",
-      "source_text": "Team or car-performance item discovered from public news metadata.",
-      "source_url": "https://racingnews365.com/breaking-oscar-piastri-terminates-management-agreement-with-mark-webber",
-      "source_name": "RacingNews365",
-      "reason": "llm_mapping_missing"
-    },
-    {
-      "key": "items:piasnews-4f4ce6fb9b164511:title:e4d7af7bd3faf567f382b081",
-      "dataset": "items",
-      "item_id": "piasnews-4f4ce6fb9b164511",
-      "target_field": "title_zh",
-      "source_text": "Oscar Piastri confirms split with F1 career manager Mark Webber",
-      "source_url": "https://www.crash.net/f1/news/1110032/1/oscar-piastri-confirms-split-f1-career-manager-mark-webber",
-      "source_name": "Crash.net",
-      "reason": "llm_mapping_missing"
-    },
-    {
-      "key": "items:piasnews-4f4ce6fb9b164511:summary:26b5911fbd1b8158d42ac2a8",
-      "dataset": "items",
-      "item_id": "piasnews-4f4ce6fb9b164511",
-      "target_field": "summary_zh",
-      "source_text": "Team or car-performance item discovered from public news metadata.",
-      "source_url": "https://www.crash.net/f1/news/1110032/1/oscar-piastri-confirms-split-f1-career-manager-mark-webber",
-      "source_name": "Crash.net",
-      "reason": "llm_mapping_missing"
-    },
-    {
-      "key": "items:piasnews-4ce76559583837e9:title:9e5bb2c51f2799b47025063c",
-      "dataset": "items",
-      "item_id": "piasnews-4ce76559583837e9",
-      "target_field": "title_zh",
-      "source_text": "Oscar Piastri splits with manager Mark Webber in shock announcement",
-      "source_url": "https://www.planetf1.com/news/oscar-piastri-mark-webber-management-split",
-      "source_name": "PlanetF1",
-      "reason": "llm_mapping_missing"
-    },
-    {
-      "key": "items:piasnews-4ce76559583837e9:summary:26b5911fbd1b8158d42ac2a8",
-      "dataset": "items",
-      "item_id": "piasnews-4ce76559583837e9",
-      "target_field": "summary_zh",
-      "source_text": "Team or car-performance item discovered from public news metadata.",
-      "source_url": "https://www.planetf1.com/news/oscar-piastri-mark-webber-management-split",
-      "source_name": "PlanetF1",
-      "reason": "llm_mapping_missing"
-    },
-    {
-      "key": "items:piasnews-f194a2251f25fe77:title:f3d7c73a0570c98b937c30b1",
-      "dataset": "items",
-      "item_id": "piasnews-f194a2251f25fe77",
-      "target_field": "title_zh",
-      "source_text": "Oscar Piastri completely disagrees with what Lando Norris said about McLaren car after Brazil pole",
-      "source_url": "https://www.f1oversteer.com/news/oscar-piastri-completely-disagrees-with-what-lando-norris-said-about-mclaren-car-after-brazil-pole/",
-      "source_name": "F1 Oversteer",
-      "reason": "llm_mapping_missing"
-    },
-    {
-      "key": "items:piasnews-f194a2251f25fe77:summary:26b5911fbd1b8158d42ac2a8",
-      "dataset": "items",
-      "item_id": "piasnews-f194a2251f25fe77",
-      "target_field": "summary_zh",
-      "source_text": "Team or car-performance item discovered from public news metadata.",
-      "source_url": "https://www.f1oversteer.com/news/oscar-piastri-completely-disagrees-with-what-lando-norris-said-about-mclaren-car-after-brazil-pole/",
-      "source_name": "F1 Oversteer",
+      "source_text": "SPUNCH 😭🥹😭🥹😭🥹😭 https://t.co/HTDcnTdqYe",
+      "source_url": "https://x.com/laurogeitabat/status/2119535680598728926",
+      "source_name": "@laurogeitabat",
       "reason": "llm_mapping_missing"
     },
     {
