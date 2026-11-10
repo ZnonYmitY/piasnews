@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-10T03:13:26.697963Z",
+  "generated_at": "2026-11-10T06:16:03.711724Z",
   "translations": {
     "items:piasnews-c406e1058eb8ac0f:title:294f4d5adf0a77602dbca546": {
       "dataset": "items",
@@ -4933,6 +4933,150 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-11-10T03:13:25.752995Z"
+    },
+    "items:piasnews-225a49a7f733237e:title:7ae8a3e31093b1d6d27100e4": {
+      "dataset": "items",
+      "item_id": "piasnews-225a49a7f733237e",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri reveals 'scary' George Russell encounter after spin",
+      "zh": "Oscar Piastri 打滑后透露与 George Russell 的“惊险”遭遇",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-10T06:16:02.750670Z"
+    },
+    "items:piasnews-225a49a7f733237e:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-225a49a7f733237e",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-10T06:16:02.750680Z"
+    },
+    "items:piasnews-e2b78abc85e54c1d:title:26f49d20d00b6f57c3b143d3": {
+      "dataset": "items",
+      "item_id": "piasnews-e2b78abc85e54c1d",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri Makes Major Career Move: What It Means for His F1 Future",
+      "zh": "Oscar Piastri 做出重大职业生涯变动：这对他的 F1 未来意味着什么",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-10T06:16:02.750685Z"
+    },
+    "items:piasnews-e2b78abc85e54c1d:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-e2b78abc85e54c1d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-10T06:16:02.750689Z"
+    },
+    "items:piasnews-e5aadd9e51b760b9:title:c74348252549e7333616268e": {
+      "dataset": "items",
+      "item_id": "piasnews-e5aadd9e51b760b9",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri ends management agreement with Australian legend Mark Webber",
+      "zh": "Oscar Piastri 结束与澳大利亚传奇 Mark Webber 的管理协议",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-10T06:16:02.750693Z"
+    },
+    "items:piasnews-e5aadd9e51b760b9:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-e5aadd9e51b760b9",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-10T06:16:02.750697Z"
+    },
+    "items:piasnews-91aab8f4d0536973:title:d0eddcbdd9645283452650b2": {
+      "dataset": "items",
+      "item_id": "piasnews-91aab8f4d0536973",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "F1 Today: Piastri makes shock split as Lawson receives major F1 boost",
+      "zh": "今日 F1：Piastri 意外分道扬镳，Lawson 获 F1 重大利好",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-10T06:16:02.750701Z"
+    },
+    "items:piasnews-91aab8f4d0536973:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-91aab8f4d0536973",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的内容。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-10T06:16:02.750708Z"
+    },
+    "social:piasnews-social-bbc6fc5b7f8305b5:summary:248e37bc0d60abb34ccc15af": {
+      "dataset": "social",
+      "item_id": "piasnews-social-bbc6fc5b7f8305b5",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @pstrryy: were losing our mind while this guys busy watching gordon ramsay shirtless im crine https://t.co/RuCb9ztYgO",
+      "zh": "RT @pstrryy：这家伙忙着看半裸的 Gordon Ramsay，我们都快疯了，我笑死 😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-10T06:16:02.750713Z"
+    },
+    "social:piasnews-social-42c10ba5b52e2d4f:summary:19516c6494536375c3084083": {
+      "dataset": "social",
+      "item_id": "piasnews-social-42c10ba5b52e2d4f",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "I noticed one management agency’s “Our Drivers” page is under construction right now, and someone on their team oversaw Oscar’s development before F1. Could mean absolutely nothing, so I don’t want to speculate too much, but I’ll keep an eye on it.",
+      "zh": "我注意到某家经纪公司的“我们的车手”页面现在显示正在建设中，而且他们团队里有人曾在 Oscar 进入 F1 之前负责过他的培养。这可能完全说明不了什么，所以我不想过度猜测，但我会继续关注。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-10T06:16:02.750717Z"
+    },
+    "social:piasnews-social-114b1cf7785a2976:summary:654304a2dcfcf136c6841ab1": {
+      "dataset": "social",
+      "item_id": "piasnews-social-114b1cf7785a2976",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @SulloReport: I’ve seen enough https://t.co/u2TGG3gmyd",
+      "zh": "RT @SulloReport：我已经看够了",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-10T06:16:02.750721Z"
+    },
+    "social:piasnews-social-4ac234da244f759e:summary:7efc6b835563000911b6de9d": {
+      "dataset": "social",
+      "item_id": "piasnews-social-4ac234da244f759e",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Hey @OscarPiastri, do you need a manager? No relevant qualifications but I will defend you with my life and I’ve worked in the US Congress so difficult people don’t scare me.",
+      "zh": "嘿 @OscarPiastri，你需要经纪人吗？没什么相关资质，但我会拼了命护着你，而且我在美国国会工作过，所以难缠的人吓不到我。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-10T06:16:02.750725Z"
     }
   },
   "retention_days": 8
