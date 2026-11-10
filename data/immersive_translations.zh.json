@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-10T13:51:33.991475Z",
+  "generated_at": "2026-11-10T23:08:49.775925Z",
   "translations": {
     "items:piasnews-a84e3497df81e89b:title:16662780798c89e169058a09": {
       "dataset": "items",
@@ -4681,6 +4681,174 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-11-10T13:51:33.198398Z"
+    },
+    "items:piasnews-df99b2a40402a7ed:title:4692d91eae5e0a79f64ebee9": {
+      "dataset": "items",
+      "item_id": "piasnews-df99b2a40402a7ed",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri changes management — but the real McLaren test remains on track",
+      "zh": "Piastri更换管理团队——但真正的McLaren考验仍在赛道上",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-10T23:08:48.845776Z"
+    },
+    "items:piasnews-df99b2a40402a7ed:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-df99b2a40402a7ed",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-10T23:08:48.845783Z"
+    },
+    "items:piasnews-d3ed24aab374f508:title:93be48da08d01cdc2e3f5f0b": {
+      "dataset": "items",
+      "item_id": "piasnews-d3ed24aab374f508",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Where to next for Piastri after surprise Webber split",
+      "zh": "与Webber意外分道扬镳后，Piastri的下一步去向",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-10T23:08:48.845788Z"
+    },
+    "items:piasnews-d3ed24aab374f508:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-d3ed24aab374f508",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的Oscar Piastri相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-10T23:08:48.845792Z"
+    },
+    "items:piasnews-899e46669314b3e8:title:d7b896110e32a2bd80905c02": {
+      "dataset": "items",
+      "item_id": "piasnews-899e46669314b3e8",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "After a winless 2026, Piastri parts ways with Mark Webber",
+      "zh": "经历无胜的2026赛季后，Piastri与Mark Webber分道扬镳",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-10T23:08:48.845795Z"
+    },
+    "items:piasnews-899e46669314b3e8:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-899e46669314b3e8",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的Oscar Piastri相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-10T23:08:48.845799Z"
+    },
+    "items:piasnews-fc7ded17926d6eb7:title:12b5b7141fb73dec6c75e889": {
+      "dataset": "items",
+      "item_id": "piasnews-fc7ded17926d6eb7",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri issues 'missing the stress' revelation over muted McLaren campaign",
+      "zh": "Oscar Piastri坦言“怀念压力”，谈McLaren平淡赛季",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-10T23:08:48.845804Z"
+    },
+    "items:piasnews-fc7ded17926d6eb7:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-fc7ded17926d6eb7",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-10T23:08:48.845810Z"
+    },
+    "items:piasnews-ad9e1e4c320e8bf1:title:4dea5bd84215333b44866541": {
+      "dataset": "items",
+      "item_id": "piasnews-ad9e1e4c320e8bf1",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri and manager Mark Webber mutually agree to part ways after seven years",
+      "zh": "Oscar Piastri与经纪人Mark Webber在七年后双方同意分道扬镳",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-10T23:08:48.845815Z"
+    },
+    "items:piasnews-ad9e1e4c320e8bf1:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-ad9e1e4c320e8bf1",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-10T23:08:48.845818Z"
+    },
+    "items:piasnews-c38188b3659ca8ba:title:26f49d20d00b6f57c3b143d3": {
+      "dataset": "items",
+      "item_id": "piasnews-c38188b3659ca8ba",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri Makes Major Career Move: What It Means for His F1 Future",
+      "zh": "Oscar Piastri做出重大职业变动：这对他的F1未来意味着什么",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-10T23:08:48.845822Z"
+    },
+    "items:piasnews-c38188b3659ca8ba:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-c38188b3659ca8ba",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-10T23:08:48.845826Z"
+    },
+    "items:piasnews-aeb8141697cbabbb:title:41d70a0608a2573fc2df68b7": {
+      "dataset": "items",
+      "item_id": "piasnews-aeb8141697cbabbb",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "What's behind Oscar Piastri's split with Mark Webber – and what it means for his F1 career",
+      "zh": "Oscar Piastri与Mark Webber分道扬镳的背后原因——以及这对他的F1生涯意味着什么",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-10T23:08:48.845829Z"
+    },
+    "items:piasnews-aeb8141697cbabbb:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-aeb8141697cbabbb",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的关于车队或赛车性能的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-10T23:08:48.845832Z"
     }
   },
   "retention_days": 8

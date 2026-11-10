@@ -1,35 +1,40 @@
 {
-  "generated_at": "2026-11-10T13:48:45.213700Z",
+  "generated_at": "2026-11-10T23:05:32.694380Z",
   "window_days": 7,
-  "total_items": 103,
+  "total_items": 106,
   "latest_date": "2026-11-10",
   "days": [
     {
       "date": "2026-11-10",
-      "total_new_items": 8,
+      "total_new_items": 14,
       "official_new_items": 0,
-      "media_new_items": 8,
+      "media_new_items": 14,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "Fox Sports": 1,
+        "GPblog": 1,
         "Grande Prêmio": 1,
+        "Lente Desportiva": 1,
         "Nextgen-Auto.com": 1,
-        "RacingNews365": 1,
+        "Nine.com.au": 1,
+        "RacingNews365": 2,
         "Sportscape Magazine": 1,
         "TodayPress.tv": 1,
-        "Yahoo Sports": 2
+        "Yahoo Sports": 2,
+        "https://streamlinefeed.co.ke/": 1,
+        "roundtable.io": 1
       },
       "categories": {
-        "other": 1,
-        "team": 7
+        "other": 3,
+        "team": 11
       }
     },
     {
       "date": "2026-11-09",
-      "total_new_items": 53,
+      "total_new_items": 54,
       "official_new_items": 1,
-      "media_new_items": 52,
+      "media_new_items": 53,
       "x_new_items": 0,
       "rumor_new_items": 2,
       "sources": {
@@ -69,7 +74,7 @@
         "The Sunday Guardian": 1,
         "UA.NEWS": 1,
         "Yahoo News Australia": 1,
-        "Yahoo Sports": 2,
+        "Yahoo Sports": 3,
         "grandprix247": 1,
         "https://www.autohebdof1.com/": 1,
         "news.gp": 1,
@@ -80,7 +85,7 @@
         "other": 15,
         "race": 6,
         "rumor": 2,
-        "team": 29
+        "team": 30
       }
     },
     {
@@ -184,24 +189,6 @@
       "categories": {
         "race": 1
       }
-    },
-    {
-      "date": "2026-11-03",
-      "total_new_items": 4,
-      "official_new_items": 1,
-      "media_new_items": 3,
-      "x_new_items": 0,
-      "rumor_new_items": 0,
-      "sources": {
-        "F1 Oversteer": 1,
-        "Formula 1": 1,
-        "GPblog": 1,
-        "SPEEDWEEK.com": 1
-      },
-      "categories": {
-        "race": 3,
-        "team": 1
-      }
     }
   ],
   "feed_status": [
@@ -231,14 +218,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 89
+      "items": 91
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 59
+      "items": 60
     },
     {
       "query": "\"OP81\" when:3d",
@@ -252,7 +239,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 20
+      "items": 15
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
@@ -266,17 +253,18 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22interview%22+when%3A3d",
       "ok": true,
-      "items": 1
+      "items": 4
     },
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 99,
-      "kept": 67,
+      "checked": 96,
+      "kept": 65,
       "results": {
-        "publisher_date_missing": 12,
+        "outside_window": 1,
+        "publisher_date_missing": 10,
         "publisher_unavailable": 20,
-        "verified": 67
+        "verified": 65
       }
     },
     {
@@ -284,8 +272,8 @@
       "ok": true,
       "discovery_days": 3,
       "retention_days": 7,
-      "previous_items": 100,
-      "kept": 103
+      "previous_items": 103,
+      "kept": 106
     }
   ]
 }
