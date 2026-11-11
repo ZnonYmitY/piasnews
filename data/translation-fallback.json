@@ -1,11 +1,31 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-10T13:51:34.070117Z",
+  "generated_at": "2026-11-11T03:11:18.354603Z",
   "status": "action_required",
-  "pending_count": 1,
+  "pending_count": 3,
   "ignored_non_text_count": 0,
   "workbench_path": "../immersive/translation-workbench.html",
   "items": [
+    {
+      "key": "social:piasnews-social-d4ccf1f32392ad1d:summary:82f76afd1bc96503465e71bc",
+      "dataset": "social",
+      "item_id": "piasnews-social-d4ccf1f32392ad1d",
+      "target_field": "summary_zh",
+      "source_text": "@Racingnews365 https://t.co/5dKCuSmnBD",
+      "source_url": "https://x.com/oscarpiastri81/status/2120239259743592830",
+      "source_name": "@oscarpiastri81",
+      "reason": "llm_mapping_missing"
+    },
+    {
+      "key": "social:piasnews-social-eb7b9144c36cadcf:summary:82f76afd1bc96503465e71bc",
+      "dataset": "social",
+      "item_id": "piasnews-social-eb7b9144c36cadcf",
+      "target_field": "summary_zh",
+      "source_text": "@Racingnews365 https://t.co/5dKCuSmnBD",
+      "source_url": "https://x.com/oscarpiastri81/status/2120239109373673729",
+      "source_name": "@oscarpiastri81",
+      "reason": "llm_mapping_missing"
+    },
     {
       "key": "social:piasnews-social-d17fda9225b1eb7d:summary:6c1c90614d5fc2895044115a",
       "dataset": "social",
