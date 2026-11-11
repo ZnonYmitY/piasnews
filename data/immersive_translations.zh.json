@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-11T15:26:05.543178Z",
+  "generated_at": "2026-11-11T21:07:58.673247Z",
   "translations": {
     "items:piasnews-15a7f36c4f832a9c:title:2750279b3238f458e8f2b36a": {
       "dataset": "items",
@@ -5077,6 +5077,54 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-11-11T15:26:05.018090Z"
+    },
+    "items:piasnews-20bf41e0c0100678:title:40a03d13cc6a09437b498b85": {
+      "dataset": "items",
+      "item_id": "piasnews-20bf41e0c0100678",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Ralf Schumacher says McLaren rivals no longer think Oscar Piastri is ‘world champion’ calibre",
+      "zh": "拉尔夫·舒马赫表示，McLaren的对手们不再认为Oscar Piastri具备“世界冠军”水准",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-11T21:07:57.784173Z"
+    },
+    "items:piasnews-20bf41e0c0100678:summary:0d864a8260f8519601fd9ae1": {
+      "dataset": "items",
+      "item_id": "piasnews-20bf41e0c0100678",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Quote or interview-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的引述或采访相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-11T21:07:57.784183Z"
+    },
+    "items:piasnews-801abf7c0c39b34a:title:38a58bdbd50e44d8017b1c81": {
+      "dataset": "items",
+      "item_id": "piasnews-801abf7c0c39b34a",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri picks his GOAT in formula 1",
+      "zh": "Oscar Piastri选出了他心目中的F1历史最佳（GOAT）",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-11T21:07:57.784189Z"
+    },
+    "items:piasnews-801abf7c0c39b34a:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-801abf7c0c39b34a",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-11T21:07:57.784195Z"
     }
   },
   "retention_days": 8
