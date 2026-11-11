@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-11T09:12:52.243372Z",
+  "generated_at": "2026-11-11T12:14:14.983974Z",
   "translations": {
     "items:piasnews-15a7f36c4f832a9c:title:2750279b3238f458e8f2b36a": {
       "dataset": "items",
@@ -4897,6 +4897,114 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-11-11T06:11:40.699917Z"
+    },
+    "items:piasnews-2bedf4b57da23a47:title:aff80b2cd214cc925bca2acc": {
+      "dataset": "items",
+      "item_id": "piasnews-2bedf4b57da23a47",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri’s McLaren sponsor Etihad unveils first F1 livery on a Boeing 787",
+      "zh": "Oscar Piastri 所属 McLaren 赞助商 Etihad 在波音 787 上首次展示 F1 涂装",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-11T12:14:13.981141Z"
+    },
+    "items:piasnews-2bedf4b57da23a47:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-2bedf4b57da23a47",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-11T12:14:13.981148Z"
+    },
+    "items:piasnews-8d14c11c645ea8c8:title:95193f5159153dc3192b833a": {
+      "dataset": "items",
+      "item_id": "piasnews-8d14c11c645ea8c8",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Formula 1: Piastri and Webber part ways mutually",
+      "zh": "F1：Piastri 与 Webber 双方协商后分道扬镳",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-11T12:14:13.981152Z"
+    },
+    "items:piasnews-8d14c11c645ea8c8:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-8d14c11c645ea8c8",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的内容。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-11T12:14:13.981156Z"
+    },
+    "items:piasnews-b0f4432bd229c646:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-b0f4432bd229c646",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-11T12:14:13.981160Z"
+    },
+    "social:piasnews-social-ec074fa48dec3419:summary:1f7a5a4249f015cf9277221d": {
+      "dataset": "social",
+      "item_id": "piasnews-social-ec074fa48dec3419",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @oscarpiastri81: Ugh, you couldn’t pay me to say a nice thing about that Oscar Piastri guy. And don’t even get me started on his maroon…",
+      "zh": "RT @oscarpiastri81：唉，就算给我钱，我也说不出那个 Oscar Piastri 什么好话。更别提他那件栗色……",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-11T12:14:13.981164Z"
+    },
+    "social:piasnews-social-0fae088890e51f31:summary:62564da67d7315e13150324a": {
+      "dataset": "social",
+      "item_id": "piasnews-social-0fae088890e51f31",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "I spent ten minutes trying to come up with something negative to say about him and this was genuinely the best I could do. I also really like the maroon shirt. I think it looks nice.",
+      "zh": "我花了十分钟想找点他的负面评价，结果这已经是我能想到的最狠的话了。其实我还挺喜欢那件栗色衬衫的，我觉得挺好看。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-11T12:14:13.981168Z"
+    },
+    "social:piasnews-social-2bfc6fedbaae123b:summary:bbcdd40012ab67e63b26c465": {
+      "dataset": "social",
+      "item_id": "piasnews-social-2bfc6fedbaae123b",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Ugh, you couldn’t pay me to say a nice thing about that Oscar Piastri guy. And don’t even get me started on his maroon shirt. Anyway, hi, I remain available for any future fan content starting in December. I’m comfortable on camera and willing to travel.",
+      "zh": "唉，就算给我钱，我也说不出那个 Oscar Piastri 什么好话。更别提他那件栗色衬衫了。总之，大家好，从十二月起我仍然可以接任何未来的粉丝内容合作。我上镜很自在，也愿意出差。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-11T12:14:13.981174Z"
+    },
+    "social:piasnews-social-b5029f66b37bed56:summary:f2d147d3321dabba8c068fee": {
+      "dataset": "social",
+      "item_id": "piasnews-social-b5029f66b37bed56",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @frmtheprecipice: Once again would it kill you to do basic due diligence on who you let in the doors @McLarenF1 https://t.co/nzXcxZu0Bq",
+      "zh": "RT @frmtheprecipice：再说一次，@McLarenF1 你们对放进来的人做点基本的尽职调查会死吗",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-11T12:14:13.981179Z"
     }
   },
   "retention_days": 8
