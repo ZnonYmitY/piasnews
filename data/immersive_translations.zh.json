@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-11T12:14:14.983974Z",
+  "generated_at": "2026-11-11T15:26:05.543178Z",
   "translations": {
     "items:piasnews-15a7f36c4f832a9c:title:2750279b3238f458e8f2b36a": {
       "dataset": "items",
@@ -5005,6 +5005,78 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-11-11T12:14:13.981179Z"
+    },
+    "items:piasnews-b0f4432bd229c646:title:fe809e38ffeeb44ca94441ec": {
+      "dataset": "items",
+      "item_id": "piasnews-b0f4432bd229c646",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri, McLaren, Interlagos, 2026",
+      "zh": "Oscar Piastri，McLaren，英特拉格斯，2026",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-11T15:26:05.018071Z"
+    },
+    "social:piasnews-social-c31a5d3cdf9ed9ef:summary:9ae121c446e4b52f8bb5e0f3": {
+      "dataset": "social",
+      "item_id": "piasnews-social-c31a5d3cdf9ed9ef",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "\"going through the junior ranks all the cars are different, you're always learning new things. that adaptability is the really important thing going through the ranks, because you don't have that much track time or many sets of tyres to really get into the swing of things.\" https://t.co/buMFJPvOyf",
+      "zh": "“在青年组别一路走来，每辆赛车都不一样，你总是在学新东西。这种适应能力在晋升过程中才是真正重要的，因为你没有那么多赛道时间或那么多套轮胎来真正进入状态。”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-11T15:26:05.018078Z"
+    },
+    "social:piasnews-social-1eb4b502f5678683:summary:8b84646f88a4189a986bed41": {
+      "dataset": "social",
+      "item_id": "piasnews-social-1eb4b502f5678683",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @etihad: From the racetrack to the skies, and now on board. Our McLaren Racing-themed Boeing 787 Dreamliner has completed its inaugural…",
+      "zh": "RT @etihad：从赛道到天空，如今登上客舱。我们以McLaren Racing为主题的波音787梦想客机已完成首航…",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-11T15:26:05.018081Z"
+    },
+    "social:piasnews-social-d90f0efff18d3e64:summary:8c174b23fee1b413447476ac": {
+      "dataset": "social",
+      "item_id": "piasnews-social-d90f0efff18d3e64",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Really proud of him for finally finding a way to monetize his naps. His talent went unrecognized for years. https://t.co/QQnaacbby4",
+      "zh": "真为他终于找到把打盹变现的办法而骄傲。他的天赋多年来一直未被认可。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-11T15:26:05.018084Z"
+    },
+    "social:piasnews-social-67f245526a8d50e1:summary:b83dda05488236e383811012": {
+      "dataset": "social",
+      "item_id": "piasnews-social-67f245526a8d50e1",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar's tiny cameo in the new etihad x mclaren campaign! https://t.co/weMor3rbix",
+      "zh": "oscar在全新的etihad x mclaren宣传活动中短暂出镜！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-11T15:26:05.018087Z"
+    },
+    "social:piasnews-social-981adaa72da7b54e:summary:40c3c630b35f90604953dabd": {
+      "dataset": "social",
+      "item_id": "piasnews-social-981adaa72da7b54e",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar seeing everyone's headloss after the recent events https://t.co/4euCACuxvN",
+      "zh": "oscar看着大家在近期事件后的集体崩溃",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-11T15:26:05.018090Z"
     }
   },
   "retention_days": 8
