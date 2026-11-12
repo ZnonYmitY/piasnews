@@ -1,19 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-12T06:43:53.354777Z",
+  "generated_at": "2026-11-12T09:44:59.758250Z",
   "translations": {
-    "social:piasnews-social-2377442ccb124b28:summary:6df79d7ab26170338877e414": {
-      "dataset": "social",
-      "item_id": "piasnews-social-2377442ccb124b28",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "oscar meeting fans last night in brazil 🫶🏻 looks like it might've been after the annual car 81 crew dinner!! https://t.co/gCPXKln2Xp",
-      "zh": "Oscar昨晚在巴西与粉丝见面 🫶🏻 看起来可能是在一年一度的81号车组聚餐之后！！",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-11-04T09:36:01.730511Z"
-    },
     "items:piasnews-8f3bf453736eec51:title:c45bcf650b6efaed25b052e3": {
       "dataset": "items",
       "item_id": "piasnews-8f3bf453736eec51",
@@ -4837,6 +4825,54 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-11-12T03:43:08.145317Z"
+    },
+    "items:piasnews-f6744f0c05524f71:title:3133dbb1ec298387899afc02": {
+      "dataset": "items",
+      "item_id": "piasnews-f6744f0c05524f71",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Andrea Stella just showed his true feelings about Oscar Piastri after Lando Norris’ latest win",
+      "zh": "在Lando Norris最新夺冠后，Andrea Stella刚刚表露了对Oscar Piastri的真实感受",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-12T09:44:59.230378Z"
+    },
+    "items:piasnews-f6744f0c05524f71:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-f6744f0c05524f71",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-12T09:44:59.230386Z"
+    },
+    "items:piasnews-0f12b7896b7096a0:title:2a89704d53292dbf58e1269c": {
+      "dataset": "items",
+      "item_id": "piasnews-0f12b7896b7096a0",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri splits with Mark Webber after disappointing F1 season",
+      "zh": "Oscar Piastri在令人失望的F1赛季后与Mark Webber分道扬镳",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-12T09:44:59.230390Z"
+    },
+    "items:piasnews-0f12b7896b7096a0:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-0f12b7896b7096a0",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-12T09:44:59.230392Z"
     }
   },
   "retention_days": 8
