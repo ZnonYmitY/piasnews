@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-12T09:44:59.758250Z",
+  "generated_at": "2026-11-12T12:50:00.614425Z",
   "translations": {
     "items:piasnews-8f3bf453736eec51:title:c45bcf650b6efaed25b052e3": {
       "dataset": "items",
@@ -4873,6 +4873,114 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-11-12T09:44:59.230392Z"
+    },
+    "items:piasnews-72a59b27c73e8326:title:2069d5e80b92e04433a2819d": {
+      "dataset": "items",
+      "item_id": "piasnews-72a59b27c73e8326",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "F1 Daily: Piastri Splits From Webber, Drivers Complain to Pirelli, and Vandoorne Joins Jaguar",
+      "zh": "F1日报：Piastri与Webber分道扬镳，车手向倍耐力投诉，Vandoorne加盟Jaguar",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-12T12:49:59.945352Z"
+    },
+    "items:piasnews-72a59b27c73e8326:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-72a59b27c73e8326",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-12T12:49:59.945358Z"
+    },
+    "items:piasnews-92d7545b8a6b0b7d:title:b66909c5116111e07cf96d07": {
+      "dataset": "items",
+      "item_id": "piasnews-92d7545b8a6b0b7d",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri and Mark Webber End Their Professional Relationship: Implications for the Driver’s Career",
+      "zh": "Oscar Piastri与Mark Webber结束职业合作关系：对车手职业生涯的影响",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-12T12:49:59.945362Z"
+    },
+    "items:piasnews-92d7545b8a6b0b7d:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-92d7545b8a6b0b7d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的关于车队或赛车性能的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-12T12:49:59.945365Z"
+    },
+    "items:piasnews-a80b7bb4912a321b:title:5a00cc66ce24a7f14252542e": {
+      "dataset": "items",
+      "item_id": "piasnews-a80b7bb4912a321b",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri ends management agreement with with Australian legend Mark Webber",
+      "zh": "Oscar Piastri结束与澳大利亚传奇车手Mark Webber的管理协议",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-12T12:49:59.945368Z"
+    },
+    "items:piasnews-a80b7bb4912a321b:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-a80b7bb4912a321b",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的关于车队或赛车性能的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-12T12:49:59.945371Z"
+    },
+    "items:piasnews-7a1618b4f9e0b65f:title:173d840265a84b3e142dd64a": {
+      "dataset": "items",
+      "item_id": "piasnews-7a1618b4f9e0b65f",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri and Webber agree to end management partnership",
+      "zh": "Piastri与Webber同意结束管理合作关系",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-12T12:49:59.945376Z"
+    },
+    "items:piasnews-7a1618b4f9e0b65f:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-7a1618b4f9e0b65f",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-12T12:49:59.945382Z"
+    },
+    "social:piasnews-social-3d9aacd9c1876dea:summary:a7b00d07d3478584466d1c5e": {
+      "dataset": "social",
+      "item_id": "piasnews-social-3d9aacd9c1876dea",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar: \"lando's gonna do karaoke\" lando: \"am i now?\" oscar: \"yeah. mamma mia! that's your thing\" director: \"sing a little note together?\" lando: \".....no\" oscar: \"we'll do a lot of things, that's not one of them\" 😭😭😭 https://t.co/2rKeqCGP7t",
+      "zh": "oscar：“lando要去唱卡拉OK” lando：“是吗？” oscar：“对啊。Mamma Mia！那是你的拿手好戏” 导演：“一起唱一小段？” lando：“……不” oscar：“我们会做很多事，但那不在其中” 😭😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-12T12:49:59.945387Z"
     }
   },
   "retention_days": 8
