@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-13T13:34:58.343607Z",
+  "generated_at": "2026-11-13T16:35:50.569184Z",
   "translations": {
     "items:piasnews-3902ad72f3c00a5c:title:8db15fbce1eab0611dae677d": {
       "dataset": "items",
@@ -4981,6 +4981,114 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-11-13T13:34:57.381599Z"
+    },
+    "items:piasnews-dcfc998ee0e5f9c9:title:879c66b414d8afec4bdcbfdb": {
+      "dataset": "items",
+      "item_id": "piasnews-dcfc998ee0e5f9c9",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Hadjar scores more than Piastri, Lawson and Russell in five F1 races — and strengthens Red Bull's comeback",
+      "zh": "Hadjar在五场F1比赛中积分超过Piastri、Lawson和Russell——并增强了Red Bull的回归势头",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-13T16:35:49.823376Z"
+    },
+    "items:piasnews-dcfc998ee0e5f9c9:summary:70784e7f6008a4a7ae397845": {
+      "dataset": "items",
+      "item_id": "piasnews-dcfc998ee0e5f9c9",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Rumor or speculative report; treat as unverified unless confirmed by official sources.",
+      "zh": "传闻或推测性报道；除非官方消息源确认，否则视为未经证实。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-13T16:35:49.823383Z"
+    },
+    "items:piasnews-5ab075089ecf9b90:title:dc7c4f689653f481646946e3": {
+      "dataset": "items",
+      "item_id": "piasnews-5ab075089ecf9b90",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Christian Horner: Helmut Marko not interested in \"w@nkers\" George Russell, Lando Norris, Oscar Piastri",
+      "zh": "Christian Horner：Helmut Marko对\"蠢货\"George Russell、Lando Norris、Oscar Piastri不感兴趣",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-13T16:35:49.823386Z"
+    },
+    "items:piasnews-5ab075089ecf9b90:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-5ab075089ecf9b90",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-13T16:35:49.823389Z"
+    },
+    "social:piasnews-social-e725c5041442c36b:summary:7343332d06dbc1de77fd43af": {
+      "dataset": "social",
+      "item_id": "piasnews-social-e725c5041442c36b",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "not lando shaming oscar's handwritting and calling him out for his spelling mistakes 😭😭😭 https://t.co/XtUbGSpCUI",
+      "zh": "Lando不是在羞辱Oscar的笔迹，还指出他的拼写错误 😭😭😭",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-13T16:35:49.823392Z"
+    },
+    "social:piasnews-social-e95776587428b958:summary:4102094e2eb9682877077b62": {
+      "dataset": "social",
+      "item_id": "piasnews-social-e95776587428b958",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @McLarenF1: The video you were all waiting for 🤝 #McLarenF1 https://t.co/iRUfmkfcGR",
+      "zh": "RT @McLarenF1：你们都在等的视频 🤝 #McLarenF1",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-13T16:35:49.823396Z"
+    },
+    "social:piasnews-social-1dc5d0a4c1caefba:summary:0a4c81c24ba29de047b6ddc9": {
+      "dataset": "social",
+      "item_id": "piasnews-social-1dc5d0a4c1caefba",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "oscar on padel matches between f1 drivers 😭 \"we take it far too seriously, yes. but it's very good fun and a good way of just keeping yourself awake.\" https://t.co/biPZzoaO2l",
+      "zh": "Oscar谈F1车手之间的板式网球比赛 😭 \"是的，我们太当真了。但真的很好玩，也是让自己保持清醒的好方法。\"",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-13T16:35:49.823400Z"
+    },
+    "social:piasnews-social-7ffe21a3b0bf0531:summary:dca1be40c6967e4d2309d389": {
+      "dataset": "social",
+      "item_id": "piasnews-social-7ffe21a3b0bf0531",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "apparently we're getting new f1 legos next year and each team's car will include MINIFIGURES OF BOTH DRIVERS WITH THEIR REAL HELMETS !!! we might finally get the lego oschelmet instead of some random bullshit 😭🙏🏻 https://t.co/5jrPWuODs4",
+      "zh": "据说我们明年会得到新的F1乐高，每支车队的赛车都会包含两位车手的MINIFIGURES，还带着他们真实的头盔！！！我们可能终于能得到乐高Osca头盔，而不是随便什么乱七八糟的东西 😭🙏🏻",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-13T16:35:49.823406Z"
+    },
+    "social:piasnews-social-3b66fab3359f8228:summary:d4a8acad99642cc3aeb18fbb": {
+      "dataset": "social",
+      "item_id": "piasnews-social-3b66fab3359f8228",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "RT @maxxtropy: oscar writing a birthday card for lando https://t.co/vz2JlfgqUL",
+      "zh": "RT @maxxtropy：Oscar给Lando写生日贺卡",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-13T16:35:49.823410Z"
     }
   },
   "retention_days": 8
