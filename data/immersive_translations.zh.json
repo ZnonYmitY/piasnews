@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-13T03:51:31.250616Z",
+  "generated_at": "2026-11-13T06:59:36.262746Z",
   "translations": {
     "social:piasnews-social-cee4c2595374b4f4:summary:79ee745a8243048e2f68ff50": {
       "dataset": "social",
@@ -4921,6 +4921,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-11-13T03:51:30.263466Z"
+    },
+    "items:piasnews-9e7701b3e5a675a4:title:22f2eb6d899d3dfef3643ae4": {
+      "dataset": "items",
+      "item_id": "piasnews-9e7701b3e5a675a4",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Piastri once beat Norris in F1's five-race form table. Then everything changed",
+      "zh": "Piastri 曾在 F1 五场比赛状态榜上击败 Norris，随后一切都变了",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-13T06:59:35.541817Z"
+    },
+    "items:piasnews-9e7701b3e5a675a4:summary:7f7c735e99427ccf70333fad": {
+      "dataset": "items",
+      "item_id": "piasnews-9e7701b3e5a675a4",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Race-week or performance-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的比赛周或表现相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-13T06:59:35.541824Z"
     }
   },
   "retention_days": 8
