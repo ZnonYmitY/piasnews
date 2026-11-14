@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-14T02:15:30.298603Z",
+  "generated_at": "2026-11-14T05:26:00.937421Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -35,7 +35,7 @@
           "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-11%2F20261107-0652-6af718ebce64b.jpg",
           "video_url": null,
           "video_poster_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-11%2F20261107-0652-6af718ebce64b.jpg",
-          "heat_contribution": 1.0,
+          "heat_contribution": 0.75,
           "metrics": {}
         },
         {
@@ -1162,9 +1162,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 51,
+      "media_heat": 49,
       "fan_heat": 0,
-      "heat": 51,
+      "heat": 49,
       "source_labels": [
         "媒"
       ],
@@ -1260,21 +1260,21 @@
           "image_url": "https://pbs.twimg.com/media/HXB3VXEXMAA2oay.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HXB3VXEXMAA2oay.jpg",
-          "heat_contribution": 8.0341,
+          "heat_contribution": 8.1895,
           "metrics": {
-            "likes": 2792,
-            "retweets": 184,
+            "likes": 3212,
+            "retweets": 219,
             "replies": 5,
             "quotes": 0,
-            "views": 93631,
+            "views": 113762,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 42,
-      "heat": 42,
+      "fan_heat": 43,
+      "heat": 43,
       "source_labels": [
         "粉"
       ],
@@ -1477,6 +1477,85 @@
       "rank": 6
     },
     {
+      "event_id": "evt-2026-11-11-5e594a975bc7",
+      "rule_id": null,
+      "hot_word_zh": "我花了十分钟想找点他的负面评价，结果这已经是我能想到的最狠的话了。",
+      "hot_word_en": "I spent ten minutes trying to come up with something negative to say about him and this was genuinely the bes…",
+      "first_seen_at": "2026-11-09T08:52:55Z",
+      "last_seen_at": "2026-11-11T10:52:11Z",
+      "anchor_item_id": "piasnews-social-0fae088890e51f31",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-0fae088890e51f31",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@oscarpiastri81",
+          "title": "X post from @oscarpiastri81: I spent ten minutes trying to come up with something negative to say about him and this was gen…",
+          "title_zh": "X 发帖 @oscarpiastri81：我花了十分钟想找点他的负面评价，结果这已经是我能想到的最狠的话了。其实我还挺喜欢那件栗色衬衫的，我觉得挺好看。",
+          "summary": "I spent ten minutes trying to come up with something negative to say about him and this was genuinely the best I could do. I also really like the maroon shirt. I think it looks nice.",
+          "summary_zh": "我花了十分钟想找点他的负面评价，结果这已经是我能想到的最狠的话了。其实我还挺喜欢那件栗色衬衫的，我觉得挺好看。",
+          "url": "https://x.com/oscarpiastri81/status/2120469634394780085",
+          "published_at": "2026-11-11T10:52:11Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 4.0194,
+          "metrics": {
+            "likes": 228,
+            "retweets": 3,
+            "replies": 1,
+            "quotes": 0,
+            "views": 3635,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-4a4b9b85f868afad",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: artturi do something",
+          "title_zh": "X 发帖 @laurogeitabat：artturi做点什么吧",
+          "summary": "artturi do something",
+          "summary_zh": "artturi做点什么吧",
+          "url": "https://x.com/laurogeitabat/status/2119714840650326290",
+          "published_at": "2026-11-09T08:52:55Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 0.0,
+          "metrics": {
+            "likes": 383,
+            "retweets": 50,
+            "replies": 1,
+            "quotes": 0,
+            "views": 6573,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 23,
+      "heat": 23,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 2
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 7
+    },
+    {
       "event_id": "evt-2026-11-10-0ebb0e5d6ad7",
       "rule_id": null,
       "hot_word_zh": "Russell和Piastri面临无情最后通牒，F1前途受到威胁",
@@ -1504,7 +1583,7 @@
           "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-09%2Frussell-6aa2ddc175a3e.jpg",
           "video_url": null,
           "video_poster_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-09%2Frussell-6aa2ddc175a3e.jpg",
-          "heat_contribution": 1.0,
+          "heat_contribution": 0.75,
           "metrics": {}
         },
         {
@@ -1521,7 +1600,7 @@
           "image_url": "https://s.yimg.com/lo/mysterio/api/6f41affb6cf59516519ddcffbceb5f11c8ec44f7977c620f63f034e3fda5dc17/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fgpblog_716%2F2bd29c96b782b054d784affaebc4d3a7",
           "video_url": null,
           "video_poster_url": "https://s.yimg.com/lo/mysterio/api/6f41affb6cf59516519ddcffbceb5f11c8ec44f7977c620f63f034e3fda5dc17/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fgpblog_716%2F2bd29c96b782b054d784affaebc4d3a7",
-          "heat_contribution": 1.0,
+          "heat_contribution": 0.75,
           "metrics": {}
         },
         {
@@ -1611,9 +1690,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 23,
+      "media_heat": 19,
       "fan_heat": 0,
-      "heat": 23,
+      "heat": 19,
       "source_labels": [
         "媒"
       ],
@@ -1621,85 +1700,6 @@
         "official": 0,
         "media": 7,
         "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 7
-    },
-    {
-      "event_id": "evt-2026-11-11-5e594a975bc7",
-      "rule_id": null,
-      "hot_word_zh": "我花了十分钟想找点他的负面评价，结果这已经是我能想到的最狠的话了。",
-      "hot_word_en": "I spent ten minutes trying to come up with something negative to say about him and this was genuinely the bes…",
-      "first_seen_at": "2026-11-09T08:52:55Z",
-      "last_seen_at": "2026-11-11T10:52:11Z",
-      "anchor_item_id": "piasnews-social-0fae088890e51f31",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-0fae088890e51f31",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@oscarpiastri81",
-          "title": "X post from @oscarpiastri81: I spent ten minutes trying to come up with something negative to say about him and this was gen…",
-          "title_zh": "X 发帖 @oscarpiastri81：我花了十分钟想找点他的负面评价，结果这已经是我能想到的最狠的话了。其实我还挺喜欢那件栗色衬衫的，我觉得挺好看。",
-          "summary": "I spent ten minutes trying to come up with something negative to say about him and this was genuinely the best I could do. I also really like the maroon shirt. I think it looks nice.",
-          "summary_zh": "我花了十分钟想找点他的负面评价，结果这已经是我能想到的最狠的话了。其实我还挺喜欢那件栗色衬衫的，我觉得挺好看。",
-          "url": "https://x.com/oscarpiastri81/status/2120469634394780085",
-          "published_at": "2026-11-11T10:52:11Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 4.0194,
-          "metrics": {
-            "likes": 228,
-            "retweets": 3,
-            "replies": 1,
-            "quotes": 0,
-            "views": 3635,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-4a4b9b85f868afad",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: artturi do something",
-          "title_zh": "X 发帖 @laurogeitabat：artturi做点什么吧",
-          "summary": "artturi do something",
-          "summary_zh": "artturi做点什么吧",
-          "url": "https://x.com/laurogeitabat/status/2119714840650326290",
-          "published_at": "2026-11-09T08:52:55Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 0.0,
-          "metrics": {
-            "likes": 383,
-            "retweets": 50,
-            "replies": 1,
-            "quotes": 0,
-            "views": 6573,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 23,
-      "heat": 23,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 2
       },
       "pinned_rank": null,
       "hidden": false,
@@ -1856,6 +1856,60 @@
   "review_needed_count": 52,
   "review_needed_events": [
     {
+      "event_id": "evt-2026-11-13-7050ae46c834",
+      "rule_id": null,
+      "hot_word_zh": "待补充事件标题",
+      "hot_word_en": "Event title needs review",
+      "first_seen_at": "2026-11-13T14:52:14Z",
+      "last_seen_at": "2026-11-13T14:52:14Z",
+      "anchor_item_id": "piasnews-social-ce047585fec75d01",
+      "image_url": "https://pbs.twimg.com/media/HXAiwebaoAAWju-.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HXAiwebaoAAWju-.jpg",
+      "review_needed": true,
+      "review_needed_reason": "insufficient_semantic_text",
+      "items": [
+        {
+          "item_id": "piasnews-social-ce047585fec75d01",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X repost from @laurogeitabat: RT @eighthisone: P1ASTRI",
+          "title_zh": "X 转帖 @laurogeitabat：转发 @eighthisone：P1ASTRI",
+          "summary": "RT @eighthisone: P1ASTRI https://t.co/2goOB8bdIP",
+          "summary_zh": "转发 @eighthisone：P1ASTRI",
+          "url": "https://x.com/laurogeitabat/status/2121254820908556428",
+          "published_at": "2026-11-13T14:52:14Z",
+          "image_url": "https://pbs.twimg.com/media/HXAiwebaoAAWju-.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HXAiwebaoAAWju-.jpg",
+          "heat_contribution": 7.0532,
+          "metrics": {
+            "likes": 0,
+            "retweets": 769,
+            "replies": 0,
+            "quotes": 0,
+            "views": 270,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 37,
+      "heat": 37,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false
+    },
+    {
       "event_id": "evt-2026-11-11-b95b3196b471",
       "rule_id": null,
       "hot_word_zh": "待补充事件标题",
@@ -1989,10 +2043,10 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2121271883345932288/vid/avc1/320x568/qUJ2xGV6davw3fm2.mp4?tag=16",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121271883345932288/img/kwWruw4iFJe5YiU_.jpg",
-          "heat_contribution": 7.8592,
+          "heat_contribution": 7.9226,
           "metrics": {
             "likes": 0,
-            "retweets": 1725,
+            "retweets": 1838,
             "replies": 0,
             "quotes": 0,
             "views": 124,
@@ -2105,10 +2159,10 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2121196968131141632/vid/avc1/320x568/XyZ48geqdOl84bIb.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121196968131141632/img/aZnljbhuJ5amtBjN.jpg",
-          "heat_contribution": 7.3774,
+          "heat_contribution": 7.396,
           "metrics": {
             "likes": 0,
-            "retweets": 1065,
+            "retweets": 1085,
             "replies": 0,
             "quotes": 0,
             "views": 133,
@@ -2163,13 +2217,13 @@
           "image_url": "https://pbs.twimg.com/media/HXA6cUlWQAAilLU.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HXA6cUlWQAAilLU.jpg",
-          "heat_contribution": 7.4655,
+          "heat_contribution": 7.5126,
           "metrics": {
-            "likes": 1647,
-            "retweets": 120,
+            "likes": 1715,
+            "retweets": 128,
             "replies": 9,
             "quotes": 0,
-            "views": 41361,
+            "views": 44184,
             "bookmarks": 0
           }
         }
@@ -2178,64 +2232,6 @@
       "media_heat": 0,
       "fan_heat": 39,
       "heat": 39,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-11-13-7050ae46c834",
-      "rule_id": null,
-      "hot_word_zh": "(原始内容存档于2018-09-26) (英语).",
-      "hot_word_en": "(原始内容存档于2018-09-26) (英语).",
-      "first_seen_at": "2026-11-13T14:52:14Z",
-      "last_seen_at": "2026-11-13T14:52:14Z",
-      "anchor_item_id": "piasnews-social-ce047585fec75d01",
-      "image_url": "https://pbs.twimg.com/media/HXAiwebaoAAWju-.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HXAiwebaoAAWju-.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-ce047585fec75d01",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X repost from @laurogeitabat: RT @eighthisone: P1ASTRI",
-          "title_zh": "X 转帖 @laurogeitabat：(原始内容存档于2018-09-26) (英语). RT @eightisone: P1ASTRI.",
-          "summary": "RT @eighthisone: P1ASTRI https://t.co/2goOB8bdIP",
-          "summary_zh": "(原始内容存档于2018-09-26) (英语). RT @eightisone: P1ASTRI.",
-          "url": "https://x.com/laurogeitabat/status/2121254820908556428",
-          "published_at": "2026-11-13T14:52:14Z",
-          "image_url": "https://pbs.twimg.com/media/HXAiwebaoAAWju-.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HXAiwebaoAAWju-.jpg",
-          "heat_contribution": 6.958,
-          "metrics": {
-            "likes": 0,
-            "retweets": 699,
-            "replies": 0,
-            "quotes": 0,
-            "views": 269,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 37,
-      "heat": 37,
       "source_labels": [
         "粉"
       ],
@@ -2279,13 +2275,129 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2121317925294358528/vid/avc1/480x270/kx1qhZl4dn3_tGSK.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121317925294358528/img/2Leaib2YcUuqDfYs.jpg",
-          "heat_contribution": 6.9313,
+          "heat_contribution": 7.1684,
           "metrics": {
-            "likes": 1052,
-            "retweets": 55,
+            "likes": 1327,
+            "retweets": 79,
             "replies": 4,
             "quotes": 0,
-            "views": 18977,
+            "views": 23209,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 38,
+      "heat": 38,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-13-758195d349cf",
+      "rule_id": null,
+      "hot_word_zh": "问：“菠萝该不该放在披萨上？” oscar：“如果你想这么做，我不会阻止你。这大概不太对。",
+      "hot_word_en": "Q: \"does pineapple belong on pizza?\" oscar: \"if you wanna do it i'm not gonna stop you.",
+      "first_seen_at": "2026-11-13T18:36:21Z",
+      "last_seen_at": "2026-11-13T18:36:21Z",
+      "anchor_item_id": "piasnews-social-56ad763069575c52",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2121311161639403520/vid/avc1/480x270/4PZeFAIqEnYbJV4u.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121311161639403520/img/4F0C-y413BD-Z7Uv.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-56ad763069575c52",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: Q: \"does pineapple belong on pizza?\" oscar: \"if you wanna do it i'm not gonna stop you. it's pr…",
+          "title_zh": "X 发帖 @laurogeitabat：问：“菠萝该不该放在披萨上？” oscar：“如果你想这么做，我不会阻止你。这大概不太对。我身上的意大利血统让我不得不说不行。” 😭😭😭😭",
+          "summary": "Q: \"does pineapple belong on pizza?\" oscar: \"if you wanna do it i'm not gonna stop you. it's probably not right. the italian blood in me makes me have to say no.\" 😭😭😭😭 https://t.co/QQ48ryBDEG",
+          "summary_zh": "问：“菠萝该不该放在披萨上？” oscar：“如果你想这么做，我不会阻止你。这大概不太对。我身上的意大利血统让我不得不说不行。” 😭😭😭😭",
+          "url": "https://x.com/laurogeitabat/status/2121311220628430884",
+          "published_at": "2026-11-13T18:36:21Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2121311161639403520/vid/avc1/480x270/4PZeFAIqEnYbJV4u.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121311161639403520/img/4F0C-y413BD-Z7Uv.jpg",
+          "heat_contribution": 6.9159,
+          "metrics": {
+            "likes": 1021,
+            "retweets": 95,
+            "replies": 0,
+            "quotes": 0,
+            "views": 13194,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 37,
+      "heat": 37,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-13-cfdc64aff8ad",
+      "rule_id": null,
+      "hot_word_zh": "问：“世界上被推的东西多还是被拉的东西多？” oscar：“我觉得是被推的，因为我觉得大多…",
+      "hot_word_en": "Q: \"are more things pushed or pulled in the world?\" oscar: \"i reckon pushed because i feel like most guys tha…",
+      "first_seen_at": "2026-11-13T18:52:42Z",
+      "last_seen_at": "2026-11-13T18:52:42Z",
+      "anchor_item_id": "piasnews-social-da059494af0cecfe",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2121315276306161664/vid/avc1/502x270/m2MjaOt6WEeN6DyN.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121315276306161664/img/u0mM9r805b-DWpjU.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-da059494af0cecfe",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: Q: \"are more things pushed or pulled in the world?\" oscar: \"i reckon pushed because i feel like…",
+          "title_zh": "X 发帖 @laurogeitabat：问：“世界上被推的东西多还是被拉的东西多？” oscar：“我觉得是被推的，因为我觉得大多数去健身房的人都想做卧推” 他到底怎么回事 😭😭😭",
+          "summary": "Q: \"are more things pushed or pulled in the world?\" oscar: \"i reckon pushed because i feel like most guys that go to the gym wanna do bench press\" WHAT IS HIS ISSUE 😭😭😭 https://t.co/TpJONnBR5O",
+          "summary_zh": "问：“世界上被推的东西多还是被拉的东西多？” oscar：“我觉得是被推的，因为我觉得大多数去健身房的人都想做卧推” 他到底怎么回事 😭😭😭",
+          "url": "https://x.com/laurogeitabat/status/2121315333105668494",
+          "published_at": "2026-11-13T18:52:42Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2121315276306161664/vid/avc1/502x270/m2MjaOt6WEeN6DyN.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121315276306161664/img/u0mM9r805b-DWpjU.jpg",
+          "heat_contribution": 7.1114,
+          "metrics": {
+            "likes": 1301,
+            "retweets": 58,
+            "replies": 1,
+            "quotes": 0,
+            "views": 21323,
             "bookmarks": 0
           }
         }
@@ -2453,13 +2565,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2121213505739128832/vid/avc1/320x560/fOpiToODFLRIKoBU.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121213505739128832/img/n54gOyXAWxdzHmcD.jpg",
-          "heat_contribution": 6.8494,
+          "heat_contribution": 6.8787,
           "metrics": {
-            "likes": 929,
-            "retweets": 90,
+            "likes": 949,
+            "retweets": 94,
             "replies": 1,
             "quotes": 0,
-            "views": 14443,
+            "views": 15380,
             "bookmarks": 0
           }
         }
@@ -2484,40 +2596,98 @@
       }
     },
     {
-      "event_id": "evt-2026-11-13-cfdc64aff8ad",
+      "event_id": "evt-2026-11-13-31e0007c4115",
       "rule_id": null,
-      "hot_word_zh": "问：“世界上被推的东西多还是被拉的东西多？” oscar：“我觉得是被推的，因为我觉得大多…",
-      "hot_word_en": "Q: \"are more things pushed or pulled in the world?\" oscar: \"i reckon pushed because i feel like most guys tha…",
-      "first_seen_at": "2026-11-13T18:52:42Z",
-      "last_seen_at": "2026-11-13T18:52:42Z",
-      "anchor_item_id": "piasnews-social-da059494af0cecfe",
+      "hot_word_zh": "问：“吸管是一个洞还是两个洞？”Oscar：“呃……吸管有两端，但严格来说，我猜是一个洞。”",
+      "hot_word_en": "Q: \"is a straw one hole or two?\" oscar: \"i mean... there's two ends to a straw, but it's technically one hole…",
+      "first_seen_at": "2026-11-13T18:31:43Z",
+      "last_seen_at": "2026-11-13T18:31:43Z",
+      "anchor_item_id": "piasnews-social-cdc666e6d38d5a64",
       "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2121315276306161664/vid/avc1/502x270/m2MjaOt6WEeN6DyN.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121315276306161664/img/u0mM9r805b-DWpjU.jpg",
+      "video_url": "https://video.twimg.com/amplify_video/2121309989478248448/vid/avc1/490x270/oLUNJ-3SjQP_Iwq_.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121309989478248448/img/r3BAYiq-0JmCUCYF.jpg",
       "review_needed": true,
       "review_needed_reason": "fan_account_public_cap",
       "items": [
         {
-          "item_id": "piasnews-social-da059494af0cecfe",
+          "item_id": "piasnews-social-cdc666e6d38d5a64",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: Q: \"are more things pushed or pulled in the world?\" oscar: \"i reckon pushed because i feel like…",
-          "title_zh": "X 发帖 @laurogeitabat：问：“世界上被推的东西多还是被拉的东西多？” oscar：“我觉得是被推的，因为我觉得大多数去健身房的人都想做卧推” 他到底怎么回事 😭😭😭",
-          "summary": "Q: \"are more things pushed or pulled in the world?\" oscar: \"i reckon pushed because i feel like most guys that go to the gym wanna do bench press\" WHAT IS HIS ISSUE 😭😭😭 https://t.co/TpJONnBR5O",
-          "summary_zh": "问：“世界上被推的东西多还是被拉的东西多？” oscar：“我觉得是被推的，因为我觉得大多数去健身房的人都想做卧推” 他到底怎么回事 😭😭😭",
-          "url": "https://x.com/laurogeitabat/status/2121315333105668494",
-          "published_at": "2026-11-13T18:52:42Z",
+          "title": "X post from @laurogeitabat: Q: \"is a straw one hole or two?\" oscar: \"i mean... there's two ends to a straw, but it's techni…",
+          "title_zh": "X 发帖 @laurogeitabat：问：“吸管是一个洞还是两个洞？”Oscar：“呃……吸管有两端，但严格来说，我猜是一个洞。”",
+          "summary": "Q: \"is a straw one hole or two?\" oscar: \"i mean... there's two ends to a straw, but it's technically one hole, i guess\" https://t.co/YLflqMcQu8",
+          "summary_zh": "问：“吸管是一个洞还是两个洞？”Oscar：“呃……吸管有两端，但严格来说，我猜是一个洞。”",
+          "url": "https://x.com/laurogeitabat/status/2121310052367630398",
+          "published_at": "2026-11-13T18:31:43Z",
           "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2121315276306161664/vid/avc1/502x270/m2MjaOt6WEeN6DyN.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121315276306161664/img/u0mM9r805b-DWpjU.jpg",
-          "heat_contribution": 6.8078,
+          "video_url": "https://video.twimg.com/amplify_video/2121309989478248448/vid/avc1/490x270/oLUNJ-3SjQP_Iwq_.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121309989478248448/img/r3BAYiq-0JmCUCYF.jpg",
+          "heat_contribution": 6.8894,
           "metrics": {
-            "likes": 952,
-            "retweets": 41,
+            "likes": 1079,
+            "retweets": 55,
+            "replies": 3,
+            "quotes": 0,
+            "views": 10978,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 36,
+      "heat": 36,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-13-80a458919dd8",
+      "rule_id": null,
+      "hot_word_zh": "问：“狗穿裤子正确的方式是什么？” oscar：“扔进垃圾桶！两种都大错特错。",
+      "hot_word_en": "Q: \"what's the correct way for a dog to wear trousers?\" oscar: \"put them in the bin! bith are very wrong.",
+      "first_seen_at": "2026-11-13T18:41:42Z",
+      "last_seen_at": "2026-11-13T18:41:42Z",
+      "anchor_item_id": "piasnews-social-1f54497ee0457fab",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2121312518639419392/vid/avc1/502x270/5iMGDV_Iu3Cg4Wp7.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121312518639419392/img/ieWCoJnSsEdijACe.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-1f54497ee0457fab",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: Q: \"what's the correct way for a dog to wear trousers?\" oscar: \"put them in the bin! bith are v…",
+          "title_zh": "X 发帖 @laurogeitabat：问：“狗穿裤子正确的方式是什么？” oscar：“扔进垃圾桶！两种都大错特错。我觉得就穿后腿然后往上到……屁股。你不能四条腿都穿，那太奇怪了。” PLEASEDJHFXCY 😭😭",
+          "summary": "Q: \"what's the correct way for a dog to wear trousers?\" oscar: \"put them in the bin! bith are very wrong. i think just the back legs and going up the... bum. you can't have them on all 4 legs, that's weird.\" PLEASEDJHFXCY 😭😭 https://t.co/paALNY4asv",
+          "summary_zh": "问：“狗穿裤子正确的方式是什么？” oscar：“扔进垃圾桶！两种都大错特错。我觉得就穿后腿然后往上到……屁股。你不能四条腿都穿，那太奇怪了。” PLEASEDJHFXCY 😭😭",
+          "url": "https://x.com/laurogeitabat/status/2121312565884063830",
+          "published_at": "2026-11-13T18:41:42Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2121312518639419392/vid/avc1/502x270/5iMGDV_Iu3Cg4Wp7.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121312518639419392/img/ieWCoJnSsEdijACe.jpg",
+          "heat_contribution": 6.7615,
+          "metrics": {
+            "likes": 925,
+            "retweets": 54,
             "replies": 0,
             "quotes": 0,
-            "views": 17121,
+            "views": 11754,
             "bookmarks": 0
           }
         }
@@ -2569,13 +2739,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2121271883345932288/vid/avc1/320x568/qUJ2xGV6davw3fm2.mp4?tag=16",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121271883345932288/img/kwWruw4iFJe5YiU_.jpg",
-          "heat_contribution": 6.7943,
+          "heat_contribution": 6.8129,
           "metrics": {
-            "likes": 871,
-            "retweets": 62,
-            "replies": 3,
+            "likes": 883,
+            "retweets": 63,
+            "replies": 4,
             "quotes": 0,
-            "views": 18495,
+            "views": 19037,
             "bookmarks": 0
           }
         }
@@ -2743,187 +2913,13 @@
           "image_url": "https://pbs.twimg.com/media/HXASNEnWIAERVUD.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HXASNEnWIAERVUD.jpg",
-          "heat_contribution": 6.6479,
+          "heat_contribution": 6.6575,
           "metrics": {
-            "likes": 849,
-            "retweets": 56,
+            "likes": 856,
+            "retweets": 57,
             "replies": 0,
             "quotes": 0,
-            "views": 6584,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 35,
-      "heat": 35,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-11-13-31e0007c4115",
-      "rule_id": null,
-      "hot_word_zh": "问：“吸管是一个洞还是两个洞？”Oscar：“呃……吸管有两端，但严格来说，我猜是一个洞。”",
-      "hot_word_en": "Q: \"is a straw one hole or two?\" oscar: \"i mean... there's two ends to a straw, but it's technically one hole…",
-      "first_seen_at": "2026-11-13T18:31:43Z",
-      "last_seen_at": "2026-11-13T18:31:43Z",
-      "anchor_item_id": "piasnews-social-cdc666e6d38d5a64",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2121309989478248448/vid/avc1/490x270/oLUNJ-3SjQP_Iwq_.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121309989478248448/img/r3BAYiq-0JmCUCYF.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-cdc666e6d38d5a64",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: Q: \"is a straw one hole or two?\" oscar: \"i mean... there's two ends to a straw, but it's techni…",
-          "title_zh": "X 发帖 @laurogeitabat：问：“吸管是一个洞还是两个洞？”Oscar：“呃……吸管有两端，但严格来说，我猜是一个洞。”",
-          "summary": "Q: \"is a straw one hole or two?\" oscar: \"i mean... there's two ends to a straw, but it's technically one hole, i guess\" https://t.co/YLflqMcQu8",
-          "summary_zh": "问：“吸管是一个洞还是两个洞？”Oscar：“呃……吸管有两端，但严格来说，我猜是一个洞。”",
-          "url": "https://x.com/laurogeitabat/status/2121310052367630398",
-          "published_at": "2026-11-13T18:31:43Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2121309989478248448/vid/avc1/490x270/oLUNJ-3SjQP_Iwq_.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121309989478248448/img/r3BAYiq-0JmCUCYF.jpg",
-          "heat_contribution": 6.6783,
-          "metrics": {
-            "likes": 881,
-            "retweets": 42,
-            "replies": 1,
-            "quotes": 0,
-            "views": 9065,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 35,
-      "heat": 35,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-11-13-758195d349cf",
-      "rule_id": null,
-      "hot_word_zh": "问：“菠萝该不该放在披萨上？” oscar：“如果你想这么做，我不会阻止你。这大概不太对。",
-      "hot_word_en": "Q: \"does pineapple belong on pizza?\" oscar: \"if you wanna do it i'm not gonna stop you.",
-      "first_seen_at": "2026-11-13T18:36:21Z",
-      "last_seen_at": "2026-11-13T18:36:21Z",
-      "anchor_item_id": "piasnews-social-56ad763069575c52",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2121311161639403520/vid/avc1/480x270/4PZeFAIqEnYbJV4u.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121311161639403520/img/4F0C-y413BD-Z7Uv.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-56ad763069575c52",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: Q: \"does pineapple belong on pizza?\" oscar: \"if you wanna do it i'm not gonna stop you. it's pr…",
-          "title_zh": "X 发帖 @laurogeitabat：问：“菠萝该不该放在披萨上？” oscar：“如果你想这么做，我不会阻止你。这大概不太对。我身上的意大利血统让我不得不说不行。” 😭😭😭😭",
-          "summary": "Q: \"does pineapple belong on pizza?\" oscar: \"if you wanna do it i'm not gonna stop you. it's probably not right. the italian blood in me makes me have to say no.\" 😭😭😭😭 https://t.co/QQ48ryBDEG",
-          "summary_zh": "问：“菠萝该不该放在披萨上？” oscar：“如果你想这么做，我不会阻止你。这大概不太对。我身上的意大利血统让我不得不说不行。” 😭😭😭😭",
-          "url": "https://x.com/laurogeitabat/status/2121311220628430884",
-          "published_at": "2026-11-13T18:36:21Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2121311161639403520/vid/avc1/480x270/4PZeFAIqEnYbJV4u.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121311161639403520/img/4F0C-y413BD-Z7Uv.jpg",
-          "heat_contribution": 6.6473,
-          "metrics": {
-            "likes": 795,
-            "retweets": 65,
-            "replies": 0,
-            "quotes": 0,
-            "views": 10128,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 35,
-      "heat": 35,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-11-13-80a458919dd8",
-      "rule_id": null,
-      "hot_word_zh": "问：“狗穿裤子正确的方式是什么？” oscar：“扔进垃圾桶！两种都大错特错。",
-      "hot_word_en": "Q: \"what's the correct way for a dog to wear trousers?\" oscar: \"put them in the bin! bith are very wrong.",
-      "first_seen_at": "2026-11-13T18:41:42Z",
-      "last_seen_at": "2026-11-13T18:41:42Z",
-      "anchor_item_id": "piasnews-social-1f54497ee0457fab",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2121312518639419392/vid/avc1/502x270/5iMGDV_Iu3Cg4Wp7.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121312518639419392/img/ieWCoJnSsEdijACe.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-1f54497ee0457fab",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: Q: \"what's the correct way for a dog to wear trousers?\" oscar: \"put them in the bin! bith are v…",
-          "title_zh": "X 发帖 @laurogeitabat：问：“狗穿裤子正确的方式是什么？” oscar：“扔进垃圾桶！两种都大错特错。我觉得就穿后腿然后往上到……屁股。你不能四条腿都穿，那太奇怪了。” PLEASEDJHFXCY 😭😭",
-          "summary": "Q: \"what's the correct way for a dog to wear trousers?\" oscar: \"put them in the bin! bith are very wrong. i think just the back legs and going up the... bum. you can't have them on all 4 legs, that's weird.\" PLEASEDJHFXCY 😭😭 https://t.co/paALNY4asv",
-          "summary_zh": "问：“狗穿裤子正确的方式是什么？” oscar：“扔进垃圾桶！两种都大错特错。我觉得就穿后腿然后往上到……屁股。你不能四条腿都穿，那太奇怪了。” PLEASEDJHFXCY 😭😭",
-          "url": "https://x.com/laurogeitabat/status/2121312565884063830",
-          "published_at": "2026-11-13T18:41:42Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2121312518639419392/vid/avc1/502x270/5iMGDV_Iu3Cg4Wp7.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121312518639419392/img/ieWCoJnSsEdijACe.jpg",
-          "heat_contribution": 6.6349,
-          "metrics": {
-            "likes": 811,
-            "retweets": 50,
-            "replies": 0,
-            "quotes": 0,
-            "views": 10261,
+            "views": 6680,
             "bookmarks": 0
           }
         }
@@ -3006,6 +3002,64 @@
       }
     },
     {
+      "event_id": "evt-2026-11-13-05f5988b0675",
+      "rule_id": null,
+      "hot_word_zh": "“希望我在进步”你就是我的兄弟！！！继续加油Oscar，你正在进步 💪🏻🫶🏻",
+      "hot_word_en": "\"hopefully i'm making progress\" you are my guy !!! keep pushing oscar, you're getting there 💪🏻🫶🏻",
+      "first_seen_at": "2026-11-13T18:18:33Z",
+      "last_seen_at": "2026-11-13T18:18:33Z",
+      "anchor_item_id": "piasnews-social-8ba15afc48948199",
+      "image_url": "https://pbs.twimg.com/media/HXBlOO1X0AALu17.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HXBlOO1X0AALu17.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-8ba15afc48948199",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: \"hopefully i'm making progress\" you are my guy !!! keep pushing oscar, you're getting there 💪🏻🫶🏻",
+          "title_zh": "X 发帖 @laurogeitabat：“希望我在进步”你就是我的兄弟！！！继续加油Oscar，你正在进步 💪🏻🫶🏻",
+          "summary": "\"hopefully i'm making progress\" you are my guy !!! keep pushing oscar, you're getting there 💪🏻🫶🏻 https://t.co/ff8I2r4Cqp",
+          "summary_zh": "“希望我在进步”你就是我的兄弟！！！继续加油Oscar，你正在进步 💪🏻🫶🏻",
+          "url": "https://x.com/laurogeitabat/status/2121306742143189064",
+          "published_at": "2026-11-13T18:18:33Z",
+          "image_url": "https://pbs.twimg.com/media/HXBlOO1X0AALu17.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HXBlOO1X0AALu17.jpg",
+          "heat_contribution": 6.3103,
+          "metrics": {
+            "likes": 512,
+            "retweets": 80,
+            "replies": 1,
+            "quotes": 0,
+            "views": 5726,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 34,
+      "heat": 34,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
       "event_id": "evt-2026-11-13-23c08018bc86",
       "rule_id": null,
       "hot_word_zh": "Oscar谈今年什么给他带来快乐：“努力取得进步。我一直试图把结果从成功的定义中剔除。",
@@ -3033,13 +3087,71 @@
           "image_url": "https://pbs.twimg.com/media/HXBiw4dWcAAjuDJ.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HXBiw4dWcAAjuDJ.jpg",
-          "heat_contribution": 6.2944,
+          "heat_contribution": 6.3884,
           "metrics": {
-            "likes": 491,
-            "retweets": 82,
+            "likes": 538,
+            "retweets": 91,
             "replies": 0,
             "quotes": 0,
-            "views": 6571,
+            "views": 7186,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 34,
+      "heat": 34,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-13-26a1a3162e9c",
+      "rule_id": null,
+      "hot_word_zh": "Oscar谈如何从F1中抽离：“这是个挑战，但在赛道之外我享受一如既往的事情——和女朋友共…",
+      "hot_word_en": "oscar on switching off from f1: \"it's a challenge, but outside of the track i enjoy the same things i always…",
+      "first_seen_at": "2026-11-13T18:03:26Z",
+      "last_seen_at": "2026-11-13T18:03:26Z",
+      "anchor_item_id": "piasnews-social-c6afca0be097b8a5",
+      "image_url": "https://pbs.twimg.com/media/HXBhwfsWEAANSJ-.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HXBhwfsWEAANSJ-.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-c6afca0be097b8a5",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar on switching off from f1: \"it's a challenge, but outside of the track i enjoy the same th…",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar谈如何从F1中抽离：“这是个挑战，但在赛道之外我享受一如既往的事情——和女朋友共度时光、有时间放松、看电视、玩模拟器和电子游戏。这些是同样带给我快乐的事情，没有改变。”",
+          "summary": "oscar on switching off from f1: \"it's a challenge, but outside of the track i enjoy the same things i always have - spending time with my girlfriend, having time to decompress, watch tv, play my sim &amp; video games. they're the same things that bring me joy, that hasn't changed.\" https://t.co/GecSr51bMb",
+          "summary_zh": "Oscar谈如何从F1中抽离：“这是个挑战，但在赛道之外我享受一如既往的事情——和女朋友共度时光、有时间放松、看电视、玩模拟器和电子游戏。这些是同样带给我快乐的事情，没有改变。”",
+          "url": "https://x.com/laurogeitabat/status/2121302936185635057",
+          "published_at": "2026-11-13T18:03:26Z",
+          "image_url": "https://pbs.twimg.com/media/HXBhwfsWEAANSJ-.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HXBhwfsWEAANSJ-.jpg",
+          "heat_contribution": 6.3436,
+          "metrics": {
+            "likes": 587,
+            "retweets": 47,
+            "replies": 0,
+            "quotes": 0,
+            "views": 7612,
             "bookmarks": 0
           }
         }
@@ -3091,129 +3203,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2121215069727965184/vid/avc1/320x560/oD-qHP9BwmOFAnZ4.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121215069727965184/img/kk8buylsS_ww3vwY.jpg",
-          "heat_contribution": 6.2309,
+          "heat_contribution": 6.2436,
           "metrics": {
-            "likes": 438,
+            "likes": 444,
             "retweets": 54,
             "replies": 0,
             "quotes": 0,
-            "views": 13029,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 33,
-      "heat": 33,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-11-13-05f5988b0675",
-      "rule_id": null,
-      "hot_word_zh": "“希望我在进步”你就是我的兄弟！！！继续加油Oscar，你正在进步 💪🏻🫶🏻",
-      "hot_word_en": "\"hopefully i'm making progress\" you are my guy !!! keep pushing oscar, you're getting there 💪🏻🫶🏻",
-      "first_seen_at": "2026-11-13T18:18:33Z",
-      "last_seen_at": "2026-11-13T18:18:33Z",
-      "anchor_item_id": "piasnews-social-8ba15afc48948199",
-      "image_url": "https://pbs.twimg.com/media/HXBlOO1X0AALu17.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HXBlOO1X0AALu17.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-8ba15afc48948199",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: \"hopefully i'm making progress\" you are my guy !!! keep pushing oscar, you're getting there 💪🏻🫶🏻",
-          "title_zh": "X 发帖 @laurogeitabat：“希望我在进步”你就是我的兄弟！！！继续加油Oscar，你正在进步 💪🏻🫶🏻",
-          "summary": "\"hopefully i'm making progress\" you are my guy !!! keep pushing oscar, you're getting there 💪🏻🫶🏻 https://t.co/ff8I2r4Cqp",
-          "summary_zh": "“希望我在进步”你就是我的兄弟！！！继续加油Oscar，你正在进步 💪🏻🫶🏻",
-          "url": "https://x.com/laurogeitabat/status/2121306742143189064",
-          "published_at": "2026-11-13T18:18:33Z",
-          "image_url": "https://pbs.twimg.com/media/HXBlOO1X0AALu17.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HXBlOO1X0AALu17.jpg",
-          "heat_contribution": 6.2415,
-          "metrics": {
-            "likes": 475,
-            "retweets": 76,
-            "replies": 1,
-            "quotes": 0,
-            "views": 5351,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 33,
-      "heat": 33,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-11-13-26a1a3162e9c",
-      "rule_id": null,
-      "hot_word_zh": "Oscar谈如何从F1中抽离：“这是个挑战，但在赛道之外我享受一如既往的事情——和女朋友共…",
-      "hot_word_en": "oscar on switching off from f1: \"it's a challenge, but outside of the track i enjoy the same things i always…",
-      "first_seen_at": "2026-11-13T18:03:26Z",
-      "last_seen_at": "2026-11-13T18:03:26Z",
-      "anchor_item_id": "piasnews-social-c6afca0be097b8a5",
-      "image_url": "https://pbs.twimg.com/media/HXBhwfsWEAANSJ-.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HXBhwfsWEAANSJ-.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-c6afca0be097b8a5",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar on switching off from f1: \"it's a challenge, but outside of the track i enjoy the same th…",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar谈如何从F1中抽离：“这是个挑战，但在赛道之外我享受一如既往的事情——和女朋友共度时光、有时间放松、看电视、玩模拟器和电子游戏。这些是同样带给我快乐的事情，没有改变。”",
-          "summary": "oscar on switching off from f1: \"it's a challenge, but outside of the track i enjoy the same things i always have - spending time with my girlfriend, having time to decompress, watch tv, play my sim &amp; video games. they're the same things that bring me joy, that hasn't changed.\" https://t.co/GecSr51bMb",
-          "summary_zh": "Oscar谈如何从F1中抽离：“这是个挑战，但在赛道之外我享受一如既往的事情——和女朋友共度时光、有时间放松、看电视、玩模拟器和电子游戏。这些是同样带给我快乐的事情，没有改变。”",
-          "url": "https://x.com/laurogeitabat/status/2121302936185635057",
-          "published_at": "2026-11-13T18:03:26Z",
-          "image_url": "https://pbs.twimg.com/media/HXBhwfsWEAANSJ-.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HXBhwfsWEAANSJ-.jpg",
-          "heat_contribution": 6.2195,
-          "metrics": {
-            "likes": 522,
-            "retweets": 39,
-            "replies": 0,
-            "quotes": 0,
-            "views": 6863,
+            "views": 13297,
             "bookmarks": 0
           }
         }
@@ -3265,13 +3261,13 @@
           "image_url": "https://pbs.twimg.com/media/HXCCAc3W8AAFF0F.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HXCCAc3W8AAFF0F.jpg",
-          "heat_contribution": 6.2552,
+          "heat_contribution": 6.0921,
           "metrics": {
-            "likes": 423,
-            "retweets": 25,
+            "likes": 466,
+            "retweets": 35,
             "replies": 1,
             "quotes": 0,
-            "views": 4371,
+            "views": 4946,
             "bookmarks": 0
           }
         }
@@ -3323,13 +3319,13 @@
           "image_url": "https://pbs.twimg.com/media/HXAVpNmW4AAdi2X.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HXAVpNmW4AAdi2X.jpg",
-          "heat_contribution": 6.1813,
+          "heat_contribution": 6.1987,
           "metrics": {
-            "likes": 547,
+            "likes": 557,
             "retweets": 25,
             "replies": 0,
             "quotes": 0,
-            "views": 4652,
+            "views": 4782,
             "bookmarks": 0
           }
         }
@@ -3439,13 +3435,13 @@
           "image_url": "https://pbs.twimg.com/media/HW88ijdWAAAFpmr.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HW88ijdWAAAFpmr.jpg",
-          "heat_contribution": 5.9877,
+          "heat_contribution": 5.9892,
           "metrics": {
-            "likes": 703,
+            "likes": 704,
             "retweets": 58,
             "replies": 0,
             "quotes": 0,
-            "views": 6436,
+            "views": 6466,
             "bookmarks": 0
           }
         }
@@ -3579,13 +3575,13 @@
           "image_url": "https://pbs.twimg.com/media/HXA9H_uWwAAWCpk.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HXA9H_uWwAAWCpk.jpg",
-          "heat_contribution": 5.9899,
+          "heat_contribution": 6.0201,
           "metrics": {
-            "likes": 428,
-            "retweets": 29,
+            "likes": 441,
+            "retweets": 30,
             "replies": 0,
             "quotes": 0,
-            "views": 4516,
+            "views": 4649,
             "bookmarks": 0
           }
         }
@@ -3637,13 +3633,71 @@
           "image_url": "https://pbs.twimg.com/media/HXBguwZW8AA48Tf.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HXBguwZW8AA48Tf.jpg",
-          "heat_contribution": 5.993,
+          "heat_contribution": 6.0649,
           "metrics": {
-            "likes": 371,
-            "retweets": 53,
+            "likes": 394,
+            "retweets": 59,
             "replies": 1,
             "quotes": 0,
-            "views": 5283,
+            "views": 5762,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 32,
+      "heat": 32,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-13-5f91a5187461",
+      "rule_id": null,
+      "hot_word_zh": "Oscar谈今年他的团队变得更强：“绝对是在我自己和身边相当紧密亲近的工程团队之间，我们对…",
+      "hot_word_en": "oscar on his team growing stronger this year: \"definitely between myself, and the pretty close and intimate e…",
+      "first_seen_at": "2026-11-13T18:12:06Z",
+      "last_seen_at": "2026-11-13T18:12:06Z",
+      "anchor_item_id": "piasnews-social-469b7450aa179b3b",
+      "image_url": "https://pbs.twimg.com/media/HXBjv-cWoAASvQH.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HXBjv-cWoAASvQH.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-469b7450aa179b3b",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar on his team growing stronger this year: \"definitely between myself, and the pretty close…",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar谈今年他的团队变得更强：“绝对是在我自己和身边相当紧密亲近的工程团队之间，我们对彼此以及如何发挥出最大潜力有了很多了解。这肯定是一个很好的过程。”",
+          "summary": "oscar on his team growing stronger this year: \"definitely between myself, and the pretty close and intimate engineering team around me, we've learned a lot about each other and how we get the most out of ourselves. it's been a good process to go through for sure.\" https://t.co/3cGNA2RLnn",
+          "summary_zh": "Oscar谈今年他的团队变得更强：“绝对是在我自己和身边相当紧密亲近的工程团队之间，我们对彼此以及如何发挥出最大潜力有了很多了解。这肯定是一个很好的过程。”",
+          "url": "https://x.com/laurogeitabat/status/2121305115885732275",
+          "published_at": "2026-11-13T18:12:06Z",
+          "image_url": "https://pbs.twimg.com/media/HXBjv-cWoAASvQH.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HXBjv-cWoAASvQH.jpg",
+          "heat_contribution": 5.8787,
+          "metrics": {
+            "likes": 350,
+            "retweets": 36,
+            "replies": 2,
+            "quotes": 0,
+            "views": 4714,
             "bookmarks": 0
           }
         }
@@ -3695,13 +3749,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2121213010135957504/vid/avc1/320x560/KMTtSnhAi8o2glo1.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121213010135957504/img/SWMEfaaMDPVARUeg.jpg",
-          "heat_contribution": 6.0079,
+          "heat_contribution": 6.0267,
           "metrics": {
-            "likes": 431,
-            "retweets": 28,
+            "likes": 438,
+            "retweets": 29,
             "replies": 0,
             "quotes": 0,
-            "views": 5386,
+            "views": 5512,
             "bookmarks": 0
           }
         }
@@ -3811,13 +3865,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2121316506617196544/vid/avc1/502x270/urdbetlBeRIFTmCB.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121316506617196544/img/VjnKgJvKbRJ9-i31.jpg",
-          "heat_contribution": 5.6722,
+          "heat_contribution": 5.854,
           "metrics": {
-            "likes": 299,
-            "retweets": 23,
+            "likes": 359,
+            "retweets": 29,
             "replies": 0,
             "quotes": 0,
-            "views": 4122,
+            "views": 4650,
             "bookmarks": 0
           }
         }
@@ -3842,40 +3896,98 @@
       }
     },
     {
-      "event_id": "evt-2026-11-13-5f91a5187461",
+      "event_id": "evt-2026-11-13-dcfef0dd35c8",
       "rule_id": null,
-      "hot_word_zh": "Oscar谈今年他的团队变得更强：“绝对是在我自己和身边相当紧密亲近的工程团队之间，我们对…",
-      "hot_word_en": "oscar on his team growing stronger this year: \"definitely between myself, and the pretty close and intimate e…",
-      "first_seen_at": "2026-11-13T18:12:06Z",
-      "last_seen_at": "2026-11-13T18:12:06Z",
-      "anchor_item_id": "piasnews-social-469b7450aa179b3b",
-      "image_url": "https://pbs.twimg.com/media/HXBjv-cWoAASvQH.jpg",
+      "hot_word_zh": "oscar 谈 2025 和 2026 赛车的区别：“2025 年的赛车告诉你的事情你能听…",
+      "hot_word_en": "oscar on the differences between the 2025 and 2026 cars: \"you could listen to what the 2025 car was telling y…",
+      "first_seen_at": "2026-11-13T19:45:42Z",
+      "last_seen_at": "2026-11-13T19:45:42Z",
+      "anchor_item_id": "piasnews-social-cb3086ed84b4d6f5",
+      "image_url": "https://pbs.twimg.com/media/HXB5KutXQAEoWVX.jpg",
       "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HXBjv-cWoAASvQH.jpg",
+      "video_poster_url": "https://pbs.twimg.com/media/HXB5KutXQAEoWVX.jpg",
       "review_needed": true,
       "review_needed_reason": "fan_account_public_cap",
       "items": [
         {
-          "item_id": "piasnews-social-469b7450aa179b3b",
+          "item_id": "piasnews-social-cb3086ed84b4d6f5",
           "dataset": "social",
           "source_type": "fan",
           "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar on his team growing stronger this year: \"definitely between myself, and the pretty close…",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar谈今年他的团队变得更强：“绝对是在我自己和身边相当紧密亲近的工程团队之间，我们对彼此以及如何发挥出最大潜力有了很多了解。这肯定是一个很好的过程。”",
-          "summary": "oscar on his team growing stronger this year: \"definitely between myself, and the pretty close and intimate engineering team around me, we've learned a lot about each other and how we get the most out of ourselves. it's been a good process to go through for sure.\" https://t.co/3cGNA2RLnn",
-          "summary_zh": "Oscar谈今年他的团队变得更强：“绝对是在我自己和身边相当紧密亲近的工程团队之间，我们对彼此以及如何发挥出最大潜力有了很多了解。这肯定是一个很好的过程。”",
-          "url": "https://x.com/laurogeitabat/status/2121305115885732275",
-          "published_at": "2026-11-13T18:12:06Z",
-          "image_url": "https://pbs.twimg.com/media/HXBjv-cWoAASvQH.jpg",
+          "title": "X post from @laurogeitabat: oscar on the differences between the 2025 and 2026 cars: \"you could listen to what the 2025 car…",
+          "title_zh": "X 发帖 @laurogeitabat：oscar 谈 2025 和 2026 赛车的区别：“2025 年的赛车告诉你的事情你能听得更多，感觉你可以更轻松地驾驶它，即使只发挥 110% 也能一样快。而这辆车，一旦你不在 100%，就会很快损失时间。”",
+          "summary": "oscar on the differences between the 2025 and 2026 cars: \"you could listen to what the 2025 car was telling you a lot more, it felt like you could drive it easier and be just as quick if you drove it at 110%. this car, as soon as you're not at 100%, you lose time very quickly.\" https://t.co/mScpN5zvXg",
+          "summary_zh": "oscar 谈 2025 和 2026 赛车的区别：“2025 年的赛车告诉你的事情你能听得更多，感觉你可以更轻松地驾驶它，即使只发挥 110% 也能一样快。而这辆车，一旦你不在 100%，就会很快损失时间。”",
+          "url": "https://x.com/laurogeitabat/status/2121328673651580950",
+          "published_at": "2026-11-13T19:45:42Z",
+          "image_url": "https://pbs.twimg.com/media/HXB5KutXQAEoWVX.jpg",
           "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HXBjv-cWoAASvQH.jpg",
-          "heat_contribution": 5.7865,
+          "video_poster_url": "https://pbs.twimg.com/media/HXB5KutXQAEoWVX.jpg",
+          "heat_contribution": 5.6987,
           "metrics": {
-            "likes": 321,
-            "retweets": 31,
-            "replies": 2,
+            "likes": 304,
+            "retweets": 26,
+            "replies": 0,
             "quotes": 0,
-            "views": 4417,
+            "views": 4064,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 31,
+      "heat": 31,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-13-faa1bbfdefe4",
+      "rule_id": null,
+      "hot_word_zh": "“我正在看一张我为第一次主场大奖赛做准备的照片。时间过得真快，我居然已经第四年了，太疯狂了。",
+      "hot_word_en": "\"i'm looking at a photo of me getting ready for my first home grand prix.",
+      "first_seen_at": "2026-11-13T20:05:39Z",
+      "last_seen_at": "2026-11-13T20:05:39Z",
+      "anchor_item_id": "piasnews-social-e842229007f08231",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2121333571369545728/vid/avc1/320x568/wfwLbvX4o2tzaFaM.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121333571369545728/img/BwDNicWchmDsArar.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-e842229007f08231",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: \"i'm looking at a photo of me getting ready for my first home grand prix. time really does fly,…",
+          "title_zh": "X 发帖 @laurogeitabat：“我正在看一张我为第一次主场大奖赛做准备的照片。时间过得真快，我居然已经第四年了，太疯狂了。如果你没有这些回忆和照片可以回顾，一切都会模糊成一大段时间。”🥹🫶🏻",
+          "summary": "\"i'm looking at a photo of me getting ready for my first home grand prix. time really does fly, it's crazy that i'm in my 4th year. if you don't have these memories and photos to look back on it all blurs into one big period of time.\" 🥹🫶🏻 https://t.co/rv1ndhDltJ",
+          "summary_zh": "“我正在看一张我为第一次主场大奖赛做准备的照片。时间过得真快，我居然已经第四年了，太疯狂了。如果你没有这些回忆和照片可以回顾，一切都会模糊成一大段时间。”🥹🫶🏻",
+          "url": "https://x.com/laurogeitabat/status/2121333692345770083",
+          "published_at": "2026-11-13T20:05:39Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2121333571369545728/vid/avc1/320x568/wfwLbvX4o2tzaFaM.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121333571369545728/img/BwDNicWchmDsArar.jpg",
+          "heat_contribution": 5.7397,
+          "metrics": {
+            "likes": 293,
+            "retweets": 39,
+            "replies": 0,
+            "quotes": 0,
+            "views": 4230,
             "bookmarks": 0
           }
         }
@@ -4016,122 +4128,6 @@
             "replies": 0,
             "quotes": 0,
             "views": 34379,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 30,
-      "heat": 30,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-11-13-dcfef0dd35c8",
-      "rule_id": null,
-      "hot_word_zh": "oscar 谈 2025 和 2026 赛车的区别：“2025 年的赛车告诉你的事情你能听…",
-      "hot_word_en": "oscar on the differences between the 2025 and 2026 cars: \"you could listen to what the 2025 car was telling y…",
-      "first_seen_at": "2026-11-13T19:45:42Z",
-      "last_seen_at": "2026-11-13T19:45:42Z",
-      "anchor_item_id": "piasnews-social-cb3086ed84b4d6f5",
-      "image_url": "https://pbs.twimg.com/media/HXB5KutXQAEoWVX.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HXB5KutXQAEoWVX.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-cb3086ed84b4d6f5",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar on the differences between the 2025 and 2026 cars: \"you could listen to what the 2025 car…",
-          "title_zh": "X 发帖 @laurogeitabat：oscar 谈 2025 和 2026 赛车的区别：“2025 年的赛车告诉你的事情你能听得更多，感觉你可以更轻松地驾驶它，即使只发挥 110% 也能一样快。而这辆车，一旦你不在 100%，就会很快损失时间。”",
-          "summary": "oscar on the differences between the 2025 and 2026 cars: \"you could listen to what the 2025 car was telling you a lot more, it felt like you could drive it easier and be just as quick if you drove it at 110%. this car, as soon as you're not at 100%, you lose time very quickly.\" https://t.co/mScpN5zvXg",
-          "summary_zh": "oscar 谈 2025 和 2026 赛车的区别：“2025 年的赛车告诉你的事情你能听得更多，感觉你可以更轻松地驾驶它，即使只发挥 110% 也能一样快。而这辆车，一旦你不在 100%，就会很快损失时间。”",
-          "url": "https://x.com/laurogeitabat/status/2121328673651580950",
-          "published_at": "2026-11-13T19:45:42Z",
-          "image_url": "https://pbs.twimg.com/media/HXB5KutXQAEoWVX.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HXB5KutXQAEoWVX.jpg",
-          "heat_contribution": 5.5063,
-          "metrics": {
-            "likes": 252,
-            "retweets": 20,
-            "replies": 0,
-            "quotes": 0,
-            "views": 3497,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 30,
-      "heat": 30,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-11-13-faa1bbfdefe4",
-      "rule_id": null,
-      "hot_word_zh": "“我正在看一张我为第一次主场大奖赛做准备的照片。时间过得真快，我居然已经第四年了，太疯狂了。",
-      "hot_word_en": "\"i'm looking at a photo of me getting ready for my first home grand prix.",
-      "first_seen_at": "2026-11-13T20:05:39Z",
-      "last_seen_at": "2026-11-13T20:05:39Z",
-      "anchor_item_id": "piasnews-social-e842229007f08231",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2121333571369545728/vid/avc1/320x568/wfwLbvX4o2tzaFaM.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121333571369545728/img/BwDNicWchmDsArar.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-e842229007f08231",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: \"i'm looking at a photo of me getting ready for my first home grand prix. time really does fly,…",
-          "title_zh": "X 发帖 @laurogeitabat：“我正在看一张我为第一次主场大奖赛做准备的照片。时间过得真快，我居然已经第四年了，太疯狂了。如果你没有这些回忆和照片可以回顾，一切都会模糊成一大段时间。”🥹🫶🏻",
-          "summary": "\"i'm looking at a photo of me getting ready for my first home grand prix. time really does fly, it's crazy that i'm in my 4th year. if you don't have these memories and photos to look back on it all blurs into one big period of time.\" 🥹🫶🏻 https://t.co/rv1ndhDltJ",
-          "summary_zh": "“我正在看一张我为第一次主场大奖赛做准备的照片。时间过得真快，我居然已经第四年了，太疯狂了。如果你没有这些回忆和照片可以回顾，一切都会模糊成一大段时间。”🥹🫶🏻",
-          "url": "https://x.com/laurogeitabat/status/2121333692345770083",
-          "published_at": "2026-11-13T20:05:39Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2121333571369545728/vid/avc1/320x568/wfwLbvX4o2tzaFaM.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121333571369545728/img/BwDNicWchmDsArar.jpg",
-          "heat_contribution": 5.617,
-          "metrics": {
-            "likes": 267,
-            "retweets": 31,
-            "replies": 0,
-            "quotes": 0,
-            "views": 3641,
             "bookmarks": 0
           }
         }
@@ -4357,13 +4353,13 @@
           "image_url": "https://pbs.twimg.com/media/HXBk1HJXUAAtifm.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HXBk1HJXUAAtifm.jpg",
-          "heat_contribution": 5.3896,
+          "heat_contribution": 5.4419,
           "metrics": {
-            "likes": 212,
-            "retweets": 23,
+            "likes": 224,
+            "retweets": 24,
             "replies": 0,
             "quotes": 0,
-            "views": 3282,
+            "views": 3452,
             "bookmarks": 0
           }
         }
@@ -4415,21 +4411,21 @@
           "image_url": "https://pbs.twimg.com/media/HXB3-KyXEAA2tic.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HXB3-KyXEAA2tic.jpg",
-          "heat_contribution": 5.1546,
+          "heat_contribution": 5.2858,
           "metrics": {
-            "likes": 170,
-            "retweets": 16,
+            "likes": 197,
+            "retweets": 17,
             "replies": 0,
             "quotes": 0,
-            "views": 2763,
+            "views": 3101,
             "bookmarks": 0
           }
         }
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 28,
-      "heat": 28,
+      "fan_heat": 29,
+      "heat": 29,
       "source_labels": [
         "粉"
       ],
@@ -4647,13 +4643,13 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2097032801648263168/vid/avc1/320x568/Fk_itkb4e9cPsxWL.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2097032801648263168/img/GCddHGf0gvssIOHj.jpg",
-          "heat_contribution": 4.5939,
+          "heat_contribution": 4.609,
           "metrics": {
             "likes": 0,
-            "retweets": 64,
+            "retweets": 65,
             "replies": 0,
             "quotes": 0,
-            "views": 250,
+            "views": 251,
             "bookmarks": 0
           }
         }
