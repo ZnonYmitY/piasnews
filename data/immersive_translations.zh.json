@@ -1,31 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-14T05:25:59.427206Z",
+  "generated_at": "2026-11-14T08:26:31.403532Z",
   "translations": {
-    "items:piasnews-07c6466b5f7b059e:title:948338d01f2f16a24edc1637": {
-      "dataset": "items",
-      "item_id": "piasnews-07c6466b5f7b059e",
-      "field": "title",
-      "target_field": "title_zh",
-      "source_text": "Oscar Piastri accepts Arvid Lindblad clash penalty; guidelines 'tricky' to enforce at Mexico opening corners",
-      "zh": "Oscar Piastri接受与Arvid Lindblad碰撞的处罚；墨西哥站开场弯道相关准则“难以”执行",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-11-06T06:24:04.658985Z"
-    },
-    "items:piasnews-07c6466b5f7b059e:summary:7f7c735e99427ccf70333fad": {
-      "dataset": "items",
-      "item_id": "piasnews-07c6466b5f7b059e",
-      "field": "summary",
-      "target_field": "summary_zh",
-      "source_text": "Race-week or performance-related item discovered from public news metadata.",
-      "zh": "从公开新闻元数据中发现的比赛周或与表现相关的条目。",
-      "engine": "piasnews_llm_translation",
-      "model": "deepseek-v4-flash",
-      "api_base_url": "https://api.deepseek.com",
-      "captured_at": "2026-11-06T06:24:04.658994Z"
-    },
     "social:piasnews-social-c683927bf9f5dab1:summary:6e0974aaaa1d330b073e354c": {
       "dataset": "social",
       "item_id": "piasnews-social-c683927bf9f5dab1",
@@ -5017,6 +4993,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-11-14T05:25:58.661241Z"
+    },
+    "items:piasnews-f46728fac23d3720:title:3f8b84277eb8596dbea4498a": {
+      "dataset": "items",
+      "item_id": "piasnews-f46728fac23d3720",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri opens up on McLaren struggles: Where did the magic go and how to get it back?",
+      "zh": "Oscar Piastri 坦言 McLaren 的困境：魔力去哪儿了，又该如何找回？",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-14T08:26:30.442953Z"
+    },
+    "items:piasnews-f46728fac23d3720:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-f46728fac23d3720",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-14T08:26:30.442963Z"
     }
   },
   "retention_days": 8
