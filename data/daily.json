@@ -1,29 +1,47 @@
 {
-  "generated_at": "2026-11-15T23:05:28.739150Z",
+  "generated_at": "2026-11-16T06:22:37.305763Z",
   "window_days": 7,
-  "total_items": 119,
-  "latest_date": "2026-11-15",
+  "total_items": 121,
+  "latest_date": "2026-11-16",
   "days": [
     {
-      "date": "2026-11-15",
-      "total_new_items": 10,
+      "date": "2026-11-16",
+      "total_new_items": 2,
       "official_new_items": 0,
-      "media_new_items": 10,
+      "media_new_items": 2,
+      "x_new_items": 0,
+      "rumor_new_items": 0,
+      "sources": {
+        "Formula1News.co.uk": 1,
+        "Racing Clothesline": 1
+      },
+      "categories": {
+        "other": 2
+      }
+    },
+    {
+      "date": "2026-11-15",
+      "total_new_items": 12,
+      "official_new_items": 0,
+      "media_new_items": 12,
       "x_new_items": 0,
       "rumor_new_items": 1,
       "sources": {
         "F1 Oversteer": 3,
         "GPFans": 1,
         "GPblog": 1,
+        "Nine.com.au": 1,
         "PlanetF1": 2,
         "RacingNews365": 1,
+        "Speedcafe.com": 1,
         "TheJudge13": 1,
         "grandprix247": 1
       },
       "categories": {
         "interview": 1,
+        "other": 1,
         "rumor": 1,
-        "team": 8
+        "team": 9
       }
     },
     {
@@ -141,15 +159,15 @@
     },
     {
       "date": "2026-11-09",
-      "total_new_items": 62,
+      "total_new_items": 60,
       "official_new_items": 1,
-      "media_new_items": 61,
+      "media_new_items": 59,
       "x_new_items": 0,
       "rumor_new_items": 2,
       "sources": {
         "7NEWS": 3,
         "ABC News & Headlines – Australian Broadcasting Corporation": 1,
-        "Auto Action": 2,
+        "Auto Action": 1,
         "Bénin Web TV": 1,
         "ClubS1": 1,
         "Crash.net": 1,
@@ -172,7 +190,7 @@
         "Newswav": 1,
         "Nine.com.au": 2,
         "Pitpass": 1,
-        "PlanetF1": 2,
+        "PlanetF1": 1,
         "RaceFans": 1,
         "RacingNews365": 2,
         "SMH.com.au": 1,
@@ -197,9 +215,9 @@
       "categories": {
         "contract": 3,
         "other": 17,
-        "race": 6,
+        "race": 5,
         "rumor": 2,
-        "team": 34
+        "team": 33
       }
     }
   ],
@@ -230,14 +248,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 39
+      "items": 42
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 32
+      "items": 34
     },
     {
       "query": "\"OP81\" when:3d",
@@ -258,7 +276,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 13
+      "items": 14
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -270,13 +288,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 39,
-      "kept": 31,
+      "checked": 42,
+      "kept": 34,
       "results": {
         "outside_window": 1,
         "publisher_date_missing": 1,
         "publisher_unavailable": 6,
-        "verified": 31
+        "verified": 34
       }
     },
     {
@@ -284,8 +302,8 @@
       "ok": true,
       "discovery_days": 3,
       "retention_days": 7,
-      "previous_items": 120,
-      "kept": 119
+      "previous_items": 119,
+      "kept": 121
     }
   ]
 }
