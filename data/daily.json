@@ -1,14 +1,28 @@
 {
-  "generated_at": "2026-11-16T23:05:57.265827Z",
+  "generated_at": "2026-11-17T03:14:06.009106Z",
   "window_days": 7,
-  "total_items": 67,
-  "latest_date": "2026-11-16",
+  "total_items": 65,
+  "latest_date": "2026-11-17",
   "days": [
     {
-      "date": "2026-11-16",
-      "total_new_items": 5,
+      "date": "2026-11-17",
+      "total_new_items": 1,
       "official_new_items": 0,
-      "media_new_items": 5,
+      "media_new_items": 1,
+      "x_new_items": 0,
+      "rumor_new_items": 0,
+      "sources": {
+        "PlanetF1": 1
+      },
+      "categories": {
+        "team": 1
+      }
+    },
+    {
+      "date": "2026-11-16",
+      "total_new_items": 6,
+      "official_new_items": 0,
+      "media_new_items": 6,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
@@ -16,11 +30,11 @@
         "Formula1News.co.uk": 1,
         "GPFans": 1,
         "Racing Clothesline": 1,
-        "roundtable.io": 1
+        "roundtable.io": 2
       },
       "categories": {
         "other": 3,
-        "team": 2
+        "team": 3
       }
     },
     {
@@ -139,13 +153,12 @@
     },
     {
       "date": "2026-11-10",
-      "total_new_items": 14,
+      "total_new_items": 11,
       "official_new_items": 0,
-      "media_new_items": 14,
+      "media_new_items": 11,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
-        "Fox Sports": 1,
         "GPblog": 1,
         "Grande Prêmio": 1,
         "Lente Desportiva": 1,
@@ -154,27 +167,12 @@
         "RacingNews365": 2,
         "Sportscape Magazine": 1,
         "TodayPress.tv": 1,
-        "Yahoo Sports": 2,
-        "https://streamlinefeed.co.ke/": 1,
-        "roundtable.io": 1
+        "Yahoo Sports": 1,
+        "https://streamlinefeed.co.ke/": 1
       },
       "categories": {
         "other": 3,
-        "team": 11
-      }
-    },
-    {
-      "date": "2026-11-09",
-      "total_new_items": 1,
-      "official_new_items": 0,
-      "media_new_items": 1,
-      "x_new_items": 0,
-      "rumor_new_items": 0,
-      "sources": {
-        "Auto Action": 1
-      },
-      "categories": {
-        "other": 1
+        "team": 8
       }
     }
   ],
@@ -190,9 +188,8 @@
       "query": "site:formula1.com/en/latest \"Piastri\" when:3d",
       "source_group": "official_direct",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=site%3Aformula1.com%2Fen%2Flatest+%22Piastri%22+when%3A3d",
-      "ok": false,
-      "items": 0,
-      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      "ok": true,
+      "items": 0
     },
     {
       "query": "site:oscarpiastri.com \"Piastri\" when:3d",
@@ -205,9 +202,8 @@
       "query": "\"Oscar Piastri\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
-      "ok": false,
-      "items": 0,
-      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      "ok": true,
+      "items": 33
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
@@ -228,15 +224,16 @@
       "query": "\"Oscar Piastri\" \"qualifying\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
-      "ok": true,
-      "items": 7
+      "ok": false,
+      "items": 0,
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 12
+      "items": 11
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -248,12 +245,12 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 17,
-      "kept": 12,
+      "checked": 33,
+      "kept": 19,
       "results": {
-        "publisher_date_missing": 1,
-        "url_unresolved": 4,
-        "verified": 12
+        "publisher_unavailable": 5,
+        "url_unresolved": 9,
+        "verified": 19
       }
     },
     {
@@ -261,8 +258,8 @@
       "ok": true,
       "discovery_days": 3,
       "retention_days": 7,
-      "previous_items": 89,
-      "kept": 67
+      "previous_items": 67,
+      "kept": 65
     }
   ]
 }
