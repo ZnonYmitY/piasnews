@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-17T09:15:21.728642Z",
+  "generated_at": "2026-11-17T12:16:22.401047Z",
   "window_days": 7,
-  "total_items": 66,
+  "total_items": 65,
   "latest_date": "2026-11-17",
   "days": [
     {
@@ -158,9 +158,9 @@
     },
     {
       "date": "2026-11-10",
-      "total_new_items": 6,
+      "total_new_items": 5,
       "official_new_items": 0,
-      "media_new_items": 6,
+      "media_new_items": 5,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
@@ -168,12 +168,11 @@
         "Lente Desportiva": 1,
         "Nine.com.au": 1,
         "RacingNews365": 1,
-        "Sportscape Magazine": 1,
         "TodayPress.tv": 1
       },
       "categories": {
         "other": 2,
-        "team": 4
+        "team": 3
       }
     }
   ],
@@ -189,8 +188,9 @@
       "query": "site:formula1.com/en/latest \"Piastri\" when:3d",
       "source_group": "official_direct",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=site%3Aformula1.com%2Fen%2Flatest+%22Piastri%22+when%3A3d",
-      "ok": true,
-      "items": 0
+      "ok": false,
+      "items": 0,
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
     },
     {
       "query": "site:oscarpiastri.com \"Piastri\" when:3d",
@@ -204,21 +204,22 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 36
+      "items": 34
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 28
+      "items": 27
     },
     {
       "query": "\"OP81\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22OP81%22+when%3A3d",
-      "ok": true,
-      "items": 0
+      "ok": false,
+      "items": 0,
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
     },
     {
       "query": "\"Oscar Piastri\" \"qualifying\" when:3d",
@@ -232,7 +233,7 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 10
+      "items": 11
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -244,12 +245,11 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 36,
-      "kept": 33,
+      "checked": 34,
+      "kept": 32,
       "results": {
         "publisher_unavailable": 2,
-        "url_unresolved": 1,
-        "verified": 33
+        "verified": 32
       }
     },
     {
@@ -257,8 +257,8 @@
       "ok": true,
       "discovery_days": 3,
       "retention_days": 7,
-      "previous_items": 64,
-      "kept": 66
+      "previous_items": 66,
+      "kept": 65
     }
   ]
 }

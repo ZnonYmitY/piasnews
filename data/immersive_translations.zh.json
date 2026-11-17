@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-17T09:17:54.934211Z",
+  "generated_at": "2026-11-17T12:18:59.606515Z",
   "translations": {
     "items:piasnews-c8390d6e621b836f:title:ced00b29ac30a8515e966602": {
       "dataset": "items",
@@ -5245,6 +5245,30 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-11-17T09:17:53.942811Z"
+    },
+    "social:piasnews-social-6db2816d439f87d3:summary:4c00b6d5ac3ec3faf1a3c8b8": {
+      "dataset": "social",
+      "item_id": "piasnews-social-6db2816d439f87d3",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "zak brown on hungary 2024: \"oscar deserved that win, he drove brilliantly\" well yes 😌 https://t.co/xh8SaZc2yY",
+      "zh": "Zak Brown 谈2024匈牙利站：“Oscar 配得上那场胜利，他开得非常出色。” 嗯，是的 😌",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-17T12:18:58.849218Z"
+    },
+    "social:piasnews-social-df2f0a121d7cbb0a:summary:2675ec0298a19679aefb2b1f": {
+      "dataset": "social",
+      "item_id": "piasnews-social-df2f0a121d7cbb0a",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "zak has requested to be on the podium for oscar's next win 😶 \"i've been on the podium with oscar but i've not been on the top step with him. i'm done on podiums other than, i've requested, a US race and oscar.\" https://t.co/9vTEC2dtOq",
+      "zh": "Zak 已请求在 Oscar 下一次夺冠时登上领奖台 😶 “我曾和 Oscar 一起登上领奖台，但还没和他一起站上最高领奖台。除了我请求过的美国站和 Oscar 之外，我已经不再上领奖台了。”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-17T12:18:58.849226Z"
     }
   },
   "retention_days": 8
