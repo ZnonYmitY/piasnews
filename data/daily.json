@@ -1,40 +1,42 @@
 {
-  "generated_at": "2026-11-17T03:14:06.009106Z",
+  "generated_at": "2026-11-17T06:14:42.837034Z",
   "window_days": 7,
-  "total_items": 65,
+  "total_items": 64,
   "latest_date": "2026-11-17",
   "days": [
     {
       "date": "2026-11-17",
-      "total_new_items": 1,
+      "total_new_items": 2,
       "official_new_items": 0,
-      "media_new_items": 1,
+      "media_new_items": 2,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
+        "GPblog": 1,
         "PlanetF1": 1
       },
       "categories": {
+        "other": 1,
         "team": 1
       }
     },
     {
       "date": "2026-11-16",
-      "total_new_items": 6,
+      "total_new_items": 7,
       "official_new_items": 0,
-      "media_new_items": 6,
+      "media_new_items": 7,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "F1 Oversteer": 1,
         "Formula1News.co.uk": 1,
-        "GPFans": 1,
+        "GPFans": 2,
         "Racing Clothesline": 1,
         "roundtable.io": 2
       },
       "categories": {
         "other": 3,
-        "team": 3
+        "team": 4
       }
     },
     {
@@ -153,26 +155,24 @@
     },
     {
       "date": "2026-11-10",
-      "total_new_items": 11,
+      "total_new_items": 8,
       "official_new_items": 0,
-      "media_new_items": 11,
+      "media_new_items": 8,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "GPblog": 1,
         "Grande Prêmio": 1,
         "Lente Desportiva": 1,
-        "Nextgen-Auto.com": 1,
         "Nine.com.au": 1,
-        "RacingNews365": 2,
+        "RacingNews365": 1,
         "Sportscape Magazine": 1,
         "TodayPress.tv": 1,
-        "Yahoo Sports": 1,
         "https://streamlinefeed.co.ke/": 1
       },
       "categories": {
-        "other": 3,
-        "team": 8
+        "other": 2,
+        "team": 6
       }
     }
   ],
@@ -181,8 +181,9 @@
       "query": "site:mclaren.com/racing/formula-1/articles/ \"Piastri\" when:3d",
       "source_group": "official_direct",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=site%3Amclaren.com%2Fracing%2Fformula-1%2Farticles%2F+%22Piastri%22+when%3A3d",
-      "ok": true,
-      "items": 0
+      "ok": false,
+      "items": 0,
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
     },
     {
       "query": "site:formula1.com/en/latest \"Piastri\" when:3d",
@@ -202,16 +203,16 @@
       "query": "\"Oscar Piastri\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
-      "ok": true,
-      "items": 33
+      "ok": false,
+      "items": 0,
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
-      "ok": false,
-      "items": 0,
-      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      "ok": true,
+      "items": 26
     },
     {
       "query": "\"OP81\" when:3d",
@@ -224,32 +225,32 @@
       "query": "\"Oscar Piastri\" \"qualifying\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
-      "ok": false,
-      "items": 0,
-      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      "ok": true,
+      "items": 7
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 11
+      "items": 9
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22interview%22+when%3A3d",
-      "ok": true,
-      "items": 3
+      "ok": false,
+      "items": 0,
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
     },
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 33,
+      "checked": 29,
       "kept": 19,
       "results": {
-        "publisher_unavailable": 5,
-        "url_unresolved": 9,
+        "publisher_unavailable": 2,
+        "url_unresolved": 8,
         "verified": 19
       }
     },
@@ -258,8 +259,8 @@
       "ok": true,
       "discovery_days": 3,
       "retention_days": 7,
-      "previous_items": 67,
-      "kept": 65
+      "previous_items": 65,
+      "kept": 64
     }
   ]
 }
