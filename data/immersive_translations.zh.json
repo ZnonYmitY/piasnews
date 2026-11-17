@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-17T12:18:59.606515Z",
+  "generated_at": "2026-11-17T23:08:19.748522Z",
   "translations": {
     "items:piasnews-c8390d6e621b836f:title:ced00b29ac30a8515e966602": {
       "dataset": "items",
@@ -5269,6 +5269,174 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-11-17T12:18:58.849226Z"
+    },
+    "items:piasnews-4e663dd55fd7b092:title:a3e771d1ce425391177c9eab": {
+      "dataset": "items",
+      "item_id": "piasnews-4e663dd55fd7b092",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Ninety-Four Points And A Warning: What Piastri Must Do To Keep His McLaren Seat",
+      "zh": "九十四分与一个警告：Piastri 必须做什么才能保住他的 McLaren 席位",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-17T23:08:19.206138Z"
+    },
+    "items:piasnews-4e663dd55fd7b092:summary:0d864a8260f8519601fd9ae1": {
+      "dataset": "items",
+      "item_id": "piasnews-4e663dd55fd7b092",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Quote or interview-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的引述或采访相关内容。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-17T23:08:19.206142Z"
+    },
+    "items:piasnews-132e8670e0d984f1:title:cacf3fb4dbf25be8eaa88f78": {
+      "dataset": "items",
+      "item_id": "piasnews-132e8670e0d984f1",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "McLaren explains reasons for Oscar Piastri deficit to Norris in 2026",
+      "zh": "McLaren 解释 Oscar Piastri 在 2026 年落后于 Norris 的原因",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-17T23:08:19.206144Z"
+    },
+    "items:piasnews-132e8670e0d984f1:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-132e8670e0d984f1",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关内容。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-17T23:08:19.206146Z"
+    },
+    "items:piasnews-a005ca987b248727:title:5b405fe710c139ff923f93bd": {
+      "dataset": "items",
+      "item_id": "piasnews-a005ca987b248727",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri told to become ‘Lando's wingman’ to secure McLaren future",
+      "zh": "Oscar Piastri 被告知要成为“Lando 的僚机”以保住 McLaren 的未来",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-17T23:08:19.206147Z"
+    },
+    "items:piasnews-a005ca987b248727:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-a005ca987b248727",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关内容。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-17T23:08:19.206149Z"
+    },
+    "items:piasnews-79e87a932d2e553d:title:24866a17c90f154aa18f33ad": {
+      "dataset": "items",
+      "item_id": "piasnews-79e87a932d2e553d",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Ferrari warned of Piastri 2025 despite potential ‘catastrophic’ Hamilton v Leclerc rivalry",
+      "zh": "尽管 Hamilton 与 Leclerc 的竞争可能“灾难性”，Ferrari 仍被警告 2025 年要提防 Piastri",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-17T23:08:19.206151Z"
+    },
+    "items:piasnews-79e87a932d2e553d:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-79e87a932d2e553d",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关内容。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-17T23:08:19.206154Z"
+    },
+    "items:piasnews-75c8d4cbd64ae69f:title:af9ff8117b185045d2f0b84a": {
+      "dataset": "items",
+      "item_id": "piasnews-75c8d4cbd64ae69f",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "James Hinchcliffe explains why it was 'obvious' that Oscar Piastri would struggle at McLaren in 2026",
+      "zh": "James Hinchcliffe 解释为何 Oscar Piastri 在 2026 年于 McLaren 陷入困境是“显而易见的”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-17T23:08:19.206156Z"
+    },
+    "items:piasnews-75c8d4cbd64ae69f:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-75c8d4cbd64ae69f",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的车队或赛车性能相关内容。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-17T23:08:19.206158Z"
+    },
+    "items:piasnews-9bf2f71ae70663ba:title:f72aaef9bd1d31e2c350b828": {
+      "dataset": "items",
+      "item_id": "piasnews-9bf2f71ae70663ba",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Zak Brown Admits McLaren's 2026 Car Curtailed Oscar Piastri's Superpower",
+      "zh": "Zak Brown 承认 McLaren 的 2026 年赛车限制了 Oscar Piastri 的超能力",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-17T23:08:19.206159Z"
+    },
+    "items:piasnews-9bf2f71ae70663ba:summary:0d864a8260f8519601fd9ae1": {
+      "dataset": "items",
+      "item_id": "piasnews-9bf2f71ae70663ba",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Quote or interview-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的引述或采访相关内容。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-17T23:08:19.206161Z"
+    },
+    "items:piasnews-67c0976b158bb38e:title:47ea43c2adb960a7166a4057": {
+      "dataset": "items",
+      "item_id": "piasnews-67c0976b158bb38e",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Brown tells Piastri he's up against the 'best' ever version of Norris",
+      "zh": "Brown告诉Piastri，他面对的是史上“最强”版本的Norris",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-17T23:08:19.206162Z"
+    },
+    "items:piasnews-67c0976b158bb38e:summary:73c687deab0b33e8260654ec": {
+      "dataset": "items",
+      "item_id": "piasnews-67c0976b158bb38e",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Oscar Piastri-related item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-17T23:08:19.206163Z"
     }
   },
   "retention_days": 8
