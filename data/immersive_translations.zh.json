@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-17T06:17:27.343522Z",
+  "generated_at": "2026-11-17T09:17:54.934211Z",
   "translations": {
     "items:piasnews-c8390d6e621b836f:title:ced00b29ac30a8515e966602": {
       "dataset": "items",
@@ -5125,6 +5125,126 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-11-17T06:17:26.348256Z"
+    },
+    "items:piasnews-2cfd70d4d96884cd:title:d70ca2652787472bd684ce24": {
+      "dataset": "items",
+      "item_id": "piasnews-2cfd70d4d96884cd",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "Oscar Piastri made major change to F1 inner circle months before Mark Webber split",
+      "zh": "Oscar Piastri在Mark Webber分道扬镳前数月对F1核心圈子做出重大调整",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-17T09:17:53.942763Z"
+    },
+    "items:piasnews-2cfd70d4d96884cd:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-2cfd70d4d96884cd",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-17T09:17:53.942772Z"
+    },
+    "items:piasnews-090e6886a92429df:title:26ddf244a319cf5b4e995aa4": {
+      "dataset": "items",
+      "item_id": "piasnews-090e6886a92429df",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "McLaren’s latest upgrades prove Andrea Stella was true to his word about Oscar Piastri",
+      "zh": "McLaren最新升级证明Andrea Stella关于Oscar Piastri的话言出必行",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-17T09:17:53.942777Z"
+    },
+    "items:piasnews-090e6886a92429df:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-090e6886a92429df",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-17T09:17:53.942782Z"
+    },
+    "items:piasnews-05303683bb7b952a:title:abcc8aefba4e46f2975e3dfb": {
+      "dataset": "items",
+      "item_id": "piasnews-05303683bb7b952a",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "F1: Zak Brown explains why Lando Norris adapted better than Oscar Piastri to 2026 car",
+      "zh": "F1：Zak Brown解释为何Lando Norris比Oscar Piastri更好地适应了2026款赛车",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-17T09:17:53.942786Z"
+    },
+    "items:piasnews-05303683bb7b952a:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-05303683bb7b952a",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-17T09:17:53.942790Z"
+    },
+    "items:piasnews-8afc6f9dd89cb7b7:title:c8e4b49808eff7fa61b5665f": {
+      "dataset": "items",
+      "item_id": "piasnews-8afc6f9dd89cb7b7",
+      "field": "title",
+      "target_field": "title_zh",
+      "source_text": "McLaren director saw potential turning point for Oscar Piastri in Brazil telemetry",
+      "zh": "McLaren总监从巴西站遥测数据中看到Oscar Piastri的潜在转折点",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-17T09:17:53.942795Z"
+    },
+    "items:piasnews-8afc6f9dd89cb7b7:summary:26b5911fbd1b8158d42ac2a8": {
+      "dataset": "items",
+      "item_id": "piasnews-8afc6f9dd89cb7b7",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "Team or car-performance item discovered from public news metadata.",
+      "zh": "从公开新闻元数据中发现的团队或赛车性能相关条目。",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-17T09:17:53.942802Z"
+    },
+    "social:piasnews-social-be870bdb9f866fdb:summary:884ac61fad15508d0d309fec": {
+      "dataset": "social",
+      "item_id": "piasnews-social-be870bdb9f866fdb",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "when the boss admits the new regs have literally nerfed you 😔",
+      "zh": "当老板承认新规则真的把你削弱了 😔",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-17T09:17:53.942807Z"
+    },
+    "social:piasnews-social-1fa40a55e317aeaa:summary:2f7186052a87017bc7cc7045": {
+      "dataset": "social",
+      "item_id": "piasnews-social-1fa40a55e317aeaa",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "zak on why lando's adapted to these regs better than oscar: \"oscar's strengths were the big brave corners. now in those corners it's \"hey, lift, conserve, preserve\". (...) oscar's not yet clicked with it, but it's not a big gap [between lando and oscar].\" https://t.co/p1yyNeEAV2",
+      "zh": "Zak谈为何Lando比Oscar更好地适应了这些规则：“Oscar的强项是那些大胆的高速弯。而现在在这些弯道里，是‘嘿，抬油门、省电、保胎’。（……）Oscar还没完全适应，但（Lando和Oscar之间）差距不大。”",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-17T09:17:53.942811Z"
     }
   },
   "retention_days": 8
