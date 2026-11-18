@@ -1,24 +1,26 @@
 {
-  "generated_at": "2026-11-18T06:22:15.360531Z",
+  "generated_at": "2026-11-18T09:23:21.283138Z",
   "window_days": 7,
-  "total_items": 71,
+  "total_items": 73,
   "latest_date": "2026-11-18",
   "days": [
     {
       "date": "2026-11-18",
-      "total_new_items": 4,
+      "total_new_items": 6,
       "official_new_items": 0,
-      "media_new_items": 4,
+      "media_new_items": 6,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "Nine.com.au": 1,
+        "PlanetF1": 1,
         "Speedcafe.com": 1,
         "Sportscape Magazine": 1,
+        "The Sunday Guardian": 1,
         "inkl": 1
       },
       "categories": {
-        "race": 3,
+        "race": 5,
         "team": 1
       }
     },
@@ -218,41 +220,40 @@
       "query": "\"OP81\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22OP81%22+when%3A3d",
-      "ok": false,
-      "items": 0,
-      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      "ok": true,
+      "items": 0
     },
     {
       "query": "\"Oscar Piastri\" \"qualifying\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
-      "ok": true,
-      "items": 7
+      "ok": false,
+      "items": 0,
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 12
+      "items": 10
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22interview%22+when%3A3d",
       "ok": true,
-      "items": 3
+      "items": 2
     },
     {
       "stage": "publisher_date_verification",
       "ok": true,
       "checked": 41,
-      "kept": 35,
+      "kept": 36,
       "results": {
         "publisher_date_missing": 3,
-        "publisher_unavailable": 1,
-        "url_unresolved": 2,
-        "verified": 35
+        "publisher_unavailable": 2,
+        "verified": 36
       }
     },
     {
@@ -260,8 +261,8 @@
       "ok": true,
       "discovery_days": 3,
       "retention_days": 7,
-      "previous_items": 67,
-      "kept": 71
+      "previous_items": 71,
+      "kept": 73
     }
   ]
 }
