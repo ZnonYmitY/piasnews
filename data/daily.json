@@ -1,34 +1,44 @@
 {
-  "generated_at": "2026-11-18T12:24:13.663106Z",
+  "generated_at": "2026-11-18T23:05:59.487452Z",
   "window_days": 7,
-  "total_items": 79,
+  "total_items": 92,
   "latest_date": "2026-11-18",
   "days": [
     {
       "date": "2026-11-18",
-      "total_new_items": 13,
+      "total_new_items": 28,
       "official_new_items": 1,
-      "media_new_items": 12,
+      "media_new_items": 27,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
         "Crash.net": 1,
-        "F1 Oversteer": 1,
+        "F1 Oversteer": 3,
+        "F1i.com": 1,
         "Formula 1": 1,
+        "GPFans": 1,
+        "GPblog": 1,
+        "Grande Prêmio": 2,
+        "Grandprix.com": 2,
+        "Lente Desportiva": 1,
         "MotorBiscuit": 1,
-        "Motorsport Week": 1,
+        "Motorsport Week": 2,
         "Nine.com.au": 1,
         "PlanetF1": 1,
+        "Sky Sports": 1,
         "Speedcafe.com": 1,
         "Sportscape Magazine": 1,
         "The Sunday Guardian": 1,
+        "UA.NEWS": 1,
+        "Yahoo Sports": 1,
+        "https://www.autohebdof1.com/": 1,
         "inkl": 1,
         "news.gp": 1,
         "roundtable.io": 1
       },
       "categories": {
-        "race": 9,
-        "team": 4
+        "race": 19,
+        "team": 9
       }
     },
     {
@@ -168,22 +178,6 @@
         "other": 1,
         "team": 5
       }
-    },
-    {
-      "date": "2026-11-11",
-      "total_new_items": 2,
-      "official_new_items": 0,
-      "media_new_items": 2,
-      "x_new_items": 0,
-      "rumor_new_items": 0,
-      "sources": {
-        "F1 Oversteer": 1,
-        "Lente Desportiva": 1
-      },
-      "categories": {
-        "interview": 1,
-        "team": 1
-      }
     }
   ],
   "feed_status": [
@@ -213,14 +207,15 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 46
+      "items": 54
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
-      "ok": true,
-      "items": 36
+      "ok": false,
+      "items": 0,
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
     },
     {
       "query": "\"OP81\" when:3d",
@@ -234,14 +229,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22qualifying%22+when%3A3d",
       "ok": true,
-      "items": 8
+      "items": 15
     },
     {
       "query": "\"Oscar Piastri\" \"race\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+%22race%22+when%3A3d",
       "ok": true,
-      "items": 11
+      "items": 13
     },
     {
       "query": "\"Oscar Piastri\" \"interview\" when:3d",
@@ -253,13 +248,13 @@
     {
       "stage": "publisher_date_verification",
       "ok": true,
-      "checked": 47,
-      "kept": 40,
+      "checked": 56,
+      "kept": 44,
       "results": {
         "publisher_date_missing": 3,
-        "publisher_unavailable": 3,
-        "url_unresolved": 1,
-        "verified": 40
+        "publisher_unavailable": 2,
+        "url_unresolved": 7,
+        "verified": 44
       }
     },
     {
@@ -267,8 +262,8 @@
       "ok": true,
       "discovery_days": 3,
       "retention_days": 7,
-      "previous_items": 73,
-      "kept": 79
+      "previous_items": 79,
+      "kept": 92
     }
   ]
 }
