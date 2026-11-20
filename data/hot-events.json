@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-20T14:05:50.076624Z",
+  "generated_at": "2026-11-20T14:20:54.200231Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -56,23 +56,6 @@
           "metrics": {}
         },
         {
-          "item_id": "piasnews-192dea8ad1a27a61",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Read Motorsport",
-          "title": "Piastri faces 10-place Las Vegas grid penalty as McLaren brings upgrades",
-          "title_zh": "Piastri 因 McLaren 带来升级而面临拉斯维加斯站发车位后退10位处罚",
-          "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的比赛周或与表现相关的条目。",
-          "url": "https://readmotorsport.com/2026/11/19/piastri-las-vegas-grid-penalty-mclaren-upgrades/",
-          "published_at": "2026-11-19T14:08:29Z",
-          "image_url": "https://media.readmotorsport.com/readmotorsport/sites/10/2026/11/Oscar_Piastri_AusGP_2026.jpg",
-          "video_url": null,
-          "video_poster_url": "https://media.readmotorsport.com/readmotorsport/sites/10/2026/11/Oscar_Piastri_AusGP_2026.jpg",
-          "heat_contribution": 0.75,
-          "metrics": {}
-        },
-        {
           "item_id": "piasnews-f6b3649883d3fd78",
           "dataset": "items",
           "source_type": "official",
@@ -87,6 +70,23 @@
           "video_url": null,
           "video_poster_url": "https://media.formula1.com/image/upload/t_16by9Centre/c_lfill,w_2048/q_auto/v1740000001/fom-website/2026/McLaren/GettyImages-2304132535.webp",
           "heat_contribution": 0.6,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-192dea8ad1a27a61",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Read Motorsport",
+          "title": "Piastri faces 10-place Las Vegas grid penalty as McLaren brings upgrades",
+          "title_zh": "Piastri 因 McLaren 带来升级而面临拉斯维加斯站发车位后退10位处罚",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或与表现相关的条目。",
+          "url": "https://readmotorsport.com/2026/11/19/piastri-las-vegas-grid-penalty-mclaren-upgrades/",
+          "published_at": "2026-11-19T14:08:29Z",
+          "image_url": "https://media.readmotorsport.com/readmotorsport/sites/10/2026/11/Oscar_Piastri_AusGP_2026.jpg",
+          "video_url": null,
+          "video_poster_url": "https://media.readmotorsport.com/readmotorsport/sites/10/2026/11/Oscar_Piastri_AusGP_2026.jpg",
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -448,9 +448,9 @@
         }
       ],
       "official_heat": 8,
-      "media_heat": 62,
+      "media_heat": 61,
       "fan_heat": 0,
-      "heat": 64,
+      "heat": 63,
       "source_labels": [
         "官",
         "媒"
@@ -469,7 +469,7 @@
       "rule_id": null,
       "hot_word_zh": "Carlo Vanzini敦促Ferrari支持Fred Vasseur，并开玩笑谈及Ch…",
       "hot_word_en": "Carlo Vanzini urges Ferrari to back Fred Vasseur and jokes about Charles Leclerc-Oscar Piastri swap",
-      "first_seen_at": "2026-11-13T14:14:00Z",
+      "first_seen_at": "2026-11-13T18:39:04Z",
       "last_seen_at": "2026-11-19T20:44:00Z",
       "anchor_item_id": "piasnews-02cfcdefb993e54c",
       "image_url": "https://sportsbase.io/images/gpfans/copy_1200x800/8aae658d23bc88395492813733cf7111d686f94f.jpg",
@@ -1327,23 +1327,6 @@
           "video_poster_url": "https://s.yimg.com/lo/mysterio/api/7f59379fd3902e399b5d9131ddc2e6fc33ffee3e463299dfade7571067a89f77/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fgameday_times_324%2F05085cd5057ca56446e5f3fc0034d7f7.jpg",
           "heat_contribution": 0.0,
           "metrics": {}
-        },
-        {
-          "item_id": "piasnews-5ab075089ecf9b90",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "grandprix247",
-          "title": "Christian Horner: Helmut Marko not interested in \"w@nkers\" George Russell, Lando Norris, Oscar Piastri",
-          "title_zh": "Christian Horner：Helmut Marko对\"蠢货\"George Russell、Lando Norris、Oscar Piastri不感兴趣",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关条目。",
-          "url": "https://www.grandprix247.com/formula-1-news/christian-horner-says-helmut-marko-not-interested-in-george-russell-lando-norris-or-oscar-piastri",
-          "published_at": "2026-11-13T14:14:00Z",
-          "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgrandprix247.com%2Fimages%2F2026-11%2Frussell-piastri-norris-6af7179e36b1e.jpg",
-          "video_url": null,
-          "video_poster_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgrandprix247.com%2Fimages%2F2026-11%2Frussell-piastri-norris-6af7179e36b1e.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
         }
       ],
       "official_heat": 0,
@@ -1442,7 +1425,7 @@
       "rank": 3
     },
     {
-      "event_id": "evt-2026-11-18-a6d3a26a6241-a6d3a26a-2",
+      "event_id": "evt-2026-11-18-a6d3a26a6241-a6d3a26a",
       "rule_id": null,
       "hot_word_zh": "McLaren 的 Oscar Piastri 将在本周末的拉斯维加斯大奖赛被罚退10个发…",
       "hot_word_en": "McLaren's Oscar Piastri is set to take a 10-place grid penalty at this weekend's Las Vegas Grand Prix FULL ST…",
