@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-20T22:36:25.922767Z",
+  "generated_at": "2026-11-20T22:51:16.179155Z",
   "driver_number": 81,
   "source": "OpenF1 session_result with Formula 1 Live Timing fallback",
   "attempted_session_ref": "2026-round-21:practice_2",
@@ -695,5 +695,5 @@
     }
   ],
   "last_error": "openf1_http_404",
-  "last_fallback_error": "f1_static_http_401"
+  "last_fallback_error": "f1_static_proxy_http_502"
 }
