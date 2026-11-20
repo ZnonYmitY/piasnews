@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-20T02:50:47.442749Z",
+  "generated_at": "2026-11-20T03:05:50.029273Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -1442,7 +1442,7 @@
       "rank": 3
     },
     {
-      "event_id": "evt-2026-11-18-a6d3a26a6241-a6d3a26a-2",
+      "event_id": "evt-2026-11-18-a6d3a26a6241-a6d3a26a",
       "rule_id": null,
       "hot_word_zh": "McLaren 的 Oscar Piastri 将在本周末的拉斯维加斯大奖赛被罚退10个发…",
       "hot_word_en": "McLaren's Oscar Piastri is set to take a 10-place grid penalty at this weekend's Las Vegas Grand Prix FULL ST…",
@@ -1497,6 +1497,61 @@
       "rank": 4
     },
     {
+      "event_id": "evt-2026-11-17-78425058d477-78425058",
+      "rule_id": null,
+      "hot_word_zh": "Zak 已请求在 Oscar 下一次夺冠时登上领奖台 😶 “我曾和 Oscar 一起登上领…",
+      "hot_word_en": "zak has requested to be on the podium for oscar's next win 😶 \"i've been on the podium with oscar but i've not…",
+      "first_seen_at": "2026-11-17T12:04:40Z",
+      "last_seen_at": "2026-11-17T12:04:40Z",
+      "anchor_item_id": "piasnews-social-df2f0a121d7cbb0a",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2122662176418680832/vid/avc1/502x270/HbCmPlWitHgvZOty.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2122662176418680832/img/p9ir9UqEFfPS3oeF.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-df2f0a121d7cbb0a",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: zak has requested to be on the podium for oscar's next win 😶 \"i've been on the podium with osca…",
+          "title_zh": "X 发帖 @laurogeitabat：Zak 已请求在 Oscar 下一次夺冠时登上领奖台 😶 “我曾和 Oscar 一起登上领奖台，但还没和他一起站上最高领奖台。除了我请求过的美国站和 Oscar 之外，我已经不再上领奖台了。”",
+          "summary": "zak has requested to be on the podium for oscar's next win 😶 \"i've been on the podium with oscar but i've not been on the top step with him. i'm done on podiums other than, i've requested, a US race and oscar.\" https://t.co/9vTEC2dtOq",
+          "summary_zh": "Zak 已请求在 Oscar 下一次夺冠时登上领奖台 😶 “我曾和 Oscar 一起登上领奖台，但还没和他一起站上最高领奖台。除了我请求过的美国站和 Oscar 之外，我已经不再上领奖台了。”",
+          "url": "https://x.com/laurogeitabat/status/2122662199206236285",
+          "published_at": "2026-11-17T12:04:40Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2122662176418680832/vid/avc1/502x270/HbCmPlWitHgvZOty.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2122662176418680832/img/p9ir9UqEFfPS3oeF.jpg",
+          "heat_contribution": 6.498,
+          "metrics": {
+            "likes": 1732,
+            "retweets": 56,
+            "replies": 23,
+            "quotes": 0,
+            "views": 140092,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 35,
+      "heat": 35,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 5
+    },
+    {
       "event_id": "evt-2026-11-18-8e7883f044eb",
       "rule_id": null,
       "hot_word_zh": "F1每周回顾：Racing Bulls留住Lawson至2027年，Piastri与经纪人…",
@@ -1524,7 +1579,7 @@
           "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-04%2Fmark-webber-oscar-piastri.jpg",
           "video_url": null,
           "video_poster_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-04%2Fmark-webber-oscar-piastri.jpg",
-          "heat_contribution": 1.0,
+          "heat_contribution": 0.75,
           "metrics": {}
         },
         {
@@ -1631,9 +1686,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 36,
+      "media_heat": 34,
       "fan_heat": 0,
-      "heat": 36,
+      "heat": 34,
       "source_labels": [
         "媒"
       ],
@@ -1641,61 +1696,6 @@
         "official": 0,
         "media": 6,
         "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 5
-    },
-    {
-      "event_id": "evt-2026-11-17-78425058d477",
-      "rule_id": null,
-      "hot_word_zh": "Zak 已请求在 Oscar 下一次夺冠时登上领奖台 😶 “我曾和 Oscar 一起登上领…",
-      "hot_word_en": "zak has requested to be on the podium for oscar's next win 😶 \"i've been on the podium with oscar but i've not…",
-      "first_seen_at": "2026-11-17T12:04:40Z",
-      "last_seen_at": "2026-11-17T12:04:40Z",
-      "anchor_item_id": "piasnews-social-df2f0a121d7cbb0a",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2122662176418680832/vid/avc1/502x270/HbCmPlWitHgvZOty.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2122662176418680832/img/p9ir9UqEFfPS3oeF.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-df2f0a121d7cbb0a",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: zak has requested to be on the podium for oscar's next win 😶 \"i've been on the podium with osca…",
-          "title_zh": "X 发帖 @laurogeitabat：Zak 已请求在 Oscar 下一次夺冠时登上领奖台 😶 “我曾和 Oscar 一起登上领奖台，但还没和他一起站上最高领奖台。除了我请求过的美国站和 Oscar 之外，我已经不再上领奖台了。”",
-          "summary": "zak has requested to be on the podium for oscar's next win 😶 \"i've been on the podium with oscar but i've not been on the top step with him. i'm done on podiums other than, i've requested, a US race and oscar.\" https://t.co/9vTEC2dtOq",
-          "summary_zh": "Zak 已请求在 Oscar 下一次夺冠时登上领奖台 😶 “我曾和 Oscar 一起登上领奖台，但还没和他一起站上最高领奖台。除了我请求过的美国站和 Oscar 之外，我已经不再上领奖台了。”",
-          "url": "https://x.com/laurogeitabat/status/2122662199206236285",
-          "published_at": "2026-11-17T12:04:40Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2122662176418680832/vid/avc1/502x270/HbCmPlWitHgvZOty.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2122662176418680832/img/p9ir9UqEFfPS3oeF.jpg",
-          "heat_contribution": 6.498,
-          "metrics": {
-            "likes": 1732,
-            "retweets": 56,
-            "replies": 23,
-            "quotes": 0,
-            "views": 140092,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 35,
-      "heat": 35,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
       },
       "pinned_rank": null,
       "hidden": false,
@@ -3000,7 +3000,7 @@
       }
     },
     {
-      "event_id": "evt-2026-11-17-78425058d477-78425058",
+      "event_id": "evt-2026-11-17-78425058d477",
       "rule_id": null,
       "hot_word_zh": "Zak Brown 谈2024匈牙利站：“Oscar 配得上那场胜利，他开得非常出色。",
       "hot_word_en": "zak brown on hungary 2024: \"oscar deserved that win, he drove brilliantly\" well yes 😌",
