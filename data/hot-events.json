@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-20T21:06:13.721647Z",
+  "generated_at": "2026-11-20T21:21:18.642207Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -544,7 +544,7 @@
       "rank": 2
     },
     {
-      "event_id": "evt-2026-11-18-a6d3a26a6241-a6d3a26a-2",
+      "event_id": "evt-2026-11-18-a6d3a26a6241-a6d3a26a",
       "rule_id": null,
       "hot_word_zh": "McLaren 的 Oscar Piastri 将在本周末的拉斯维加斯大奖赛被罚退10个发…",
       "hot_word_en": "McLaren's Oscar Piastri is set to take a 10-place grid penalty at this weekend's Las Vegas Grand Prix FULL ST…",
@@ -1851,7 +1851,7 @@
       "rank": 10
     }
   ],
-  "review_needed_count": 20,
+  "review_needed_count": 19,
   "review_needed_events": [
     {
       "event_id": "evt-2026-11-15-47fa495d51ea",
@@ -2854,88 +2854,6 @@
       "media_heat": 0,
       "fan_heat": 16,
       "heat": 16,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-11-14-82d5bdae0832",
-      "rule_id": null,
-      "hot_word_zh": "问：为什么去年年底崩盘了？OP：有很多原因。有几个地方我在速度上很挣扎。",
-      "hot_word_en": "Q: why did last year unravel at the end? OP: a number of reasons.",
-      "first_seen_at": "2026-11-14T17:42:12Z",
-      "last_seen_at": "2026-11-17T21:18:18Z",
-      "anchor_item_id": "piasnews-social-17a269a51aae1f64",
-      "image_url": "https://pbs.twimg.com/media/HXWmvaeWMAE6t-G.jpg",
-      "video_url": "https://video.twimg.com/amplify_video/2121659620464750592/vid/avc1/480x270/b0IU-9bnCT-xtYlt.mp4?tag=14",
-      "video_poster_url": "https://pbs.twimg.com/media/HXWmvaeWMAE6t-G.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-c0ddbc6a27cb4667",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X repost from @laurogeitabat: RT @PIZZAPIASTRI: he did it again 🥰",
-          "title_zh": "X 转帖 @laurogeitabat：RT @PIZZAPIASTRI：他又来了一次 🥰",
-          "summary": "RT @PIZZAPIASTRI: he did it again 🥰 https://t.co/ou7hds7PjW",
-          "summary_zh": "RT @PIZZAPIASTRI：他又来了一次 🥰",
-          "url": "https://x.com/laurogeitabat/status/2122801525571346663",
-          "published_at": "2026-11-17T21:18:18Z",
-          "image_url": "https://pbs.twimg.com/media/HXWmvaeWMAE6t-G.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HXWmvaeWMAE6t-G.jpg",
-          "heat_contribution": 2.1652,
-          "metrics": {
-            "likes": 0,
-            "retweets": 18,
-            "replies": 0,
-            "quotes": 0,
-            "views": 258,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-17a269a51aae1f64",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: Q: why did last year unravel at the end? OP: a number of reasons. there was a couple of places…",
-          "title_zh": "X 发帖 @laurogeitabat：问：为什么去年年底崩盘了？OP：有很多原因。有几个地方我在速度上很挣扎。作为车队，如果再来一次，我们也会做一些不同的事情。其中一些事情的影响有时很大。",
-          "summary": "Q: why did last year unravel at the end? OP: a number of reasons. there was a couple of places where i struggled for pace. as a team we also would do some things differently if we did it again. the impact of some of those things was big sometimes. https://t.co/oZb1fS7Fpt",
-          "summary_zh": "问：为什么去年年底崩盘了？OP：有很多原因。有几个地方我在速度上很挣扎。作为车队，如果再来一次，我们也会做一些不同的事情。其中一些事情的影响有时很大。",
-          "url": "https://x.com/laurogeitabat/status/2121659981816553823",
-          "published_at": "2026-11-14T17:42:12Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2121659620464750592/vid/avc1/480x270/b0IU-9bnCT-xtYlt.mp4?tag=14",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2121659620464750592/img/QqaaKGlkXAcwb66i.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {
-            "likes": 887,
-            "retweets": 57,
-            "replies": 6,
-            "quotes": 0,
-            "views": 30074,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 14,
-      "heat": 14,
       "source_labels": [
         "粉"
       ],
