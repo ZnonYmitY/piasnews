@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-20T08:35:49.112890Z",
+  "generated_at": "2026-11-20T08:50:47.376386Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -832,7 +832,7 @@
           "image_url": "https://sportsbase.io/images/gpfans/copy_1200x800/d6c6ca9fdcf7330912bd9f3d292e7e5249c7c4f5.jpg",
           "video_url": null,
           "video_poster_url": "https://sportsbase.io/images/gpfans/copy_1200x800/d6c6ca9fdcf7330912bd9f3d292e7e5249c7c4f5.jpg",
-          "heat_contribution": 0.2,
+          "heat_contribution": 0.0,
           "metrics": {}
         },
         {
@@ -1347,9 +1347,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 60,
+      "media_heat": 59,
       "fan_heat": 0,
-      "heat": 60,
+      "heat": 59,
       "source_labels": [
         "媒"
       ],
@@ -1363,86 +1363,7 @@
       "rank": 2
     },
     {
-      "event_id": "evt-2026-11-18-4ff60ca11934",
-      "rule_id": null,
-      "hot_word_zh": "模仿人体模型时忍不住笑场 😭😭",
-      "hot_word_en": "unable to keep a straight face while imitating the mannequin 😭😭",
-      "first_seen_at": "2026-11-18T08:47:31Z",
-      "last_seen_at": "2026-11-18T10:18:46Z",
-      "anchor_item_id": "piasnews-social-181d459845c8a830",
-      "image_url": "https://pbs.twimg.com/media/HXZSfGjXcAAJrgK.jpg",
-      "video_url": "https://video.twimg.com/amplify_video/2122997921792540672/vid/avc1/320x560/Rgc7ROBqyxhJukyR.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/media/HXZSfGjXcAAJrgK.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-db170a894dc49885",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: OSCAR IMITATING THE MANNEQUIN'S POSE 😭😭😭",
-          "title_zh": "X 发帖 @laurogeitabat：OSCAR 在模仿人体模特的姿势 😭😭😭",
-          "summary": "OSCAR IMITATING THE MANNEQUIN'S POSE 😭😭😭 https://t.co/Ku6wUIKF9X",
-          "summary_zh": "OSCAR 在模仿人体模特的姿势 😭😭😭",
-          "url": "https://x.com/laurogeitabat/status/2122974974742757542",
-          "published_at": "2026-11-18T08:47:31Z",
-          "image_url": "https://pbs.twimg.com/media/HXZSfGjXcAAJrgK.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HXZSfGjXcAAJrgK.jpg",
-          "heat_contribution": 8.2515,
-          "metrics": {
-            "likes": 6443,
-            "retweets": 849,
-            "replies": 3,
-            "quotes": 0,
-            "views": 36679,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-181d459845c8a830",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: unable to keep a straight face while imitating the mannequin 😭😭",
-          "title_zh": "X 发帖 @laurogeitabat：模仿人体模型时忍不住笑场 😭😭",
-          "summary": "unable to keep a straight face while imitating the mannequin 😭😭 https://t.co/PoC2f17LQF",
-          "summary_zh": "模仿人体模型时忍不住笑场 😭😭",
-          "url": "https://x.com/laurogeitabat/status/2122997938376888809",
-          "published_at": "2026-11-18T10:18:46Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2122997921792540672/vid/avc1/320x560/Rgc7ROBqyxhJukyR.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2122997921792540672/img/tw7QC9nbr4_Ap2a2.jpg",
-          "heat_contribution": 4.9923,
-          "metrics": {
-            "likes": 246,
-            "retweets": 24,
-            "replies": 1,
-            "quotes": 0,
-            "views": 2807,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 53,
-      "heat": 53,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 3
-    },
-    {
-      "event_id": "evt-2026-11-18-a6d3a26a6241-a6d3a26a-2",
+      "event_id": "evt-2026-11-18-a6d3a26a6241-a6d3a26a",
       "rule_id": null,
       "hot_word_zh": "McLaren 的 Oscar Piastri 将在本周末的拉斯维加斯大奖赛被罚退10个发…",
       "hot_word_en": "McLaren's Oscar Piastri is set to take a 10-place grid penalty at this weekend's Las Vegas Grand Prix FULL ST…",
@@ -1494,10 +1415,89 @@
       },
       "pinned_rank": null,
       "hidden": false,
+      "rank": 3
+    },
+    {
+      "event_id": "evt-2026-11-18-4ff60ca11934",
+      "rule_id": null,
+      "hot_word_zh": "模仿人体模型时忍不住笑场 😭😭",
+      "hot_word_en": "unable to keep a straight face while imitating the mannequin 😭😭",
+      "first_seen_at": "2026-11-18T08:47:31Z",
+      "last_seen_at": "2026-11-18T10:18:46Z",
+      "anchor_item_id": "piasnews-social-181d459845c8a830",
+      "image_url": "https://pbs.twimg.com/media/HXZSfGjXcAAJrgK.jpg",
+      "video_url": "https://video.twimg.com/amplify_video/2122997921792540672/vid/avc1/320x560/Rgc7ROBqyxhJukyR.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/media/HXZSfGjXcAAJrgK.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-db170a894dc49885",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: OSCAR IMITATING THE MANNEQUIN'S POSE 😭😭😭",
+          "title_zh": "X 发帖 @laurogeitabat：OSCAR 在模仿人体模特的姿势 😭😭😭",
+          "summary": "OSCAR IMITATING THE MANNEQUIN'S POSE 😭😭😭 https://t.co/Ku6wUIKF9X",
+          "summary_zh": "OSCAR 在模仿人体模特的姿势 😭😭😭",
+          "url": "https://x.com/laurogeitabat/status/2122974974742757542",
+          "published_at": "2026-11-18T08:47:31Z",
+          "image_url": "https://pbs.twimg.com/media/HXZSfGjXcAAJrgK.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HXZSfGjXcAAJrgK.jpg",
+          "heat_contribution": 7.4409,
+          "metrics": {
+            "likes": 6443,
+            "retweets": 849,
+            "replies": 3,
+            "quotes": 0,
+            "views": 36679,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-181d459845c8a830",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: unable to keep a straight face while imitating the mannequin 😭😭",
+          "title_zh": "X 发帖 @laurogeitabat：模仿人体模型时忍不住笑场 😭😭",
+          "summary": "unable to keep a straight face while imitating the mannequin 😭😭 https://t.co/PoC2f17LQF",
+          "summary_zh": "模仿人体模型时忍不住笑场 😭😭",
+          "url": "https://x.com/laurogeitabat/status/2122997938376888809",
+          "published_at": "2026-11-18T10:18:46Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2122997921792540672/vid/avc1/320x560/Rgc7ROBqyxhJukyR.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2122997921792540672/img/tw7QC9nbr4_Ap2a2.jpg",
+          "heat_contribution": 4.9923,
+          "metrics": {
+            "likes": 246,
+            "retweets": 24,
+            "replies": 1,
+            "quotes": 0,
+            "views": 2807,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 49,
+      "heat": 49,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
       "rank": 4
     },
     {
-      "event_id": "evt-2026-11-17-78425058d477",
+      "event_id": "evt-2026-11-17-78425058d477-78425058",
       "rule_id": null,
       "hot_word_zh": "Zak 已请求在 Oscar 下一次夺冠时登上领奖台 😶 “我曾和 Oscar 一起登上领…",
       "hot_word_en": "zak has requested to be on the podium for oscar's next win 😶 \"i've been on the podium with oscar but i've not…",
@@ -1905,41 +1905,41 @@
       "rank": 9
     },
     {
-      "event_id": "evt-2026-11-19-423a5e3f66e3",
+      "event_id": "evt-2026-11-18-90d4ff6da3b4",
       "rule_id": null,
-      "hot_word_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的内容。",
-      "hot_word_en": "‘Not a nice thing to see’: Piastri speaks out on Australia’s Sandpapergate storm",
-      "first_seen_at": "2026-11-19T08:45:00Z",
-      "last_seen_at": "2026-11-19T08:45:00Z",
-      "anchor_item_id": "piasnews-4e2e6f6d4d2177b1",
-      "image_url": "https://lentedesportiva.com/wp-content/uploads/2026/11/lente-fad2e5fb-8ac4-48c7-a785-facdc9a5bf6e.png",
+      "hot_word_zh": "“胜负难料”：McLaren瞄准1500万美元奖金……而Piastri的状态将至关重要",
+      "hot_word_en": "Rumor or speculative report; treat as unverified unless confirmed by official sources.",
+      "first_seen_at": "2026-11-18T23:43:19Z",
+      "last_seen_at": "2026-11-18T23:43:19Z",
+      "anchor_item_id": "piasnews-2b3d1f4d839a0d27",
+      "image_url": "https://images.daznservices.com/di/library/foxtel_news/2/b1/oscar-piastri-prepares-for-the-2026-sao-paulo-grand-prix-in-brazil_1ixv90o37g39u1r5a39yhw787l.jpg?t=-169915631",
       "video_url": null,
-      "video_poster_url": "https://lentedesportiva.com/wp-content/uploads/2026/11/lente-fad2e5fb-8ac4-48c7-a785-facdc9a5bf6e.png",
+      "video_poster_url": "https://images.daznservices.com/di/library/foxtel_news/2/b1/oscar-piastri-prepares-for-the-2026-sao-paulo-grand-prix-in-brazil_1ixv90o37g39u1r5a39yhw787l.jpg?t=-169915631",
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
         {
-          "item_id": "piasnews-4e2e6f6d4d2177b1",
+          "item_id": "piasnews-2b3d1f4d839a0d27",
           "dataset": "items",
           "source_type": "media",
-          "source": "Lente Desportiva",
-          "title": "‘Not a nice thing to see’: Piastri speaks out on Australia’s Sandpapergate storm",
-          "title_zh": "“这不是什么好看的场面”：Piastri就澳大利亚“砂纸门”风波发声",
-          "summary": "Oscar Piastri-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的内容。",
-          "url": "https://lentedesportiva.com/not-a-nice-thing-to-see-piastri-speaks-out-on-australias-sandpapergate-storm/",
-          "published_at": "2026-11-19T08:45:00Z",
-          "image_url": "https://lentedesportiva.com/wp-content/uploads/2026/11/lente-fad2e5fb-8ac4-48c7-a785-facdc9a5bf6e.png",
+          "source": "Fox Sports",
+          "title": "‘Down to the wire’: McLaren targets $15m payday… and Piastri’s form will be crucial",
+          "title_zh": "“胜负难料”：McLaren瞄准1500万美元奖金……而Piastri的状态将至关重要",
+          "summary": "Rumor or speculative report; treat as unverified unless confirmed by official sources.",
+          "summary_zh": "传闻或推测性报道；除非官方消息源确认，否则视为未经证实。",
+          "url": "https://www.foxsports.com.au/en-AU/news/motorsport/down-to-the-wire-mclaren-targets-15m-payday-and-piastris-form-will-be-crucial/ufw1e9jxboe8127z1ltvueujx",
+          "published_at": "2026-11-18T23:43:19Z",
+          "image_url": "https://images.daznservices.com/di/library/foxtel_news/2/b1/oscar-piastri-prepares-for-the-2026-sao-paulo-grand-prix-in-brazil_1ixv90o37g39u1r5a39yhw787l.jpg?t=-169915631",
           "video_url": null,
-          "video_poster_url": "https://lentedesportiva.com/wp-content/uploads/2026/11/lente-fad2e5fb-8ac4-48c7-a785-facdc9a5bf6e.png",
-          "heat_contribution": 0.75,
+          "video_poster_url": "https://images.daznservices.com/di/library/foxtel_news/2/b1/oscar-piastri-prepares-for-the-2026-sao-paulo-grand-prix-in-brazil_1ixv90o37g39u1r5a39yhw787l.jpg?t=-169915631",
+          "heat_contribution": 0.45,
           "metrics": {}
         }
       ],
       "official_heat": 0,
-      "media_heat": 13,
+      "media_heat": 10,
       "fan_heat": 0,
-      "heat": 13,
+      "heat": 10,
       "source_labels": [
         "媒"
       ],
@@ -2768,7 +2768,7 @@
       }
     },
     {
-      "event_id": "evt-2026-11-17-78425058d477-78425058",
+      "event_id": "evt-2026-11-17-78425058d477",
       "rule_id": null,
       "hot_word_zh": "Zak Brown 谈2024匈牙利站：“Oscar 配得上那场胜利，他开得非常出色。",
       "hot_word_en": "zak brown on hungary 2024: \"oscar deserved that win, he drove brilliantly\" well yes 😌",
@@ -3802,64 +3802,6 @@
       }
     },
     {
-      "event_id": "evt-2026-11-18-0d4be83dd518",
-      "rule_id": null,
-      "hot_word_zh": "f1gigimotorsport (英语).",
-      "hot_word_en": "f1gigimotorsport (英语).",
-      "first_seen_at": "2026-11-18T08:47:32Z",
-      "last_seen_at": "2026-11-18T08:47:32Z",
-      "anchor_item_id": "piasnews-social-4aa9989d3e1c6add",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-4aa9989d3e1c6add",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: 📸: f1gigimotorsport",
-          "title_zh": "X 发帖 @laurogeitabat：f1gigimotorsport (英语).",
-          "summary": "📸: f1gigimotorsport",
-          "summary_zh": "f1gigimotorsport (英语).",
-          "url": "https://x.com/laurogeitabat/status/2122974979302039809",
-          "published_at": "2026-11-18T08:47:32Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 2.2904,
-          "metrics": {
-            "likes": 1,
-            "retweets": 0,
-            "replies": 0,
-            "quotes": 0,
-            "views": 1873,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 14,
-      "heat": 14,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-11-18-078d199d0267",
       "rule_id": null,
       "hot_word_zh": "早上好，顺便说一句这项运动不是真的",
@@ -3902,6 +3844,64 @@
       "media_heat": 0,
       "fan_heat": 13,
       "heat": 13,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-18-0d4be83dd518",
+      "rule_id": null,
+      "hot_word_zh": "f1gigimotorsport (英语).",
+      "hot_word_en": "f1gigimotorsport (英语).",
+      "first_seen_at": "2026-11-18T08:47:32Z",
+      "last_seen_at": "2026-11-18T08:47:32Z",
+      "anchor_item_id": "piasnews-social-4aa9989d3e1c6add",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-4aa9989d3e1c6add",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: 📸: f1gigimotorsport",
+          "title_zh": "X 发帖 @laurogeitabat：f1gigimotorsport (英语).",
+          "summary": "📸: f1gigimotorsport",
+          "summary_zh": "f1gigimotorsport (英语).",
+          "url": "https://x.com/laurogeitabat/status/2122974979302039809",
+          "published_at": "2026-11-18T08:47:32Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 1.5986,
+          "metrics": {
+            "likes": 1,
+            "retweets": 0,
+            "replies": 0,
+            "quotes": 0,
+            "views": 1873,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 11,
+      "heat": 11,
       "source_labels": [
         "粉"
       ],
