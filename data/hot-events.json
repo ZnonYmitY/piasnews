@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-20T17:21:19.398303Z",
+  "generated_at": "2026-11-20T17:36:14.824932Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -154,7 +154,7 @@
           "image_url": "https://cdn-cabinet.ua.news/uploads/images/oscar_piastri_10_place_grid_penalty_las_1795015417219.webp",
           "video_url": null,
           "video_poster_url": "https://cdn-cabinet.ua.news/uploads/images/oscar_piastri_10_place_grid_penalty_las_1795015417219.webp",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -448,9 +448,9 @@
         }
       ],
       "official_heat": 8,
-      "media_heat": 58,
+      "media_heat": 57,
       "fan_heat": 0,
-      "heat": 60,
+      "heat": 59,
       "source_labels": [
         "官",
         "媒"
@@ -1425,7 +1425,7 @@
       "rank": 3
     },
     {
-      "event_id": "evt-2026-11-18-a6d3a26a6241-a6d3a26a",
+      "event_id": "evt-2026-11-18-a6d3a26a6241-a6d3a26a-2",
       "rule_id": null,
       "hot_word_zh": "McLaren 的 Oscar Piastri 将在本周末的拉斯维加斯大奖赛被罚退10个发…",
       "hot_word_en": "McLaren's Oscar Piastri is set to take a 10-place grid penalty at this weekend's Las Vegas Grand Prix FULL ST…",
@@ -1936,7 +1936,7 @@
       "rank": 10
     }
   ],
-  "review_needed_count": 26,
+  "review_needed_count": 25,
   "review_needed_events": [
     {
       "event_id": "evt-2026-11-15-47fa495d51ea",
@@ -2245,64 +2245,6 @@
             "replies": 5,
             "quotes": 0,
             "views": 7532,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 27,
-      "heat": 27,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-11-17-be381ba4d8d7",
-      "rule_id": null,
-      "hot_word_zh": "oscar为sonic x mclaren联名系列做模特！",
-      "hot_word_en": "oscar modelling the sonic x mclaren collab collection!",
-      "first_seen_at": "2026-11-17T17:23:34Z",
-      "last_seen_at": "2026-11-17T17:23:34Z",
-      "anchor_item_id": "piasnews-social-a4ca11e815f9fe08",
-      "image_url": "https://pbs.twimg.com/media/HXV_AllXAAAKnMo.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HXV_AllXAAAKnMo.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-a4ca11e815f9fe08",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar modelling the sonic x mclaren collab collection!",
-          "title_zh": "X 发帖 @laurogeitabat：oscar为sonic x mclaren联名系列做模特！",
-          "summary": "oscar modelling the sonic x mclaren collab collection! https://t.co/ddTnjo9KvK",
-          "summary_zh": "oscar为sonic x mclaren联名系列做模特！",
-          "url": "https://x.com/laurogeitabat/status/2122742454021402842",
-          "published_at": "2026-11-17T17:23:34Z",
-          "image_url": "https://pbs.twimg.com/media/HXV_AllXAAAKnMo.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HXV_AllXAAAKnMo.jpg",
-          "heat_contribution": 4.8518,
-          "metrics": {
-            "likes": 512,
-            "retweets": 33,
-            "replies": 1,
-            "quotes": 0,
-            "views": 5388,
             "bookmarks": 0
           }
         }
