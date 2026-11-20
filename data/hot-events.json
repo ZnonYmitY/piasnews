@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-20T15:06:19.226927Z",
+  "generated_at": "2026-11-20T15:21:15.164790Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -39,23 +39,6 @@
           "metrics": {}
         },
         {
-          "item_id": "piasnews-e12eb9ac5b4b2899",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "GPFans",
-          "title": "George Russell to miss out on Mercedes upgrade as Oscar Piastri takes major grid penalty - F1 News Today",
-          "title_zh": "George Russell将错过Mercedes升级，而Oscar Piastri面临重大发车格罚退 - F1今日新闻",
-          "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的比赛周或与表现相关的条目。",
-          "url": "https://www.gpfans.com/en/f1-news/1093041/f1-news-today-george-russell-miss-mercedes-upgrade-oscar-piastri-major-grid-penalty/",
-          "published_at": "2026-11-19T15:11:00Z",
-          "image_url": "https://sportsbase.io/images/gpfans/copy_1200x800/f52329bb7ddda1726202c005ca8ce704b0eca5ab.jpg",
-          "video_url": null,
-          "video_poster_url": "https://sportsbase.io/images/gpfans/copy_1200x800/f52329bb7ddda1726202c005ca8ce704b0eca5ab.jpg",
-          "heat_contribution": 0.75,
-          "metrics": {}
-        },
-        {
           "item_id": "piasnews-f6b3649883d3fd78",
           "dataset": "items",
           "source_type": "official",
@@ -70,6 +53,23 @@
           "video_url": null,
           "video_poster_url": "https://media.formula1.com/image/upload/t_16by9Centre/c_lfill,w_2048/q_auto/v1740000001/fom-website/2026/McLaren/GettyImages-2304132535.webp",
           "heat_contribution": 0.6,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-e12eb9ac5b4b2899",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "GPFans",
+          "title": "George Russell to miss out on Mercedes upgrade as Oscar Piastri takes major grid penalty - F1 News Today",
+          "title_zh": "George Russell将错过Mercedes升级，而Oscar Piastri面临重大发车格罚退 - F1今日新闻",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的比赛周或与表现相关的条目。",
+          "url": "https://www.gpfans.com/en/f1-news/1093041/f1-news-today-george-russell-miss-mercedes-upgrade-oscar-piastri-major-grid-penalty/",
+          "published_at": "2026-11-19T15:11:00Z",
+          "image_url": "https://sportsbase.io/images/gpfans/copy_1200x800/f52329bb7ddda1726202c005ca8ce704b0eca5ab.jpg",
+          "video_url": null,
+          "video_poster_url": "https://sportsbase.io/images/gpfans/copy_1200x800/f52329bb7ddda1726202c005ca8ce704b0eca5ab.jpg",
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -448,9 +448,9 @@
         }
       ],
       "official_heat": 8,
-      "media_heat": 60,
+      "media_heat": 59,
       "fan_heat": 0,
-      "heat": 62,
+      "heat": 61,
       "source_labels": [
         "官",
         "媒"
@@ -1425,7 +1425,7 @@
       "rank": 3
     },
     {
-      "event_id": "evt-2026-11-18-a6d3a26a6241-a6d3a26a-2",
+      "event_id": "evt-2026-11-18-a6d3a26a6241-a6d3a26a",
       "rule_id": null,
       "hot_word_zh": "McLaren 的 Oscar Piastri 将在本周末的拉斯维加斯大奖赛被罚退10个发…",
       "hot_word_en": "McLaren's Oscar Piastri is set to take a 10-place grid penalty at this weekend's Las Vegas Grand Prix FULL ST…",
