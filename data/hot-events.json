@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-20T12:05:51.682885Z",
+  "generated_at": "2026-11-20T12:20:49.408475Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -239,7 +239,7 @@
           "image_url": "https://www.autohebdo.fr/wp-content/uploads/2026/11/DPPI_00126023_2161-2.jpg",
           "video_url": null,
           "video_poster_url": "https://www.autohebdo.fr/wp-content/uploads/2026/11/DPPI_00126023_2161-2.jpg",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -256,7 +256,7 @@
           "image_url": "https://f1i.com/wp-content/uploads/2026/11/ST1_2034_8tCrOOIr_20261031121555-1200x800-5b2df79.jpg",
           "video_url": null,
           "video_poster_url": "https://f1i.com/wp-content/uploads/2026/11/ST1_2034_8tCrOOIr_20261031121555-1200x800-5b2df79.jpg",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -448,9 +448,9 @@
         }
       ],
       "official_heat": 8,
-      "media_heat": 66,
+      "media_heat": 64,
       "fan_heat": 0,
-      "heat": 68,
+      "heat": 66,
       "source_labels": [
         "官",
         "媒"
@@ -1442,7 +1442,7 @@
       "rank": 3
     },
     {
-      "event_id": "evt-2026-11-18-a6d3a26a6241-a6d3a26a-2",
+      "event_id": "evt-2026-11-18-a6d3a26a6241-a6d3a26a",
       "rule_id": null,
       "hot_word_zh": "McLaren 的 Oscar Piastri 将在本周末的拉斯维加斯大奖赛被罚退10个发…",
       "hot_word_en": "McLaren's Oscar Piastri is set to take a 10-place grid penalty at this weekend's Las Vegas Grand Prix FULL ST…",
@@ -1953,7 +1953,7 @@
       "rank": 10
     }
   ],
-  "review_needed_count": 32,
+  "review_needed_count": 31,
   "review_needed_events": [
     {
       "event_id": "evt-2026-11-15-47fa495d51ea",
@@ -2438,64 +2438,6 @@
       "media_heat": 0,
       "fan_heat": 29,
       "heat": 29,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-11-17-78425058d477-78425058",
-      "rule_id": null,
-      "hot_word_zh": "Zak Brown 谈2024匈牙利站：“Oscar 配得上那场胜利，他开得非常出色。",
-      "hot_word_en": "zak brown on hungary 2024: \"oscar deserved that win, he drove brilliantly\" well yes 😌",
-      "first_seen_at": "2026-11-17T12:07:30Z",
-      "last_seen_at": "2026-11-17T12:07:30Z",
-      "anchor_item_id": "piasnews-social-6db2816d439f87d3",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2122662899055255558/vid/avc1/502x270/XbTjOWfCTeoUhtJb.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2122662899055255558/img/lwn5gwlxTNaTC-Ke.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-6db2816d439f87d3",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: zak brown on hungary 2024: \"oscar deserved that win, he drove brilliantly\" well yes 😌",
-          "title_zh": "X 发帖 @laurogeitabat：Zak Brown 谈2024匈牙利站：“Oscar 配得上那场胜利，他开得非常出色。” 嗯，是的 😌",
-          "summary": "zak brown on hungary 2024: \"oscar deserved that win, he drove brilliantly\" well yes 😌 https://t.co/xh8SaZc2yY",
-          "summary_zh": "Zak Brown 谈2024匈牙利站：“Oscar 配得上那场胜利，他开得非常出色。” 嗯，是的 😌",
-          "url": "https://x.com/laurogeitabat/status/2122662915337580943",
-          "published_at": "2026-11-17T12:07:30Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2122662899055255558/vid/avc1/502x270/XbTjOWfCTeoUhtJb.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2122662899055255558/img/lwn5gwlxTNaTC-Ke.jpg",
-          "heat_contribution": 5.2107,
-          "metrics": {
-            "likes": 473,
-            "retweets": 38,
-            "replies": 1,
-            "quotes": 0,
-            "views": 35912,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 28,
-      "heat": 28,
       "source_labels": [
         "粉"
       ],
