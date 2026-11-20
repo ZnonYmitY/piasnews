@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-20T06:35:52.159444Z",
+  "generated_at": "2026-11-20T06:50:50.749197Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -392,7 +392,7 @@
           "image_url": "https://sundayguardianlive.com/wp-content/uploads/2026/03/oscar-piastri.jpg",
           "video_url": null,
           "video_poster_url": "https://sundayguardianlive.com/wp-content/uploads/2026/03/oscar-piastri.jpg",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -448,9 +448,9 @@
         }
       ],
       "official_heat": 12,
-      "media_heat": 74,
+      "media_heat": 73,
       "fan_heat": 0,
-      "heat": 77,
+      "heat": 76,
       "source_labels": [
         "官",
         "媒"
@@ -1442,7 +1442,7 @@
       "rank": 3
     },
     {
-      "event_id": "evt-2026-11-18-a6d3a26a6241-a6d3a26a-2",
+      "event_id": "evt-2026-11-18-a6d3a26a6241-a6d3a26a",
       "rule_id": null,
       "hot_word_zh": "McLaren 的 Oscar Piastri 将在本周末的拉斯维加斯大奖赛被罚退10个发…",
       "hot_word_en": "McLaren's Oscar Piastri is set to take a 10-place grid penalty at this weekend's Las Vegas Grand Prix FULL ST…",
@@ -1497,7 +1497,7 @@
       "rank": 4
     },
     {
-      "event_id": "evt-2026-11-17-78425058d477",
+      "event_id": "evt-2026-11-17-78425058d477-78425058",
       "rule_id": null,
       "hot_word_zh": "Zak 已请求在 Oscar 下一次夺冠时登上领奖台 😶 “我曾和 Oscar 一起登上领…",
       "hot_word_en": "zak has requested to be on the podium for oscar's next win 😶 \"i've been on the podium with oscar but i've not…",
@@ -1785,71 +1785,6 @@
       "rank": 7
     },
     {
-      "event_id": "evt-2026-11-19-ddda339857c4",
-      "rule_id": null,
-      "hot_word_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的内容。",
-      "hot_word_en": "'The quicker it can be dealt with, the better': Aussie F1 driver Piastri weighs in on revived...",
-      "first_seen_at": "2026-11-19T06:46:40Z",
-      "last_seen_at": "2026-11-19T10:46:01Z",
-      "anchor_item_id": "piasnews-5e15e8088a699c86",
-      "image_url": "https://assets.thehansindia.com/h-upload/2026/11/19/1726368-australias-formula-1-driver-oscar-piastri.jpg",
-      "video_url": null,
-      "video_poster_url": "https://assets.thehansindia.com/h-upload/2026/11/19/1726368-australias-formula-1-driver-oscar-piastri.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-5e15e8088a699c86",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "The Hans India",
-          "title": "'The quicker it can be dealt with, the better': Aussie F1 driver Piastri weighs in on revived...",
-          "title_zh": "“越早处理越好”：澳大利亚F1车手 Piastri 就重启的……发表看法",
-          "summary": "Oscar Piastri-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的内容。",
-          "url": "https://www.thehansindia.com/sports/the-quicker-it-can-be-dealt-with-the-better-aussie-f1-driver-piastri-weighs-in-on-revived-sandpapergate-saga-1143649",
-          "published_at": "2026-11-19T10:46:01Z",
-          "image_url": "https://assets.thehansindia.com/h-upload/2026/11/19/1726368-australias-formula-1-driver-oscar-piastri.jpg",
-          "video_url": null,
-          "video_poster_url": "https://assets.thehansindia.com/h-upload/2026/11/19/1726368-australias-formula-1-driver-oscar-piastri.jpg",
-          "heat_contribution": 0.75,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-7dd58f3decc6a535",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Speedcafe.com",
-          "title": "Piastri weighs in on explosive sandpapergate cricket saga",
-          "title_zh": "Piastri就引爆舆论的“砂纸门”板球风波发表看法",
-          "summary": "Oscar Piastri-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的内容。",
-          "url": "https://speedcafe.com/f1-news-2026-las-vegas-grand-prix-oscar-piastri-on-sandpapergate-cricket-australia-sandpaper-comments-thoughts/",
-          "published_at": "2026-11-19T06:46:40Z",
-          "image_url": "https://speedcafe.com/wp-content/uploads/2026/11/USA-26-J31_2431-by-Jayce-Illman-2.jpg",
-          "video_url": null,
-          "video_poster_url": "https://speedcafe.com/wp-content/uploads/2026/11/USA-26-J31_2431-by-Jayce-Illman-2.jpg",
-          "heat_contribution": 0.75,
-          "metrics": {}
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 19,
-      "fan_heat": 0,
-      "heat": 19,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 2,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 8
-    },
-    {
       "event_id": "evt-2026-11-18-9556b0722391",
       "rule_id": null,
       "hot_word_zh": "Oscar Piastri今天在拉斯维加斯参加车队活动。",
@@ -1899,6 +1834,71 @@
         "official": 0,
         "media": 0,
         "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 8
+    },
+    {
+      "event_id": "evt-2026-11-19-ddda339857c4",
+      "rule_id": null,
+      "hot_word_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的内容。",
+      "hot_word_en": "'The quicker it can be dealt with, the better': Aussie F1 driver Piastri weighs in on revived...",
+      "first_seen_at": "2026-11-19T06:46:40Z",
+      "last_seen_at": "2026-11-19T10:46:01Z",
+      "anchor_item_id": "piasnews-5e15e8088a699c86",
+      "image_url": "https://assets.thehansindia.com/h-upload/2026/11/19/1726368-australias-formula-1-driver-oscar-piastri.jpg",
+      "video_url": null,
+      "video_poster_url": "https://assets.thehansindia.com/h-upload/2026/11/19/1726368-australias-formula-1-driver-oscar-piastri.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-5e15e8088a699c86",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "The Hans India",
+          "title": "'The quicker it can be dealt with, the better': Aussie F1 driver Piastri weighs in on revived...",
+          "title_zh": "“越早处理越好”：澳大利亚F1车手 Piastri 就重启的……发表看法",
+          "summary": "Oscar Piastri-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的内容。",
+          "url": "https://www.thehansindia.com/sports/the-quicker-it-can-be-dealt-with-the-better-aussie-f1-driver-piastri-weighs-in-on-revived-sandpapergate-saga-1143649",
+          "published_at": "2026-11-19T10:46:01Z",
+          "image_url": "https://assets.thehansindia.com/h-upload/2026/11/19/1726368-australias-formula-1-driver-oscar-piastri.jpg",
+          "video_url": null,
+          "video_poster_url": "https://assets.thehansindia.com/h-upload/2026/11/19/1726368-australias-formula-1-driver-oscar-piastri.jpg",
+          "heat_contribution": 0.75,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-7dd58f3decc6a535",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Speedcafe.com",
+          "title": "Piastri weighs in on explosive sandpapergate cricket saga",
+          "title_zh": "Piastri就引爆舆论的“砂纸门”板球风波发表看法",
+          "summary": "Oscar Piastri-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的内容。",
+          "url": "https://speedcafe.com/f1-news-2026-las-vegas-grand-prix-oscar-piastri-on-sandpapergate-cricket-australia-sandpaper-comments-thoughts/",
+          "published_at": "2026-11-19T06:46:40Z",
+          "image_url": "https://speedcafe.com/wp-content/uploads/2026/11/USA-26-J31_2431-by-Jayce-Illman-2.jpg",
+          "video_url": null,
+          "video_poster_url": "https://speedcafe.com/wp-content/uploads/2026/11/USA-26-J31_2431-by-Jayce-Illman-2.jpg",
+          "heat_contribution": 0.45,
+          "metrics": {}
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 18,
+      "fan_heat": 0,
+      "heat": 18,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 2,
+        "fan": 0
       },
       "pinned_rank": null,
       "hidden": false,
@@ -2826,7 +2826,7 @@
       }
     },
     {
-      "event_id": "evt-2026-11-17-78425058d477-78425058",
+      "event_id": "evt-2026-11-17-78425058d477",
       "rule_id": null,
       "hot_word_zh": "Zak Brown 谈2024匈牙利站：“Oscar 配得上那场胜利，他开得非常出色。",
       "hot_word_en": "zak brown on hungary 2024: \"oscar deserved that win, he drove brilliantly\" well yes 😌",
@@ -3406,64 +3406,6 @@
       }
     },
     {
-      "event_id": "evt-2026-11-18-7bb25bfccd66",
-      "rule_id": null,
-      "hot_word_zh": "更多相关信息：- Oscar 因可靠性问题必须使用新的 ICE - 两位 McLaren…",
-      "hot_word_en": "some more info on this: - oscar has to take a new ICE due to a reliability issue - both mclaren drivers will…",
-      "first_seen_at": "2026-11-18T06:36:48Z",
-      "last_seen_at": "2026-11-18T06:36:48Z",
-      "anchor_item_id": "piasnews-social-050aa85f58b516ec",
-      "image_url": "https://pbs.twimg.com/media/HXY0kb5XAAAZgNd.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HXY0kb5XAAAZgNd.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-050aa85f58b516ec",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: some more info on this: - oscar has to take a new ICE due to a reliability issue - both mclaren…",
-          "title_zh": "X 发帖 @laurogeitabat：更多相关信息：- Oscar 因可靠性问题必须使用新的 ICE - 两位 McLaren 车手本周末也将使用 Mercedes 的升级涡轮增压器，但不会因此受罚",
-          "summary": "some more info on this: - oscar has to take a new ICE due to a reliability issue - both mclaren drivers will also take mercedes' upgraded turbocharger this weekend, but no penalty for that https://t.co/E9rLtu8VRL",
-          "summary_zh": "更多相关信息：- Oscar 因可靠性问题必须使用新的 ICE - 两位 McLaren 车手本周末也将使用 Mercedes 的升级涡轮增压器，但不会因此受罚",
-          "url": "https://x.com/laurogeitabat/status/2122942079529574441",
-          "published_at": "2026-11-18T06:36:48Z",
-          "image_url": "https://pbs.twimg.com/media/HXY0kb5XAAAZgNd.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HXY0kb5XAAAZgNd.jpg",
-          "heat_contribution": 4.5443,
-          "metrics": {
-            "likes": 143,
-            "retweets": 15,
-            "replies": 1,
-            "quotes": 0,
-            "views": 3087,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 25,
-      "heat": 25,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-11-18-f1dc6f821899",
       "rule_id": null,
       "hot_word_zh": "最终成果！！还有 Oscar 穿着儿童款T恤 😁🤏🏻",
@@ -3754,6 +3696,64 @@
             "replies": 0,
             "quotes": 0,
             "views": 1345,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 21,
+      "heat": 21,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-18-7bb25bfccd66",
+      "rule_id": null,
+      "hot_word_zh": "更多相关信息：- Oscar 因可靠性问题必须使用新的 ICE - 两位 McLaren…",
+      "hot_word_en": "some more info on this: - oscar has to take a new ICE due to a reliability issue - both mclaren drivers will…",
+      "first_seen_at": "2026-11-18T06:36:48Z",
+      "last_seen_at": "2026-11-18T06:36:48Z",
+      "anchor_item_id": "piasnews-social-050aa85f58b516ec",
+      "image_url": "https://pbs.twimg.com/media/HXY0kb5XAAAZgNd.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HXY0kb5XAAAZgNd.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-050aa85f58b516ec",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: some more info on this: - oscar has to take a new ICE due to a reliability issue - both mclaren…",
+          "title_zh": "X 发帖 @laurogeitabat：更多相关信息：- Oscar 因可靠性问题必须使用新的 ICE - 两位 McLaren 车手本周末也将使用 Mercedes 的升级涡轮增压器，但不会因此受罚",
+          "summary": "some more info on this: - oscar has to take a new ICE due to a reliability issue - both mclaren drivers will also take mercedes' upgraded turbocharger this weekend, but no penalty for that https://t.co/E9rLtu8VRL",
+          "summary_zh": "更多相关信息：- Oscar 因可靠性问题必须使用新的 ICE - 两位 McLaren 车手本周末也将使用 Mercedes 的升级涡轮增压器，但不会因此受罚",
+          "url": "https://x.com/laurogeitabat/status/2122942079529574441",
+          "published_at": "2026-11-18T06:36:48Z",
+          "image_url": "https://pbs.twimg.com/media/HXY0kb5XAAAZgNd.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HXY0kb5XAAAZgNd.jpg",
+          "heat_contribution": 3.7465,
+          "metrics": {
+            "likes": 143,
+            "retweets": 15,
+            "replies": 1,
+            "quotes": 0,
+            "views": 3087,
             "bookmarks": 0
           }
         }
