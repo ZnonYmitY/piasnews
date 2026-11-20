@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-20T18:21:18.617128Z",
+  "generated_at": "2026-11-20T18:36:18.276011Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -645,7 +645,7 @@
           "image_url": "https://lentedesportiva.com/wp-content/uploads/2026/11/lente-9672a200-bb2f-4d53-80a6-28e173b356d1.jpg",
           "video_url": null,
           "video_poster_url": "https://lentedesportiva.com/wp-content/uploads/2026/11/lente-9672a200-bb2f-4d53-80a6-28e173b356d1.jpg",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -1330,9 +1330,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 53,
+      "media_heat": 52,
       "fan_heat": 0,
-      "heat": 53,
+      "heat": 52,
       "source_labels": [
         "媒"
       ],
@@ -1425,7 +1425,7 @@
       "rank": 3
     },
     {
-      "event_id": "evt-2026-11-18-a6d3a26a6241-a6d3a26a",
+      "event_id": "evt-2026-11-18-a6d3a26a6241-a6d3a26a-2",
       "rule_id": null,
       "hot_word_zh": "McLaren 的 Oscar Piastri 将在本周末的拉斯维加斯大奖赛被罚退10个发…",
       "hot_word_en": "McLaren's Oscar Piastri is set to take a 10-place grid penalty at this weekend's Las Vegas Grand Prix FULL ST…",
@@ -1936,7 +1936,7 @@
       "rank": 10
     }
   ],
-  "review_needed_count": 25,
+  "review_needed_count": 24,
   "review_needed_events": [
     {
       "event_id": "evt-2026-11-15-47fa495d51ea",
@@ -2741,64 +2741,6 @@
       "media_heat": 0,
       "fan_heat": 26,
       "heat": 26,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-11-17-116e3a850bcc",
-      "rule_id": null,
-      "hot_word_zh": "oscar在RACEWKND采访的幕后花絮！",
-      "hot_word_en": "oscar behind the scenes of the RACEWKND interview!",
-      "first_seen_at": "2026-11-17T18:35:48Z",
-      "last_seen_at": "2026-11-17T18:35:48Z",
-      "anchor_item_id": "piasnews-social-ec1788fd83baf5f2",
-      "image_url": "https://pbs.twimg.com/media/HXWPiTIXEAAYkYt.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HXWPiTIXEAAYkYt.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-ec1788fd83baf5f2",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar behind the scenes of the RACEWKND interview!",
-          "title_zh": "X 发帖 @laurogeitabat：oscar在RACEWKND采访的幕后花絮！",
-          "summary": "oscar behind the scenes of the RACEWKND interview! https://t.co/pEzCaUHJ2R",
-          "summary_zh": "oscar在RACEWKND采访的幕后花絮！",
-          "url": "https://x.com/laurogeitabat/status/2122760633770770863",
-          "published_at": "2026-11-17T18:35:48Z",
-          "image_url": "https://pbs.twimg.com/media/HXWPiTIXEAAYkYt.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HXWPiTIXEAAYkYt.jpg",
-          "heat_contribution": 4.4984,
-          "metrics": {
-            "likes": 340,
-            "retweets": 19,
-            "replies": 0,
-            "quotes": 0,
-            "views": 6636,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 25,
-      "heat": 25,
       "source_labels": [
         "粉"
       ],
