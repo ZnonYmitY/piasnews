@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-21T08:36:23.117373Z",
+  "generated_at": "2026-11-21T08:51:13.812680Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -1822,85 +1822,6 @@
       "rank": 2
     },
     {
-      "event_id": "evt-2026-11-18-4ff60ca11934",
-      "rule_id": null,
-      "hot_word_zh": "模仿人体模型时忍不住笑场 😭😭",
-      "hot_word_en": "unable to keep a straight face while imitating the mannequin 😭😭",
-      "first_seen_at": "2026-11-18T08:47:31Z",
-      "last_seen_at": "2026-11-18T10:18:46Z",
-      "anchor_item_id": "piasnews-social-181d459845c8a830",
-      "image_url": "https://pbs.twimg.com/media/HXZSfGjXcAAJrgK.jpg",
-      "video_url": "https://video.twimg.com/amplify_video/2122997921792540672/vid/avc1/320x560/Rgc7ROBqyxhJukyR.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/media/HXZSfGjXcAAJrgK.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-db170a894dc49885",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: OSCAR IMITATING THE MANNEQUIN'S POSE 😭😭😭",
-          "title_zh": "X 发帖 @laurogeitabat：OSCAR 在模仿人体模特的姿势 😭😭😭",
-          "summary": "OSCAR IMITATING THE MANNEQUIN'S POSE 😭😭😭 https://t.co/Ku6wUIKF9X",
-          "summary_zh": "OSCAR 在模仿人体模特的姿势 😭😭😭",
-          "url": "https://x.com/laurogeitabat/status/2122974974742757542",
-          "published_at": "2026-11-18T08:47:31Z",
-          "image_url": "https://pbs.twimg.com/media/HXZSfGjXcAAJrgK.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HXZSfGjXcAAJrgK.jpg",
-          "heat_contribution": 7.4409,
-          "metrics": {
-            "likes": 6443,
-            "retweets": 849,
-            "replies": 3,
-            "quotes": 0,
-            "views": 36679,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-181d459845c8a830",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: unable to keep a straight face while imitating the mannequin 😭😭",
-          "title_zh": "X 发帖 @laurogeitabat：模仿人体模型时忍不住笑场 😭😭",
-          "summary": "unable to keep a straight face while imitating the mannequin 😭😭 https://t.co/PoC2f17LQF",
-          "summary_zh": "模仿人体模型时忍不住笑场 😭😭",
-          "url": "https://x.com/laurogeitabat/status/2122997938376888809",
-          "published_at": "2026-11-18T10:18:46Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2122997921792540672/vid/avc1/320x560/Rgc7ROBqyxhJukyR.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2122997921792540672/img/tw7QC9nbr4_Ap2a2.jpg",
-          "heat_contribution": 4.1899,
-          "metrics": {
-            "likes": 246,
-            "retweets": 24,
-            "replies": 1,
-            "quotes": 0,
-            "views": 2807,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 47,
-      "heat": 47,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 3
-    },
-    {
       "event_id": "evt-2026-11-18-a6d3a26a6241-a6d3a26a",
       "rule_id": null,
       "hot_word_zh": "McLaren 的 Oscar Piastri 将在本周末的拉斯维加斯大奖赛被罚退10个发…",
@@ -1953,7 +1874,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 4
+      "rank": 3
     },
     {
       "event_id": "evt-2026-11-18-4546ef3469eb",
@@ -2043,10 +1964,10 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 5
+      "rank": 4
     },
     {
-      "event_id": "evt-2026-11-18-052f13a697fa",
+      "event_id": "evt-2026-11-18-052f13a697fa-052f13a6",
       "rule_id": null,
       "hot_word_zh": "Andrea Stella 谈 Oscar 明年的前景：“对 Oscar 来说这是一个非常…",
       "hot_word_en": "andrea stella on oscar's prospects next year: \"it's been a very complex season for oscar, who's faced challen…",
@@ -2080,6 +2001,61 @@
             "replies": 1,
             "quotes": 0,
             "views": 17100,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 27,
+      "heat": 27,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "event_id": "evt-2026-11-18-602a67d681a3",
+      "rule_id": null,
+      "hot_word_zh": "“T恤上印着我的脸这个概念还是让我有点不习惯。不过没关系。” 😭😭",
+      "hot_word_en": "\"the concept of having a tshirt with my face on it still weirds me out a little bit. that's okay.\" 😭😭",
+      "first_seen_at": "2026-11-18T11:07:20Z",
+      "last_seen_at": "2026-11-18T11:07:20Z",
+      "anchor_item_id": "piasnews-social-9817d0cb184b86fe",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2123010041863131136/vid/avc1/320x454/ukwaEOM-2FhhUh7r.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2123010041863131136/img/rTlmnted6wSadfKH.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-9817d0cb184b86fe",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: \"the concept of having a tshirt with my face on it still weirds me out a little bit. that's oka…",
+          "title_zh": "X 发帖 @laurogeitabat：“T恤上印着我的脸这个概念还是让我有点不习惯。不过没关系。” 😭😭",
+          "summary": "\"the concept of having a tshirt with my face on it still weirds me out a little bit. that's okay.\" 😭😭 https://t.co/inwUjR1RCs",
+          "summary_zh": "“T恤上印着我的脸这个概念还是让我有点不习惯。不过没关系。” 😭😭",
+          "url": "https://x.com/laurogeitabat/status/2123010162201973214",
+          "published_at": "2026-11-18T11:07:20Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2123010041863131136/vid/avc1/320x454/ukwaEOM-2FhhUh7r.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2123010041863131136/img/rTlmnted6wSadfKH.jpg",
+          "heat_contribution": 5.0027,
+          "metrics": {
+            "likes": 585,
+            "retweets": 44,
+            "replies": 1,
+            "quotes": 0,
+            "views": 6308,
             "bookmarks": 0
           }
         }
@@ -2297,47 +2273,64 @@
       "rank": 9
     },
     {
-      "event_id": "evt-2026-11-19-423a5e3f66e3",
+      "event_id": "evt-2026-11-15-940ab2d5eea5",
       "rule_id": null,
-      "hot_word_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
-      "hot_word_en": "‘Not a nice thing to see’: Piastri speaks out on Australia’s Sandpapergate storm",
-      "first_seen_at": "2026-11-19T08:45:00Z",
-      "last_seen_at": "2026-11-19T08:45:00Z",
-      "anchor_item_id": "piasnews-4e2e6f6d4d2177b1",
-      "image_url": "https://lentedesportiva.com/wp-content/uploads/2026/11/lente-fad2e5fb-8ac4-48c7-a785-facdc9a5bf6e.png",
+      "hot_word_zh": "“如履薄冰”：Piastri坦承'26赛季的挣扎……以及他为何仍可能冲上榜首",
+      "hot_word_en": "‘On the edge': Piastri opens up about '26 struggles... and why he could still surge to top",
+      "first_seen_at": "2026-11-15T23:34:00Z",
+      "last_seen_at": "2026-11-19T07:33:20Z",
+      "anchor_item_id": "piasnews-ccd6c1f929391f76",
+      "image_url": "https://media.formula1.com/image/upload/t_16by9North/c_lfill,w_2048/q_auto/v1740000001/fom-website/2026/Las%20Vegas/GettyImages-2245631583.webp",
       "video_url": null,
-      "video_poster_url": "https://lentedesportiva.com/wp-content/uploads/2026/11/lente-fad2e5fb-8ac4-48c7-a785-facdc9a5bf6e.png",
+      "video_poster_url": "https://media.formula1.com/image/upload/t_16by9North/c_lfill,w_2048/q_auto/v1740000001/fom-website/2026/Las%20Vegas/GettyImages-2245631583.webp",
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
         {
-          "item_id": "piasnews-4e2e6f6d4d2177b1",
+          "item_id": "piasnews-b2ebdbbef0a23daf",
           "dataset": "items",
           "source_type": "media",
-          "source": "Lente Desportiva",
-          "title": "‘Not a nice thing to see’: Piastri speaks out on Australia’s Sandpapergate storm",
-          "title_zh": "“这不是什么好看的场面”：Piastri就澳大利亚“砂纸门”风波发声",
+          "source": "BVM Sports",
+          "title": "Piastri opens up on decision to split with management team",
+          "title_zh": "Piastri坦承与经纪团队分手的决定",
           "summary": "Oscar Piastri-related item discovered from public news metadata.",
           "summary_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
-          "url": "https://lentedesportiva.com/not-a-nice-thing-to-see-piastri-speaks-out-on-australias-sandpapergate-storm/",
-          "published_at": "2026-11-19T08:45:00Z",
-          "image_url": "https://lentedesportiva.com/wp-content/uploads/2026/11/lente-fad2e5fb-8ac4-48c7-a785-facdc9a5bf6e.png",
+          "url": "https://bvmsports.com/2026/11/19/piastri-opens-up-on-decision-to-split-with-management-team/",
+          "published_at": "2026-11-19T07:33:20Z",
+          "image_url": "https://media.formula1.com/image/upload/t_16by9North/c_lfill,w_2048/q_auto/v1740000001/fom-website/2026/Las%20Vegas/GettyImages-2245631583.webp",
           "video_url": null,
-          "video_poster_url": "https://lentedesportiva.com/wp-content/uploads/2026/11/lente-fad2e5fb-8ac4-48c7-a785-facdc9a5bf6e.png",
-          "heat_contribution": 0.45,
+          "video_poster_url": "https://media.formula1.com/image/upload/t_16by9North/c_lfill,w_2048/q_auto/v1740000001/fom-website/2026/Las%20Vegas/GettyImages-2245631583.webp",
+          "heat_contribution": 0.2,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-ccd6c1f929391f76",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Fox Sports",
+          "title": "‘On the edge': Piastri opens up about '26 struggles... and why he could still surge to top",
+          "title_zh": "“如履薄冰”：Piastri坦承'26赛季的挣扎……以及他为何仍可能冲上榜首",
+          "summary": "Oscar Piastri-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+          "url": "https://www.foxsports.com.au/en-AU/news/motorsport/on-the-edge-all-the-time-but-piastri-says-2026-struggles-could-lead-him-back-to-the-top/vjngxr8iw6ib1k2kpwet22vyg",
+          "published_at": "2026-11-15T23:34:00Z",
+          "image_url": "https://images.daznservices.com/di/library/foxtel_news/d7/9f/oscar-piastri-in-white-mclaren-racing-overalls-at-the-2026-mexico-city-grand-prix_xrj1yddecgaw1jr0vc1salf4e.jpg?t=-512279823",
+          "video_url": null,
+          "video_poster_url": "https://images.daznservices.com/di/library/foxtel_news/d7/9f/oscar-piastri-in-white-mclaren-racing-overalls-at-the-2026-mexico-city-grand-prix_xrj1yddecgaw1jr0vc1salf4e.jpg?t=-512279823",
+          "heat_contribution": 0.0,
           "metrics": {}
         }
       ],
       "official_heat": 0,
-      "media_heat": 10,
+      "media_heat": 8,
       "fan_heat": 0,
-      "heat": 10,
+      "heat": 8,
       "source_labels": [
         "媒"
       ],
       "source_counts": {
         "official": 0,
-        "media": 1,
+        "media": 2,
         "fan": 0
       },
       "pinned_rank": null,
@@ -2345,7 +2338,7 @@
       "rank": 10
     }
   ],
-  "review_needed_count": 10,
+  "review_needed_count": 9,
   "review_needed_events": [
     {
       "event_id": "evt-2026-11-15-47fa495d51ea",
@@ -2504,64 +2497,6 @@
       "hidden": false
     },
     {
-      "event_id": "evt-2026-11-18-602a67d681a3",
-      "rule_id": null,
-      "hot_word_zh": "“T恤上印着我的脸这个概念还是让我有点不习惯。不过没关系。” 😭😭",
-      "hot_word_en": "\"the concept of having a tshirt with my face on it still weirds me out a little bit. that's okay.\" 😭😭",
-      "first_seen_at": "2026-11-18T11:07:20Z",
-      "last_seen_at": "2026-11-18T11:07:20Z",
-      "anchor_item_id": "piasnews-social-9817d0cb184b86fe",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2123010041863131136/vid/avc1/320x454/ukwaEOM-2FhhUh7r.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2123010041863131136/img/rTlmnted6wSadfKH.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-9817d0cb184b86fe",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: \"the concept of having a tshirt with my face on it still weirds me out a little bit. that's oka…",
-          "title_zh": "X 发帖 @laurogeitabat：“T恤上印着我的脸这个概念还是让我有点不习惯。不过没关系。” 😭😭",
-          "summary": "\"the concept of having a tshirt with my face on it still weirds me out a little bit. that's okay.\" 😭😭 https://t.co/inwUjR1RCs",
-          "summary_zh": "“T恤上印着我的脸这个概念还是让我有点不习惯。不过没关系。” 😭😭",
-          "url": "https://x.com/laurogeitabat/status/2123010162201973214",
-          "published_at": "2026-11-18T11:07:20Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2123010041863131136/vid/avc1/320x454/ukwaEOM-2FhhUh7r.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2123010041863131136/img/rTlmnted6wSadfKH.jpg",
-          "heat_contribution": 5.0027,
-          "metrics": {
-            "likes": 585,
-            "retweets": 44,
-            "replies": 1,
-            "quotes": 0,
-            "views": 6308,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 27,
-      "heat": 27,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-11-18-14e6b104504a",
       "rule_id": null,
       "hot_word_zh": "明年推出的 McLaren LEGO 套装，包含 Oscar 和 Lando 小人仔！！！",
@@ -2702,7 +2637,89 @@
       }
     },
     {
-      "event_id": "evt-2026-11-18-052f13a697fa-052f13a6",
+      "event_id": "evt-2026-11-18-4ff60ca11934",
+      "rule_id": null,
+      "hot_word_zh": "模仿人体模型时忍不住笑场 😭😭",
+      "hot_word_en": "unable to keep a straight face while imitating the mannequin 😭😭",
+      "first_seen_at": "2026-11-18T08:47:31Z",
+      "last_seen_at": "2026-11-18T10:18:46Z",
+      "anchor_item_id": "piasnews-social-181d459845c8a830",
+      "image_url": "https://pbs.twimg.com/media/HXZSfGjXcAAJrgK.jpg",
+      "video_url": "https://video.twimg.com/amplify_video/2122997921792540672/vid/avc1/320x560/Rgc7ROBqyxhJukyR.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2122997921792540672/img/tw7QC9nbr4_Ap2a2.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-181d459845c8a830",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: unable to keep a straight face while imitating the mannequin 😭😭",
+          "title_zh": "X 发帖 @laurogeitabat：模仿人体模型时忍不住笑场 😭😭",
+          "summary": "unable to keep a straight face while imitating the mannequin 😭😭 https://t.co/PoC2f17LQF",
+          "summary_zh": "模仿人体模型时忍不住笑场 😭😭",
+          "url": "https://x.com/laurogeitabat/status/2122997938376888809",
+          "published_at": "2026-11-18T10:18:46Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2122997921792540672/vid/avc1/320x560/Rgc7ROBqyxhJukyR.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2122997921792540672/img/tw7QC9nbr4_Ap2a2.jpg",
+          "heat_contribution": 4.1899,
+          "metrics": {
+            "likes": 246,
+            "retweets": 24,
+            "replies": 1,
+            "quotes": 0,
+            "views": 2807,
+            "bookmarks": 0
+          }
+        },
+        {
+          "item_id": "piasnews-social-db170a894dc49885",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: OSCAR IMITATING THE MANNEQUIN'S POSE 😭😭😭",
+          "title_zh": "X 发帖 @laurogeitabat：OSCAR 在模仿人体模特的姿势 😭😭😭",
+          "summary": "OSCAR IMITATING THE MANNEQUIN'S POSE 😭😭😭 https://t.co/Ku6wUIKF9X",
+          "summary_zh": "OSCAR 在模仿人体模特的姿势 😭😭😭",
+          "url": "https://x.com/laurogeitabat/status/2122974974742757542",
+          "published_at": "2026-11-18T08:47:31Z",
+          "image_url": "https://pbs.twimg.com/media/HXZSfGjXcAAJrgK.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HXZSfGjXcAAJrgK.jpg",
+          "heat_contribution": 0.0,
+          "metrics": {
+            "likes": 6443,
+            "retweets": 849,
+            "replies": 3,
+            "quotes": 0,
+            "views": 36679,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 23,
+      "heat": 23,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-18-052f13a697fa",
       "rule_id": null,
       "hot_word_zh": "Andrea Stella 谈 2027 年的期望：“我很乐观。",
       "hot_word_en": "andrea stella on expectations for 2027: \"i'm positive. we have a clear plan and a much more precise idea of w…",
@@ -2884,64 +2901,6 @@
       "media_heat": 0,
       "fan_heat": 16,
       "heat": 16,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-11-18-0d4be83dd518",
-      "rule_id": null,
-      "hot_word_zh": "f1gigimotorsport (英语).",
-      "hot_word_en": "f1gigimotorsport (英语).",
-      "first_seen_at": "2026-11-18T08:47:32Z",
-      "last_seen_at": "2026-11-18T08:47:32Z",
-      "anchor_item_id": "piasnews-social-4aa9989d3e1c6add",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-4aa9989d3e1c6add",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: 📸: f1gigimotorsport",
-          "title_zh": "X 发帖 @laurogeitabat：f1gigimotorsport (英语).",
-          "summary": "📸: f1gigimotorsport",
-          "summary_zh": "f1gigimotorsport (英语).",
-          "url": "https://x.com/laurogeitabat/status/2122974979302039809",
-          "published_at": "2026-11-18T08:47:32Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 1.5986,
-          "metrics": {
-            "likes": 1,
-            "retweets": 0,
-            "replies": 0,
-            "quotes": 0,
-            "views": 1873,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 11,
-      "heat": 11,
       "source_labels": [
         "粉"
       ],
