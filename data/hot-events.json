@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-21T11:21:16.195033Z",
+  "generated_at": "2026-11-21T11:36:16.979262Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
-  "event_count": 10,
+  "event_count": 9,
   "events": [
     {
       "event_id": "evt-2026-11-18-a6d3a26a6241",
@@ -1019,7 +1019,7 @@
           "image_url": "https://www.autoracing1.com/wp-content/uploads/2026/f1/lasvegas/piastri-relaxed.jpg",
           "video_url": null,
           "video_poster_url": "https://www.autoracing1.com/wp-content/uploads/2026/f1/lasvegas/piastri-relaxed.jpg",
-          "heat_contribution": 0.75,
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -1325,7 +1325,7 @@
           "image_url": "https://www.motorsportweek.com/wp-content/uploads/2026/11/XPB_1452016_HiRes-1.webp",
           "video_url": null,
           "video_poster_url": "https://www.motorsportweek.com/wp-content/uploads/2026/11/XPB_1452016_HiRes-1.webp",
-          "heat_contribution": 0.2,
+          "heat_contribution": 0.0,
           "metrics": {}
         },
         {
@@ -1789,9 +1789,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 59,
+      "media_heat": 57,
       "fan_heat": 0,
-      "heat": 59,
+      "heat": 57,
       "source_labels": [
         "媒"
       ],
@@ -1803,195 +1803,6 @@
       "pinned_rank": null,
       "hidden": false,
       "rank": 2
-    },
-    {
-      "event_id": "evt-2026-11-18-a6d3a26a6241-a6d3a26a",
-      "rule_id": null,
-      "hot_word_zh": "McLaren 的 Oscar Piastri 将在本周末的拉斯维加斯大奖赛被罚退10个发…",
-      "hot_word_en": "McLaren's Oscar Piastri is set to take a 10-place grid penalty at this weekend's Las Vegas Grand Prix FULL ST…",
-      "first_seen_at": "2026-11-18T11:21:37Z",
-      "last_seen_at": "2026-11-18T11:21:37Z",
-      "anchor_item_id": "piasnews-social-52646dc1784009e9",
-      "image_url": "https://pbs.twimg.com/media/HXZ0BVeWAAAkB_U.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HXZ0BVeWAAAkB_U.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-52646dc1784009e9",
-          "dataset": "social",
-          "source_type": "official",
-          "source": "@F1",
-          "title": "X post from @F1: McLaren's Oscar Piastri is set to take a 10-place grid penalty at this weekend's Las Vegas Gran…",
-          "title_zh": "X 发帖 @F1：McLaren 的 Oscar Piastri 将在本周末的拉斯维加斯大奖赛被罚退10个发车位 完整报道 👉 #F1 #LasVegasGP",
-          "summary": "McLaren's Oscar Piastri is set to take a 10-place grid penalty at this weekend's Las Vegas Grand Prix FULL STORY 👉 https://t.co/S3D3MMyPY2 #F1 #LasVegasGP https://t.co/aUfgiztyKD",
-          "summary_zh": "McLaren 的 Oscar Piastri 将在本周末的拉斯维加斯大奖赛被罚退10个发车位 完整报道 👉 #F1 #LasVegasGP",
-          "url": "https://x.com/F1/status/2123013756687188364",
-          "published_at": "2026-11-18T11:21:37Z",
-          "image_url": "https://pbs.twimg.com/media/HXZ0BVeWAAAkB_U.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HXZ0BVeWAAAkB_U.jpg",
-          "heat_contribution": 7.1634,
-          "metrics": {
-            "likes": 4088,
-            "retweets": 421,
-            "replies": 49,
-            "quotes": 0,
-            "views": 137427,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 47,
-      "media_heat": 0,
-      "fan_heat": 0,
-      "heat": 47,
-      "source_labels": [
-        "官"
-      ],
-      "source_counts": {
-        "official": 1,
-        "media": 0,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 3
-    },
-    {
-      "event_id": "evt-2026-11-18-14e6b104504a",
-      "rule_id": null,
-      "hot_word_zh": "明年推出的 McLaren LEGO 套装，包含 Oscar 和 Lando 小人仔！！！",
-      "hot_word_en": "THE MCLAREN LEGO SET COMING OUT NEXT YEAR WITH THE OSCAR AND LANDO MINIFIGURES !!!",
-      "first_seen_at": "2026-11-17T00:02:05Z",
-      "last_seen_at": "2026-11-18T11:27:40Z",
-      "anchor_item_id": "piasnews-social-636d0d3e0555a5ed",
-      "image_url": "https://pbs.twimg.com/media/HXZ3I7FWAAADIpp.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HXZ3I7FWAAADIpp.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-636d0d3e0555a5ed",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: THE MCLAREN LEGO SET COMING OUT NEXT YEAR WITH THE OSCAR AND LANDO MINIFIGURES !!!",
-          "title_zh": "X 发帖 @laurogeitabat：明年推出的 McLaren LEGO 套装，包含 Oscar 和 Lando 小人仔！！！",
-          "summary": "THE MCLAREN LEGO SET COMING OUT NEXT YEAR WITH THE OSCAR AND LANDO MINIFIGURES !!! https://t.co/R5QaWBfg9M",
-          "summary_zh": "明年推出的 McLaren LEGO 套装，包含 Oscar 和 Lando 小人仔！！！",
-          "url": "https://x.com/laurogeitabat/status/2123015277814132995",
-          "published_at": "2026-11-18T11:27:40Z",
-          "image_url": "https://pbs.twimg.com/media/HXZ3I7FWAAADIpp.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HXZ3I7FWAAADIpp.jpg",
-          "heat_contribution": 4.8212,
-          "metrics": {
-            "likes": 463,
-            "retweets": 51,
-            "replies": 1,
-            "quotes": 0,
-            "views": 4756,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-f2b277ca8ec87b4c",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: first look at the new mclaren lego coming out next year! and oscar's minifig 🤏🏻",
-          "title_zh": "X 发帖 @laurogeitabat：抢先看明年推出的新款McLaren乐高！还有Oscar的小人仔 🤏🏻",
-          "summary": "first look at the new mclaren lego coming out next year! and oscar's minifig 🤏🏻 https://t.co/XpBrnWe6ZW",
-          "summary_zh": "抢先看明年推出的新款McLaren乐高！还有Oscar的小人仔 🤏🏻",
-          "url": "https://x.com/laurogeitabat/status/2122480356800471198",
-          "published_at": "2026-11-17T00:02:05Z",
-          "image_url": "https://pbs.twimg.com/media/HXSQoMTXQAAJ59n.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HXSQoMTXQAAJ59n.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {
-            "likes": 895,
-            "retweets": 92,
-            "replies": 5,
-            "quotes": 0,
-            "views": 13926,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 26,
-      "heat": 26,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 4
-    },
-    {
-      "event_id": "evt-2026-11-18-f1dc6f821899",
-      "rule_id": null,
-      "hot_word_zh": "最终成果！！还有 Oscar 穿着儿童款T恤 😁🤏🏻",
-      "hot_word_en": "the final result !! plus oscar with the kids shirt 😁🤏🏻",
-      "first_seen_at": "2026-11-18T11:23:47Z",
-      "last_seen_at": "2026-11-18T11:23:47Z",
-      "anchor_item_id": "piasnews-social-6b3ad792ffd010ed",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2123014278735081472/vid/avc1/320x560/6Ys8JrCBja7C8tDV.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2123014278735081472/img/keoUf0I65y1Wu44b.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-6b3ad792ffd010ed",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: the final result !! plus oscar with the kids shirt 😁🤏🏻",
-          "title_zh": "X 发帖 @laurogeitabat：最终成果！！还有 Oscar 穿着儿童款T恤 😁🤏🏻",
-          "summary": "the final result !! plus oscar with the kids shirt 😁🤏🏻 https://t.co/SZhYyvBrhI",
-          "summary_zh": "最终成果！！还有 Oscar 穿着儿童款T恤 😁🤏🏻",
-          "url": "https://x.com/laurogeitabat/status/2123014300218347948",
-          "published_at": "2026-11-18T11:23:47Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2123014278735081472/vid/avc1/320x560/6Ys8JrCBja7C8tDV.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2123014278735081472/img/keoUf0I65y1Wu44b.jpg",
-          "heat_contribution": 3.8161,
-          "metrics": {
-            "likes": 155,
-            "retweets": 24,
-            "replies": 0,
-            "quotes": 0,
-            "views": 1914,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 22,
-      "heat": 22,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 5
     },
     {
       "event_id": "evt-2026-11-18-8e7883f044eb",
@@ -2074,55 +1885,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
-    },
-    {
-      "event_id": "evt-2026-11-20-14ee2c40ecc6",
-      "rule_id": null,
-      "hot_word_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
-      "hot_word_en": "Piastri needed to reduce his speed through F1’s quickest corners – Brown",
-      "first_seen_at": "2026-11-20T11:29:40Z",
-      "last_seen_at": "2026-11-20T11:29:40Z",
-      "anchor_item_id": "piasnews-94d249a3148e00cd",
-      "image_url": "https://www.racefans.net/wp-content/uploads/2026/09/racefansdotnet-24-09-06-15-58-34-4-2293807475.jpg",
-      "video_url": null,
-      "video_poster_url": "https://www.racefans.net/wp-content/uploads/2026/09/racefansdotnet-24-09-06-15-58-34-4-2293807475.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-94d249a3148e00cd",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "RaceFans",
-          "title": "Piastri needed to reduce his speed through F1’s quickest corners – Brown",
-          "title_zh": "Brown：Piastri需要在F1最快的弯道中降低速度",
-          "summary": "Oscar Piastri-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
-          "url": "https://www.racefans.net/2026/11/20/piastri-needed-to-curb-his-speed-through-quick-corners-brown/",
-          "published_at": "2026-11-20T11:29:40Z",
-          "image_url": "https://www.racefans.net/wp-content/uploads/2026/09/racefansdotnet-24-09-06-15-58-34-4-2293807475.jpg",
-          "video_url": null,
-          "video_poster_url": "https://www.racefans.net/wp-content/uploads/2026/09/racefansdotnet-24-09-06-15-58-34-4-2293807475.jpg",
-          "heat_contribution": 0.75,
-          "metrics": {}
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 13,
-      "fan_heat": 0,
-      "heat": 13,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 1,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 7
+      "rank": 3
     },
     {
       "event_id": "evt-2026-11-19-ddda339857c4",
@@ -2187,7 +1950,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 4
     },
     {
       "event_id": "evt-2026-11-18-4546ef3469eb",
@@ -2276,7 +2039,55 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 9
+      "rank": 5
+    },
+    {
+      "event_id": "evt-2026-11-20-14ee2c40ecc6",
+      "rule_id": null,
+      "hot_word_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "hot_word_en": "Piastri needed to reduce his speed through F1’s quickest corners – Brown",
+      "first_seen_at": "2026-11-20T11:29:40Z",
+      "last_seen_at": "2026-11-20T11:29:40Z",
+      "anchor_item_id": "piasnews-94d249a3148e00cd",
+      "image_url": "https://www.racefans.net/wp-content/uploads/2026/09/racefansdotnet-24-09-06-15-58-34-4-2293807475.jpg",
+      "video_url": null,
+      "video_poster_url": "https://www.racefans.net/wp-content/uploads/2026/09/racefansdotnet-24-09-06-15-58-34-4-2293807475.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-94d249a3148e00cd",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "RaceFans",
+          "title": "Piastri needed to reduce his speed through F1’s quickest corners – Brown",
+          "title_zh": "Brown：Piastri需要在F1最快的弯道中降低速度",
+          "summary": "Oscar Piastri-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+          "url": "https://www.racefans.net/2026/11/20/piastri-needed-to-curb-his-speed-through-quick-corners-brown/",
+          "published_at": "2026-11-20T11:29:40Z",
+          "image_url": "https://www.racefans.net/wp-content/uploads/2026/09/racefansdotnet-24-09-06-15-58-34-4-2293807475.jpg",
+          "video_url": null,
+          "video_poster_url": "https://www.racefans.net/wp-content/uploads/2026/09/racefansdotnet-24-09-06-15-58-34-4-2293807475.jpg",
+          "heat_contribution": 0.45,
+          "metrics": {}
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 10,
+      "fan_heat": 0,
+      "heat": 10,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 1,
+        "fan": 0
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 6
     },
     {
       "event_id": "evt-2026-11-15-940ab2d5eea5",
@@ -2341,7 +2152,103 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 10
+      "rank": 7
+    },
+    {
+      "event_id": "evt-2026-11-18-90d4ff6da3b4",
+      "rule_id": null,
+      "hot_word_zh": "“胜负难料”：McLaren瞄准1500万美元奖金……而Piastri的状态将至关重要",
+      "hot_word_en": "Rumor or speculative report; treat as unverified unless confirmed by official sources.",
+      "first_seen_at": "2026-11-18T23:43:19Z",
+      "last_seen_at": "2026-11-18T23:43:19Z",
+      "anchor_item_id": "piasnews-2b3d1f4d839a0d27",
+      "image_url": "https://images.daznservices.com/di/library/foxtel_news/2/b1/oscar-piastri-prepares-for-the-2026-sao-paulo-grand-prix-in-brazil_1ixv90o37g39u1r5a39yhw787l.jpg?t=-169915631",
+      "video_url": null,
+      "video_poster_url": "https://images.daznservices.com/di/library/foxtel_news/2/b1/oscar-piastri-prepares-for-the-2026-sao-paulo-grand-prix-in-brazil_1ixv90o37g39u1r5a39yhw787l.jpg?t=-169915631",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-2b3d1f4d839a0d27",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Fox Sports",
+          "title": "‘Down to the wire’: McLaren targets $15m payday… and Piastri’s form will be crucial",
+          "title_zh": "“胜负难料”：McLaren瞄准1500万美元奖金……而Piastri的状态将至关重要",
+          "summary": "Rumor or speculative report; treat as unverified unless confirmed by official sources.",
+          "summary_zh": "传闻或推测性报道；除非官方消息源确认，否则视为未经证实。",
+          "url": "https://www.foxsports.com.au/en-AU/news/motorsport/down-to-the-wire-mclaren-targets-15m-payday-and-piastris-form-will-be-crucial/ufw1e9jxboe8127z1ltvueujx",
+          "published_at": "2026-11-18T23:43:19Z",
+          "image_url": "https://images.daznservices.com/di/library/foxtel_news/2/b1/oscar-piastri-prepares-for-the-2026-sao-paulo-grand-prix-in-brazil_1ixv90o37g39u1r5a39yhw787l.jpg?t=-169915631",
+          "video_url": null,
+          "video_poster_url": "https://images.daznservices.com/di/library/foxtel_news/2/b1/oscar-piastri-prepares-for-the-2026-sao-paulo-grand-prix-in-brazil_1ixv90o37g39u1r5a39yhw787l.jpg?t=-169915631",
+          "heat_contribution": 0.2,
+          "metrics": {}
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 8,
+      "fan_heat": 0,
+      "heat": 8,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 1,
+        "fan": 0
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 8
+    },
+    {
+      "event_id": "evt-2026-11-19-423a5e3f66e3",
+      "rule_id": null,
+      "hot_word_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+      "hot_word_en": "‘Not a nice thing to see’: Piastri speaks out on Australia’s Sandpapergate storm",
+      "first_seen_at": "2026-11-19T08:45:00Z",
+      "last_seen_at": "2026-11-19T08:45:00Z",
+      "anchor_item_id": "piasnews-4e2e6f6d4d2177b1",
+      "image_url": "https://lentedesportiva.com/wp-content/uploads/2026/11/lente-fad2e5fb-8ac4-48c7-a785-facdc9a5bf6e.png",
+      "video_url": null,
+      "video_poster_url": "https://lentedesportiva.com/wp-content/uploads/2026/11/lente-fad2e5fb-8ac4-48c7-a785-facdc9a5bf6e.png",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-4e2e6f6d4d2177b1",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Lente Desportiva",
+          "title": "‘Not a nice thing to see’: Piastri speaks out on Australia’s Sandpapergate storm",
+          "title_zh": "“这不是什么好看的场面”：Piastri就澳大利亚“砂纸门”风波发声",
+          "summary": "Oscar Piastri-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+          "url": "https://lentedesportiva.com/not-a-nice-thing-to-see-piastri-speaks-out-on-australias-sandpapergate-storm/",
+          "published_at": "2026-11-19T08:45:00Z",
+          "image_url": "https://lentedesportiva.com/wp-content/uploads/2026/11/lente-fad2e5fb-8ac4-48c7-a785-facdc9a5bf6e.png",
+          "video_url": null,
+          "video_poster_url": "https://lentedesportiva.com/wp-content/uploads/2026/11/lente-fad2e5fb-8ac4-48c7-a785-facdc9a5bf6e.png",
+          "heat_contribution": 0.2,
+          "metrics": {}
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 8,
+      "fan_heat": 0,
+      "heat": 8,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 1,
+        "fan": 0
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 9
     }
   ],
   "review_needed_count": 3,
