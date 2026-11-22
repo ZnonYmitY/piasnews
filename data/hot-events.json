@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-22T08:20:26.931424Z",
+  "generated_at": "2026-11-22T08:35:25.246606Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -1609,88 +1609,6 @@
       "rank": 5
     },
     {
-      "event_id": "evt-2026-11-21-fda20a8131a6",
-      "rule_id": null,
-      "hot_word_zh": "落后队友94分，Oscar Piastri承认F1 2026赛季比预期更艰难",
-      "hot_word_en": "94 Points Behind His Teammate, Oscar Piastri Admits F1 2026 Has Been Tougher Than Expected",
-      "first_seen_at": "2026-11-15T21:00:39Z",
-      "last_seen_at": "2026-11-21T04:00:00Z",
-      "anchor_item_id": "piasnews-bc8425ec4f9f259e",
-      "image_url": "https://s.yimg.com/lo/mysterio/api/3ad58db83030941159dba3a09790fbe768f87a60faf0a4b206d4d06d9ddba378/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Ff1_chronicle_874%2F9442edde3eaf5648168da5392783c7d5.jpg",
-      "video_url": null,
-      "video_poster_url": "https://s.yimg.com/lo/mysterio/api/3ad58db83030941159dba3a09790fbe768f87a60faf0a4b206d4d06d9ddba378/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Ff1_chronicle_874%2F9442edde3eaf5648168da5392783c7d5.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-bc8425ec4f9f259e",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Yahoo Sports",
-          "title": "94 Points Behind His Teammate, Oscar Piastri Admits F1 2026 Has Been Tougher Than Expected",
-          "title_zh": "落后队友94分，Oscar Piastri承认F1 2026赛季比预期更艰难",
-          "summary": "Quote or interview-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的引述或采访相关条目。",
-          "url": "https://sports.yahoo.com/articles/94-points-behind-teammate-oscar-040000282.html",
-          "published_at": "2026-11-21T04:00:00Z",
-          "image_url": "https://s.yimg.com/lo/mysterio/api/3ad58db83030941159dba3a09790fbe768f87a60faf0a4b206d4d06d9ddba378/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Ff1_chronicle_874%2F9442edde3eaf5648168da5392783c7d5.jpg",
-          "video_url": null,
-          "video_poster_url": "https://s.yimg.com/lo/mysterio/api/3ad58db83030941159dba3a09790fbe768f87a60faf0a4b206d4d06d9ddba378/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Ff1_chronicle_874%2F9442edde3eaf5648168da5392783c7d5.jpg",
-          "heat_contribution": 0.45,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-a2ba1c7419547432",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Auto Action",
-          "title": "Piastri reveals reason behind Webber split",
-          "title_zh": "Piastri透露与Webber分道扬镳的原因",
-          "summary": "Oscar Piastri-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与 Oscar Piastri 相关的内容。",
-          "url": "https://autoaction.com.au/2026/11/19/piastri-reveals-reason-behind-webber-split",
-          "published_at": "2026-11-19T08:33:24Z",
-          "image_url": "https://autoaction.com.au/wp-content/uploads/2026/11/Image-1-e1795072049343.jpg?v=1795071972",
-          "video_url": null,
-          "video_poster_url": "https://autoaction.com.au/wp-content/uploads/2026/11/Image-1-e1795072049343.jpg?v=1795071972",
-          "heat_contribution": 0.2,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-dcb36ca8a9c08304",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "PlanetF1",
-          "title": "Oscar Piastri sheds light on ‘tougher than expected’ F1 2026 season",
-          "title_zh": "Oscar Piastri 揭示2026 F1赛季“比预期更艰难”",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
-          "url": "https://www.planetf1.com/news/oscar-piastri-f1-2026-struggles",
-          "published_at": "2026-11-15T21:00:39Z",
-          "image_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F11%2F15133900%2FOscar-Piastri-F1-2026.jpg",
-          "video_url": null,
-          "video_poster_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F11%2F15133900%2FOscar-Piastri-F1-2026.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 15,
-      "fan_heat": 0,
-      "heat": 15,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 3,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 6
-    },
-    {
       "event_id": "evt-2026-11-20-81e3ba014848",
       "rule_id": null,
       "hot_word_zh": "Piastri解释与Webber分道扬镳的原因，澳洲车手准备迎接全新开始",
@@ -1753,7 +1671,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 6
     },
     {
       "event_id": "evt-2026-11-18-4546ef3469eb",
@@ -1835,7 +1753,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 7
     },
     {
       "event_id": "evt-2026-11-18-49a74b51e53a",
@@ -1934,7 +1852,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 9
+      "rank": 8
     },
     {
       "event_id": "evt-2026-11-20-53f95e439d56",
@@ -1978,6 +1896,71 @@
       "source_counts": {
         "official": 0,
         "media": 1,
+        "fan": 0
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "event_id": "evt-2026-11-20-8fedf4ca06fe",
+      "rule_id": null,
+      "hot_word_zh": "Racing Bulls与Liam Lawson续约至2027年后，Arvid Lindb…",
+      "hot_word_en": "Arvid Lindblad urged to copy Oscar Piastri after Racing Bulls re-signed Liam Lawson for 2027",
+      "first_seen_at": "2026-11-16T07:15:00Z",
+      "last_seen_at": "2026-11-20T19:30:00Z",
+      "anchor_item_id": "piasnews-0913aeefed5a6db3",
+      "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/11/GettyImages-2291148624-2048x1365.jpg",
+      "video_url": null,
+      "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/11/GettyImages-2291148624-2048x1365.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-0913aeefed5a6db3",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "F1 Oversteer",
+          "title": "Arvid Lindblad urged to copy Oscar Piastri after Racing Bulls re-signed Liam Lawson for 2027",
+          "title_zh": "Racing Bulls与Liam Lawson续约至2027年后，Arvid Lindblad被敦促效仿Oscar Piastri",
+          "summary": "Team or car-performance item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
+          "url": "https://www.f1oversteer.com/news/arvid-lindblad-urged-to-copy-oscar-piastri-after-racing-bulls-re-signed-liam-lawson-for-2027/",
+          "published_at": "2026-11-20T19:30:00Z",
+          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/11/GettyImages-2291148624-2048x1365.jpg",
+          "video_url": null,
+          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/11/GettyImages-2291148624-2048x1365.jpg",
+          "heat_contribution": 0.45,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-ca8bfd69aed09852",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "GPFans",
+          "title": "Liam Lawson a potential McLaren option if Piastri struggles again in 2027",
+          "title_zh": "若Piastri在2027年再度陷入困境，Liam Lawson或成McLaren的潜在选择",
+          "summary": "Team or car-performance item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
+          "url": "https://www.gpfans.com/en/f1-news/1092934/piastri-out-lawson-to-mclaren-guenther-steiner-f1-driver-market/",
+          "published_at": "2026-11-16T07:15:00Z",
+          "image_url": "https://sportsbase.io/images/gpfans/copy_1200x800/b239b104bf94bc244c1dd28c1cd0211a65a99640.jpg",
+          "video_url": null,
+          "video_poster_url": "https://sportsbase.io/images/gpfans/copy_1200x800/b239b104bf94bc244c1dd28c1cd0211a65a99640.jpg",
+          "heat_contribution": 0.0,
+          "metrics": {}
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 10,
+      "fan_heat": 0,
+      "heat": 10,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 2,
         "fan": 0
       },
       "pinned_rank": null,
