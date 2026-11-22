@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-22T02:44:53.725049Z",
+  "generated_at": "2026-11-22T06:20:26.274382Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -10,8 +10,8 @@
     {
       "event_id": "evt-2026-11-18-a6d3a26a6241",
       "rule_id": null,
-      "hot_word_zh": "Oscar 在拉斯维加斯站排位赛获得第10名",
-      "hot_word_en": "Oscar qualifies P10 for the Las Vegas Grand Prix",
+      "hot_word_zh": "Oscar Piastri 将在拉斯维加斯大奖赛接受发车格罚退，McLaren 确认 MC…",
+      "hot_word_en": "Oscar Piastri to serve grid penalty at Las Vegas GP as McLaren confirm addition of more upgrades to MCL40",
       "first_seen_at": "2026-11-17T00:00:00Z",
       "last_seen_at": "2026-11-21T21:42:42Z",
       "anchor_item_id": "piasnews-e3e28b6134c4100b",
@@ -52,7 +52,7 @@
           "image_url": "https://scuderiafans.com/wp-content/uploads/2026/07/mclaren.jpg",
           "video_url": null,
           "video_poster_url": "https://scuderiafans.com/wp-content/uploads/2026/07/mclaren.jpg",
-          "heat_contribution": 1.0,
+          "heat_contribution": 0.75,
           "metrics": {}
         },
         {
@@ -188,7 +188,7 @@
           "image_url": "https://www.canberratimes.com.au/images/transform/v1/crop/frm/silverstone-feed-data/b66888c4-270c-4150-9e91-f03767caf155.jpg/r0_90_800_510_w1200_h630_fmax.jpg",
           "video_url": null,
           "video_poster_url": "https://www.canberratimes.com.au/images/transform/v1/crop/frm/silverstone-feed-data/b66888c4-270c-4150-9e91-f03767caf155.jpg/r0_90_800_510_w1200_h630_fmax.jpg",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -205,7 +205,7 @@
           "image_url": "https://www.racefans.net/wp-content/themes/twentyfifteen/assets/images/default-og.jpg",
           "video_url": null,
           "video_poster_url": "https://www.racefans.net/wp-content/themes/twentyfifteen/assets/images/default-og.jpg",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -358,7 +358,7 @@
           "image_url": "https://cdn.peradaban.id/media/images/2026/11/LAuIrPqqTq.jpeg?location=1&width=1200&height=674&quality=80&watermark=1",
           "video_url": null,
           "video_poster_url": "https://cdn.peradaban.id/media/images/2026/11/LAuIrPqqTq.jpeg?location=1&width=1200&height=674&quality=80&watermark=1",
-          "heat_contribution": 0.2,
+          "heat_contribution": 0.0,
           "metrics": {}
         },
         {
@@ -754,9 +754,9 @@
         }
       ],
       "official_heat": 12,
-      "media_heat": 57,
+      "media_heat": 52,
       "fan_heat": 0,
-      "heat": 60,
+      "heat": 55,
       "source_labels": [
         "官",
         "媒"
@@ -766,15 +766,8 @@
         "media": 29,
         "fan": 0
       },
-      "pinned_rank": 1,
+      "pinned_rank": null,
       "hidden": false,
-      "hard_rule": {
-        "type": "session_result",
-        "race_id": "2026-round-21",
-        "session": "qualifying",
-        "position": 10,
-        "source_item_id": "piasnews-04f66bf14699f44e"
-      },
       "rank": 1
     },
     {
@@ -1476,7 +1469,7 @@
           "image_url": "https://e0.365dm.com/26/11/1600x900/skysports-kimi-antonelli-mercedes_7411091.jpg?20261120055053",
           "video_url": null,
           "video_poster_url": "https://e0.365dm.com/26/11/1600x900/skysports-kimi-antonelli-mercedes_7411091.jpg?20261120055053",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -1493,7 +1486,7 @@
           "image_url": "https://static.wixstatic.com/media/01a3c0_db08a83d1af34793ba6dca58030e6e3c~mv2.jpg/v1/fill/w_2000,h_1334,al_c,q_90,usm_0.66_1.00_0.01/01a3c0_db08a83d1af34793ba6dca58030e6e3c~mv2.jpg",
           "video_url": null,
           "video_poster_url": "https://static.wixstatic.com/media/01a3c0_db08a83d1af34793ba6dca58030e6e3c~mv2.jpg/v1/fill/w_2000,h_1334,al_c,q_90,usm_0.66_1.00_0.01/01a3c0_db08a83d1af34793ba6dca58030e6e3c~mv2.jpg",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -1600,9 +1593,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 25,
+      "media_heat": 23,
       "fan_heat": 0,
-      "heat": 25,
+      "heat": 23,
       "source_labels": [
         "媒"
       ],
@@ -1643,7 +1636,7 @@
           "image_url": "https://s.yimg.com/lo/mysterio/api/3ad58db83030941159dba3a09790fbe768f87a60faf0a4b206d4d06d9ddba378/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Ff1_chronicle_874%2F9442edde3eaf5648168da5392783c7d5.jpg",
           "video_url": null,
           "video_poster_url": "https://s.yimg.com/lo/mysterio/api/3ad58db83030941159dba3a09790fbe768f87a60faf0a4b206d4d06d9ddba378/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Ff1_chronicle_874%2F9442edde3eaf5648168da5392783c7d5.jpg",
-          "heat_contribution": 0.75,
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -1682,9 +1675,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 17,
+      "media_heat": 15,
       "fan_heat": 0,
-      "heat": 17,
+      "heat": 15,
       "source_labels": [
         "媒"
       ],
