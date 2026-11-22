@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-22T20:05:27.302309Z",
+  "generated_at": "2026-11-22T20:20:34.356642Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -39,23 +39,6 @@
           "metrics": {}
         },
         {
-          "item_id": "piasnews-3e214402a9ecd680",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "PlanetF1",
-          "title": "McLaren explains Oscar Piastri struggles in Las Vegas qualifying",
-          "title_zh": "McLaren 解释 Oscar Piastri 在拉斯维加斯排位赛中的挣扎",
-          "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与比赛周或表现相关的内容。",
-          "url": "https://www.planetf1.com/news/mclaren-explains-oscar-piastri-struggles-in-las-vegas-qualifying",
-          "published_at": "2026-11-21T20:08:19Z",
-          "image_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F11%2F21122008%2FIMAGE-WITH-COLOUR-NEON-47.jpg",
-          "video_url": null,
-          "video_poster_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F11%2F21122008%2FIMAGE-WITH-COLOUR-NEON-47.jpg",
-          "heat_contribution": 0.75,
-          "metrics": {}
-        },
-        {
           "item_id": "piasnews-18c25140bbbfaa7e",
           "dataset": "items",
           "source_type": "official",
@@ -70,6 +53,23 @@
           "video_url": null,
           "video_poster_url": "https://media.formula1.com/image/upload/t_16by9Centre/c_lfill,w_2048/q_auto/v1740000001/fom-website/2026/Las%20Vegas/PiastriLasVegasThursday.webp",
           "heat_contribution": 0.6,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-3e214402a9ecd680",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "PlanetF1",
+          "title": "McLaren explains Oscar Piastri struggles in Las Vegas qualifying",
+          "title_zh": "McLaren 解释 Oscar Piastri 在拉斯维加斯排位赛中的挣扎",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的与比赛周或表现相关的内容。",
+          "url": "https://www.planetf1.com/news/mclaren-explains-oscar-piastri-struggles-in-las-vegas-qualifying",
+          "published_at": "2026-11-21T20:08:19Z",
+          "image_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F11%2F21122008%2FIMAGE-WITH-COLOUR-NEON-47.jpg",
+          "video_url": null,
+          "video_poster_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F11%2F21122008%2FIMAGE-WITH-COLOUR-NEON-47.jpg",
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -754,9 +754,9 @@
         }
       ],
       "official_heat": 8,
-      "media_heat": 41,
+      "media_heat": 39,
       "fan_heat": 0,
-      "heat": 43,
+      "heat": 41,
       "source_labels": [
         "官",
         "媒"
