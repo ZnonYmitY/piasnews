@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-22T12:05:26.633954Z",
+  "generated_at": "2026-11-22T12:20:25.811658Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -56,23 +56,6 @@
           "metrics": {}
         },
         {
-          "item_id": "piasnews-04f66bf14699f44e",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "GPblog",
-          "title": "Oscar Piastri’s Las Vegas penalty puts McLaren’s constructors’ fight under pressure",
-          "title_zh": "Oscar Piastri 的拉斯维加斯罚时让 McLaren 的车队积分争夺承压",
-          "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与比赛周或表现相关的内容。",
-          "url": "https://www.gpblog.com/en/news/piastris-p17-start-raises-the-stakes-in-mclarens-fight-for-third",
-          "published_at": "2026-11-21T12:15:00Z",
-          "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-11%2Fpiastri-lego-6aff1758c8888-6aff331c08235.jpg",
-          "video_url": null,
-          "video_poster_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-11%2Fpiastri-lego-6aff1758c8888-6aff331c08235.jpg",
-          "heat_contribution": 0.75,
-          "metrics": {}
-        },
-        {
           "item_id": "piasnews-18c25140bbbfaa7e",
           "dataset": "items",
           "source_type": "official",
@@ -87,6 +70,23 @@
           "video_url": null,
           "video_poster_url": "https://media.formula1.com/image/upload/t_16by9Centre/c_lfill,w_2048/q_auto/v1740000001/fom-website/2026/Las%20Vegas/PiastriLasVegasThursday.webp",
           "heat_contribution": 0.6,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-04f66bf14699f44e",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "GPblog",
+          "title": "Oscar Piastri’s Las Vegas penalty puts McLaren’s constructors’ fight under pressure",
+          "title_zh": "Oscar Piastri 的拉斯维加斯罚时让 McLaren 的车队积分争夺承压",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的与比赛周或表现相关的内容。",
+          "url": "https://www.gpblog.com/en/news/piastris-p17-start-raises-the-stakes-in-mclarens-fight-for-third",
+          "published_at": "2026-11-21T12:15:00Z",
+          "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-11%2Fpiastri-lego-6aff1758c8888-6aff331c08235.jpg",
+          "video_url": null,
+          "video_poster_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-11%2Fpiastri-lego-6aff1758c8888-6aff331c08235.jpg",
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -754,9 +754,9 @@
         }
       ],
       "official_heat": 8,
-      "media_heat": 47,
+      "media_heat": 46,
       "fan_heat": 0,
-      "heat": 49,
+      "heat": 48,
       "source_labels": [
         "官",
         "媒"
@@ -1739,105 +1739,6 @@
       "rank": 7
     },
     {
-      "event_id": "evt-2026-11-18-49a74b51e53a",
-      "rule_id": null,
-      "hot_word_zh": "Piastri在拉斯维加斯被罚退10位发车，McLaren的困境赛季进一步加深",
-      "hot_word_en": "Piastri loaded with 10-place Las Vegas grid drop as McLaren’s season of trouble deepens",
-      "first_seen_at": "2026-11-18T12:00:00Z",
-      "last_seen_at": "2026-11-20T12:20:01.693000Z",
-      "anchor_item_id": "piasnews-66cc1799709a90d4",
-      "image_url": "https://files.speedweek.com/images/c_crop,x_0,y_869,w_5185,h_2592/c_fill,f_auto,q_auto,w_1200,h_630/2026/11/20/uqmuh2wds4lnacvfg7we/formel-1-oscar-piastri-mclaren-f1-team-mcl40-2026-formula-1-world-championship-las-vegas-grand-prix-las-vegas-nevada-usa",
-      "video_url": null,
-      "video_poster_url": "https://files.speedweek.com/images/c_crop,x_0,y_869,w_5185,h_2592/c_fill,f_auto,q_auto,w_1200,h_630/2026/11/20/uqmuh2wds4lnacvfg7we/formel-1-oscar-piastri-mclaren-f1-team-mcl40-2026-formula-1-world-championship-las-vegas-grand-prix-las-vegas-nevada-usa",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-cce37b7e0db990e7",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "SPEEDWEEK.com",
-          "title": "F1 star Oscar Piastri explains: What he learnt from the season-opener in Las Vegas",
-          "title_zh": "F1明星Oscar Piastri解释：他从拉斯维加斯赛季揭幕战中学到了什么",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
-          "url": "https://www.speedweek.com/en/a/formula-1/piastri-las-vegas-rain-opener-lessons",
-          "published_at": "2026-11-20T12:20:01.693000Z",
-          "image_url": "https://files.speedweek.com/images/c_crop,x_0,y_869,w_5185,h_2592/c_fill,f_auto,q_auto,w_1200,h_630/2026/11/20/uqmuh2wds4lnacvfg7we/formel-1-oscar-piastri-mclaren-f1-team-mcl40-2026-formula-1-world-championship-las-vegas-grand-prix-las-vegas-nevada-usa",
-          "video_url": null,
-          "video_poster_url": "https://files.speedweek.com/images/c_crop,x_0,y_869,w_5185,h_2592/c_fill,f_auto,q_auto,w_1200,h_630/2026/11/20/uqmuh2wds4lnacvfg7we/formel-1-oscar-piastri-mclaren-f1-team-mcl40-2026-formula-1-world-championship-las-vegas-grand-prix-las-vegas-nevada-usa",
-          "heat_contribution": 0.45,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-f55d3d8c065b606d",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Grande Prêmio",
-          "title": "Why Piastri and McLaren face a decisive Las Vegas test after 2026 F1 struggles",
-          "title_zh": "为何Piastri和McLaren在2026年F1挣扎后将面临决定性的拉斯维加斯考验",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
-          "url": "https://grandepremio.com/en/f1/piastri-faces-crucial-las-vegas-test-as-mclaren-reveals-what-changed-after-brazil/",
-          "published_at": "2026-11-18T19:30:00Z",
-          "image_url": "https://grandepremio.com/wp-content/uploads/2026/10/f1-2026-mexico-cidade-do-mexico-media-day-mclaren-oscar-piastri-01-1-1200x630.jpg",
-          "video_url": null,
-          "video_poster_url": "https://grandepremio.com/wp-content/uploads/2026/10/f1-2026-mexico-cidade-do-mexico-media-day-mclaren-oscar-piastri-01-1-1200x630.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-66cc1799709a90d4",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Lente Desportiva",
-          "title": "Piastri loaded with 10-place Las Vegas grid drop as McLaren’s season of trouble deepens",
-          "title_zh": "Piastri在拉斯维加斯被罚退10位发车，McLaren的困境赛季进一步加深",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
-          "url": "https://lentedesportiva.com/piastri-loaded-with-10-place-las-vegas-grid-drop-as-mclarens-season-of-trouble-deepens/",
-          "published_at": "2026-11-18T18:30:00Z",
-          "image_url": "https://lentedesportiva.com/wp-content/uploads/2026/11/lente-9672a200-bb2f-4d53-80a6-28e173b356d1.jpg",
-          "video_url": null,
-          "video_poster_url": "https://lentedesportiva.com/wp-content/uploads/2026/11/lente-9672a200-bb2f-4d53-80a6-28e173b356d1.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-a319f322d88c7430",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "MotorBiscuit",
-          "title": "Russell Skips Mercedes’ New ADUO Turbo in Las Vegas, and Piastri Takes a Grid Drop",
-          "title_zh": "Russell在拉斯维加斯跳过Mercedes的新ADUO涡轮，Piastri则遭遇发车位罚退",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
-          "url": "https://www.motorbiscuit.com/russell-skips-mercedes-new-aduo-turbo-in-las-vegas-and-piastri-takes-a-grid-drop/",
-          "published_at": "2026-11-18T12:00:00Z",
-          "image_url": "https://www.motorbiscuit.com/wp-content/uploads/2026/11/M629069_Motorsport__FIA_F1_Grand_Prix_of_Spain__Formula_1_2026.jpg",
-          "video_url": null,
-          "video_poster_url": "https://www.motorbiscuit.com/wp-content/uploads/2026/11/M629069_Motorsport__FIA_F1_Grand_Prix_of_Spain__Formula_1_2026.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 10,
-      "fan_heat": 0,
-      "heat": 10,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 4,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 8
-    },
-    {
       "event_id": "evt-2026-11-20-53f95e439d56",
       "rule_id": null,
       "hot_word_zh": "225美元牛仔裤、1800美元戒指：Oscar Piastri女友Lily Zneimer…",
@@ -1883,7 +1784,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 9
+      "rank": 8
     },
     {
       "event_id": "evt-2026-11-20-8fedf4ca06fe",
@@ -1944,6 +1845,54 @@
       "source_counts": {
         "official": 0,
         "media": 2,
+        "fan": 0
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "event_id": "evt-2026-11-20-cfa2be88937b",
+      "rule_id": null,
+      "hot_word_zh": "Jacques Villeneuve 称 George Russell 如今面临 Osca…",
+      "hot_word_en": "Jacques Villeneuve claims George Russell now faces the same ‘dangerous’ task Oscar Piastri failed",
+      "first_seen_at": "2026-11-20T16:00:00Z",
+      "last_seen_at": "2026-11-20T16:00:00Z",
+      "anchor_item_id": "piasnews-6518f70597b856a7",
+      "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/11/russell-piastri-1795169971257.jpg",
+      "video_url": null,
+      "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/11/russell-piastri-1795169971257.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-6518f70597b856a7",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "F1 Oversteer",
+          "title": "Jacques Villeneuve claims George Russell now faces the same ‘dangerous’ task Oscar Piastri failed",
+          "title_zh": "Jacques Villeneuve 称 George Russell 如今面临 Oscar Piastri 未能完成的同样“危险”任务",
+          "summary": "Team or car-performance item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的关于车队或赛车性能的内容。",
+          "url": "https://www.f1oversteer.com/news/jacques-villeneuve-claims-george-russell-now-faces-the-same-dangerous-task-oscar-piastri-failed/",
+          "published_at": "2026-11-20T16:00:00Z",
+          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/11/russell-piastri-1795169971257.jpg",
+          "video_url": null,
+          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/11/russell-piastri-1795169971257.jpg",
+          "heat_contribution": 0.45,
+          "metrics": {}
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 10,
+      "fan_heat": 0,
+      "heat": 10,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 1,
         "fan": 0
       },
       "pinned_rank": null,
