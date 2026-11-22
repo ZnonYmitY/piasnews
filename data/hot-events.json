@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-22T21:35:27.875899Z",
+  "generated_at": "2026-11-22T21:50:29.293259Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -15,29 +15,12 @@
       "first_seen_at": "2026-11-17T00:00:00Z",
       "last_seen_at": "2026-11-21T21:42:42Z",
       "anchor_item_id": "piasnews-e3e28b6134c4100b",
-      "image_url": "https://scuderiafans.com/wp-content/uploads/2026/07/mclaren.jpg",
+      "image_url": "https://media.formula1.com/image/upload/t_16by9Centre/c_lfill,w_2048/q_auto/v1740000001/fom-website/2026/Las%20Vegas/PiastriLasVegasThursday.webp",
       "video_url": null,
-      "video_poster_url": "https://scuderiafans.com/wp-content/uploads/2026/07/mclaren.jpg",
+      "video_poster_url": "https://media.formula1.com/image/upload/t_16by9Centre/c_lfill,w_2048/q_auto/v1740000001/fom-website/2026/Las%20Vegas/PiastriLasVegasThursday.webp",
       "review_needed": false,
       "review_needed_reason": null,
       "items": [
-        {
-          "item_id": "piasnews-254a8afd4f9ed0d2",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Scuderia Fans",
-          "title": "Oscar Piastri exposes Ferrari's costly Las Vegas qualifying mistake: \"Might as well not go out\"",
-          "title_zh": "Oscar Piastri 揭露 Ferrari 在拉斯维加斯排位赛的代价高昂失误：“还不如不出场”",
-          "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与比赛周或表现相关的内容。",
-          "url": "https://scuderiafans.com/oscar-piastri-exposes-ferraris-costly-las-vegas-qualifying-mistake-might-as-well-not-go-out/",
-          "published_at": "2026-11-21T21:42:42Z",
-          "image_url": "https://scuderiafans.com/wp-content/uploads/2026/07/mclaren.jpg",
-          "video_url": null,
-          "video_poster_url": "https://scuderiafans.com/wp-content/uploads/2026/07/mclaren.jpg",
-          "heat_contribution": 0.75,
-          "metrics": {}
-        },
         {
           "item_id": "piasnews-18c25140bbbfaa7e",
           "dataset": "items",
@@ -53,6 +36,23 @@
           "video_url": null,
           "video_poster_url": "https://media.formula1.com/image/upload/t_16by9Centre/c_lfill,w_2048/q_auto/v1740000001/fom-website/2026/Las%20Vegas/PiastriLasVegasThursday.webp",
           "heat_contribution": 0.6,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-254a8afd4f9ed0d2",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Scuderia Fans",
+          "title": "Oscar Piastri exposes Ferrari's costly Las Vegas qualifying mistake: \"Might as well not go out\"",
+          "title_zh": "Oscar Piastri 揭露 Ferrari 在拉斯维加斯排位赛的代价高昂失误：“还不如不出场”",
+          "summary": "Race-week or performance-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的与比赛周或表现相关的内容。",
+          "url": "https://scuderiafans.com/oscar-piastri-exposes-ferraris-costly-las-vegas-qualifying-mistake-might-as-well-not-go-out/",
+          "published_at": "2026-11-21T21:42:42Z",
+          "image_url": "https://scuderiafans.com/wp-content/uploads/2026/07/mclaren.jpg",
+          "video_url": null,
+          "video_poster_url": "https://scuderiafans.com/wp-content/uploads/2026/07/mclaren.jpg",
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -754,9 +754,9 @@
         }
       ],
       "official_heat": 8,
-      "media_heat": 39,
+      "media_heat": 36,
       "fan_heat": 0,
-      "heat": 41,
+      "heat": 38,
       "source_labels": [
         "官",
         "媒"
