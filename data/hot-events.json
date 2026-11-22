@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-22T23:08:44.229550Z",
+  "generated_at": "2026-11-22T23:20:27.887477Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -10,8 +10,8 @@
     {
       "event_id": "evt-2026-11-18-a6d3a26a6241",
       "rule_id": null,
-      "hot_word_zh": "F1 2026 拉斯维加斯大奖赛：Oscar Piastri 被罚退 10 位发车，Lan…",
-      "hot_word_en": "F1 Las Vegas Grand Prix 2026: Oscar Piastri Hit With 10-Place Grid Penalty as Lando Norris, George Russell Es…",
+      "hot_word_zh": "Oscar 在拉斯维加斯站正赛获得第1名",
+      "hot_word_en": "Oscar finishes P1 in the Las Vegas Grand Prix",
       "first_seen_at": "2026-11-15T23:34:00Z",
       "last_seen_at": "2026-11-22T20:46:00Z",
       "anchor_item_id": "piasnews-d7247373745a4527",
@@ -2007,8 +2007,15 @@
         "media": 51,
         "fan": 0
       },
-      "pinned_rank": null,
+      "pinned_rank": 1,
       "hidden": false,
+      "hard_rule": {
+        "type": "session_result",
+        "race_id": "2026-round-21",
+        "session": "race",
+        "position": 1,
+        "source_item_id": "piasnews-3f79c11feaad399b"
+      },
       "rank": 1
     },
     {
