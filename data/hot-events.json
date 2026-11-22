@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-22T16:35:25.458791Z",
+  "generated_at": "2026-11-22T16:50:26.620384Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -1084,7 +1084,7 @@
           "image_url": "https://motorsport.nextgen-auto.com/IMG/logo/xpb_1454370_hires.jpg",
           "video_url": null,
           "video_poster_url": "https://motorsport.nextgen-auto.com/IMG/logo/xpb_1454370_hires.jpg",
-          "heat_contribution": 0.75,
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -1174,9 +1174,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 25,
+      "media_heat": 23,
       "fan_heat": 0,
-      "heat": 25,
+      "heat": 23,
       "source_labels": [
         "媒"
       ],
@@ -1739,54 +1739,6 @@
       "rank": 7
     },
     {
-      "event_id": "evt-2026-11-20-53f95e439d56",
-      "rule_id": null,
-      "hot_word_zh": "225美元牛仔裤、1800美元戒指：Oscar Piastri女友Lily Zneimer…",
-      "hot_word_en": "$225 Jeans, $1,800 Ring: How Oscar Piastri's GF Lily Zneimer Styled Her Las Vegas GP Look",
-      "first_seen_at": "2026-11-20T16:42:20Z",
-      "last_seen_at": "2026-11-20T16:42:20Z",
-      "anchor_item_id": "piasnews-0a4cc169d34fab8e",
-      "image_url": "https://s.yimg.com/lo/mysterio/api/0e82a2ccca51a61c76f1e3f13c4a55179730c290c05f344cbda679cdba400301/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Ff1_chronicle_874%2F8aa44d20b3a1652b8407aa2b30e69b36.jpg",
-      "video_url": null,
-      "video_poster_url": "https://s.yimg.com/lo/mysterio/api/0e82a2ccca51a61c76f1e3f13c4a55179730c290c05f344cbda679cdba400301/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Ff1_chronicle_874%2F8aa44d20b3a1652b8407aa2b30e69b36.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-0a4cc169d34fab8e",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Yahoo Sports",
-          "title": "$225 Jeans, $1,800 Ring: How Oscar Piastri's GF Lily Zneimer Styled Her Las Vegas GP Look",
-          "title_zh": "225美元牛仔裤、1800美元戒指：Oscar Piastri女友Lily Zneimer的拉斯维加斯大奖赛造型",
-          "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与比赛周或表现相关的内容。",
-          "url": "https://sports.yahoo.com/articles/225-jeans-1-800-ring-164220825.html",
-          "published_at": "2026-11-20T16:42:20Z",
-          "image_url": "https://s.yimg.com/lo/mysterio/api/0e82a2ccca51a61c76f1e3f13c4a55179730c290c05f344cbda679cdba400301/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Ff1_chronicle_874%2F8aa44d20b3a1652b8407aa2b30e69b36.jpg",
-          "video_url": null,
-          "video_poster_url": "https://s.yimg.com/lo/mysterio/api/0e82a2ccca51a61c76f1e3f13c4a55179730c290c05f344cbda679cdba400301/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Ff1_chronicle_874%2F8aa44d20b3a1652b8407aa2b30e69b36.jpg",
-          "heat_contribution": 0.45,
-          "metrics": {}
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 10,
-      "fan_heat": 0,
-      "heat": 10,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 1,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 8
-    },
-    {
       "event_id": "evt-2026-11-20-8fedf4ca06fe",
       "rule_id": null,
       "hot_word_zh": "Racing Bulls与Liam Lawson续约至2027年后，Arvid Lindb…",
@@ -1849,7 +1801,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 9
+      "rank": 8
     },
     {
       "event_id": "evt-2026-11-21-fda20a8131a6",
@@ -1928,6 +1880,95 @@
         "official": 0,
         "media": 3,
         "fan": 0
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "event_id": "evt-2026-11-15-1a693d980f11",
+      "rule_id": null,
+      "hot_word_zh": "除非 Zak Brown 效仿 Red Bull 的激进决定，否则 Oscar Piast…",
+      "hot_word_en": "Oscar Piastri should look for McLaren exit unless Zak Brown copies a radical Red Bull decision",
+      "first_seen_at": "2026-11-15T19:30:00Z",
+      "last_seen_at": "2026-11-19T20:00:00Z",
+      "anchor_item_id": "piasnews-d890ee6102c2bfa2",
+      "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/11/GettyImages-2305797780-2048x1365.jpg",
+      "video_url": "https://video.twimg.com/amplify_video/2122997458934345728/vid/avc1/320x568/xfQ7jRPttpdkJLrB.mp4?tag=29",
+      "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/11/GettyImages-2305797780-2048x1365.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-57ff3f5fdff8c71d",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "F1 Oversteer",
+          "title": "Lando Norris tells Oscar Piastri what McLaren ‘need’ as they battle Red Bull for third place",
+          "title_zh": "Lando Norris告诉Oscar Piastri McLaren“需要”什么，他们正与Red Bull争夺第三名",
+          "summary": "Rumor or speculative report; treat as unverified unless confirmed by official sources.",
+          "summary_zh": "传闻或推测性报道；除非官方消息源确认，否则视为未经证实。",
+          "url": "https://www.f1oversteer.com/news/lando-norris-tells-oscar-piastri-what-mclaren-need-as-they-battle-red-bull-for-third-place/",
+          "published_at": "2026-11-19T20:00:00Z",
+          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/11/GettyImages-2305797780-2048x1365.jpg",
+          "video_url": null,
+          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/11/GettyImages-2305797780-2048x1365.jpg",
+          "heat_contribution": 0.2,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-d890ee6102c2bfa2",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "F1 Oversteer",
+          "title": "Oscar Piastri should look for McLaren exit unless Zak Brown copies a radical Red Bull decision",
+          "title_zh": "除非 Zak Brown 效仿 Red Bull 的激进决定，否则 Oscar Piastri 应寻求离开 McLaren",
+          "summary": "Rumor or speculative report; treat as unverified unless confirmed by official sources.",
+          "summary_zh": "传闻或推测性报道；除非官方消息源确认，否则视为未经证实。",
+          "url": "https://www.f1oversteer.com/features/oscar-piastri-should-look-for-mclaren-exit-unless-zak-brown-copies-a-radical-red-bull-decision/",
+          "published_at": "2026-11-15T19:30:00Z",
+          "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/11/GettyImages-2249961392-2048x1365.jpg",
+          "video_url": null,
+          "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/11/GettyImages-2249961392-2048x1365.jpg",
+          "heat_contribution": 0.0,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-social-9048a342b0783404",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar and lando play this or that!",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar 和 Lando 玩“这个还是那个”！",
+          "summary": "oscar and lando play this or that! https://t.co/ZFRYspU567",
+          "summary_zh": "Oscar 和 Lando 玩“这个还是那个”！",
+          "url": "https://x.com/laurogeitabat/status/2122997523245592992",
+          "published_at": "2026-11-18T10:17:07Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2122997458934345728/vid/avc1/320x568/xfQ7jRPttpdkJLrB.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2122997458934345728/img/R_zMLW6wELlcqUq1.jpg",
+          "heat_contribution": 0.0,
+          "metrics": {
+            "likes": 730,
+            "retweets": 72,
+            "replies": 0,
+            "quotes": 0,
+            "views": 11848,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 8,
+      "fan_heat": 0,
+      "heat": 8,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 1,
+        "fan": 1
       },
       "pinned_rank": null,
       "hidden": false,
