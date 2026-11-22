@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-22T12:35:27.437215Z",
+  "generated_at": "2026-11-22T12:50:36.276599Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -1900,111 +1900,6 @@
       "rank": 10
     }
   ],
-  "review_needed_count": 2,
-  "review_needed_events": [
-    {
-      "event_id": "evt-2026-11-15-47fa495d51ea",
-      "rule_id": null,
-      "hot_word_zh": "待补充事件标题",
-      "hot_word_en": "Event title needs review",
-      "first_seen_at": "2026-11-15T12:42:05Z",
-      "last_seen_at": "2026-11-15T12:42:05Z",
-      "anchor_item_id": "piasnews-social-57e3ea529799ddc2",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": true,
-      "review_needed_reason": "insufficient_semantic_text",
-      "items": [
-        {
-          "item_id": "piasnews-social-57e3ea529799ddc2",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: @laurogeitabat",
-          "title_zh": "X 发帖：@laurogeitabat",
-          "summary": "https://t.co/7ALQpPXp5h",
-          "summary_zh": "https://t.co/7ALQpPXp5h",
-          "url": "https://x.com/laurogeitabat/status/2121946840350277942",
-          "published_at": "2026-11-15T12:42:05Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 0.0,
-          "metrics": {
-            "likes": 7,
-            "retweets": 0,
-            "replies": 0,
-            "quotes": 0,
-            "views": 1593,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 0,
-      "heat": 0,
-      "source_labels": [],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false
-    },
-    {
-      "event_id": "evt-2026-11-15-3ad2a2da3d69",
-      "rule_id": null,
-      "hot_word_zh": "待补充事件标题",
-      "hot_word_en": "Event title needs review",
-      "first_seen_at": "2026-11-15T12:41:55Z",
-      "last_seen_at": "2026-11-15T12:41:55Z",
-      "anchor_item_id": "piasnews-social-a08e01e88f63ee2c",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": true,
-      "review_needed_reason": "insufficient_semantic_text",
-      "items": [
-        {
-          "item_id": "piasnews-social-a08e01e88f63ee2c",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: @laurogeitabat",
-          "title_zh": "X 发帖：@laurogeitabat",
-          "summary": "https://t.co/8Re69cDjHS",
-          "summary_zh": "https://t.co/8Re69cDjHS",
-          "url": "https://x.com/laurogeitabat/status/2121946799447359493",
-          "published_at": "2026-11-15T12:41:55Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 0.0,
-          "metrics": {
-            "likes": 7,
-            "retweets": 0,
-            "replies": 0,
-            "quotes": 0,
-            "views": 1083,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 0,
-      "heat": 0,
-      "source_labels": [],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false
-    }
-  ]
+  "review_needed_count": 0,
+  "review_needed_events": []
 }
