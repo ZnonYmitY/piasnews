@@ -40,7 +40,7 @@ POSITION_WORDS = {
     "fifteenth": 15, "sixteenth": 16, "seventeenth": 17, "eighteenth": 18,
     "nineteenth": 19, "twentieth": 20,
 }
-POSITION_TOKEN = r"(?:p?(?:[1-9]|1\d|20)(?:st|nd|rd|th)?|" + "|".join(POSITION_WORDS) + r")"
+POSITION_TOKEN = r"(?:p(?:[1-9]|1\d|20)|(?:[1-9]|1\d|20)(?:st|nd|rd|th)|" + "|".join(POSITION_WORDS) + r")"
 SESSION_LABELS = {
     "practice_1": ("一练", "Practice 1"),
     "practice_2": ("二练", "Practice 2"),
@@ -351,15 +351,18 @@ def normalize_position(value: str) -> int | None:
 
 def result_position(text: str) -> int | None:
     patterns = (
-        rf"(?:oscar\s+)?piastri\s*\([^)]*?/\s*({POSITION_TOKEN})\s*\)",
-        rf"(?:oscar\s+)?piastri.{{0,55}}?\b(?:finished|finishes|qualified|qualifies|ended|ends|came|was|is|slumps?\s+to|slipped.{{0,20}}?to).{{0,24}}?\b({POSITION_TOKEN})\b",
-        rf"(?:oscar\s+)?piastri.{{0,80}}?\b({POSITION_TOKEN})[- ](?:place|placed|finish|finisher)\b",
+        rf"(?:oscar\s+)?piastri\s*\([^)]*?/\s*({POSITION_TOKEN}|[1-9]|1\d|20)\s*\)",
+        rf"(?:oscar\s+)?piastri.{{0,55}}?\b(?:finished|finishes|qualified|qualifies|ended|ends|came|secured|claimed|took|slumps?\s+to|slipped.{{0,20}}?to).{{0,24}}?\b({POSITION_TOKEN})\b",
         rf"\b({POSITION_TOKEN})[- ]place\s+finisher\s+(?:oscar\s+)?piastri\b",
         r"(?:oscar|皮亚斯特里).{0,55}?第\s*([1-9]|1\d|20)\s*名",
     )
     for pattern in patterns:
         match = re.search(pattern, text, re.IGNORECASE)
         if match:
+            # A shared subject such as "Norris and Piastri finished second and third"
+            # does not assign the first position to Piastri.
+            if re.search(r"\b(?:and|&)\s*$", text[max(0, match.start() - 60):match.start()]):
+                continue
             position = normalize_position(match.group(1))
             if position:
                 return position
@@ -370,7 +373,7 @@ def session_context_matches(text: str, race: dict[str, Any], session: str) -> bo
     race_terms = [race.get("name"), race.get("name_zh"), race.get("country"), race.get("locality"), race.get("circuit_id")]
     has_race_context = any(clean(term).lower() in text for term in race_terms if clean(term))
     if session == "race":
-        return has_race_context or bool(re.search(r"\b(?:grand prix|gp|race)\b|正赛|大奖赛", text))
+        return has_race_context
     if session == "qualifying":
         return bool(re.search(r"\b(?:qualifying|qualified|qualifies|grid|q[123])\b|排位", text))
     if session == "sprint_qualifying":
