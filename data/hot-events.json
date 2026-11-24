@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-24T03:45:55.178026Z",
+  "generated_at": "2026-11-24T05:50:27.170885Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -494,7 +494,7 @@
           "image_url": "https://firebasestorage.googleapis.com/v0/b/f1-live-pulse-27147.firebasestorage.app/o/blog-images%2F1795326232321-01a3c0_1565ecf9aebc4d64bf0119e75dcb18ffmv2.png.png?alt=media&token=f15a5829-f3d6-4725-971d-23d0b8ffc890",
           "video_url": null,
           "video_poster_url": "https://firebasestorage.googleapis.com/v0/b/f1-live-pulse-27147.firebasestorage.app/o/blog-images%2F1795326232321-01a3c0_1565ecf9aebc4d64bf0119e75dcb18ffmv2.png.png?alt=media&token=f15a5829-f3d6-4725-971d-23d0b8ffc890",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -1026,9 +1026,9 @@
         }
       ],
       "official_heat": 12,
-      "media_heat": 82,
+      "media_heat": 81,
       "fan_heat": 0,
-      "heat": 85,
+      "heat": 84,
       "source_labels": [
         "官",
         "媒"
@@ -1050,7 +1050,7 @@
       "rank": 1
     },
     {
-      "event_id": "evt-2026-11-22-5f75f9a453de-a71fa7cc",
+      "event_id": "evt-2026-11-22-5f75f9a453de",
       "rule_id": null,
       "hot_word_zh": "在Vegas全押。太好玩了 🎲",
       "hot_word_en": "All in around Vegas. That was fun 🎲",
@@ -1368,62 +1368,7 @@
       "rank": 5
     },
     {
-      "event_id": "evt-2026-11-22-a2db245240ae-a2db2452",
-      "rule_id": null,
-      "hot_word_zh": "几年前我同时送四个孩子去周六早上的体育活动时，要是能有Keanu就好了 🙄",
-      "hot_word_en": "Could’ve done with Keanu a few years ago when I was trying to get all 4 kids to Saturday morning sport at the…",
-      "first_seen_at": "2026-11-22T05:45:51Z",
-      "last_seen_at": "2026-11-22T05:45:51Z",
-      "anchor_item_id": "piasnews-social-963a72365086bc7e",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-963a72365086bc7e",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@NicolePiastri",
-          "title": "X post from @NicolePiastri: Could’ve done with Keanu a few years ago when I was trying to get all 4 kids to Saturday mornin…",
-          "title_zh": "X 发帖 @NicolePiastri：几年前我同时送四个孩子去周六早上的体育活动时，要是能有Keanu就好了 🙄",
-          "summary": "Could’ve done with Keanu a few years ago when I was trying to get all 4 kids to Saturday morning sport at the same time 🙄",
-          "summary_zh": "几年前我同时送四个孩子去周六早上的体育活动时，要是能有Keanu就好了 🙄",
-          "url": "https://x.com/NicolePiastri/status/2124378805842452816",
-          "published_at": "2026-11-22T05:45:51Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 9.5242,
-          "metrics": {
-            "likes": 24033,
-            "retweets": 1481,
-            "replies": 155,
-            "quotes": 0,
-            "views": 295407,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 49,
-      "heat": 49,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 6
-    },
-    {
-      "event_id": "evt-2026-11-23-cbec84a87e4d-3946827c",
+      "event_id": "evt-2026-11-23-cbec84a87e4d",
       "rule_id": null,
       "hot_word_zh": "\"谁更可能熬夜看车载回放比赛？\" lando：*立刻指向oscar* oscar：可能是我…",
       "hot_word_en": "\"who's more likely to stay awake watching onboard replay races?",
@@ -1499,7 +1444,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 6
     },
     {
       "event_id": "evt-2026-11-22-1c4cdd003085",
@@ -1536,6 +1481,61 @@
             "replies": 2,
             "quotes": 0,
             "views": 51832,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 45,
+      "heat": 45,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "event_id": "evt-2026-11-22-a2db245240ae",
+      "rule_id": null,
+      "hot_word_zh": "几年前我同时送四个孩子去周六早上的体育活动时，要是能有Keanu就好了 🙄",
+      "hot_word_en": "Could’ve done with Keanu a few years ago when I was trying to get all 4 kids to Saturday morning sport at the…",
+      "first_seen_at": "2026-11-22T05:45:51Z",
+      "last_seen_at": "2026-11-22T05:45:51Z",
+      "anchor_item_id": "piasnews-social-963a72365086bc7e",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-963a72365086bc7e",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@NicolePiastri",
+          "title": "X post from @NicolePiastri: Could’ve done with Keanu a few years ago when I was trying to get all 4 kids to Saturday mornin…",
+          "title_zh": "X 发帖 @NicolePiastri：几年前我同时送四个孩子去周六早上的体育活动时，要是能有Keanu就好了 🙄",
+          "summary": "Could’ve done with Keanu a few years ago when I was trying to get all 4 kids to Saturday morning sport at the same time 🙄",
+          "summary_zh": "几年前我同时送四个孩子去周六早上的体育活动时，要是能有Keanu就好了 🙄",
+          "url": "https://x.com/NicolePiastri/status/2124378805842452816",
+          "published_at": "2026-11-22T05:45:51Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 8.7134,
+          "metrics": {
+            "likes": 24033,
+            "retweets": 1481,
+            "replies": 155,
+            "quotes": 0,
+            "views": 295407,
             "bookmarks": 0
           }
         }
@@ -2354,7 +2354,7 @@
       "rank": 9
     },
     {
-      "event_id": "evt-2026-11-22-e5790ee5f785-e5790ee5",
+      "event_id": "evt-2026-11-22-e5790ee5f785",
       "rule_id": null,
       "hot_word_zh": "问：能谈谈和 Lando 的争夺吗，你似乎不太喜欢那条指令……“😅😅。是啊！",
       "hot_word_en": "Q: Could you just touch on the fight with lando, you didn't appreciate that particular instruction... \"😅😅.",
