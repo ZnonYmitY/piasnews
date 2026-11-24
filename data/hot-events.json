@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-24T06:35:56.896513Z",
+  "generated_at": "2026-11-24T09:25:51.923311Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -73,23 +73,6 @@
           "metrics": {}
         },
         {
-          "item_id": "piasnews-862ffcc122674387",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Nextgen-Auto.com",
-          "title": "Piastri snaps at McLaren but Stella applauds",
-          "title_zh": "Piastri 对 McLaren 发火，但 Stella 表示赞赏",
-          "summary": "Team or car-performance item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关内容。",
-          "url": "https://motorsport.nextgen-auto.com/en/formula-1/piastri-snaps-at-mclaren-but-stella-applauds,213676.html",
-          "published_at": "2026-11-23T08:51:00Z",
-          "image_url": "https://motorsport.nextgen-auto.com/IMG/logo/xpb_1456211_hires.jpg",
-          "video_url": null,
-          "video_poster_url": "https://motorsport.nextgen-auto.com/IMG/logo/xpb_1456211_hires.jpg",
-          "heat_contribution": 0.75,
-          "metrics": {}
-        },
-        {
           "item_id": "piasnews-0d4056c31478dc14",
           "dataset": "items",
           "source_type": "official",
@@ -104,6 +87,23 @@
           "video_url": null,
           "video_poster_url": "https://media.formula1.com/image/upload/t_16by9North/c_lfill,w_2048/q_auto/v1740000001/trackside-images/2026/F1_Grand_Prix_of_Las_Vegas/2306298852.webp",
           "heat_contribution": 0.6,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-862ffcc122674387",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Nextgen-Auto.com",
+          "title": "Piastri snaps at McLaren but Stella applauds",
+          "title_zh": "Piastri 对 McLaren 发火，但 Stella 表示赞赏",
+          "summary": "Team or car-performance item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的车队或赛车性能相关内容。",
+          "url": "https://motorsport.nextgen-auto.com/en/formula-1/piastri-snaps-at-mclaren-but-stella-applauds,213676.html",
+          "published_at": "2026-11-23T08:51:00Z",
+          "image_url": "https://motorsport.nextgen-auto.com/IMG/logo/xpb_1456211_hires.jpg",
+          "video_url": null,
+          "video_poster_url": "https://motorsport.nextgen-auto.com/IMG/logo/xpb_1456211_hires.jpg",
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -392,7 +392,7 @@
           "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgrandprix247.com%2Fimages%2F2026-11%2F28-saturday-lasvegas-2026-6b02ae7ebb9e4.jpg",
           "video_url": null,
           "video_poster_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgrandprix247.com%2Fimages%2F2026-11%2F28-saturday-lasvegas-2026-6b02ae7ebb9e4.jpg",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -409,7 +409,7 @@
           "image_url": "https://cdn.cwibc.co.id/media/images/2026/11/4NoQhlm56E.jpeg?location=1&width=1200&height=674&quality=80&watermark=1",
           "video_url": null,
           "video_poster_url": "https://cdn.cwibc.co.id/media/images/2026/11/4NoQhlm56E.jpeg?location=1&width=1200&height=674&quality=80&watermark=1",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -426,7 +426,7 @@
           "image_url": "https://speedcafe.com/wp-content/uploads/2026/11/XPB_1456125_HiRes-e1795336211574.jpg",
           "video_url": null,
           "video_poster_url": "https://speedcafe.com/wp-content/uploads/2026/11/XPB_1456125_HiRes-e1795336211574.jpg",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -443,7 +443,7 @@
           "image_url": "https://revsportz.in/wp-content/uploads/2026/11/WhatsApp-Image-2026-11-22-at-12.37.24-PM-e1795331324337.jpeg",
           "video_url": null,
           "video_poster_url": "https://revsportz.in/wp-content/uploads/2026/11/WhatsApp-Image-2026-11-22-at-12.37.24-PM-e1795331324337.jpeg",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -528,7 +528,7 @@
           "image_url": "https://autoaction.com.au/2026/11/21/piastri-faces-vegas-recovery-mission-after-10-place-grid-penalty/image-1-40",
           "video_url": null,
           "video_poster_url": "https://autoaction.com.au/2026/11/21/piastri-faces-vegas-recovery-mission-after-10-place-grid-penalty/image-1-40",
-          "heat_contribution": 0.2,
+          "heat_contribution": 0.0,
           "metrics": {}
         },
         {
@@ -1009,9 +1009,9 @@
         }
       ],
       "official_heat": 8,
-      "media_heat": 79,
+      "media_heat": 74,
       "fan_heat": 0,
-      "heat": 81,
+      "heat": 76,
       "source_labels": [
         "官",
         "媒"
@@ -1033,7 +1033,7 @@
       "rank": 1
     },
     {
-      "event_id": "evt-2026-11-22-5f75f9a453de",
+      "event_id": "evt-2026-11-22-5f75f9a453de-a71fa7cc",
       "rule_id": null,
       "hot_word_zh": "在Vegas全押。太好玩了 🎲",
       "hot_word_en": "All in around Vegas. That was fun 🎲",
@@ -1164,7 +1164,7 @@
           "image_url": "https://pbs.twimg.com/media/HXtuPq9WYAIoGiJ.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HXtuPq9WYAIoGiJ.jpg",
-          "heat_contribution": 10.9068,
+          "heat_contribution": 10.0959,
           "metrics": {
             "likes": 85247,
             "retweets": 13311,
@@ -1188,7 +1188,7 @@
           "image_url": "https://pbs.twimg.com/media/HXtuPq9WYAIoGiJ.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HXtuPq9WYAIoGiJ.jpg",
-          "heat_contribution": 9.3912,
+          "heat_contribution": 8.5803,
           "metrics": {
             "likes": 0,
             "retweets": 13312,
@@ -1199,10 +1199,10 @@
           }
         }
       ],
-      "official_heat": 70,
+      "official_heat": 65,
       "media_heat": 0,
-      "fan_heat": 48,
-      "heat": 82,
+      "fan_heat": 45,
+      "heat": 76,
       "source_labels": [
         "官",
         "粉"
@@ -1215,61 +1215,6 @@
       "pinned_rank": null,
       "hidden": false,
       "rank": 3
-    },
-    {
-      "event_id": "evt-2026-11-22-fc8a408f3587",
-      "rule_id": null,
-      "hot_word_zh": "Oscar 紧追不舍，但 MAX VERSTAPPEN 才是你的 @salesforce…",
-      "hot_word_en": "Oscar ran him close, but MAX VERSTAPPEN is your @salesforce #F1DriverOfTheDay 👊 #F1 #LasVegasGP",
-      "first_seen_at": "2026-11-22T09:22:00Z",
-      "last_seen_at": "2026-11-22T09:22:00Z",
-      "anchor_item_id": "piasnews-social-2124232cfc3ec937",
-      "image_url": "https://pbs.twimg.com/media/HXt4_f9XsAAKJxK.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HXt4_f9XsAAKJxK.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-2124232cfc3ec937",
-          "dataset": "social",
-          "source_type": "official",
-          "source": "@F1",
-          "title": "X post from @F1: Oscar ran him close, but MAX VERSTAPPEN is your @salesforce #F1DriverOfTheDay 👊 #F1 #LasVegasGP",
-          "title_zh": "X 发帖 @F1：Oscar 紧追不舍，但 MAX VERSTAPPEN 才是你的 @salesforce #F1DriverOfTheDay 👊 #F1 #LasVegasGP",
-          "summary": "Oscar ran him close, but MAX VERSTAPPEN is your @salesforce #F1DriverOfTheDay 👊 #F1 #LasVegasGP https://t.co/Hp2kTRfBXo",
-          "summary_zh": "Oscar 紧追不舍，但 MAX VERSTAPPEN 才是你的 @salesforce #F1DriverOfTheDay 👊 #F1 #LasVegasGP",
-          "url": "https://x.com/F1/status/2124433203511333084",
-          "published_at": "2026-11-22T09:22:00Z",
-          "image_url": "https://pbs.twimg.com/media/HXt4_f9XsAAKJxK.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HXt4_f9XsAAKJxK.jpg",
-          "heat_contribution": 9.0125,
-          "metrics": {
-            "likes": 12837,
-            "retweets": 876,
-            "replies": 59,
-            "quotes": 0,
-            "views": 346560,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 58,
-      "media_heat": 0,
-      "fan_heat": 0,
-      "heat": 58,
-      "source_labels": [
-        "官"
-      ],
-      "source_counts": {
-        "official": 1,
-        "media": 0,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 4
     },
     {
       "event_id": "evt-2026-11-22-5be549b8cd12",
@@ -1348,10 +1293,65 @@
       },
       "pinned_rank": null,
       "hidden": false,
+      "rank": 4
+    },
+    {
+      "event_id": "evt-2026-11-22-fc8a408f3587",
+      "rule_id": null,
+      "hot_word_zh": "Oscar 紧追不舍，但 MAX VERSTAPPEN 才是你的 @salesforce…",
+      "hot_word_en": "Oscar ran him close, but MAX VERSTAPPEN is your @salesforce #F1DriverOfTheDay 👊 #F1 #LasVegasGP",
+      "first_seen_at": "2026-11-22T09:22:00Z",
+      "last_seen_at": "2026-11-22T09:22:00Z",
+      "anchor_item_id": "piasnews-social-2124232cfc3ec937",
+      "image_url": "https://pbs.twimg.com/media/HXt4_f9XsAAKJxK.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HXt4_f9XsAAKJxK.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-2124232cfc3ec937",
+          "dataset": "social",
+          "source_type": "official",
+          "source": "@F1",
+          "title": "X post from @F1: Oscar ran him close, but MAX VERSTAPPEN is your @salesforce #F1DriverOfTheDay 👊 #F1 #LasVegasGP",
+          "title_zh": "X 发帖 @F1：Oscar 紧追不舍，但 MAX VERSTAPPEN 才是你的 @salesforce #F1DriverOfTheDay 👊 #F1 #LasVegasGP",
+          "summary": "Oscar ran him close, but MAX VERSTAPPEN is your @salesforce #F1DriverOfTheDay 👊 #F1 #LasVegasGP https://t.co/Hp2kTRfBXo",
+          "summary_zh": "Oscar 紧追不舍，但 MAX VERSTAPPEN 才是你的 @salesforce #F1DriverOfTheDay 👊 #F1 #LasVegasGP",
+          "url": "https://x.com/F1/status/2124433203511333084",
+          "published_at": "2026-11-22T09:22:00Z",
+          "image_url": "https://pbs.twimg.com/media/HXt4_f9XsAAKJxK.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HXt4_f9XsAAKJxK.jpg",
+          "heat_contribution": 8.2017,
+          "metrics": {
+            "likes": 12837,
+            "retweets": 876,
+            "replies": 59,
+            "quotes": 0,
+            "views": 346560,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 53,
+      "media_heat": 0,
+      "fan_heat": 0,
+      "heat": 53,
+      "source_labels": [
+        "官"
+      ],
+      "source_counts": {
+        "official": 1,
+        "media": 0,
+        "fan": 0
+      },
+      "pinned_rank": null,
+      "hidden": false,
       "rank": 5
     },
     {
-      "event_id": "evt-2026-11-23-cbec84a87e4d",
+      "event_id": "evt-2026-11-23-cbec84a87e4d-3946827c",
       "rule_id": null,
       "hot_word_zh": "\"谁更可能熬夜看车载回放比赛？\" lando：*立刻指向oscar* oscar：可能是我…",
       "hot_word_en": "\"who's more likely to stay awake watching onboard replay races?",
@@ -1402,7 +1402,7 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2124777041513902080/vid/avc1/320x568/4A-y8XB7wZMC7l4h.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2124777041513902080/img/JPQIpugeDzObUVBu.jpg",
-          "heat_contribution": 6.0652,
+          "heat_contribution": 5.556,
           "metrics": {
             "likes": 436,
             "retweets": 45,
@@ -1415,8 +1415,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 48,
-      "heat": 48,
+      "fan_heat": 47,
+      "heat": 47,
       "source_labels": [
         "粉"
       ],
@@ -1430,62 +1430,7 @@
       "rank": 6
     },
     {
-      "event_id": "evt-2026-11-22-1c4cdd003085",
-      "rule_id": null,
-      "hot_word_zh": "他们复刻了 McLaren 海报 🤯",
-      "hot_word_en": "THEY RECREATED THE MCLAREN POSTER 🤯",
-      "first_seen_at": "2026-11-22T09:20:40Z",
-      "last_seen_at": "2026-11-22T09:20:40Z",
-      "anchor_item_id": "piasnews-social-5e26f3e6bba92c49",
-      "image_url": "https://pbs.twimg.com/media/HXuAbU6WQAAZrRM.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HXuAbU6WQAAZrRM.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-5e26f3e6bba92c49",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: THEY RECREATED THE MCLAREN POSTER 🤯",
-          "title_zh": "X 发帖 @laurogeitabat：他们复刻了 McLaren 海报 🤯",
-          "summary": "THEY RECREATED THE MCLAREN POSTER 🤯 https://t.co/0PdZLA3YP9",
-          "summary_zh": "他们复刻了 McLaren 海报 🤯",
-          "url": "https://x.com/laurogeitabat/status/2124432869095264440",
-          "published_at": "2026-11-22T09:20:40Z",
-          "image_url": "https://pbs.twimg.com/media/HXuAbU6WQAAZrRM.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HXuAbU6WQAAZrRM.jpg",
-          "heat_contribution": 8.633,
-          "metrics": {
-            "likes": 9389,
-            "retweets": 1280,
-            "replies": 2,
-            "quotes": 0,
-            "views": 51832,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 45,
-      "heat": 45,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 7
-    },
-    {
-      "event_id": "evt-2026-11-22-a2db245240ae",
+      "event_id": "evt-2026-11-22-a2db245240ae-a2db2452",
       "rule_id": null,
       "hot_word_zh": "几年前我同时送四个孩子去周六早上的体育活动时，要是能有Keanu就好了 🙄",
       "hot_word_en": "Could’ve done with Keanu a few years ago when I was trying to get all 4 kids to Saturday morning sport at the…",
@@ -1527,6 +1472,61 @@
       "media_heat": 0,
       "fan_heat": 45,
       "heat": 45,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "event_id": "evt-2026-11-22-1c4cdd003085",
+      "rule_id": null,
+      "hot_word_zh": "他们复刻了 McLaren 海报 🤯",
+      "hot_word_en": "THEY RECREATED THE MCLAREN POSTER 🤯",
+      "first_seen_at": "2026-11-22T09:20:40Z",
+      "last_seen_at": "2026-11-22T09:20:40Z",
+      "anchor_item_id": "piasnews-social-5e26f3e6bba92c49",
+      "image_url": "https://pbs.twimg.com/media/HXuAbU6WQAAZrRM.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HXuAbU6WQAAZrRM.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-5e26f3e6bba92c49",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: THEY RECREATED THE MCLAREN POSTER 🤯",
+          "title_zh": "X 发帖 @laurogeitabat：他们复刻了 McLaren 海报 🤯",
+          "summary": "THEY RECREATED THE MCLAREN POSTER 🤯 https://t.co/0PdZLA3YP9",
+          "summary_zh": "他们复刻了 McLaren 海报 🤯",
+          "url": "https://x.com/laurogeitabat/status/2124432869095264440",
+          "published_at": "2026-11-22T09:20:40Z",
+          "image_url": "https://pbs.twimg.com/media/HXuAbU6WQAAZrRM.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HXuAbU6WQAAZrRM.jpg",
+          "heat_contribution": 7.8223,
+          "metrics": {
+            "likes": 9389,
+            "retweets": 1280,
+            "replies": 2,
+            "quotes": 0,
+            "views": 51832,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 41,
+      "heat": 41,
       "source_labels": [
         "粉"
       ],
@@ -1652,7 +1652,7 @@
           "image_url": "https://tickernews.co/wp-content/uploads/2026/11/vegas-drama-thumb.jpg",
           "video_url": null,
           "video_poster_url": "https://tickernews.co/wp-content/uploads/2026/11/vegas-drama-thumb.jpg",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -1720,7 +1720,7 @@
           "image_url": "https://speedcafe.com/wp-content/uploads/2026/11/XPB_1455356_HiRes.jpg",
           "video_url": null,
           "video_poster_url": "https://speedcafe.com/wp-content/uploads/2026/11/XPB_1455356_HiRes.jpg",
-          "heat_contribution": 0.2,
+          "heat_contribution": 0.0,
           "metrics": {}
         },
         {
@@ -1737,7 +1737,7 @@
           "image_url": "https://autoaction.com.au/wp-content/uploads/2026/11/Image-1-1-e1795243048227.jpg?v=1795242968",
           "video_url": null,
           "video_poster_url": "https://autoaction.com.au/wp-content/uploads/2026/11/Image-1-1-e1795243048227.jpg?v=1795242968",
-          "heat_contribution": 0.2,
+          "heat_contribution": 0.0,
           "metrics": {}
         },
         {
@@ -2320,9 +2320,9 @@
         }
       ],
       "official_heat": 18,
-      "media_heat": 39,
+      "media_heat": 35,
       "fan_heat": 0,
-      "heat": 44,
+      "heat": 40,
       "source_labels": [
         "官",
         "媒"
@@ -2337,7 +2337,7 @@
       "rank": 9
     },
     {
-      "event_id": "evt-2026-11-22-e5790ee5f785",
+      "event_id": "evt-2026-11-22-e5790ee5f785-e5790ee5",
       "rule_id": null,
       "hot_word_zh": "问：能谈谈和 Lando 的争夺吗，你似乎不太喜欢那条指令……“😅😅。是啊！",
       "hot_word_en": "Q: Could you just touch on the fight with lando, you didn't appreciate that particular instruction... \"😅😅.",
@@ -2364,7 +2364,7 @@
           "image_url": null,
           "video_url": "https://video.twimg.com/amplify_video/2124398209552228352/vid/avc1/320x320/dsUJdUxNfgTliNIC.mp4?tag=29",
           "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2124398209552228352/img/z3vCRJZjeqOH7cUi.jpg",
-          "heat_contribution": 7.8276,
+          "heat_contribution": 7.0172,
           "metrics": {
             "likes": 3456,
             "retweets": 418,
@@ -2377,8 +2377,8 @@
       ],
       "official_heat": 0,
       "media_heat": 0,
-      "fan_heat": 41,
-      "heat": 41,
+      "fan_heat": 37,
+      "heat": 37,
       "source_labels": [
         "粉"
       ],
@@ -2392,7 +2392,7 @@
       "rank": 10
     }
   ],
-  "review_needed_count": 1,
+  "review_needed_count": 4,
   "review_needed_events": [
     {
       "event_id": "evt-2026-11-22-2e5d8b0d1a73",
@@ -2437,6 +2437,180 @@
       "media_heat": 0,
       "fan_heat": 41,
       "heat": 41,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-22-25debc45046b",
+      "rule_id": null,
+      "hot_word_zh": "🎤：“恭喜！我觉得你真的真的真的很渴望这样的成绩” Oscar：🙂‍↕️😁“是啊！",
+      "hot_word_en": "🎤: \"congratulations! i think you really really really were craving for something like this\" oscar: 🙂‍↕️😁 \"yeah!",
+      "first_seen_at": "2026-11-22T17:35:41Z",
+      "last_seen_at": "2026-11-22T17:35:41Z",
+      "anchor_item_id": "piasnews-social-2a4ec73e77101cfe",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2124557418998718464/vid/avc1/490x270/ZqS31Rg03PRBMNzN.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2124557418998718464/img/fUWI7b3PvD63Vgxo.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-2a4ec73e77101cfe",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: 🎤: \"congratulations! i think you really really really were craving for something like this\" osc…",
+          "title_zh": "X 发帖 @laurogeitabat：🎤：“恭喜！我觉得你真的真的真的很渴望这样的成绩” Oscar：🙂‍↕️😁“是啊！能重回领奖台真好，有一场跑得很顺利的比赛真好” 他太开心了，他真的需要这个，也完全配得上 🥹🫶🏻",
+          "summary": "🎤: \"congratulations! i think you really really really were craving for something like this\" oscar: 🙂‍↕️😁 \"yeah! it's nice to be back on the podium, nice to have a race that went really well\" he is so happy, he really needed this and it's so deserved 🥹🫶🏻 https://t.co/ozdpRAK9aK",
+          "summary_zh": "🎤：“恭喜！我觉得你真的真的真的很渴望这样的成绩” Oscar：🙂‍↕️😁“是啊！能重回领奖台真好，有一场跑得很顺利的比赛真好” 他太开心了，他真的需要这个，也完全配得上 🥹🫶🏻",
+          "url": "https://x.com/laurogeitabat/status/2124557444596609476",
+          "published_at": "2026-11-22T17:35:41Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2124557418998718464/vid/avc1/490x270/ZqS31Rg03PRBMNzN.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2124557418998718464/img/fUWI7b3PvD63Vgxo.jpg",
+          "heat_contribution": 7.7024,
+          "metrics": {
+            "likes": 3468,
+            "retweets": 548,
+            "replies": 2,
+            "quotes": 0,
+            "views": 34677,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 40,
+      "heat": 40,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-22-f4718779341e",
+      "rule_id": null,
+      "hot_word_zh": "ANDREA STELLA说他喜欢OSCAR那句\"别他妈再叫我小心了\"的无线电 😭😭 \"我…",
+      "hot_word_en": "ANDREA STELLA SAYING HE LIKED OSCAR'S \"STOP TELLING ME TO FUCKING BE CAREFUL\" RADIO 😭😭 \"i actually liked it.",
+      "first_seen_at": "2026-11-22T22:20:59Z",
+      "last_seen_at": "2026-11-22T22:20:59Z",
+      "anchor_item_id": "piasnews-social-9d72622fa26eaaf7",
+      "image_url": "https://pbs.twimg.com/media/HXwzBxSWAAA2jN2.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HXwzBxSWAAA2jN2.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-9d72622fa26eaaf7",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: ANDREA STELLA SAYING HE LIKED OSCAR'S \"STOP TELLING ME TO FUCKING BE CAREFUL\" RADIO 😭😭 \"i actua…",
+          "title_zh": "X 发帖 @laurogeitabat：ANDREA STELLA说他喜欢OSCAR那句\"别他妈再叫我小心了\"的无线电 😭😭 \"我其实很喜欢。这就是你期待一个赛车手有的性格。舒马赫、Alonso或莱科宁也不是更温和。他们都是冠军。干得好，维修墙和oscar。\"",
+          "summary": "ANDREA STELLA SAYING HE LIKED OSCAR'S \"STOP TELLING ME TO FUCKING BE CAREFUL\" RADIO 😭😭 \"i actually liked it. that's the character you expect from a racer. it's not like schumacher, alonso or räikkönen were easier. they were champions. well done to the pit wall and to oscar.\" https://t.co/SFZZ70NcXg",
+          "summary_zh": "ANDREA STELLA说他喜欢OSCAR那句\"别他妈再叫我小心了\"的无线电 😭😭 \"我其实很喜欢。这就是你期待一个赛车手有的性格。舒马赫、Alonso或莱科宁也不是更温和。他们都是冠军。干得好，维修墙和oscar。\"",
+          "url": "https://x.com/laurogeitabat/status/2124629242520473823",
+          "published_at": "2026-11-22T22:20:59Z",
+          "image_url": "https://pbs.twimg.com/media/HXwzBxSWAAA2jN2.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HXwzBxSWAAA2jN2.jpg",
+          "heat_contribution": 7.6105,
+          "metrics": {
+            "likes": 3316,
+            "retweets": 285,
+            "replies": 3,
+            "quotes": 0,
+            "views": 59023,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 40,
+      "heat": 40,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-22-a140dc4f2756",
+      "rule_id": null,
+      "hot_word_zh": "andrea stella解释说，在新加坡之后，lando建议提醒车手们在互相竞争时要小心。",
+      "hot_word_en": "andrea stella explains that, after singapore, lando suggested the drivers get reminders to be careful when ra…",
+      "first_seen_at": "2026-11-22T23:01:15Z",
+      "last_seen_at": "2026-11-22T23:01:15Z",
+      "anchor_item_id": "piasnews-social-21ce8a849b3c7f92",
+      "image_url": "https://pbs.twimg.com/media/HXw8PPIWkAANW26.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HXw8PPIWkAANW26.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-21ce8a849b3c7f92",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: andrea stella explains that, after singapore, lando suggested the drivers get reminders to be c…",
+          "title_zh": "X 发帖 @laurogeitabat：andrea stella解释说，在新加坡之后，lando建议提醒车手们在互相竞争时要小心。LN的理由：\"别以为我们会处理所有事情；今年的赛车占用了我们的带宽。\" AS：\"这与oscar无关，是处理车手之间的问题。\"",
+          "summary": "andrea stella explains that, after singapore, lando suggested the drivers get reminders to be careful when racing each other LN's reasoning: \"don't assume we do all the processing; this year's car absorbs our bandwidth\" AS: \"it's not to do with oscar, it's dealing with drivers\" https://t.co/9efStMnzoY",
+          "summary_zh": "andrea stella解释说，在新加坡之后，lando建议提醒车手们在互相竞争时要小心。LN的理由：\"别以为我们会处理所有事情；今年的赛车占用了我们的带宽。\" AS：\"这与oscar无关，是处理车手之间的问题。\"",
+          "url": "https://x.com/laurogeitabat/status/2124639373178110169",
+          "published_at": "2026-11-22T23:01:15Z",
+          "image_url": "https://pbs.twimg.com/media/HXw8PPIWkAANW26.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HXw8PPIWkAANW26.jpg",
+          "heat_contribution": 7.0767,
+          "metrics": {
+            "likes": 1162,
+            "retweets": 67,
+            "replies": 15,
+            "quotes": 0,
+            "views": 128810,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 37,
+      "heat": 37,
       "source_labels": [
         "粉"
       ],
