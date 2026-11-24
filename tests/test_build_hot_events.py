@@ -413,6 +413,21 @@ class HotEventBuildTest(unittest.TestCase):
         self.assertEqual(event["hard_rule"]["type"], "session_result")
         self.assertEqual(event["rank"], 1)
 
+    def test_result_position_ignores_gap_and_shared_podium_order(self):
+        self.assertIsNone(builder.result_position(
+            "Piastri finished another 1.529 seconds behind in third."
+        ))
+        self.assertIsNone(builder.result_position(
+            "Lando Norris and Oscar Piastri finished second and third."
+        ))
+        self.assertIsNone(builder.result_position(
+            "Piastri was running fifth during the race."
+        ))
+        self.assertIsNone(builder.result_position(
+            "Oscar Piastri is facing a penalty: will third place go to Antonelli?"
+        ))
+        self.assertEqual(builder.result_position("Oscar Piastri finished third in Las Vegas."), 3)
+
     def test_structured_session_result_is_independent_of_news_and_beats_manual_pin(self):
         calendar = {"races": [{
             "id": "2026-round-13",
