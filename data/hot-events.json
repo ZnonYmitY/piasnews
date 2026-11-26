@@ -1,12 +1,203 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-26T03:33:52.894024Z",
+  "generated_at": "2026-11-26T04:36:45.000432Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
   "event_count": 10,
   "events": [
+    {
+      "event_id": "evt-2026-11-24-cdb056bd9da1",
+      "rule_id": null,
+      "hot_word_zh": "Oscar 在拉斯维加斯站正赛获得第3名",
+      "hot_word_en": "Oscar finishes P3 in the Las Vegas Grand Prix",
+      "first_seen_at": "2026-11-21T04:00:00Z",
+      "last_seen_at": "2026-11-25T09:00:00Z",
+      "anchor_item_id": "piasnews-6c2ba9a5866f7f02",
+      "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-07%2Fpiastri-gb-6a4e391d93b7c.jpg",
+      "video_url": null,
+      "video_poster_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-07%2Fpiastri-gb-6a4e391d93b7c.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-74b99bb64006731a",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "GPblog",
+          "title": "Piastri admits he still isn't fully comfortable in his McLaren",
+          "title_zh": "Piastri 承认他在自己的 McLaren 中仍不完全自在",
+          "summary": "Quote or interview-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的引述或采访相关条目。",
+          "url": "https://www.gpblog.com/en/news/piastri-rules-out-progress-in-key-area-despite-las-vegas-podium",
+          "published_at": "2026-11-25T09:00:00Z",
+          "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-07%2Fpiastri-gb-6a4e391d93b7c.jpg",
+          "video_url": null,
+          "video_poster_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-07%2Fpiastri-gb-6a4e391d93b7c.jpg",
+          "heat_contribution": 0.75,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-0653659771681641",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Mezha.net",
+          "title": "Stella liked Piastri's fiery response to McLaren's 'be careful' warnings",
+          "title_zh": "Stella 欣赏 Piastri 对 McLaren“小心”警告的激烈回应",
+          "summary": "Quote or interview-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的引述或采访相关条目。",
+          "url": "https://mezha.net/eng/news/mezha-26d65d69dd8ce953e70d05a6_stella_liked_piastri-s/",
+          "published_at": "2026-11-24T12:07:14Z",
+          "image_url": "https://mezha.net/eng/wp-content/mezha-og-r205/kd_image_generate/eng/3753296-43dbf1aa3055.jpg",
+          "video_url": null,
+          "video_poster_url": "https://mezha.net/eng/wp-content/mezha-og-r205/kd_image_generate/eng/3753296-43dbf1aa3055.jpg",
+          "heat_contribution": 0.45,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-6c2ba9a5866f7f02",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Sky Sports",
+          "title": "Oscar Piastri: McLaren team boss Andrea Stella says he liked driver's fiery radio response to warnings to 'be careful' of Lando Norris",
+          "title_zh": "Oscar Piastri：McLaren 车队负责人 Andrea Stella 表示，他喜欢这位车手在收到“小心”Lando Norris 的警告后做出的激烈无线电回应",
+          "summary": "Quote or interview-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的引述或采访相关条目。",
+          "url": "https://www.skysports.com/f1/news/13615667/oscar-piastri-mclaren-team-boss-andrea-stella-says-he-liked-drivers-fiery-radio-response-to-warnings-to-be-careful-of-lando-norris",
+          "published_at": "2026-11-24T12:00:00Z",
+          "image_url": "https://e0.365dm.com/26/11/1600x900/skysports-oscar-piastri-mclaren_7414497.jpg?20261123141807",
+          "video_url": null,
+          "video_poster_url": "https://e0.365dm.com/26/11/1600x900/skysports-oscar-piastri-mclaren_7414497.jpg?20261123141807",
+          "heat_contribution": 0.45,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-53760e4bc9ce4000",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Fox Sports",
+          "title": "What Piastri’s rare f-bomb blow-up really says about McLaren… and why power shift is on cards",
+          "title_zh": "Piastri 罕见的爆粗口爆发究竟说明了 McLaren 的什么……以及为何权力格局可能生变",
+          "summary": "Quote or interview-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的引述或采访相关条目。",
+          "url": "https://www.foxsports.com.au/en-AU/news/motorsport/truth-behind-piastris-fired-up-radio-exchange-and-why-he-could-be-peaking-at-the-right-time/wmaney20qdsc1c9vrj5ux2kn9",
+          "published_at": "2026-11-23T21:45:00Z",
+          "image_url": "https://images.daznservices.com/di/library/foxtel_news/ab/57/oscar-piastri_11dmcuzsr7y9y1g0yyqdirsw8d.jpg?t=248708370",
+          "video_url": null,
+          "video_poster_url": "https://images.daznservices.com/di/library/foxtel_news/ab/57/oscar-piastri_11dmcuzsr7y9y1g0yyqdirsw8d.jpg?t=248708370",
+          "heat_contribution": 0.2,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-838683e0523befa8",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "MotorBiscuit",
+          "title": "Stella Likes Oscar Piastri’s Assertive Swear in Las Vegas, Says It Showed Character",
+          "title_zh": "斯特拉欣赏Oscar Piastri在拉斯维加斯的强硬爆粗，称这展现了性格",
+          "summary": "Quote or interview-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的引述或采访相关条目。",
+          "url": "https://www.motorbiscuit.com/stella-likes-oscar-piastris-assertive-swear-in-las-vegas-says-it-showed-character/",
+          "published_at": "2026-11-23T18:30:00Z",
+          "image_url": "https://www.motorbiscuit.com/wp-content/uploads/2026/11/2306127197-1.jpg",
+          "video_url": null,
+          "video_poster_url": "https://www.motorbiscuit.com/wp-content/uploads/2026/11/2306127197-1.jpg",
+          "heat_contribution": 0.2,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-9c1dde78d1d400b5",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Yahoo Sports",
+          "title": "Stella Likes Oscar Piastri’s Assertive Swear in Las Vegas, Says It Showed Character",
+          "title_zh": "斯特拉欣赏Oscar Piastri在拉斯维加斯的强硬爆粗，称这展现了性格",
+          "summary": "Quote or interview-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的引述或采访相关条目。",
+          "url": "https://sports.yahoo.com/articles/stella-likes-oscar-piastri-assertive-183000677.html",
+          "published_at": "2026-11-23T18:30:00Z",
+          "image_url": "https://s.yimg.com/lo/mysterio/api/a48bbd14bc09ad84ff679910f31f7bc86da8a2dd6cfb11c5347b372eae35edf6/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fmotorbiscuit_articles_333%2F5b83d32138905df760f7b1e1d43f0a7f.jpg",
+          "video_url": null,
+          "video_poster_url": "https://s.yimg.com/lo/mysterio/api/a48bbd14bc09ad84ff679910f31f7bc86da8a2dd6cfb11c5347b372eae35edf6/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fmotorbiscuit_articles_333%2F5b83d32138905df760f7b1e1d43f0a7f.jpg",
+          "heat_contribution": 0.2,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-f2fec59d212cee1d",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Grandprix.com",
+          "title": "Piastri says McLaren teammates needed no warning during podium fight",
+          "title_zh": "Piastri表示，在领奖台争夺战中McLaren队友之间无需事先警告",
+          "summary": "Quote or interview-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的引述或采访相关条目。",
+          "url": "https://www.grandprix.com/news/piastri-says-mclaren-teammates-needed-no-warning-during-podium-fight.html",
+          "published_at": "2026-11-22T18:49:00Z",
+          "image_url": "https://grandprix-photo-library.nyc3.cdn.digitaloceanspaces.com/photos/derivatives/v1/95/95cda869bb1f332996baf36666ccfbf94d8796fa00b1119894ef736061821fc5/1280w.webp",
+          "video_url": null,
+          "video_poster_url": "https://grandprix-photo-library.nyc3.cdn.digitaloceanspaces.com/photos/derivatives/v1/95/95cda869bb1f332996baf36666ccfbf94d8796fa00b1119894ef736061821fc5/1280w.webp",
+          "heat_contribution": 0.0,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-a782a555d5575cb0",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "cwibc.co.id",
+          "title": "Piastri Rejects McLaren Warning During Norris Battle in Las Vegas",
+          "title_zh": "Piastri在拉斯维加斯与Norris的较量中拒绝McLaren的警告",
+          "summary": "Quote or interview-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的引述或采访相关条目。",
+          "url": "https://cwibc.co.id/en/piastri-rejects-mclaren-warning",
+          "published_at": "2026-11-22T08:11:38Z",
+          "image_url": "https://cdn.cwibc.co.id/media/images/2026/11/AIymopEXbc.jpeg?location=1&width=1200&height=674&quality=80&watermark=1",
+          "video_url": null,
+          "video_poster_url": "https://cdn.cwibc.co.id/media/images/2026/11/AIymopEXbc.jpeg?location=1&width=1200&height=674&quality=80&watermark=1",
+          "heat_contribution": 0.0,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-bc8425ec4f9f259e",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Yahoo Sports",
+          "title": "94 Points Behind His Teammate, Oscar Piastri Admits F1 2026 Has Been Tougher Than Expected",
+          "title_zh": "落后队友94分，Oscar Piastri承认F1 2026赛季比预期更艰难",
+          "summary": "Quote or interview-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的引述或采访相关条目。",
+          "url": "https://sports.yahoo.com/articles/94-points-behind-teammate-oscar-040000282.html",
+          "published_at": "2026-11-21T04:00:00Z",
+          "image_url": "https://s.yimg.com/lo/mysterio/api/3ad58db83030941159dba3a09790fbe768f87a60faf0a4b206d4d06d9ddba378/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Ff1_chronicle_874%2F9442edde3eaf5648168da5392783c7d5.jpg",
+          "video_url": null,
+          "video_poster_url": "https://s.yimg.com/lo/mysterio/api/3ad58db83030941159dba3a09790fbe768f87a60faf0a4b206d4d06d9ddba378/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Ff1_chronicle_874%2F9442edde3eaf5648168da5392783c7d5.jpg",
+          "heat_contribution": 0.0,
+          "metrics": {}
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 30,
+      "fan_heat": 0,
+      "heat": 30,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 8,
+        "fan": 0
+      },
+      "pinned_rank": 1,
+      "hidden": false,
+      "hard_rule": {
+        "type": "session_result",
+        "race_id": "2026-round-21",
+        "session": "race",
+        "position": 3,
+        "source_item_id": "piasnews-74b99bb64006731a"
+      },
+      "rank": 1
+    },
     {
       "event_id": "evt-2026-11-25-0c0392eed9cf",
       "rule_id": null,
@@ -85,10 +276,10 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 1
+      "rank": 2
     },
     {
-      "event_id": "evt-2026-11-24-30b35d5943b8",
+      "event_id": "evt-2026-11-24-30b35d5943b8-30b35d59",
       "rule_id": null,
       "hot_word_zh": "P17 ➡️ P3 🤯 Oscar Piastri 以强势表现重返领奖台！",
       "hot_word_en": "P17 ➡️ P3 🤯 Back on the podium after a commanding drive from Oscar Piastri! 😮‍💨 #F1 #LasVegasGP",
@@ -140,7 +331,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 2
+      "rank": 3
     },
     {
       "event_id": "evt-2026-11-09-fae161411ff3-5825e00b",
@@ -902,10 +1093,10 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 3
+      "rank": 4
     },
     {
-      "event_id": "evt-2026-11-23-c3abb8d4e802",
+      "event_id": "evt-2026-11-23-c3abb8d4e802-c3abb8d4",
       "rule_id": null,
       "hot_word_zh": "碰杯，碰杯 🍾 在拉斯维加斯与 Max、Lando 和 Oscar 一起登上领奖台！",
       "hot_word_en": "Clink, clink 🍾 Up on the podium with Max, Lando and Oscar in Las Vegas! 🙌 #F1 #LasVegasGP",
@@ -957,7 +1148,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 4
+      "rank": 5
     },
     {
       "event_id": "evt-2026-11-23-cbec84a87e4d",
@@ -1132,7 +1323,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 5
+      "rank": 6
     },
     {
       "event_id": "evt-2026-11-25-277713f277e0",
@@ -1187,7 +1378,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 7
     },
     {
       "event_id": "evt-2026-11-24-8f3a017aa258",
@@ -1242,7 +1433,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 8
     },
     {
       "event_id": "evt-2026-11-18-8e7883f044eb",
@@ -1508,190 +1699,6 @@
       "source_counts": {
         "official": 1,
         "media": 12,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 8
-    },
-    {
-      "event_id": "evt-2026-11-24-cdb056bd9da1",
-      "rule_id": null,
-      "hot_word_zh": "Oscar Piastri：McLaren 车队负责人 Andrea Stella 表示…",
-      "hot_word_en": "Oscar Piastri: McLaren team boss Andrea Stella says he liked driver's fiery radio response to warnings to 'be…",
-      "first_seen_at": "2026-11-21T04:00:00Z",
-      "last_seen_at": "2026-11-25T09:00:00Z",
-      "anchor_item_id": "piasnews-6c2ba9a5866f7f02",
-      "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-07%2Fpiastri-gb-6a4e391d93b7c.jpg",
-      "video_url": null,
-      "video_poster_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-07%2Fpiastri-gb-6a4e391d93b7c.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-74b99bb64006731a",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "GPblog",
-          "title": "Piastri admits he still isn't fully comfortable in his McLaren",
-          "title_zh": "Piastri 承认他在自己的 McLaren 中仍不完全自在",
-          "summary": "Quote or interview-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的引述或采访相关条目。",
-          "url": "https://www.gpblog.com/en/news/piastri-rules-out-progress-in-key-area-despite-las-vegas-podium",
-          "published_at": "2026-11-25T09:00:00Z",
-          "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-07%2Fpiastri-gb-6a4e391d93b7c.jpg",
-          "video_url": null,
-          "video_poster_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-07%2Fpiastri-gb-6a4e391d93b7c.jpg",
-          "heat_contribution": 0.75,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-0653659771681641",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Mezha.net",
-          "title": "Stella liked Piastri's fiery response to McLaren's 'be careful' warnings",
-          "title_zh": "Stella 欣赏 Piastri 对 McLaren“小心”警告的激烈回应",
-          "summary": "Quote or interview-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的引述或采访相关条目。",
-          "url": "https://mezha.net/eng/news/mezha-26d65d69dd8ce953e70d05a6_stella_liked_piastri-s/",
-          "published_at": "2026-11-24T12:07:14Z",
-          "image_url": "https://mezha.net/eng/wp-content/mezha-og-r205/kd_image_generate/eng/3753296-43dbf1aa3055.jpg",
-          "video_url": null,
-          "video_poster_url": "https://mezha.net/eng/wp-content/mezha-og-r205/kd_image_generate/eng/3753296-43dbf1aa3055.jpg",
-          "heat_contribution": 0.45,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-6c2ba9a5866f7f02",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Sky Sports",
-          "title": "Oscar Piastri: McLaren team boss Andrea Stella says he liked driver's fiery radio response to warnings to 'be careful' of Lando Norris",
-          "title_zh": "Oscar Piastri：McLaren 车队负责人 Andrea Stella 表示，他喜欢这位车手在收到“小心”Lando Norris 的警告后做出的激烈无线电回应",
-          "summary": "Quote or interview-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的引述或采访相关条目。",
-          "url": "https://www.skysports.com/f1/news/13615667/oscar-piastri-mclaren-team-boss-andrea-stella-says-he-liked-drivers-fiery-radio-response-to-warnings-to-be-careful-of-lando-norris",
-          "published_at": "2026-11-24T12:00:00Z",
-          "image_url": "https://e0.365dm.com/26/11/1600x900/skysports-oscar-piastri-mclaren_7414497.jpg?20261123141807",
-          "video_url": null,
-          "video_poster_url": "https://e0.365dm.com/26/11/1600x900/skysports-oscar-piastri-mclaren_7414497.jpg?20261123141807",
-          "heat_contribution": 0.45,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-53760e4bc9ce4000",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Fox Sports",
-          "title": "What Piastri’s rare f-bomb blow-up really says about McLaren… and why power shift is on cards",
-          "title_zh": "Piastri 罕见的爆粗口爆发究竟说明了 McLaren 的什么……以及为何权力格局可能生变",
-          "summary": "Quote or interview-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的引述或采访相关条目。",
-          "url": "https://www.foxsports.com.au/en-AU/news/motorsport/truth-behind-piastris-fired-up-radio-exchange-and-why-he-could-be-peaking-at-the-right-time/wmaney20qdsc1c9vrj5ux2kn9",
-          "published_at": "2026-11-23T21:45:00Z",
-          "image_url": "https://images.daznservices.com/di/library/foxtel_news/ab/57/oscar-piastri_11dmcuzsr7y9y1g0yyqdirsw8d.jpg?t=248708370",
-          "video_url": null,
-          "video_poster_url": "https://images.daznservices.com/di/library/foxtel_news/ab/57/oscar-piastri_11dmcuzsr7y9y1g0yyqdirsw8d.jpg?t=248708370",
-          "heat_contribution": 0.2,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-838683e0523befa8",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "MotorBiscuit",
-          "title": "Stella Likes Oscar Piastri’s Assertive Swear in Las Vegas, Says It Showed Character",
-          "title_zh": "斯特拉欣赏Oscar Piastri在拉斯维加斯的强硬爆粗，称这展现了性格",
-          "summary": "Quote or interview-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的引述或采访相关条目。",
-          "url": "https://www.motorbiscuit.com/stella-likes-oscar-piastris-assertive-swear-in-las-vegas-says-it-showed-character/",
-          "published_at": "2026-11-23T18:30:00Z",
-          "image_url": "https://www.motorbiscuit.com/wp-content/uploads/2026/11/2306127197-1.jpg",
-          "video_url": null,
-          "video_poster_url": "https://www.motorbiscuit.com/wp-content/uploads/2026/11/2306127197-1.jpg",
-          "heat_contribution": 0.2,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-9c1dde78d1d400b5",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Yahoo Sports",
-          "title": "Stella Likes Oscar Piastri’s Assertive Swear in Las Vegas, Says It Showed Character",
-          "title_zh": "斯特拉欣赏Oscar Piastri在拉斯维加斯的强硬爆粗，称这展现了性格",
-          "summary": "Quote or interview-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的引述或采访相关条目。",
-          "url": "https://sports.yahoo.com/articles/stella-likes-oscar-piastri-assertive-183000677.html",
-          "published_at": "2026-11-23T18:30:00Z",
-          "image_url": "https://s.yimg.com/lo/mysterio/api/a48bbd14bc09ad84ff679910f31f7bc86da8a2dd6cfb11c5347b372eae35edf6/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fmotorbiscuit_articles_333%2F5b83d32138905df760f7b1e1d43f0a7f.jpg",
-          "video_url": null,
-          "video_poster_url": "https://s.yimg.com/lo/mysterio/api/a48bbd14bc09ad84ff679910f31f7bc86da8a2dd6cfb11c5347b372eae35edf6/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fmotorbiscuit_articles_333%2F5b83d32138905df760f7b1e1d43f0a7f.jpg",
-          "heat_contribution": 0.2,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-f2fec59d212cee1d",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Grandprix.com",
-          "title": "Piastri says McLaren teammates needed no warning during podium fight",
-          "title_zh": "Piastri表示，在领奖台争夺战中McLaren队友之间无需事先警告",
-          "summary": "Quote or interview-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的引述或采访相关条目。",
-          "url": "https://www.grandprix.com/news/piastri-says-mclaren-teammates-needed-no-warning-during-podium-fight.html",
-          "published_at": "2026-11-22T18:49:00Z",
-          "image_url": "https://grandprix-photo-library.nyc3.cdn.digitaloceanspaces.com/photos/derivatives/v1/95/95cda869bb1f332996baf36666ccfbf94d8796fa00b1119894ef736061821fc5/1280w.webp",
-          "video_url": null,
-          "video_poster_url": "https://grandprix-photo-library.nyc3.cdn.digitaloceanspaces.com/photos/derivatives/v1/95/95cda869bb1f332996baf36666ccfbf94d8796fa00b1119894ef736061821fc5/1280w.webp",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-a782a555d5575cb0",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "cwibc.co.id",
-          "title": "Piastri Rejects McLaren Warning During Norris Battle in Las Vegas",
-          "title_zh": "Piastri在拉斯维加斯与Norris的较量中拒绝McLaren的警告",
-          "summary": "Quote or interview-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的引述或采访相关条目。",
-          "url": "https://cwibc.co.id/en/piastri-rejects-mclaren-warning",
-          "published_at": "2026-11-22T08:11:38Z",
-          "image_url": "https://cdn.cwibc.co.id/media/images/2026/11/AIymopEXbc.jpeg?location=1&width=1200&height=674&quality=80&watermark=1",
-          "video_url": null,
-          "video_poster_url": "https://cdn.cwibc.co.id/media/images/2026/11/AIymopEXbc.jpeg?location=1&width=1200&height=674&quality=80&watermark=1",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-bc8425ec4f9f259e",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Yahoo Sports",
-          "title": "94 Points Behind His Teammate, Oscar Piastri Admits F1 2026 Has Been Tougher Than Expected",
-          "title_zh": "落后队友94分，Oscar Piastri承认F1 2026赛季比预期更艰难",
-          "summary": "Quote or interview-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的引述或采访相关条目。",
-          "url": "https://sports.yahoo.com/articles/94-points-behind-teammate-oscar-040000282.html",
-          "published_at": "2026-11-21T04:00:00Z",
-          "image_url": "https://s.yimg.com/lo/mysterio/api/3ad58db83030941159dba3a09790fbe768f87a60faf0a4b206d4d06d9ddba378/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Ff1_chronicle_874%2F9442edde3eaf5648168da5392783c7d5.jpg",
-          "video_url": null,
-          "video_poster_url": "https://s.yimg.com/lo/mysterio/api/3ad58db83030941159dba3a09790fbe768f87a60faf0a4b206d4d06d9ddba378/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Ff1_chronicle_874%2F9442edde3eaf5648168da5392783c7d5.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 30,
-      "fan_heat": 0,
-      "heat": 30,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 8,
         "fan": 0
       },
       "pinned_rank": null,
@@ -2709,64 +2716,6 @@
       }
     },
     {
-      "event_id": "evt-2026-11-24-55713ee42630-55713ee4",
-      "rule_id": null,
-      "hot_word_zh": "在oscar从ruth的老虎机里摇出777之后，ruth和lily到处发777 🎰，这些显…",
-      "hot_word_en": "ruth and lily are posting the 777 🎰 everywhere after oscar got it in ruth's mini slot machine, these manifest…",
-      "first_seen_at": "2026-11-24T14:18:59Z",
-      "last_seen_at": "2026-11-24T14:18:59Z",
-      "anchor_item_id": "piasnews-social-dc68988edb0f2fd6",
-      "image_url": "https://pbs.twimg.com/media/HX5X3ZLXAAApXpa.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HX5X3ZLXAAApXpa.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-dc68988edb0f2fd6",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: ruth and lily are posting the 777 🎰 everywhere after oscar got it in ruth's mini slot machine,…",
-          "title_zh": "X 发帖 @laurogeitabat：在oscar从ruth的老虎机里摇出777之后，ruth和lily到处发777 🎰，这些显化女王真是拼了命在努力",
-          "summary": "ruth and lily are posting the 777 🎰 everywhere after oscar got it in ruth's mini slot machine, these manifestation queens are working HARD https://t.co/t2YUn0iq3y",
-          "summary_zh": "在oscar从ruth的老虎机里摇出777之后，ruth和lily到处发777 🎰，这些显化女王真是拼了命在努力",
-          "url": "https://x.com/laurogeitabat/status/2125232717147017672",
-          "published_at": "2026-11-24T14:18:59Z",
-          "image_url": "https://pbs.twimg.com/media/HX5X3ZLXAAApXpa.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HX5X3ZLXAAApXpa.jpg",
-          "heat_contribution": 6.4721,
-          "metrics": {
-            "likes": 1120,
-            "retweets": 94,
-            "replies": 0,
-            "quotes": 0,
-            "views": 12723,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 34,
-      "heat": 34,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-11-24-b6d6caceb940",
       "rule_id": null,
       "hot_word_zh": "“我有幸协助oscar piastri的出行体验。",
@@ -2825,7 +2774,65 @@
       }
     },
     {
-      "event_id": "evt-2026-11-24-c0bbc480f8d5",
+      "event_id": "evt-2026-11-24-f27ddb71e996",
+      "rule_id": null,
+      "hot_word_zh": "在oscar从ruth的老虎机里摇出777之后，ruth和lily到处发777 🎰，这些显…",
+      "hot_word_en": "ruth and lily are posting the 777 🎰 everywhere after oscar got it in ruth's mini slot machine, these manifest…",
+      "first_seen_at": "2026-11-24T14:18:59Z",
+      "last_seen_at": "2026-11-24T14:18:59Z",
+      "anchor_item_id": "piasnews-social-dc68988edb0f2fd6",
+      "image_url": "https://pbs.twimg.com/media/HX5X3ZLXAAApXpa.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HX5X3ZLXAAApXpa.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-dc68988edb0f2fd6",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: ruth and lily are posting the 777 🎰 everywhere after oscar got it in ruth's mini slot machine,…",
+          "title_zh": "X 发帖 @laurogeitabat：在oscar从ruth的老虎机里摇出777之后，ruth和lily到处发777 🎰，这些显化女王真是拼了命在努力",
+          "summary": "ruth and lily are posting the 777 🎰 everywhere after oscar got it in ruth's mini slot machine, these manifestation queens are working HARD https://t.co/t2YUn0iq3y",
+          "summary_zh": "在oscar从ruth的老虎机里摇出777之后，ruth和lily到处发777 🎰，这些显化女王真是拼了命在努力",
+          "url": "https://x.com/laurogeitabat/status/2125232717147017672",
+          "published_at": "2026-11-24T14:18:59Z",
+          "image_url": "https://pbs.twimg.com/media/HX5X3ZLXAAApXpa.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HX5X3ZLXAAApXpa.jpg",
+          "heat_contribution": 6.4721,
+          "metrics": {
+            "likes": 1120,
+            "retweets": 94,
+            "replies": 0,
+            "quotes": 0,
+            "views": 12723,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 34,
+      "heat": 34,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-24-30b35d5943b8",
       "rule_id": null,
       "hot_word_zh": "oscar从p17一路杀上领奖台的英雄之旅 我报名啊啊啊",
       "hot_word_en": "oscar's hero's journey from p17 to the podium SIGN ME UPPPP",
