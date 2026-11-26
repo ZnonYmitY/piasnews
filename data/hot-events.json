@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-26T06:38:38.523858Z",
+  "generated_at": "2026-11-26T09:39:40.781823Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
@@ -35,7 +35,7 @@
           "image_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-07%2Fpiastri-gb-6a4e391d93b7c.jpg",
           "video_url": null,
           "video_poster_url": "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fill/width:1200/height:630/plain/https%3A%2F%2Fs3-newsifier.ams3.digitaloceanspaces.com%2Fgpblog.com%2Fimages%2F2026-07%2Fpiastri-gb-6a4e391d93b7c.jpg",
-          "heat_contribution": 0.75,
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -176,9 +176,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 30,
+      "media_heat": 27,
       "fan_heat": 0,
-      "heat": 30,
+      "heat": 27,
       "source_labels": [
         "媒"
       ],
@@ -279,7 +279,7 @@
       "rank": 2
     },
     {
-      "event_id": "evt-2026-11-24-30b35d5943b8",
+      "event_id": "evt-2026-11-24-30b35d5943b8-30b35d59",
       "rule_id": null,
       "hot_word_zh": "P17 ➡️ P3 🤯 Oscar Piastri 以强势表现重返领奖台！",
       "hot_word_en": "P17 ➡️ P3 🤯 Back on the podium after a commanding drive from Oscar Piastri! 😮‍💨 #F1 #LasVegasGP",
@@ -334,11 +334,121 @@
       "rank": 3
     },
     {
+      "event_id": "evt-2026-11-23-c3abb8d4e802-c3abb8d4",
+      "rule_id": null,
+      "hot_word_zh": "碰杯，碰杯 🍾 在拉斯维加斯与 Max、Lando 和 Oscar 一起登上领奖台！",
+      "hot_word_en": "Clink, clink 🍾 Up on the podium with Max, Lando and Oscar in Las Vegas! 🙌 #F1 #LasVegasGP",
+      "first_seen_at": "2026-11-23T19:42:00Z",
+      "last_seen_at": "2026-11-23T19:42:00Z",
+      "anchor_item_id": "piasnews-social-b85d573d9b6f5608",
+      "image_url": null,
+      "video_url": "https://video.twimg.com/amplify_video/2124914766632169474/vid/avc1/320x320/fuoTN3S4eSIJP0wA.mp4?tag=29",
+      "video_poster_url": "https://pbs.twimg.com/media/HX03XoVXEAEsRdZ.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-b85d573d9b6f5608",
+          "dataset": "social",
+          "source_type": "official",
+          "source": "@F1",
+          "title": "X post from @F1: Clink, clink 🍾 Up on the podium with Max, Lando and Oscar in Las Vegas! 🙌 #F1 #LasVegasGP",
+          "title_zh": "X 发帖 @F1：碰杯，碰杯 🍾 在拉斯维加斯与 Max、Lando 和 Oscar 一起登上领奖台！🙌 #F1 #LasVegasGP",
+          "summary": "Clink, clink 🍾 Up on the podium with Max, Lando and Oscar in Las Vegas! 🙌 #F1 #LasVegasGP https://t.co/mu0Vj4cKbD",
+          "summary_zh": "碰杯，碰杯 🍾 在拉斯维加斯与 Max、Lando 和 Oscar 一起登上领奖台！🙌 #F1 #LasVegasGP",
+          "url": "https://x.com/F1/status/2124951618449994023",
+          "published_at": "2026-11-23T19:42:00Z",
+          "image_url": null,
+          "video_url": "https://video.twimg.com/amplify_video/2124914766632169474/vid/avc1/320x320/fuoTN3S4eSIJP0wA.mp4?tag=29",
+          "video_poster_url": "https://pbs.twimg.com/media/HX03XoVXEAEsRdZ.jpg",
+          "heat_contribution": 7.3061,
+          "metrics": {
+            "likes": 4359,
+            "retweets": 461,
+            "replies": 24,
+            "quotes": 0,
+            "views": 208844,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 48,
+      "media_heat": 0,
+      "fan_heat": 0,
+      "heat": 48,
+      "source_labels": [
+        "官"
+      ],
+      "source_counts": {
+        "official": 1,
+        "media": 0,
+        "fan": 0
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "event_id": "evt-2026-11-25-277713f277e0",
+      "rule_id": null,
+      "hot_word_zh": "OSCAR发了LILY和LEGOSCAR的合照，这是我见过最可爱的东西😭😭",
+      "hot_word_en": "OSCAR POSTED LILY WITH LEGOSCAR THIS IS THE CUTEST THING I'VE EVER SEEN 😭😭",
+      "first_seen_at": "2026-11-25T20:16:55Z",
+      "last_seen_at": "2026-11-25T20:16:55Z",
+      "anchor_item_id": "piasnews-social-f14a07b6137c6757",
+      "image_url": "https://pbs.twimg.com/media/HX_zZusX0AAeoSU.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HX_zZusX0AAeoSU.jpg",
+      "review_needed": false,
+      "review_needed_reason": null,
+      "items": [
+        {
+          "item_id": "piasnews-social-f14a07b6137c6757",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: OSCAR POSTED LILY WITH LEGOSCAR THIS IS THE CUTEST THING I'VE EVER SEEN 😭😭",
+          "title_zh": "X 发帖 @laurogeitabat：OSCAR发了LILY和LEGOSCAR的合照，这是我见过最可爱的东西😭😭",
+          "summary": "OSCAR POSTED LILY WITH LEGOSCAR THIS IS THE CUTEST THING I'VE EVER SEEN 😭😭 https://t.co/bPpCOolNqP",
+          "summary_zh": "OSCAR发了LILY和LEGOSCAR的合照，这是我见过最可爱的东西😭😭",
+          "url": "https://x.com/laurogeitabat/status/2125685181378138512",
+          "published_at": "2026-11-25T20:16:55Z",
+          "image_url": "https://pbs.twimg.com/media/HX_zZusX0AAeoSU.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HX_zZusX0AAeoSU.jpg",
+          "heat_contribution": 8.4633,
+          "metrics": {
+            "likes": 4854,
+            "retweets": 563,
+            "replies": 0,
+            "quotes": 0,
+            "views": 33576,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 44,
+      "heat": 44,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "rank": 5
+    },
+    {
       "event_id": "evt-2026-11-09-fae161411ff3-5825e00b",
       "rule_id": null,
       "hot_word_zh": "Oscar Piastri 关于 McLaren 在 Las Vegas 速度的私下表态令…",
       "hot_word_en": "Oscar Piastri’s private admission on McLaren’s Las Vegas pace is a ‘major concern’ for Jolyon Palmer",
-      "first_seen_at": "2026-11-19T07:06:11Z",
+      "first_seen_at": "2026-11-19T10:17:50Z",
       "last_seen_at": "2026-11-25T23:31:36Z",
       "anchor_item_id": "piasnews-7e9d43e944811a93",
       "image_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F11%2F25151102%2FOscar-Piastri-McLaren-F1-Las-Vegas-GP.jpg",
@@ -395,7 +505,7 @@
           "image_url": "https://cdn1.f1oversteer.com/uploads/37/2026/11/GettyImages-2306306503-2048x1365.jpg",
           "video_url": null,
           "video_poster_url": "https://cdn1.f1oversteer.com/uploads/37/2026/11/GettyImages-2306306503-2048x1365.jpg",
-          "heat_contribution": 0.75,
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -412,7 +522,7 @@
           "image_url": "https://thenewsmill.com/tnm-og/624485.jpg",
           "video_url": null,
           "video_poster_url": "https://thenewsmill.com/tnm-og/624485.jpg",
-          "heat_contribution": 0.75,
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -480,7 +590,7 @@
           "image_url": "https://grandepremio.com/wp-content/uploads/2026/11/f1-2026-estados-unidos-las-vegas-corrida-mclaren-lando-norris-oscar-piastri-02-1200x630.jpg",
           "video_url": null,
           "video_poster_url": "https://grandepremio.com/wp-content/uploads/2026/11/f1-2026-estados-unidos-las-vegas-corrida-mclaren-lando-norris-oscar-piastri-02-1200x630.jpg",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -582,7 +692,7 @@
           "image_url": "https://motorsport.nextgen-auto.com/IMG/logo/xpb_1456211_hires.jpg",
           "video_url": null,
           "video_poster_url": "https://motorsport.nextgen-auto.com/IMG/logo/xpb_1456211_hires.jpg",
-          "heat_contribution": 0.2,
+          "heat_contribution": 0.0,
           "metrics": {}
         },
         {
@@ -1043,46 +1153,12 @@
           "video_poster_url": "https://www.crash.net/sites/default/files/2026-11/xpb_1260783_hires.jpg?width=1600&aspect_ratio=16:9",
           "heat_contribution": 0.0,
           "metrics": {}
-        },
-        {
-          "item_id": "piasnews-27b3cb8638f0cbb5",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Auto Action",
-          "title": "F1-Oscar Piastri-Las Vegas Grand Prix-2026-Previews",
-          "title_zh": "F1-Oscar Piastri-拉斯维加斯大奖赛-2026-前瞻",
-          "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的比赛周或性能相关条目。",
-          "url": "https://autoaction.com.au/2026/11/19/piastri-reveals-reason-behind-webber-split/image-107/",
-          "published_at": "2026-11-19T07:06:11Z",
-          "image_url": "https://autoaction.com.au/2026/11/19/piastri-reveals-reason-behind-webber-split/image-107",
-          "video_url": null,
-          "video_poster_url": "https://autoaction.com.au/2026/11/19/piastri-reveals-reason-behind-webber-split/image-107",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-71b8aa0344b993a1",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Auto Action",
-          "title": "F1-Oscar Piastri-Las Vegas Grand Prix-2026-Previews",
-          "title_zh": "F1-Oscar Piastri-拉斯维加斯大奖赛-2026-前瞻",
-          "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的比赛周或性能相关条目。",
-          "url": "https://autoaction.com.au/2026/11/19/piastri-reveals-reason-behind-webber-split/image-107",
-          "published_at": "2026-11-19T07:06:11Z",
-          "image_url": "https://autoaction.com.au/2026/11/19/piastri-reveals-reason-behind-webber-split/image-107",
-          "video_url": null,
-          "video_poster_url": "https://autoaction.com.au/2026/11/19/piastri-reveals-reason-behind-webber-split/image-107",
-          "heat_contribution": 0.0,
-          "metrics": {}
         }
       ],
       "official_heat": 0,
-      "media_heat": 48,
+      "media_heat": 43,
       "fan_heat": 0,
-      "heat": 48,
+      "heat": 43,
       "source_labels": [
         "媒"
       ],
@@ -1093,62 +1169,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 4
-    },
-    {
-      "event_id": "evt-2026-11-23-c3abb8d4e802",
-      "rule_id": null,
-      "hot_word_zh": "碰杯，碰杯 🍾 在拉斯维加斯与 Max、Lando 和 Oscar 一起登上领奖台！",
-      "hot_word_en": "Clink, clink 🍾 Up on the podium with Max, Lando and Oscar in Las Vegas! 🙌 #F1 #LasVegasGP",
-      "first_seen_at": "2026-11-23T19:42:00Z",
-      "last_seen_at": "2026-11-23T19:42:00Z",
-      "anchor_item_id": "piasnews-social-b85d573d9b6f5608",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2124914766632169474/vid/avc1/320x320/fuoTN3S4eSIJP0wA.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/media/HX03XoVXEAEsRdZ.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-b85d573d9b6f5608",
-          "dataset": "social",
-          "source_type": "official",
-          "source": "@F1",
-          "title": "X post from @F1: Clink, clink 🍾 Up on the podium with Max, Lando and Oscar in Las Vegas! 🙌 #F1 #LasVegasGP",
-          "title_zh": "X 发帖 @F1：碰杯，碰杯 🍾 在拉斯维加斯与 Max、Lando 和 Oscar 一起登上领奖台！🙌 #F1 #LasVegasGP",
-          "summary": "Clink, clink 🍾 Up on the podium with Max, Lando and Oscar in Las Vegas! 🙌 #F1 #LasVegasGP https://t.co/mu0Vj4cKbD",
-          "summary_zh": "碰杯，碰杯 🍾 在拉斯维加斯与 Max、Lando 和 Oscar 一起登上领奖台！🙌 #F1 #LasVegasGP",
-          "url": "https://x.com/F1/status/2124951618449994023",
-          "published_at": "2026-11-23T19:42:00Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2124914766632169474/vid/avc1/320x320/fuoTN3S4eSIJP0wA.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/media/HX03XoVXEAEsRdZ.jpg",
-          "heat_contribution": 7.3061,
-          "metrics": {
-            "likes": 4359,
-            "retweets": 461,
-            "replies": 24,
-            "quotes": 0,
-            "views": 208844,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 48,
-      "media_heat": 0,
-      "fan_heat": 0,
-      "heat": 48,
-      "source_labels": [
-        "官"
-      ],
-      "source_counts": {
-        "official": 1,
-        "media": 0,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 5
+      "rank": 6
     },
     {
       "event_id": "evt-2026-11-23-cbec84a87e4d",
@@ -1219,7 +1240,7 @@
           "image_url": "https://www.tribuneindia.com/sortd-service/imaginary/v22-01/jpg/large/high?url=dGhldHJpYnVuZS1zb3J0ZC1wcm8tcHJvZC1zb3J0ZC9tZWRpYTEzYzUwZmUwLWU4OWMtMTFmMS05NjM3LTViY2YwYzFjMTk4YS5qcGc=",
           "video_url": null,
           "video_poster_url": "https://www.tribuneindia.com/sortd-service/imaginary/v22-01/jpg/large/high?url=dGhldHJpYnVuZS1zb3J0ZC1wcm8tcHJvZC1zb3J0ZC9tZWRpYTEzYzUwZmUwLWU4OWMtMTFmMS05NjM3LTViY2YwYzFjMTk4YS5qcGc=",
-          "heat_contribution": 0.75,
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -1292,9 +1313,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 34,
+      "media_heat": 33,
       "fan_heat": 35,
-      "heat": 44,
+      "heat": 43,
       "source_labels": [
         "媒",
         "粉"
@@ -1302,61 +1323,6 @@
       "source_counts": {
         "official": 0,
         "media": 6,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "rank": 6
-    },
-    {
-      "event_id": "evt-2026-11-25-277713f277e0",
-      "rule_id": null,
-      "hot_word_zh": "OSCAR发了LILY和LEGOSCAR的合照，这是我见过最可爱的东西😭😭",
-      "hot_word_en": "OSCAR POSTED LILY WITH LEGOSCAR THIS IS THE CUTEST THING I'VE EVER SEEN 😭😭",
-      "first_seen_at": "2026-11-25T20:16:55Z",
-      "last_seen_at": "2026-11-25T20:16:55Z",
-      "anchor_item_id": "piasnews-social-f14a07b6137c6757",
-      "image_url": "https://pbs.twimg.com/media/HX_zZusX0AAeoSU.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HX_zZusX0AAeoSU.jpg",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-social-f14a07b6137c6757",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: OSCAR POSTED LILY WITH LEGOSCAR THIS IS THE CUTEST THING I'VE EVER SEEN 😭😭",
-          "title_zh": "X 发帖 @laurogeitabat：OSCAR发了LILY和LEGOSCAR的合照，这是我见过最可爱的东西😭😭",
-          "summary": "OSCAR POSTED LILY WITH LEGOSCAR THIS IS THE CUTEST THING I'VE EVER SEEN 😭😭 https://t.co/bPpCOolNqP",
-          "summary_zh": "OSCAR发了LILY和LEGOSCAR的合照，这是我见过最可爱的东西😭😭",
-          "url": "https://x.com/laurogeitabat/status/2125685181378138512",
-          "published_at": "2026-11-25T20:16:55Z",
-          "image_url": "https://pbs.twimg.com/media/HX_zZusX0AAeoSU.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HX_zZusX0AAeoSU.jpg",
-          "heat_contribution": 8.4633,
-          "metrics": {
-            "likes": 4854,
-            "retweets": 563,
-            "replies": 0,
-            "quotes": 0,
-            "views": 33576,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 44,
-      "heat": 44,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
         "fan": 1
       },
       "pinned_rank": null,
@@ -1467,23 +1433,6 @@
           "metrics": {}
         },
         {
-          "item_id": "piasnews-97528998b7ffee68",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Fox Sports",
-          "title": "Piastri gets cricket lesson from Pant",
-          "title_zh": "Piastri 向 Pant 学习板球",
-          "summary": "Oscar Piastri-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
-          "url": "https://www.foxsports.com.au/en-AU/news/motorsport/piastri-gets-cricket-lesson-from-pant/4wma3a09zq2elv4hont1m982p",
-          "published_at": "2026-11-25T07:13:00Z",
-          "image_url": "https://images.daznservices.com/di/library/foxtel_news/e9/bb/e6ea9a966685c6b9e5e05690fheaderteaser_08491e3b75df609d807770b574a0a90a.png?t=316961858",
-          "video_url": null,
-          "video_poster_url": "https://images.daznservices.com/di/library/foxtel_news/e9/bb/e6ea9a966685c6b9e5e05690fheaderteaser_08491e3b75df609d807770b574a0a90a.png?t=316961858",
-          "heat_contribution": 0.75,
-          "metrics": {}
-        },
-        {
           "item_id": "piasnews-10ee878ebfee99a6",
           "dataset": "items",
           "source_type": "official",
@@ -1498,6 +1447,23 @@
           "video_url": null,
           "video_poster_url": "https://media.formula1.com/image/upload/t_16by9North/c_lfill,w_2048/q_auto/v1740000001/fom-website/2026/Las%20Vegas/GettyImages-2306299656.webp",
           "heat_contribution": 0.6,
+          "metrics": {}
+        },
+        {
+          "item_id": "piasnews-97528998b7ffee68",
+          "dataset": "items",
+          "source_type": "media",
+          "source": "Fox Sports",
+          "title": "Piastri gets cricket lesson from Pant",
+          "title_zh": "Piastri 向 Pant 学习板球",
+          "summary": "Oscar Piastri-related item discovered from public news metadata.",
+          "summary_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
+          "url": "https://www.foxsports.com.au/en-AU/news/motorsport/piastri-gets-cricket-lesson-from-pant/4wma3a09zq2elv4hont1m982p",
+          "published_at": "2026-11-25T07:13:00Z",
+          "image_url": "https://images.daznservices.com/di/library/foxtel_news/e9/bb/e6ea9a966685c6b9e5e05690fheaderteaser_08491e3b75df609d807770b574a0a90a.png?t=316961858",
+          "video_url": null,
+          "video_poster_url": "https://images.daznservices.com/di/library/foxtel_news/e9/bb/e6ea9a966685c6b9e5e05690fheaderteaser_08491e3b75df609d807770b574a0a90a.png?t=316961858",
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -1655,9 +1621,9 @@
         }
       ],
       "official_heat": 8,
-      "media_heat": 32,
+      "media_heat": 31,
       "fan_heat": 0,
-      "heat": 34,
+      "heat": 33,
       "source_labels": [
         "官",
         "媒"
@@ -1751,7 +1717,7 @@
       "rank": 10
     }
   ],
-  "review_needed_count": 40,
+  "review_needed_count": 38,
   "review_needed_events": [
     {
       "event_id": "evt-2026-11-24-153201870a7d",
@@ -2334,122 +2300,6 @@
       }
     },
     {
-      "event_id": "evt-2026-11-25-f6a25ac2ba47",
-      "rule_id": null,
-      "hot_word_zh": "\"F1的特点就是每个人的车都不一样，所以有些人没在赢，不代表他们比赢的人差。",
-      "hot_word_en": "\"the thing about formula 1 is not everyone's car is the same, so just because some people aren't winning, it…",
-      "first_seen_at": "2026-11-25T08:01:06Z",
-      "last_seen_at": "2026-11-25T08:01:06Z",
-      "anchor_item_id": "piasnews-social-56d7894ea4e535d5",
-      "image_url": "https://pbs.twimg.com/media/HX9K_GlXAAAUDW-.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HX9K_GlXAAAUDW-.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-56d7894ea4e535d5",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: \"the thing about formula 1 is not everyone's car is the same, so just because some people aren'…",
-          "title_zh": "X 发帖 @laurogeitabat：\"F1的特点就是每个人的车都不一样，所以有些人没在赢，不代表他们比赢的人差。很多时候中游的竞争比前排的竞争更有看头。\"",
-          "summary": "\"the thing about formula 1 is not everyone's car is the same, so just because some people aren't winning, it doesn't mean they're worse than the people that are winning. oftentimes the racing in the midfield can be more entertaining than the racing at the front.\" https://t.co/7CgI03cXbq",
-          "summary_zh": "\"F1的特点就是每个人的车都不一样，所以有些人没在赢，不代表他们比赢的人差。很多时候中游的竞争比前排的竞争更有看头。\"",
-          "url": "https://x.com/laurogeitabat/status/2125500008275357951",
-          "published_at": "2026-11-25T08:01:06Z",
-          "image_url": "https://pbs.twimg.com/media/HX9K_GlXAAAUDW-.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HX9K_GlXAAAUDW-.jpg",
-          "heat_contribution": 6.751,
-          "metrics": {
-            "likes": 836,
-            "retweets": 97,
-            "replies": 0,
-            "quotes": 0,
-            "views": 10852,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 36,
-      "heat": 36,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-11-25-f8ea200071b4",
-      "rule_id": null,
-      "hot_word_zh": "Oscar 谈到粉丝 🥹🫶🏻 “听到一些人的故事，以及来现场看 F1 比赛是他们的梦想，能…",
-      "hot_word_en": "oscar talking about fans 🥹🫶🏻 \"hearing some people's stories and how coming to a f1 race is their dream, and b…",
-      "first_seen_at": "2026-11-25T07:58:30Z",
-      "last_seen_at": "2026-11-25T07:58:30Z",
-      "anchor_item_id": "piasnews-social-d53dde049ddf3f3b",
-      "image_url": "https://pbs.twimg.com/media/HX9KYzrXQAAzmX2.jpg",
-      "video_url": null,
-      "video_poster_url": "https://pbs.twimg.com/media/HX9KYzrXQAAzmX2.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-d53dde049ddf3f3b",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: oscar talking about fans 🥹🫶🏻 \"hearing some people's stories and how coming to a f1 race is thei…",
-          "title_zh": "X 发帖 @laurogeitabat：Oscar 谈到粉丝 🥹🫶🏻 “听到一些人的故事，以及来现场看 F1 比赛是他们的梦想，能够帮助他们实现这个梦想，真的很酷” 他还特别提到了那顶镶满水钻的牛仔帽和粉丝手账本！",
-          "summary": "oscar talking about fans 🥹🫶🏻 \"hearing some people's stories and how coming to a f1 race is their dream, and being able to help them fulfill that dream, is really cool\" he also gave a shoutout to the bedazzled cowboy hat and fanbooks! https://t.co/erC05VMm8h",
-          "summary_zh": "Oscar 谈到粉丝 🥹🫶🏻 “听到一些人的故事，以及来现场看 F1 比赛是他们的梦想，能够帮助他们实现这个梦想，真的很酷” 他还特别提到了那顶镶满水钻的牛仔帽和粉丝手账本！",
-          "url": "https://x.com/laurogeitabat/status/2125499355977154707",
-          "published_at": "2026-11-25T07:58:30Z",
-          "image_url": "https://pbs.twimg.com/media/HX9KYzrXQAAzmX2.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HX9KYzrXQAAzmX2.jpg",
-          "heat_contribution": 6.7827,
-          "metrics": {
-            "likes": 907,
-            "retweets": 86,
-            "replies": 2,
-            "quotes": 0,
-            "views": 9031,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 36,
-      "heat": 36,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-11-24-5399425e7d89",
       "rule_id": null,
       "hot_word_zh": "他看起来太帅了 我的天",
@@ -2798,7 +2648,7 @@
       }
     },
     {
-      "event_id": "evt-2026-11-24-30b35d5943b8-30b35d59",
+      "event_id": "evt-2026-11-24-30b35d5943b8",
       "rule_id": null,
       "hot_word_zh": "oscar从p17一路杀上领奖台的英雄之旅 我报名啊啊啊",
       "hot_word_en": "oscar's hero's journey from p17 to the podium SIGN ME UPPPP",
@@ -2890,6 +2740,122 @@
             "replies": 0,
             "quotes": 0,
             "views": 8737,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 33,
+      "heat": 33,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-25-f6a25ac2ba47",
+      "rule_id": null,
+      "hot_word_zh": "\"F1的特点就是每个人的车都不一样，所以有些人没在赢，不代表他们比赢的人差。",
+      "hot_word_en": "\"the thing about formula 1 is not everyone's car is the same, so just because some people aren't winning, it…",
+      "first_seen_at": "2026-11-25T08:01:06Z",
+      "last_seen_at": "2026-11-25T08:01:06Z",
+      "anchor_item_id": "piasnews-social-56d7894ea4e535d5",
+      "image_url": "https://pbs.twimg.com/media/HX9K_GlXAAAUDW-.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HX9K_GlXAAAUDW-.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-56d7894ea4e535d5",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: \"the thing about formula 1 is not everyone's car is the same, so just because some people aren'…",
+          "title_zh": "X 发帖 @laurogeitabat：\"F1的特点就是每个人的车都不一样，所以有些人没在赢，不代表他们比赢的人差。很多时候中游的竞争比前排的竞争更有看头。\"",
+          "summary": "\"the thing about formula 1 is not everyone's car is the same, so just because some people aren't winning, it doesn't mean they're worse than the people that are winning. oftentimes the racing in the midfield can be more entertaining than the racing at the front.\" https://t.co/7CgI03cXbq",
+          "summary_zh": "\"F1的特点就是每个人的车都不一样，所以有些人没在赢，不代表他们比赢的人差。很多时候中游的竞争比前排的竞争更有看头。\"",
+          "url": "https://x.com/laurogeitabat/status/2125500008275357951",
+          "published_at": "2026-11-25T08:01:06Z",
+          "image_url": "https://pbs.twimg.com/media/HX9K_GlXAAAUDW-.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HX9K_GlXAAAUDW-.jpg",
+          "heat_contribution": 6.2409,
+          "metrics": {
+            "likes": 836,
+            "retweets": 97,
+            "replies": 0,
+            "quotes": 0,
+            "views": 10852,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 33,
+      "heat": 33,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
+      "event_id": "evt-2026-11-25-f8ea200071b4",
+      "rule_id": null,
+      "hot_word_zh": "Oscar 谈到粉丝 🥹🫶🏻 “听到一些人的故事，以及来现场看 F1 比赛是他们的梦想，能…",
+      "hot_word_en": "oscar talking about fans 🥹🫶🏻 \"hearing some people's stories and how coming to a f1 race is their dream, and b…",
+      "first_seen_at": "2026-11-25T07:58:30Z",
+      "last_seen_at": "2026-11-25T07:58:30Z",
+      "anchor_item_id": "piasnews-social-d53dde049ddf3f3b",
+      "image_url": "https://pbs.twimg.com/media/HX9KYzrXQAAzmX2.jpg",
+      "video_url": null,
+      "video_poster_url": "https://pbs.twimg.com/media/HX9KYzrXQAAzmX2.jpg",
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-d53dde049ddf3f3b",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: oscar talking about fans 🥹🫶🏻 \"hearing some people's stories and how coming to a f1 race is thei…",
+          "title_zh": "X 发帖 @laurogeitabat：Oscar 谈到粉丝 🥹🫶🏻 “听到一些人的故事，以及来现场看 F1 比赛是他们的梦想，能够帮助他们实现这个梦想，真的很酷” 他还特别提到了那顶镶满水钻的牛仔帽和粉丝手账本！",
+          "summary": "oscar talking about fans 🥹🫶🏻 \"hearing some people's stories and how coming to a f1 race is their dream, and being able to help them fulfill that dream, is really cool\" he also gave a shoutout to the bedazzled cowboy hat and fanbooks! https://t.co/erC05VMm8h",
+          "summary_zh": "Oscar 谈到粉丝 🥹🫶🏻 “听到一些人的故事，以及来现场看 F1 比赛是他们的梦想，能够帮助他们实现这个梦想，真的很酷” 他还特别提到了那顶镶满水钻的牛仔帽和粉丝手账本！",
+          "url": "https://x.com/laurogeitabat/status/2125499355977154707",
+          "published_at": "2026-11-25T07:58:30Z",
+          "image_url": "https://pbs.twimg.com/media/HX9KYzrXQAAzmX2.jpg",
+          "video_url": null,
+          "video_poster_url": "https://pbs.twimg.com/media/HX9KYzrXQAAzmX2.jpg",
+          "heat_contribution": 6.2727,
+          "metrics": {
+            "likes": 907,
+            "retweets": 86,
+            "replies": 2,
+            "quotes": 0,
+            "views": 9031,
             "bookmarks": 0
           }
         }
@@ -3494,64 +3460,6 @@
       }
     },
     {
-      "event_id": "evt-2026-11-25-74e2c56b909a",
-      "rule_id": null,
-      "hot_word_zh": "在你们眼里我就那么蠢吗天哪，现在连开个玩笑/夸张一下都不行了",
-      "hot_word_en": "do i look that stupid to you guys omg can't even make a joke/exaggeration these days",
-      "first_seen_at": "2026-11-25T09:39:15Z",
-      "last_seen_at": "2026-11-25T09:39:15Z",
-      "anchor_item_id": "piasnews-social-8f248e5c5f1529b7",
-      "image_url": null,
-      "video_url": null,
-      "video_poster_url": null,
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-8f248e5c5f1529b7",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: do i look that stupid to you guys omg can't even make a joke/exaggeration these days",
-          "title_zh": "X 发帖 @laurogeitabat：在你们眼里我就那么蠢吗天哪，现在连开个玩笑/夸张一下都不行了",
-          "summary": "do i look that stupid to you guys omg can't even make a joke/exaggeration these days",
-          "summary_zh": "在你们眼里我就那么蠢吗天哪，现在连开个玩笑/夸张一下都不行了",
-          "url": "https://x.com/laurogeitabat/status/2125524709127160100",
-          "published_at": "2026-11-25T09:39:15Z",
-          "image_url": null,
-          "video_url": null,
-          "video_poster_url": null,
-          "heat_contribution": 5.5555,
-          "metrics": {
-            "likes": 199,
-            "retweets": 4,
-            "replies": 16,
-            "quotes": 0,
-            "views": 8854,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 30,
-      "heat": 30,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
       "event_id": "evt-2026-11-23-cb352ce62561",
       "rule_id": null,
       "hot_word_zh": "Will Buxton称赞Oscar的“聪明赛车大脑”，让他想出了最佳的能量部署策略来穿越…",
@@ -3610,6 +3518,64 @@
       }
     },
     {
+      "event_id": "evt-2026-11-25-74e2c56b909a",
+      "rule_id": null,
+      "hot_word_zh": "在你们眼里我就那么蠢吗天哪，现在连开个玩笑/夸张一下都不行了",
+      "hot_word_en": "do i look that stupid to you guys omg can't even make a joke/exaggeration these days",
+      "first_seen_at": "2026-11-25T09:39:15Z",
+      "last_seen_at": "2026-11-25T09:39:15Z",
+      "anchor_item_id": "piasnews-social-8f248e5c5f1529b7",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": true,
+      "review_needed_reason": "fan_account_public_cap",
+      "items": [
+        {
+          "item_id": "piasnews-social-8f248e5c5f1529b7",
+          "dataset": "social",
+          "source_type": "fan",
+          "source": "@laurogeitabat",
+          "title": "X post from @laurogeitabat: do i look that stupid to you guys omg can't even make a joke/exaggeration these days",
+          "title_zh": "X 发帖 @laurogeitabat：在你们眼里我就那么蠢吗天哪，现在连开个玩笑/夸张一下都不行了",
+          "summary": "do i look that stupid to you guys omg can't even make a joke/exaggeration these days",
+          "summary_zh": "在你们眼里我就那么蠢吗天哪，现在连开个玩笑/夸张一下都不行了",
+          "url": "https://x.com/laurogeitabat/status/2125524709127160100",
+          "published_at": "2026-11-25T09:39:15Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 5.0472,
+          "metrics": {
+            "likes": 199,
+            "retweets": 4,
+            "replies": 16,
+            "quotes": 0,
+            "views": 8854,
+            "bookmarks": 0
+          }
+        }
+      ],
+      "official_heat": 0,
+      "media_heat": 0,
+      "fan_heat": 28,
+      "heat": 28,
+      "source_labels": [
+        "粉"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 0,
+        "fan": 1
+      },
+      "pinned_rank": null,
+      "hidden": false,
+      "review_needed_context": {
+        "source_account": "@laurogeitabat",
+        "limit": 2
+      }
+    },
+    {
       "event_id": "evt-2026-11-23-5174279c22c3",
       "rule_id": null,
       "hot_word_zh": "真希望我的眉毛有他的一半浓",
@@ -3652,88 +3618,6 @@
       "media_heat": 0,
       "fan_heat": 27,
       "heat": 27,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-11-23-cbec84a87e4d-3946827c",
-      "rule_id": null,
-      "hot_word_zh": "\"谁更可能熬夜看车载回放比赛？\" lando：*立刻指向oscar* oscar：可能是我…",
-      "hot_word_en": "\"who's more likely to stay awake watching onboard replay races?",
-      "first_seen_at": "2026-11-22T09:40:32Z",
-      "last_seen_at": "2026-11-23T08:08:21Z",
-      "anchor_item_id": "piasnews-social-60c81365c547962b",
-      "image_url": "https://pbs.twimg.com/media/HXuE-ZwWgAAAucD.jpg",
-      "video_url": "https://video.twimg.com/amplify_video/2124777041513902080/vid/avc1/320x568/4A-y8XB7wZMC7l4h.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2124777041513902080/img/JPQIpugeDzObUVBu.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-60c81365c547962b",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: \"who's more likely to stay awake watching onboard replay races?\" lando: *instantly points to os…",
-          "title_zh": "X 发帖 @laurogeitabat：\"谁更可能熬夜看车载回放比赛？\" lando：*立刻指向oscar* oscar：可能是我吧 😅 最狂热的赛车迷就是他，他简直就是一辆CAR",
-          "summary": "\"who's more likely to stay awake watching onboard replay races?\" lando: *instantly points to oscar* oscar: probably me 😅 the biggest racing need out there he is just CAR https://t.co/UyARMLXhWQ",
-          "summary_zh": "\"谁更可能熬夜看车载回放比赛？\" lando：*立刻指向oscar* oscar：可能是我吧 😅 最狂热的赛车迷就是他，他简直就是一辆CAR",
-          "url": "https://x.com/laurogeitabat/status/2124777057712255472",
-          "published_at": "2026-11-23T08:08:21Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2124777041513902080/vid/avc1/320x568/4A-y8XB7wZMC7l4h.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2124777041513902080/img/JPQIpugeDzObUVBu.jpg",
-          "heat_contribution": 4.7499,
-          "metrics": {
-            "likes": 436,
-            "retweets": 45,
-            "replies": 0,
-            "quotes": 0,
-            "views": 4684,
-            "bookmarks": 0
-          }
-        },
-        {
-          "item_id": "piasnews-social-ae53812e26b827ce",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: the biggest oscar piastri shooter out there",
-          "title_zh": "X 发帖 @laurogeitabat：最铁杆的 Oscar Piastri 吹",
-          "summary": "the biggest oscar piastri shooter out there https://t.co/Jp6NoaHYJ9",
-          "summary_zh": "最铁杆的 Oscar Piastri 吹",
-          "url": "https://x.com/laurogeitabat/status/2124437869515153526",
-          "published_at": "2026-11-22T09:40:32Z",
-          "image_url": "https://pbs.twimg.com/media/HXuE-ZwWgAAAucD.jpg",
-          "video_url": null,
-          "video_poster_url": "https://pbs.twimg.com/media/HXuE-ZwWgAAAucD.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {
-            "likes": 1571,
-            "retweets": 159,
-            "replies": 2,
-            "quotes": 0,
-            "views": 11239,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 26,
-      "heat": 26,
       "source_labels": [
         "粉"
       ],
@@ -3908,64 +3792,6 @@
       "media_heat": 0,
       "fan_heat": 23,
       "heat": 23,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-11-23-2b959c1f9243",
-      "rule_id": null,
-      "hot_word_zh": "\"谁更可能在落地后鼓掌？\" oscar：😂😂 lando：\"肯定是oscar！",
-      "hot_word_en": "\"who's more likely to clap after landing?\" oscar: 😂😂 lando: \"definitely oscar! cause i'm british, i'm polite...",
-      "first_seen_at": "2026-11-23T08:10:30Z",
-      "last_seen_at": "2026-11-23T08:10:30Z",
-      "anchor_item_id": "piasnews-social-638df1dbd5f463f1",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2124777581136183296/vid/avc1/320x568/QVSQpNPvpavmSutK.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2124777581136183296/img/F8yfiO05h_kgWysh.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-638df1dbd5f463f1",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: \"who's more likely to clap after landing?\" oscar: 😂😂 lando: \"definitely oscar! cause i'm britis…",
-          "title_zh": "X 发帖 @laurogeitabat：\"谁更可能在落地后鼓掌？\" oscar：😂😂 lando：\"肯定是oscar！因为我是英国人，我很礼貌……\" oscar：\"所以是你！\" lando：\"我接受……\" 他们俩谁都不想要飞机鼓掌者的指控 😭😭",
-          "summary": "\"who's more likely to clap after landing?\" oscar: 😂😂 lando: \"definitely oscar! cause i'm british, i'm polite...\" oscar: \"so you!\" lando: \"i'll take it..\" none of them wanted the airplane clapper allegations 😭😭 https://t.co/7B2QCmEZTv",
-          "summary_zh": "\"谁更可能在落地后鼓掌？\" oscar：😂😂 lando：\"肯定是oscar！因为我是英国人，我很礼貌……\" oscar：\"所以是你！\" lando：\"我接受……\" 他们俩谁都不想要飞机鼓掌者的指控 😭😭",
-          "url": "https://x.com/laurogeitabat/status/2124777597871456547",
-          "published_at": "2026-11-23T08:10:30Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2124777581136183296/vid/avc1/320x568/QVSQpNPvpavmSutK.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2124777581136183296/img/F8yfiO05h_kgWysh.jpg",
-          "heat_contribution": 3.8455,
-          "metrics": {
-            "likes": 171,
-            "retweets": 9,
-            "replies": 0,
-            "quotes": 0,
-            "views": 3990,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 22,
-      "heat": 22,
       "source_labels": [
         "粉"
       ],
