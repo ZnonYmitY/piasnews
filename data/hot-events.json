@@ -1,12 +1,71 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-27T15:48:55.357730Z",
+  "generated_at": "2026-11-27T18:57:38.915158Z",
   "window_days": 7,
   "active_heat_hours": 72,
   "max_public_fan_only_events_per_account": 2,
   "formula": "max(source_heat) + 0.25*second + 0.10*third; capped at 100",
   "event_count": 10,
   "events": [
+    {
+      "event_id": "evt-session-result-2026-round-22-practice_2",
+      "rule_id": null,
+      "hot_word_zh": "Oscar 在卡塔尔站二练获得第4名",
+      "hot_word_en": "Oscar finishes P4 in Qatar Grand Prix Practice 2",
+      "first_seen_at": "2026-11-27T18:57:37.685904Z",
+      "last_seen_at": "2026-11-27T18:57:37.685904Z",
+      "anchor_item_id": "session-result-2026-round-22-practice_2",
+      "image_url": null,
+      "video_url": null,
+      "video_poster_url": null,
+      "review_needed": false,
+      "review_needed_reason": null,
+      "official_heat": 0,
+      "media_heat": 100,
+      "fan_heat": 0,
+      "heat": 100,
+      "source_labels": [
+        "媒"
+      ],
+      "source_counts": {
+        "official": 0,
+        "media": 1,
+        "fan": 0
+      },
+      "pinned_rank": 1,
+      "hidden": false,
+      "hard_rule": {
+        "type": "session_result",
+        "race_id": "2026-round-22",
+        "session": "practice_2",
+        "position": 4,
+        "status": "classified",
+        "provisional": false,
+        "source_item_id": "session-result-2026-round-22-practice_2",
+        "source": "OpenF1",
+        "latest": true
+      },
+      "items": [
+        {
+          "item_id": "session-result-2026-round-22-practice_2",
+          "dataset": "session_result",
+          "source_type": "media",
+          "source": "OpenF1",
+          "title": "Oscar finishes P4 in Qatar Grand Prix Practice 2",
+          "title_zh": "Oscar 在卡塔尔站二练获得第4名",
+          "summary": "Structured session result for Oscar Piastri.",
+          "summary_zh": "Oscar Piastri 的结构化场次成绩。",
+          "url": "https://api.openf1.org/v1/session_result?session_key=11422&driver_number=81",
+          "published_at": "2026-11-27T18:57:37.685904Z",
+          "image_url": null,
+          "video_url": null,
+          "video_poster_url": null,
+          "heat_contribution": 100,
+          "metrics": {}
+        }
+      ],
+      "rank": 1
+    },
     {
       "event_id": "evt-session-result-2026-round-22-practice_1",
       "rule_id": null,
@@ -32,7 +91,7 @@
         "media": 1,
         "fan": 0
       },
-      "pinned_rank": 1,
+      "pinned_rank": null,
       "hidden": false,
       "hard_rule": {
         "type": "session_result",
@@ -43,7 +102,7 @@
         "provisional": false,
         "source_item_id": "session-result-2026-round-22-practice_1",
         "source": "OpenF1",
-        "latest": true
+        "latest": false
       },
       "items": [
         {
@@ -64,7 +123,7 @@
           "metrics": {}
         }
       ],
-      "rank": 1
+      "rank": 2
     },
     {
       "event_id": "evt-2026-11-25-0c0392eed9cf",
@@ -94,7 +153,7 @@
           "image_url": "https://pbs.twimg.com/media/HX_bvCrWwAAfWkc.jpg",
           "video_url": null,
           "video_poster_url": "https://pbs.twimg.com/media/HX_bvCrWwAAfWkc.jpg",
-          "heat_contribution": 9.4575,
+          "heat_contribution": 8.6467,
           "metrics": {
             "likes": 21197,
             "retweets": 2378,
@@ -129,10 +188,10 @@
           }
         }
       ],
-      "official_heat": 61,
+      "official_heat": 56,
       "media_heat": 0,
       "fan_heat": 39,
-      "heat": 71,
+      "heat": 66,
       "source_labels": [
         "官",
         "粉"
@@ -144,7 +203,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 2
+      "rank": 3
     },
     {
       "event_id": "evt-2026-11-25-277713f277e0",
@@ -199,7 +258,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 3
+      "rank": 4
     },
     {
       "event_id": "evt-2026-11-24-153201870a7d",
@@ -254,7 +313,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 4
+      "rank": 5
     },
     {
       "event_id": "evt-2026-11-09-fae161411ff3-5825e00b",
@@ -335,7 +394,7 @@
           "image_url": "https://grandepremio.com/wp-content/uploads/2026/11/f1-2026-estados-unidos-las-vegas-treinos-livres-mclaren-oscar-piastri-06-1200x630.jpg",
           "video_url": null,
           "video_poster_url": "https://grandepremio.com/wp-content/uploads/2026/11/f1-2026-estados-unidos-las-vegas-treinos-livres-mclaren-oscar-piastri-06-1200x630.jpg",
-          "heat_contribution": 0.75,
+          "heat_contribution": 0.45,
           "metrics": {}
         },
         {
@@ -352,7 +411,7 @@
           "image_url": "https://www.motorsportweek.com/wp-content/uploads/2026/11/Oscar-Piastri-Las-Vegas.webp",
           "video_url": null,
           "video_poster_url": "https://www.motorsportweek.com/wp-content/uploads/2026/11/Oscar-Piastri-Las-Vegas.webp",
-          "heat_contribution": 0.45,
+          "heat_contribution": 0.2,
           "metrics": {}
         },
         {
@@ -386,7 +445,7 @@
           "image_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F11%2F24145605%2FIMAGE-WITH-COLOUR-NEON-56.jpg",
           "video_url": null,
           "video_poster_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F11%2F24145605%2FIMAGE-WITH-COLOUR-NEON-56.jpg",
-          "heat_contribution": 0.2,
+          "heat_contribution": 0.0,
           "metrics": {}
         },
         {
@@ -731,9 +790,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 36,
+      "media_heat": 33,
       "fan_heat": 0,
-      "heat": 36,
+      "heat": 33,
       "source_labels": [
         "媒"
       ],
@@ -744,7 +803,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 5
+      "rank": 6
     },
     {
       "event_id": "evt-2026-11-18-8e7883f044eb",
@@ -894,14 +953,14 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 6
+      "rank": 7
     },
     {
       "event_id": "evt-2026-11-24-cdb056bd9da1",
       "rule_id": null,
       "hot_word_zh": "Oscar Piastri：McLaren 车队负责人 Andrea Stella 表示…",
       "hot_word_en": "Oscar Piastri: McLaren team boss Andrea Stella says he liked driver's fiery radio response to warnings to 'be…",
-      "first_seen_at": "2026-11-20T16:42:20Z",
+      "first_seen_at": "2026-11-20T21:05:31Z",
       "last_seen_at": "2026-11-26T11:34:10Z",
       "anchor_item_id": "piasnews-6c2ba9a5866f7f02",
       "image_url": "https://foro3d.com/2026/noviembre/imagenes/piastri-rechaza-advertencias-de-mclaren-y-defiende-su-gestion-en-las-v.webp",
@@ -1487,40 +1546,6 @@
           "video_poster_url": "https://s.yimg.com/lo/mysterio/api/dd63b79a49616fa41f994e253b84d08ba9276ffdb41abeec6314ec0e1b279613/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Froundtable_sports_formula_1_814%2F19f832659ee7800694ad5ac262ab37a5.jpg",
           "heat_contribution": 0.0,
           "metrics": {}
-        },
-        {
-          "item_id": "piasnews-6d990b569bb85b9b",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "PlanetF1",
-          "title": "Oscar Piastri lifts lid on FIA penalty at Las Vegas Grand Prix",
-          "title_zh": "Oscar Piastri揭秘拉斯维加斯大奖赛上的FIA处罚",
-          "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的比赛周或性能相关条目。",
-          "url": "https://www.planetf1.com/news/fia-oscar-piastri-las-vegas-grand-prix-2026-penalty",
-          "published_at": "2026-11-20T18:36:12Z",
-          "image_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F11%2F01235048%2Foscar-piastri-mclaren-fia-logo-mexico-2026-planetf1.jpg",
-          "video_url": null,
-          "video_poster_url": "https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2026%2F11%2F01235048%2Foscar-piastri-mclaren-fia-logo-mexico-2026-planetf1.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-0a4cc169d34fab8e",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Yahoo Sports",
-          "title": "$225 Jeans, $1,800 Ring: How Oscar Piastri's GF Lily Zneimer Styled Her Las Vegas GP Look",
-          "title_zh": "225美元牛仔裤、1800美元戒指：Oscar Piastri女友Lily Zneimer的拉斯维加斯大奖赛造型",
-          "summary": "Race-week or performance-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的比赛周或性能相关条目。",
-          "url": "https://sports.yahoo.com/articles/225-jeans-1-800-ring-164220825.html",
-          "published_at": "2026-11-20T16:42:20Z",
-          "image_url": "https://s.yimg.com/lo/mysterio/api/0e82a2ccca51a61c76f1e3f13c4a55179730c290c05f344cbda679cdba400301/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Ff1_chronicle_874%2F8aa44d20b3a1652b8407aa2b30e69b36.jpg",
-          "video_url": null,
-          "video_poster_url": "https://s.yimg.com/lo/mysterio/api/0e82a2ccca51a61c76f1e3f13c4a55179730c290c05f344cbda679cdba400301/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Ff1_chronicle_874%2F8aa44d20b3a1652b8407aa2b30e69b36.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
         }
       ],
       "official_heat": 0,
@@ -1537,7 +1562,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 7
+      "rank": 8
     },
     {
       "event_id": "evt-2026-11-23-cbec84a87e4d",
@@ -1618,7 +1643,7 @@
           "image_url": "https://images.cnbctv18.com/uploads/2026/11/rp-x-op-2026-11-ea87c68752416a86d0c5887dfa79bb55.jpg?im=FitAndFill,width=1200,height=675",
           "video_url": null,
           "video_poster_url": "https://images.cnbctv18.com/uploads/2026/11/rp-x-op-2026-11-ea87c68752416a86d0c5887dfa79bb55.jpg?im=FitAndFill,width=1200,height=675",
-          "heat_contribution": 0.2,
+          "heat_contribution": 0.0,
           "metrics": {}
         },
         {
@@ -1681,9 +1706,9 @@
         }
       ],
       "official_heat": 0,
-      "media_heat": 19,
+      "media_heat": 16,
       "fan_heat": 0,
-      "heat": 19,
+      "heat": 16,
       "source_labels": [
         "媒"
       ],
@@ -1694,7 +1719,7 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 8
+      "rank": 9
     },
     {
       "event_id": "evt-2026-11-25-ef2314e3fcb4",
@@ -1895,126 +1920,10 @@
       },
       "pinned_rank": null,
       "hidden": false,
-      "rank": 9
-    },
-    {
-      "event_id": "evt-2026-11-22-4220c5848053",
-      "rule_id": null,
-      "hot_word_zh": "John Wick为您服务：Keanu Reeves驾车送F1明星Verstappen、N…",
-      "hot_word_en": "John Wick at your service: Keanu Reeves chauffeurs F1 stars Verstappen, Norris and Piastri to Las Vegas podium",
-      "first_seen_at": "2026-11-22T05:42:12Z",
-      "last_seen_at": "2026-11-25T09:00:00Z",
-      "anchor_item_id": "piasnews-df6cf16c2949c8ef",
-      "image_url": "https://s.yimg.com/lo/mysterio/api/fd869c7cf93bfd1a4665cf962bb35690b5a04708b759246f7caf7e1ecd7d31c6/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fgpblog_716%2Fcab0d88419eaacb3a09086a06d8b42aa",
-      "video_url": null,
-      "video_poster_url": "https://s.yimg.com/lo/mysterio/api/fd869c7cf93bfd1a4665cf962bb35690b5a04708b759246f7caf7e1ecd7d31c6/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fgpblog_716%2Fcab0d88419eaacb3a09086a06d8b42aa",
-      "review_needed": false,
-      "review_needed_reason": null,
-      "items": [
-        {
-          "item_id": "piasnews-8c946ddf072ed62c",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Yahoo Sports",
-          "title": "Piastri rules out progress in key area despite Las Vegas podium",
-          "title_zh": "尽管在 Las Vegas 登上领奖台，Piastri 仍排除关键领域取得进展的可能",
-          "summary": "Oscar Piastri-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
-          "url": "https://sports.yahoo.com/f1/articles/piastri-rules-progress-key-area-090000359.html",
-          "published_at": "2026-11-25T09:00:00Z",
-          "image_url": "https://s.yimg.com/lo/mysterio/api/fd869c7cf93bfd1a4665cf962bb35690b5a04708b759246f7caf7e1ecd7d31c6/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fgpblog_716%2Fcab0d88419eaacb3a09086a06d8b42aa",
-          "video_url": null,
-          "video_poster_url": "https://s.yimg.com/lo/mysterio/api/fd869c7cf93bfd1a4665cf962bb35690b5a04708b759246f7caf7e1ecd7d31c6/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fgpblog_716%2Fcab0d88419eaacb3a09086a06d8b42aa",
-          "heat_contribution": 0.2,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-4eca3f675edda280",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Fox Sports",
-          "title": "Vegas Takeover! Piastri's run from 17th to podium!",
-          "title_zh": "Vegas 大逆转！Piastri 从第 17 位一路杀上领奖台！",
-          "summary": "Oscar Piastri-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
-          "url": "https://www.foxsports.com.au/en-AU/news/motorsport/vegas-takeover-piastris-run-from-17th-to-podium/840bja1cri9beyydi19hqfyx8",
-          "published_at": "2026-11-25T08:37:00Z",
-          "image_url": "https://images.daznservices.com/di/library/foxtel_news/b8/f7/ad4eb6d085c04057a0362aad6headerteaser_b79c55f53f0e6cc6ea644691232f98dd.png?t=327144178",
-          "video_url": null,
-          "video_poster_url": "https://images.daznservices.com/di/library/foxtel_news/b8/f7/ad4eb6d085c04057a0362aad6headerteaser_b79c55f53f0e6cc6ea644691232f98dd.png?t=327144178",
-          "heat_contribution": 0.2,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-f40e9c960ef0cc8f",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Auto Action",
-          "title": "Verstappen rules Vegas as Piastri pulls off podium charge",
-          "title_zh": "Verstappen统治拉斯维加斯，Piastri完成领奖台冲刺",
-          "summary": "Oscar Piastri-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
-          "url": "https://autoaction.com.au/2026/11/22/verstappen-rules-vegas-as-piastri-pulls-off-podium-charge",
-          "published_at": "2026-11-22T07:59:46Z",
-          "image_url": "https://autoaction.com.au/wp-content/uploads/2026/11/SI202611220111-2-e1795334167212.jpg?v=1795334087",
-          "video_url": null,
-          "video_poster_url": "https://autoaction.com.au/wp-content/uploads/2026/11/SI202611220111-2-e1795334167212.jpg?v=1795334087",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-df6cf16c2949c8ef",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Malay Mail",
-          "title": "John Wick at your service: Keanu Reeves chauffeurs F1 stars Verstappen, Norris and Piastri to Las Vegas podium",
-          "title_zh": "John Wick为您服务：Keanu Reeves驾车送F1明星Verstappen、Norris和Piastri前往拉斯维加斯领奖台",
-          "summary": "Oscar Piastri-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
-          "url": "https://www.malaymail.com/news/showbiz/2026/11/22/john-wick-at-your-service-keanu-reeves-chauffeurs-f1-stars-verstappen-norris-and-piastri-to-las-vegas-podium/244315",
-          "published_at": "2026-11-22T07:13:00Z",
-          "image_url": "https://www.malaymail.com/malaymail/uploads/images/2026/11/22/375778.webp",
-          "video_url": null,
-          "video_poster_url": "https://www.malaymail.com/malaymail/uploads/images/2026/11/22/375778.webp",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        },
-        {
-          "item_id": "piasnews-65f4f1b067e05993",
-          "dataset": "items",
-          "source_type": "media",
-          "source": "Speedcafe.com",
-          "title": "Verstappen survives Vegas thriller as Piastri claims stunning podium",
-          "title_zh": "Verstappen在拉斯维加斯惊险胜出，Piastri斩获惊艳领奖台",
-          "summary": "Oscar Piastri-related item discovered from public news metadata.",
-          "summary_zh": "从公开新闻元数据中发现的与Oscar Piastri相关的条目。",
-          "url": "https://speedcafe.com/f1-news-2026-las-vegas-grand-prix-max-verstappen-red-bull-win-victory-lando-norris-oscar-piastri/",
-          "published_at": "2026-11-22T05:42:12Z",
-          "image_url": "https://speedcafe.com/wp-content/uploads/2026/11/XPB_1456086_HiRes-e1795327539326.jpg",
-          "video_url": null,
-          "video_poster_url": "https://speedcafe.com/wp-content/uploads/2026/11/XPB_1456086_HiRes-e1795327539326.jpg",
-          "heat_contribution": 0.0,
-          "metrics": {}
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 12,
-      "fan_heat": 0,
-      "heat": 12,
-      "source_labels": [
-        "媒"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 5,
-        "fan": 0
-      },
-      "pinned_rank": null,
-      "hidden": false,
       "rank": 10
     }
   ],
-  "review_needed_count": 16,
+  "review_needed_count": 15,
   "review_needed_events": [
     {
       "event_id": "evt-2026-11-24-73d9fe83c01b",
@@ -2581,64 +2490,6 @@
       "media_heat": 0,
       "fan_heat": 29,
       "heat": 29,
-      "source_labels": [
-        "粉"
-      ],
-      "source_counts": {
-        "official": 0,
-        "media": 0,
-        "fan": 1
-      },
-      "pinned_rank": null,
-      "hidden": false,
-      "review_needed_context": {
-        "source_account": "@laurogeitabat",
-        "limit": 2
-      }
-    },
-    {
-      "event_id": "evt-2026-11-24-432a6d9459db",
-      "rule_id": null,
-      "hot_word_zh": "他真是一团糟，我太喜欢了",
-      "hot_word_en": "he's such a mess i'm so endeared",
-      "first_seen_at": "2026-11-24T18:10:23Z",
-      "last_seen_at": "2026-11-24T18:10:23Z",
-      "anchor_item_id": "piasnews-social-acb814792da9d06a",
-      "image_url": null,
-      "video_url": "https://video.twimg.com/amplify_video/2125290924947230720/vid/avc1/320x418/JAWSYlu6ba6ywQrq.mp4?tag=29",
-      "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2125290924947230720/img/3iNOrPuq3KSzZNpC.jpg",
-      "review_needed": true,
-      "review_needed_reason": "fan_account_public_cap",
-      "items": [
-        {
-          "item_id": "piasnews-social-acb814792da9d06a",
-          "dataset": "social",
-          "source_type": "fan",
-          "source": "@laurogeitabat",
-          "title": "X post from @laurogeitabat: he's such a mess i'm so endeared",
-          "title_zh": "X 发帖 @laurogeitabat：他真是一团糟，我太喜欢了",
-          "summary": "he's such a mess i'm so endeared https://t.co/dffHehR2QS",
-          "summary_zh": "他真是一团糟，我太喜欢了",
-          "url": "https://x.com/laurogeitabat/status/2125290953254527115",
-          "published_at": "2026-11-24T18:10:23Z",
-          "image_url": null,
-          "video_url": "https://video.twimg.com/amplify_video/2125290924947230720/vid/avc1/320x418/JAWSYlu6ba6ywQrq.mp4?tag=29",
-          "video_poster_url": "https://pbs.twimg.com/amplify_video_thumb/2125290924947230720/img/3iNOrPuq3KSzZNpC.jpg",
-          "heat_contribution": 5.0887,
-          "metrics": {
-            "likes": 603,
-            "retweets": 70,
-            "replies": 0,
-            "quotes": 0,
-            "views": 6287,
-            "bookmarks": 0
-          }
-        }
-      ],
-      "official_heat": 0,
-      "media_heat": 0,
-      "fan_heat": 28,
-      "heat": 28,
       "source_labels": [
         "粉"
       ],
