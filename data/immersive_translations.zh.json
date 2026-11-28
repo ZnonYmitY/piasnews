@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-28T09:09:41.305345Z",
+  "generated_at": "2026-11-28T12:33:29.858697Z",
   "translations": {
     "items:piasnews-fd033e0c38079cd4:title:49f726c9c319df3db3e7e091": {
       "dataset": "items",
@@ -5293,6 +5293,42 @@
       "model": "deepseek-v4-flash",
       "api_base_url": "https://api.deepseek.com",
       "captured_at": "2026-11-28T03:07:48.019522Z"
+    },
+    "social:piasnews-social-f96ff8f103a361fd:summary:59adfa774388aab96288720c": {
+      "dataset": "social",
+      "item_id": "piasnews-social-f96ff8f103a361fd",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "look at him he's glowing !!! https://t.co/H0SU2JzTb3",
+      "zh": "看看他，他容光焕发！！！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-28T12:33:29.025204Z"
+    },
+    "social:piasnews-social-4d1f4e1afa452fbd:summary:bb609bdf36d9e71a5cb4498f": {
+      "dataset": "social",
+      "item_id": "piasnews-social-4d1f4e1afa452fbd",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "for the third day in a row, a jolly oscar has arrived 😁 https://t.co/A6h0JPUTUd",
+      "zh": "连续第三天，开心的 Oscar 来了 😁",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-28T12:33:29.025212Z"
+    },
+    "social:piasnews-social-d475b8cf0b2dfcdb:summary:d534e2d37d760718a2b74115": {
+      "dataset": "social",
+      "item_id": "piasnews-social-d475b8cf0b2dfcdb",
+      "field": "summary",
+      "target_field": "summary_zh",
+      "source_text": "this or that with oscar and lando! https://t.co/DOOx8Yz6Oz",
+      "zh": "和 Oscar 与 Lando 一起玩这个还是那个！",
+      "engine": "piasnews_llm_translation",
+      "model": "deepseek-v4-flash",
+      "api_base_url": "https://api.deepseek.com",
+      "captured_at": "2026-11-28T12:33:29.025216Z"
     }
   },
   "retention_days": 8
