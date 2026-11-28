@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-28T03:05:11.282594Z",
+  "generated_at": "2026-11-28T06:06:13.431312Z",
   "window_days": 7,
-  "total_items": 118,
+  "total_items": 117,
   "latest_date": "2026-11-28",
   "days": [
     {
@@ -194,9 +194,9 @@
     },
     {
       "date": "2026-11-21",
-      "total_new_items": 11,
+      "total_new_items": 10,
       "official_new_items": 0,
-      "media_new_items": 11,
+      "media_new_items": 10,
       "x_new_items": 0,
       "rumor_new_items": 0,
       "sources": {
@@ -208,11 +208,9 @@
         "PlanetF1": 1,
         "RacingNews365": 1,
         "Scuderia Fans": 1,
-        "Speedcafe.com": 1,
-        "Yahoo Sports": 1
+        "Speedcafe.com": 1
       },
       "categories": {
-        "interview": 1,
         "other": 2,
         "race": 6,
         "team": 2
@@ -246,14 +244,14 @@
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Oscar+Piastri%22+when%3A3d",
       "ok": true,
-      "items": 30
+      "items": 32
     },
     {
       "query": "\"Piastri\" \"McLaren\" when:3d",
       "source_group": "rss_discovery",
       "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=%22Piastri%22+%22McLaren%22+when%3A3d",
       "ok": true,
-      "items": 23
+      "items": 21
     },
     {
       "query": "\"OP81\" when:3d",
@@ -287,12 +285,13 @@
       "stage": "publisher_date_verification",
       "ok": true,
       "checked": 33,
-      "kept": 20,
+      "kept": 21,
       "results": {
         "outside_window": 2,
-        "publisher_date_missing": 5,
-        "publisher_unavailable": 6,
-        "verified": 20
+        "publisher_date_missing": 4,
+        "publisher_unavailable": 5,
+        "url_unresolved": 1,
+        "verified": 21
       }
     },
     {
@@ -300,8 +299,8 @@
       "ok": true,
       "discovery_days": 3,
       "retention_days": 7,
-      "previous_items": 117,
-      "kept": 118
+      "previous_items": 118,
+      "kept": 117
     }
   ]
 }
